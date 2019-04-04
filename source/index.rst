@@ -8,7 +8,9 @@ Welcome to Narupa's documentation!
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+   :caption: Concepts:
+
+   frames.rst
 
 
 
