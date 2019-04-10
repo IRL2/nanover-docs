@@ -64,10 +64,11 @@ def run_apidoc(_):
         shutil.rmtree('temp')
 
     print("Copying python code")
-    for directory in glob.glob('../narupa-protocol/python-libraries/*/src/narupa'):
+    for directory in glob.glob('./narupa-protocol/python-libraries/*/src/narupa'):
         print(directory)
-        copy_tree(src=directory, dst='temp/python-source/narupa')
+        copy_tree(src=directory, dst='./temp/python-source/narupa')
 
+    print("Running apidoc")
     ignore_paths = [
     ]
 
@@ -76,8 +77,8 @@ def run_apidoc(_):
         "--force",
         "--separate",
         "--module-first",
-        "-o", "source/python",
-        "temp/python-source/narupa"
+        "-o", "./source/python",
+        "./temp/python-source/narupa"
     ] + ignore_paths
 
     try:
