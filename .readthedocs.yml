@@ -8,3 +8,7 @@ version: 2
 # Build documentation in the source/ directory with Sphinx
 sphinx:
   configuration: source/conf.py
+
+# Setup submodules
+submodules:
+  include: all
