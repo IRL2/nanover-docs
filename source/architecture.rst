@@ -38,10 +38,10 @@ or running, and join them.
 This architecture makes Narupa very flexible. New features can be added as new services as needed, without cluttering up the main framework. We 
 provide a number of service definitions and implementations, including: 
 
-* Trajectory service: Provides trajectories and live simulations (see :ref:`narupa.trajectory`). 
+* Trajectory service: Provides trajectories and live simulations (see :doc:`../python/narupa.trajectory.rst`). 
 * Interactive molecular dynamics (IMD) service: Exposes methods for applying interactive biasing potentials to a simulation. 
 
-These services are written using `gRPC <https//:grpc.io/>`_, a framework for remote procedure calls. 
+These services are written using `gRPC <https://grpc.io/>`_, a framework for remote procedure calls. 
 The key features that make it great for Narupa are:
 
 * High performance, fast communication. 
