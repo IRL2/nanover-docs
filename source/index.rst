@@ -5,6 +5,7 @@ Welcome to Narupa's documentation!
    :maxdepth: 2
    :caption: Concepts:
 
+   architecture.rst
    frames.rst
 
    python/modules.rst
