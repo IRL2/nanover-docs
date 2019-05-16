@@ -35,7 +35,8 @@ update_docs:
   only:
     - master
   script:
-    - git checkout master
+    - git clone git@gitlab.com:intangiblerealities/narupa-documentation.git
+    - cd narupa-documentation
     - cd narupa-protocol && git checkout master && git pull
     - git status
     - cd ..
