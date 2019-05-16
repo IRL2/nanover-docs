@@ -24,6 +24,7 @@ before_script:
   ##
   - mkdir -p ~/.ssh
   - chmod 700 ~/.ssh
+  - 'which git || ( apt-get update -y && apt-get install git-core -y )'
   - git config --global user.email "mo9690@bristol.ac.uk"
   - git config --global user.name "Narupa Autodocs"
 
