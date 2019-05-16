@@ -42,5 +42,4 @@ update_docs:
     - cd ..
     - git status
     - git add narupa-protocol && git commit -m 'Auto-update submodule'
-    - echo 'Access Token: $PERSONAL_ACCESS_TOKEN'
     - git push http://intangibledocs:${PERSONAL_ACCESS_TOKEN}@gitlab.com:intangiblerealities/narupa-documentation.git HEAD:master
