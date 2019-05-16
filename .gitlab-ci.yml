@@ -35,9 +35,9 @@ update_docs:
   #only:
   #  - master
   script:
-    #- git clone http://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.com:intangiblerealities/narupa-documentation.git
-    #- cd narupa-documentation
-    #- cd narupa-protocol && git checkout master && git pull
+    - git clone http://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.com:intangiblerealities/narupa-documentation.git
+    - cd narupa-documentation
+    - cd narupa-protocol && git checkout master && git pull
     - git status
     #- cd ..
     #- git status
