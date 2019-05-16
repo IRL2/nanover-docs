@@ -25,6 +25,8 @@ before_script:
   - mkdir -p ~/.ssh
   - chmod 700 ~/.ssh
   - 'which git || ( apt-get update -y && apt-get install git-core -y )'
+  - git submodule sync --recursive
+  - git submodule update --init --recursive
   - git config --global user.email "mo9690@bristol.ac.uk"
   - git config --global user.name "Narupa Autodocs"
 
@@ -33,6 +35,9 @@ update_docs:
   only:
     - master
   script:
+    # - git clone git@gitlab.dev.terastrm.net:${CI_PROJECT_PATH}.git
+    # - cd ${CI_PROJECT_NAME}
     - cd narupa-protocol && git checkout master && git pull
+    - cd ..
     - git add narupa-protocol && git commit -m "Auto-update submodule"
     - git push -u origin master
