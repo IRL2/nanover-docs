@@ -14,11 +14,11 @@ update_docs:
   #only:
   #  - master
   script:
-    - git clone http://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.com:intangiblerealities/narupa-documentation.git
+    - git clone https://intangibledocs:${PERSONAL_ACCESS_TOKEN}@gitlab.com:intangiblerealities/narupa-documentation.git
     - cd narupa-documentation
     - cd narupa-protocol && git checkout master && git pull
     - git status
     - cd ..
     - git status
     - git add narupa-protocol && git commit -m 'Auto-update submodule'
-    - git push http://intangibledocs:${PERSONAL_ACCESS_TOKEN}@gitlab.com:intangiblerealities/narupa-documentation.git HEAD:master
+    - git push https://intangibledocs:${PERSONAL_ACCESS_TOKEN}@gitlab.com:intangiblerealities/narupa-documentation.git HEAD:master
