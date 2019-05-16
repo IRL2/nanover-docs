@@ -35,8 +35,7 @@ update_docs:
   only:
     - master
   script:
-    # - git clone git@gitlab.dev.terastrm.net:${CI_PROJECT_PATH}.git
-    # - cd ${CI_PROJECT_NAME}
+    - git checkout master
     - cd narupa-protocol && git checkout master && git pull
     - git status
     - cd ..
