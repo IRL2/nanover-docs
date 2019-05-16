@@ -38,6 +38,8 @@ update_docs:
     # - git clone git@gitlab.dev.terastrm.net:${CI_PROJECT_PATH}.git
     # - cd ${CI_PROJECT_NAME}
     - cd narupa-protocol && git checkout master && git pull
+    - git status
     - cd ..
+    - git status
     - git add narupa-protocol && git commit -m "Auto-update submodule"
-    - git push -u origin master
+    - git push -u origin master --force
