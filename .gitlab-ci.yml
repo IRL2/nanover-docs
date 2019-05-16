@@ -32,8 +32,8 @@ before_script:
 
 update_docs:
   stage: deploy
-  only:
-    - master
+  #only:
+  #  - master
   script:
     - git clone http://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.com:intangiblerealities/narupa-documentation.git
     - cd narupa-documentation
