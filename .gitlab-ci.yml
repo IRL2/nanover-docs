@@ -16,9 +16,8 @@ update_docs:
   script:
     - git clone https://intangibledocs:${PERSONAL_ACCESS_TOKEN}@gitlab.com/intangiblerealities/narupa-documentation.git
     - cd narupa-documentation
-    - cd narupa-protocol && git checkout master && git pull
-    - git rev-parse --short HEAD
-    - cd ..
+    - git submodule update --recursive --remote
+    - git submodule
     - git rev-parse --short HEAD
     - git status
     - git diff --quiet && git diff --staged --quiet || git commit -am 'Auto-update submodules'
