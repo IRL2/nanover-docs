@@ -11,8 +11,8 @@ before_script:
 
 update_docs:
   stage: deploy
-  #only:
-  #  - master
+  only:
+    - master
   script:
     - git clone https://intangibledocs:${PERSONAL_ACCESS_TOKEN}@gitlab.com/intangiblerealities/narupa-documentation.git
     - cd narupa-documentation
