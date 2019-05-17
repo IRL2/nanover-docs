@@ -3,27 +3,6 @@ stages:
   - deploy
 
 before_script:
-  ##
-  ## Install ssh-agent if not already installed, it is required by Docker.
-  ## (change apt-get to yum if you use an RPM-based image)
-  ##
-  - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
-  ##
-  ## Run ssh-agent (inside the build environment)
-  ##
-  - eval $(ssh-agent -s)
-  ##
-  ## Add the SSH key stored in SSH_PRIVATE_KEY variable to the agent store
-  ## We're using tr to fix line endings which makes ed25519 keys work
-  ## without extra base64 encoding.
-  ## https://gitlab.com/gitlab-examples/ssh-private-key/issues/1#note_48526556
-  ##
-  - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/null
-  ##
-  ## Create the SSH directory and give it the right permissions
-  ##
-  - mkdir -p ~/.ssh
-  - chmod 700 ~/.ssh
   - 'which git || ( apt-get update -y && apt-get install git-core -y )'
   - git submodule sync --recursive
   - git submodule update --init --recursive
@@ -32,15 +11,19 @@ before_script:
 
 update_docs:
   stage: deploy
-  only:
-    - master
+  #only:
+  #  - master
   script:
-    - git clone https://intangibledocs:${PERSONAL_ACCESS_TOKEN}@gitlab.com:intangiblerealities/narupa-documentation.git
+    - git clone https://intangibledocs:${PERSONAL_ACCESS_TOKEN}@gitlab.com/intangiblerealities/narupa-documentation.git
     - cd narupa-documentation
-    - cd narupa-protocol && git checkout master && git pull
+    # fetch the submodule
+    - git submodule update --init --recursive
+    # pull any changes
+    - git submodule update --recursive --remote
+    # print out the hash, for debugging
+    - git submodule
+    - git rev-parse --short HEAD
     - git status
-    - cd ..
-    - git status
-    - git add narupa-protocol && git commit -m 'Auto-update submodule'
-    - echo 'Access Token: $PERSONAL_ACCESS_TOKEN'
-    - git push http://intangibledocs:${PERSONAL_ACCESS_TOKEN}@gitlab.com:intangiblerealities/narupa-documentation.git HEAD:master
+    # only commit if something has changed
+    - git diff --quiet && git diff --staged --quiet || git commit -am 'Auto-update submodules'
+    - git push https://intangibledocs:${PERSONAL_ACCESS_TOKEN}@gitlab.com/intangiblerealities/narupa-documentation.git HEAD:master
