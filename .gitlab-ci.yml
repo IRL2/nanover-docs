@@ -16,9 +16,14 @@ update_docs:
   script:
     - git clone https://intangibledocs:${PERSONAL_ACCESS_TOKEN}@gitlab.com/intangiblerealities/narupa-documentation.git
     - cd narupa-documentation
+    # fetch the submodule
+    - git submodule update --init --recursive
+    # pull any changes
     - git submodule update --recursive --remote
+    # print out the hash, for debugging
     - git submodule
     - git rev-parse --short HEAD
     - git status
+    # only commit if something has changed
     - git diff --quiet && git diff --staged --quiet || git commit -am 'Auto-update submodules'
     - git push https://intangibledocs:${PERSONAL_ACCESS_TOKEN}@gitlab.com/intangiblerealities/narupa-documentation.git HEAD:master
