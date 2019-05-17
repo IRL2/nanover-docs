@@ -17,8 +17,9 @@ update_docs:
     - git clone https://intangibledocs:${PERSONAL_ACCESS_TOKEN}@gitlab.com/intangiblerealities/narupa-documentation.git
     - cd narupa-documentation
     - cd narupa-protocol && git checkout master && git pull
-    - git status
+    - git rev-parse --short HEAD
     - cd ..
+    - git rev-parse --short HEAD
     - git status
-    - git add narupa-protocol && git commit -m 'Auto-update submodule'
+    - git diff --quiet && git diff --staged --quiet || git commit -am 'Auto-update submodules'
     - git push https://intangibledocs:${PERSONAL_ACCESS_TOKEN}@gitlab.com/intangiblerealities/narupa-documentation.git HEAD:master
