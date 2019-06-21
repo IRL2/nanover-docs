@@ -2,22 +2,32 @@ Welcome to Narupa 2's documentation!
 ======================================
 
 This site provides documentation and tutorials on the use of Narupa 2,
-a framework for interactive molecular dynamics with virtual reality. 
+a framework for interactive molecular simulation, with a particular
+focus on virtual reality application.
 
-It is a complete re-write of the original Narupa, designed to be
-more extendible, robust and easier to use. 
+Narupa 2 is free, open source and distributed under the
+`GNU GPLv3 <https://gitlab.com/intangiblerealities/narupa-protocol/blob/master/License>`_ license.
+You can look at and contribute to the code for the server `here <https://gitlab.com/intangiblerealities/narupa-protocol/>`_,
+and the VR application `here <https://gitlab.com/intangiblerealities/narupaXR/>`_.
 
-Narupa allows interactive simulation with many packages, 
-including: 
-* ASE - QM, semi-empirical and machine learned potentials.
-* OpenMM GPU - accelerated molecular mechanics.
-* SCINE Sparrow - semi-empirical potentials.
-* LAMMPS - Materials and molecular mechanics.
+It is a complete re-write of the original `Narupa <https://gitlab.com/intangiblerealities/narupa-server>`_,
+designed to be more extendible, robust and easier to use.
 
-Citation 
+Narupa allows interactive simulation with several packages,
+including:
+
+* `ASE <https://wiki.fysik.dtu.dk/ase/>`_ - Python simulation framework, particularly good for QM,
+  semi-empirical and machine learned potentials.
+* `OpenMM <http://openmm.org/>`_ - GPU accelerated molecular mechanics, supporting AMBER,
+  GROMACS and CHARMM.
+* `SCINE Sparrow <https://scine.ethz.ch/download/sparrow>`_ - semi-empirical potentials.
+* `LAMMPS <https://lammps.sandia.gov/>`_ - Materials and molecular mechanics.
+
+Citation
 ###################
 
-If you find Narupa useful, please cite the following paper: 
+If you find Narupa useful, please cite the following
+`paper <https://aip.scitation.org/doi/10.1063/1.5092590>`_:
 
 M. O’Connor, S.J. Bennie, H.M. Deeks, A. Jamieson-Binnie, A.J. Jones,
 R.J. Shannon, R. Walters, T. Mitchell, A.J. Mulholland, D.R. Glowacki,
@@ -25,7 +35,7 @@ R.J. Shannon, R. Walters, T. Mitchell, A.J. Mulholland, D.R. Glowacki,
 an open-source multi-person virtual reality framework”,
 J. Chem Phys 150, 224703 (2019)
 
-Bib file: 
+Bib file:
 
 .. literalinclude:: narupa.bib
 
@@ -33,6 +43,7 @@ Bib file:
    :maxdepth: 2
    :caption: Contents:
 
+   installation.rst
    tutorials/tutorials.rst
    concepts/concepts.rst
    python/modules.rst
