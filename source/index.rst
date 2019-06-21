@@ -3,11 +3,10 @@ Welcome to Narupa's documentation!
 
 .. toctree::
    :maxdepth: 2
-   :caption: Concepts:
+   :caption: Contents:
 
-   architecture.rst
-   frames.rst
-
+   tutorials/tutorials.rst
+   concepts/concepts.rst
    python/modules.rst
 
 

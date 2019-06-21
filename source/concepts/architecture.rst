@@ -1,13 +1,15 @@
 Narupa Architecture
 =======================
 
-Narupa is a set of protocols, libraries and programs for performing interactive simulations, with a focus 
-on virtual reality (VR). 
+Narupa is a set of protocols, libraries and programs for performing interactive simulations, with a focus
+on virtual reality (VR).
 
 At the highest level, Narupa uses a client/server model, in which a frontend application connects
 to a server, establishing an interactive session. Simulation data, interactions and controls are transmitted
-over the network between the client and server. This means that the server can be running on your desktop, a cluster behind a firewall or on a cloud service,
-while multiple frontend applications can connect simultaneously, such as a VR app, smartphone app, or a Jupyter notebook. 
+over the network between the client and server. This means that the server can be running on your desktop,
+a cluster behind a firewall or on a cloud service,
+while multiple frontend applications can connect simultaneously, such as a VR app,
+smartphone app, or a Jupyter notebook. 
 
 .. image:: assets/architecture/narupa_2019_client_server.png 
     :height: 1578px
