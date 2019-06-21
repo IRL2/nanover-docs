@@ -44,7 +44,7 @@ New features can be added as new services as needed, without cluttering up
 the main framework.
 We provide a number of service definitions and implementations, including:
 
-* :doc:`narupa.trajectory <../python/narupa.trajectory>`: Provides trajectories and live simulations. 
+* :doc:`narupa.trajectory <../../python/narupa.trajectory>`: Provides trajectories and live simulations. 
 * Interactive molecular dynamics (IMD) service: Exposes methods for applying interactive biasing potentials to a simulation. 
 
 These services are written using `gRPC <https://grpc.io/>`_, a framework for remote procedure calls. 
