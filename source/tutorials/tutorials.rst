@@ -14,7 +14,4 @@ framework you're running with Narupa.
 Further reading
 ---------------
 
-For more details:
-
-* Look at the documentation for the individual :ref:`modules <narupa-protocol>`.
-* Browse the :git:`source code <>` online.
+For more details, look at the documentation for the individual :ref:`modules <narupa-protocol>`.

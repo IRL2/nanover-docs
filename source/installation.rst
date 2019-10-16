@@ -1,10 +1,10 @@
 Installation & Getting Started
 ===============================
 
-Narupa 2 consists of two components, the python-based library
+Narupa consists of two components, the python-based libraries
 for running simulations, narupa-server, and the Unity3D libraries
 and applications for visualising and interacting with simulations
-in VR, NarupaXR.
+in VR.
 
 ######################
 Installing the Server
@@ -13,21 +13,25 @@ Installing the Server
 Conda Installation
 ####################
 
-TBC
+.. code:: bash
+
+    conda install -c irl -c omnia -c conda-forge narupa-server
 
 Installing from source
 ########################
 
 To install from source, follow the instructions on the README
-of the code repository.
+of the `code repository <https://gitlab.com/intangiblerealities/narupa-protocol>`_.
 
 
-###################
-Installing NarupaXR
-###################
+########################################
+Installing the Narupa Unity3D libraries.
+########################################
 
-TBC
+The Narupa libraries for building your own VR applications in Unity3D are available `here <https://gitlab.com/intangiblerealities/narupa-unity-plugin>`_.
 
-##############################
-Running an Example Simulation 
-##############################
+######################
+Installing Narupa iMD
+######################
+
+Instructions for downloading and running the Narupa iMD Unity3D application are available `here <https://gitlab.com/intangiblerealities/narupa-applications/narupa-imd>`_.
