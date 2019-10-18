@@ -19,7 +19,7 @@ or some of our `conversion <../../python/narupa.openmm.converter>`_  utilities f
 
 For a basic interactive molecular simulation, a frame typically has the following fields:
 
-* Particle positions
+* Particle positions (we always use nanometers!)
 * Particle elements
 * Bond pairs 
 
