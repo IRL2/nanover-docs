@@ -27,3 +27,9 @@ On Windows:
 ```
 ./make.bat html
 ```
+
+## Posting to readthedocs 
+
+The repository automatically tracks updates to the narupa-protocol repository, 
+and a webhook exists on readthedocs to build the documentation. 
+
