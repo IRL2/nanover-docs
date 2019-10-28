@@ -10,14 +10,14 @@ command in the command line. When provided with the description of an
 OpenMM simulation as an XML file serialised as described in the `Narupa OpenMM documentation <https://gitlab.com/intangiblerealities/narupa-protocol/blob/master/python-libraries/narupa-openmm/README.md>`_ 
 , `narupa-omm-ase` runs an interactive simulation. 
 The host address and port can be set with
-the `--address` and the `--port` option, respectively.
+the ``--address`` and the ``--port`` option, respectively.
 
 
 Running a server from python
 ==================================================
 
 The `narupa-ase` module provides the
-::class::`narupa.ase.ASEImdServer` class. Given an ASE simulation set up with an 
+:class:`narupa.ase.ASEImdServer` class. Given an ASE simulation set up with an 
 `ASE molecular dynamics runner <https://wiki.fysik.dtu.dk/ase/ase/md.html>`_, this class will 
 attach interactive molecular dynamics functionality and frame serving to the dynamics. 
 An example is given below, assuming an ASE Atoms object has been set up, named `atoms`:
