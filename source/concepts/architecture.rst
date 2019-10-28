@@ -9,13 +9,17 @@ to a server that runs a simulation in real-time, establishing an interactive ses
 over the network between the client and server. 
 There a several good reasons for using this model:
 
-* Separation of concerns. Keeping the simulation separate from the visualisation makes it easier to customise
-and add new features. You want to swap out a molecular simulation for a galaxy simulation? Just change the server!
-* Scientific software is often written in different programming languages to those that we are 
-best suited for visualisation. For example, most of our molecular dynamics simulations run using python,
-while our VR application is written in C#. 
-* The server can be running wherever it is convenient, be it on your desktop, a cluster behind a firewall or on a cloud service, while multiple frontend applications can connect simultaneously, such as a VR app,
-smartphone app, or a Jupyter notebook. 
+* Separation of concerns. Keeping the simulation separate from the visualisation 
+  makes it easier to customise and add new features. You want to swap out a 
+  molecular simulation for a galaxy simulation? Just change the server!
+* Scientific software is often written in different programming languages to 
+  those that we are best suited for visualisation. For example, most of our 
+  molecular dynamics simulations run using python, while our VR application
+  is written in C#. 
+* The server can be running wherever it is convenient, be it on your desktop, 
+  a cluster behind a firewall or on a cloud service, while multiple frontend 
+  applications can connect simultaneously, such as a VR app, 
+  smartphone app, or a Jupyter notebook. 
 
 .. image:: assets/architecture/narupa_2019_client_server.png 
     :height: 1578px
@@ -56,8 +60,10 @@ These services are written using `gRPC <https://grpc.io/>`_, a framework for rem
 The key features that make it great for Narupa are:
 
 * High performance, fast communication. 
-* Bidirectional streaming. Clients and servers can establish long lived connections and stream data to and from each other flexibly.
-* Language portable. Clients and servers can be written in many languages, including C#, Python and C++. 
+* Bidirectional streaming. Clients and servers can establish long lived 
+  connections and stream data to and from each other flexibly.
+* Language portable. Clients and servers can be written in many languages,
+  including C#, Python and C++. 
 * Built on HTTP2, so includes routing, authentication and security. 
 
 An Example: Interactive Molecular Dynamics
