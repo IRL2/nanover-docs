@@ -15,3 +15,4 @@ import os
 if 'READTHEDOCS' in os.environ:
     os.chdir('../narupa-protocol')
     subprocess.call('./compile.sh')
+    import narupa
