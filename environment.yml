@@ -1,5 +1,6 @@
 name: doc
 channels:
+  - irl
   - omnia
   - conda-forge
   - defaults
@@ -10,3 +11,4 @@ dependencies:
   - python=3.7
   - MDAnalysis
   - openmm
+  - narupa-server
