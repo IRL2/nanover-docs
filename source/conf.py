@@ -13,10 +13,9 @@
 import os
 import sys
 import subprocess
-#sys.path.insert(0, os.path.abspath('../narupa-protocol/python-libraries/narupa-openmm'))
 
-#print('PATH', sys.path)
-#subprocess.call('./install.py')
+subprocess.call([sys.executable, './install.py'])
+
 
 # -- Project information -----------------------------------------------------
 

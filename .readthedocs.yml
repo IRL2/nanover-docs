@@ -5,8 +5,10 @@
 # Required
 version: 2
 
-conda:
-  environment: environment.yml
+python:
+  version: 3.7
+  install:
+    - requirements: requirements.txt
 
 # Build documentation in the source/ directory with Sphinx
 sphinx:

@@ -10,9 +10,14 @@ everything is installed already.
 """
 
 import subprocess
+import sys
 import os
 
 if 'READTHEDOCS' in os.environ:
+    os.environ['PATH'] = ':'.join([
+        os.path.dirname(sys.executable),
+        os.environ['PATH'],
+    ])
     os.chdir('../narupa-protocol')
-    subprocess.call('./compile.sh')
+    subprocess.call(['./compile.sh', '--no-edit'])
     import narupa
