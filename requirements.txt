@@ -1,2 +1,5 @@
 sphinx
 sphinx_rtd_theme
+./mock_packages/mpi4py
+./mock_packages/pretends
+./mock_packages/openmm
