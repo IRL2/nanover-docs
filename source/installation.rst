@@ -1,3 +1,4 @@
+ .. _installation:
 Installation & Getting Started
 ===============================
 

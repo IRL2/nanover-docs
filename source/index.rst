@@ -1,9 +1,40 @@
 Welcome to Narupa's documentation!
-======================================
+==================================
 
-This site provides documentation and tutorials on the use of Narupa,
-a framework for interactive molecular simulation, with a particular
-focus on virtual reality applications.
+* `Download the VR client <https://gitlab.com/intangiblerealities/narupa-applications/narupa-imd/-/jobs/artifacts/master/download?job=build-StandaloneWindows64>`_
+* :ref:`Install the software <Installation>`
+* `Run a session in the cloud <httpa://app.narupa.xyz>`_
+* :ref:`Read tutorials <Tutorials>`
+
+Interact with molecules in virtual reality
+------------------------------------------
+
+Narupa lets you enter virtual reality and steer molecular dynamics simulations
+in real time. Explore rare events and try docking poses.
+
+* `Download the VR client <https://gitlab.com/intangiblerealities/narupa-applications/narupa-imd/-/jobs/artifacts/master/download?job=build-StandaloneWindows64>`_
+* `Get the source code of the VR client <https://gitlab.com/intangiblerealities/narupa-applications/narupa-imd>`_
+
+
+Use insightful visuals
+----------------------
+
+Use python to control molecular representations.
+
+* `Read the documentation on representations <https://gitlab.com/intangiblerealities/narupa-protocol/-/blob/master/examples/fundamentals/visualisations.ipynb>`_
+
+Explore with others
+-------------------
+
+Collaborate in a shared virtual space while sharing or not a physical space. Host a session in the cloud to share the experience with others across the world.
+
+* `Host a session in the cloud <https://app.narupa.xyz>`_
+
+
+Customise your workflow
+-----------------------
+
+Narupa uses a customisable python server. Using the API you can integrate different physics engine and integrate Narupa into your existing workflow.
 
 Narupa is free, open source and distributed under the
 `GNU GPLv3 <https://gitlab.com/intangiblerealities/narupa-protocol/blob/master/License>`_ license.
@@ -11,30 +42,21 @@ You can look at and contribute to the code for building server applications `her
 and our VR applications such as `iMD-VR <https://gitlab.com/intangiblerealities/narupa-applications/narupa-imd/>`_ and 
 `Narupa Builder <https://gitlab.com/intangiblerealities/narupa-applications/narupa-builder/>`_.
 
-It is a complete re-write of the original `Narupa <https://gitlab.com/intangiblerealities/narupa-server>`_,
-designed to be more extendible, robust and easier to use.
-
-Narupa allows interactive simulation with several packages,
-including:
-
-* `ASE <https://wiki.fysik.dtu.dk/ase/>`_ - Python simulation framework, particularly good for QM,
-  semi-empirical and machine learned potentials.
-* `OpenMM <http://openmm.org/>`_ - GPU accelerated molecular mechanics, supporting AMBER, GROMACS and CHARMM.
-* `SCINE Sparrow <https://scine.ethz.ch/download/sparrow>`_ - semi-empirical potentials.
-* `LAMMPS <https://lammps.sandia.gov/>`_ - Materials and molecular mechanics.
-
+* :ref:`Read tutorials <Tutorials>`
+* `Get the source code for the server <https://gitlab.com/intangiblerealities/narupa-protocol>`_
 
 Citation
 ###################
 
 If you find Narupa useful, please cite the following
-`paper <https://aip.scitation.org/doi/10.1063/1.5092590>`_:
+`paper <https://doi.org/10.1063/1.5092590>`_:
 
-M. O’Connor, S.J. Bennie, H.M. Deeks, A. Jamieson-Binnie, A.J. Jones,
-R.J. Shannon, R. Walters, T. Mitchell, A.J. Mulholland, D.R. Glowacki,
-“Interactive molecular dynamics from quantum chemistry to drug binding:
-an open-source multi-person virtual reality framework”,
-J. Chem Phys 150, 224703 (2019)
+Jamieson-Binnie, A. D., O’Connor, M. B., Barnoud, J., Wonnacott, M. D.,
+Bennie, S. J., & Glowacki, D. R. (2020, August 17). Narupa iMD: A VR-Enabled
+Multiplayer Framework for Streaming Interactive Molecular Simulations. ACM
+SIGGRAPH 2020 Immersive Pavilion. SIGGRAPH ’20: Special Interest Group on
+Computer Graphics and Interactive Techniques Conference.
+https://doi.org/10.1145/3388536.3407891
 
 Bib file:
 
