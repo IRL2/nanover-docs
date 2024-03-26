@@ -1,3 +1,3 @@
-[submodule "narupa-protocol"]
-	path = narupa-protocol
-	url = https://gitlab.com/intangiblerealities/narupa-protocol.git
+[submodule "nanover-protocol"]
+	path = nanover-protocol
+	url = git@github.com:IRL2/nanover-protocol.git
