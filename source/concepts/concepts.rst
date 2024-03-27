@@ -1,7 +1,7 @@
 Concepts
 ==================================
 
-This section provides an overview of the main concepts in Narupa.
+This section provides an overview of the main concepts in NanoVer.
 
 .. toctree::
    :maxdepth: 1

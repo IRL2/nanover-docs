@@ -3,9 +3,9 @@
 Tutorials
 ==================================
 
-This section provides tutorials on getting started with Narupa.
+This section provides tutorials on getting started with NanoVer.
 We assume familiarity with setting up simulations in whichever 
-framework you're running with Narupa.
+framework you're running with NanoVer.
 
 .. toctree::
    :maxdepth: 1
@@ -16,4 +16,4 @@ framework you're running with Narupa.
 Further reading
 ---------------
 
-For more details, look at the documentation for the individual :ref:`modules <narupa-protocol>`.
+For more details, look at the documentation for the individual :ref:`modules <nanover-protocol>`.

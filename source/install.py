@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 
 """
-Installs narupa if the script is run from readthedocs.
+Installs NanoVer if the script is run from readthedocs.
 
-All the narupa subpackages need to be installed to build the documentation.
+All the nanover subpackages need to be installed to build the documentation.
 This script runs `compile.sh` to install them, but only if the documentation
 is built by readthedocs. If not run by read the docs, we assume that
 everything is installed already.

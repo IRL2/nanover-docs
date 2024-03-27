@@ -5,10 +5,10 @@ ASE: Interactive Molecular Dynamics
 Running an ASE OpenMM server from the command line
 ==================================================
 
-When `narupa-ase` is installed, it provides the `narupa-omm-ase`
+When `nanover-ase` is installed, it provides the `nanover-omm-ase`
 command in the command line. When provided with the description of an
-OpenMM simulation as an XML file serialised as described in the `Narupa OpenMM documentation <https://gitlab.com/intangiblerealities/narupa-protocol/blob/master/python-libraries/narupa-openmm/README.md>`_ 
-, `narupa-omm-ase` runs an interactive simulation. 
+OpenMM simulation as an XML file serialised as described in the `NanoVer OpenMM documentation <https://github.com/IRL2/nanover-protocol/tree/main/python-libraries/nanover-openmm>`_ 
+, `nanover-omm-ase` runs an interactive simulation. 
 The host address and port can be set with
 the ``--address`` and the ``--port`` option, respectively.
 
@@ -16,8 +16,8 @@ the ``--address`` and the ``--port`` option, respectively.
 Running a server from python
 ==================================================
 
-The `narupa-ase` module provides the
-:class:`narupa.ase.ASEImdServer` class. Given an ASE simulation set up with an 
+The `nanover-ase` module provides the
+:class:`nanover.ase.ASEImdServer` class. Given an ASE simulation set up with an 
 `ASE molecular dynamics runner <https://wiki.fysik.dtu.dk/ase/ase/md.html>`_, this class will 
 attach interactive molecular dynamics functionality and frame serving to the dynamics. 
 An example is given below, assuming an ASE Atoms object has been set up, named `atoms`:
@@ -25,7 +25,7 @@ An example is given below, assuming an ASE Atoms object has been set up, named `
 .. code python
     from ase import units
     from ase.md import Langevin
-    from narupa.ase.imd_server import ASEImdServer
+    from nanover.ase.imd_server import ASEImdServer
 
     # Given some ASE atoms object appropriately set up, set up dynamics.
     dyn = Langevin(atoms, 1 * units.fs, 300, 0.1)
@@ -36,12 +36,12 @@ An example is given below, assuming an ASE Atoms object has been set up, named `
         imd.run(100)
 
 
-Full examples are given in the `examples <https://gitlab.com/intangiblerealities/narupa-protocol/tree/master/python-libraries/narupa-ase/examples>`_ folder, which additionally
-contains several Jupyter notebooks that explore how Narupa can be used with OpenMM:
+Full examples are given in the `examples <https://github.com/IRL2/nanover-protocol/tree/main/examples/ase>`_ folder, which additionally
+contains several Jupyter notebooks that explore how NanoVer can be used with OpenMM:
 
-* `narupa_ase_client_server`: A notebook showing how one can run the server for an OpenMM simulation,  connect a client to it, and render a simple visualisation. 
-* `narupa_ase_interactive_md`: A notebook that runs a simulation of a carbon nanotube, then applies interactive forces to it from the notebook.
-* `narupa_interactive_visualiser`: A notebook that assumes a server is already running, and visualises it with `NGLView <https://github.com/arose/nglview>`_. To run this notebook, ensure NGLView is installed with:
+* `basic_example`: A notebook showing how one can run the server for an OpenMM simulation,  connect a client to it, and render a simple visualisation. 
+* `openmm_nanotube`: A notebook that runs a simulation of a carbon nanotube, then applies interactive forces to it from the notebook.
+* `nanover_nglview`: A notebook that assumes a server is already running, and visualises it with `NGLView <https://github.com/arose/nglview>`_. To run this notebook, ensure NGLView is installed with:
 
 .. code
     conda install nglview -c conda-forge
