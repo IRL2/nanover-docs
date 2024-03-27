@@ -19,8 +19,8 @@ subprocess.call([sys.executable, './install.py'])
 
 # -- Project information -----------------------------------------------------
 
-project = 'Narupa'
-copyright = '2019, Intangible Realities Laboratory'
+project = 'NanoVer'
+copyright = 'University of Bristol, Intangible Realities Lab (https://www.intangiblerealitieslab.org), University of Santiago de Compostella and other contributors'
 author = 'Intangible Realities Laboratory'
 
 # The full version, including alpha/beta/rc tags
@@ -32,7 +32,8 @@ release = '2018.1.8'
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = ['sphinx.ext.autodoc', 'sphinx.ext.coverage', 'sphinx.ext.autosummary']
+extensions = ['sphinx.ext.autodoc',
+              'sphinx.ext.coverage', 'sphinx.ext.autosummary']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -41,7 +42,6 @@ templates_path = ['_templates']
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = []
-
 
 
 master_doc = 'index'
@@ -59,6 +59,7 @@ html_theme = 'sphinx_rtd_theme'
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 
+
 def run_apidoc(_):
     import glob
     import os
@@ -71,9 +72,9 @@ def run_apidoc(_):
 
     print("Working directory: " + os.getcwd())
     print("Copying python code")
-    for directory in glob.glob('../narupa-protocol/python-libraries/*/src/narupa'):
+    for directory in glob.glob('nanover-protocol/python-libraries/*/src/nanover'):
         print(directory)
-        copy_tree(src=directory, dst='./temp/python-source/narupa')
+        copy_tree(src=directory, dst='./temp/python-source/nanover')
 
     print("Running apidoc")
     ignore_paths = [
@@ -84,8 +85,8 @@ def run_apidoc(_):
         "--force",
         "--separate",
         "--module-first",
-        "-o", "./python",
-        "./temp/python-source/narupa"
+        "-o", "./source/python",
+        "./temp/python-source/nanover"
     ] + ignore_paths
 
     try:
