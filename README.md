@@ -1,6 +1,6 @@
-# Narupa Documentation
+# NanoVer Documentation
 
-Sphinx documentation for Narupa. 
+Sphinx documentation for NanoVer. 
 
 ## Getting Started
 
@@ -30,6 +30,6 @@ On Windows:
 
 ## Posting to readthedocs 
 
-The repository automatically tracks updates to the narupa-protocol repository, 
+The repository automatically tracks updates to the nanover-protocol repository, 
 and a webhook exists on readthedocs to build the documentation. 
 
