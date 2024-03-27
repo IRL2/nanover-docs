@@ -18,6 +18,6 @@ if 'READTHEDOCS' in os.environ:
         os.path.dirname(sys.executable),
         os.environ['PATH'],
     ])
-    os.chdir('../narupa-protocol')
+    os.chdir('../nanover-protocol')
     subprocess.call(['./compile.sh', '--no-edit'])
-    import narupa
+    import nanover
