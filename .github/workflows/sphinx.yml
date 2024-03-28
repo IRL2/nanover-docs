@@ -1,0 +1,51 @@
+on: [push]
+name: Build documentation
+
+jobs:
+  build:
+    name: Build the documentation with sphinx
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        # This is necessary for the conda action. It replaces `conda init` as
+        # the shell does not load ,profile or .bashrc.
+        shell: bash -el {0}
+    steps:
+      - name: Get the documentation commit
+        uses: actions/checkout@v3
+        with:
+          path: source
+          submodules: true
+      - name: Get the destination branch
+        uses: actions/checkout@v3
+        with:
+          path: destination
+          ref: refs/heads/pages
+      - name: Install conda
+        uses: conda-incubator/setup-miniconda@v2
+        with:
+          auto-update-conda: true
+          miniforge-version: latest
+      - name: Installing NanoVer dependencies
+        run: conda install -y mpi4py openmm
+      - name: Install NanoVer
+        run: |
+          cd source/nanover-protocol
+          ./compile.sh --no-dotnet
+      - name: Install documentation dependencies
+        run: |
+          cd source
+          python -m pip install -r requirements.txt
+      - name: Build the documentation
+        run: |
+          cd source
+          make html
+      - name: Integrate the documentation in the target branch
+        run: |
+          git config --global user.email "doc-bot@example.com"
+          git config --global user.name "DocBot"
+          cp -r source/build/html destination/
+          cd destination
+          git add .
+          git commit -m "Update documentation"
+          git push
