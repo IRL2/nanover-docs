@@ -16,4 +16,4 @@ framework you're running with NanoVer.
 Further reading
 ---------------
 
-For more details, look at the documentation for the individual :ref:`modules <nanover-protocol>`.
+For more details, look at the documentation for the individual :mod:`modules <nanover>`.

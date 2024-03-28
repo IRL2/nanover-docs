@@ -1,5 +1,5 @@
 Welcome to NanoVer's documentation!
-==================================
+===================================
 
 * `Download the VR client <https://github.com/IRL2/nanover-imd/releases/download/nightly/StandaloneWindows64.zip>`_
 * :ref:`Install the software <Installation>`

@@ -51,7 +51,7 @@ We provide a number of service definitions and implementations, including:
 
 * :doc:`nanover.trajectory <../../python/nanover.trajectory>`: Provides trajectories and live simulations. 
 * :doc:`nanover.imd <../../python/nanover.imd>`: Provides methods for applying interactive biasing potentials to a simulation.
-* :doc:`nanover.multiplayer <../../python/nanover.multiplayer>`: Provides synchronisation of avatars and state for multiplayer applications.
+* :doc:`nanover.state <../../python/nanover.state>`: Provides synchronisation of avatars and state for multiplayer applications.
 
 The services described above provide the core for the NanoVer iMD application, but the tools
 can be used to create custom services for different applications.
