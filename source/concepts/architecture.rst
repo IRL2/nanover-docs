@@ -1,5 +1,5 @@
 NanoVer Architecture
-=======================
+====================
 
 NanoVer is a set of protocols, libraries and programs for performing interactive simulations,
 with a focus on virtual reality (VR).
@@ -22,7 +22,7 @@ There a several good reasons for using this model:
   smartphone app, or a Jupyter notebook. 
 
 Services 
-########################
+########
 
 While the client/server model is useful, implementing monolithic client/server applications is not ideal, as it limits the
 customisability and extensibility of the framework. Instead, in NanoVer we have adopted a microservices architecture, in which 
@@ -51,7 +51,7 @@ The key features that make it great for NanoVer are:
 * Built on HTTP2, so includes routing, authentication and security. 
 
 An Example: Interactive Molecular Dynamics
-################################################
+##########################################
 
 The canonical NanoVer session is one of interactive molecular dynamics (IMD), where one or more front end applications 
 connect to a live simulation that can be visualised and interacted with through biasing potentials. 
@@ -70,7 +70,7 @@ The state service allows to synchronise arbitrary state variables between the se
 positions, therefore allowing multiuser collaboration with no server modification.
 
 Front End Architecture
-################################################
+######################
 
 As the server side is modular, so too is the front end. The VR front end app, `NanoVer iMD <https://github.com/IRL2/nanover-imd>`_, 
 is built using the `NanoVer Unity plugin <https://github.com/IRL2/NanoverUnityPlugin>`_, which provides a set of modules for building NanoVer applications.
