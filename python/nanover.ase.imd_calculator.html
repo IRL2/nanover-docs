@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>nanover.ase.imd_calculator module &mdash; NanoVer 2018.1.8 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=04c572cc"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="nanover.ase.null_calculator module" href="nanover.ase.null_calculator.html" />
+    <link rel="prev" title="nanover.ase.imd module" href="nanover.ase.imd.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            NanoVer
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation &amp; Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/concepts.html">Concepts</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">nanover</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="nanover.html">nanover namespace</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="nanover.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="nanover.app.html">nanover.app package</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="nanover.ase.html">nanover.ase package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.command.html">nanover.command package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.core.html">nanover.core package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.essd.html">nanover.essd package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.imd.html">nanover.imd package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.lammps.html">nanover.lammps package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.mdanalysis.html">nanover.mdanalysis package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.openmm.html">nanover.openmm package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.protocol.html">nanover.protocol namespace</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.state.html">nanover.state namespace</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.trajectory.html">nanover.trajectory package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.utilities.html">nanover.utilities package</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">NanoVer</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">nanover</a></li>
+          <li class="breadcrumb-item"><a href="nanover.html">nanover namespace</a></li>
+          <li class="breadcrumb-item"><a href="nanover.ase.html">nanover.ase package</a></li>
+      <li class="breadcrumb-item active">nanover.ase.imd_calculator module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/python/nanover.ase.imd_calculator.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-nanover.ase.imd_calculator">
+<span id="nanover-ase-imd-calculator-module"></span><h1>nanover.ase.imd_calculator module<a class="headerlink" href="#module-nanover.ase.imd_calculator" title="Link to this heading"></a></h1>
+<p>Provides an implementation of IMD force field in ASE.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="nanover.ase.imd_calculator.ImdCalculator">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nanover.ase.imd_calculator.</span></span><span class="sig-name descname"><span class="pre">ImdCalculator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">imd_state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="nanover.imd.imd_state.html#nanover.imd.imd_state.ImdStateWrapper" title="nanover.imd.imd_state.ImdStateWrapper"><span class="pre">ImdStateWrapper</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">calculator</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Calculator</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atoms</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Atoms</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dynamics</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">MolecularDynamics</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reset_scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.ase.imd_calculator.ImdCalculator" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Calculator</span></code></p>
+<p>Implementation of IMD as an ASE calculator.</p>
+<p>Given another ASE calculator to act as the internal calculator, will compute the external energy
+and forces via the IMD service, and add them to the internal force calculations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>imd_state</strong> – A wrapper that provides access to the active interactive forces.</p></li>
+<li><p><strong>calculator</strong> – An existing ASE calculator to perform internal energy calculation.</p></li>
+<li><p><strong>atoms</strong> – An ASE atoms object to use.</p></li>
+<li><p><strong>dynamics</strong> – An ASE dynamics object from which to draw the equilibrium temperature for resetting velocities</p></li>
+<li><p><strong>reset_scale</strong> – A scale factor to apply to velocities when reset.</p></li>
+<li><p><strong>kwargs</strong> – Key word args passed to the base calculator.</p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>The <code class="xref py py-class docutils literal notranslate"><span class="pre">ImdServer</span></code> class makes use of this class, and makes
+running an interactive molecular dynamics simulation in ASE straightforward.</p>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.ase.imd_calculator.ImdCalculator.calculate">
+<span class="sig-name descname"><span class="pre">calculate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atoms</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Atoms</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">properties</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">('energy',</span> <span class="pre">'forces')</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">system_changes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['positions',</span> <span class="pre">'numbers',</span> <span class="pre">'cell',</span> <span class="pre">'pbc',</span> <span class="pre">'initial_charges',</span> <span class="pre">'initial_magmoms']</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.ase.imd_calculator.ImdCalculator.calculate" title="Link to this definition"></a></dt>
+<dd><p>Calculates the given properties of the ASE atoms. The internal molecular calculator is called first,
+and then any interactive forces currently being applied to the system are added.</p>
+<p>Results are stored in the results dictionary, as normal.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>atoms</strong> – Optional <code class="xref py py-class docutils literal notranslate"><span class="pre">Atoms</span></code> object to perform the calculation on. If no atoms is passed,
+the atoms object passed at initialisation are used.</p></li>
+<li><p><strong>properties</strong> – The properties to calculate. The ImdCalculator support ‘energy’ and ‘forces’,
+but will pass any other requested properties to the internal atomic calculator.
+See <code class="xref py py-func docutils literal notranslate"><span class="pre">calculate()</span></code> for details.</p></li>
+<li><p><strong>system_changes</strong> – List of what has changed since last calculation. See <code class="xref py py-func docutils literal notranslate"><span class="pre">calculate()</span></code> for
+details.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If no ASE atoms are supplied to the calculation, and no ASE atoms were supplied during
+initialisation.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nanover.ase.imd_calculator.ImdCalculator.calculator">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">calculator</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Calculator</span></em><a class="headerlink" href="#nanover.ase.imd_calculator.ImdCalculator.calculator" title="Link to this definition"></a></dt>
+<dd><p>The internal ASE calculator being used.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ASE calculator being used to compute internal forces.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nanover.ase.imd_calculator.ImdCalculator.interactions">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">interactions</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="nanover.imd.particle_interaction.html#nanover.imd.particle_interaction.ParticleInteraction" title="nanover.imd.particle_interaction.ParticleInteraction"><span class="pre">ParticleInteraction</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#nanover.ase.imd_calculator.ImdCalculator.interactions" title="Link to this definition"></a></dt>
+<dd><p>Fetches a copy of the current interactions.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nanover.ase.imd_calculator.ImdCalculator.reset_temperature">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">reset_temperature</span></span><a class="headerlink" href="#nanover.ase.imd_calculator.ImdCalculator.reset_temperature" title="Link to this definition"></a></dt>
+<dd><p>The temperature this calculator will reset the velocities of atoms interacted with to if the interaction
+is set to reset velocities.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The reset temperature.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p>Attribute error, if not temperature has been defined.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nanover.ase.imd_calculator.ImdCalculator.temperature">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">temperature</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#nanover.ase.imd_calculator.ImdCalculator.temperature" title="Link to this definition"></a></dt>
+<dd><p>Gets the temperature used for reinitialising velocities after an interaction.</p>
+<p>By default, it will attempt to use the temperature of the dynamics.
+If a custom temperature has been set by this attributes setter, then that will be used.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The temperature used for reinitialising velocities after an interaction.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p>AttributeError: If no temperature is defined for this calculator, in the case
+that no dynamics object has been passed, or the dynamics object does not implement the
+temperature or ‘temp’ attribute.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="nanover.ase.imd_calculator.get_periodic_box_lengths">
+<span class="sig-prename descclassname"><span class="pre">nanover.ase.imd_calculator.</span></span><span class="sig-name descname"><span class="pre">get_periodic_box_lengths</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atoms</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Atoms</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="headerlink" href="#nanover.ase.imd_calculator.get_periodic_box_lengths" title="Link to this definition"></a></dt>
+<dd><p>Gets the periodic box lengths of an orthorhombic box, in nm, from an ASE atoms collection, if it exists.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>atoms</strong> – ASE atoms.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Array of periodic box lengths if periodic boundaries are in use, <code class="docutils literal notranslate"><span class="pre">None</span></code> otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="nanover.ase.imd.html" class="btn btn-neutral float-left" title="nanover.ase.imd module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="nanover.ase.null_calculator.html" class="btn btn-neutral float-right" title="nanover.ase.null_calculator module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright University of Bristol, Intangible Realities Lab (https://www.intangiblerealitieslab.org), University of Santiago de Compostella and other contributors.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

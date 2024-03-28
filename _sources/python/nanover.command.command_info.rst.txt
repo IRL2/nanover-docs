@@ -1,0 +1,7 @@
+nanover.command.command\_info module
+====================================
+
+.. automodule:: nanover.command.command_info
+   :members:
+   :undoc-members:
+   :show-inheritance:

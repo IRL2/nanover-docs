@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>nanover.utilities.change_buffers module &mdash; NanoVer 2018.1.8 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=04c572cc"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="nanover.utilities.event module" href="nanover.utilities.event.html" />
+    <link rel="prev" title="nanover.utilities package" href="nanover.utilities.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            NanoVer
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation &amp; Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/concepts.html">Concepts</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">nanover</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="nanover.html">nanover namespace</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="nanover.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="nanover.app.html">nanover.app package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.ase.html">nanover.ase package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.command.html">nanover.command package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.core.html">nanover.core package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.essd.html">nanover.essd package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.imd.html">nanover.imd package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.lammps.html">nanover.lammps package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.mdanalysis.html">nanover.mdanalysis package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.openmm.html">nanover.openmm package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.protocol.html">nanover.protocol namespace</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.state.html">nanover.state namespace</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.trajectory.html">nanover.trajectory package</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="nanover.utilities.html">nanover.utilities package</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">NanoVer</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">nanover</a></li>
+          <li class="breadcrumb-item"><a href="nanover.html">nanover namespace</a></li>
+          <li class="breadcrumb-item"><a href="nanover.utilities.html">nanover.utilities package</a></li>
+      <li class="breadcrumb-item active">nanover.utilities.change_buffers module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/python/nanover.utilities.change_buffers.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-nanover.utilities.change_buffers">
+<span id="nanover-utilities-change-buffers-module"></span><h1>nanover.utilities.change_buffers module<a class="headerlink" href="#module-nanover.utilities.change_buffers" title="Link to this heading"></a></h1>
+<p>Module providing utility classes used by the multiplayer service to create a
+shared key/value store between multiple clients.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="nanover.utilities.change_buffers.DictionaryChange">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nanover.utilities.change_buffers.</span></span><span class="sig-name descname"><span class="pre">DictionaryChange</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">updates</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Mapping</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">removals</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.utilities.change_buffers.DictionaryChange" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nanover.utilities.change_buffers.DictionaryChange.removals">
+<span class="sig-name descname"><span class="pre">removals</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#nanover.utilities.change_buffers.DictionaryChange.removals" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nanover.utilities.change_buffers.DictionaryChange.updates">
+<span class="sig-name descname"><span class="pre">updates</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Mapping</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#nanover.utilities.change_buffers.DictionaryChange.updates" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="nanover.utilities.change_buffers.DictionaryChangeBuffer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nanover.utilities.change_buffers.</span></span><span class="sig-name descname"><span class="pre">DictionaryChangeBuffer</span></span><a class="headerlink" href="#nanover.utilities.change_buffers.DictionaryChangeBuffer" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Tracks the latest values of keys that have changed between checks.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.utilities.change_buffers.DictionaryChangeBuffer.flush_changed_blocking">
+<span class="sig-name descname"><span class="pre">flush_changed_blocking</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#nanover.utilities.change_buffers.DictionaryChange" title="nanover.utilities.change_buffers.DictionaryChange"><span class="pre">DictionaryChange</span></a></span></span><a class="headerlink" href="#nanover.utilities.change_buffers.DictionaryChangeBuffer.flush_changed_blocking" title="Link to this definition"></a></dt>
+<dd><p>Wait until there are changes and then return them, clearing all
+tracked changes.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.utilities.change_buffers.DictionaryChangeBuffer.freeze">
+<span class="sig-name descname"><span class="pre">freeze</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nanover.utilities.change_buffers.DictionaryChangeBuffer.freeze" title="Link to this definition"></a></dt>
+<dd><p>Freeze the buffer, ensuring that it cannot be updated with any more
+changes.</p>
+<p>It will still be possible to flush changes one last time if there were
+any unflushed at the time of freezing.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.utilities.change_buffers.DictionaryChangeBuffer.subscribe_changes">
+<span class="sig-name descname"><span class="pre">subscribe_changes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">interval</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Iterator</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#nanover.utilities.change_buffers.DictionaryChange" title="nanover.utilities.change_buffers.DictionaryChange"><span class="pre">DictionaryChange</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#nanover.utilities.change_buffers.DictionaryChangeBuffer.subscribe_changes" title="Link to this definition"></a></dt>
+<dd><p>Iterates over changes to the buffer. Waits at least :interval: seconds
+between each iteration.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.utilities.change_buffers.DictionaryChangeBuffer.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">updates</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Mapping</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">removals</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.utilities.change_buffers.DictionaryChangeBuffer.update" title="Link to this definition"></a></dt>
+<dd><p>Update the known changes from a dictionary of keys that have changed
+to their new values or have been removed.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="nanover.utilities.change_buffers.DictionaryChangeMultiView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nanover.utilities.change_buffers.</span></span><span class="sig-name descname"><span class="pre">DictionaryChangeMultiView</span></span><a class="headerlink" href="#nanover.utilities.change_buffers.DictionaryChangeMultiView" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Provides a means to acquire multiple independent DictionaryChangeBuffers
+tracking a shared dictionary.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.utilities.change_buffers.DictionaryChangeMultiView.copy_content">
+<span class="sig-name descname"><span class="pre">copy_content</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#nanover.utilities.change_buffers.DictionaryChangeMultiView.copy_content" title="Link to this definition"></a></dt>
+<dd><p>Return a shallow copy of the dictionary at this instant.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.utilities.change_buffers.DictionaryChangeMultiView.create_view">
+<span class="sig-name descname"><span class="pre">create_view</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Generator</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#nanover.utilities.change_buffers.DictionaryChangeBuffer" title="nanover.utilities.change_buffers.DictionaryChangeBuffer"><span class="pre">DictionaryChangeBuffer</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#nanover.utilities.change_buffers.DictionaryChangeMultiView.create_view" title="Link to this definition"></a></dt>
+<dd><p>Returns a new DictionaryChangeBuffer that tracks changes to the
+shared dictionary, starting with the initial values.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.utilities.change_buffers.DictionaryChangeMultiView.freeze">
+<span class="sig-name descname"><span class="pre">freeze</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nanover.utilities.change_buffers.DictionaryChangeMultiView.freeze" title="Link to this definition"></a></dt>
+<dd><p>Prevent any further updates to the shared dictionary, ensuring that
+future views and subscriptions are frozen and provide a single update
+with the final values.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.utilities.change_buffers.DictionaryChangeMultiView.remove_view">
+<span class="sig-name descname"><span class="pre">remove_view</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">view</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#nanover.utilities.change_buffers.DictionaryChangeBuffer" title="nanover.utilities.change_buffers.DictionaryChangeBuffer"><span class="pre">DictionaryChangeBuffer</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.utilities.change_buffers.DictionaryChangeMultiView.remove_view" title="Link to this definition"></a></dt>
+<dd><p>Freeze the given change buffer and stop providing updates to it.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.utilities.change_buffers.DictionaryChangeMultiView.subscribe_changes">
+<span class="sig-name descname"><span class="pre">subscribe_changes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">interval</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Iterator</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#nanover.utilities.change_buffers.DictionaryChange" title="nanover.utilities.change_buffers.DictionaryChange"><span class="pre">DictionaryChange</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#nanover.utilities.change_buffers.DictionaryChangeMultiView.subscribe_changes" title="Link to this definition"></a></dt>
+<dd><p>Iterates over changes to the shared dictionary, starting with the
+initial values. Waits at least :interval: seconds between each
+iteration.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.utilities.change_buffers.DictionaryChangeMultiView.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">updates</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Mapping</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">removals</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.utilities.change_buffers.DictionaryChangeMultiView.update" title="Link to this definition"></a></dt>
+<dd><p>Updates the shared dictionary with key values pairs from :updates: and
+key removals from :removals:.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="nanover.utilities.change_buffers.ObjectFrozenError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nanover.utilities.change_buffers.</span></span><span class="sig-name descname"><span class="pre">ObjectFrozenError</span></span><a class="headerlink" href="#nanover.utilities.change_buffers.ObjectFrozenError" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>Raised when an operation on an object cannot be performed because the
+object has been frozen.</p>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="nanover.utilities.html" class="btn btn-neutral float-left" title="nanover.utilities package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="nanover.utilities.event.html" class="btn btn-neutral float-right" title="nanover.utilities.event module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright University of Bristol, Intangible Realities Lab (https://www.intangiblerealitieslab.org), University of Santiago de Compostella and other contributors.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

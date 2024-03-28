@@ -1,0 +1,7 @@
+nanover.protocol.instance.connect\_to\_trajectory\_pb2 module
+=============================================================
+
+.. automodule:: nanover.protocol.instance.connect_to_trajectory_pb2
+   :members:
+   :undoc-members:
+   :show-inheritance:

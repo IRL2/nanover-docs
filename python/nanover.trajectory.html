@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>nanover.trajectory package &mdash; NanoVer 2018.1.8 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=04c572cc"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="nanover.trajectory.frame_client module" href="nanover.trajectory.frame_client.html" />
+    <link rel="prev" title="nanover.state.state_service module" href="nanover.state.state_service.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            NanoVer
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation &amp; Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/concepts.html">Concepts</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">nanover</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="nanover.html">nanover namespace</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="nanover.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="nanover.app.html">nanover.app package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.ase.html">nanover.ase package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.command.html">nanover.command package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.core.html">nanover.core package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.essd.html">nanover.essd package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.imd.html">nanover.imd package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.lammps.html">nanover.lammps package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.mdanalysis.html">nanover.mdanalysis package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.openmm.html">nanover.openmm package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.protocol.html">nanover.protocol namespace</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.state.html">nanover.state namespace</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">nanover.trajectory package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.utilities.html">nanover.utilities package</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">NanoVer</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">nanover</a></li>
+          <li class="breadcrumb-item"><a href="nanover.html">nanover namespace</a></li>
+      <li class="breadcrumb-item active">nanover.trajectory package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/python/nanover.trajectory.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-nanover.trajectory">
+<span id="nanover-trajectory-package"></span><h1>nanover.trajectory package<a class="headerlink" href="#module-nanover.trajectory" title="Link to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="nanover.trajectory.frame_client.html">nanover.trajectory.frame_client module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nanover.trajectory.frame_client.html#nanover.trajectory.frame_client.FrameClient"><code class="docutils literal notranslate"><span class="pre">FrameClient</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nanover.trajectory.frame_client.html#nanover.trajectory.frame_client.FrameClient.subscribe_frames_async"><code class="docutils literal notranslate"><span class="pre">FrameClient.subscribe_frames_async()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.trajectory.frame_client.html#nanover.trajectory.frame_client.FrameClient.subscribe_frames_blocking"><code class="docutils literal notranslate"><span class="pre">FrameClient.subscribe_frames_blocking()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.trajectory.frame_client.html#nanover.trajectory.frame_client.FrameClient.subscribe_frames_iterate"><code class="docutils literal notranslate"><span class="pre">FrameClient.subscribe_frames_iterate()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.trajectory.frame_client.html#nanover.trajectory.frame_client.FrameClient.subscribe_last_frames_async"><code class="docutils literal notranslate"><span class="pre">FrameClient.subscribe_last_frames_async()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.trajectory.frame_client.html#nanover.trajectory.frame_client.FrameClient.subscribe_last_frames_blocking"><code class="docutils literal notranslate"><span class="pre">FrameClient.subscribe_last_frames_blocking()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nanover.trajectory.frame_data.html">nanover.trajectory.frame_data module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.ArraysView"><code class="docutils literal notranslate"><span class="pre">ArraysView</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.ArraysView.record_name"><code class="docutils literal notranslate"><span class="pre">ArraysView.record_name</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.ArraysView.set"><code class="docutils literal notranslate"><span class="pre">ArraysView.set()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.ArraysView.singular"><code class="docutils literal notranslate"><span class="pre">ArraysView.singular</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.FrameData"><code class="docutils literal notranslate"><span class="pre">FrameData</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.FrameData.array_keys"><code class="docutils literal notranslate"><span class="pre">FrameData.array_keys</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.FrameData.bond_orders"><code class="docutils literal notranslate"><span class="pre">FrameData.bond_orders</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.FrameData.bond_pairs"><code class="docutils literal notranslate"><span class="pre">FrameData.bond_pairs</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.FrameData.box_vectors"><code class="docutils literal notranslate"><span class="pre">FrameData.box_vectors</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.FrameData.chain_count"><code class="docutils literal notranslate"><span class="pre">FrameData.chain_count</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.FrameData.chain_names"><code class="docutils literal notranslate"><span class="pre">FrameData.chain_names</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.FrameData.copy"><code class="docutils literal notranslate"><span class="pre">FrameData.copy()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.FrameData.kinetic_energy"><code class="docutils literal notranslate"><span class="pre">FrameData.kinetic_energy</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.FrameData.particle_count"><code class="docutils literal notranslate"><span class="pre">FrameData.particle_count</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.FrameData.particle_elements"><code class="docutils literal notranslate"><span class="pre">FrameData.particle_elements</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.FrameData.particle_forces"><code class="docutils literal notranslate"><span class="pre">FrameData.particle_forces</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.FrameData.particle_names"><code class="docutils literal notranslate"><span class="pre">FrameData.particle_names</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.FrameData.particle_positions"><code class="docutils literal notranslate"><span class="pre">FrameData.particle_positions</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.FrameData.particle_residues"><code class="docutils literal notranslate"><span class="pre">FrameData.particle_residues</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.FrameData.particle_types"><code class="docutils literal notranslate"><span class="pre">FrameData.particle_types</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.FrameData.particle_velocities"><code class="docutils literal notranslate"><span class="pre">FrameData.particle_velocities</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.FrameData.potential_energy"><code class="docutils literal notranslate"><span class="pre">FrameData.potential_energy</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.FrameData.raw"><code class="docutils literal notranslate"><span class="pre">FrameData.raw</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.FrameData.residue_chains"><code class="docutils literal notranslate"><span class="pre">FrameData.residue_chains</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.FrameData.residue_count"><code class="docutils literal notranslate"><span class="pre">FrameData.residue_count</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.FrameData.residue_ids"><code class="docutils literal notranslate"><span class="pre">FrameData.residue_ids</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.FrameData.residue_names"><code class="docutils literal notranslate"><span class="pre">FrameData.residue_names</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.FrameData.server_timestamp"><code class="docutils literal notranslate"><span class="pre">FrameData.server_timestamp</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.FrameData.set_float_array"><code class="docutils literal notranslate"><span class="pre">FrameData.set_float_array()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.FrameData.set_index_array"><code class="docutils literal notranslate"><span class="pre">FrameData.set_index_array()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.FrameData.set_string_array"><code class="docutils literal notranslate"><span class="pre">FrameData.set_string_array()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.FrameData.shortcuts"><code class="docutils literal notranslate"><span class="pre">FrameData.shortcuts</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.FrameData.simulation_time"><code class="docutils literal notranslate"><span class="pre">FrameData.simulation_time</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.FrameData.total_energy"><code class="docutils literal notranslate"><span class="pre">FrameData.total_energy</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.FrameData.used_shortcuts"><code class="docutils literal notranslate"><span class="pre">FrameData.used_shortcuts</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.FrameData.user_energy"><code class="docutils literal notranslate"><span class="pre">FrameData.user_energy</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.FrameData.value_keys"><code class="docutils literal notranslate"><span class="pre">FrameData.value_keys</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.MissingDataError"><code class="docutils literal notranslate"><span class="pre">MissingDataError</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.RecordView"><code class="docutils literal notranslate"><span class="pre">RecordView</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.RecordView.delete"><code class="docutils literal notranslate"><span class="pre">RecordView.delete()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.RecordView.get"><code class="docutils literal notranslate"><span class="pre">RecordView.get()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.RecordView.keys"><code class="docutils literal notranslate"><span class="pre">RecordView.keys()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.RecordView.record_name"><code class="docutils literal notranslate"><span class="pre">RecordView.record_name</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.RecordView.set"><code class="docutils literal notranslate"><span class="pre">RecordView.set()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.RecordView.singular"><code class="docutils literal notranslate"><span class="pre">RecordView.singular</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.ValuesView"><code class="docutils literal notranslate"><span class="pre">ValuesView</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.ValuesView.record_name"><code class="docutils literal notranslate"><span class="pre">ValuesView.record_name</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.ValuesView.set"><code class="docutils literal notranslate"><span class="pre">ValuesView.set()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.ValuesView.singular"><code class="docutils literal notranslate"><span class="pre">ValuesView.singular</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nanover.trajectory.frame_publisher.html">nanover.trajectory.frame_publisher module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nanover.trajectory.frame_publisher.html#nanover.trajectory.frame_publisher.FramePublisher"><code class="docutils literal notranslate"><span class="pre">FramePublisher</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nanover.trajectory.frame_publisher.html#nanover.trajectory.frame_publisher.FramePublisher.SubscribeFrames"><code class="docutils literal notranslate"><span class="pre">FramePublisher.SubscribeFrames()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.trajectory.frame_publisher.html#nanover.trajectory.frame_publisher.FramePublisher.SubscribeLatestFrames"><code class="docutils literal notranslate"><span class="pre">FramePublisher.SubscribeLatestFrames()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.trajectory.frame_publisher.html#nanover.trajectory.frame_publisher.FramePublisher.close"><code class="docutils literal notranslate"><span class="pre">FramePublisher.close()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.trajectory.frame_publisher.html#nanover.trajectory.frame_publisher.FramePublisher.frame_queues"><code class="docutils literal notranslate"><span class="pre">FramePublisher.frame_queues</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.trajectory.frame_publisher.html#nanover.trajectory.frame_publisher.FramePublisher.last_frame"><code class="docutils literal notranslate"><span class="pre">FramePublisher.last_frame</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.trajectory.frame_publisher.html#nanover.trajectory.frame_publisher.FramePublisher.last_frame_index"><code class="docutils literal notranslate"><span class="pre">FramePublisher.last_frame_index</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.trajectory.frame_publisher.html#nanover.trajectory.frame_publisher.FramePublisher.last_request_id"><code class="docutils literal notranslate"><span class="pre">FramePublisher.last_request_id</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.trajectory.frame_publisher.html#nanover.trajectory.frame_publisher.FramePublisher.send_frame"><code class="docutils literal notranslate"><span class="pre">FramePublisher.send_frame()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nanover.trajectory.frame_server.html">nanover.trajectory.frame_server module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nanover.trajectory.frame_server.html#nanover.trajectory.frame_server.FrameServer"><code class="docutils literal notranslate"><span class="pre">FrameServer</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nanover.trajectory.frame_server.html#nanover.trajectory.frame_server.FrameServer.close"><code class="docutils literal notranslate"><span class="pre">FrameServer.close()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.trajectory.frame_server.html#nanover.trajectory.frame_server.FrameServer.frame_count"><code class="docutils literal notranslate"><span class="pre">FrameServer.frame_count</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.trajectory.frame_server.html#nanover.trajectory.frame_server.FrameServer.send_frame"><code class="docutils literal notranslate"><span class="pre">FrameServer.send_frame()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.trajectory.frame_server.html#nanover.trajectory.frame_server.FrameServer.setup_services"><code class="docutils literal notranslate"><span class="pre">FrameServer.setup_services()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="nanover.state.state_service.html" class="btn btn-neutral float-left" title="nanover.state.state_service module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="nanover.trajectory.frame_client.html" class="btn btn-neutral float-right" title="nanover.trajectory.frame_client module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright University of Bristol, Intangible Realities Lab (https://www.intangiblerealitieslab.org), University of Santiago de Compostella and other contributors.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

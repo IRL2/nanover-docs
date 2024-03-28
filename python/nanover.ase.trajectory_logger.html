@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>nanover.ase.trajectory_logger module &mdash; NanoVer 2018.1.8 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=04c572cc"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="nanover.ase.wall_constraint module" href="nanover.ase.wall_constraint.html" />
+    <link rel="prev" title="nanover.ase.null_calculator module" href="nanover.ase.null_calculator.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            NanoVer
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation &amp; Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/concepts.html">Concepts</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">nanover</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="nanover.html">nanover namespace</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="nanover.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="nanover.app.html">nanover.app package</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="nanover.ase.html">nanover.ase package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.command.html">nanover.command package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.core.html">nanover.core package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.essd.html">nanover.essd package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.imd.html">nanover.imd package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.lammps.html">nanover.lammps package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.mdanalysis.html">nanover.mdanalysis package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.openmm.html">nanover.openmm package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.protocol.html">nanover.protocol namespace</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.state.html">nanover.state namespace</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.trajectory.html">nanover.trajectory package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.utilities.html">nanover.utilities package</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">NanoVer</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">nanover</a></li>
+          <li class="breadcrumb-item"><a href="nanover.html">nanover namespace</a></li>
+          <li class="breadcrumb-item"><a href="nanover.ase.html">nanover.ase package</a></li>
+      <li class="breadcrumb-item active">nanover.ase.trajectory_logger module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/python/nanover.ase.trajectory_logger.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-nanover.ase.trajectory_logger">
+<span id="nanover-ase-trajectory-logger-module"></span><h1>nanover.ase.trajectory_logger module<a class="headerlink" href="#module-nanover.ase.trajectory_logger" title="Link to this heading"></a></h1>
+<p>Module containing a trajectory logging class that can be used to output
+portable trajectory files from an ASE molecular dynamics simulation.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="nanover.ase.trajectory_logger.TrajectoryLogger">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nanover.ase.trajectory_logger.</span></span><span class="sig-name descname"><span class="pre">TrajectoryLogger</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atoms</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Atoms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">format</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timestamp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parallel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.ase.trajectory_logger.TrajectoryLogger" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Trajectory logging class for use with ASE simulations.</p>
+<p>Can be attached to an ASE simulation, resulting in frames being written automatically:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">ase.calculators.emt</span> <span class="kn">import</span> <span class="n">EMT</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">ase.lattice.cubic</span> <span class="kn">import</span> <span class="n">FaceCenteredCubic</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">atoms</span> <span class="o">=</span> <span class="n">FaceCenteredCubic</span><span class="p">(</span><span class="n">directions</span><span class="o">=</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]],</span> <span class="n">symbol</span><span class="o">=</span><span class="s2">&quot;Cu&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">pbc</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">atoms</span><span class="o">.</span><span class="n">calc</span> <span class="o">=</span> <span class="n">EMT</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dynamics</span> <span class="o">=</span> <span class="n">Langevin</span><span class="p">(</span><span class="n">atoms</span><span class="p">,</span> <span class="n">timestep</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">temperature_K</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">friction</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">TrajectoryLogger</span><span class="p">(</span><span class="n">atoms</span><span class="p">,</span> <span class="s1">&#39;example.xyz&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">logger</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="n">dynamics</span><span class="o">.</span><span class="n">attach</span><span class="p">(</span><span class="n">TrajectoryLogger</span><span class="p">(</span><span class="n">atoms</span><span class="p">,</span> <span class="s1">&#39;example.xyz&#39;</span><span class="p">),</span> <span class="n">interval</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span> <span class="c1"># attach an XYZ logger.</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>atoms</strong> – ASE <code class="xref py py-class docutils literal notranslate"><span class="pre">Atoms</span></code> from which to write data.</p></li>
+<li><p><strong>filename</strong> – Path to filename to write to.</p></li>
+<li><p><strong>format</strong> – Format to use, as supported by ASE. If not specified, derived from filename.</p></li>
+<li><p><strong>timestamp</strong> – Whether to append a timestamp to the file name. Use to avoid overwriting the same file if</p></li>
+</ul>
+</dd>
+</dl>
+<p>dynamics is reset.
+:param parallel:  Default is to write on master process only.  Set to <cite>False</cite> to write from all processes.
+:param kwargs: Keyword arguments to be passed to the underlying <a href="#id1"><span class="problematic" id="id2">:fun:`ase.io.write`</span></a> method.</p>
+<p>Note that even if an ASE format supports appending, if that file requires additional data between frames (e.g.
+headers), then the resulting output may not be valid.</p>
+<p>If ASE supports writing directly a file descriptor for the given format, then that will be used for performance,
+otherwise, the file will be reopened and appended to each frame, which will negatively impact performance.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nanover.ase.trajectory_logger.TrajectoryLogger.atoms">
+<span class="sig-name descname"><span class="pre">atoms</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Atoms</span></em><a class="headerlink" href="#nanover.ase.trajectory_logger.TrajectoryLogger.atoms" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nanover.ase.trajectory_logger.TrajectoryLogger.base_path">
+<span class="sig-name descname"><span class="pre">base_path</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#nanover.ase.trajectory_logger.TrajectoryLogger.base_path" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.ase.trajectory_logger.TrajectoryLogger.close">
+<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nanover.ase.trajectory_logger.TrajectoryLogger.close" title="Link to this definition"></a></dt>
+<dd><p>Closes the current file being written to, if it exists.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nanover.ase.trajectory_logger.TrajectoryLogger.format">
+<span class="sig-name descname"><span class="pre">format</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#nanover.ase.trajectory_logger.TrajectoryLogger.format" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nanover.ase.trajectory_logger.TrajectoryLogger.frame_index">
+<span class="sig-name descname"><span class="pre">frame_index</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#nanover.ase.trajectory_logger.TrajectoryLogger.frame_index" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nanover.ase.trajectory_logger.TrajectoryLogger.parallel">
+<span class="sig-name descname"><span class="pre">parallel</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#nanover.ase.trajectory_logger.TrajectoryLogger.parallel" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.ase.trajectory_logger.TrajectoryLogger.reset">
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nanover.ase.trajectory_logger.TrajectoryLogger.reset" title="Link to this definition"></a></dt>
+<dd><p>Resets the logger, restarting logging with a new file.</p>
+<p>If the logger is set to use timestamps, a new file will be generated with the current time.
+Otherwise, the file will be overwritten.</p>
+<p>..note</p>
+<p>This method is used in NanoVer to produce new trajectory files whenever the
+simulation is reset by the user.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nanover.ase.trajectory_logger.TrajectoryLogger.timestamping">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">timestamping</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#nanover.ase.trajectory_logger.TrajectoryLogger.timestamping" title="Link to this definition"></a></dt>
+<dd><p>Indicates whether this logger is appending timestamps to the names of any files it produces.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><cite>True</cite>, if appending timestamps, <cite>False</cite> otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.ase.trajectory_logger.TrajectoryLogger.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nanover.ase.trajectory_logger.TrajectoryLogger.write" title="Link to this definition"></a></dt>
+<dd><p>Writes the current state of the atoms to file.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="nanover.ase.trajectory_logger.UnsupportedFormatError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nanover.ase.trajectory_logger.</span></span><span class="sig-name descname"><span class="pre">UnsupportedFormatError</span></span><a class="headerlink" href="#nanover.ase.trajectory_logger.UnsupportedFormatError" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="nanover.ase.trajectory_logger.validate_ase_can_append_filename">
+<span class="sig-prename descclassname"><span class="pre">nanover.ase.trajectory_logger.</span></span><span class="sig-name descname"><span class="pre">validate_ase_can_append_filename</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.ase.trajectory_logger.validate_ase_can_append_filename" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#nanover.ase.trajectory_logger.UnsupportedFormatError" title="nanover.ase.trajectory_logger.UnsupportedFormatError"><strong>UnsupportedFormatError</strong></a> – if ase is unable to append the format
+implied by the file extension</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="nanover.ase.trajectory_logger.validate_ase_can_append_format">
+<span class="sig-prename descclassname"><span class="pre">nanover.ase.trajectory_logger.</span></span><span class="sig-name descname"><span class="pre">validate_ase_can_append_format</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">format</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.ase.trajectory_logger.validate_ase_can_append_format" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#nanover.ase.trajectory_logger.UnsupportedFormatError" title="nanover.ase.trajectory_logger.UnsupportedFormatError"><strong>UnsupportedFormatError</strong></a> – if ase is unable to append the desired
+format.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="nanover.ase.null_calculator.html" class="btn btn-neutral float-left" title="nanover.ase.null_calculator module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="nanover.ase.wall_constraint.html" class="btn btn-neutral float-right" title="nanover.ase.wall_constraint module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright University of Bristol, Intangible Realities Lab (https://www.intangiblerealitieslab.org), University of Santiago de Compostella and other contributors.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+nanover.trajectory package
+==========================
+
+.. automodule:: nanover.trajectory
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   nanover.trajectory.frame_client
+   nanover.trajectory.frame_data
+   nanover.trajectory.frame_publisher
+   nanover.trajectory.frame_server

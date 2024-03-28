@@ -1,0 +1,7 @@
+nanover.mdanalysis.recordings module
+====================================
+
+.. automodule:: nanover.mdanalysis.recordings
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,7 @@
+nanover.protocol.array\_pb2\_grpc module
+========================================
+
+.. automodule:: nanover.protocol.array_pb2_grpc
+   :members:
+   :undoc-members:
+   :show-inheritance:

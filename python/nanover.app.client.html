@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>nanover.app.client module &mdash; NanoVer 2018.1.8 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=04c572cc"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="nanover.app.frame_app module" href="nanover.app.frame_app.html" />
+    <link rel="prev" title="nanover.app.app_server module" href="nanover.app.app_server.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            NanoVer
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation &amp; Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/concepts.html">Concepts</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">nanover</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="nanover.html">nanover namespace</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="nanover.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="nanover.app.html">nanover.app package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.ase.html">nanover.ase package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.command.html">nanover.command package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.core.html">nanover.core package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.essd.html">nanover.essd package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.imd.html">nanover.imd package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.lammps.html">nanover.lammps package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.mdanalysis.html">nanover.mdanalysis package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.openmm.html">nanover.openmm package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.protocol.html">nanover.protocol namespace</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.state.html">nanover.state namespace</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.trajectory.html">nanover.trajectory package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.utilities.html">nanover.utilities package</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">NanoVer</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">nanover</a></li>
+          <li class="breadcrumb-item"><a href="nanover.html">nanover namespace</a></li>
+          <li class="breadcrumb-item"><a href="nanover.app.html">nanover.app package</a></li>
+      <li class="breadcrumb-item active">nanover.app.client module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/python/nanover.app.client.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-nanover.app.client">
+<span id="nanover-app-client-module"></span><h1>nanover.app.client module<a class="headerlink" href="#module-nanover.app.client" title="Link to this heading"></a></h1>
+<p>Module containing a basic interactive molecular dynamics client that receives frames
+and can publish interactions.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="nanover.app.client.NanoverImdClient">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nanover.app.client.</span></span><span class="sig-name descname"><span class="pre">NanoverImdClient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trajectory_address</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">imd_address</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">multiplayer_address</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_frames</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">50</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">all_frames</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.app.client.NanoverImdClient" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Interactive molecular dynamics client that receives frames, create selections,
+and join the multiplayer shared state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>trajectory_address</strong> – Address and port of the trajectory service.</p></li>
+<li><p><strong>imd_address</strong> – Address and port of the iMD service.</p></li>
+<li><p><strong>multiplayer_address</strong> – Address and port of the multiplayer service.</p></li>
+<li><p><strong>max_frames</strong> – Maximum number of frames to store in a buffer, if not storing all frames.</p></li>
+</ul>
+</dd>
+</dl>
+<p>All addresses are optional, so one can, for example, just connect to a trajectory service to passively receive
+frames.</p>
+<p>The <a href="#id1"><span class="problematic" id="id2">:fun:`NanoverImdClient.autoconnect`</span></a> and <a href="#id3"><span class="problematic" id="id4">:fun:`NanoverImdClient.connect_to_single_server`</span></a> methods provide
+shorthands for common server setups.</p>
+<section id="inspecting-a-frame">
+<h2>Inspecting a Frame<a class="headerlink" href="#inspecting-a-frame" title="Link to this heading"></a></h2>
+<p>The NanoVer Imd client can be used to inspect frames received from a <code class="xref py py-class docutils literal notranslate"><span class="pre">nanover.trajectory.FrameServer</span></code>,
+which can be useful for analysis.</p>
+</section>
+<section id="creating-selections-for-rendering">
+<h2>Creating Selections for Rendering<a class="headerlink" href="#creating-selections-for-rendering" title="Link to this heading"></a></h2>
+<p>One of the main uses of the client is to create selections that control how a group of particles
+will be visualised and interacted with in other clients (e.g., the VR client):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Connect to the multiplayer</span>
+<span class="n">client</span><span class="o">.</span><span class="n">subscribe_multiplayer</span><span class="p">()</span>
+<span class="c1"># Create a selection called &#39;Selection&#39; which selects particles with indices 0-4</span>
+<span class="n">selection</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">create_selection</span><span class="p">(</span><span class="s2">&quot;Selection&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Selections are created and updated based on lists of particle indices. Tools such as
+<a class="reference external" href="https://www.mdanalysis.org/">MDAnalysis</a> or <cite>MDTraj &lt;http://mdtraj.org/&gt;_</cite> are very good at
+extracting indices of particles based on a human readable command.</p>
+<p>With a selection in hand, the way in which it is rendered and interacted with can be changed and
+transmitted to other clients (i.e. VR) using the <cite>modify</cite> context:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Change how the selection is rendered and interacted with.</span>
+<span class="k">with</span> <span class="n">selection</span><span class="o">.</span><span class="n">modify</span><span class="p">():</span>
+    <span class="n">selection</span><span class="o">.</span><span class="n">renderer</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;IndianRed&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;scale&#39;</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">,</span>
+            <span class="s1">&#39;render&#39;</span><span class="p">:</span> <span class="s1">&#39;liquorice&#39;</span>
+        <span class="p">}</span>
+    <span class="n">selection</span><span class="o">.</span><span class="n">velocity_reset</span> <span class="o">=</span> <span class="kc">True</span>  <span class="c1"># Reset the velocities after interacting.</span>
+    <span class="n">selection</span><span class="o">.</span><span class="n">interaction_method</span> <span class="o">=</span> <span class="s1">&#39;group&#39;</span>  <span class="c1"># Interact with the selection as a group.</span>
+</pre></div>
+</div>
+<dl class="py property">
+<dt class="sig sig-object py" id="nanover.app.client.NanoverImdClient.all_frames">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">all_frames</span></span><a class="headerlink" href="#nanover.app.client.NanoverImdClient.all_frames" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nanover.app.client.NanoverImdClient.are_frames_subscribed">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">are_frames_subscribed</span></span><a class="headerlink" href="#nanover.app.client.NanoverImdClient.are_frames_subscribed" title="Link to this definition"></a></dt>
+<dd><p>Returns <cite>True</cite> if the client is subscribed to frames with either
+<a class="reference internal" href="#nanover.app.client.NanoverImdClient.subscribe_to_all_frames" title="nanover.app.client.NanoverImdClient.subscribe_to_all_frames"><code class="xref py py-meth docutils literal notranslate"><span class="pre">subscribe_to_all_frames()</span></code></a> or <a class="reference internal" href="#nanover.app.client.NanoverImdClient.subscribe_to_frames" title="nanover.app.client.NanoverImdClient.subscribe_to_frames"><code class="xref py py-meth docutils literal notranslate"><span class="pre">subscribe_to_frames()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.app.client.NanoverImdClient.attempt_update_multiplayer_locks">
+<span class="sig-name descname"><span class="pre">attempt_update_multiplayer_locks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">update</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#nanover.app.client.NanoverImdClient.attempt_update_multiplayer_locks" title="Link to this definition"></a></dt>
+<dd><p>Attempt to acquire and/or free a number of locks on the shared state.
+:param update: A dictionary of keys to either a duration in</p>
+<blockquote>
+<div><p>seconds to attempt to acquire or renew a lock, or None to indicate
+the lock should be released if held.</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the desired locks were acquired, and False otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.app.client.NanoverImdClient.attempt_update_multiplayer_state">
+<span class="sig-name descname"><span class="pre">attempt_update_multiplayer_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">update</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="nanover.utilities.change_buffers.html#nanover.utilities.change_buffers.DictionaryChange" title="nanover.utilities.change_buffers.DictionaryChange"><span class="pre">DictionaryChange</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#nanover.app.client.NanoverImdClient.attempt_update_multiplayer_state" title="Link to this definition"></a></dt>
+<dd><p>Attempt to make a single atomic change to the shared state, blocking
+until a response is received.
+:param update: A single change to make to the shared state that will</p>
+<blockquote>
+<div><p>either be made in full, or ignored if some of the keys are locked
+by another user.</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the server accepted our change, and False otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.app.client.NanoverImdClient.autoconnect">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">autoconnect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">search_time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">discovery_address</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">discovery_port</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.app.client.NanoverImdClient.autoconnect" title="Link to this definition"></a></dt>
+<dd><p>Autoconnect to the first available server discovered that at least produces frames.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>search_time</strong> – Time, in seconds, to search for.</p></li>
+<li><p><strong>discovery_address</strong> – IP address to search on.</p></li>
+<li><p><strong>discovery_port</strong> – Port upon which to listen for discovery messages.</p></li>
+<li><p><strong>name</strong> – If supplied, only servers with this name will be used.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Instantiation of an iMD client connected to whatever is available at the first</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.app.client.NanoverImdClient.clear_selections">
+<span class="sig-name descname"><span class="pre">clear_selections</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nanover.app.client.NanoverImdClient.clear_selections" title="Link to this definition"></a></dt>
+<dd><p>Remove all selections in the system</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.app.client.NanoverImdClient.close">
+<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">clear_frames</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.app.client.NanoverImdClient.close" title="Link to this definition"></a></dt>
+<dd><p>Closes the connection with the server.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>clear_frames</strong> – Whether to clear the frames received by the
+client, or keep them.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.app.client.NanoverImdClient.connect">
+<span class="sig-name descname"><span class="pre">connect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trajectory_address</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">imd_address</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">multiplayer_address</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.app.client.NanoverImdClient.connect" title="Link to this definition"></a></dt>
+<dd><p>Connects the client to all services for which addresses are provided.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.app.client.NanoverImdClient.connect_imd">
+<span class="sig-name descname"><span class="pre">connect_imd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">address</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.app.client.NanoverImdClient.connect_imd" title="Link to this definition"></a></dt>
+<dd><p>Connects the client to the given interactive molecular dynamics server,
+allowing it to start publishing interactions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>address</strong> – The address and port of the IMD server.</p></li>
+<li><p><strong>port</strong> – The port of the IMD server.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.app.client.NanoverImdClient.connect_multiplayer">
+<span class="sig-name descname"><span class="pre">connect_multiplayer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">address</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.app.client.NanoverImdClient.connect_multiplayer" title="Link to this definition"></a></dt>
+<dd><p>Connects the client to the given multiplayer server.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>address</strong> – The address and port of the multiplayer server.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.app.client.NanoverImdClient.connect_to_single_server">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">connect_to_single_server</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">address</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.app.client.NanoverImdClient.connect_to_single_server" title="Link to this definition"></a></dt>
+<dd><p>Connect to a single NanoVer server running all services on the same port.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>address</strong> – Address of the server.</p></li>
+<li><p><strong>port</strong> – Server port</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Instantiation of a client connected to all available services on the server at the given destination.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.app.client.NanoverImdClient.connect_to_single_server_multiple_ports">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">connect_to_single_server_multiple_ports</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">address</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trajectory_port</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">imd_port</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">multiplayer_port</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.app.client.NanoverImdClient.connect_to_single_server_multiple_ports" title="Link to this definition"></a></dt>
+<dd><p>Connect to a collection of NanoVer servers running at the same address but potentially different ports.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>address</strong> – Address of the server.</p></li>
+<li><p><strong>multiplayer_port</strong> – The port at which multiplayer is running.</p></li>
+<li><p><strong>trajectory_port</strong> – The port at which the trajectory service is running.</p></li>
+<li><p><strong>imd_port</strong> – The port at which the iMD service is running.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Instantiation of a client connected to all available services on the server at the given destination.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.app.client.NanoverImdClient.connect_trajectory">
+<span class="sig-name descname"><span class="pre">connect_trajectory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">address</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.app.client.NanoverImdClient.connect_trajectory" title="Link to this definition"></a></dt>
+<dd><p>Connects the client to the given trajectory server, and begin receiving frames.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>address</strong> – The address and port of the trajectory server.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.app.client.NanoverImdClient.create_selection">
+<span class="sig-name descname"><span class="pre">create_selection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">particle_ids</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="nanover.app.selection.html#nanover.app.selection.RenderingSelection" title="nanover.app.selection.RenderingSelection"><span class="pre">RenderingSelection</span></a></span></span><a class="headerlink" href="#nanover.app.client.NanoverImdClient.create_selection" title="Link to this definition"></a></dt>
+<dd><p>Create a particle selection with the given name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – The user-friendly name of the selection.</p></li>
+<li><p><strong>particle_ids</strong> – The indices of the particles to include in the selection.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The selection that was created.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nanover.app.client.NanoverImdClient.current_frame">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">current_frame</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.FrameData" title="nanover.trajectory.frame_data.FrameData"><span class="pre">FrameData</span></a></em><a class="headerlink" href="#nanover.app.client.NanoverImdClient.current_frame" title="Link to this definition"></a></dt>
+<dd><p>A copy of the current state of the trajectory, formed by collating all received frames.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">FrameData</span></code>, which is empty if none have been received.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nanover.app.client.NanoverImdClient.first_frame">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">first_frame</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.FrameData" title="nanover.trajectory.frame_data.FrameData"><span class="pre">FrameData</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#nanover.app.client.NanoverImdClient.first_frame" title="Link to this definition"></a></dt>
+<dd><p>The first received trajectory frame, if any.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The first frame received by this trajectory, or <cite>None</cite>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nanover.app.client.NanoverImdClient.frames">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">frames</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.FrameData" title="nanover.trajectory.frame_data.FrameData"><span class="pre">FrameData</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#nanover.app.client.NanoverImdClient.frames" title="Link to this definition"></a></dt>
+<dd><p>The most recently received frames up to the storage limit specified
+by <cite>max_frames</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Sequence of frames.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.app.client.NanoverImdClient.get_selection">
+<span class="sig-name descname"><span class="pre">get_selection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">selection_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="nanover.app.selection.html#nanover.app.selection.RenderingSelection" title="nanover.app.selection.RenderingSelection"><span class="pre">RenderingSelection</span></a></span></span><a class="headerlink" href="#nanover.app.client.NanoverImdClient.get_selection" title="Link to this definition"></a></dt>
+<dd><p>Get the selection with the given selection id, throwing a KeyError if
+it is not present. For the root selection, use the root_selection
+property.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>selection_id</strong> – The id of the selection</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The selection if it is present</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.app.client.NanoverImdClient.get_shared_value">
+<span class="sig-name descname"><span class="pre">get_shared_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.app.client.NanoverImdClient.get_shared_value" title="Link to this definition"></a></dt>
+<dd><p>Attempts to retrieve the value for the given key in the multiplayer shared value store.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>key</strong> – The key that identifies the value</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The value stored in the dictionary</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>grpc._channel._Rendezvous</strong> – When not connected to a
+multiplayer service</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nanover.app.client.NanoverImdClient.interactions">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">interactions</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="nanover.imd.particle_interaction.html#nanover.imd.particle_interaction.ParticleInteraction" title="nanover.imd.particle_interaction.ParticleInteraction"><span class="pre">ParticleInteraction</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#nanover.app.client.NanoverImdClient.interactions" title="Link to this definition"></a></dt>
+<dd><p>The dictionary of current interactions received by this client.
+:return: Dictionary of active interactions, keyed by interaction ID identifying who is performing the
+interactions.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nanover.app.client.NanoverImdClient.latest_frame">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">latest_frame</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.FrameData" title="nanover.trajectory.frame_data.FrameData"><span class="pre">FrameData</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#nanover.app.client.NanoverImdClient.latest_frame" title="Link to this definition"></a></dt>
+<dd><p>The trajectory frame most recently received, if any.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">FrameData</span></code>, or <cite>None</cite> if none has been received.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nanover.app.client.NanoverImdClient.latest_multiplayer_values">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">latest_multiplayer_values</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">object</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#nanover.app.client.NanoverImdClient.latest_multiplayer_values" title="Link to this definition"></a></dt>
+<dd><p>The latest state of the multiplayer shared key/value store.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Dictionary of the current state of multiplayer shared key/value store.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.app.client.NanoverImdClient.remove_selection">
+<span class="sig-name descname"><span class="pre">remove_selection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">selection</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="nanover.app.selection.html#nanover.app.selection.RenderingSelection" title="nanover.app.selection.RenderingSelection"><span class="pre">RenderingSelection</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.app.client.NanoverImdClient.remove_selection" title="Link to this definition"></a></dt>
+<dd><p>Delete the given selection</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.app.client.NanoverImdClient.remove_shared_value">
+<span class="sig-name descname"><span class="pre">remove_shared_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#nanover.app.client.NanoverImdClient.remove_shared_value" title="Link to this definition"></a></dt>
+<dd><p>Attempts to remove the given key on the multiplayer shared value store.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>grpc._channel._Rendezvous</strong> – When not connected to a
+multiplayer service</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nanover.app.client.NanoverImdClient.root_selection">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">root_selection</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="nanover.app.selection.html#nanover.app.selection.RenderingSelection" title="nanover.app.selection.RenderingSelection"><span class="pre">RenderingSelection</span></a></em><a class="headerlink" href="#nanover.app.client.NanoverImdClient.root_selection" title="Link to this definition"></a></dt>
+<dd><p>Get the root selection, creating it if it does not exist yet.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The selection representing the root selection of the system</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.app.client.NanoverImdClient.run_command">
+<span class="sig-name descname"><span class="pre">run_command</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.app.client.NanoverImdClient.run_command" title="Link to this definition"></a></dt>
+<dd><p>Runs a command on the trajectory service, multiplayer service or imd service as appropriate.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – Name of the command to run</p></li>
+<li><p><strong>args</strong> – Dictionary of arguments to run with the command.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Results of the command, if any.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.app.client.NanoverImdClient.run_imd_command">
+<span class="sig-name descname"><span class="pre">run_imd_command</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">object</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#nanover.app.client.NanoverImdClient.run_imd_command" title="Link to this definition"></a></dt>
+<dd><p>Runs a command on the iMD service.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – Name of the command to run</p></li>
+<li><p><strong>args</strong> – Dictionary of arguments to run with the command.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Results of the command, if any.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.app.client.NanoverImdClient.run_multiplayer_command">
+<span class="sig-name descname"><span class="pre">run_multiplayer_command</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.app.client.NanoverImdClient.run_multiplayer_command" title="Link to this definition"></a></dt>
+<dd><p>Runs a command on the multiplayer service.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – Name of the command to run.</p></li>
+<li><p><strong>args</strong> – Dictionary of arguments to run with the command.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Results of the command, if any.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.app.client.NanoverImdClient.run_pause">
+<span class="sig-name descname"><span class="pre">run_pause</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nanover.app.client.NanoverImdClient.run_pause" title="Link to this definition"></a></dt>
+<dd><p>Sends a request to pause the simulation to the trajectory service.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.app.client.NanoverImdClient.run_play">
+<span class="sig-name descname"><span class="pre">run_play</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nanover.app.client.NanoverImdClient.run_play" title="Link to this definition"></a></dt>
+<dd><p>Sends a request to start playing the trajectory to the trajectory service.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.app.client.NanoverImdClient.run_reset">
+<span class="sig-name descname"><span class="pre">run_reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nanover.app.client.NanoverImdClient.run_reset" title="Link to this definition"></a></dt>
+<dd><p>Sends a request to reset the simulation to the trajectory service.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.app.client.NanoverImdClient.run_step">
+<span class="sig-name descname"><span class="pre">run_step</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nanover.app.client.NanoverImdClient.run_step" title="Link to this definition"></a></dt>
+<dd><p>Sends a request to take one step to the trajectory service.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.app.client.NanoverImdClient.run_trajectory_command">
+<span class="sig-name descname"><span class="pre">run_trajectory_command</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">object</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#nanover.app.client.NanoverImdClient.run_trajectory_command" title="Link to this definition"></a></dt>
+<dd><p>Runs a command on the trajectory service.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – Name of the command to run</p></li>
+<li><p><strong>args</strong> – Dictionary of arguments to run with the command.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Results of the command, if any.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nanover.app.client.NanoverImdClient.selections">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">selections</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="nanover.app.selection.html#nanover.app.selection.RenderingSelection" title="nanover.app.selection.RenderingSelection"><span class="pre">RenderingSelection</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#nanover.app.client.NanoverImdClient.selections" title="Link to this definition"></a></dt>
+<dd><p>Get all selections which are stored in the shared key store.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>An iterable of all the selections stored in the shared key store.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.app.client.NanoverImdClient.set_shared_value">
+<span class="sig-name descname"><span class="pre">set_shared_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#nanover.app.client.NanoverImdClient.set_shared_value" title="Link to this definition"></a></dt>
+<dd><p>Attempts to set the given key/value pair on the multiplayer shared value store.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>key</strong> – The key that identifies the value to be stored.</p></li>
+<li><p><strong>value</strong> – The new value to store.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><cite>True</cite> if successful, <cite>False</cite> otherwise.</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>grpc._channel._Rendezvous</strong> – When not connected to a
+multiplayer service</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.app.client.NanoverImdClient.start_interaction">
+<span class="sig-name descname"><span class="pre">start_interaction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">interaction</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="nanover.imd.particle_interaction.html#nanover.imd.particle_interaction.ParticleInteraction" title="nanover.imd.particle_interaction.ParticleInteraction"><span class="pre">ParticleInteraction</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#nanover.app.client.NanoverImdClient.start_interaction" title="Link to this definition"></a></dt>
+<dd><p>Start an interaction with the IMD server.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>interaction</strong> – An optional :class: ParticleInteraction with which
+to begin.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The unique interaction ID of this interaction, which can be
+used to update the interaction with
+<code class="xref py py-func docutils literal notranslate"><span class="pre">update_interaction()</span></code>.</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ValueError, if the there is no IMD connection available.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.app.client.NanoverImdClient.stop_interaction">
+<span class="sig-name descname"><span class="pre">stop_interaction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">interaction_id</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#nanover.app.client.NanoverImdClient.stop_interaction" title="Link to this definition"></a></dt>
+<dd><p>Stops the interaction identified with the given interaction_id on the server.
+This method blocks until the server returns a reply indicating that the
+interaction has stopped.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>interaction_id</strong> – The unique interaction ID, created with
+<code class="xref py py-func docutils literal notranslate"><span class="pre">start_interaction()</span></code>, that identifies the
+interaction to stop.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>An <code class="xref py py-class docutils literal notranslate"><span class="pre">InteractionEndReply</span></code>, which is an empty message indicating</p>
+</dd>
+</dl>
+<p>successful termination of the interaction.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ValueError</strong> – if the there is no IMD connection available, or
+if invalid parameters are passed to the server.</p></li>
+<li><p><strong>KeyError</strong> – if the given interaction ID does not exist.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.app.client.NanoverImdClient.subscribe_multiplayer">
+<span class="sig-name descname"><span class="pre">subscribe_multiplayer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">interval</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.03333333333333333</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.app.client.NanoverImdClient.subscribe_multiplayer" title="Link to this definition"></a></dt>
+<dd><p>Subscribe to all multiplayer state updates.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>interval</strong> – Subscription interval for state updates.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>grpc._channel._Rendezvous</strong> – When not connected to a
+multiplayer service</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.app.client.NanoverImdClient.subscribe_to_all_frames">
+<span class="sig-name descname"><span class="pre">subscribe_to_all_frames</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nanover.app.client.NanoverImdClient.subscribe_to_all_frames" title="Link to this definition"></a></dt>
+<dd><p>Request all the frames from the server.</p>
+<p>This makes the frames available with the <a class="reference internal" href="#nanover.app.client.NanoverImdClient.frames" title="nanover.app.client.NanoverImdClient.frames"><code class="xref py py-attr docutils literal notranslate"><span class="pre">frames</span></code></a>,
+<a class="reference internal" href="#nanover.app.client.NanoverImdClient.current_frame" title="nanover.app.client.NanoverImdClient.current_frame"><code class="xref py py-attr docutils literal notranslate"><span class="pre">current_frame</span></code></a>, <code class="xref py py-attr docutils literal notranslate"><span class="pre">latest_frames</span></code>, and <a class="reference internal" href="#nanover.app.client.NanoverImdClient.first_frame" title="nanover.app.client.NanoverImdClient.first_frame"><code class="xref py py-attr docutils literal notranslate"><span class="pre">first_frame</span></code></a>
+attributes.</p>
+<p>All the frames produced by the frame server are sent from the time of
+the subscription get received by the client. Note that, depending on
+the server set up, this may not be all the frames generated by the
+MD engine. Subscribing to all frames is usefull for some applications
+such as saving a trajectory or analyses, however it may get behind the
+server if the frames are not received and treated as fast as they
+are sent.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>A client can subscribe to frames only ones and cannot change how
+it subscribes.</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.app.client.NanoverImdClient.subscribe_to_frames">
+<span class="sig-name descname"><span class="pre">subscribe_to_frames</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">interval</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.03333333333333333</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.app.client.NanoverImdClient.subscribe_to_frames" title="Link to this definition"></a></dt>
+<dd><p>Request the latest frames at a given time interval.</p>
+<p>This makes the frames available with the <a class="reference internal" href="#nanover.app.client.NanoverImdClient.frames" title="nanover.app.client.NanoverImdClient.frames"><code class="xref py py-attr docutils literal notranslate"><span class="pre">frames</span></code></a>,
+<a class="reference internal" href="#nanover.app.client.NanoverImdClient.current_frame" title="nanover.app.client.NanoverImdClient.current_frame"><code class="xref py py-attr docutils literal notranslate"><span class="pre">current_frame</span></code></a>, <code class="xref py py-attr docutils literal notranslate"><span class="pre">latest_frames</span></code>, and <a class="reference internal" href="#nanover.app.client.NanoverImdClient.first_frame" title="nanover.app.client.NanoverImdClient.first_frame"><code class="xref py py-attr docutils literal notranslate"><span class="pre">first_frame</span></code></a>
+attributes.</p>
+<p>This requests for the server to send the latest available frame at a
+given framerate expressed with the interval of time between two
+consecutive frames. This requested interval is the a minimum interval:
+if the frames are produced slower, then they will be sent as fast as
+possible.</p>
+<p>This is usefull for applications that do not need all the frames but
+only the latest available ones.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>A client can subscribe to frames only ones and cannot change how
+it subscribes.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>interval</strong> – Minimum time, in seconds, between two consecutive
+frames.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.app.client.NanoverImdClient.update_available_commands">
+<span class="sig-name descname"><span class="pre">update_available_commands</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">MutableMapping</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="nanover.command.command_info.html#nanover.command.command_info.CommandInfo" title="nanover.command.command_info.CommandInfo"><span class="pre">CommandInfo</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#nanover.app.client.NanoverImdClient.update_available_commands" title="Link to this definition"></a></dt>
+<dd><p>Fetches an updated set of available commands from the services this client is connected
+to.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A collection of <code class="xref py py-class docutils literal notranslate"><span class="pre">CommandInfo</span></code>, detailing the commands available.</p>
+</dd>
+</dl>
+<p>If the same command name is available on multiple services, the nested nature of the
+returned <code class="xref py py-class docutils literal notranslate"><span class="pre">ChainMap</span></code> will enable the user to determine the correct one to call.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.app.client.NanoverImdClient.update_interaction">
+<span class="sig-name descname"><span class="pre">update_interaction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">interaction_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interaction</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="nanover.imd.particle_interaction.html#nanover.imd.particle_interaction.ParticleInteraction" title="nanover.imd.particle_interaction.ParticleInteraction"><span class="pre">ParticleInteraction</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.app.client.NanoverImdClient.update_interaction" title="Link to this definition"></a></dt>
+<dd><p>Updates the interaction identified with the given interaction_id on
+the server with parameters from the given interaction.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>interaction_id</strong> – The unique id of the interaction to be updated.</p></li>
+<li><p><strong>interaction</strong> – The :class: ParticleInteraction providing new
+parameters for the interaction.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p>ValueError, if the there is no IMD connection available, or
+if invalid parameters are passed to the server.</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>KeyError</strong> – if the given interaction ID does not exist.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.app.client.NanoverImdClient.update_selection">
+<span class="sig-name descname"><span class="pre">update_selection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">selection</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="nanover.app.selection.html#nanover.app.selection.RenderingSelection" title="nanover.app.selection.RenderingSelection"><span class="pre">RenderingSelection</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.app.client.NanoverImdClient.update_selection" title="Link to this definition"></a></dt>
+<dd><p>Applies changes to the given selection to the shared key store.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>selection</strong> – The selection to update.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.app.client.NanoverImdClient.wait_until_first_frame">
+<span class="sig-name descname"><span class="pre">wait_until_first_frame</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">check_interval</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.app.client.NanoverImdClient.wait_until_first_frame" title="Link to this definition"></a></dt>
+<dd><p>Wait until the first frame is received from the server.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>check_interval</strong> – Interval at which to check if a frame has been
+received.</p></li>
+<li><p><strong>timeout</strong> – Timeout after which to stop waiting for a frame.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The first <code class="xref py py-class docutils literal notranslate"><span class="pre">FrameData</span></code> received.</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Exception</strong> – if no frame is received.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="nanover.app.client.need_frames">
+<span class="sig-prename descclassname"><span class="pre">nanover.app.client.</span></span><span class="sig-name descname"><span class="pre">need_frames</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'trajectory'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'_frame_client'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.app.client.need_frames" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="nanover.app.client.need_imd">
+<span class="sig-prename descclassname"><span class="pre">nanover.app.client.</span></span><span class="sig-name descname"><span class="pre">need_imd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'imd'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'_imd_client'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.app.client.need_imd" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="nanover.app.client.need_multiplayer">
+<span class="sig-prename descclassname"><span class="pre">nanover.app.client.</span></span><span class="sig-name descname"><span class="pre">need_multiplayer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'multiplayer'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'_multiplayer_client'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.app.client.need_multiplayer" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="nanover.app.client.need_trajectory_joined">
+<span class="sig-prename descclassname"><span class="pre">nanover.app.client.</span></span><span class="sig-name descname"><span class="pre">need_trajectory_joined</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.app.client.need_trajectory_joined" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="nanover.app.app_server.html" class="btn btn-neutral float-left" title="nanover.app.app_server module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="nanover.app.frame_app.html" class="btn btn-neutral float-right" title="nanover.app.frame_app module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright University of Bristol, Intangible Realities Lab (https://www.intangiblerealitieslab.org), University of Santiago de Compostella and other contributors.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,7 @@
+nanover.protocol.command.command\_service\_pb2 module
+=====================================================
+
+.. automodule:: nanover.protocol.command.command_service_pb2
+   :members:
+   :undoc-members:
+   :show-inheritance:

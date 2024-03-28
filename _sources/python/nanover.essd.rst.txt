@@ -1,0 +1,19 @@
+nanover.essd package
+====================
+
+.. automodule:: nanover.essd
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   nanover.essd.client
+   nanover.essd.list_cli
+   nanover.essd.server
+   nanover.essd.servicehub
+   nanover.essd.utils

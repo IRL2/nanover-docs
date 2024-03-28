@@ -1,0 +1,7 @@
+nanover.trajectory.frame\_client module
+=======================================
+
+.. automodule:: nanover.trajectory.frame_client
+   :members:
+   :undoc-members:
+   :show-inheritance:

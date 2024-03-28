@@ -1,0 +1,19 @@
+nanover.imd package
+===================
+
+.. automodule:: nanover.imd
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   nanover.imd.imd_client
+   nanover.imd.imd_force
+   nanover.imd.imd_server
+   nanover.imd.imd_state
+   nanover.imd.particle_interaction

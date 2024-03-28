@@ -1,0 +1,7 @@
+nanover.ase.trajectory\_logger module
+=====================================
+
+.. automodule:: nanover.ase.trajectory_logger
+   :members:
+   :undoc-members:
+   :show-inheritance:

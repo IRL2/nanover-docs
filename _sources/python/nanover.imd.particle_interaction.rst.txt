@@ -1,0 +1,7 @@
+nanover.imd.particle\_interaction module
+========================================
+
+.. automodule:: nanover.imd.particle_interaction
+   :members:
+   :undoc-members:
+   :show-inheritance:

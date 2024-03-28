@@ -1,0 +1,20 @@
+nanover.protocol.trajectory package
+===================================
+
+.. automodule:: nanover.protocol.trajectory
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   nanover.protocol.trajectory.frame_pb2
+   nanover.protocol.trajectory.frame_pb2_grpc
+   nanover.protocol.trajectory.get_frame_pb2
+   nanover.protocol.trajectory.get_frame_pb2_grpc
+   nanover.protocol.trajectory.trajectory_service_pb2
+   nanover.protocol.trajectory.trajectory_service_pb2_grpc

@@ -1,0 +1,7 @@
+nanover.imd.imd\_force module
+=============================
+
+.. automodule:: nanover.imd.imd_force
+   :members:
+   :undoc-members:
+   :show-inheritance:

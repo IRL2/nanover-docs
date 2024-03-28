@@ -1,0 +1,7 @@
+nanover.lammps.LammpsImd module
+===============================
+
+.. automodule:: nanover.lammps.LammpsImd
+   :members:
+   :undoc-members:
+   :show-inheritance:

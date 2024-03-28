@@ -1,0 +1,7 @@
+nanover.ase.imd module
+======================
+
+.. automodule:: nanover.ase.imd
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>nanover.utilities package &mdash; NanoVer 2018.1.8 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=04c572cc"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="nanover.utilities.change_buffers module" href="nanover.utilities.change_buffers.html" />
+    <link rel="prev" title="nanover.trajectory.frame_server module" href="nanover.trajectory.frame_server.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            NanoVer
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation &amp; Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/concepts.html">Concepts</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">nanover</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="nanover.html">nanover namespace</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="nanover.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="nanover.app.html">nanover.app package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.ase.html">nanover.ase package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.command.html">nanover.command package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.core.html">nanover.core package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.essd.html">nanover.essd package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.imd.html">nanover.imd package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.lammps.html">nanover.lammps package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.mdanalysis.html">nanover.mdanalysis package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.openmm.html">nanover.openmm package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.protocol.html">nanover.protocol namespace</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.state.html">nanover.state namespace</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.trajectory.html">nanover.trajectory package</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">nanover.utilities package</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">NanoVer</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">nanover</a></li>
+          <li class="breadcrumb-item"><a href="nanover.html">nanover namespace</a></li>
+      <li class="breadcrumb-item active">nanover.utilities package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/python/nanover.utilities.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-nanover.utilities">
+<span id="nanover-utilities-package"></span><h1>nanover.utilities package<a class="headerlink" href="#module-nanover.utilities" title="Link to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="nanover.utilities.change_buffers.html">nanover.utilities.change_buffers module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nanover.utilities.change_buffers.html#nanover.utilities.change_buffers.DictionaryChange"><code class="docutils literal notranslate"><span class="pre">DictionaryChange</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nanover.utilities.change_buffers.html#nanover.utilities.change_buffers.DictionaryChange.removals"><code class="docutils literal notranslate"><span class="pre">DictionaryChange.removals</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.utilities.change_buffers.html#nanover.utilities.change_buffers.DictionaryChange.updates"><code class="docutils literal notranslate"><span class="pre">DictionaryChange.updates</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nanover.utilities.change_buffers.html#nanover.utilities.change_buffers.DictionaryChangeBuffer"><code class="docutils literal notranslate"><span class="pre">DictionaryChangeBuffer</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nanover.utilities.change_buffers.html#nanover.utilities.change_buffers.DictionaryChangeBuffer.flush_changed_blocking"><code class="docutils literal notranslate"><span class="pre">DictionaryChangeBuffer.flush_changed_blocking()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.utilities.change_buffers.html#nanover.utilities.change_buffers.DictionaryChangeBuffer.freeze"><code class="docutils literal notranslate"><span class="pre">DictionaryChangeBuffer.freeze()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.utilities.change_buffers.html#nanover.utilities.change_buffers.DictionaryChangeBuffer.subscribe_changes"><code class="docutils literal notranslate"><span class="pre">DictionaryChangeBuffer.subscribe_changes()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.utilities.change_buffers.html#nanover.utilities.change_buffers.DictionaryChangeBuffer.update"><code class="docutils literal notranslate"><span class="pre">DictionaryChangeBuffer.update()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nanover.utilities.change_buffers.html#nanover.utilities.change_buffers.DictionaryChangeMultiView"><code class="docutils literal notranslate"><span class="pre">DictionaryChangeMultiView</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nanover.utilities.change_buffers.html#nanover.utilities.change_buffers.DictionaryChangeMultiView.copy_content"><code class="docutils literal notranslate"><span class="pre">DictionaryChangeMultiView.copy_content()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.utilities.change_buffers.html#nanover.utilities.change_buffers.DictionaryChangeMultiView.create_view"><code class="docutils literal notranslate"><span class="pre">DictionaryChangeMultiView.create_view()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.utilities.change_buffers.html#nanover.utilities.change_buffers.DictionaryChangeMultiView.freeze"><code class="docutils literal notranslate"><span class="pre">DictionaryChangeMultiView.freeze()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.utilities.change_buffers.html#nanover.utilities.change_buffers.DictionaryChangeMultiView.remove_view"><code class="docutils literal notranslate"><span class="pre">DictionaryChangeMultiView.remove_view()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.utilities.change_buffers.html#nanover.utilities.change_buffers.DictionaryChangeMultiView.subscribe_changes"><code class="docutils literal notranslate"><span class="pre">DictionaryChangeMultiView.subscribe_changes()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.utilities.change_buffers.html#nanover.utilities.change_buffers.DictionaryChangeMultiView.update"><code class="docutils literal notranslate"><span class="pre">DictionaryChangeMultiView.update()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nanover.utilities.change_buffers.html#nanover.utilities.change_buffers.ObjectFrozenError"><code class="docutils literal notranslate"><span class="pre">ObjectFrozenError</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nanover.utilities.event.html">nanover.utilities.event module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nanover.utilities.event.html#nanover.utilities.event.Event"><code class="docutils literal notranslate"><span class="pre">Event</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nanover.utilities.event.html#nanover.utilities.event.Event.add_callback"><code class="docutils literal notranslate"><span class="pre">Event.add_callback()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.utilities.event.html#nanover.utilities.event.Event.invoke"><code class="docutils literal notranslate"><span class="pre">Event.invoke()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.utilities.event.html#nanover.utilities.event.Event.remove_callback"><code class="docutils literal notranslate"><span class="pre">Event.remove_callback()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nanover.utilities.grpc_utilities.html">nanover.utilities.grpc_utilities module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nanover.utilities.grpc_utilities.html#nanover.utilities.grpc_utilities.RpcAlreadyTerminatedError"><code class="docutils literal notranslate"><span class="pre">RpcAlreadyTerminatedError</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="nanover.utilities.grpc_utilities.html#nanover.utilities.grpc_utilities.subscribe_channel_connectivity_change"><code class="docutils literal notranslate"><span class="pre">subscribe_channel_connectivity_change()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="nanover.utilities.grpc_utilities.html#nanover.utilities.grpc_utilities.subscribe_rpc_termination"><code class="docutils literal notranslate"><span class="pre">subscribe_rpc_termination()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nanover.utilities.key_lockable_map.html">nanover.utilities.key_lockable_map module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nanover.utilities.key_lockable_map.html#nanover.utilities.key_lockable_map.KeyLockableMap"><code class="docutils literal notranslate"><span class="pre">KeyLockableMap</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nanover.utilities.key_lockable_map.html#nanover.utilities.key_lockable_map.KeyLockableMap.delete"><code class="docutils literal notranslate"><span class="pre">KeyLockableMap.delete()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.utilities.key_lockable_map.html#nanover.utilities.key_lockable_map.KeyLockableMap.get"><code class="docutils literal notranslate"><span class="pre">KeyLockableMap.get()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.utilities.key_lockable_map.html#nanover.utilities.key_lockable_map.KeyLockableMap.get_all"><code class="docutils literal notranslate"><span class="pre">KeyLockableMap.get_all()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.utilities.key_lockable_map.html#nanover.utilities.key_lockable_map.KeyLockableMap.lock_key"><code class="docutils literal notranslate"><span class="pre">KeyLockableMap.lock_key()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.utilities.key_lockable_map.html#nanover.utilities.key_lockable_map.KeyLockableMap.player_can_lock_key"><code class="docutils literal notranslate"><span class="pre">KeyLockableMap.player_can_lock_key()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.utilities.key_lockable_map.html#nanover.utilities.key_lockable_map.KeyLockableMap.release_key"><code class="docutils literal notranslate"><span class="pre">KeyLockableMap.release_key()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.utilities.key_lockable_map.html#nanover.utilities.key_lockable_map.KeyLockableMap.remove_owner"><code class="docutils literal notranslate"><span class="pre">KeyLockableMap.remove_owner()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.utilities.key_lockable_map.html#nanover.utilities.key_lockable_map.KeyLockableMap.set"><code class="docutils literal notranslate"><span class="pre">KeyLockableMap.set()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.utilities.key_lockable_map.html#nanover.utilities.key_lockable_map.KeyLockableMap.set_no_replace"><code class="docutils literal notranslate"><span class="pre">KeyLockableMap.set_no_replace()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nanover.utilities.key_lockable_map.html#nanover.utilities.key_lockable_map.ResourceLockedError"><code class="docutils literal notranslate"><span class="pre">ResourceLockedError</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nanover.utilities.protobuf_utilities.html">nanover.utilities.protobuf_utilities module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nanover.utilities.protobuf_utilities.html#nanover.utilities.protobuf_utilities.deep_copy_serializable_dict"><code class="docutils literal notranslate"><span class="pre">deep_copy_serializable_dict()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="nanover.utilities.protobuf_utilities.html#nanover.utilities.protobuf_utilities.dict_to_struct"><code class="docutils literal notranslate"><span class="pre">dict_to_struct()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="nanover.utilities.protobuf_utilities.html#nanover.utilities.protobuf_utilities.list_value_to_list"><code class="docutils literal notranslate"><span class="pre">list_value_to_list()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="nanover.utilities.protobuf_utilities.html#nanover.utilities.protobuf_utilities.object_to_value"><code class="docutils literal notranslate"><span class="pre">object_to_value()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="nanover.utilities.protobuf_utilities.html#nanover.utilities.protobuf_utilities.struct_to_dict"><code class="docutils literal notranslate"><span class="pre">struct_to_dict()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="nanover.utilities.protobuf_utilities.html#nanover.utilities.protobuf_utilities.value_to_object"><code class="docutils literal notranslate"><span class="pre">value_to_object()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nanover.utilities.request_queues.html">nanover.utilities.request_queues module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nanover.utilities.request_queues.html#nanover.utilities.request_queues.DictOfQueues"><code class="docutils literal notranslate"><span class="pre">DictOfQueues</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nanover.utilities.request_queues.html#nanover.utilities.request_queues.DictOfQueues.iter_queues"><code class="docutils literal notranslate"><span class="pre">DictOfQueues.iter_queues()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.utilities.request_queues.html#nanover.utilities.request_queues.DictOfQueues.iter_queues_items"><code class="docutils literal notranslate"><span class="pre">DictOfQueues.iter_queues_items()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.utilities.request_queues.html#nanover.utilities.request_queues.DictOfQueues.lock"><code class="docutils literal notranslate"><span class="pre">DictOfQueues.lock</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.utilities.request_queues.html#nanover.utilities.request_queues.DictOfQueues.one_queue"><code class="docutils literal notranslate"><span class="pre">DictOfQueues.one_queue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.utilities.request_queues.html#nanover.utilities.request_queues.DictOfQueues.queue_max_size"><code class="docutils literal notranslate"><span class="pre">DictOfQueues.queue_max_size</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.utilities.request_queues.html#nanover.utilities.request_queues.DictOfQueues.queues"><code class="docutils literal notranslate"><span class="pre">DictOfQueues.queues</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nanover.utilities.request_queues.html#nanover.utilities.request_queues.GetFrameResponseAggregatingQueue"><code class="docutils literal notranslate"><span class="pre">GetFrameResponseAggregatingQueue</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nanover.utilities.request_queues.html#nanover.utilities.request_queues.GetFrameResponseAggregatingQueue.put"><code class="docutils literal notranslate"><span class="pre">GetFrameResponseAggregatingQueue.put()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nanover.utilities.request_queues.html#nanover.utilities.request_queues.SingleItemQueue"><code class="docutils literal notranslate"><span class="pre">SingleItemQueue</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nanover.utilities.request_queues.html#nanover.utilities.request_queues.SingleItemQueue.get"><code class="docutils literal notranslate"><span class="pre">SingleItemQueue.get()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.utilities.request_queues.html#nanover.utilities.request_queues.SingleItemQueue.put"><code class="docutils literal notranslate"><span class="pre">SingleItemQueue.put()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nanover.utilities.timing.html">nanover.utilities.timing module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nanover.utilities.timing.html#nanover.utilities.timing.VariableIntervalGenerator"><code class="docutils literal notranslate"><span class="pre">VariableIntervalGenerator</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nanover.utilities.timing.html#nanover.utilities.timing.VariableIntervalGenerator.interval"><code class="docutils literal notranslate"><span class="pre">VariableIntervalGenerator.interval</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.utilities.timing.html#nanover.utilities.timing.VariableIntervalGenerator.yield_interval"><code class="docutils literal notranslate"><span class="pre">VariableIntervalGenerator.yield_interval()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nanover.utilities.timing.html#nanover.utilities.timing.yield_interval"><code class="docutils literal notranslate"><span class="pre">yield_interval()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="nanover.trajectory.frame_server.html" class="btn btn-neutral float-left" title="nanover.trajectory.frame_server module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="nanover.utilities.change_buffers.html" class="btn btn-neutral float-right" title="nanover.utilities.change_buffers module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright University of Bristol, Intangible Realities Lab (https://www.intangiblerealitieslab.org), University of Santiago de Compostella and other contributors.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

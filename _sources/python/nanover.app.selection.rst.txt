@@ -1,0 +1,7 @@
+nanover.app.selection module
+============================
+
+.. automodule:: nanover.app.selection
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,7 @@
+nanover.utilities.change\_buffers module
+========================================
+
+.. automodule:: nanover.utilities.change_buffers
+   :members:
+   :undoc-members:
+   :show-inheritance:

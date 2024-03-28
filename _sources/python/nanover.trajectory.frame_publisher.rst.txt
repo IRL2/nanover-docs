@@ -1,0 +1,7 @@
+nanover.trajectory.frame\_publisher module
+==========================================
+
+.. automodule:: nanover.trajectory.frame_publisher
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,17 @@
+nanover.mdanalysis package
+==========================
+
+.. automodule:: nanover.mdanalysis
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   nanover.mdanalysis.converter
+   nanover.mdanalysis.recordings
+   nanover.mdanalysis.universe

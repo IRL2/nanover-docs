@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>nanover.ase.openmm.runner module &mdash; NanoVer 2018.1.8 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=04c572cc"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="nanover.ase.converter module" href="nanover.ase.converter.html" />
+    <link rel="prev" title="nanover.ase.openmm.cli module" href="nanover.ase.openmm.cli.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            NanoVer
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation &amp; Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/concepts.html">Concepts</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">nanover</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="nanover.html">nanover namespace</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="nanover.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="nanover.app.html">nanover.app package</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="nanover.ase.html">nanover.ase package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.command.html">nanover.command package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.core.html">nanover.core package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.essd.html">nanover.essd package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.imd.html">nanover.imd package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.lammps.html">nanover.lammps package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.mdanalysis.html">nanover.mdanalysis package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.openmm.html">nanover.openmm package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.protocol.html">nanover.protocol namespace</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.state.html">nanover.state namespace</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.trajectory.html">nanover.trajectory package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.utilities.html">nanover.utilities package</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">NanoVer</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">nanover</a></li>
+          <li class="breadcrumb-item"><a href="nanover.html">nanover namespace</a></li>
+          <li class="breadcrumb-item"><a href="nanover.ase.html">nanover.ase package</a></li>
+          <li class="breadcrumb-item"><a href="nanover.ase.openmm.html">nanover.ase.openmm package</a></li>
+      <li class="breadcrumb-item active">nanover.ase.openmm.runner module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/python/nanover.ase.openmm.runner.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-nanover.ase.openmm.runner">
+<span id="nanover-ase-openmm-runner-module"></span><h1>nanover.ase.openmm.runner module<a class="headerlink" href="#module-nanover.ase.openmm.runner" title="Link to this heading"></a></h1>
+<p>Interactive molecular dynamics runner for ASE with OpenMM.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="nanover.ase.openmm.runner.ASEOpenMMRunner">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nanover.ase.openmm.runner.</span></span><span class="sig-name descname"><span class="pre">ASEOpenMMRunner</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">simulation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Simulation</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">imd_params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#nanover.ase.openmm.runner.ImdParams" title="nanover.ase.openmm.runner.ImdParams"><span class="pre">ImdParams</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logging_params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#nanover.ase.openmm.runner.LoggingParams" title="nanover.ase.openmm.runner.LoggingParams"><span class="pre">LoggingParams</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.ase.openmm.runner.ASEOpenMMRunner" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="nanover.app.runner.html#nanover.app.runner.NanoverRunner" title="nanover.app.runner.NanoverRunner"><code class="xref py py-class docutils literal notranslate"><span class="pre">NanoverRunner</span></code></a></p>
+<p>A wrapper class for running an interactive OpenMM simulation with ASE.</p>
+<p>:param simulation OpenMM simulation to run interactively.
+:param params IMD parameters to tune the server.
+:param logging_params Parameters for logging the trajectory of the simulation.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="nanover.ase.openmm.runner.ASEOpenMMRunner.app_server">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">app_server</span></span><a class="headerlink" href="#nanover.ase.openmm.runner.ASEOpenMMRunner.app_server" title="Link to this definition"></a></dt>
+<dd><p>Get the underlying app of the runner.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.ase.openmm.runner.ASEOpenMMRunner.close">
+<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nanover.ase.openmm.runner.ASEOpenMMRunner.close" title="Link to this definition"></a></dt>
+<dd><p>Closes the connection and stops the dynamics.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nanover.ase.openmm.runner.ASEOpenMMRunner.discovery_port">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">discovery_port</span></span><a class="headerlink" href="#nanover.ase.openmm.runner.ASEOpenMMRunner.discovery_port" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nanover.ase.openmm.runner.ASEOpenMMRunner.dynamics">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dynamics</span></span><a class="headerlink" href="#nanover.ase.openmm.runner.ASEOpenMMRunner.dynamics" title="Link to this definition"></a></dt>
+<dd><p>Gets the ASE <code class="xref py py-class docutils literal notranslate"><span class="pre">MolecularDynamics</span></code> object that is running the dynamics.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The ASE molecular dynamics object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nanover.ase.openmm.runner.ASEOpenMMRunner.dynamics_interval">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dynamics_interval</span></span><a class="headerlink" href="#nanover.ase.openmm.runner.ASEOpenMMRunner.dynamics_interval" title="Link to this definition"></a></dt>
+<dd><p>Minimum interval, in seconds,  between frames sent to the frame publisher.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nanover.ase.openmm.runner.ASEOpenMMRunner.frame_interval">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">frame_interval</span></span><a class="headerlink" href="#nanover.ase.openmm.runner.ASEOpenMMRunner.frame_interval" title="Link to this definition"></a></dt>
+<dd><p>Gets the interval at which frames are sent, in steps.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The frame interval, in steps.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.ase.openmm.runner.ASEOpenMMRunner.from_xml">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_xml</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">simulation_xml</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#nanover.ase.openmm.runner.ImdParams" title="nanover.ase.openmm.runner.ImdParams"><span class="pre">ImdParams</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logging_params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#nanover.ase.openmm.runner.LoggingParams" title="nanover.ase.openmm.runner.LoggingParams"><span class="pre">LoggingParams</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.ase.openmm.runner.ASEOpenMMRunner.from_xml" title="Link to this definition"></a></dt>
+<dd><p>Initialises a <a class="reference internal" href="#nanover.ase.openmm.runner.OpenMMIMDRunner" title="nanover.ase.openmm.runner.OpenMMIMDRunner"><code class="xref py py-class docutils literal notranslate"><span class="pre">OpenMMIMDRunner</span></code></a> from a simulation XML file
+serialised with <a href="#id1"><span class="problematic" id="id2">:fun:`serializer.serialize_simulation`</span></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>simulation_xml</strong> – Path to XML file.</p></li>
+<li><p><strong>params</strong> – The :class: ImdParams to run the server with.</p></li>
+<li><p><strong>logging_params</strong> – The :class:LoggingParams to set up trajectory logging with.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>An OpenMM simulation runner.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nanover.ase.openmm.runner.ASEOpenMMRunner.is_running">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">is_running</span></span><a class="headerlink" href="#nanover.ase.openmm.runner.ASEOpenMMRunner.is_running" title="Link to this definition"></a></dt>
+<dd><p>Whether or not the molecular dynamics is currently running on a background thread or not.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><cite>True</cite>, if molecular dynamics is running, <cite>False</cite> otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.ase.openmm.runner.ASEOpenMMRunner.pause">
+<span class="sig-name descname"><span class="pre">pause</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nanover.ase.openmm.runner.ASEOpenMMRunner.pause" title="Link to this definition"></a></dt>
+<dd><p>Pause the simulation, by cancelling any current run.</p>
+<p>This method is called whenever a client runs the pause command,
+described in :mod:nanover.trajectory.frame_server.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.ase.openmm.runner.ASEOpenMMRunner.play">
+<span class="sig-name descname"><span class="pre">play</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nanover.ase.openmm.runner.ASEOpenMMRunner.play" title="Link to this definition"></a></dt>
+<dd><p>Run the simulation indefinitely</p>
+<p>Cancels any current run and then begins running the simulation on a background thread.</p>
+<p>This method is called whenever a client runs the play command,
+described in :mod:nanover.trajectory.frame_server.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.ase.openmm.runner.ASEOpenMMRunner.reset">
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nanover.ase.openmm.runner.ASEOpenMMRunner.reset" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.ase.openmm.runner.ASEOpenMMRunner.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">steps</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">block</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reset_energy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.ase.openmm.runner.ASEOpenMMRunner.run" title="Link to this definition"></a></dt>
+<dd><p>Runs the molecular dynamics.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>steps</strong> – If passed, will run the given number of steps, otherwise
+will run forever on a background thread and immediately return.</p></li>
+<li><p><strong>block</strong> – If <code class="docutils literal notranslate"><span class="pre">False</span></code> run in a separate thread. By default, “block”
+is <code class="docutils literal notranslate"><span class="pre">None</span></code>, which means it is automatically set to <code class="docutils literal notranslate"><span class="pre">True</span></code> if a
+number of steps is provided and to <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise.</p></li>
+<li><p><strong>reset_energy</strong> – Threshold of total energy in kJ/mol above which
+the simulation is reset to its initial conditions. If a value is
+provided, the simulation is reset if the total energy is greater
+than this value, or if the total energy is <cite>nan</cite> or infinite. If
+<code class="docutils literal notranslate"><span class="pre">None</span></code> is provided instead, then the simulation will not be
+automatically reset.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nanover.ase.openmm.runner.ASEOpenMMRunner.running_discovery">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">running_discovery</span></span><a class="headerlink" href="#nanover.ase.openmm.runner.ASEOpenMMRunner.running_discovery" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.ase.openmm.runner.ASEOpenMMRunner.step">
+<span class="sig-name descname"><span class="pre">step</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nanover.ase.openmm.runner.ASEOpenMMRunner.step" title="Link to this definition"></a></dt>
+<dd><p>Take a single step of the simulation and stop.</p>
+<p>This method is called whenever a client runs the step command,
+described in :mod:nanover.trajectory.frame_server.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nanover.ase.openmm.runner.ASEOpenMMRunner.time_step">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">time_step</span></span><a class="headerlink" href="#nanover.ase.openmm.runner.ASEOpenMMRunner.time_step" title="Link to this definition"></a></dt>
+<dd><p>Gets the time step of the simulation, in femtoseconds.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The time step of the simulation.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nanover.ase.openmm.runner.ASEOpenMMRunner.verbose">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">verbose</span></span><a class="headerlink" href="#nanover.ase.openmm.runner.ASEOpenMMRunner.verbose" title="Link to this definition"></a></dt>
+<dd><p>Whether this OpenMM runner is set to run in verbose mode. If it is, it
+will print state information every 100 steps using an :class: MDLogger.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><cite>True</cite> if set to run verbosely, <cite>False</cite> otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="nanover.ase.openmm.runner.ImdParams">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nanover.ase.openmm.runner.</span></span><span class="sig-name descname"><span class="pre">ImdParams</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">address</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frame_interval</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_step</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">walls</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">discovery</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">discovery_port</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">platform</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.ase.openmm.runner.ImdParams" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class representing parameters for IMD runners.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nanover.ase.openmm.runner.ImdParams.address">
+<span class="sig-name descname"><span class="pre">address</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#nanover.ase.openmm.runner.ImdParams.address" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nanover.ase.openmm.runner.ImdParams.discovery">
+<span class="sig-name descname"><span class="pre">discovery</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#nanover.ase.openmm.runner.ImdParams.discovery" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nanover.ase.openmm.runner.ImdParams.discovery_port">
+<span class="sig-name descname"><span class="pre">discovery_port</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#nanover.ase.openmm.runner.ImdParams.discovery_port" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nanover.ase.openmm.runner.ImdParams.frame_interval">
+<span class="sig-name descname"><span class="pre">frame_interval</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#nanover.ase.openmm.runner.ImdParams.frame_interval" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nanover.ase.openmm.runner.ImdParams.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#nanover.ase.openmm.runner.ImdParams.name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nanover.ase.openmm.runner.ImdParams.platform">
+<span class="sig-name descname"><span class="pre">platform</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#nanover.ase.openmm.runner.ImdParams.platform" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nanover.ase.openmm.runner.ImdParams.port">
+<span class="sig-name descname"><span class="pre">port</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#nanover.ase.openmm.runner.ImdParams.port" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nanover.ase.openmm.runner.ImdParams.time_step">
+<span class="sig-name descname"><span class="pre">time_step</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#nanover.ase.openmm.runner.ImdParams.time_step" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nanover.ase.openmm.runner.ImdParams.verbose">
+<span class="sig-name descname"><span class="pre">verbose</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#nanover.ase.openmm.runner.ImdParams.verbose" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nanover.ase.openmm.runner.ImdParams.walls">
+<span class="sig-name descname"><span class="pre">walls</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#nanover.ase.openmm.runner.ImdParams.walls" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="nanover.ase.openmm.runner.LoggingParams">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nanover.ase.openmm.runner.</span></span><span class="sig-name descname"><span class="pre">LoggingParams</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trajectory_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">write_interval</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.ase.openmm.runner.LoggingParams" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class representing parameters for trajectory logging</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nanover.ase.openmm.runner.LoggingParams.trajectory_file">
+<span class="sig-name descname"><span class="pre">trajectory_file</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#nanover.ase.openmm.runner.LoggingParams.trajectory_file" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nanover.ase.openmm.runner.LoggingParams.write_interval">
+<span class="sig-name descname"><span class="pre">write_interval</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#nanover.ase.openmm.runner.LoggingParams.write_interval" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="nanover.ase.openmm.runner.OpenMMIMDRunner">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nanover.ase.openmm.runner.</span></span><span class="sig-name descname"><span class="pre">OpenMMIMDRunner</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.ase.openmm.runner.OpenMMIMDRunner" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nanover.ase.openmm.runner.ASEOpenMMRunner" title="nanover.ase.openmm.runner.ASEOpenMMRunner"><code class="xref py py-class docutils literal notranslate"><span class="pre">ASEOpenMMRunner</span></code></a></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="nanover.ase.openmm.runner.TrajectoryLoggerInfo">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nanover.ase.openmm.runner.</span></span><span class="sig-name descname"><span class="pre">TrajectoryLoggerInfo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trajectory_logger</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="nanover.ase.trajectory_logger.html#nanover.ase.trajectory_logger.TrajectoryLogger" title="nanover.ase.trajectory_logger.TrajectoryLogger"><span class="pre">TrajectoryLogger</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#nanover.ase.openmm.runner.LoggingParams" title="nanover.ase.openmm.runner.LoggingParams"><span class="pre">LoggingParams</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.ase.openmm.runner.TrajectoryLoggerInfo" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class giving a view into an ASE MD runners logger parameters.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>trajectory_logger</strong> – Trajectory logger performing the logging.</p></li>
+<li><p><strong>params</strong> – Logging parameters.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="nanover.ase.openmm.runner.TrajectoryLoggerInfo.base_trajectory_path">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">base_trajectory_path</span></span><a class="headerlink" href="#nanover.ase.openmm.runner.TrajectoryLoggerInfo.base_trajectory_path" title="Link to this definition"></a></dt>
+<dd><p>The base trajectory path, without timestamps.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The base trajectory path.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.ase.openmm.runner.TrajectoryLoggerInfo.close">
+<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nanover.ase.openmm.runner.TrajectoryLoggerInfo.close" title="Link to this definition"></a></dt>
+<dd><p>Close the log.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nanover.ase.openmm.runner.TrajectoryLoggerInfo.trajectory_path">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">trajectory_path</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#nanover.ase.openmm.runner.TrajectoryLoggerInfo.trajectory_path" title="Link to this definition"></a></dt>
+<dd><p>The current trajectory path being outputted to.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The current trajectory path.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nanover.ase.openmm.runner.TrajectoryLoggerInfo.write_interval">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">write_interval</span></span><a class="headerlink" href="#nanover.ase.openmm.runner.TrajectoryLoggerInfo.write_interval" title="Link to this definition"></a></dt>
+<dd><p>The interval at which log writing is occurring.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The interval at which log writing is occurring, in steps.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="nanover.ase.openmm.runner.openmm_ase_frame_adaptor">
+<span class="sig-prename descclassname"><span class="pre">nanover.ase.openmm.runner.</span></span><span class="sig-name descname"><span class="pre">openmm_ase_frame_adaptor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ase_atoms</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Atoms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frame_publisher</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="nanover.trajectory.frame_publisher.html#nanover.trajectory.frame_publisher.FramePublisher" title="nanover.trajectory.frame_publisher.FramePublisher"><span class="pre">FramePublisher</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.ase.openmm.runner.openmm_ase_frame_adaptor" title="Link to this definition"></a></dt>
+<dd><p>Generates and sends frames for a simulation using an :class: OpenMMCalculator.</p>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="nanover.ase.openmm.cli.html" class="btn btn-neutral float-left" title="nanover.ase.openmm.cli module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="nanover.ase.converter.html" class="btn btn-neutral float-right" title="nanover.ase.converter module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright University of Bristol, Intangible Realities Lab (https://www.intangiblerealitieslab.org), University of Santiago de Compostella and other contributors.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,7 @@
+nanover.core.nanover\_client module
+===================================
+
+.. automodule:: nanover.core.nanover_client
+   :members:
+   :undoc-members:
+   :show-inheritance:

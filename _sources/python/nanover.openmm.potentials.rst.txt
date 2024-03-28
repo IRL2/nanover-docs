@@ -1,0 +1,7 @@
+nanover.openmm.potentials module
+================================
+
+.. automodule:: nanover.openmm.potentials
+   :members:
+   :undoc-members:
+   :show-inheritance:

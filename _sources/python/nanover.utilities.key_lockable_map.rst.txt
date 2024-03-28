@@ -1,0 +1,7 @@
+nanover.utilities.key\_lockable\_map module
+===========================================
+
+.. automodule:: nanover.utilities.key_lockable_map
+   :members:
+   :undoc-members:
+   :show-inheritance:
