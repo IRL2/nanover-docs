@@ -1,0 +1,7 @@
+nanover.ase.null\_calculator module
+===================================
+
+.. automodule:: nanover.ase.null_calculator
+   :members:
+   :undoc-members:
+   :show-inheritance:

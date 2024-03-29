@@ -1,0 +1,7 @@
+nanover.app.multiuser module
+============================
+
+.. automodule:: nanover.app.multiuser
+   :members:
+   :undoc-members:
+   :show-inheritance:

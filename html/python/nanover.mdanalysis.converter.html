@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>nanover.mdanalysis.converter module &mdash; NanoVer 2018.1.8 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=04c572cc"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="nanover.mdanalysis.recordings module" href="nanover.mdanalysis.recordings.html" />
+    <link rel="prev" title="nanover.mdanalysis package" href="nanover.mdanalysis.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            NanoVer
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation &amp; Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/concepts.html">Concepts</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">nanover</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="nanover.html">nanover namespace</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="nanover.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="nanover.app.html">nanover.app package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.ase.html">nanover.ase package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.command.html">nanover.command package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.core.html">nanover.core package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.essd.html">nanover.essd package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.imd.html">nanover.imd package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.lammps.html">nanover.lammps package</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="nanover.mdanalysis.html">nanover.mdanalysis package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.openmm.html">nanover.openmm package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.protocol.html">nanover.protocol namespace</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.state.html">nanover.state namespace</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.trajectory.html">nanover.trajectory package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.utilities.html">nanover.utilities package</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">NanoVer</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">nanover</a></li>
+          <li class="breadcrumb-item"><a href="nanover.html">nanover namespace</a></li>
+          <li class="breadcrumb-item"><a href="nanover.mdanalysis.html">nanover.mdanalysis package</a></li>
+      <li class="breadcrumb-item active">nanover.mdanalysis.converter module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/python/nanover.mdanalysis.converter.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-nanover.mdanalysis.converter">
+<span id="nanover-mdanalysis-converter-module"></span><h1>nanover.mdanalysis.converter module<a class="headerlink" href="#module-nanover.mdanalysis.converter" title="Link to this heading"></a></h1>
+<p>Module for performing conversions between MDAnalysis universes and NanoVer FrameData objects.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="nanover.mdanalysis.converter.FrameDataField">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nanover.mdanalysis.converter.</span></span><span class="sig-name descname"><span class="pre">FrameDataField</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">required</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.mdanalysis.converter.FrameDataField" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nanover.mdanalysis.converter.FrameDataField.key">
+<span class="sig-name descname"><span class="pre">key</span></span><a class="headerlink" href="#nanover.mdanalysis.converter.FrameDataField.key" title="Link to this definition"></a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nanover.mdanalysis.converter.FrameDataField.required">
+<span class="sig-name descname"><span class="pre">required</span></span><a class="headerlink" href="#nanover.mdanalysis.converter.FrameDataField.required" title="Link to this definition"></a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="nanover.mdanalysis.converter.FrameDataFieldConversion">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nanover.mdanalysis.converter.</span></span><span class="sig-name descname"><span class="pre">FrameDataFieldConversion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">converter</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.mdanalysis.converter.FrameDataFieldConversion" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nanover.mdanalysis.converter.FrameDataFieldConversion.converter">
+<span class="sig-name descname"><span class="pre">converter</span></span><a class="headerlink" href="#nanover.mdanalysis.converter.FrameDataFieldConversion.converter" title="Link to this definition"></a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nanover.mdanalysis.converter.FrameDataFieldConversion.key">
+<span class="sig-name descname"><span class="pre">key</span></span><a class="headerlink" href="#nanover.mdanalysis.converter.FrameDataFieldConversion.key" title="Link to this definition"></a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="nanover.mdanalysis.converter.add_frame_positions_to_mda">
+<span class="sig-prename descclassname"><span class="pre">nanover.mdanalysis.converter.</span></span><span class="sig-name descname"><span class="pre">add_frame_positions_to_mda</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">u</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Universe</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frame</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.FrameData" title="nanover.trajectory.frame_data.FrameData"><span class="pre">FrameData</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.mdanalysis.converter.add_frame_positions_to_mda" title="Link to this definition"></a></dt>
+<dd><p>Updates the positions in an MDAnalysis <code class="xref py py-class docutils literal notranslate"><span class="pre">Universe</span></code> with those from the given frame.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>u</strong> – MDAnalysis <code class="xref py py-class docutils literal notranslate"><span class="pre">Universe</span></code> to set positions of.</p></li>
+<li><p><strong>frame</strong> – NanoVer <code class="xref py py-class docutils literal notranslate"><span class="pre">FrameData</span></code> from which to extract positions.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="nanover.mdanalysis.converter.add_frame_topology_to_mda">
+<span class="sig-prename descclassname"><span class="pre">nanover.mdanalysis.converter.</span></span><span class="sig-name descname"><span class="pre">add_frame_topology_to_mda</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">u</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Universe</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frame</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.FrameData" title="nanover.trajectory.frame_data.FrameData"><span class="pre">FrameData</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.mdanalysis.converter.add_frame_topology_to_mda" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="nanover.mdanalysis.converter.add_mda_positions_to_frame_data">
+<span class="sig-prename descclassname"><span class="pre">nanover.mdanalysis.converter.</span></span><span class="sig-name descname"><span class="pre">add_mda_positions_to_frame_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">u</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Universe</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frame_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.FrameData" title="nanover.trajectory.frame_data.FrameData"><span class="pre">FrameData</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.mdanalysis.converter.add_mda_positions_to_frame_data" title="Link to this definition"></a></dt>
+<dd><p>Adds the positions in a MDAnalysis universe to the frame data, if they exist.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>u</strong> – MDAnalysis <code class="xref py py-class docutils literal notranslate"><span class="pre">Universe</span></code>.</p></li>
+<li><p><strong>frame_data</strong> – NanoVer <code class="xref py py-class docutils literal notranslate"><span class="pre">FrameData</span></code> to add to.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.MissingDataError" title="nanover.trajectory.frame_data.MissingDataError"><strong>MissingDataError</strong></a> – if no positions exist in the universe.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="nanover.mdanalysis.converter.add_mda_topology_to_frame_data">
+<span class="sig-prename descclassname"><span class="pre">nanover.mdanalysis.converter.</span></span><span class="sig-name descname"><span class="pre">add_mda_topology_to_frame_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">u</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frame_data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.mdanalysis.converter.add_mda_topology_to_frame_data" title="Link to this definition"></a></dt>
+<dd><p>Adds available topology information from an MDAnalysis Universe to a FrameData.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>u</strong> – MDAnalysis <code class="xref py py-class docutils literal notranslate"><span class="pre">Universe</span></code>.</p></li>
+<li><p><strong>frame_data</strong> – <code class="xref py py-class docutils literal notranslate"><span class="pre">FrameData</span></code> to add to.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="nanover.mdanalysis.converter.frame_data_to_mdanalysis">
+<span class="sig-prename descclassname"><span class="pre">nanover.mdanalysis.converter.</span></span><span class="sig-name descname"><span class="pre">frame_data_to_mdanalysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frame</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.FrameData" title="nanover.trajectory.frame_data.FrameData"><span class="pre">FrameData</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Universe</span></span></span><a class="headerlink" href="#nanover.mdanalysis.converter.frame_data_to_mdanalysis" title="Link to this definition"></a></dt>
+<dd><p>Converts from a NanoVer <code class="xref py py-class docutils literal notranslate"><span class="pre">FrameData</span></code> object to an MDAnalysis universe.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>frame</strong> – NanoVer <code class="xref py py-class docutils literal notranslate"><span class="pre">FrameData</span></code> object.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>MDAnalysis <code class="xref py py-class docutils literal notranslate"><span class="pre">Universe</span></code> constructed from the given FrameData.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="nanover.mdanalysis.converter.mdanalysis_to_frame_data">
+<span class="sig-prename descclassname"><span class="pre">nanover.mdanalysis.converter.</span></span><span class="sig-name descname"><span class="pre">mdanalysis_to_frame_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">u</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Universe</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">topology</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">positions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.FrameData" title="nanover.trajectory.frame_data.FrameData"><span class="pre">FrameData</span></a></span></span><a class="headerlink" href="#nanover.mdanalysis.converter.mdanalysis_to_frame_data" title="Link to this definition"></a></dt>
+<dd><p>Converts from an MDAnalysis universe to NanoVer FrameData object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>u</strong> – MDAnalysis <code class="xref py py-class docutils literal notranslate"><span class="pre">Universe</span></code>.</p></li>
+<li><p><strong>topology</strong> – Whether to include topology.</p></li>
+<li><p><strong>positions</strong> – Whether to include positions.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">FrameData</span></code> constructed from MDAnalysis universe.</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.MissingDataError" title="nanover.trajectory.frame_data.MissingDataError"><strong>MissingDataError</strong></a> – if no positions exist in the MDAnalysis universe,
+and positions are specified.</p>
+</dd>
+</dl>
+<p>Topological information consists any available information such as bonds,
+residue names, residue ids, atom names, chain names, residue index and
+chain indexes</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="nanover.mdanalysis.converter.nullable_int">
+<span class="sig-prename descclassname"><span class="pre">nanover.mdanalysis.converter.</span></span><span class="sig-name descname"><span class="pre">nullable_int</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.mdanalysis.converter.nullable_int" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="nanover.mdanalysis.html" class="btn btn-neutral float-left" title="nanover.mdanalysis package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="nanover.mdanalysis.recordings.html" class="btn btn-neutral float-right" title="nanover.mdanalysis.recordings module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright University of Bristol, Intangible Realities Lab (https://www.intangiblerealitieslab.org), University of Santiago de Compostella and other contributors.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,7 @@
+nanover.protocol.trajectory.frame\_pb2 module
+=============================================
+
+.. automodule:: nanover.protocol.trajectory.frame_pb2
+   :members:
+   :undoc-members:
+   :show-inheritance:

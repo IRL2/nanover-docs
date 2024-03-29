@@ -1,0 +1,7 @@
+nanover.protocol.trajectory.trajectory\_service\_pb2\_grpc module
+=================================================================
+
+.. automodule:: nanover.protocol.trajectory.trajectory_service_pb2_grpc
+   :members:
+   :undoc-members:
+   :show-inheritance:

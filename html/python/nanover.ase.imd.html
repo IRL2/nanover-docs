@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>nanover.ase.imd module &mdash; NanoVer 2018.1.8 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=04c572cc"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="nanover.ase.imd_calculator module" href="nanover.ase.imd_calculator.html" />
+    <link rel="prev" title="nanover.ase.frame_adaptor module" href="nanover.ase.frame_adaptor.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            NanoVer
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation &amp; Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/concepts.html">Concepts</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">nanover</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="nanover.html">nanover namespace</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="nanover.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="nanover.app.html">nanover.app package</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="nanover.ase.html">nanover.ase package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.command.html">nanover.command package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.core.html">nanover.core package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.essd.html">nanover.essd package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.imd.html">nanover.imd package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.lammps.html">nanover.lammps package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.mdanalysis.html">nanover.mdanalysis package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.openmm.html">nanover.openmm package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.protocol.html">nanover.protocol namespace</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.state.html">nanover.state namespace</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.trajectory.html">nanover.trajectory package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.utilities.html">nanover.utilities package</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">NanoVer</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">nanover</a></li>
+          <li class="breadcrumb-item"><a href="nanover.html">nanover namespace</a></li>
+          <li class="breadcrumb-item"><a href="nanover.ase.html">nanover.ase package</a></li>
+      <li class="breadcrumb-item active">nanover.ase.imd module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/python/nanover.ase.imd.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-nanover.ase.imd">
+<span id="nanover-ase-imd-module"></span><h1>nanover.ase.imd module<a class="headerlink" href="#module-nanover.ase.imd" title="Link to this heading"></a></h1>
+<p>Interactive molecular dynamics server for use with an ASE molecular dynamics simulation.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="nanover.ase.imd.NanoverASEDynamics">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nanover.ase.imd.</span></span><span class="sig-name descname"><span class="pre">NanoverASEDynamics</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nanover_imd_app</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="nanover.app.imd_app.html#nanover.app.imd_app.NanoverImdApplication" title="nanover.app.imd_app.NanoverImdApplication"><span class="pre">NanoverImdApplication</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">dynamics</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">MolecularDynamics</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frame_method</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frame_interval</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.ase.imd.NanoverASEDynamics" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Interactive molecular dynamics adaptor for use with ASE.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nanover_imd_app</strong> – A <code class="xref py py-class docutils literal notranslate"><span class="pre">NanoverImdApplication</span></code> to pass frames to and
+read forces from.</p></li>
+<li><p><strong>dynamics</strong> – A prepared ASE molecular dynamics object to run,
+with IMD attached.</p></li>
+<li><p><strong>frame_interval</strong> – Interval, in steps, at which to publish frames.</p></li>
+<li><p><strong>frame_method</strong> – Method to use to generate frames, given the the ASE
+<code class="xref py py-class docutils literal notranslate"><span class="pre">Atoms</span></code> and a <code class="xref py py-class docutils literal notranslate"><span class="pre">FramePublisher</span></code>. The signature of the
+callback is expected to be <code class="docutils literal notranslate"><span class="pre">frame_method(ase_atoms,</span> <span class="pre">frame_publisher)</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+<section id="example">
+<h2>Example<a class="headerlink" href="#example" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">ase.calculators.emt</span> <span class="kn">import</span> <span class="n">EMT</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">ase.lattice.cubic</span> <span class="kn">import</span> <span class="n">FaceCenteredCubic</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">atoms</span> <span class="o">=</span> <span class="n">FaceCenteredCubic</span><span class="p">(</span><span class="n">directions</span><span class="o">=</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]],</span> <span class="n">symbol</span><span class="o">=</span><span class="s2">&quot;Cu&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">pbc</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">atoms</span><span class="o">.</span><span class="n">calc</span> <span class="o">=</span> <span class="n">EMT</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ase_dynamics</span> <span class="o">=</span> <span class="n">Langevin</span><span class="p">(</span><span class="n">atoms</span><span class="p">,</span> <span class="n">timestep</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">temperature_K</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">friction</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">NanoverASEDynamics</span><span class="o">.</span><span class="n">basic_imd</span><span class="p">(</span><span class="n">ase_dynamics</span><span class="p">)</span> <span class="k">as</span> <span class="n">sim</span><span class="p">:</span> <span class="c1"># run basic NanoVer server</span>
+<span class="gp">...</span>
+<span class="gp">... </span>    <span class="k">with</span> <span class="n">NanoverImdClient</span><span class="o">.</span><span class="n">autoconnect</span><span class="p">()</span> <span class="k">as</span> <span class="n">client</span><span class="p">:</span> <span class="c1"># connect an iMD client.</span>
+<span class="gp">... </span>        <span class="n">sim</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="c1"># run some dynamics</span>
+<span class="gp">... </span>        <span class="n">client</span><span class="o">.</span><span class="n">first_frame</span><span class="o">.</span><span class="n">particle_count</span> <span class="c1"># the client will have received some MD data!</span>
+<span class="go">32</span>
+</pre></div>
+</div>
+<dl class="py property">
+<dt class="sig sig-object py" id="nanover.ase.imd.NanoverASEDynamics.address">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">address</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#nanover.ase.imd.NanoverASEDynamics.address" title="Link to this definition"></a></dt>
+<dd><p>The address of the NanoVer server.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nanover.ase.imd.NanoverASEDynamics.atoms">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">atoms</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Atoms</span></em><a class="headerlink" href="#nanover.ase.imd.NanoverASEDynamics.atoms" title="Link to this definition"></a></dt>
+<dd><p>The atoms in the MD system.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ASE atoms.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.ase.imd.NanoverASEDynamics.basic_imd">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">basic_imd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dynamics</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">MolecularDynamics</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">address</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.ase.imd.NanoverASEDynamics.basic_imd" title="Link to this definition"></a></dt>
+<dd><p>Initialises basic interactive molecular dynamics running a NanoVer server
+at the given address and port.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dynamics</strong> – Molecular dynamics object to attach the server to.</p></li>
+<li><p><strong>address</strong> – Address to run the server at.</p></li>
+<li><p><strong>port</strong> – Port to run the server on.</p></li>
+<li><p><strong>kwargs</strong> – Key-word arguments to pass to the constructor of :class:~NanoverASEDynamics</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Instantiation of a :class:~NanoverASEDynamics configured with the given server parameters and dynamics.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.ase.imd.NanoverASEDynamics.cancel_run">
+<span class="sig-name descname"><span class="pre">cancel_run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wait</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.ase.imd.NanoverASEDynamics.cancel_run" title="Link to this definition"></a></dt>
+<dd><p>Cancel molecular dynamics that is running on a background thread.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>wait</strong> – Whether to block and wait for the molecular dynamics to
+halt before returning.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.ase.imd.NanoverASEDynamics.close">
+<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nanover.ase.imd.NanoverASEDynamics.close" title="Link to this definition"></a></dt>
+<dd><p>Cancels the molecular dynamics if it is running.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nanover.ase.imd.NanoverASEDynamics.dynamics_interval">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dynamics_interval</span></span><a class="headerlink" href="#nanover.ase.imd.NanoverASEDynamics.dynamics_interval" title="Link to this definition"></a></dt>
+<dd><p>Minimum interval, in seconds,  between frames sent to the frame publisher.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nanover.ase.imd.NanoverASEDynamics.internal_calculator">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">internal_calculator</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Calculator</span></em><a class="headerlink" href="#nanover.ase.imd.NanoverASEDynamics.internal_calculator" title="Link to this definition"></a></dt>
+<dd><p>The internal calculator being used to compute internal energy and forces.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ASE internal calculator.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nanover.ase.imd.NanoverASEDynamics.is_running">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">is_running</span></span><a class="headerlink" href="#nanover.ase.imd.NanoverASEDynamics.is_running" title="Link to this definition"></a></dt>
+<dd><p>Whether or not the molecular dynamics is currently running on a background thread or not.
+:return: <cite>True</cite>, if molecular dynamics is running, <cite>False</cite> otherwise.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nanover.ase.imd.NanoverASEDynamics.on_reset_listeners">
+<span class="sig-name descname"><span class="pre">on_reset_listeners</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#nanover.ase.imd.NanoverASEDynamics.on_reset_listeners" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.ase.imd.NanoverASEDynamics.pause">
+<span class="sig-name descname"><span class="pre">pause</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nanover.ase.imd.NanoverASEDynamics.pause" title="Link to this definition"></a></dt>
+<dd><p>Pause the simulation, by cancelling any current run.</p>
+<p>This method is called whenever a client runs the pause command,
+described in :mod:nanover.trajectory.frame_server.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.ase.imd.NanoverASEDynamics.play">
+<span class="sig-name descname"><span class="pre">play</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nanover.ase.imd.NanoverASEDynamics.play" title="Link to this definition"></a></dt>
+<dd><p>Run the simulation indefinitely</p>
+<p>Cancels any current run and then begins running the simulation on a background thread.</p>
+<p>This method is called whenever a client runs the play command,
+described in :mod:nanover.trajectory.frame_server.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nanover.ase.imd.NanoverASEDynamics.port">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">port</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#nanover.ase.imd.NanoverASEDynamics.port" title="Link to this definition"></a></dt>
+<dd><p>The port of the NanoVer server.
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.ase.imd.NanoverASEDynamics.reset">
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nanover.ase.imd.NanoverASEDynamics.reset" title="Link to this definition"></a></dt>
+<dd><p>Reset the positions, velocities, and box to their initial values.</p>
+<p>When this happens, the “on_reset” event is triggered and all the
+callbacks listed in the <a class="reference internal" href="#nanover.ase.imd.NanoverASEDynamics.on_reset_listeners" title="nanover.ase.imd.NanoverASEDynamics.on_reset_listeners"><code class="xref py py-attr docutils literal notranslate"><span class="pre">on_reset_listeners</span></code></a> are called. These
+callbacks are called without arguments and no return value is stored.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Only the positions, the velocities, and the simulation box are
+reset to their initial values. If a simulation needs any other
+state to be reset or updated, one should register a callback in
+the <a class="reference internal" href="#nanover.ase.imd.NanoverASEDynamics.on_reset_listeners" title="nanover.ase.imd.NanoverASEDynamics.on_reset_listeners"><code class="xref py py-attr docutils literal notranslate"><span class="pre">on_reset_listeners</span></code></a> list. The callbacks are executed
+in the order of the list, after the positions, velocities, and box
+are reset.</p>
+<p>Such callbacks also allow to modify the simulation at each reset.
+They would allow, for instance, to draw new velocities, or to
+place molecules differently.</p>
+</div>
+<p>This method is called whenever a client runs the reset command,
+described in <a class="reference internal" href="nanover.trajectory.frame_server.html#module-nanover.trajectory.frame_server" title="nanover.trajectory.frame_server"><code class="xref py py-mod docutils literal notranslate"><span class="pre">nanover.trajectory.frame_server</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.ase.imd.NanoverASEDynamics.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">steps</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">block</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reset_energy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.ase.imd.NanoverASEDynamics.run" title="Link to this definition"></a></dt>
+<dd><p>Runs the molecular dynamics.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>steps</strong> – If passed, will run the given number of steps, otherwise
+will run forever on a background thread and immediately return.</p></li>
+<li><p><strong>block</strong> – If <code class="docutils literal notranslate"><span class="pre">False</span></code>, run in a separate thread. By default, “block”
+is <code class="docutils literal notranslate"><span class="pre">None</span></code>, which means it is automatically set to <code class="docutils literal notranslate"><span class="pre">True</span></code> if a
+number of steps is provided and to <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise.</p></li>
+<li><p><strong>reset_energy</strong> – Threshold of total energy in kJ/mol above which
+the simulation is reset to its initial conditions. If a value is
+provided, the simulation is reset if the total energy is greater
+than this value, or if the total energy is <cite>nan</cite> or infinite. If
+<code class="docutils literal notranslate"><span class="pre">None</span></code> is provided instead, then the simulation will not be
+automatically reset.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.ase.imd.NanoverASEDynamics.step">
+<span class="sig-name descname"><span class="pre">step</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nanover.ase.imd.NanoverASEDynamics.step" title="Link to this definition"></a></dt>
+<dd><p>Take a single step of the simulation and stop.</p>
+<p>This method is called whenever a client runs the step command, described in :mod:nanover.trajectory.frame_server.</p>
+</dd></dl>
+
+</section>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="nanover.ase.frame_adaptor.html" class="btn btn-neutral float-left" title="nanover.ase.frame_adaptor module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="nanover.ase.imd_calculator.html" class="btn btn-neutral float-right" title="nanover.ase.imd_calculator module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright University of Bristol, Intangible Realities Lab (https://www.intangiblerealitieslab.org), University of Santiago de Compostella and other contributors.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

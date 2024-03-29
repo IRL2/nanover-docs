@@ -1,0 +1,21 @@
+nanover.openmm package
+======================
+
+.. automodule:: nanover.openmm
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   nanover.openmm.cli
+   nanover.openmm.converter
+   nanover.openmm.imd
+   nanover.openmm.nanoverreporter
+   nanover.openmm.potentials
+   nanover.openmm.runner
+   nanover.openmm.serializer

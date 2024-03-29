@@ -1,0 +1,7 @@
+nanover.trajectory.frame\_data module
+=====================================
+
+.. automodule:: nanover.trajectory.frame_data
+   :members:
+   :undoc-members:
+   :show-inheritance:

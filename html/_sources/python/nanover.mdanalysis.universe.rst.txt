@@ -1,0 +1,7 @@
+nanover.mdanalysis.universe module
+==================================
+
+.. automodule:: nanover.mdanalysis.universe
+   :members:
+   :undoc-members:
+   :show-inheritance:

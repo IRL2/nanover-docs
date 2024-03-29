@@ -1,0 +1,7 @@
+nanover.trajectory.frame\_server module
+=======================================
+
+.. automodule:: nanover.trajectory.frame_server
+   :members:
+   :undoc-members:
+   :show-inheritance:

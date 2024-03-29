@@ -1,0 +1,7 @@
+nanover.state.state\_dictionary module
+======================================
+
+.. automodule:: nanover.state.state_dictionary
+   :members:
+   :undoc-members:
+   :show-inheritance:

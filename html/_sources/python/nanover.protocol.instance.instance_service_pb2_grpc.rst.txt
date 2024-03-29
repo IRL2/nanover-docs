@@ -1,0 +1,7 @@
+nanover.protocol.instance.instance\_service\_pb2\_grpc module
+=============================================================
+
+.. automodule:: nanover.protocol.instance.instance_service_pb2_grpc
+   :members:
+   :undoc-members:
+   :show-inheritance:

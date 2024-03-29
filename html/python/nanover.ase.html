@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>nanover.ase package &mdash; NanoVer 2018.1.8 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=04c572cc"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="nanover.ase.openmm package" href="nanover.ase.openmm.html" />
+    <link rel="prev" title="nanover.app.selection module" href="nanover.app.selection.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            NanoVer
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation &amp; Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/concepts.html">Concepts</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">nanover</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="nanover.html">nanover namespace</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="nanover.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="nanover.app.html">nanover.app package</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">nanover.ase package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.command.html">nanover.command package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.core.html">nanover.core package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.essd.html">nanover.essd package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.imd.html">nanover.imd package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.lammps.html">nanover.lammps package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.mdanalysis.html">nanover.mdanalysis package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.openmm.html">nanover.openmm package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.protocol.html">nanover.protocol namespace</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.state.html">nanover.state namespace</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.trajectory.html">nanover.trajectory package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.utilities.html">nanover.utilities package</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">NanoVer</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">nanover</a></li>
+          <li class="breadcrumb-item"><a href="nanover.html">nanover namespace</a></li>
+      <li class="breadcrumb-item active">nanover.ase package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/python/nanover.ase.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-nanover.ase">
+<span id="nanover-ase-package"></span><h1>nanover.ase package<a class="headerlink" href="#module-nanover.ase" title="Link to this heading"></a></h1>
+<p>Interface between NanoVer and ASE.</p>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="nanover.ase.openmm.html">nanover.ase.openmm package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nanover.ase.openmm.html#submodules">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nanover.ase.openmm.calculator.html">nanover.ase.openmm.calculator module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.ase.openmm.cli.html">nanover.ase.openmm.cli module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.ase.openmm.runner.html">nanover.ase.openmm.runner module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="nanover.ase.converter.html">nanover.ase.converter module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nanover.ase.converter.html#nanover.ase.converter.add_ase_box_vectors_to_frame_data"><code class="docutils literal notranslate"><span class="pre">add_ase_box_vectors_to_frame_data()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="nanover.ase.converter.html#nanover.ase.converter.add_ase_positions_to_frame_data"><code class="docutils literal notranslate"><span class="pre">add_ase_positions_to_frame_data()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="nanover.ase.converter.html#nanover.ase.converter.add_ase_state_to_frame_data"><code class="docutils literal notranslate"><span class="pre">add_ase_state_to_frame_data()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="nanover.ase.converter.html#nanover.ase.converter.add_ase_topology_to_frame_data"><code class="docutils literal notranslate"><span class="pre">add_ase_topology_to_frame_data()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="nanover.ase.converter.html#nanover.ase.converter.add_frame_data_positions_to_ase"><code class="docutils literal notranslate"><span class="pre">add_frame_data_positions_to_ase()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="nanover.ase.converter.html#nanover.ase.converter.add_frame_data_topology_to_ase"><code class="docutils literal notranslate"><span class="pre">add_frame_data_topology_to_ase()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="nanover.ase.converter.html#nanover.ase.converter.ase_to_frame_data"><code class="docutils literal notranslate"><span class="pre">ase_to_frame_data()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="nanover.ase.converter.html#nanover.ase.converter.frame_data_to_ase"><code class="docutils literal notranslate"><span class="pre">frame_data_to_ase()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="nanover.ase.converter.html#nanover.ase.converter.generate_bonds_from_ase"><code class="docutils literal notranslate"><span class="pre">generate_bonds_from_ase()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="nanover.ase.converter.html#nanover.ase.converter.get_radius_of_element"><code class="docutils literal notranslate"><span class="pre">get_radius_of_element()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nanover.ase.frame_adaptor.html">nanover.ase.frame_adaptor module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nanover.ase.frame_adaptor.html#nanover.ase.frame_adaptor.send_ase_frame"><code class="docutils literal notranslate"><span class="pre">send_ase_frame()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nanover.ase.imd.html">nanover.ase.imd module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nanover.ase.imd.html#nanover.ase.imd.NanoverASEDynamics"><code class="docutils literal notranslate"><span class="pre">NanoverASEDynamics</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nanover.ase.imd.html#nanover.ase.imd.NanoverASEDynamics.address"><code class="docutils literal notranslate"><span class="pre">NanoverASEDynamics.address</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.ase.imd.html#nanover.ase.imd.NanoverASEDynamics.atoms"><code class="docutils literal notranslate"><span class="pre">NanoverASEDynamics.atoms</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.ase.imd.html#nanover.ase.imd.NanoverASEDynamics.basic_imd"><code class="docutils literal notranslate"><span class="pre">NanoverASEDynamics.basic_imd()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.ase.imd.html#nanover.ase.imd.NanoverASEDynamics.cancel_run"><code class="docutils literal notranslate"><span class="pre">NanoverASEDynamics.cancel_run()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.ase.imd.html#nanover.ase.imd.NanoverASEDynamics.close"><code class="docutils literal notranslate"><span class="pre">NanoverASEDynamics.close()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.ase.imd.html#nanover.ase.imd.NanoverASEDynamics.dynamics_interval"><code class="docutils literal notranslate"><span class="pre">NanoverASEDynamics.dynamics_interval</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.ase.imd.html#nanover.ase.imd.NanoverASEDynamics.internal_calculator"><code class="docutils literal notranslate"><span class="pre">NanoverASEDynamics.internal_calculator</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.ase.imd.html#nanover.ase.imd.NanoverASEDynamics.is_running"><code class="docutils literal notranslate"><span class="pre">NanoverASEDynamics.is_running</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.ase.imd.html#nanover.ase.imd.NanoverASEDynamics.on_reset_listeners"><code class="docutils literal notranslate"><span class="pre">NanoverASEDynamics.on_reset_listeners</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.ase.imd.html#nanover.ase.imd.NanoverASEDynamics.pause"><code class="docutils literal notranslate"><span class="pre">NanoverASEDynamics.pause()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.ase.imd.html#nanover.ase.imd.NanoverASEDynamics.play"><code class="docutils literal notranslate"><span class="pre">NanoverASEDynamics.play()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.ase.imd.html#nanover.ase.imd.NanoverASEDynamics.port"><code class="docutils literal notranslate"><span class="pre">NanoverASEDynamics.port</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.ase.imd.html#nanover.ase.imd.NanoverASEDynamics.reset"><code class="docutils literal notranslate"><span class="pre">NanoverASEDynamics.reset()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.ase.imd.html#nanover.ase.imd.NanoverASEDynamics.run"><code class="docutils literal notranslate"><span class="pre">NanoverASEDynamics.run()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.ase.imd.html#nanover.ase.imd.NanoverASEDynamics.step"><code class="docutils literal notranslate"><span class="pre">NanoverASEDynamics.step()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nanover.ase.imd_calculator.html">nanover.ase.imd_calculator module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nanover.ase.imd_calculator.html#nanover.ase.imd_calculator.ImdCalculator"><code class="docutils literal notranslate"><span class="pre">ImdCalculator</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nanover.ase.imd_calculator.html#nanover.ase.imd_calculator.ImdCalculator.calculate"><code class="docutils literal notranslate"><span class="pre">ImdCalculator.calculate()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.ase.imd_calculator.html#nanover.ase.imd_calculator.ImdCalculator.calculator"><code class="docutils literal notranslate"><span class="pre">ImdCalculator.calculator</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.ase.imd_calculator.html#nanover.ase.imd_calculator.ImdCalculator.interactions"><code class="docutils literal notranslate"><span class="pre">ImdCalculator.interactions</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.ase.imd_calculator.html#nanover.ase.imd_calculator.ImdCalculator.reset_temperature"><code class="docutils literal notranslate"><span class="pre">ImdCalculator.reset_temperature</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.ase.imd_calculator.html#nanover.ase.imd_calculator.ImdCalculator.temperature"><code class="docutils literal notranslate"><span class="pre">ImdCalculator.temperature</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nanover.ase.imd_calculator.html#nanover.ase.imd_calculator.get_periodic_box_lengths"><code class="docutils literal notranslate"><span class="pre">get_periodic_box_lengths()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nanover.ase.null_calculator.html">nanover.ase.null_calculator module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nanover.ase.null_calculator.html#nanover.ase.null_calculator.NullCalculator"><code class="docutils literal notranslate"><span class="pre">NullCalculator</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nanover.ase.null_calculator.html#nanover.ase.null_calculator.NullCalculator.calculate"><code class="docutils literal notranslate"><span class="pre">NullCalculator.calculate()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nanover.ase.trajectory_logger.html">nanover.ase.trajectory_logger module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nanover.ase.trajectory_logger.html#nanover.ase.trajectory_logger.TrajectoryLogger"><code class="docutils literal notranslate"><span class="pre">TrajectoryLogger</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nanover.ase.trajectory_logger.html#nanover.ase.trajectory_logger.TrajectoryLogger.atoms"><code class="docutils literal notranslate"><span class="pre">TrajectoryLogger.atoms</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.ase.trajectory_logger.html#nanover.ase.trajectory_logger.TrajectoryLogger.base_path"><code class="docutils literal notranslate"><span class="pre">TrajectoryLogger.base_path</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.ase.trajectory_logger.html#nanover.ase.trajectory_logger.TrajectoryLogger.close"><code class="docutils literal notranslate"><span class="pre">TrajectoryLogger.close()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.ase.trajectory_logger.html#nanover.ase.trajectory_logger.TrajectoryLogger.format"><code class="docutils literal notranslate"><span class="pre">TrajectoryLogger.format</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.ase.trajectory_logger.html#nanover.ase.trajectory_logger.TrajectoryLogger.frame_index"><code class="docutils literal notranslate"><span class="pre">TrajectoryLogger.frame_index</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.ase.trajectory_logger.html#nanover.ase.trajectory_logger.TrajectoryLogger.parallel"><code class="docutils literal notranslate"><span class="pre">TrajectoryLogger.parallel</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.ase.trajectory_logger.html#nanover.ase.trajectory_logger.TrajectoryLogger.reset"><code class="docutils literal notranslate"><span class="pre">TrajectoryLogger.reset()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.ase.trajectory_logger.html#nanover.ase.trajectory_logger.TrajectoryLogger.timestamping"><code class="docutils literal notranslate"><span class="pre">TrajectoryLogger.timestamping</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.ase.trajectory_logger.html#nanover.ase.trajectory_logger.TrajectoryLogger.write"><code class="docutils literal notranslate"><span class="pre">TrajectoryLogger.write()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nanover.ase.trajectory_logger.html#nanover.ase.trajectory_logger.UnsupportedFormatError"><code class="docutils literal notranslate"><span class="pre">UnsupportedFormatError</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="nanover.ase.trajectory_logger.html#nanover.ase.trajectory_logger.validate_ase_can_append_filename"><code class="docutils literal notranslate"><span class="pre">validate_ase_can_append_filename()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="nanover.ase.trajectory_logger.html#nanover.ase.trajectory_logger.validate_ase_can_append_format"><code class="docutils literal notranslate"><span class="pre">validate_ase_can_append_format()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nanover.ase.wall_constraint.html">nanover.ase.wall_constraint module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nanover.ase.wall_constraint.html#nanover.ase.wall_constraint.VelocityWallConstraint"><code class="docutils literal notranslate"><span class="pre">VelocityWallConstraint</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nanover.ase.wall_constraint.html#nanover.ase.wall_constraint.VelocityWallConstraint.adjust_forces"><code class="docutils literal notranslate"><span class="pre">VelocityWallConstraint.adjust_forces()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.ase.wall_constraint.html#nanover.ase.wall_constraint.VelocityWallConstraint.adjust_momenta"><code class="docutils literal notranslate"><span class="pre">VelocityWallConstraint.adjust_momenta()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.ase.wall_constraint.html#nanover.ase.wall_constraint.VelocityWallConstraint.adjust_positions"><code class="docutils literal notranslate"><span class="pre">VelocityWallConstraint.adjust_positions()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="nanover.app.selection.html" class="btn btn-neutral float-left" title="nanover.app.selection module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="nanover.ase.openmm.html" class="btn btn-neutral float-right" title="nanover.ase.openmm package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright University of Bristol, Intangible Realities Lab (https://www.intangiblerealitieslab.org), University of Santiago de Compostella and other contributors.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

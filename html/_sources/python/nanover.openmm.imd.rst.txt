@@ -1,0 +1,7 @@
+nanover.openmm.imd module
+=========================
+
+.. automodule:: nanover.openmm.imd
+   :members:
+   :undoc-members:
+   :show-inheritance:

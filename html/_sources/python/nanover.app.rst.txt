@@ -1,0 +1,21 @@
+nanover.app package
+===================
+
+.. automodule:: nanover.app
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   nanover.app.app_server
+   nanover.app.client
+   nanover.app.frame_app
+   nanover.app.imd_app
+   nanover.app.multiuser
+   nanover.app.runner
+   nanover.app.selection

@@ -1,0 +1,7 @@
+nanover.ase.imd\_calculator module
+==================================
+
+.. automodule:: nanover.ase.imd_calculator
+   :members:
+   :undoc-members:
+   :show-inheritance:

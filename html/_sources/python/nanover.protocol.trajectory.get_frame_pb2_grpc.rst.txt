@@ -1,0 +1,7 @@
+nanover.protocol.trajectory.get\_frame\_pb2\_grpc module
+========================================================
+
+.. automodule:: nanover.protocol.trajectory.get_frame_pb2_grpc
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,7 @@
+nanover.app.frame\_app module
+=============================
+
+.. automodule:: nanover.app.frame_app
+   :members:
+   :undoc-members:
+   :show-inheritance:

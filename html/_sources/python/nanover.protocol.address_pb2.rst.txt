@@ -1,0 +1,7 @@
+nanover.protocol.address\_pb2 module
+====================================
+
+.. automodule:: nanover.protocol.address_pb2
+   :members:
+   :undoc-members:
+   :show-inheritance:

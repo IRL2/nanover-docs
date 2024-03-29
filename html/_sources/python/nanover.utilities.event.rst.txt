@@ -1,0 +1,7 @@
+nanover.utilities.event module
+==============================
+
+.. automodule:: nanover.utilities.event
+   :members:
+   :undoc-members:
+   :show-inheritance:

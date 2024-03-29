@@ -1,0 +1,18 @@
+nanover.core package
+====================
+
+.. automodule:: nanover.core
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   nanover.core.grpc_client
+   nanover.core.grpc_server
+   nanover.core.nanover_client
+   nanover.core.nanover_server

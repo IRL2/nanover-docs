@@ -1,0 +1,7 @@
+nanover.utilities.timing module
+===============================
+
+.. automodule:: nanover.utilities.timing
+   :members:
+   :undoc-members:
+   :show-inheritance:

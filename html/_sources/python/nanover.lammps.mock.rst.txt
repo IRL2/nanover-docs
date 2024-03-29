@@ -1,0 +1,7 @@
+nanover.lammps.mock module
+==========================
+
+.. automodule:: nanover.lammps.mock
+   :members:
+   :undoc-members:
+   :show-inheritance:

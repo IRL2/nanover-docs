@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>nanover.trajectory.frame_data module &mdash; NanoVer 2018.1.8 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=04c572cc"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="nanover.trajectory.frame_publisher module" href="nanover.trajectory.frame_publisher.html" />
+    <link rel="prev" title="nanover.trajectory.frame_client module" href="nanover.trajectory.frame_client.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            NanoVer
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation &amp; Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/concepts.html">Concepts</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">nanover</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="nanover.html">nanover namespace</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="nanover.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="nanover.app.html">nanover.app package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.ase.html">nanover.ase package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.command.html">nanover.command package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.core.html">nanover.core package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.essd.html">nanover.essd package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.imd.html">nanover.imd package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.lammps.html">nanover.lammps package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.mdanalysis.html">nanover.mdanalysis package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.openmm.html">nanover.openmm package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.protocol.html">nanover.protocol namespace</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.state.html">nanover.state namespace</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="nanover.trajectory.html">nanover.trajectory package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.utilities.html">nanover.utilities package</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">NanoVer</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">nanover</a></li>
+          <li class="breadcrumb-item"><a href="nanover.html">nanover namespace</a></li>
+          <li class="breadcrumb-item"><a href="nanover.trajectory.html">nanover.trajectory package</a></li>
+      <li class="breadcrumb-item active">nanover.trajectory.frame_data module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/python/nanover.trajectory.frame_data.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-nanover.trajectory.frame_data">
+<span id="nanover-trajectory-frame-data-module"></span><h1>nanover.trajectory.frame_data module<a class="headerlink" href="#module-nanover.trajectory.frame_data" title="Link to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="nanover.trajectory.frame_data.ArraysView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nanover.trajectory.frame_data.</span></span><span class="sig-name descname"><span class="pre">ArraysView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.trajectory.frame_data.ArraysView" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nanover.trajectory.frame_data.RecordView" title="nanover.trajectory.frame_data.RecordView"><code class="xref py py-class docutils literal notranslate"><span class="pre">RecordView</span></code></a></p>
+<p>Give access to homogeneous arrays from a <a class="reference internal" href="#nanover.trajectory.frame_data.FrameData" title="nanover.trajectory.frame_data.FrameData"><code class="xref py py-class docutils literal notranslate"><span class="pre">FrameData</span></code></a>.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nanover.trajectory.frame_data.ArraysView.record_name">
+<span class="sig-name descname"><span class="pre">record_name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'arrays'</span></em><a class="headerlink" href="#nanover.trajectory.frame_data.ArraysView.record_name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.trajectory.frame_data.ArraysView.set">
+<span class="sig-name descname"><span class="pre">set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.trajectory.frame_data.ArraysView.set" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nanover.trajectory.frame_data.ArraysView.singular">
+<span class="sig-name descname"><span class="pre">singular</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'array'</span></em><a class="headerlink" href="#nanover.trajectory.frame_data.ArraysView.singular" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="nanover.trajectory.frame_data.FrameData">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nanover.trajectory.frame_data.</span></span><span class="sig-name descname"><span class="pre">FrameData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw_frame</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="nanover.protocol.trajectory.frame_pb2.html#nanover.protocol.trajectory.frame_pb2.FrameData" title="nanover.protocol.trajectory.frame_pb2.FrameData"><span class="pre">FrameData</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.trajectory.frame_data.FrameData" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Wrapper around the GRPC FrameData.</p>
+<p>A <code class="docutils literal notranslate"><span class="pre">FrameData</span></code> contains two kinds of records: single values of any type,
+or homogeneous arrays. The former kind can be accessed through the
+<code class="xref py py-attr docutils literal notranslate"><span class="pre">values</span></code> attribute, while the later is accessible through the
+<code class="xref py py-attr docutils literal notranslate"><span class="pre">arrays</span></code> one. Both attribute behave like a dictionary. Trying to
+access a key that does not exist raises a <code class="xref py py-exc docutils literal notranslate"><span class="pre">KeyError</span></code>.</p>
+<p>The set of keys with data in the frame is listed by <a class="reference internal" href="#nanover.trajectory.frame_data.FrameData.value_keys" title="nanover.trajectory.frame_data.FrameData.value_keys"><code class="xref py py-meth docutils literal notranslate"><span class="pre">value_keys()</span></code></a>
+and <a class="reference internal" href="#nanover.trajectory.frame_data.FrameData.array_keys" title="nanover.trajectory.frame_data.FrameData.array_keys"><code class="xref py py-meth docutils literal notranslate"><span class="pre">array_keys()</span></code></a>.</p>
+<p>The most common frame properties are accessible as attribute in a
+normalized format. Shortcuts are not guaranteed to contain data. Trying to
+access a shortcut that does not contain data raises a
+<a class="reference internal" href="#nanover.trajectory.frame_data.MissingDataError" title="nanover.trajectory.frame_data.MissingDataError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">MissingDataError</span></code></a> that can also be caught as a <code class="xref py py-exc docutils literal notranslate"><span class="pre">KeyError</span></code>.</p>
+<p>The available shortcuts can be listed using the <a class="reference internal" href="#nanover.trajectory.frame_data.FrameData.shortcuts" title="nanover.trajectory.frame_data.FrameData.shortcuts"><code class="xref py py-attr docutils literal notranslate"><span class="pre">shortcuts</span></code></a> property.
+The set of shortcuts that contain data is available from the
+<a class="reference internal" href="#nanover.trajectory.frame_data.FrameData.used_shortcuts" title="nanover.trajectory.frame_data.FrameData.used_shortcuts"><code class="xref py py-attr docutils literal notranslate"><span class="pre">used_shortcuts</span></code></a>.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="nanover.trajectory.frame_data.FrameData.array_keys">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">array_keys</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Set</span></em><a class="headerlink" href="#nanover.trajectory.frame_data.FrameData.array_keys" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nanover.trajectory.frame_data.FrameData.bond_orders">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bond_orders</span></span><a class="headerlink" href="#nanover.trajectory.frame_data.FrameData.bond_orders" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nanover.trajectory.frame_data.FrameData.bond_pairs">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bond_pairs</span></span><a class="headerlink" href="#nanover.trajectory.frame_data.FrameData.bond_pairs" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nanover.trajectory.frame_data.FrameData.box_vectors">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">box_vectors</span></span><a class="headerlink" href="#nanover.trajectory.frame_data.FrameData.box_vectors" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nanover.trajectory.frame_data.FrameData.chain_count">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">chain_count</span></span><a class="headerlink" href="#nanover.trajectory.frame_data.FrameData.chain_count" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nanover.trajectory.frame_data.FrameData.chain_names">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">chain_names</span></span><a class="headerlink" href="#nanover.trajectory.frame_data.FrameData.chain_names" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.trajectory.frame_data.FrameData.copy">
+<span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nanover.trajectory.frame_data.FrameData.copy" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nanover.trajectory.frame_data.FrameData.kinetic_energy">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">kinetic_energy</span></span><a class="headerlink" href="#nanover.trajectory.frame_data.FrameData.kinetic_energy" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nanover.trajectory.frame_data.FrameData.particle_count">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">particle_count</span></span><a class="headerlink" href="#nanover.trajectory.frame_data.FrameData.particle_count" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nanover.trajectory.frame_data.FrameData.particle_elements">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">particle_elements</span></span><a class="headerlink" href="#nanover.trajectory.frame_data.FrameData.particle_elements" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nanover.trajectory.frame_data.FrameData.particle_forces">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">particle_forces</span></span><a class="headerlink" href="#nanover.trajectory.frame_data.FrameData.particle_forces" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nanover.trajectory.frame_data.FrameData.particle_names">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">particle_names</span></span><a class="headerlink" href="#nanover.trajectory.frame_data.FrameData.particle_names" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nanover.trajectory.frame_data.FrameData.particle_positions">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">particle_positions</span></span><a class="headerlink" href="#nanover.trajectory.frame_data.FrameData.particle_positions" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nanover.trajectory.frame_data.FrameData.particle_residues">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">particle_residues</span></span><a class="headerlink" href="#nanover.trajectory.frame_data.FrameData.particle_residues" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nanover.trajectory.frame_data.FrameData.particle_types">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">particle_types</span></span><a class="headerlink" href="#nanover.trajectory.frame_data.FrameData.particle_types" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nanover.trajectory.frame_data.FrameData.particle_velocities">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">particle_velocities</span></span><a class="headerlink" href="#nanover.trajectory.frame_data.FrameData.particle_velocities" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nanover.trajectory.frame_data.FrameData.potential_energy">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">potential_energy</span></span><a class="headerlink" href="#nanover.trajectory.frame_data.FrameData.potential_energy" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nanover.trajectory.frame_data.FrameData.raw">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">raw</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="nanover.protocol.trajectory.frame_pb2.html#nanover.protocol.trajectory.frame_pb2.FrameData" title="nanover.protocol.trajectory.frame_pb2.FrameData"><span class="pre">FrameData</span></a></em><a class="headerlink" href="#nanover.trajectory.frame_data.FrameData.raw" title="Link to this definition"></a></dt>
+<dd><p>Underlying GRPC/protobuf object.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nanover.trajectory.frame_data.FrameData.residue_chains">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">residue_chains</span></span><a class="headerlink" href="#nanover.trajectory.frame_data.FrameData.residue_chains" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nanover.trajectory.frame_data.FrameData.residue_count">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">residue_count</span></span><a class="headerlink" href="#nanover.trajectory.frame_data.FrameData.residue_count" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nanover.trajectory.frame_data.FrameData.residue_ids">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">residue_ids</span></span><a class="headerlink" href="#nanover.trajectory.frame_data.FrameData.residue_ids" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nanover.trajectory.frame_data.FrameData.residue_names">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">residue_names</span></span><a class="headerlink" href="#nanover.trajectory.frame_data.FrameData.residue_names" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nanover.trajectory.frame_data.FrameData.server_timestamp">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">server_timestamp</span></span><a class="headerlink" href="#nanover.trajectory.frame_data.FrameData.server_timestamp" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.trajectory.frame_data.FrameData.set_float_array">
+<span class="sig-name descname"><span class="pre">set_float_array</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.trajectory.frame_data.FrameData.set_float_array" title="Link to this definition"></a></dt>
+<dd><p>Set an homogeneous array of floats in an existing or a new key.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>key</strong> – The key under which to store the array.</p></li>
+<li><p><strong>value</strong> – The array to store.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.trajectory.frame_data.FrameData.set_index_array">
+<span class="sig-name descname"><span class="pre">set_index_array</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.trajectory.frame_data.FrameData.set_index_array" title="Link to this definition"></a></dt>
+<dd><p>Set an homogeneous array of indices in an existing or a new key.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>key</strong> – The key under which to store the array.</p></li>
+<li><p><strong>value</strong> – The array to store.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.trajectory.frame_data.FrameData.set_string_array">
+<span class="sig-name descname"><span class="pre">set_string_array</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.trajectory.frame_data.FrameData.set_string_array" title="Link to this definition"></a></dt>
+<dd><p>Set an homogeneous array of strings in an existing or a new key.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>key</strong> – The key under which to store the array.</p></li>
+<li><p><strong>value</strong> – The array to store.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nanover.trajectory.frame_data.FrameData.shortcuts">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">shortcuts</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Set</span></em><a class="headerlink" href="#nanover.trajectory.frame_data.FrameData.shortcuts" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nanover.trajectory.frame_data.FrameData.simulation_time">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">simulation_time</span></span><a class="headerlink" href="#nanover.trajectory.frame_data.FrameData.simulation_time" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nanover.trajectory.frame_data.FrameData.total_energy">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">total_energy</span></span><a class="headerlink" href="#nanover.trajectory.frame_data.FrameData.total_energy" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nanover.trajectory.frame_data.FrameData.used_shortcuts">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">used_shortcuts</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Set</span></em><a class="headerlink" href="#nanover.trajectory.frame_data.FrameData.used_shortcuts" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nanover.trajectory.frame_data.FrameData.user_energy">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">user_energy</span></span><a class="headerlink" href="#nanover.trajectory.frame_data.FrameData.user_energy" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nanover.trajectory.frame_data.FrameData.value_keys">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">value_keys</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Set</span></em><a class="headerlink" href="#nanover.trajectory.frame_data.FrameData.value_keys" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="nanover.trajectory.frame_data.MissingDataError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nanover.trajectory.frame_data.</span></span><span class="sig-name descname"><span class="pre">MissingDataError</span></span><a class="headerlink" href="#nanover.trajectory.frame_data.MissingDataError" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">KeyError</span></code></p>
+<p>A shortcut does not contain data to return.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="nanover.trajectory.frame_data.RecordView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nanover.trajectory.frame_data.</span></span><span class="sig-name descname"><span class="pre">RecordView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.trajectory.frame_data.RecordView" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Base class that wraps the access to a kind of record.</p>
+<p>This class needs to be subclassed.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.trajectory.frame_data.RecordView.delete">
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.trajectory.frame_data.RecordView.delete" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.trajectory.frame_data.RecordView.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.trajectory.frame_data.RecordView.get" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.trajectory.frame_data.RecordView.keys">
+<span class="sig-name descname"><span class="pre">keys</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Set</span></span></span><a class="headerlink" href="#nanover.trajectory.frame_data.RecordView.keys" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nanover.trajectory.frame_data.RecordView.record_name">
+<span class="sig-name descname"><span class="pre">record_name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#nanover.trajectory.frame_data.RecordView.record_name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.trajectory.frame_data.RecordView.set">
+<span class="sig-name descname"><span class="pre">set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.trajectory.frame_data.RecordView.set" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nanover.trajectory.frame_data.RecordView.singular">
+<span class="sig-name descname"><span class="pre">singular</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#nanover.trajectory.frame_data.RecordView.singular" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="nanover.trajectory.frame_data.ValuesView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nanover.trajectory.frame_data.</span></span><span class="sig-name descname"><span class="pre">ValuesView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.trajectory.frame_data.ValuesView" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nanover.trajectory.frame_data.RecordView" title="nanover.trajectory.frame_data.RecordView"><code class="xref py py-class docutils literal notranslate"><span class="pre">RecordView</span></code></a></p>
+<p>Give access to singular values from a <a class="reference internal" href="#nanover.trajectory.frame_data.FrameData" title="nanover.trajectory.frame_data.FrameData"><code class="xref py py-class docutils literal notranslate"><span class="pre">FrameData</span></code></a>.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nanover.trajectory.frame_data.ValuesView.record_name">
+<span class="sig-name descname"><span class="pre">record_name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'values'</span></em><a class="headerlink" href="#nanover.trajectory.frame_data.ValuesView.record_name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.trajectory.frame_data.ValuesView.set">
+<span class="sig-name descname"><span class="pre">set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.trajectory.frame_data.ValuesView.set" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nanover.trajectory.frame_data.ValuesView.singular">
+<span class="sig-name descname"><span class="pre">singular</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'value'</span></em><a class="headerlink" href="#nanover.trajectory.frame_data.ValuesView.singular" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="nanover.trajectory.frame_client.html" class="btn btn-neutral float-left" title="nanover.trajectory.frame_client module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="nanover.trajectory.frame_publisher.html" class="btn btn-neutral float-right" title="nanover.trajectory.frame_publisher module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright University of Bristol, Intangible Realities Lab (https://www.intangiblerealitieslab.org), University of Santiago de Compostella and other contributors.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

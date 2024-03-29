@@ -1,0 +1,16 @@
+nanover.command package
+=======================
+
+.. automodule:: nanover.command
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   nanover.command.command_info
+   nanover.command.command_service

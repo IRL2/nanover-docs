@@ -1,0 +1,16 @@
+nanover.protocol.command package
+================================
+
+.. automodule:: nanover.protocol.command
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   nanover.protocol.command.command_service_pb2
+   nanover.protocol.command.command_service_pb2_grpc

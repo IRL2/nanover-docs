@@ -1,0 +1,7 @@
+nanover.protocol.array\_pb2 module
+==================================
+
+.. automodule:: nanover.protocol.array_pb2
+   :members:
+   :undoc-members:
+   :show-inheritance:

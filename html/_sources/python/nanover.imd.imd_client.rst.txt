@@ -1,0 +1,7 @@
+nanover.imd.imd\_client module
+==============================
+
+.. automodule:: nanover.imd.imd_client
+   :members:
+   :undoc-members:
+   :show-inheritance:
