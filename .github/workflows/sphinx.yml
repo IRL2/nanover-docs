@@ -42,9 +42,12 @@ jobs:
           make html
       - name: Integrate the documentation in the target branch
         run: |
+          cd source
+          current_commit=$(git rev-parse HEAD)
+          cd ../
           git config --global user.email "doc-bot@example.com"
           git config --global user.name "DocBot"
           cp -r source/build/html destination/
           cd destination
           git add .
-          git status | grep -F 'nothing to commit' && { git commit -m "Update documentation" && git push; } || echo "Nothing to do."
+          git status | grep -F 'nothing to commit' && { git commit -m "Update documentation for commit ${current_commit}" && git push; } || echo "Nothing to do."
