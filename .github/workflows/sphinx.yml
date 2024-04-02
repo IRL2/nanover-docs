@@ -1,4 +1,10 @@
-on: [push]
+on:
+  push:
+  workflow_run:
+    workflows: [Update git submodules]
+    types:
+      - completed
+
 name: Build documentation
 
 jobs:
