@@ -16,7 +16,7 @@
         <script src="../_static/jquery.js?v=5d32c60e"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../_static/documentation_options.js?v=04c572cc"></script>
-        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -112,11 +112,18 @@
 all interfaces will be used.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>A list of dictionaries containing the IP address and other information for each interface,</p>
+<dd class="field-even"><p>A list of dictionaries containing the IP address and other information for each interface,
+as returned by <code class="xref py py-func docutils literal notranslate"><span class="pre">netifaces.ifaddresses()</span></code>.</p>
 </dd>
 </dl>
-<p>as returned by <a href="#id1"><span class="problematic" id="id2">:fun:`netifaces.ifaddresses`</span></a>.</p>
 <p>In the netifaces API, the address entries are returned as dictionaries in the following format:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s1">&#39;addr&#39;</span><span class="p">:</span> <span class="s1">&#39;172.23.43.33&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;netmask&#39;</span><span class="p">:</span> <span class="s1">&#39;255.255.0.0&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;broadcast&#39;</span><span class="p">:</span> <span class="s1">&#39;172.23.255.255&#39;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
@@ -135,7 +142,7 @@ all interfaces will be used.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>A list of dictionaries containing the IP address and other information for each interface,
-as returned by <a href="#id3"><span class="problematic" id="id4">:fun:`netifaces.ifaddresses`</span></a>.</p>
+as returned by <code class="xref py py-func docutils literal notranslate"><span class="pre">netifaces.ifaddresses()</span></code>.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -149,7 +156,7 @@ interface network as defined by their IPv4 subnet mask and broadcast address.</p
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>address</strong> – An IPv4 address.</p></li>
-<li><p><strong>interface_address_entry</strong> – An IPv4 address entry, as produced by <a href="#id5"><span class="problematic" id="id6">:fun:`netifaces.ifaddresses`</span></a>. It must
+<li><p><strong>interface_address_entry</strong> – An IPv4 address entry, as produced by <code class="xref py py-func docutils literal notranslate"><span class="pre">netifaces.ifaddresses()</span></code>. It must
 contain the <cite>netmask</cite> and <cite>broadcast</cite> fields, representing the subnet mask IP and the broadcast IP for the given
 interface</p></li>
 </ul>
@@ -161,10 +168,10 @@ interface</p></li>
 <dd class="field-odd"><p>ValueError: if invalid IP addresses are given for any field.</p>
 </dd>
 <dt class="field-even">Raises<span class="colon">:</span></dt>
-<dd class="field-even"><p>KeyError: if the <cite>netmask</cite> and <cite>broadcast</cite> fields are not present in the interface address entry</p>
+<dd class="field-even"><p>KeyError: if the <cite>netmask</cite> and <cite>broadcast</cite> fields are not present in the interface address entry
+argument.</p>
 </dd>
 </dl>
-<p>argument.</p>
 </dd></dl>
 
 <dl class="py function">

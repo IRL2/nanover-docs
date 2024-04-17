@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Recording data &mdash; NanoVer 2018.1.8 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=04c572cc"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="nanover" href="../python/modules.html" />
+    <link rel="prev" title="Trajectories and Frames" href="frames.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            NanoVer
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation &amp; Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/tutorials.html">Tutorials</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="concepts.html">Concepts</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="architecture.html">NanoVer Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="frames.html">Trajectories and Frames</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Recording data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#what-is-recorded">What is recorded</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#how-to-record">How to record</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#visualise-recordings">Visualise recordings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#read-recordings-using-python">Read recordings using python</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#recording-format">Recording format</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../python/modules.html">nanover</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">NanoVer</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="concepts.html">Concepts</a></li>
+      <li class="breadcrumb-item active">Recording data</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/concepts/recording.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="recording-data">
+<h1>Recording data<a class="headerlink" href="#recording-data" title="Link to this heading"></a></h1>
+<p>For a NanoVer session to be usefull beyond the time the users spend in VR, it needs to be recorded. This recorded can then be analysed or played back to get insight.</p>
+<section id="what-is-recorded">
+<h2>What is recorded<a class="headerlink" href="#what-is-recorded" title="Link to this heading"></a></h2>
+<p>NanoVer can record two different streams:</p>
+<ul class="simple">
+<li><p>the stream of simulation frame,</p></li>
+<li><p>and the stream of updates of the shared state.</p></li>
+</ul>
+<p>These two streams are the ones sent to the clients but they are supplemented with a timestamp that allows to synchronise the streams. Each stream is stored in a separate file.</p>
+</section>
+<section id="how-to-record">
+<h2>How to record<a class="headerlink" href="#how-to-record" title="Link to this heading"></a></h2>
+<p>Recording is done by the <a class="reference external" href="https://github.com/IRL2/nanover-rs">Rust server</a>. The server takes a snapshot of the streams 30 times a second (though, this may change with <a class="reference external" href="https://github.com/IRL2/nanover-rs/issues/200">issue #200</a> and issue <a class="reference external" href="https://github.com/IRL2/nanover-rs/issues/201">#201</a>).</p>
+<p>When using the <cite>nanover-cli</cite> command line, use the <cite>–trajectory</cite> argument to specify the file that will store the recording of the frame stream, and the <cite>–state</cite> argument to specify the file that will store the recording of the state updates. On the graphical interface, the files are specified in the “Recording” section before starting the server.</p>
+<p>By convention, recordings of the frame stream end with the <cite>.traj</cite> file extension, while recordings of the shared state stream end with the <cite>.state</cite> file extension.</p>
+</section>
+<section id="visualise-recordings">
+<h2>Visualise recordings<a class="headerlink" href="#visualise-recordings" title="Link to this heading"></a></h2>
+<p>Recordings can be visualised using the <a class="reference external" href="https://github.com/IRL2/nanover-rs">Rust server</a>. The server will send the recorded streams to the client that will be able to show it as if they were a live streams.</p>
+<p>Using the the command line, providing a file with the <cite>.traj</cite> file extension will stream that frame stream only, providing a file with the <cite>.state</cite> extension will stream the state updates only. In order to send both streams together, provide the two file paths separated by a column, for instance: <code class="docutils literal notranslate"><span class="pre">my-trajectory.traj:my-state.state</span></code>.</p>
+<p>Using the graphical interface, add a recording to the list of simulations using the “+ Recording” button, then choose the files.</p>
+<p>The server sends the frames and the state updates and tries to respect the timing dictated by the timestamps stored in the file.</p>
+</section>
+<section id="read-recordings-using-python">
+<h2>Read recordings using python<a class="headerlink" href="#read-recordings-using-python" title="Link to this heading"></a></h2>
+<p>Recordings can be read and manipulated using the NanoVer python library.</p>
+<p>The <a class="reference internal" href="../python/nanover.mdanalysis.html#module-nanover.mdanalysis" title="nanover.mdanalysis"><code class="xref py py-mod docutils literal notranslate"><span class="pre">nanover.mdanalysis</span></code></a> module allows to read a trajectory recording as an <a class="reference external" href="https://userguide.mdanalysis.org/stable/universe.html#universe">MDAnalysis Universe</a>. As MDAnalysis does not support time-dependant topologies, only frames that correspond to the first topology in the recording are read as partof the Universe. If the topology changes throughout the recording, for instance because another simulation was loaded, the library issues a warning and the frames with the new topology are ignored.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">MDAnalysis</span> <span class="k">as</span> <span class="nn">mda</span>
+<span class="kn">from</span> <span class="nn">narupa.mdanalysis</span> <span class="kn">import</span> <span class="n">NarupaParser</span><span class="p">,</span> <span class="n">NarupaReader</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span>
+    <span class="s1">&#39;hello.traj&#39;</span><span class="p">,</span>
+    <span class="nb">format</span><span class="o">=</span><span class="n">NarupaReader</span><span class="p">,</span>
+    <span class="n">topology_format</span><span class="o">=</span><span class="n">NarupaParser</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">times</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">frames</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">potential_energy</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">kinetic_energy</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">user_energy</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">timestamps</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">timestep</span> <span class="ow">in</span> <span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="p">:</span>
+    <span class="n">frames</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">timestep</span><span class="o">.</span><span class="n">frame</span><span class="p">)</span>
+    <span class="n">times</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">timestep</span><span class="o">.</span><span class="n">time</span><span class="p">)</span>
+    <span class="n">potential_energy</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">timestep</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;energy.potential&quot;</span><span class="p">])</span>
+    <span class="n">kinetic_energy</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">timestep</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;energy.kinetic&quot;</span><span class="p">])</span>
+    <span class="n">user_energy</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">timestep</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;energy.user.total&quot;</span><span class="p">])</span>
+    <span class="n">timestamps</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">timestep</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;elapsed&quot;</span><span class="p">])</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">axis</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">frames</span><span class="p">,</span> <span class="n">potential_energy</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Potential energy&#39;</span><span class="p">)</span>
+<span class="n">axis</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">frames</span><span class="p">,</span> <span class="n">kinetic_energy</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Kinetic energy&#39;</span><span class="p">)</span>
+<span class="n">axis</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">frames</span><span class="p">,</span> <span class="n">user_energy</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;User energy&#39;</span><span class="p">)</span>
+<span class="n">axis</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">axis</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">10000</span><span class="p">)</span>
+<span class="n">axis</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Frame index&quot;</span><span class="p">)</span>
+<span class="n">axis</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Energy (kJ/mol)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Lower level methods are available in <a class="reference internal" href="../python/nanover.mdanalysis.recordings.html#module-nanover.mdanalysis.recordings" title="nanover.mdanalysis.recordings"><code class="xref py py-mod docutils literal notranslate"><span class="pre">nanover.mdanalysis.recordings</span></code></a> to read the content of the files directly. This module is used in the <a class="reference external" href="https://github.com/IRL2/state-utils">state-utils</a> utility that allows to read shared state recordings in a python script or with the command line.</p>
+</section>
+<section id="recording-format">
+<h2>Recording format<a class="headerlink" href="#recording-format" title="Link to this heading"></a></h2>
+<p>The current version of the file format is version 2. A file contains a header and a sequence of records.</p>
+<p>The header contains two fields, stored as little endian 8 bytes unsigned integers:</p>
+<ul class="simple">
+<li><p>a magic number, its value is 6661355757386708963. This value was chosen arbitrarily and needs to be the first 8 bytes of the file to indicate it is indeed a NanoVer recording. A file without this magic number is not a NanoVer recording, however one need to keep in mind that a file that starts with that value could still not be a valid recording and should handle errors accordingly.</p></li>
+<li><p>the version of the file format. This version number dictates how the rest of the file will be written or parsed. Any change to the file format needs to increment this file format version The current version is 2.</p></li>
+</ul>
+<p>A record contains:</p>
+<ul class="simple">
+<li><p>a timestamp encoded as a little endian 16 bytes unsigned integer that indicates the time, in microseconds, since the beginning of the recording. This timestamp indicates the timing of the records and allows to synchronise a trajectory and a state recordings.</p></li>
+<li><p>the size, in bytes, of the record; encoded as an 8 bytes little endian unsigned integer.</p></li>
+<li><p>the record itself as a protobuf message.</p></li>
+</ul>
+<p>In the case of a trajectory recording, each record contains a <cite>GetFrameResponse</cite> message. This message contains two fields: the frame index and the frame itself. The frame index is generally an integer that gets incremnted each time the server register a frame to broadcast. However, its value is only sognificant when it is 0 as it means the frame needs to be reset; for instance because the server loaded a new simulation. The frame is a <a class="reference internal" href="frames.html#traj-and-frames"><span class="std std-ref">FrameData</span></a>.</p>
+<p>In the case of a shared state recording, each record contains a <cite>StateUpdate</cite> message.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="frames.html" class="btn btn-neutral float-left" title="Trajectories and Frames" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../python/modules.html" class="btn btn-neutral float-right" title="nanover" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright University of Bristol, Intangible Realities Lab (https://www.intangiblerealitieslab.org), University of Santiago de Compostella and other contributors.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

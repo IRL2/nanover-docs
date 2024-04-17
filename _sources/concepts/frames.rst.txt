@@ -1,3 +1,5 @@
+.. _traj-and-frames:
+
 Trajectories and Frames
 =======================
 
@@ -14,8 +16,8 @@ or element).
 The approach taken by NanoVer is to use a key value system to store frames, as what is 
 available in a frame varies dramatically based on what is being simulated. NanoVer applications
 use a set of standard keys to define common fields, such as 'particle_positions' for the the field
-containing the coordinates of the particles in the system. See the python implementation of `FrameData <../../python/nanover.trajectory.frame_data>`_ 
-or some of our `conversion <../../python/nanover.openmm.converter>`_  utilities for more examples.
+containing the coordinates of the particles in the system. See the python implementation of :py:class:`FrameData <nanover.trajectory.frame_data.FrameData>`
+or some of our :py:mod:`conversion <nanover.openmm.converter>`  utilities for more examples.
 
 For a basic interactive molecular simulation, a frame typically has the following fields:
 

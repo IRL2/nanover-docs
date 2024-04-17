@@ -16,7 +16,7 @@
         <script src="../_static/jquery.js?v=5d32c60e"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../_static/documentation_options.js?v=04c572cc"></script>
-        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -122,7 +122,7 @@ and join the multiplayer shared state.</p>
 </dl>
 <p>All addresses are optional, so one can, for example, just connect to a trajectory service to passively receive
 frames.</p>
-<p>The <a href="#id1"><span class="problematic" id="id2">:fun:`NanoverImdClient.autoconnect`</span></a> and <a href="#id3"><span class="problematic" id="id4">:fun:`NanoverImdClient.connect_to_single_server`</span></a> methods provide
+<p>The <a class="reference internal" href="#nanover.app.client.NanoverImdClient.autoconnect" title="nanover.app.client.NanoverImdClient.autoconnect"><code class="xref py py-func docutils literal notranslate"><span class="pre">NanoverImdClient.autoconnect()</span></code></a> and <a class="reference internal" href="#nanover.app.client.NanoverImdClient.connect_to_single_server" title="nanover.app.client.NanoverImdClient.connect_to_single_server"><code class="xref py py-func docutils literal notranslate"><span class="pre">NanoverImdClient.connect_to_single_server()</span></code></a> methods provide
 shorthands for common server setups.</p>
 <section id="inspecting-a-frame">
 <h2>Inspecting a Frame<a class="headerlink" href="#inspecting-a-frame" title="Link to this heading"></a></h2>
@@ -170,15 +170,15 @@ transmitted to other clients (i.e. VR) using the <cite>modify</cite> context:</p
 <dl class="py method">
 <dt class="sig sig-object py" id="nanover.app.client.NanoverImdClient.attempt_update_multiplayer_locks">
 <span class="sig-name descname"><span class="pre">attempt_update_multiplayer_locks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">update</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#nanover.app.client.NanoverImdClient.attempt_update_multiplayer_locks" title="Link to this definition"></a></dt>
-<dd><p>Attempt to acquire and/or free a number of locks on the shared state.
-:param update: A dictionary of keys to either a duration in</p>
-<blockquote>
-<div><p>seconds to attempt to acquire or renew a lock, or None to indicate
-the lock should be released if held.</p>
-</div></blockquote>
+<dd><p>Attempt to acquire and/or free a number of locks on the shared state.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>True if the desired locks were acquired, and False otherwise.</p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>update</strong> – A dictionary of keys to either a duration in
+seconds to attempt to acquire or renew a lock, or None to indicate
+the lock should be released if held.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the desired locks were acquired, and False otherwise.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -187,15 +187,15 @@ the lock should be released if held.</p>
 <dt class="sig sig-object py" id="nanover.app.client.NanoverImdClient.attempt_update_multiplayer_state">
 <span class="sig-name descname"><span class="pre">attempt_update_multiplayer_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">update</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="nanover.utilities.change_buffers.html#nanover.utilities.change_buffers.DictionaryChange" title="nanover.utilities.change_buffers.DictionaryChange"><span class="pre">DictionaryChange</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#nanover.app.client.NanoverImdClient.attempt_update_multiplayer_state" title="Link to this definition"></a></dt>
 <dd><p>Attempt to make a single atomic change to the shared state, blocking
-until a response is received.
-:param update: A single change to make to the shared state that will</p>
-<blockquote>
-<div><p>either be made in full, or ignored if some of the keys are locked
-by another user.</p>
-</div></blockquote>
+until a response is received.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>True if the server accepted our change, and False otherwise.</p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>update</strong> – A single change to make to the shared state that will
+either be made in full, or ignored if some of the keys are locked
+by another user.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the server accepted our change, and False otherwise.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -617,11 +617,9 @@ interaction has stopped.</p>
 interaction to stop.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>An <code class="xref py py-class docutils literal notranslate"><span class="pre">InteractionEndReply</span></code>, which is an empty message indicating</p>
+<dd class="field-even"><p>An <code class="xref py py-class docutils literal notranslate"><span class="pre">InteractionEndReply</span></code>, which is an empty message indicating
+successful termination of the interaction.</p>
 </dd>
-</dl>
-<p>successful termination of the interaction.</p>
-<dl class="field-list simple">
 <dt class="field-odd">Raises<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>ValueError</strong> – if the there is no IMD connection available, or
@@ -666,6 +664,10 @@ are sent.</p>
 <p>A client can subscribe to frames only ones and cannot change how
 it subscribes.</p>
 </div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>subscribe_to_frames, are_frames_subscribed</p>
+</div>
 </dd></dl>
 
 <dl class="py method">
@@ -686,6 +688,10 @@ only the latest available ones.</p>
 <p class="admonition-title">Warning</p>
 <p>A client can subscribe to frames only ones and cannot change how
 it subscribes.</p>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>subscribe_to_all_frames, are_frames_subscribed</p>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>

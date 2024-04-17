@@ -16,7 +16,7 @@
         <script src="../_static/jquery.js?v=5d32c60e"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../_static/documentation_options.js?v=04c572cc"></script>
-        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -125,13 +125,13 @@ portable trajectory files from an ASE molecular dynamics simulation.</p>
 <li><p><strong>atoms</strong> – ASE <code class="xref py py-class docutils literal notranslate"><span class="pre">Atoms</span></code> from which to write data.</p></li>
 <li><p><strong>filename</strong> – Path to filename to write to.</p></li>
 <li><p><strong>format</strong> – Format to use, as supported by ASE. If not specified, derived from filename.</p></li>
-<li><p><strong>timestamp</strong> – Whether to append a timestamp to the file name. Use to avoid overwriting the same file if</p></li>
+<li><p><strong>timestamp</strong> – Whether to append a timestamp to the file name. Use to avoid overwriting the same file if
+dynamics is reset.</p></li>
+<li><p><strong>parallel</strong> – Default is to write on master process only.  Set to <cite>False</cite> to write from all processes.</p></li>
+<li><p><strong>kwargs</strong> – Keyword arguments to be passed to the underlying <code class="xref py py-func docutils literal notranslate"><span class="pre">ase.io.write()</span></code> method.</p></li>
 </ul>
 </dd>
 </dl>
-<p>dynamics is reset.
-:param parallel:  Default is to write on master process only.  Set to <cite>False</cite> to write from all processes.
-:param kwargs: Keyword arguments to be passed to the underlying <a href="#id1"><span class="problematic" id="id2">:fun:`ase.io.write`</span></a> method.</p>
 <p>Note that even if an ASE format supports appending, if that file requires additional data between frames (e.g.
 headers), then the resulting output may not be valid.</p>
 <p>If ASE supports writing directly a file descriptor for the given format, then that will be used for performance,
