@@ -217,51 +217,129 @@ should be considered publicly exposed.
 The trajectory service
 ----------------------
 
+A server can broadcast molecular systems using the trajectory service.
+
 Frame description
 ~~~~~~~~~~~~~~~~~
+
+* a trajectory is a series of frames
+* frames are described as ``FrameData``
+* ``FrameData`` describe the topology and the atom positions
+* a ``FrameData`` describe changes in the trajectory, they are merged into the
+  current frame
+
+.. code:: protobuf
+
+    /* A general structure to represent a frame of a trajectory. It is similar in structure to the Google Struct message, representing dynamically typed objects and lists. However, as frame's often consist of large arrays of data of the same type, a set of arrays are also provided as specified in nanover/protocol/array.proto */
+    message FrameData {
+
+      /* A standard key-value list of dynamically typed data */
+      map<string, google.protobuf.Value> values = 1;
+
+      /* A key-value list of value arrays */
+      map<string, nanover.protocol.ValueArray> arrays = 2;
+    }
+
+* a ``FrameData`` has values and arrays
+* the meaning of the keys are described in the next section
+
+.. code:: protobuf
+
+    message FloatArray {
+      repeated float values = 1;
+    }
+
+    message IndexArray {
+      repeated uint32 values = 1;
+    }
+
+    message StringArray {
+      repeated string values = 1;
+    }
+
+    message ValueArray {
+      oneof values {
+        FloatArray float_values = 1;
+        IndexArray index_values = 2;
+        StringArray string_values = 3;
+      }
+    }
+
+* when part of a stream, FramaData is wrapped into a GetFrameResponse
+* when the frame index is 0, the base frame needs to be reset
+
+.. code:: protobuf
+
+    /* A server response representing a frame of a molecular trajectory */
+    message GetFrameResponse {
+
+      /* An identifier for the frame */
+      uint32 frame_index = 1;
+
+      /* The frame of the trajectory, which may contain positions and topology information */
+      nanover.protocol.trajectory.FrameData frame = 2;
+
+    }
 
 Field conventions
 ~~~~~~~~~~~~~~~~~
 
-Subscribing to frames
-~~~~~~~~~~~~~~~~~~~~~
+* particles
+* residues
+* segments
+* forces
+* velocities
+* bonds
+
+Subscribing to the latest frames
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code:: protobuf
+
+    /* A service which provides access to frames of a trajectory, which may either be precomputed or represent a live simulation. It can also be used to obtain one or more frames on demand, allowing molecules or trajectories to be generated based on requests */
+    service TrajectoryService {
+
+      /* Subscribe to a continuous updating source of frames. The client gets the latest available frame at the time of transmission. */
+      rpc SubscribeLatestFrames (GetFrameRequest) returns (stream GetFrameResponse);
+    }
+
+.. code:: protobuf
+
+    /* A client request to get frame(s) from a trajectory service */
+    message GetFrameRequest {
+
+      /* Arbitrary data that can be used by a TrajectoryService to decide what frames to return */
+      google.protobuf.Struct data = 1;
+
+      /* Interval to send new frames at e.g 1/30 sends 30 frames every second. */
+      float frame_interval = 2;
+    }
+
+Subscribing to all frames
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code:: protobuf
+
+    /* A service which provides access to frames of a trajectory, which may either be precomputed or represent a live simulation. It can also be used to obtain one or more frames on demand, allowing molecules or trajectories to be generated based on requests */
+    service TrajectoryService {
+
+      /* Subscribe to a continuous updating source of frames. Frames are added to the stream when they are available */
+      rpc SubscribeFrames (GetFrameRequest) returns (stream GetFrameResponse);
+    }
+
 
 Limitations
 ~~~~~~~~~~~
 
 -  Frame size
 -  Falling behind
--  Scalling
 
 The command service
 -------------------
 
-Running commands
-~~~~~~~~~~~~~~~~
-
 Listing available commands
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-General protobuf considerations
--------------------------------
-
-Optional values and Null
-~~~~~~~~~~~~~~~~~~~~~~~~
-
-Null collections
+Running commands
 ~~~~~~~~~~~~~~~~
 
-Avatars
--------
-
-Formatting an avatar
-~~~~~~~~~~~~~~~~~~~~
-
-Avatar playspace
-~~~~~~~~~~~~~~~~
-
-Movable simulation space
-------------------------
-
-iMD interactions
-----------------
