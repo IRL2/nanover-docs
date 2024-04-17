@@ -61,4 +61,4 @@ jobs:
           git status
           git add .
           git status
-          git status | grep -F 'nothing to commit' && { git commit -m "Update documentation for commit ${current_commit}" && git push; } || echo "Nothing to do."
+          git status | grep -F 'nothing to commit' || { git commit -m "Update documentation for commit ${current_commit}" && git push; } && echo "Nothing to do."
