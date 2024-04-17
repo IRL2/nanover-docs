@@ -47,7 +47,7 @@ jobs:
           cd source
           make html
       - name: Integrate the documentation in the target branch
-        if: github.ref == 'refs/heads/hotfix/automation'
+        if: github.ref == 'refs/heads/main'
         run: |
           cd source
           current_commit=$(git rev-parse HEAD)
