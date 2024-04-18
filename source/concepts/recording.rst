@@ -100,4 +100,4 @@ A record contains:
 
 In the case of a trajectory recording, each record contains a `GetFrameResponse` message. This message contains two fields: the frame index and the frame itself. The frame index is generally an integer that gets incremnted each time the server register a frame to broadcast. However, its value is only sognificant when it is 0 as it means the frame needs to be reset; for instance because the server loaded a new simulation. The frame is a :ref:`FrameData <traj-and-frames>`.
 
-In the case of a shared state recording, each record contains a `StateUpdate` message.
+In the case of a shared state recording, each record contains a :ref:`StateUpdate <state-updates>` message.
