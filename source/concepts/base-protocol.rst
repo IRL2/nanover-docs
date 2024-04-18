@@ -407,9 +407,82 @@ client. This can cause an important disk and/or memory usage.
 The command service
 -------------------
 
+A server can expose functions that clients can call. Such function can take
+arguments and return values. The function itself should return shortly after
+being called.
+
+These functions are exposed through the command service. A client can use the
+service to list the commands that are available and to call commands.
+
+Each command has a name and a list of arguments. The name is an arbitrary
+string. By convention the name can be attached to a namespace by naming the
+command ``namespace/command_name``.
+
 Listing available commands
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code:: protobuf
+
+    service Command {
+
+        /* Get a list of all the commands available on this service */
+        rpc GetCommands (GetCommandsRequest) returns (GetCommandsReply) {}
+    }
+
+    message GetCommandsRequest {
+
+    }
+
+    message GetCommandsReply{
+        repeated CommandMessage commands = 1;
+    }
+
+    message CommandMessage {
+        string name = 1;
+        google.protobuf.Struct arguments = 2;
+    }
+
+A client can call the ``GetCommands`` method to list the commands exposed by
+the server. It needs to send a ``GetCommandRequest`` message, that is a message
+without content, and it receives a list of the commands. This list is wrapped
+in a ``GetCommandsReply`` under the `commands`` field. Each command is
+presented as a ``CommandMessage`` that contains the name of the command, and
+the list of arguments that the command accept alongside the default values for
+these arguments.
 
 Running commands
 ~~~~~~~~~~~~~~~~
 
+.. code:: protobuf
+
+    service Command {
+        /* Runs a command on the service */
+        rpc RunCommand (CommandMessage) returns (CommandReply) {}
+    }
+
+    message CommandReply {
+        google.protobuf.Struct result = 1;
+    }
+
+    message CommandMessage {
+        string name = 1;
+        google.protobuf.Struct arguments = 2;
+    }
+
+To invoke a command, a client needs to run the ``RunCommand`` method with a
+``CommandMessage``. The ``CommandMessage`` contains the name of the command to
+invoke and a Struct of arguments to pass to the command. The server will use
+the default value for arguments that are missing from the ``CommandMessage``.
+
+The ``RunCommand`` method returns a ``CommandReply`` that contains a Struct of
+the values returned by the server-side function.
+
+If the name of the command or one of the name of an argument is unknown to the
+server, the ``RunCommand`` method fails with a ``INVALID_ARGUMENT`` status
+code.
+
+.. note::
+
+   The protocol does not have an in-built way of handling errors during the
+   execution of the command. It does not have an in-built way to handle long
+   running command either.
