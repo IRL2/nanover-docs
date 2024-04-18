@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The NanoVer protocol &mdash; NanoVer 2018.1.8 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=04c572cc"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="nanover" href="../python/modules.html" />
+    <link rel="prev" title="Recording data" href="recording.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            NanoVer
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation &amp; Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/tutorials.html">Tutorials</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="concepts.html">Concepts</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="architecture.html">NanoVer Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="frames.html">Trajectories and Frames</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recording.html">Recording data</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">The NanoVer protocol</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#general-architecture">General architecture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#the-state-service">The state service</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#state-and-state-updates">State and state updates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#subscribing-to-state-updates">Subscribing to state updates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#updating-the-state">Updating the state</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#state-locks">State locks</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#security-issues">Security issues</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#the-trajectory-service">The trajectory service</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#frame-description">Frame description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#subscribing-to-the-latest-frames">Subscribing to the latest frames</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#subscribing-to-all-frames">Subscribing to all frames</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#the-command-service">The command service</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#listing-available-commands">Listing available commands</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#running-commands">Running commands</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../python/modules.html">nanover</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">NanoVer</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="concepts.html">Concepts</a></li>
+      <li class="breadcrumb-item active">The NanoVer protocol</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/concepts/base-protocol.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="the-nanover-protocol">
+<h1>The NanoVer protocol<a class="headerlink" href="#the-nanover-protocol" title="Link to this heading"></a></h1>
+<section id="general-architecture">
+<h2>General architecture<a class="headerlink" href="#general-architecture" title="Link to this heading"></a></h2>
+<p>NanoVer provides 3 services: the state service, the trajectory service,
+and the command service. While none of the service is strictly
+mandatory, some features expect two or three services to cooperate.</p>
+<p>The <em>state service</em> maintains a state that is shared between the server
+and one or more clients. The state is presented as a key-value store;
+users can subscribe to updates to the state, send updates themselves,
+and request exclusive write access to some keys. This service is used to
+share the position of the user’s avatars, to send user’s interactions
+with molecular systems, and to share the molecular representations. It
+can be used to send any arbitrary data to the server and to the clients.</p>
+<p>The <em>trajectory service</em> allows the server to broadcast the state of a
+simulation to the clients. It sends frames to the clients at the
+requested frame rate.</p>
+<p>The <em>command service</em> lets client run functions on the server. This
+service is used to pause or reset a molecular simulation.</p>
+<p>The services can be all served from a different address and/or a
+different port. However, they are commonly served together from the same
+address and port. The default port is 38801.</p>
+</section>
+<section id="the-state-service">
+<h2>The state service<a class="headerlink" href="#the-state-service" title="Link to this heading"></a></h2>
+<p>The state service maintains a state that is shared between the server
+and the clients.</p>
+<section id="state-and-state-updates">
+<span id="state-updates"></span><h3>State and state updates<a class="headerlink" href="#state-and-state-updates" title="Link to this heading"></a></h3>
+<p>The state is thought of as a key-value store.</p>
+<p>Clients can subscribe to a stream of updates and need to maintain their
+own version of the full state.</p>
+<div class="highlight-protobuf notranslate"><div class="highlight"><pre><span></span><span class="kd">message</span><span class="w"> </span><span class="nc">StateUpdate</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Struct where each field is an updated state key and it&#39;s latest value,</span>
+<span class="w">    </span><span class="c1">// where null is equivalent to a key removal.</span>
+<span class="w">    </span><span class="n">google.protobuf.Struct</span><span class="w"> </span><span class="na">changed_keys</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The state update is presented as a protobuf
+<a class="reference external" href="https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Struct">Struct</a>.
+The keys in the update directly refer to the keys in the full state. The
+values in the update are the new values the state should contain. <a class="reference external" href="https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.NullValue">Null
+values</a>
+are a special case; indeed they correspond to keys that should be
+removed from the full state. Therefore, the full state cannot contain
+null values.</p>
+<p>A state update can contain nested values. In that case, the whole nested
+structure must be updated at once. A nested value is still considered as
+a single value and the protocol does not offer ways of performing a
+partial update of such structures.</p>
+</section>
+<section id="subscribing-to-state-updates">
+<h3>Subscribing to state updates<a class="headerlink" href="#subscribing-to-state-updates" title="Link to this heading"></a></h3>
+<div class="highlight-protobuf notranslate"><div class="highlight"><pre><span></span><span class="kd">service</span><span class="w"> </span><span class="n">State</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Periodically received aggregated updates from last known state to latest</span>
+<span class="w">    </span><span class="c1">// state of a shared key/value store.</span>
+<span class="w">    </span><span class="k">rpc</span><span class="w"> </span><span class="n">SubscribeStateUpdates</span><span class="p">(</span><span class="n">SubscribeStateUpdatesRequest</span><span class="p">)</span><span class="w"> </span><span class="k">returns</span><span class="w"> </span><span class="p">(</span><span class="n">stream</span><span class="w"> </span><span class="n">StateUpdate</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">    </span><span class="o">...</span>
+<span class="p">}</span>
+
+<span class="kd">message</span><span class="w"> </span><span class="nc">SubscribeStateUpdatesRequest</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Interval (in seconds) between update sends.</span>
+<span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="na">update_interval</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Clients can subscribe to a stream of updates. The server sends the
+update at the requested rate waiting at least the requested
+<code class="docutils literal notranslate"><span class="pre">update_interval</span></code> in between two updates. The waiting time may be
+longer, though, due to a variety of factors including a slow server or
+network delays. Therefore, a client should not assume the rate is either
+regular, or even respected. Still, it is important to request the
+longest update interval that is suitable for the needs in order to
+reduce the load on all the involved actors.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>It is possible for an update to be too large to be
+transmitted in one gRPC packet. If this happens, the behaviour is
+undefined.</p>
+</div>
+</section>
+<section id="updating-the-state">
+<h3>Updating the state<a class="headerlink" href="#updating-the-state" title="Link to this heading"></a></h3>
+<div class="highlight-protobuf notranslate"><div class="highlight"><pre><span></span><span class="kd">service</span><span class="w"> </span><span class="n">State</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Attempt to make an update to the shared key/value store.</span>
+<span class="w">    </span><span class="k">rpc</span><span class="w"> </span><span class="n">UpdateState</span><span class="p">(</span><span class="n">UpdateStateRequest</span><span class="p">)</span><span class="w"> </span><span class="k">returns</span><span class="w"> </span><span class="p">(</span><span class="n">UpdateStateResponse</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+<span class="p">}</span>
+
+<span class="kd">message</span><span class="w"> </span><span class="nc">UpdateStateRequest</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Token for associating requests to their lock ownership.</span>
+<span class="w">    </span><span class="kt">string</span><span class="w"> </span><span class="na">access_token</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">// Updates to make to state.</span>
+<span class="w">    </span><span class="n">StateUpdate</span><span class="w"> </span><span class="na">update</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">message</span><span class="w"> </span><span class="nc">UpdateStateResponse</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Whether the update was successful.</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="na">success</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>A client can request an update of the state using the <code class="docutils literal notranslate"><span class="pre">UpdateSate</span></code> method. The
+request contains an <code class="docutils literal notranslate"><span class="pre">access_token</span></code> and the update itself. The update is
+formatted in the same way as updates received from the server. The
+<code class="docutils literal notranslate"><span class="pre">access_token</span></code> is an arbitrary string, chosen by the client, and that
+identifies that client to the server. The access token is used by the server to
+resolve locks that may be set on the keys in the update. The method returns a
+<code class="docutils literal notranslate"><span class="pre">UpdateStateResponse</span></code> containing a boolean that is true if the update
+succeeded.</p>
+<p>State updates are “atomic” operations. All the keys in an update are updated at
+once and they are either all successfully updated or none is updated. An update
+can fail if one key is locked by another client. See the <a class="reference internal" href="#state-locks-description"><span class="std std-ref">State locks</span></a>
+section.</p>
+<p>When an update succeeds, the server incorporate the changes and broadcast them
+to all subscribed clients. Clients may receive these updates aggregated with
+other updates depending on what updates were received by the server during the
+client’s subscription interval.</p>
+<p>A server can make updates to the shared state. How the server does it is out of
+scope of the protocol, but the server updates need to appear in the state update
+stream of the subscribed clients.</p>
+</section>
+<section id="state-locks">
+<span id="state-locks-description"></span><h3>State locks<a class="headerlink" href="#state-locks" title="Link to this heading"></a></h3>
+<div class="highlight-protobuf notranslate"><div class="highlight"><pre><span></span><span class="kd">service</span><span class="w"> </span><span class="n">State</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Attempt to acquire, renew, or release exclusive control of keys in the</span>
+<span class="w">    </span><span class="c1">// shared key/value store.</span>
+<span class="w">    </span><span class="k">rpc</span><span class="w"> </span><span class="n">UpdateLocks</span><span class="p">(</span><span class="n">UpdateLocksRequest</span><span class="p">)</span><span class="w"> </span><span class="k">returns</span><span class="w"> </span><span class="p">(</span><span class="n">UpdateLocksResponse</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+<span class="p">}</span>
+
+<span class="kd">message</span><span class="w"> </span><span class="nc">UpdateLocksRequest</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Token for associating requests to their lock ownership.</span>
+<span class="w">    </span><span class="kt">string</span><span class="w"> </span><span class="na">access_token</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">// Struct where each field an state key and either a time in seconds to</span>
+<span class="w">    </span><span class="c1">// acquire or renew the lock for, or a null to indicate the lock should be</span>
+<span class="w">    </span><span class="c1">// released if held.</span>
+<span class="w">    </span><span class="n">google.protobuf.Struct</span><span class="w"> </span><span class="na">lock_keys</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">message</span><span class="w"> </span><span class="nc">UpdateLocksResponse</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Whether the locking was successful.</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="na">success</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Multiple clients may update the same key. If they do so close enough in time,
+other clients will receive a different assortment of these updates which can
+appear as visual or logical glitch. In practice, if clients display an object
+with its location bound to a shared state key, and if multiple clients try to
+move that object, it may appear as jumping between different locations as
+clients receive conflicting locations. To avoid such situations, clients have
+the ability to request a lock on a key or on a set of keys.</p>
+<p>A lock applies to a key in the shared state. It has an access token, and a
+duration in seconds during which it is valid. The access token is an arbitrary
+string, chosen by the client, that associate the client with its locks. The
+client sent this key alongside its requests to update shared state, the update
+only succeeds if all the keys in the request have no valid locks on them or if
+the locks are associated with the same access token as in the update request.</p>
+<p>A client can create, renew, or remove locks. To do so, it needs to call the
+<code class="docutils literal notranslate"><span class="pre">UpdateLocks</span></code> method with an <code class="docutils literal notranslate"><span class="pre">UpdateLocksRequest</span></code>. The request contains the
+access token and a <a class="reference external" href="https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Struct">Struct</a>.
+with the state key associated with the lock to update as key, and either a
+duration in seconds or a <a class="reference external" href="https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.NullValue">Null value</a>
+as value. If the value is a duration, then the lock is created or renewed with
+the requested validity duration. If the value is null, then the lock is deleted.
+A lock can only be updated if it does not yet exist, if it exists but is
+expired, or if it is hold by the same access token as the request. Each update
+can be about one or multiple locks; a request only succeeds if all the locks can
+be updated. If any of the locks cannot be updated, then none of the locks are
+updated.</p>
+</section>
+<section id="security-issues">
+<h3>Security issues<a class="headerlink" href="#security-issues" title="Link to this heading"></a></h3>
+<p>The way to handle updates larger than a gRPC packet is undefined.
+Servers may implement that case by shutting down, implementing solutions
+that lead to a stale state or a degraded experience. This makes the
+state service very susceptible to low effort denial of service attacks.</p>
+<p>For now, no server and no client implement any form of encryption.
+Therefore, the access tokens used to lock keys in the shared state
+should be considered publicly exposed.</p>
+</section>
+</section>
+<section id="the-trajectory-service">
+<h2>The trajectory service<a class="headerlink" href="#the-trajectory-service" title="Link to this heading"></a></h2>
+<p>A server can broadcast molecular systems using the trajectory service.
+Molecular systems can be running simulations, static structures, recorded
+trajectories, or any collection of particles regardless of how they are
+produced. They are represented as a sequence of one or more frames where each
+frame represents a state of the molecular system.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The trajectory service is initially designed with molecular systems in mind,
+hence the wording in this documentation. However, while we established a set
+of conventions to represent such systems, the protocol is mot limited to
+them.</p>
+</div>
+<section id="frame-description">
+<h3>Frame description<a class="headerlink" href="#frame-description" title="Link to this heading"></a></h3>
+<div class="highlight-protobuf notranslate"><div class="highlight"><pre><span></span><span class="cm">/* A general structure to represent a frame of a trajectory. It is similar in structure to the Google Struct message, representing dynamically typed objects and lists. However, as frame&#39;s often consist of large arrays of data of the same type, a set of arrays are also provided as specified in nanover/protocol/array.proto */</span>
+<span class="kd">message</span><span class="w"> </span><span class="nc">FrameData</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">  </span><span class="cm">/* A standard key-value list of dynamically typed data */</span>
+<span class="w">  </span><span class="n">map</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="n">google.protobuf.Value</span><span class="p">&gt;</span><span class="w"> </span><span class="na">values</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+
+<span class="w">  </span><span class="cm">/* A key-value list of value arrays */</span>
+<span class="w">  </span><span class="n">map</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="n">nanover.protocol.ValueArray</span><span class="p">&gt;</span><span class="w"> </span><span class="na">arrays</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>NanoVer describes frames using the <code class="docutils literal notranslate"><span class="pre">FrameData</span></code> structure. A <code class="docutils literal notranslate"><span class="pre">FrameData</span></code>
+contains two key-value maps to describe the changes from the previous state of
+the trajectory. An implementation using this structure needs to maintain an
+aggregate <code class="docutils literal notranslate"><span class="pre">FrameData</span></code> and merge all incoming frames to get the current state
+of the system.</p>
+<p>A <code class="docutils literal notranslate"><span class="pre">FrameData</span></code> contains two fields: <code class="docutils literal notranslate"><span class="pre">values</span></code> and <code class="docutils literal notranslate"><span class="pre">arrays</span></code>. The <code class="docutils literal notranslate"><span class="pre">values</span></code>
+field is a key-value map with string keys and protobuf <a class="reference external" href="https://protobuf.dev/reference/protobuf/google.protobuf/#value">Value</a> as values.
+This map aims at storing simple data related to the frame: data consisting in a
+single number, boolean, or string. It can contain more complex data strictures
+such as heterogeneous lists or protobuf <a class="reference external" href="https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Struct">Struct</a>.
+Homogeneous arrays (<em>i.e.</em> arrays where all the values have the same type) can
+be stored in the <code class="docutils literal notranslate"><span class="pre">arrays</span></code> field of the <code class="docutils literal notranslate"><span class="pre">FrameData</span></code> where keys are strings
+and values are <code class="docutils literal notranslate"><span class="pre">ValueArray</span></code> as described bellow. A <code class="docutils literal notranslate"><span class="pre">ValueArray</span></code> can contain
+an homogeneous array of either  floats (<code class="docutils literal notranslate"><span class="pre">FloatArray</span></code>), unsigned integer
+(<code class="docutils literal notranslate"><span class="pre">IndexArray</span></code>), or strings (<code class="docutils literal notranslate"><span class="pre">StringArray</span></code>). The meaning of the keys in both
+fields of the <code class="docutils literal notranslate"><span class="pre">FrameData</span></code> depends on the application.</p>
+<div class="highlight-protobuf notranslate"><div class="highlight"><pre><span></span><span class="kd">message</span><span class="w"> </span><span class="nc">FloatArray</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">repeated</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="na">values</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">message</span><span class="w"> </span><span class="nc">IndexArray</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">repeated</span><span class="w"> </span><span class="kt">uint32</span><span class="w"> </span><span class="na">values</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">message</span><span class="w"> </span><span class="nc">StringArray</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">repeated</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="na">values</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">message</span><span class="w"> </span><span class="nc">ValueArray</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">oneof</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">FloatArray</span><span class="w"> </span><span class="na">float_values</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">    </span><span class="n">IndexArray</span><span class="w"> </span><span class="na">index_values</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="w">    </span><span class="n">StringArray</span><span class="w"> </span><span class="na">string_values</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>While a <code class="docutils literal notranslate"><span class="pre">FrameData</span></code> can describe a full frame, it is mostly used to describe
+the changes in a frame compared to the previous ones. As such, it is expected
+that a program worging with these frame will merge them. A <code class="docutils literal notranslate"><span class="pre">FrameData</span></code>
+contains the key-value pairs to change for both the <code class="docutils literal notranslate"><span class="pre">values</span></code> and the
+<code class="docutils literal notranslate"><span class="pre">arrays</span></code> fields. In case of complex structures in <code class="docutils literal notranslate"><span class="pre">values</span></code>, the new
+<code class="docutils literal notranslate"><span class="pre">FrameData</span></code> needs to contain the full new value even if only part of it
+changed; samewise, it needs to contain the full array in <code class="docutils literal notranslate"><span class="pre">arrays</span></code> even if a
+single element of it changed. When merging, key value pairs from the new frame
+replace those from the aggregated frame. Key-value pairs that are only in the
+new frame are added to the aggregated frame. Pairs that do not appear in the
+new frame remain untouched in the aggregated one. Here is an example of frames
+being merged:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Aggregated</span> <span class="n">frame</span><span class="p">:</span>        <span class="n">New</span> <span class="n">frame</span><span class="p">:</span>           <span class="n">Resulting</span> <span class="n">frame</span><span class="p">:</span>
+  <span class="o">*</span> <span class="n">values</span><span class="p">:</span>                <span class="o">*</span> <span class="n">values</span><span class="p">:</span>            <span class="o">*</span> <span class="n">values</span><span class="p">:</span>
+    <span class="o">-</span> <span class="n">key0</span><span class="p">:</span> <span class="n">A</span>                <span class="o">-</span> <span class="n">key1</span><span class="p">:</span> <span class="n">B</span>            <span class="o">-</span> <span class="n">key0</span><span class="p">:</span> <span class="n">A</span>
+    <span class="o">-</span> <span class="n">key1</span><span class="p">:</span> <span class="n">A</span>        <span class="o">+</span>       <span class="o">-</span> <span class="n">key4</span><span class="p">:</span> <span class="n">B</span>     <span class="o">=</span>      <span class="o">-</span> <span class="n">key1</span><span class="p">:</span> <span class="n">B</span>
+  <span class="o">*</span> <span class="n">fields</span><span class="p">:</span>                <span class="o">*</span> <span class="n">fields</span><span class="p">:</span>              <span class="o">-</span> <span class="n">key4</span><span class="p">:</span> <span class="n">B</span>
+    <span class="o">-</span> <span class="n">key2</span><span class="p">:</span> <span class="n">A</span>                <span class="o">-</span> <span class="n">key2</span><span class="p">:</span> <span class="n">B</span>          <span class="o">*</span> <span class="n">fields</span><span class="p">:</span>
+    <span class="o">-</span> <span class="n">key3</span><span class="p">:</span> <span class="n">A</span>                                     <span class="o">-</span> <span class="n">key2</span><span class="p">:</span> <span class="n">B</span>
+                                                  <span class="o">-</span> <span class="n">key3</span><span class="p">:</span> <span class="n">A</span>
+</pre></div>
+</div>
+<p>When part of a stream, <code class="docutils literal notranslate"><span class="pre">FrameData</span></code> messages are wrapped into <code class="docutils literal notranslate"><span class="pre">GetFrameResponse</span></code> ones.</p>
+<div class="highlight-protobuf notranslate"><div class="highlight"><pre><span></span><span class="cm">/* A server response representing a frame of a molecular trajectory */</span>
+<span class="kd">message</span><span class="w"> </span><span class="nc">GetFrameResponse</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">  </span><span class="cm">/* An identifier for the frame */</span>
+<span class="w">  </span><span class="kt">uint32</span><span class="w"> </span><span class="na">frame_index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+
+<span class="w">  </span><span class="cm">/* The frame of the trajectory, which may contain positions and topology information */</span>
+<span class="w">  </span><span class="n">nanover.protocol.trajectory.FrameData</span><span class="w"> </span><span class="na">frame</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>A <code class="docutils literal notranslate"><span class="pre">GetFrameResponse</span></code> message contains a <code class="docutils literal notranslate"><span class="pre">FrameData</span></code> and a frame index. This
+index is an unsigned integer that is commonly incremented every time a new
+frame is created. The exact value of the index, however, is only meaningful
+when it is 0. When it is, it signals that the aggregated frame needs to be
+reset. This can occur when the new frame originates from a completely different
+simulation, for instance. In this case, the aggregated frame and the new frame
+do not describe the same system and they should not be merged. Note that this
+is the only mechanism that allows to remove a key from the aggregated frame.</p>
+</section>
+<section id="subscribing-to-the-latest-frames">
+<h3>Subscribing to the latest frames<a class="headerlink" href="#subscribing-to-the-latest-frames" title="Link to this heading"></a></h3>
+<div class="highlight-protobuf notranslate"><div class="highlight"><pre><span></span><span class="cm">/* A service which provides access to frames of a trajectory, which may either be precomputed or represent a live simulation. It can also be used to obtain one or more frames on demand, allowing molecules or trajectories to be generated based on requests */</span>
+<span class="kd">service</span><span class="w"> </span><span class="n">TrajectoryService</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">  </span><span class="cm">/* Subscribe to a continuous updating source of frames. The client gets the latest available frame at the time of transmission. */</span>
+<span class="w">  </span><span class="k">rpc</span><span class="w"> </span><span class="n">SubscribeLatestFrames</span><span class="w"> </span><span class="p">(</span><span class="n">GetFrameRequest</span><span class="p">)</span><span class="w"> </span><span class="k">returns</span><span class="w"> </span><span class="p">(</span><span class="n">stream</span><span class="w"> </span><span class="n">GetFrameResponse</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="cm">/* A client request to get frame(s) from a trajectory service */</span>
+<span class="kd">message</span><span class="w"> </span><span class="nc">GetFrameRequest</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">  </span><span class="cm">/* Arbitrary data that can be used by a TrajectoryService to decide what frames to return */</span>
+<span class="w">  </span><span class="n">google.protobuf.Struct</span><span class="w"> </span><span class="na">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+
+<span class="w">  </span><span class="cm">/* Interval to send new frames at e.g 1/30 sends 30 frames every second. */</span>
+<span class="w">  </span><span class="kt">float</span><span class="w"> </span><span class="na">frame_interval</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>A client can subscribe to a stream of the frames broadcasted by the server
+using the <code class="docutils literal notranslate"><span class="pre">SubscribeLatestFrames</span></code> method. When subscribing, the client sends
+a <code class="docutils literal notranslate"><span class="pre">GetFrameRequest</span></code> message with a time interval expressed in seconds. The
+server will try to send new frames as they are available and at most at this
+interval. If multiple frames were produced during the interval, the server will
+send the aggregate of these frames. The frames are sent as <code class="docutils literal notranslate"><span class="pre">GetFrameResponse</span></code>
+messages.</p>
+<p>When subscribing, a client may provide additional data as part of the
+<code class="docutils literal notranslate"><span class="pre">GetFrameRequest</span></code>. This aims at allowing some server-side filtering of the
+broadcasted frames. <strong>At this time, no server use this data.</strong></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A client subscribed to this stream may miss some data. If more than one
+frame is generated by the server during the interval, then an aggregated
+frame is sent by the server. This can cause the client to miss data when one
+frame overwrite keys from the previous one. Client should expect to always
+receive the latest state of the trajectory, but not to receive all the time
+points generated by the server.</p>
+</div>
+</section>
+<section id="subscribing-to-all-frames">
+<h3>Subscribing to all frames<a class="headerlink" href="#subscribing-to-all-frames" title="Link to this heading"></a></h3>
+<div class="highlight-protobuf notranslate"><div class="highlight"><pre><span></span><span class="cm">/* A service which provides access to frames of a trajectory, which may either be precomputed or represent a live simulation. It can also be used to obtain one or more frames on demand, allowing molecules or trajectories to be generated based on requests */</span>
+<span class="kd">service</span><span class="w"> </span><span class="n">TrajectoryService</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">  </span><span class="cm">/* Subscribe to a continuous updating source of frames. Frames are added to the stream when they are available */</span>
+<span class="w">  </span><span class="k">rpc</span><span class="w"> </span><span class="n">SubscribeFrames</span><span class="w"> </span><span class="p">(</span><span class="n">GetFrameRequest</span><span class="p">)</span><span class="w"> </span><span class="k">returns</span><span class="w"> </span><span class="p">(</span><span class="n">stream</span><span class="w"> </span><span class="n">GetFrameResponse</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Optionally</strong>, a server may allow a client to subscribe to all the broadcasted
+frames using the <code class="docutils literal notranslate"><span class="pre">SubscribeFrames</span></code> method. In this case, the client sends a
+<code class="docutils literal notranslate"><span class="pre">GetFrameRequest</span></code> with a time interval and possibly extra data. The server
+will send frames as <code class="docutils literal notranslate"><span class="pre">GetFrameResponse</span></code> objects when they are available and at
+most at the requested interval. However, the frames will not be aggregated so
+the last frame received by the client may not be the last frame that was
+produced. A client subscribing to this stream will receive all the time points
+produced by the server, but may bag behind the current state of the simulation.</p>
+<p>This subscription method can be security risk and servers may choose to not
+implement it. Indeed, if a client subscribes to all the frames with a long
+interval, the server needs to record all the frames until they are sent to the
+client. This can cause an important disk and/or memory usage.</p>
+</section>
+</section>
+<section id="the-command-service">
+<h2>The command service<a class="headerlink" href="#the-command-service" title="Link to this heading"></a></h2>
+<p>A server can expose functions that clients can call. Such function can take
+arguments and return values. The function itself should return shortly after
+being called.</p>
+<p>These functions are exposed through the command service. A client can use the
+service to list the commands that are available and to call commands.</p>
+<p>Each command has a name and a list of arguments. The name is an arbitrary
+string. By convention the name can be attached to a namespace by naming the
+command <code class="docutils literal notranslate"><span class="pre">namespace/command_name</span></code>.</p>
+<section id="listing-available-commands">
+<h3>Listing available commands<a class="headerlink" href="#listing-available-commands" title="Link to this heading"></a></h3>
+<div class="highlight-protobuf notranslate"><div class="highlight"><pre><span></span><span class="kd">service</span><span class="w"> </span><span class="n">Command</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="cm">/* Get a list of all the commands available on this service */</span>
+<span class="w">    </span><span class="k">rpc</span><span class="w"> </span><span class="n">GetCommands</span><span class="w"> </span><span class="p">(</span><span class="n">GetCommandsRequest</span><span class="p">)</span><span class="w"> </span><span class="k">returns</span><span class="w"> </span><span class="p">(</span><span class="n">GetCommandsReply</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+<span class="p">}</span>
+
+<span class="kd">message</span><span class="w"> </span><span class="nc">GetCommandsRequest</span><span class="w"> </span><span class="p">{</span>
+
+<span class="p">}</span>
+
+<span class="kd">message</span><span class="w"> </span><span class="nc">GetCommandsReply</span><span class="p">{</span>
+<span class="w">    </span><span class="k">repeated</span><span class="w"> </span><span class="n">CommandMessage</span><span class="w"> </span><span class="na">commands</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">message</span><span class="w"> </span><span class="nc">CommandMessage</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">string</span><span class="w"> </span><span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">    </span><span class="n">google.protobuf.Struct</span><span class="w"> </span><span class="na">arguments</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>A client can call the <code class="docutils literal notranslate"><span class="pre">GetCommands</span></code> method to list the commands exposed by
+the server. It needs to send a <code class="docutils literal notranslate"><span class="pre">GetCommandRequest</span></code> message, that is a message
+without content, and it receives a list of the commands. This list is wrapped
+in a <code class="docutils literal notranslate"><span class="pre">GetCommandsReply</span></code> under the <cite>commands`</cite> field. Each command is
+presented as a <code class="docutils literal notranslate"><span class="pre">CommandMessage</span></code> that contains the name of the command, and
+the list of arguments that the command accept alongside the default values for
+these arguments.</p>
+</section>
+<section id="running-commands">
+<h3>Running commands<a class="headerlink" href="#running-commands" title="Link to this heading"></a></h3>
+<div class="highlight-protobuf notranslate"><div class="highlight"><pre><span></span><span class="kd">service</span><span class="w"> </span><span class="n">Command</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="cm">/* Runs a command on the service */</span>
+<span class="w">    </span><span class="k">rpc</span><span class="w"> </span><span class="n">RunCommand</span><span class="w"> </span><span class="p">(</span><span class="n">CommandMessage</span><span class="p">)</span><span class="w"> </span><span class="k">returns</span><span class="w"> </span><span class="p">(</span><span class="n">CommandReply</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+<span class="p">}</span>
+
+<span class="kd">message</span><span class="w"> </span><span class="nc">CommandReply</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">google.protobuf.Struct</span><span class="w"> </span><span class="na">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">message</span><span class="w"> </span><span class="nc">CommandMessage</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">string</span><span class="w"> </span><span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">    </span><span class="n">google.protobuf.Struct</span><span class="w"> </span><span class="na">arguments</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>To invoke a command, a client needs to run the <code class="docutils literal notranslate"><span class="pre">RunCommand</span></code> method with a
+<code class="docutils literal notranslate"><span class="pre">CommandMessage</span></code>. The <code class="docutils literal notranslate"><span class="pre">CommandMessage</span></code> contains the name of the command to
+invoke and a Struct of arguments to pass to the command. The server will use
+the default value for arguments that are missing from the <code class="docutils literal notranslate"><span class="pre">CommandMessage</span></code>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">RunCommand</span></code> method returns a <code class="docutils literal notranslate"><span class="pre">CommandReply</span></code> that contains a Struct of
+the values returned by the server-side function.</p>
+<p>If the name of the command or one of the name of an argument is unknown to the
+server, the <code class="docutils literal notranslate"><span class="pre">RunCommand</span></code> method fails with a <code class="docutils literal notranslate"><span class="pre">INVALID_ARGUMENT</span></code> status
+code.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The protocol does not have an in-built way of handling errors during the
+execution of the command. It does not have an in-built way to handle long
+running command either.</p>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="recording.html" class="btn btn-neutral float-left" title="Recording data" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../python/modules.html" class="btn btn-neutral float-right" title="nanover" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright University of Bristol, Intangible Realities Lab (https://www.intangiblerealitieslab.org), University of Santiago de Compostella and other contributors.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -10,3 +10,4 @@ This section provides an overview of the main concepts in NanoVer.
    architecture.rst
    frames.rst
    recording.rst
+   base-protocol.rst
