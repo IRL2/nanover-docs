@@ -202,6 +202,12 @@ can be about one or multiple locks; a request only succeeds if all the locks can
 be updated. If any of the locks cannot be updated, then none of the locks are
 updated.
 
+.. note::
+
+   Locks can be applied to non-existing keys. Removing a lock does not remove
+   the key on which it was applied and removing a key does not remove a lock
+   that would apply to it.
+
 Security issues
 ~~~~~~~~~~~~~~~
 

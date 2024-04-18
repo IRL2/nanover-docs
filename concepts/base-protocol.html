@@ -277,6 +277,12 @@ expired, or if it is hold by the same access token as the request. Each update
 can be about one or multiple locks; a request only succeeds if all the locks can
 be updated. If any of the locks cannot be updated, then none of the locks are
 updated.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Locks can be applied to non-existing keys. Removing a lock does not remove
+the key on which it was applied and removing a key does not remove a lock
+that would apply to it.</p>
+</div>
 </section>
 <section id="security-issues">
 <h3>Security issues<a class="headerlink" href="#security-issues" title="Link to this heading"></a></h3>
