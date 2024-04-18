@@ -218,15 +218,20 @@ The trajectory service
 ----------------------
 
 A server can broadcast molecular systems using the trajectory service.
+Molecular systems can be running simulations, static structures, recorded
+trajectories, or any collection of particles regardless of how they are
+produced. They are represented as a sequence of one or more frames where each
+frame represents a state of the molecular system.
+
+.. note::
+
+   The trajectory service is initially designed with molecular systems in mind,
+   hence the wording in this documentation. However, while we established a set
+   of conventions to represent such systems, the protocol is mot limited to
+   them.
 
 Frame description
 ~~~~~~~~~~~~~~~~~
-
-* a trajectory is a series of frames
-* frames are described as ``FrameData``
-* ``FrameData`` describe the topology and the atom positions
-* a ``FrameData`` describe changes in the trajectory, they are merged into the
-  current frame
 
 .. code:: protobuf
 
@@ -240,8 +245,25 @@ Frame description
       map<string, nanover.protocol.ValueArray> arrays = 2;
     }
 
-* a ``FrameData`` has values and arrays
-* the meaning of the keys are described in the next section
+NanoVer describes frames using the ``FrameData`` structure. A ``FrameData``
+contains two key-value maps to describe the changes from the previous state of
+the trajectory. An implementation using this structure needs to maintain an
+aggregate ``FrameData`` and merge all incoming frames to get the current state
+of the system.
+
+A ``FrameData`` contains two fields: ``values`` and ``arrays``. The ``values``
+field is a key-value map with string keys and protobuf `Value
+<https://protobuf.dev/reference/protobuf/google.protobuf/#value>`_ as values.
+This map aims at storing simple data related to the frame: data consisting in a
+single number, boolean, or string. It can contain more complex data strictures
+such as heterogeneous lists or protobuf `Struct
+<https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Struct>`_.
+Homogeneous arrays (*i.e.* arrays where all the values have the same type) can
+be stored in the ``arrays`` field of the ``FrameData`` where keys are strings
+and values are ``ValueArray`` as described bellow. A ``ValueArray`` can contain
+an homogeneous array of either  floats (``FloatArray``), unsigned integer
+(``IndexArray``), or strings (``StringArray``). The meaning of the keys in both
+fields of the ``FrameData`` depends on the application.
 
 .. code:: protobuf
 
@@ -265,8 +287,31 @@ Frame description
       }
     }
 
-* when part of a stream, FramaData is wrapped into a GetFrameResponse
-* when the frame index is 0, the base frame needs to be reset
+While a ``FrameData`` can describe a full frame, it is mostly used to describe
+the changes in a frame compared to the previous ones. As such, it is expected
+that a program worging with these frame will merge them. A ``FrameData``
+contains the key-value pairs to change for both the ``values`` and the
+``arrays`` fields. In case of complex structures in ``values``, the new
+``FrameData`` needs to contain the full new value even if only part of it
+changed; samewise, it needs to contain the full array in ``arrays`` even if a
+single element of it changed. When merging, key value pairs from the new frame
+replace those from the aggregated frame. Key-value pairs that are only in the
+new frame are added to the aggregated frame. Pairs that do not appear in the
+new frame remain untouched in the aggregated one. Here is an example of frames
+being merged:
+
+::
+
+  Aggregated frame:        New frame:           Resulting frame:
+    * values:                * values:            * values:
+      - key0: A                - key1: B            - key0: A
+      - key1: A        +       - key4: B     =      - key1: B
+    * fields:                * fields:              - key4: B
+      - key2: A                - key2: B          * fields:
+      - key3: A                                     - key2: B
+                                                    - key3: A
+
+When part of a stream, ``FrameData`` messages are wrapped into ``GetFrameResponse`` ones.
 
 .. code:: protobuf
 
@@ -281,15 +326,14 @@ Frame description
 
     }
 
-Field conventions
-~~~~~~~~~~~~~~~~~
-
-* particles
-* residues
-* segments
-* forces
-* velocities
-* bonds
+A ``GetFrameResponse`` message contains a ``FrameData`` and a frame index. This
+index is an unsigned integer that is commonly incremented every time a new
+frame is created. The exact value of the index, however, is only meaningful
+when it is 0. When it is, it signals that the aggregated frame needs to be
+reset. This can occur when the new frame originates from a completely different
+simulation, for instance. In this case, the aggregated frame and the new frame
+do not describe the same system and they should not be merged. Note that this
+is the only mechanism that allows to remove a key from the aggregated frame.
 
 Subscribing to the latest frames
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -303,8 +347,6 @@ Subscribing to the latest frames
       rpc SubscribeLatestFrames (GetFrameRequest) returns (stream GetFrameResponse);
     }
 
-.. code:: protobuf
-
     /* A client request to get frame(s) from a trajectory service */
     message GetFrameRequest {
 
@@ -314,6 +356,27 @@ Subscribing to the latest frames
       /* Interval to send new frames at e.g 1/30 sends 30 frames every second. */
       float frame_interval = 2;
     }
+
+A client can subscribe to a stream of the frames broadcasted by the server
+using the ``SubscribeLatestFrames`` method. When subscribing, the client sends
+a ``GetFrameRequest`` message with a time interval expressed in seconds. The
+server will try to send new frames as they are available and at most at this
+interval. If multiple frames were produced during the interval, the server will
+send the aggregate of these frames. The frames are sent as ``GetFrameResponse``
+messages.
+
+When subscribing, a client may provide additional data as part of the
+``GetFrameRequest``. This aims at allowing some server-side filtering of the
+broadcasted frames. **At this time, no server use this data.**
+
+.. note::
+
+   A client subscribed to this stream may miss some data. If more than one
+   frame is generated by the server during the interval, then an aggregated
+   frame is sent by the server. This can cause the client to miss data when one
+   frame overwrite keys from the previous one. Client should expect to always
+   receive the latest state of the trajectory, but not to receive all the time
+   points generated by the server.
 
 Subscribing to all frames
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -327,12 +390,19 @@ Subscribing to all frames
       rpc SubscribeFrames (GetFrameRequest) returns (stream GetFrameResponse);
     }
 
+**Optionally**, a server may allow a client to subscribe to all the broadcasted
+frames using the ``SubscribeFrames`` method. In this case, the client sends a
+``GetFrameRequest`` with a time interval and possibly extra data. The server
+will send frames as ``GetFrameResponse`` objects when they are available and at
+most at the requested interval. However, the frames will not be aggregated so
+the last frame received by the client may not be the last frame that was
+produced. A client subscribing to this stream will receive all the time points
+produced by the server, but may bag behind the current state of the simulation.
 
-Limitations
-~~~~~~~~~~~
-
--  Frame size
--  Falling behind
+This subscription method can be security risk and servers may choose to not
+implement it. Indeed, if a client subscribes to all the frames with a long
+interval, the server needs to record all the frames until they are sent to the
+client. This can cause an important disk and/or memory usage.
 
 The command service
 -------------------
