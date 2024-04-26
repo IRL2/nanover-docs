@@ -1,3 +1,5 @@
+.. _base-protocol:
+
 The NanoVer protocol
 ====================
 
@@ -235,6 +237,8 @@ frame represents a state of the molecular system.
    hence the wording in this documentation. However, while we established a set
    of conventions to represent such systems, the protocol is mot limited to
    them.
+
+.. _frame-description:
 
 Frame description
 ~~~~~~~~~~~~~~~~~
