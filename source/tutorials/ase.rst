@@ -44,7 +44,7 @@ contains several Jupyter notebooks that explore how NanoVer can be used with Ope
 * `openmm_nanotube`: A notebook that runs a simulation of a carbon nanotube, then applies interactive forces to it from the notebook.
 * `nanover_nglview`: A notebook that assumes a server is already running, and visualises it with `NGLView <https://github.com/arose/nglview>`_. To run this notebook, ensure NGLView is installed with:
 
-.. code-block:: python
+.. code-block:: bash
 
     conda install nglview -c conda-forge
     # might need: jupyter-nbextension enable nglview --py --sys-prefix
