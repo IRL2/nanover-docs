@@ -29,6 +29,8 @@ The services can be all served from a different address and/or a
 different port. However, they are commonly served together from the same
 address and port. The default port is 38801.
 
+.. _state-service:
+
 The state service
 -----------------
 
@@ -413,6 +415,8 @@ This subscription method can be security risk and servers may choose to not
 implement it. Indeed, if a client subscribes to all the frames with a long
 interval, the server needs to record all the frames until they are sent to the
 client. This can cause an important disk and/or memory usage.
+
+.. _command-service:
 
 The command service
 -------------------
