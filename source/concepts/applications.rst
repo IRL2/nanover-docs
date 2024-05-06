@@ -256,7 +256,7 @@ The rotation :math:`R_i` is expressed as a quaternion and is defined as:
      0\\
      \cos{\frac{1}{2} \big(-\theta_i - \frac{2\pi}{N}\big)}\\
     \end{bmatrix}
-    \end{align}
+   \end{align}
 
 The trajectory application
 --------------------------
