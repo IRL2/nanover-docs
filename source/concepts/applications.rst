@@ -261,46 +261,183 @@ The rotation :math:`R_i` is expressed as a quaternion and is defined as:
 The trajectory application
 --------------------------
 
+In the trajectory application, the server broadcasts molecular structures for
+the clients to display. The molecular structures can be static structures or
+snapshots of a trajectory; the protocol refer to these snapshots as frames. The
+application is agnostic about the frames being generated on-the-fly or being
+pre-calculated.
+
+This application defines a set of fields to describes the semantic of molecular
+systems with the ``FrameData``. It also defines a set of optional commands a
+server can implement to give the clients some control over how the frames are
+streamed. Finally, it defines some interactions with the multiplayer
+application to share where to display the molecular system relative to the
+users, and how to render the molecules.
+
 Frames
 ~~~~~~
+
+The :ref:`trajectory service <trajectory-service>` allows to stream snapshots
+of arbitrary data to clients. Each snapshot is described in a :ref:`FrameData
+<frame-description>` which contains a key-value map of protobuf `Values
+<https://protobuf.dev/reference/protobuf/google.protobuf/#value>`_ and one of
+homogeneous arrays. Here, we define a set of keys and data format to describe
+the semantics of molecular systems.
+
+.. note::
+
+   A server using this set of keys can implement keys from another application
+   as well. For instance, a server implementing the :ref:`iMD application
+   <imd-application>` can implement both this set of keys and :ref:`iMD-specific
+   keys <imd-framedata-keys>`.
+
+All FrameData values used by the trajectory application use the following set
+of units:
+
+* lengths are expressed in nanometers (:math:`\text{nm}`)
+* durations are expressed in picoseconds (:math:`\text{ps}`)
+* masses are expressed in atomic mass unit (AMU)
+* charges are expressed in proton charge
+* energies are expressed in :math:`\text{kJ}\cdot\text{mol}^{-1}`
+* velocities are expressed in :math:`\text{nm}\cdot{ps}^{-1}`
+* forces are expressed in :math:`\text{kJ}\cdot\text{mol}^{-1}\cdot\text{nm}^{-1}`
+
+The coordinate system is the right-handed, Z-up, system used in most software
+working with molecular systems.
+
+Particles
+^^^^^^^^^
+
+A molecular system is composed of atoms. The application refers to them as
+"particles" to account for representations that do not deal with individual
+atoms, such as coarse-grained models (`e.g.` `Martini <http://cgmartini.nl/>`_
+or `SIRAH <http://www.sirahff.com/>`_). Particles are described by the following
+keys in the array map:
+
+* ``particle.positions``: the Cartesian coordinates of each particle. The
+  coordinates are stored as a flat array of coordinates where each triplet
+  corresponds to the XYZ coordinates of a particle.
+* ``particle.velocities``: the velocity of each particle. Like the positions,
+  they are expressed as a flattened array of triplets.
+* ``particle.forces``: the force array applied to each particle, as a flattened
+  array of triplets.
+* ``particle.elements``: the chemical element for each particle expressed as
+  atomic numbers. If a particle is not an atom, or if a chemical element is not
+  relevant for any reason, the atomic number can be set to 0.
+* ``particle.names``: a name for each particle. Each name is an arbitrary string
+  to identify the particle, usually within a residue. If an atom does not have
+  a name, set it to an empty string. When applicable, it is recommended to use
+  the names used in the Protein Data Bank.
+
+.. note::
+
+   The python library refers to a `particle.types` key. That key, however, is
+   not used and its meaning is not well defined. Its use is not recommended and
+   the key could be removed in the future. See the discussion in `issue #102 of
+   nanover-protocol <https://github.com/IRL2/nanover-protocol/issues/102>`_.
+
+If the FrameData uses any key staring by ``particle.``, it must set the key
+``particle.count`` in the value map. The value of ``particle.count`` is the
+number of particles in the frame, it must match the length of the arrays.
+
+Residues
+^^^^^^^^
+
+Particles can be grouped in residues when the molecule is a polymer. A residue
+is usually a monomer within the polymer sequence. Particles are assigned to
+residues using the ``particle.residues`` key in the array map. Each value in
+the array is the index of the residue of which the corresponding particle is a
+part. The indices are indices in the following arrays:
+
+* ``residue.names``: the name of each residue as arbitrary strings. The names
+  are commonly the name of the monomer templates.
+* ``residue.ids``: an identifier for the residue in the sequence. This ID is an
+  arbitrary string. It is used to relate the residue with other data sources,
+  such as the literature, the Protein Data Bank, or other data bases. This ID
+  is often a numeric index starting at one and increasing monotonically. However,
+  none of these properties should be relied upon. IDs can be strings
+  representing negative numbers, for instance to convey that the residues have
+  been alchemically added before the natural sequence of the polymer. There may
+  be gap in the numerical sequence, for instance to convey that some residues
+  are missing or if the IDs are shared with another sequence. The IDs may not
+  represent numerical values whatsoever. Residue IDs should not be mistaken
+  with the indices used in ``particle.residues``.
+
+If the FrameData contains any array with a key staring with ``residue.``, it
+must set a key ``residue.count`` in the value map. The value is the number of
+residues and must match the length of the residue-related arrays. Indices in
+the ``particle.residues`` array must be strictly lesser than the number of
+residues. However, these indices may not refer to all of the residues. This
+means it is possible to have residues with no particle attached to them. This
+allows to filter particles out without having to modify the list of residues.
+
+Chains
+^^^^^^
+
+Residues can be grouped by chains. There is not format semantic for chains
+except that they are groups of residues. However, a chain is commonly either
+(i) a complete set of residues connected by bonds or (ii) a complete set of
+connected residues and residues not connected by bonds but related to the main
+set. In both cases, missing residues count in the connectedness of the set. The
+later case matches the meaning of a chain in the PDB format. To group residues
+by chains, the FrameData must include the ``residue.chains`` key in the array
+map with each value of the array being the index of the chain of which the
+residue is a part. The FrameData also must set ``chain.count`` in the value map
+with the number of chains that must match the number of element in the
+``chain.name`` array. Chains may not have residues assigned to them. The
+``chain.name`` array describes the name of each chain as arbitrary strings.
+
+Bonds
+^^^^^
+
+Particles can be connected by covalent bonds. These bonds are described by two
+keys in the array map of the FrameData:
+
+* ``bond.pairs``: a flattened array of indices pairs. The indices reference the
+  particles forming the pair in the arrays describing the particles.
+* ``bond.orders``: an array of floating point numbers describing the bond order
+  for each bond. A single bond is represented by a value of 1.0, a double bond
+  a value of 2.0. Delocalised orbitals can be represented by non-integer
+  values. This array must have half the size of the ``bond.pairs`` array with
+  each value of bond order corresponding to a successive pair in the
+  ``bond.pairs`` array. If this array is not present, the default bond order is
+  1.0.
+
+Simulation box
+^^^^^^^^^^^^^^
 
 .. code::
 
   BOX_VECTORS = "system.box.vectors"
+
+Simulation time
+^^^^^^^^^^^^^^^
+
+.. code::
+
   SIMULATION_TIME = "system.simulation.time"
 
-  BOND_PAIRS = "bond.pairs"
-  BOND_ORDERS = "bond.orders"
+Energies
+^^^^^^^^
 
-  PARTICLE_POSITIONS = "particle.positions"
-  PARTICLE_VELOCITIES = "particle.velocities"
-  PARTICLE_FORCES = "particle.forces"
-  PARTICLE_ELEMENTS = "particle.elements"
-  PARTICLE_TYPES = "particle.types"
-  PARTICLE_NAMES = "particle.names"
-  PARTICLE_RESIDUES = (
-      "particle.residues"  # Index of the residue each particle belongs to.
-  )
-  PARTICLE_COUNT = "particle.count"
-
-  RESIDUE_NAMES = "residue.names"
-  RESIDUE_IDS = "residue.ids"  # Index of the chain each residue belongs to.
-  RESIDUE_CHAINS = "residue.chains"
-  RESIDUE_COUNT = "residue.count"
-
-  CHAIN_NAMES = "chain.names"
-  CHAIN_COUNT = "chain.count"
+.. code::
 
   KINETIC_ENERGY = "energy.kinetic"
   POTENTIAL_ENERGY = "energy.potential"
   TOTAL_ENERGY = "energy.total"
-  USER_ENERGY = "energy.user.total"
+
+System changes
+^^^^^^^^^^^^^^
+
+.. code::
+
+
+Diagnostics
+^^^^^^^^^^^
+
+.. code::
 
   SERVER_TIMESTAMP = "server.timestamp"
-
-  forces.user.index
-  forces.user.sparse
-
 
 Playback commands
 ~~~~~~~~~~~~~~~~~
@@ -324,6 +461,8 @@ Simulation box (optional)
 * rotation
 * scale
 
+
+.. _imd-application:
 
 The iMD application
 -------------------
@@ -350,6 +489,17 @@ User interactions
        mass_weighted,
        reset_velocities,
     }
+
+.. _imd-framedata-keys:
+
+FrameData keys
+~~~~~~~~~~~~~~
+
+.. code::
+
+  USER_ENERGY = "energy.user.total"
+  forces.user.index
+  forces.user.sparse
 
 Velocity reset (optional)
 ~~~~~~~~~~~~~~~~~~~~~~~~~

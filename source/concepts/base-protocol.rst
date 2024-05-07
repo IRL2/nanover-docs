@@ -224,6 +224,8 @@ For now, no server and no client implement any form of encryption.
 Therefore, the access tokens used to lock keys in the shared state
 should be considered publicly exposed.
 
+.. _trajectory-service:
+
 The trajectory service
 ----------------------
 
