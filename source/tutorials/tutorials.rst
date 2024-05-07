@@ -17,7 +17,7 @@ The tutorials use `Jupyter notebooks <https://jupyter.org>`_, `NGLView <https://
    # On Windows only:
    conda install -c irl nanover-imd
 
-Please note that in order to use NGLView we recommend installing Jupyter notebooks using the conda command shown above: the use of JupyterLab is not advised due to `difficulties building and debugging <https://github.com/nglviewer/nglview/issues/845>`_ NGLView with JupyterLab.
+If you wish to access the Jupyter notebooks via `JupyterLab <https://jupyter.org>`_, installing JupyterLab **before** NGLView should install the correct dependencies for NGLView automatically (i.e. replacing ``conda install jupyter`` with ``conda install jupyterlab`` in the installation instructions above). If JupyterLab is installed outside of your conda environment, you will need to install `ipywidgets <https://ipywidgets.readthedocs.io/en/stable/>`_ in your NanoVer conda environment following  `these instructions <https://ipywidgets.readthedocs.io/en/latest/user_install.html#installing-in-jupyterlab-3-x>`_. 
 
 .. toctree::
    :maxdepth: 1
