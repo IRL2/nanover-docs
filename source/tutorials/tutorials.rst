@@ -11,7 +11,9 @@ The tutorials use `Jupyter notebooks <https://jupyter.org>`_, `NGLView <https://
 
 .. code-block:: bash
 
-   conda activate <nanover_conda_environment_name>
+   # Assuming NanoVer is installed in a conda environment named "nanover",
+   # change the name otherwise.
+   conda activate nanover
    conda install jupyter
    conda install nglview
    # On Windows only:
