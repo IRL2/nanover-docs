@@ -7,7 +7,7 @@ This section provides tutorials on getting started with NanoVer.
 We assume familiarity with setting up simulations in whichever 
 framework you're running with NanoVer.
 
-The tutorials use `Jupyter notebooks <https://jupyter.org>`_, `NGLView <https://github.com/nglviewer/nglview>`_ for visualising trajectories, and while not strictly necessary, assumes you have the `NanoVer IMD VR <https://gitlab.com/intangiblerealities/nanover-applications/nanover-imd>`_ application installed. These can all be installed with conda:
+The tutorials use `Jupyter notebooks <https://jupyter.org>`_, `NGLView <https://github.com/nglviewer/nglview>`_ for visualising trajectories, and while not strictly necessary, assumes you have the `NanoVer IMD <https://github.com/irl2/nanover-imd>`_ application installed (i.e. the VR client). These can all be installed with conda:
 
 .. code-block:: bash
 
