@@ -331,10 +331,12 @@ keys in the array map:
 
 .. note::
 
-   The python library refers to a `particle.types` key. That key, however, is
-   not used and its meaning is not well defined. Its use is not recommended and
-   the key could be removed in the future. See the discussion in `issue #102 of
-   nanover-protocol <https://github.com/IRL2/nanover-protocol/issues/102>`_.
+   The application used to define a ``particle.types`` key for non-atomic
+   systems where ``particle.elements`` was not appropriate. However, the key
+   not being used lead to a lack of support. The key not having a clear meaning
+   defined, has been removed from the application. However, the protocol allows
+   the use of arbitrary keys so users of the application can reintroduce this
+   key, or any more appropriate ones, for their own use cases.
 
 If the FrameData uses any key staring by ``particle.``, it must set the key
 ``particle.count`` in the value map. The value of ``particle.count`` is the
