@@ -456,12 +456,12 @@ service <command-service>` to control the stream of frames:
   frames are read from a pre-generated trajectory, it will start over from the
   first frame. If the trajectory is being generated on-the-fly, it will restart
   from the initial conditions. No arguments, no return.
-* ``playback/list() -> {simulations: list of strings}``: if the server allows switching between molecular systems,
-  this command returns the list of available systems. The order of the systems
-  must match the indices used by ``playback/load``. The list contains arbitrary
-  names that allow to identify these systems. They are aimed at being read by
-  humans. The list is returned under the ``simulations`` name. The command does
-  not take any arguments.
+* ``playback/list() -> {simulations: list of strings}``: if the server allows
+  switching between molecular systems, this command returns the list of
+  available systems. The order of the systems must match the indices used by
+  ``playback/load``. The list contains arbitrary names that allow to identify
+  these systems. They are aimed at being read by humans. The list is returned
+  under the ``simulations`` name. The command does not take any arguments.
 * ``playback/load(index: int) -> None``: if the server allows switching between
   molecular systems, this command requests the system with the given index to be
   loaded as the current system. The command takes an integer as the ``index``
