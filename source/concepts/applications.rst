@@ -336,7 +336,7 @@ keys in the array map:
 .. warning::
 
    Many molecular dynamics integrators are based on the leap frog integration
-   method that calculates the velocities at the half step. Simulation engines
+   method that calculates the velocities at the half time step. Simulation engines
    will typically report these half step velocities with the forces and the
    positions for the time step. Except in specific implementations, the
    FrameData will report the velocities in the same way as the simulation
