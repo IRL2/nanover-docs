@@ -408,38 +408,36 @@ keys in the array map of the FrameData:
 Simulation box
 ^^^^^^^^^^^^^^
 
-.. code::
-
-  BOX_VECTORS = "system.box.vectors"
+Most molecular dynamics simulations are run in a sized box. The FrameData can
+describe a triclinic box with its three box vectors. They are stored in the
+array map under the ``system.box.vectors`` key as a flatten 3x3 matrix where
+each row is a vector and each column is a dimension of the coordinate system.
+The box is optional and should not be displayed if not provided.
 
 Simulation time
 ^^^^^^^^^^^^^^^
 
-.. code::
-
-  SIMULATION_TIME = "system.simulation.time"
+If the frame corresponds to a given time in a simulation, this time can be
+specified in picoseconds in the value map under the ``system.simulation.time``
+key.
 
 Energies
 ^^^^^^^^
 
-.. code::
-
-  KINETIC_ENERGY = "energy.kinetic"
-  POTENTIAL_ENERGY = "energy.potential"
-  TOTAL_ENERGY = "energy.total"
-
-System changes
-^^^^^^^^^^^^^^
-
-.. code::
-
+The energy of the system for the frame can be stored in
+:math:`\text{kJ}\cdot\text{mol}^{-1}` under the ``energy.kinetic``,
+``energy.potential``, and ``energy.total`` key of the value map for the
+kinetic, potential, and total energies, respectivelly. The total energy is
+assumed to be the sum of the kinetic and potential energies.
 
 Diagnostics
 ^^^^^^^^^^^
 
-.. code::
-
-  SERVER_TIMESTAMP = "server.timestamp"
+For diagnostics purpose, the time at which the frame has been generated, or
+sent to the trajectory service, can be stored under the ``server.timestamp``
+key in the value map. It is expressed as a fractional number of seconds. This
+timestamp should only be used to compare with other timestamp in the same
+stream as there is no requirement about the clock used to generate it.
 
 Playback commands
 ~~~~~~~~~~~~~~~~~
