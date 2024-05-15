@@ -9,6 +9,8 @@ specifies what the commands should be. This points are defined by applications.
 Applications define how to use the different services and how to format the
 content for specific tasks.
 
+.. _multiplayer-application:
+
 The multiplayer application
 ---------------------------
 
@@ -40,6 +42,8 @@ However, any non-empty string is a valid player ID.
 
 A multiplayer application can optionally implement the :ref:`radial orient
 <radial-orient>` method to place the avatars in a circle around a point.
+
+.. _multiplayer-coordinate-systems:
 
 Coordinate systems
 ~~~~~~~~~~~~~~~~~~
@@ -329,6 +333,15 @@ keys in the array map:
   a name, set it to an empty string. When applicable, it is recommended to use
   the names used in the Protein Data Bank.
 
+.. warning::
+
+   Many integrators are based on the leap from integration method that
+   calculates the velocities at the half step. Simulation engines will
+   typically report these half step velocities with the forces and the
+   positions for the time step. Except in specific implementations, the
+   FrameData will report the velocities in the same way as the simulation
+   engine.
+
 .. note::
 
    The application used to define a ``particle.types`` key for non-atomic
@@ -445,17 +458,17 @@ Playback commands
 A trajectory application can define the following commands in the :ref:`command
 service <command-service>` to control the stream of frames:
 
-* ``playback/play() -> None``: in combination with ``playback/pause``, this command
-  controls if new frames are being generated or not. The command does not take
-  any argument and does not return anything.
-* ``playback/pause() -> None``: pauses the generation of frames. This command does not
-  take any argument and returns nothing.
-* ``playback/step() -> None``: generate the next frame and pause the frame generation. No
-  arguments, no return.
-* ``playback/reset() -> None``: reset the frame generation from the beginning. If the
-  frames are read from a pre-generated trajectory, it will start over from the
-  first frame. If the trajectory is being generated on-the-fly, it will restart
-  from the initial conditions. No arguments, no return.
+* ``playback/play() -> None``: in combination with ``playback/pause``, this
+  command controls if new frames are being generated or not. The command does
+  not take any argument and does not return anything.
+* ``playback/pause() -> None``: pauses the generation of frames. This command
+  does not take any argument and returns nothing.
+* ``playback/step() -> None``: generate the next frame and pause the frame
+  generation. No arguments, no return.
+* ``playback/reset() -> None``: reset the frame generation from the beginning.
+  If the frames are read from a pre-generated trajectory, it will start over
+  from the first frame. If the trajectory is being generated on-the-fly, it
+  will restart from the initial conditions. No arguments, no return.
 * ``playback/list() -> {simulations: list of strings}``: if the server allows
   switching between molecular systems, this command returns the list of
   available systems. The order of the systems must match the indices used by
@@ -488,8 +501,18 @@ service <command-service>` to control the stream of frames:
    switch among molecular systems can be silently ignored and a failure to load
    a system, which is a probable event, has no defined behaviour.
 
-Simulation box (optional)
-~~~~~~~~~~~~~~~~~~~~~~~~~
+Simulation box for multi user use cases
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If the trajectory application is used in combination with the :ref:`multiplayer
+application <multiplayer-application>`, it can share where the simulation box
+should be placed relative to the avatar.
+
+The clients or the server can set the ``scene`` key in the :ref:`shared state
+<state-service>`. The value under that key is a list of numbers that merges
+position of the box, its rotation as a quaternion, and the scaling compared to
+the default box size in each dimension. These are expressed in the :ref:`server
+coordinate system <multiplayer-coordinate-systems>`.
 
 .. code::
 
