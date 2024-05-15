@@ -442,13 +442,51 @@ stream as there is no requirement about the clock used to generate it.
 Playback commands
 ~~~~~~~~~~~~~~~~~
 
-* ``playback/play``
-* ``playback/pause``
-* ``playback/step``
-* ``playback/reset``
-* ``playback/load``
-* ``playback/next``
-* ``playback/list``
+A trajectory application can define the following commands in the :ref:`command
+service <command-service>` to control the stream of frames:
+
+* ``playback/play() -> None``: in combination with ``playback/pause``, this command
+  controls if new frames are being generated or not. The command does not take
+  any argument and does not return anything.
+* ``playback/pause() -> None``: pauses the generation of frames. This command does not
+  take any argument and returns nothing.
+* ``playback/step() -> None``: generate the next frame and pause the frame generation. No
+  arguments, no return.
+* ``playback/reset() -> None``: reset the frame generation from the beginning. If the
+  frames are read from a pre-generated trajectory, it will start over from the
+  first frame. If the trajectory is being generated on-the-fly, it will restart
+  from the initial conditions. No arguments, no return.
+* ``playback/list() -> {simulations: list of strings}``: if the server allows switching between molecular systems,
+  this command returns the list of available systems. The order of the systems
+  must match the indices used by ``playback/load``. The list contains arbitrary
+  names that allow to identify these systems. They are aimed at being read by
+  humans. The list is returned under the ``simulations`` name. The command does
+  not take any arguments.
+* ``playback/load(index: int) -> None``: if the server allows switching between
+  molecular systems, this command requests the system with the given index to be
+  loaded as the current system. The command takes an integer as the ``index``
+  argument and returns nothing. If the client does not provide an index,
+  provides a misformatted index, or provides an invalid index, the command is
+  ignored silently. The bahaviour in case the index is valid but the system
+  could not be loaded is undefined.
+* ``playback/next() -> None``: if the server allows switching between molecular
+  systems, this command requests the simulation with the next index to be
+  loaded as the current simulation. The server is free to cycle through the
+  available systems or ignore the command when the current system is the last
+  available one. The behaviour when the system fails to load is undefined.
+
+.. note::
+
+   There is no command defined to toggle between playing and pausing the frame
+   generation. This is on purpose as such a toggle command would be prone to
+   race conditions when multiple clients call play/pause commands close to each
+   other in time.
+
+.. warning::
+
+   The playback commands do not define any error handling. The commands to
+   switch among molecular systems can be silently ignored and a failure to load
+   a system, which is a probable event, has no defined behaviour.
 
 Simulation box (optional)
 ~~~~~~~~~~~~~~~~~~~~~~~~~
