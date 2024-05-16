@@ -512,14 +512,18 @@ By default:
 * the origin of the simulation space is set at the origin of the server space
   (`i.e.` the position is ``[0, 0, 0]``);
 * the Y and Z axes of the simulation space match the Y and Z axis of the server
-  space, respectivelly; the X axis of the simulation space is reversed compared
+  space, respectively; the X axis of the simulation space is reversed compared
   to the one of the server space, so positive X values in simulation space
   correspond to negative X values in the server space. This corresponds to a
   ``[0, 0, 0, 1]`` quaternion.
 * 1 nanometer in simulation space corresponds to 1 meter in server space
-  (`i.e.` the scale is ``[1, 1, 1]``).
+  (`i.e.` the scale is ``[1, 1, 1]``). Negative scale values are not permitted.
 
 The default ``scene`` value is therefore ``[0, 0, 0, 0, 0, 0, 1, 1, 1, 1]``.
+
+Client should ignore invalid values and fallback to the default value when they
+are encountered. Invalid values can be of the wrong type, be a list of the
+wrong length, or include negative scale values.
 
 .. note::
 
@@ -532,8 +536,8 @@ The default ``scene`` value is therefore ``[0, 0, 0, 0, 0, 0, 1, 1, 1, 1]``.
 
 .. warning::
 
-   The scale can be set to any value but it must be set to 3 identical positive
-   value for the simulation space to keep its aspect ratio and not be mirrored.
+   The scale can be set to any value but it must be set to 3 identical
+   values for the simulation space to keep its aspect ratio.
 
 The ``scene`` key is likely to be modified often and by multiple users. To
 avoid conflict, users should :ref:`lock <state-lock-description>` the key
@@ -551,10 +555,10 @@ to particles on-the-fly.
 
 The iMD application defines how to send user interactions to the server, the
 expected behaviour of the server regarding these interactions, and how the
-server can comminicate the result of these interactions on the simulation to
+server can communicate the result of these interactions on the simulation to
 the clients.
 
-The application assumes it is used in conjonction with the :ref:`tracectory
+The application assumes it is used in conjunction with the :ref:`tracectory
 application <trajectory-application>` or a similar enough application to share
 the simulation itself.
 
@@ -572,7 +576,7 @@ force :math:`F_i` applied to the particle :math:`i` is :math:`F_i = s \cdot m_i
 :math:`m_i` the mass of particle :math:`i`, and :math:`N` the number of target
 particles for the interaction. If the interaction is not mass weighted, then
 :math:`F_i = s \cdot \frac{F_{\text{COM}}}{N}`. Finally, :math:`|F_i|` can be
-capped to a maximum value specified by the user to avoid apllying too large
+capped to a maximum value specified by the user to avoid applying too large
 forces.
 
 Each interaction type also define the equation for the energy
@@ -586,7 +590,7 @@ Force equations
 ~~~~~~~~~~~~~~~
 
 Each server is free to implement the interaction equation they choose. However,
-there are some that are commonly implemented: the Gaussian force, the hamonic
+there are some that are commonly implemented: the Gaussian force, the harmonic
 force, and the constant force. They all depend on the vector :math:`d` between
 the origin of the interaction, :math:`r_{\text{user}}`, and the center of mass
 of the set of target particles :math:`r_{\text{COM}}`. So, :math:`d =
@@ -642,7 +646,7 @@ Velocity reset
 ~~~~~~~~~~~~~~
 
 Some server implementation can kill the momentum from ended user interactions
-by setting the velicity of the affected particles to 0. This is called velocity
+by setting the velocity of the affected particles to 0. This is called velocity
 reset and can be requested by the user as part of the interaction description.
 
 Servers that have the ability to do velocity reset should advertise the feature
@@ -656,7 +660,7 @@ Users send, on the :ref:`shared state <state-service>`, the description of the
 interactions they want to apply. There is no limit to the number of interaction
 a user can send. Each interaction is described under the key
 ``interaction.<INTERACTION_ID>`` where ``<INTERACTION_ID>`` is an arbitrary
-string, unique to the interaction, used to identify it. It is comonly a UUID4.
+string, unique to the interaction, used to identify it. It is commonly a UUID4.
 Under that key, the value is a Struct with the following keys:
 
 * ``positions``: the coordinates of the interaction's origin in simulation
@@ -683,7 +687,7 @@ Under that key, the value is a Struct with the following keys:
   <velocity-reset>` should be applied, false otherwise. This is false by
   default and will be ignored silently is the server does not have the feature.
 
-If the iMD application is used in conjonction with the :ref:`multiplayer
+If the iMD application is used in conjunction with the :ref:`multiplayer
 application <multiplayer-application>`, then the interaction can also use the
 following fields:
 
@@ -711,7 +715,7 @@ included in the total energy included by the :ref:`trajectory application
 The forces applied to each particle by the interactions can be stored under the
 ``forces.user.index`` and ``forces.user.sparse`` in the array map. Because the
 user interactions usually apply only to a small subset of the particles, it is
-wasteful to provide the forces for all the particles as they would be nul for
+wasteful to provide the forces for all the particles as they would be null for
 most of them. Instead, the user forces are transmitted in a sparse way by
 indicating which particles are affected with ``forces.user.index`` that will
 list the indices in relation of the particle arrays (`e.g.`
@@ -719,8 +723,8 @@ list the indices in relation of the particle arrays (`e.g.`
 the these particles in the same order as the ``forces.user.index`` as a flatten
 array.
 
-Miscelenious applications
-=========================
+Miscellaneous applications
+==========================
 
 Some clients or servers may use their own keys in the :ref:`state
 <state-service>` or :ref:`trajectory <trajectory-service>` services. These keys
@@ -733,7 +737,7 @@ key in the value map. It is expressed as a fractional number of seconds. This
 timestamp should only be used to compare with other timestamp in the same
 stream as there is no requirement about the clock used to generate it.
 
-A client can send an internal index of the the updates it sends under the
+A client can send an internal index of the updates it sends under the
 ``update.index.<USER_ID>`` key in the shared state; where ``<USER_ID>`` can be
 the player id used in the :ref:`multiplayer application
 <multiplayer-application>` or any string unique to the client. The index is the
