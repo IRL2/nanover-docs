@@ -24,11 +24,11 @@ make html
 
 Or on Windows:
 
-Using Command Prompt:
+* Using Command Prompt:
 ```
 make.bat html
 ```
-Using PowerShell:
+* Using PowerShell:
 ```
 ./make.bat html
 ```
