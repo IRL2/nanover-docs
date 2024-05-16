@@ -262,6 +262,8 @@ The rotation :math:`R_i` is expressed as a quaternion and is defined as:
     \end{bmatrix}
    \end{align}
 
+.. _trajectory-application:
+
 The trajectory application
 --------------------------
 
@@ -548,28 +550,154 @@ The default ``scene`` value is therefore ``[0, 0, 0, 0, 0, 0, 1, 1, 1, 1]``.
 The iMD application
 -------------------
 
-User interactions
-~~~~~~~~~~~~~~~~~
+For now, the main application of NanoVer is interactive molecular dynamics
+simulations (iMD). A simulation runs on the server and users can apply forces
+to particles on-the-fly.
 
-.. code::
+The iMD application defines how to send user interactions to the server, the
+expected behaviour of the server regarding these interactions, and how the
+server can comminicate the result of these interactions on the simulation to
+the clients.
 
-  TYPE_KEY = "type"
-  SCALE_KEY = "scale"
-  MASS_WEIGHTED_KEY = "mass_weighted"
-  RESET_VELOCITIES_KEY = "reset_velocities"
-  MAX_FORCE_KEY = "max_force"
+The application assumes it is used in conjonction with the :ref:`tracectory
+application <trajectory-application>` or a similar enough application to share
+the simulation itself.
 
-.. code::
+A user send an interaction as a point of origin, the particles to which it
+applies and a set of parameters. The server, then collects all the user
+interactions, compute the corresponding forces and propagate them with the
+other forces in the simulation.
 
-   interaction.<INTERACTION_ID> {
-       type,
-       max_force,
-       scale,
-       particles,
-       positions,
-       mass_weighted,
-       reset_velocities,
-    }
+The interactions can use different :ref:`equations <force-equations>` to
+compute the force :math:`F_{\text{COM}}` to the center of mass of the group of
+target particles. The force is then distributed to each particles differently
+is the interaction is mass weighted of not. If if it mass weighted, then the
+force :math:`F_i` applied to the particle :math:`i` is :math:`F_i = s \cdot m_i
+\frac{F_{\text{COM}}}{N}` with :math:`s` a scaling factor set by the user,
+:math:`m_i` the mass of particle :math:`i`, and :math:`N` the number of target
+particles for the interaction. If the interaction is not mass weighted, then
+:math:`F_i = s \cdot \frac{F_{\text{COM}}}{N}`. Finally, :math:`|F_i|` can be
+capped to a maximum value specified by the user to avoid apllying too large
+forces.
+
+Each interaction type also define the equation for the energy
+:math:`E_{\text{COM}}`. For mass weighted interaction, the energy for the
+interaction is :math:`E = \frac{E_{\text{COM}}}{N}\sum_{i=0}^{N}m_i`. For non
+mass weighted :math:`E = E_{\text{COM}}`.
+
+.. _force-equations:
+
+Force equations
+~~~~~~~~~~~~~~~
+
+Each server is free to implement the interaction equation they choose. However,
+there are some that are commonly implemented: the Gaussian force, the hamonic
+force, and the constant force. They all depend on the vector :math:`d` between
+the origin of the interaction, :math:`r_{\text{user}}`, and the center of mass
+of the set of target particles :math:`r_{\text{COM}}`. So, :math:`d =
+r_{\text{user}} - r_{\text{COM}}`.
+
+The Gaussian force is defined by:
+
+.. math::
+
+   \begin{align}
+      F_{\text{COM}}^{\text{Gaussian}} &= -\frac{d}{\sigma^2}\exp{-\frac{|d|^2}{2\sigma^2}} \\
+      E_{\text{COM}}^{\text{Gaussian}} &= \exp{-\frac{|d|^2}{2\sigma^2}}
+   \end{align}
+
+with :math:`\sigma = 1`. With this force, the user interaction is stronger when
+applied close to the particles.
+
+The harmonic force is defined by:
+
+.. math::
+
+   \begin{align}
+   F_{\text{COM}}^{\text{Harmonic}} &= -kd \\
+   E_{\text{COM}}^{\text{Harmonic}} &= \frac{1}{2}k|d|^2
+   \end{align}
+
+with :math:`k = 2`.
+
+The constant force is defined by:
+
+.. math::
+
+   \begin{align}
+    F_{\text{COM}}^{\text{Constant}} &= 
+    \begin{cases}
+      (0, 0, 0),& \text{if } |d| = 0 \\
+      \frac{d}{|d|},& \text{otherwise}
+    \end{cases} \\
+    E_{\text{COM}}^{\text{Constant}} &= 
+    \begin{cases}
+      0,& \text{if } |d| = 0 \\
+      1,& \text{otherwise}
+    \end{cases}
+   \end{align}
+
+The direction of the constant force is undefined when the origin of the
+interaction and the center of mass of the selection overlap, so the force is
+not applied.
+
+.. _velocity-reset:
+
+Velocity reset
+~~~~~~~~~~~~~~
+
+Some server implementation can kill the momentum from ended user interactions
+by setting the velicity of the affected particles to 0. This is called velocity
+reset and can be requested by the user as part of the interaction description.
+
+Servers that have the ability to do velocity reset should advertise the feature
+by setting the ``imd.velocity_reset_available`` key to true in the :ref:`shared
+state <state-service>`.
+
+Sending user interactions
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Users send, on the :ref:`shared state <state-service>`, the description of the
+interactions they want to apply. There is no limit to the number of interaction
+a user can send. Each interaction is described under the key
+``interaction.<INTERACTION_ID>`` where ``<INTERACTION_ID>`` is an arbitrary
+string, unique to the interaction, used to identify it. It is comonly a UUID4.
+Under that key, the value is a Struct with the following keys:
+
+* ``positions``: the coordinates of the interaction's origin in simulation
+  space. This is typically a position attached to the controller of the user in
+  VR, but it does not have to be. By default, this is `[0, 0, 0]`.
+* ``particles``: the indices of the affected particles in the array of
+  particles used by the :ref:`trajectory application <trajectory-application>`.
+  If the order in this array does not match the order used by the simulation
+  engine, it is the server's responsibility to map them. The default value is
+  an empty list.
+* ``type``: the kind of interaction to apply, this is what defines what
+  :ref:`force equation <force-equations>` will be used. It should be set to
+  `gaussian` for the Gaussian force, `spring` for the harmonic force, and
+  `constant` for the constant force. Interactions with an type unknown to the
+  server will be ignored silently. By default, the Gaussian force is assumed.
+* ``scale``: the scaling factor :math:`s` to apply to the force. The default
+  scale is 1.
+* ``mass_weighted``: a boolean, true if the interaction is mass weighted, false
+  otherwise. The default is true.
+* ``max_force``: the maximum force magnitude that can be applied to a particle
+  by this interaction. The default is 20,000
+  :math:`kJ\cdot\text{mol}^{-1}\cdot\text{nm}^{-1}`.
+* ``reset_velocities``: a boolean, true if :ref:`velocity reset
+  <velocity-reset>` should be applied, false otherwise. This is false by
+  default and will be ignored silently is the server does not have the feature.
+
+If the iMD application is used in conjonction with the :ref:`multiplayer
+application <multiplayer-application>`, then the interaction can also use the
+following fields:
+
+* ``owner.id``: if the interaction originates from a client that defines an
+  avatar, it can set this field to the player id attached to its avatar. This
+  allows to match interactions with avatars when analysing session recordings.
+* ``label``: used with ``owner.id``, this is the name of the avatar component
+  from which the interaction originates (`e.g.` ``hand.right`` or
+  ``hand.left``).
 
 .. _imd-framedata-keys:
 
