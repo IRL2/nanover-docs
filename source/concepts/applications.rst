@@ -602,7 +602,7 @@ The Gaussian force is defined by:
 .. math::
 
    \begin{align}
-      F_{\text{COM}}^{\text{Gaussian}} &= -\frac{d}{\sigma^2}\exp{-\frac{|d|^2}{2\sigma^2}} \\
+      F_{\text{COM}}^{\text{Gaussian}} &= -\frac{d}{\sigma^2}\exp{-\frac{|d| ^2}{2\sigma^2}} \\
       E_{\text{COM}}^{\text{Gaussian}} &= \exp{-\frac{|d|^2}{2\sigma^2}}
    \end{align}
 
@@ -704,14 +704,23 @@ following fields:
 FrameData keys
 ~~~~~~~~~~~~~~
 
-.. code::
+Some details about how the user interactions where applied can be added to the
+:ref:`FrameData <frame-description>`.
 
-  USER_ENERGY = "energy.user.total"
-  forces.user.index
-  forces.user.sparse
+The sum of the energies from user interactions can be included, in
+:math:`\text{kJ}\cdot\text{mol}^{-1}`, under the ``energy.user.total`` key in
+the value map. Depending on the implementations, this energy may or may not be
+included in the total energy included by the :ref:`trajectory application
+<trajectory-application>` under the ``energy.total`` key.
 
-Velocity reset (optional)
-~~~~~~~~~~~~~~~~~~~~~~~~~
-
-``imd.velocity_reset_available``
+The forces applied to each particle by the interactions can be stored under the
+``forces.user.index`` and ``forces.user.sparse`` in the array map. Because the
+user interactions usually apply only to a small subset of the particles, it is
+wasteful to provide the forces for all the particles as they would be nul for
+most of them. Instead, the user forces are transmitted in a sparse way by
+indicating which particles are affected with ``forces.user.index`` that will
+list the indices in relation of the particle arrays (`e.g.`
+``particle.positions``). The ``forces.user.sparse`` key contains the forces for
+the these particles in the same order as the ``forces.user.index`` as a flatten
+array.
 
