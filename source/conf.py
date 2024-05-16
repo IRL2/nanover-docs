@@ -20,7 +20,7 @@ subprocess.call([sys.executable, './install.py'])
 # -- Project information -----------------------------------------------------
 
 project = 'NanoVer'
-copyright = 'University of Bristol, Intangible Realities Lab (https://www.intangiblerealitieslab.org), University of Santiago de Compostella and other contributors'
+copyright = 'University of Bristol, Intangible Realities Lab (https://www.intangiblerealitieslab.org), University of Santiago de Compostela and other contributors'
 author = 'Intangible Realities Laboratory'
 
 # The full version, including alpha/beta/rc tags
