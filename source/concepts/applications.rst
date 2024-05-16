@@ -510,17 +510,37 @@ should be placed relative to the avatar.
 
 The clients or the server can set the ``scene`` key in the :ref:`shared state
 <state-service>`. The value under that key is a list of numbers that merges
-position of the box, its rotation as a quaternion, and the scaling compared to
-the default box size in each dimension. These are expressed in the :ref:`server
-coordinate system <multiplayer-coordinate-systems>`.
+position of the box's origin, its rotation as a quaternion, and the scaling
+compared to the default box size in each dimension. These are expressed in the
+:ref:`server coordinate system <multiplayer-coordinate-systems>`.
 
-.. code::
+By default:
 
-   scene
+* the origin of the simulation space is set at the origin of the server space
+  (`i.e.` the position is ``[0, 0, 0]``);
+* the Y and Z axes of the simulation space match the Y and Z axis of the server
+  space, respectivelly; the X axis of the simulation space is reversed compared
+  to the one of the server space, so positive X values in simulation space
+  correspond to negative X values in the server space. This corresponds to a
+  ``[0, 0, 0, 1]`` quaternion.
+* 1 nanometer in simulation space corresponds to 1 meter in server space
+  (`i.e.` the scale is ``[1, 1, 1]``).
 
-* position
-* rotation
-* scale
+The default ``scene`` value is therefore ``[0, 0, 0, 0, 0, 0, 1, 1, 1, 1]``.
+
+.. note::
+
+   The server space is Y-up while the simulation space is Z-up. However, the
+   default orientation of the box matches the XY axes of both space so clients
+   are expected to represent the simulation Y-up. In cases where the up
+   orientation of the simulation space is meaningful, the simulation space must
+   be rotated by setting the ``scene`` key rather than by altering the default
+   orientation.
+
+.. warning::
+
+   The scale can be set to any value but it must be set to 3 identical positive
+   value for the simulation space to keep its aspect ratio and not be mirrored.
 
 
 .. _imd-application:
