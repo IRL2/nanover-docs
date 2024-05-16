@@ -61,6 +61,7 @@ Bib file:
    tutorials/tutorials.rst
    concepts/concepts.rst
    python/modules.rst
+   citations.rst
 
 
 
