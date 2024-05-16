@@ -535,6 +535,10 @@ The default ``scene`` value is therefore ``[0, 0, 0, 0, 0, 0, 1, 1, 1, 1]``.
    The scale can be set to any value but it must be set to 3 identical positive
    value for the simulation space to keep its aspect ratio and not be mirrored.
 
+The ``scene`` key is likely to be modified often and by multiple users. To
+avoid conflict, users should :ref:`lock <state-lock-description>` the key
+before updating it.
+
 
 .. _imd-application:
 
