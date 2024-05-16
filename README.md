@@ -10,6 +10,14 @@ Clone the repo, open a terminal, and install the dependencies:
 python -m pip install -r requirements.txt
 ```
 
+(OPTIONAL) In order to also build the docstring documentation, you also need to 
+install `nanover` and `nanover-lammps`:
+
+```
+conda install -c irl -c omnia -c conda-forge nanover-server
+conda install -c irl -c conda-forge nanover-lammps
+```
+
 Make sure the submodules are initialised: 
 
 ```
