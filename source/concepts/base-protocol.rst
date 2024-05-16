@@ -144,6 +144,10 @@ to all subscribed clients. Clients may receive these updates aggregated with
 other updates depending on what updates were received by the server during the
 client's subscription interval.
 
+.. note::
+
+   A non-existing key can be removed if the locks allow.
+
 A server can make updates to the shared state. How the server does it is out of
 scope of the protocol, but the server updates need to appear in the state update
 stream of the subscribed clients.
