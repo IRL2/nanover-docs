@@ -28,7 +28,7 @@ Using Command Prompt:
 ```
 make.bat html
 ```
-Using PowerShell
+Using PowerShell:
 ```
 ./make.bat html
 ```
