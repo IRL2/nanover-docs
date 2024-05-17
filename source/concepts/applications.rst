@@ -724,7 +724,7 @@ the these particles in the same order as the ``forces.user.index`` as a flatten
 array.
 
 Miscellaneous applications
-==========================
+--------------------------
 
 Some clients or servers may use their own keys in the :ref:`state
 <state-service>` or :ref:`trajectory <trajectory-service>` services. These keys
