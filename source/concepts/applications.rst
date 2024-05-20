@@ -564,7 +564,7 @@ the simulation itself.
 
 A user sends an interaction as a point of origin, the particles to which it
 applies and a set of parameters. The server, then collects all the user
-interactions, compute the corresponding forces and propagate them with the
+interactions, computes the corresponding forces and propagates them with the
 other forces in the simulation.
 
 The interactions can use different :ref:`equations <force-equations>` to
