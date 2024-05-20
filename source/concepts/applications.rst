@@ -615,7 +615,7 @@ The harmonic force is defined by:
 
    \begin{align}
    \mathbf{F}_{\text{COM}}^{\text{Harmonic}} &= -k \mathbf{d} \\
-   E_{\text{COM}}^{\text{Harmonic}} &= \frac{1}{2}k| \mathbf{d} |^2
+   E_{\text{COM}}^{\text{Harmonic}} &= - \frac{1}{2}k| \mathbf{d} |^2
    \end{align}
 
 with :math:`k = 2`.
