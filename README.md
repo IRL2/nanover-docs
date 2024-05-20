@@ -14,8 +14,7 @@ python -m pip install -r requirements.txt
 install `nanover-server` and `nanover-lammps`:
 
 ```
-conda install -c irl -c conda-forge nanover-server
-conda install -c irl -c conda-forge nanover-lammps
+conda install -c irl -c conda-forge nanover-server nanover-lammps
 ```
 
 Make sure the submodules are initialised: 
