@@ -230,7 +230,7 @@ The command does not return anything. This leads to the following signature:
 
 Let a set of players :math:`P = \{P_0, P_1, ... P_{N - 1}\}`, :math:`N` the number of
 players, and :math:`r` the radius given in argument. Then the center's position
-:math:`C_i` for avatar :math:`i` is computed using polar coordinates converted
+:math:`\mathbf{C}_i` for avatar :math:`i` is computed using polar coordinates converted
 to Cartesian. Each avatar is assigned an angle :math:`\theta_i`:
 
 .. math::
@@ -242,19 +242,19 @@ Then the positions is:
 .. math::
 
   \begin{align}
-  C_i &= \begin{bmatrix}
+  \mathbf{C}_i &= \begin{bmatrix}
     r\cos{\theta_i}\\
     0\\
     r\sin{\theta_i}\\
   \end{bmatrix}
   \end{align}
 
-The rotation :math:`R_i` is expressed as a quaternion and is defined as:
+The rotation :math:`\mathbf{R}_i` is expressed as a quaternion and is defined as:
 
 .. math::
 
    \begin{align}
-   R_i &= \begin{bmatrix}
+   \mathbf{R}_i &= \begin{bmatrix}
      0\\
      \sin{\frac{1}{2} \big(-\theta_i - \frac{2\pi}{N}\big)}\\
      0\\
@@ -568,14 +568,14 @@ interactions, compute the corresponding forces and propagate them with the
 other forces in the simulation.
 
 The interactions can use different :ref:`equations <force-equations>` to
-compute the force :math:`F_{\text{COM}}` to the center of mass of the group of
+compute the force :math:`\mathbf{F}_{\text{COM}}` to the center of mass of the group of
 target particles. The force is then distributed to each particles differently
 is the interaction is mass weighted of not. If if it mass weighted, then the
-force :math:`F_i` applied to the particle :math:`i` is :math:`F_i = s \cdot m_i
-\frac{F_{\text{COM}}}{N}` with :math:`s` a scaling factor set by the user,
+force :math:`\mathbf{F}_i` applied to the particle :math:`i` is :math:`\mathbf{F}_i = s \cdot m_i
+\frac{\mathbf{F}_{\text{COM}}}{N}` with :math:`s` a scaling factor set by the user,
 :math:`m_i` the mass of particle :math:`i`, and :math:`N` the number of target
 particles for the interaction. If the interaction is not mass weighted, then
-:math:`F_i = s \cdot \frac{F_{\text{COM}}}{N}`. Finally, :math:`|F_i|` can be
+:math:`\mathbf{F}_i = s \cdot \frac{\mathbf{F}_{\text{COM}}}{N}`. Finally, :math:`|\mathbf{F}_i|` can be
 capped to a maximum value specified by the user to avoid applying too large
 forces.
 
@@ -591,18 +591,18 @@ Force equations
 
 Each server is free to implement the interaction equation they choose. However,
 there are some that are commonly implemented: the Gaussian force, the harmonic
-force, and the constant force. They all depend on the vector :math:`d` between
-the origin of the interaction, :math:`r_{\text{user}}`, and the center of mass
-of the set of target particles :math:`r_{\text{COM}}`. So, :math:`d =
-r_{\text{user}} - r_{\text{COM}}`.
+force, and the constant force. They all depend on the vector :math:`\mathbf{d}` between
+the origin of the interaction, :math:`\mathbf{r}_{\text{user}}`, and the center of mass
+of the set of target particles :math:`\mathbf{r}_{\text{COM}}`. So, :math:`\mathbf{d} =
+\mathbf{r}_{\text{user}} - \mathbf{r}_{\text{COM}}`.
 
 The Gaussian force is defined by:
 
 .. math::
 
    \begin{align}
-      F_{\text{COM}}^{\text{Gaussian}} &= -\frac{d}{\sigma^2}\exp{-\frac{|d| ^2}{2\sigma^2}} \\
-      E_{\text{COM}}^{\text{Gaussian}} &= \exp{-\frac{|d|^2}{2\sigma^2}}
+      \mathbf{F}_{\text{COM}}^{\text{Gaussian}} &= -\frac{\mathbf{d}}{\sigma^2}\exp{-\frac{| \mathbf{d} | ^2}{2\sigma^2}} \\
+      E_{\text{COM}}^{\text{Gaussian}} &= \exp{-\frac{| \mathbf{d} |^2}{2\sigma^2}}
    \end{align}
 
 with :math:`\sigma = 1`. With this force, the user interaction is stronger when
@@ -613,8 +613,8 @@ The harmonic force is defined by:
 .. math::
 
    \begin{align}
-   F_{\text{COM}}^{\text{Harmonic}} &= -kd \\
-   E_{\text{COM}}^{\text{Harmonic}} &= \frac{1}{2}k|d|^2
+   \mathbf{F}_{\text{COM}}^{\text{Harmonic}} &= -k \mathbf{d} \\
+   E_{\text{COM}}^{\text{Harmonic}} &= \frac{1}{2}k| \mathbf{d} |^2
    \end{align}
 
 with :math:`k = 2`.
@@ -624,14 +624,14 @@ The constant force is defined by:
 .. math::
 
    \begin{align}
-    F_{\text{COM}}^{\text{Constant}} &= 
+    \mathbf{F}_{\text{COM}}^{\text{Constant}} &=
     \begin{cases}
-      (0, 0, 0),& \text{if } |d| = 0 \\
-      \frac{d}{|d|},& \text{otherwise}
+      (0, 0, 0),& \text{if } | \mathbf{d} | = 0 \\
+      \frac{ \mathbf{d} }{| \mathbf{d} |},& \text{otherwise}
     \end{cases} \\
     E_{\text{COM}}^{\text{Constant}} &= 
     \begin{cases}
-      0,& \text{if } |d| = 0 \\
+      0,& \text{if } | \mathbf{d} | = 0 \\
       1,& \text{otherwise}
     \end{cases}
    \end{align}
