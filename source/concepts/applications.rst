@@ -562,7 +562,7 @@ The application assumes it is used in conjunction with the :ref:`tracectory
 application <trajectory-application>` or a similar enough application to share
 the simulation itself.
 
-A user send an interaction as a point of origin, the particles to which it
+A user sends an interaction as a point of origin, the particles to which it
 applies and a set of parameters. The server, then collects all the user
 interactions, compute the corresponding forces and propagate them with the
 other forces in the simulation.
