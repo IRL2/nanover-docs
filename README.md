@@ -17,6 +17,10 @@ install `nanover-server` and `nanover-lammps`:
 conda install -c irl -c conda-forge nanover-server nanover-lammps
 ```
 
+To generate docs for a development version of NanoVer, it is necessary to 
+install the NanoVer Protocol from source, the instructions for which
+can be found [here](https://github.com/IRL2/nanover-protocol/blob/main/README.md#setup-nanover-protocol-for-developers-on-mac-and-linux>).
+
 Make sure the submodules are initialised: 
 
 ```
