@@ -22,11 +22,17 @@ To build the docs, on Linux/ Mac OS X:
 make html
 ```
 
-On Windows:
+Or on Windows:
 
+* Using Command Prompt:
+```
+make.bat html
+```
+* Using PowerShell:
 ```
 ./make.bat html
 ```
+
 
 ## Posting to readthedocs 
 
