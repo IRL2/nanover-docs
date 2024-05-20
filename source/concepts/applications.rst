@@ -569,8 +569,9 @@ other forces in the simulation.
 
 The interactions can use different :ref:`equations <force-equations>` to
 compute the force :math:`\mathbf{F}_{\text{COM}}` to the center of mass of the group of
-target particles. The force is then distributed to each particles differently
-is the interaction is mass weighted of not. If if it mass weighted, then the
+target particles. The force is then distributed among the particles; 
+the method of force distribution depends on whether 
+the interaction is mass weighted of not. If if it mass weighted, then the
 force :math:`\mathbf{F}_i` applied to the particle :math:`i` is :math:`\mathbf{F}_i = s \cdot m_i
 \frac{\mathbf{F}_{\text{COM}}}{N}` with :math:`s` a scaling factor set by the user,
 :math:`m_i` the mass of particle :math:`i`, and :math:`N` the number of target
@@ -579,7 +580,7 @@ particles for the interaction. If the interaction is not mass weighted, then
 capped to a maximum value specified by the user to avoid applying too large
 forces.
 
-Each interaction type also define the equation for the energy
+Each interaction type also defines the equation for the energy associated with the user interaction
 :math:`E_{\text{COM}}`. For mass weighted interaction, the energy for the
 interaction is :math:`E = \frac{E_{\text{COM}}}{N}\sum_{i=0}^{N}m_i`. For non
 mass weighted :math:`E = E_{\text{COM}}`.
@@ -645,8 +646,8 @@ not applied.
 Velocity reset
 ~~~~~~~~~~~~~~
 
-Some server implementation can kill the momentum from ended user interactions
-by setting the velocity of the affected particles to 0. This is called velocity
+Some server implementations can kill any residual momentum in the system due to the user-applied forces after the user interaction has ended
+by setting the velocities of the affected particles to 0. This is called velocity
 reset and can be requested by the user as part of the interaction description.
 
 Servers that have the ability to do velocity reset should advertise the feature
@@ -671,7 +672,7 @@ Under that key, the value is a Struct with the following keys:
   If the order in this array does not match the order used by the simulation
   engine, it is the server's responsibility to map them. The default value is
   an empty list.
-* ``type``: the kind of interaction to apply, this is what defines what
+* ``type``: the type of interaction to apply, this is what defines which
   :ref:`force equation <force-equations>` will be used. It should be set to
   `gaussian` for the Gaussian force, `spring` for the harmonic force, and
   `constant` for the constant force. Interactions with an type unknown to the
@@ -685,7 +686,7 @@ Under that key, the value is a Struct with the following keys:
   :math:`kJ\cdot\text{mol}^{-1}\cdot\text{nm}^{-1}`.
 * ``reset_velocities``: a boolean, true if :ref:`velocity reset
   <velocity-reset>` should be applied, false otherwise. This is false by
-  default and will be ignored silently is the server does not have the feature.
+  default and will be ignored silently if the server does not have the feature.
 
 If the iMD application is used in conjunction with the :ref:`multiplayer
 application <multiplayer-application>`, then the interaction can also use the
