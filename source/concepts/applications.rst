@@ -558,7 +558,7 @@ expected behaviour of the server regarding these interactions, and how the
 server can communicate the result of these interactions on the simulation to
 the clients.
 
-The application assumes it is used in conjunction with the :ref:`tracectory
+The application assumes it is used in conjunction with the :ref:`trajectory
 application <trajectory-application>` or a similar enough application to share
 the simulation itself.
 
