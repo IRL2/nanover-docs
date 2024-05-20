@@ -603,7 +603,7 @@ The Gaussian force is defined by:
 
    \begin{align}
       \mathbf{F}_{\text{COM}}^{\text{Gaussian}} &= -\frac{\mathbf{d}}{\sigma^2}\exp{-\frac{| \mathbf{d} | ^2}{2\sigma^2}} \\
-      E_{\text{COM}}^{\text{Gaussian}} &= \exp{-\frac{| \mathbf{d} |^2}{2\sigma^2}}
+      E_{\text{COM}}^{\text{Gaussian}} &= - \exp{-\frac{| \mathbf{d} |^2}{2\sigma^2}}
    \end{align}
 
 with :math:`\sigma = 1`. With this force, the user interaction is stronger when
