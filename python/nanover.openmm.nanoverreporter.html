@@ -101,8 +101,45 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="nanover-openmm-nanoverreporter-module">
-<h1>nanover.openmm.nanoverreporter module<a class="headerlink" href="#nanover-openmm-nanoverreporter-module" title="Link to this heading"></a></h1>
+  <section id="module-nanover.openmm.nanoverreporter">
+<span id="nanover-openmm-nanoverreporter-module"></span><h1>nanover.openmm.nanoverreporter module<a class="headerlink" href="#module-nanover.openmm.nanoverreporter" title="Link to this heading"></a></h1>
+<p>Provide a reporter for OpenMM simulation to publish frames as a NanoVer server.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="nanover.openmm.nanoverreporter.NanoverReporter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nanover.openmm.nanoverreporter.</span></span><span class="sig-name descname"><span class="pre">NanoverReporter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">report_interval</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frame_server</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.openmm.nanoverreporter.NanoverReporter" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Outputs a series of frames from a Simulation to a nanover server.</p>
+<p>To use it, create a NanoverReporter, then add it to the Simulation’s list
+of reporters.</p>
+<section id="example">
+<h2>Example<a class="headerlink" href="#example" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frame_server</span> <span class="o">=</span> <span class="n">FrameServer</span><span class="p">(</span><span class="n">address</span><span class="o">=</span><span class="s2">&quot;localhost&quot;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">54321</span><span class="p">)</span>
+<span class="n">frame_reporter</span> <span class="o">=</span> <span class="n">NanoverReporter</span><span class="p">(</span><span class="n">report_interval</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">frame_server</span><span class="o">=</span><span class="n">frame_server</span><span class="p">)</span>
+<span class="c1"># Assume some OpenMM simulation already exists</span>
+<span class="n">simulation</span><span class="o">.</span><span class="n">reporters</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">frame_reporter</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">param report_interval<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Interval in frames between two reports.</p>
+</dd>
+<dt class="field-even">param frame_server<span class="colon">:</span></dt>
+<dd class="field-even"><p>Instance of a NanoVer frame server.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.openmm.nanoverreporter.NanoverReporter.describeNextReport">
+<span class="sig-name descname"><span class="pre">describeNextReport</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">simulation</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.openmm.nanoverreporter.NanoverReporter.describeNextReport" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.openmm.nanoverreporter.NanoverReporter.report">
+<span class="sig-name descname"><span class="pre">report</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">simulation</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.openmm.nanoverreporter.NanoverReporter.report" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+</dd></dl>
+
 </section>
 
 

@@ -101,8 +101,162 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="nanover-openmm-imd-module">
-<h1>nanover.openmm.imd module<a class="headerlink" href="#nanover-openmm-imd-module" title="Link to this heading"></a></h1>
+  <section id="module-nanover.openmm.imd">
+<span id="nanover-openmm-imd-module"></span><h1>nanover.openmm.imd module<a class="headerlink" href="#module-nanover.openmm.imd" title="Link to this heading"></a></h1>
+<p>Link NanoVer’s user forces to an OpenMM simulation.</p>
+<p>The iMD is hooked to the OpenMM simulation in two places. A
+<code class="xref py py-class docutils literal notranslate"><span class="pre">CustomExternalForce</span></code> needs to be added in the system; it
+has the components of the iMD force for each atom as a per-atom parameter. A
+reporter periodically updates these parameters based on the imd service, and
+updates the simulation context.</p>
+<p>The custom force can be setup using <a class="reference internal" href="#nanover.openmm.imd.create_imd_force" title="nanover.openmm.imd.create_imd_force"><code class="xref py py-func docutils literal notranslate"><span class="pre">create_imd_force()</span></code></a> and
+<a class="reference internal" href="#nanover.openmm.imd.populate_imd_force" title="nanover.openmm.imd.populate_imd_force"><code class="xref py py-func docutils literal notranslate"><span class="pre">populate_imd_force()</span></code></a>, or using <a class="reference internal" href="#nanover.openmm.imd.add_imd_force_to_system" title="nanover.openmm.imd.add_imd_force_to_system"><code class="xref py py-func docutils literal notranslate"><span class="pre">add_imd_force_to_system()</span></code></a> that combines
+the two previous functions. When a simulation is created using
+<a class="reference internal" href="nanover.openmm.serializer.html#nanover.openmm.serializer.deserialize_simulation" title="nanover.openmm.serializer.deserialize_simulation"><code class="xref py py-func docutils literal notranslate"><span class="pre">nanover.openmm.serializer.deserialize_simulation()</span></code></a>, the imd force must be
+already present, or must be added by passing it with the <code class="docutils literal notranslate"><span class="pre">imd_force</span></code>
+parameter.</p>
+<p>The reporter is <a class="reference internal" href="#nanover.openmm.imd.NanoverImdReporter" title="nanover.openmm.imd.NanoverImdReporter"><code class="xref py py-class docutils literal notranslate"><span class="pre">NanoverImdReporter</span></code></a> and both sends the frames and
+receives the interactions. It can be use instead of
+<code class="xref py py-class docutils literal notranslate"><span class="pre">nanover.openmm.NanoverReporter</span></code> that only sends the frames.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nanover.app</span> <span class="kn">import</span> <span class="n">NanoverImdApplication</span>
+<span class="kn">from</span> <span class="nn">nanover.openmm.serializer</span> <span class="kn">import</span> <span class="n">deserialize_simulation</span>
+<span class="kn">from</span> <span class="nn">nanover.openmm.imd</span> <span class="kn">import</span> <span class="n">NanoverImdReporter</span><span class="p">,</span> <span class="n">create_imd_force</span>
+
+<span class="c1"># Setup the NanoVer application server</span>
+<span class="c1"># The server is accessible using autoconnect.</span>
+<span class="k">with</span> <span class="n">NanoverImdApplication</span><span class="o">.</span><span class="n">basic_server</span><span class="p">()</span> <span class="k">as</span> <span class="n">app</span><span class="p">:</span>
+
+    <span class="c1"># Create the imd force and a simulation that includes it.</span>
+    <span class="n">imd_force</span> <span class="o">=</span> <span class="n">create_imd_force</span><span class="p">()</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;simulation.xml&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">infile</span><span class="p">:</span>
+        <span class="n">simulation</span> <span class="o">=</span> <span class="n">deserialize_simulation</span><span class="p">(</span><span class="n">infile</span><span class="o">.</span><span class="n">read</span><span class="p">(),</span> <span class="n">imd_force</span><span class="o">=</span><span class="n">imd_force</span><span class="p">)</span>
+
+    <span class="c1"># Setup the reporter that does the translation between NanoVer and OpenMM</span>
+    <span class="n">reporter</span> <span class="o">=</span> <span class="n">NanoverImdReporter</span><span class="p">(</span>
+        <span class="n">frame_interval</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+        <span class="n">force_interval</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+        <span class="n">imd_force</span><span class="o">=</span><span class="n">imd_force</span><span class="p">,</span>
+        <span class="n">imd_service</span><span class="o">=</span><span class="n">app</span><span class="o">.</span><span class="n">imd</span><span class="p">,</span>
+        <span class="n">frame_publisher</span><span class="o">=</span><span class="n">app</span><span class="o">.</span><span class="n">frame_publisher</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">simulation</span><span class="o">.</span><span class="n">reporters</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">reporter</span><span class="p">)</span>
+
+    <span class="c1"># Run the simulation</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">simulation</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="py exception">
+<dt class="sig sig-object py" id="nanover.openmm.imd.InitialisationError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nanover.openmm.imd.</span></span><span class="sig-name descname"><span class="pre">InitialisationError</span></span><a class="headerlink" href="#nanover.openmm.imd.InitialisationError" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>Error raised when the runner has not been initialised correctly and some
+attribute have not been set.</p>
+<p>This most likely means that <cite>_on_first_frame</cite> has not been called as
+expected.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="nanover.openmm.imd.NanoverImdReporter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nanover.openmm.imd.</span></span><span class="sig-name descname"><span class="pre">NanoverImdReporter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frame_interval</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_interval</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">imd_force</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">CustomExternalForce</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">imd_state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="nanover.imd.imd_state.html#nanover.imd.imd_state.ImdStateWrapper" title="nanover.imd.imd_state.ImdStateWrapper"><span class="pre">ImdStateWrapper</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">frame_publisher</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="nanover.trajectory.frame_publisher.html#nanover.trajectory.frame_publisher.FramePublisher" title="nanover.trajectory.frame_publisher.FramePublisher"><span class="pre">FramePublisher</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.openmm.imd.NanoverImdReporter" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.openmm.imd.NanoverImdReporter.describeNextReport">
+<span class="sig-name descname"><span class="pre">describeNextReport</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">simulation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Simulation</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">bool</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">bool</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">bool</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">bool</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#nanover.openmm.imd.NanoverImdReporter.describeNextReport" title="Link to this definition"></a></dt>
+<dd><p>Called by OpenMM. Indicates when the next report is due and what type
+of data it requires.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nanover.openmm.imd.NanoverImdReporter.force_interval">
+<span class="sig-name descname"><span class="pre">force_interval</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#nanover.openmm.imd.NanoverImdReporter.force_interval" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nanover.openmm.imd.NanoverImdReporter.frame_interval">
+<span class="sig-name descname"><span class="pre">frame_interval</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#nanover.openmm.imd.NanoverImdReporter.frame_interval" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nanover.openmm.imd.NanoverImdReporter.frame_publisher">
+<span class="sig-name descname"><span class="pre">frame_publisher</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="nanover.trajectory.frame_publisher.html#nanover.trajectory.frame_publisher.FramePublisher" title="nanover.trajectory.frame_publisher.FramePublisher"><span class="pre">FramePublisher</span></a></em><a class="headerlink" href="#nanover.openmm.imd.NanoverImdReporter.frame_publisher" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.openmm.imd.NanoverImdReporter.get_masses">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_masses</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">system</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">System</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="headerlink" href="#nanover.openmm.imd.NanoverImdReporter.get_masses" title="Link to this definition"></a></dt>
+<dd><p>Collect the mass, in Dalton, of each particle in an OpenMM system and
+return them as a numpy array.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nanover.openmm.imd.NanoverImdReporter.imd_force">
+<span class="sig-name descname"><span class="pre">imd_force</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">CustomExternalForce</span></em><a class="headerlink" href="#nanover.openmm.imd.NanoverImdReporter.imd_force" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nanover.openmm.imd.NanoverImdReporter.imd_state">
+<span class="sig-name descname"><span class="pre">imd_state</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="nanover.imd.imd_state.html#nanover.imd.imd_state.ImdStateWrapper" title="nanover.imd.imd_state.ImdStateWrapper"><span class="pre">ImdStateWrapper</span></a></em><a class="headerlink" href="#nanover.openmm.imd.NanoverImdReporter.imd_state" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nanover.openmm.imd.NanoverImdReporter.masses">
+<span class="sig-name descname"><span class="pre">masses</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">_ScalarType_co</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#nanover.openmm.imd.NanoverImdReporter.masses" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nanover.openmm.imd.NanoverImdReporter.n_particles">
+<span class="sig-name descname"><span class="pre">n_particles</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#nanover.openmm.imd.NanoverImdReporter.n_particles" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nanover.openmm.imd.NanoverImdReporter.positions">
+<span class="sig-name descname"><span class="pre">positions</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">_ScalarType_co</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#nanover.openmm.imd.NanoverImdReporter.positions" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.openmm.imd.NanoverImdReporter.report">
+<span class="sig-name descname"><span class="pre">report</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">simulation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Simulation</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">State</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#nanover.openmm.imd.NanoverImdReporter.report" title="Link to this definition"></a></dt>
+<dd><p>Called by OpenMM.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="nanover.openmm.imd.add_imd_force_to_system">
+<span class="sig-prename descclassname"><span class="pre">nanover.openmm.imd.</span></span><span class="sig-name descname"><span class="pre">add_imd_force_to_system</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">system</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">System</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">CustomExternalForce</span></span></span><a class="headerlink" href="#nanover.openmm.imd.add_imd_force_to_system" title="Link to this definition"></a></dt>
+<dd><p>Generate an OpenMM force that accepts arbitrary forces per particle.</p>
+<p>The force is created, populated, added to the system and returned.</p>
+<p>This is the force that is used to communicate the particle interactions from
+NanoVer by <a class="reference internal" href="#nanover.openmm.imd.NanoverImdReporter" title="nanover.openmm.imd.NanoverImdReporter"><code class="xref py py-class docutils literal notranslate"><span class="pre">NanoverImdReporter</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="nanover.openmm.imd.create_imd_force">
+<span class="sig-prename descclassname"><span class="pre">nanover.openmm.imd.</span></span><span class="sig-name descname"><span class="pre">create_imd_force</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">CustomExternalForce</span></span></span><a class="headerlink" href="#nanover.openmm.imd.create_imd_force" title="Link to this definition"></a></dt>
+<dd><p>Returns an empty OpenMM force to communicate imd forces.</p>
+<p>Each particle in the system has a <code class="docutils literal notranslate"><span class="pre">fx</span></code>, <code class="docutils literal notranslate"><span class="pre">fy</span></code>, and <code class="docutils literal notranslate"><span class="pre">fz</span></code> parameter to
+provide the arbitrary force components.</p>
+<p>The force needs to be populated to include all the particle in the
+simulation <code class="xref py py-class docutils literal notranslate"><span class="pre">mm.System</span></code>.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="nanover.openmm.imd.get_imd_forces_from_system">
+<span class="sig-prename descclassname"><span class="pre">nanover.openmm.imd.</span></span><span class="sig-name descname"><span class="pre">get_imd_forces_from_system</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">system</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Simulation</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">CustomExternalForce</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#nanover.openmm.imd.get_imd_forces_from_system" title="Link to this definition"></a></dt>
+<dd><p>Find the forces that are compatible with an imd force in a given system.</p>
+<p>A compatible force has the expected energy expression, and contains as
+many particles as the system.</p>
+<p>All the compatible force objects are returned.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="nanover.openmm.imd.populate_imd_force">
+<span class="sig-prename descclassname"><span class="pre">nanover.openmm.imd.</span></span><span class="sig-name descname"><span class="pre">populate_imd_force</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">force</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">CustomExternalForce</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">system</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">System</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#nanover.openmm.imd.populate_imd_force" title="Link to this definition"></a></dt>
+<dd><p>Add all the particles to the iMD force.</p>
+<p>The iMD force must be one generated by <a class="reference internal" href="#nanover.openmm.imd.create_imd_force" title="nanover.openmm.imd.create_imd_force"><code class="xref py py-func docutils literal notranslate"><span class="pre">create_imd_force()</span></code></a>.</p>
+</dd></dl>
+
 </section>
 
 

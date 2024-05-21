@@ -101,8 +101,209 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="nanover-openmm-runner-module">
-<h1>nanover.openmm.runner module<a class="headerlink" href="#nanover-openmm-runner-module" title="Link to this heading"></a></h1>
+  <section id="module-nanover.openmm.runner">
+<span id="nanover-openmm-runner-module"></span><h1>nanover.openmm.runner module<a class="headerlink" href="#module-nanover.openmm.runner" title="Link to this heading"></a></h1>
+<p>Facilities to run an OpenMM simulation.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="nanover.openmm.runner.OpenMMRunner">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nanover.openmm.runner.</span></span><span class="sig-name descname"><span class="pre">OpenMMRunner</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">simulation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Simulation</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">address</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.openmm.runner.OpenMMRunner" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="nanover.app.runner.html#nanover.app.runner.NanoverRunner" title="nanover.app.runner.NanoverRunner"><code class="xref py py-class docutils literal notranslate"><span class="pre">NanoverRunner</span></code></a></p>
+<p>Convenience class to run an OpenMM simulation.</p>
+<p>A <code class="xref py py-class docutils literal notranslate"><span class="pre">Runner</span></code> object wraps an OpenMM simulation. The
+<code class="xref py py-class docutils literal notranslate"><span class="pre">app.Simulation</span></code> instance is accessible via the <code class="xref py py-attr docutils literal notranslate"><span class="pre">simulation</span></code>
+attribute.</p>
+<p>Actually starting the simulation is done with the <a class="reference internal" href="#nanover.openmm.runner.OpenMMRunner.run" title="nanover.openmm.runner.OpenMMRunner.run"><code class="xref py py-meth docutils literal notranslate"><span class="pre">run()</span></code></a> method. The
+method takes an number of steps to run as an argument; by default, the
+simulation runs indefinitely.</p>
+<p>By default, one frame is sent to clients every 5 MD steps. This rate can
+be changed by setting the <a class="reference internal" href="#nanover.openmm.runner.OpenMMRunner.frame_interval" title="nanover.openmm.runner.OpenMMRunner.frame_interval"><code class="xref py py-attr docutils literal notranslate"><span class="pre">frame_interval</span></code></a> attribute. By default, as
+well, the dynamics is throttled to send 30 frames per seconds (therefore
+running 150 MD steps per second). This rate can be changed by setting the
+target interval between frames in seconds with the
+<a class="reference internal" href="#nanover.openmm.runner.OpenMMRunner.dynamics_interval" title="nanover.openmm.runner.OpenMMRunner.dynamics_interval"><code class="xref py py-attr docutils literal notranslate"><span class="pre">dynamics_interval</span></code></a> attribute. Setting the interval to 0 causes the
+dynamics to not be throttled.</p>
+<p>The verbosity can be adjusted by setting the <a class="reference internal" href="#nanover.openmm.runner.OpenMMRunner.verbose" title="nanover.openmm.runner.OpenMMRunner.verbose"><code class="xref py py-attr docutils literal notranslate"><span class="pre">verbose</span></code></a> attribute, or
+by using the <a class="reference internal" href="#nanover.openmm.runner.OpenMMRunner.make_verbose" title="nanover.openmm.runner.OpenMMRunner.make_verbose"><code class="xref py py-meth docutils literal notranslate"><span class="pre">make_verbose()</span></code></a> and <a class="reference internal" href="#nanover.openmm.runner.OpenMMRunner.make_quiet" title="nanover.openmm.runner.OpenMMRunner.make_quiet"><code class="xref py py-meth docutils literal notranslate"><span class="pre">make_quiet()</span></code></a> methods.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>simulation</strong> – The OpenMM simulation to run. It must have an OpenMM
+force object compatible with iMD. This force can be added using
+<a class="reference internal" href="nanover.openmm.imd.html#nanover.openmm.imd.add_imd_force_to_system" title="nanover.openmm.imd.add_imd_force_to_system"><code class="xref py py-func docutils literal notranslate"><span class="pre">nanover.openmm.imd.add_imd_force_to_system()</span></code></a> or provided to
+<a class="reference internal" href="nanover.openmm.serializer.html#nanover.openmm.serializer.deserialize_simulation" title="nanover.openmm.serializer.deserialize_simulation"><code class="xref py py-func docutils literal notranslate"><span class="pre">nanover.openmm.serializer.deserialize_simulation()</span></code></a> with the
+<code class="docutils literal notranslate"><span class="pre">imd_force</span></code> argument.</p></li>
+<li><p><strong>name</strong> – A friendly name for the runner. It will be displayed by ESSD.</p></li>
+<li><p><strong>address</strong> – The IP address the server binds to.</p></li>
+<li><p><strong>port</strong> – The port the server listens to.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="nanover.openmm.runner.OpenMMRunner.app">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">app</span></span><a class="headerlink" href="#nanover.openmm.runner.OpenMMRunner.app" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nanover.openmm.runner.OpenMMRunner.app_server">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">app_server</span></span><a class="headerlink" href="#nanover.openmm.runner.OpenMMRunner.app_server" title="Link to this definition"></a></dt>
+<dd><p>Get the underlying app of the runner.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.openmm.runner.OpenMMRunner.cancel_run">
+<span class="sig-name descname"><span class="pre">cancel_run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wait</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#nanover.openmm.runner.OpenMMRunner.cancel_run" title="Link to this definition"></a></dt>
+<dd><p>Cancel molecular dynamics that is running on a background thread.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>wait</strong> – Whether to block and wait for the molecular dynamics to
+halt before returning.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.openmm.runner.OpenMMRunner.close">
+<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nanover.openmm.runner.OpenMMRunner.close" title="Link to this definition"></a></dt>
+<dd><p>Closes the connection and stops the dynamics.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nanover.openmm.runner.OpenMMRunner.dynamics_interval">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dynamics_interval</span></span><a class="headerlink" href="#nanover.openmm.runner.OpenMMRunner.dynamics_interval" title="Link to this definition"></a></dt>
+<dd><p>Minimum interval, in seconds,  between frames sent to the frame publisher.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nanover.openmm.runner.OpenMMRunner.force_interval">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">force_interval</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#nanover.openmm.runner.OpenMMRunner.force_interval" title="Link to this definition"></a></dt>
+<dd><p>Update iMD interactions every N steps.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nanover.openmm.runner.OpenMMRunner.frame_interval">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">frame_interval</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#nanover.openmm.runner.OpenMMRunner.frame_interval" title="Link to this definition"></a></dt>
+<dd><p>Send a frame every N steps.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.openmm.runner.OpenMMRunner.from_xml_input">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_xml_input</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_xml</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bytes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">PathLike</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">address</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">platform</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">RunnerClass</span></span></span><a class="headerlink" href="#nanover.openmm.runner.OpenMMRunner.from_xml_input" title="Link to this definition"></a></dt>
+<dd><p>Create a runner from a serialized simulation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input_xml</strong> – Path to an XML serialised OpenMM simulation.</p></li>
+<li><p><strong>name</strong> – A friendly name for the runner. It will be displayed
+by ESSD.</p></li>
+<li><p><strong>address</strong> – The IP address the server binds to.</p></li>
+<li><p><strong>port</strong> – The port the server listens to.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>An instance of the class.</p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>The XML serialized simulation can be produced by
+<a class="reference internal" href="nanover.openmm.serializer.html#nanover.openmm.serializer.serialize_simulation" title="nanover.openmm.serializer.serialize_simulation"><code class="xref py py-func docutils literal notranslate"><span class="pre">nanover.openmm.serializer.serialize_simulation()</span></code></a>.</p>
+</div>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nanover.openmm.runner.OpenMMRunner.is_running">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">is_running</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#nanover.openmm.runner.OpenMMRunner.is_running" title="Link to this definition"></a></dt>
+<dd><p>Whether or not the molecular dynamics is currently running on a
+background thread or not.
+:return: <cite>True</cite>, if molecular dynamics is running, <cite>False</cite> otherwise.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.openmm.runner.OpenMMRunner.make_quiet">
+<span class="sig-name descname"><span class="pre">make_quiet</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#nanover.openmm.runner.OpenMMRunner.make_quiet" title="Link to this definition"></a></dt>
+<dd><p>Detach the verbosity reporter if it is attached.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="#nanover.openmm.runner.OpenMMRunner.make_verbose" title="nanover.openmm.runner.OpenMMRunner.make_verbose"><code class="xref py py-meth docutils literal notranslate"><span class="pre">make_verbose()</span></code></a></p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.openmm.runner.OpenMMRunner.make_verbose">
+<span class="sig-name descname"><span class="pre">make_verbose</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#nanover.openmm.runner.OpenMMRunner.make_verbose" title="Link to this definition"></a></dt>
+<dd><p>Attach a verbosity reporter if it is not already attached.</p>
+<p>The verbosity reporter reports the step number, the potential energy
+in kJ/mol, and the simulation speed in ns/day. This report is displayed
+every 10 simulation steps.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>The <a class="reference internal" href="#nanover.openmm.runner.OpenMMRunner.make_quiet" title="nanover.openmm.runner.OpenMMRunner.make_quiet"><code class="xref py py-meth docutils literal notranslate"><span class="pre">make_quiet()</span></code></a> method removes the verbosity reporter.</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.openmm.runner.OpenMMRunner.pause">
+<span class="sig-name descname"><span class="pre">pause</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nanover.openmm.runner.OpenMMRunner.pause" title="Link to this definition"></a></dt>
+<dd><p>Pause the simulation, by cancelling any current run.</p>
+<p>This method is called whenever a client runs the pause command,
+described in :mod:nanover.trajectory.frame_server.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.openmm.runner.OpenMMRunner.play">
+<span class="sig-name descname"><span class="pre">play</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nanover.openmm.runner.OpenMMRunner.play" title="Link to this definition"></a></dt>
+<dd><p>Run the simulation indefinitely</p>
+<p>Cancels any current run and then begins running the simulation on a background thread.</p>
+<p>This method is called whenever a client runs the play command,
+described in :mod:nanover.trajectory.frame_server.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.openmm.runner.OpenMMRunner.reset">
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nanover.openmm.runner.OpenMMRunner.reset" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.openmm.runner.OpenMMRunner.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">steps</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">block</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#nanover.openmm.runner.OpenMMRunner.run" title="Link to this definition"></a></dt>
+<dd><p>Runs the molecular dynamics.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>steps</strong> – If passed, will run the given number of steps, otherwise
+will run forever on a background thread and immediately return.</p></li>
+<li><p><strong>block</strong> – If <code class="docutils literal notranslate"><span class="pre">False</span></code>, run in a separate thread. By default, “block”
+is <code class="docutils literal notranslate"><span class="pre">None</span></code>, which means it is automatically set to <code class="docutils literal notranslate"><span class="pre">True</span></code> if a
+number of steps is provided and to <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.openmm.runner.OpenMMRunner.step">
+<span class="sig-name descname"><span class="pre">step</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nanover.openmm.runner.OpenMMRunner.step" title="Link to this definition"></a></dt>
+<dd><p>Take a single step of the simulation and stop.</p>
+<p>This method is called whenever a client runs the step command,
+described in :mod:nanover.trajectory.frame_server.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nanover.openmm.runner.OpenMMRunner.verbose">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">verbose</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#nanover.openmm.runner.OpenMMRunner.verbose" title="Link to this definition"></a></dt>
+<dd><p>Returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if the verbosity reporter is attached.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nanover.openmm.runner.OpenMMRunner.verbosity_interval">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">verbosity_interval</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#nanover.openmm.runner.OpenMMRunner.verbosity_interval" title="Link to this definition"></a></dt>
+<dd><p>Display the verbosity report every N steps.</p>
+<p>If the runner is not verbose, then the verbosity interval is 0.
+Same wise, if this interval is set to 0, then the runner is made quiet.</p>
+</dd></dl>
+
+</dd></dl>
+
 </section>
 
 

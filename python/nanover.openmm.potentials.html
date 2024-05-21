@@ -18,6 +18,7 @@
         <script src="../_static/documentation_options.js?v=04c572cc"></script>
         <script src="../_static/doctools.js?v=9a2dae69"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -101,8 +102,68 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="nanover-openmm-potentials-module">
-<h1>nanover.openmm.potentials module<a class="headerlink" href="#nanover-openmm-potentials-module" title="Link to this heading"></a></h1>
+  <section id="module-nanover.openmm.potentials">
+<span id="nanover-openmm-potentials-module"></span><h1>nanover.openmm.potentials module<a class="headerlink" href="#module-nanover.openmm.potentials" title="Link to this heading"></a></h1>
+<p>Helpers around useful potentials that can
+be applied to OpenMM systems.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="nanover.openmm.potentials.restrain_particles">
+<span class="sig-prename descclassname"><span class="pre">nanover.openmm.potentials.</span></span><span class="sig-name descname"><span class="pre">restrain_particles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">positions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Quantity</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">particle_indices</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_constant</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Quantity</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">Quantity(value=100,</span> <span class="pre">unit=kilojoule</span> <span class="pre">/</span> <span class="pre">nanometer**2</span> <span class="pre">*</span> <span class="pre">mole)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.openmm.potentials.restrain_particles" title="Link to this definition"></a></dt>
+<dd><p>Generate an OpenMM force that restrains the position of the selected particles.</p>
+<p>Apply a harmonic potential to restrain the position of the selected
+particles. The particles are restrained to their positions in the given
+position array (usually the initial positions).</p>
+<p>See <a class="reference internal" href="#nanover.openmm.potentials.restraint_force" title="nanover.openmm.potentials.restraint_force"><code class="xref py py-func docutils literal notranslate"><span class="pre">restraint_force()</span></code></a> for the details of the potential.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>positions</strong> – The positions of all the particles in the system.</p></li>
+<li><p><strong>particle_indices</strong> – The indices in the system of the particles to
+restrain.</p></li>
+<li><p><strong>force_constant</strong> – The force constant for the harmonic potential.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The populated OpenMM force to add to the OpenMM system.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="nanover.openmm.potentials.restraint_force">
+<span class="sig-prename descclassname"><span class="pre">nanover.openmm.potentials.</span></span><span class="sig-name descname"><span class="pre">restraint_force</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">force_constant</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Quantity</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">Quantity(value=100,</span> <span class="pre">unit=kilojoule</span> <span class="pre">/</span> <span class="pre">nanometer**2</span> <span class="pre">*</span> <span class="pre">mole)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.openmm.potentials.restraint_force" title="Link to this definition"></a></dt>
+<dd><p>Generate an OpenMM force for position restraints.</p>
+<p>The position of the selected atoms is restrained with a harmonic potential
+the form of which is <span class="math notranslate nohighlight">\(k * distance(r, r0)^2\)</span>; where <span class="math notranslate nohighlight">\(k\)</span> is the
+force constant in kJ/(mol * nm^2), <span class="math notranslate nohighlight">\(r\)</span> is the position of the atom,
+and <span class="math notranslate nohighlight">\(r0\)</span> is the equilibrium position of that atom.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">simtk.unit</span> <span class="kn">import</span>  <span class="n">kilojoule_per_mole</span><span class="p">,</span> <span class="n">nanometer</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Create the force</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">force_constant</span> <span class="o">=</span> <span class="mi">225</span> <span class="o">*</span> <span class="n">kilojoule_per_mole</span> <span class="o">/</span> <span class="n">nanometer</span> <span class="o">**</span> <span class="mi">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">force</span> <span class="o">=</span> <span class="n">restraint_force</span><span class="p">(</span><span class="n">force_constant</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Add particles to the force</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">force</span><span class="o">.</span><span class="n">addParticle</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">[</span><span class="mi">10</span> <span class="o">*</span> <span class="n">nanometer</span><span class="p">,</span> <span class="mi">8</span> <span class="o">*</span> <span class="n">nanometer</span><span class="p">,</span> <span class="mf">2.3</span> <span class="o">*</span> <span class="n">nanometer</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">force</span><span class="o">.</span><span class="n">addParticle</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="mi">12</span> <span class="o">*</span> <span class="n">nanometer</span><span class="p">,</span> <span class="mf">8.4</span> <span class="o">*</span> <span class="n">nanometer</span><span class="p">,</span> <span class="mf">0.8</span> <span class="o">*</span> <span class="n">nanometer</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Add the force to the system</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_system</span><span class="o">.</span><span class="n">addForce</span><span class="p">(</span><span class="n">force</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Like any force in OpenMM, the position restraints need to be added to
+the system before a context is created from the molecular system.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>force_constant</strong> – The force constant, <span class="math notranslate nohighlight">\(k\)</span>. The value is expected
+to be a <code class="xref py py-class docutils literal notranslate"><span class="pre">Quantity</span></code>, it will be converted to kJ/(mol * nm^2).</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>An OpenMM force to add to the system.</p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
 
 

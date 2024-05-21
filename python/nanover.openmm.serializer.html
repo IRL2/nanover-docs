@@ -101,8 +101,65 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="nanover-openmm-serializer-module">
-<h1>nanover.openmm.serializer module<a class="headerlink" href="#nanover-openmm-serializer-module" title="Link to this heading"></a></h1>
+  <section id="module-nanover.openmm.serializer">
+<span id="nanover-openmm-serializer-module"></span><h1>nanover.openmm.serializer module<a class="headerlink" href="#module-nanover.openmm.serializer" title="Link to this heading"></a></h1>
+<p>Serialize and deserialize OpenMM simulations to and from XML files.</p>
+<p>A simulation is described as the concatenation of a starting structure as a PDB
+file, an OpenMM serialized system, an OpenMM serialized integrator, and,
+optionally, an OpenMM serialized state. The resulting XML file looks like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">OpenMMSimulation</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">pdbx</span><span class="o">&gt;</span>
+        <span class="o">//</span> <span class="n">pasted</span> <span class="n">content</span> <span class="n">of</span> <span class="n">the</span> <span class="n">PDBx</span> <span class="n">file</span>
+    <span class="o">&lt;/</span><span class="n">pdbx</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">System</span> <span class="o">...&gt;</span>
+        <span class="o">//</span> <span class="n">XML</span> <span class="n">content</span> <span class="n">of</span> <span class="n">the</span> <span class="n">OpenMM</span> <span class="n">serialized</span> <span class="n">system</span>
+    <span class="o">&lt;/</span><span class="n">System</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">Integrator</span> <span class="o">...&gt;</span>
+        <span class="o">//</span> <span class="n">XML</span> <span class="n">content</span> <span class="n">of</span> <span class="n">the</span> <span class="n">OpenMM</span> <span class="n">serialized</span> <span class="n">integrator</span>
+    <span class="o">&lt;/</span><span class="n">Integrator</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">OpenMMSimulation</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">System</span></code> and <code class="docutils literal notranslate"><span class="pre">Integrator</span></code> tags are the roots of the serialized system
+and integrator, respectively. The <code class="docutils literal notranslate"><span class="pre">pdbx</span></code> tag can be replaced by a <code class="docutils literal notranslate"><span class="pre">pdb</span></code>
+one for backward compatibility.</p>
+<p>This module provides a function <a class="reference internal" href="#nanover.openmm.serializer.serialize_simulation" title="nanover.openmm.serializer.serialize_simulation"><code class="xref py py-func docutils literal notranslate"><span class="pre">serialize_simulation()</span></code></a> that generates an
+XML file from an existing instance of <code class="xref py py-class docutils literal notranslate"><span class="pre">simtk.openmm.app.Simulation</span></code>, and
+a function <a class="reference internal" href="#nanover.openmm.serializer.deserialize_simulation" title="nanover.openmm.serializer.deserialize_simulation"><code class="xref py py-func docutils literal notranslate"><span class="pre">deserialize_simulation()</span></code></a> that creates an instance of simulation
+from an XML file.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="nanover.openmm.serializer.deserialize_simulation">
+<span class="sig-prename descclassname"><span class="pre">nanover.openmm.serializer.</span></span><span class="sig-name descname"><span class="pre">deserialize_simulation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xml_content</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">imd_force</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">CustomExternalForce</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">platform_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Simulation</span></span></span><a class="headerlink" href="#nanover.openmm.serializer.deserialize_simulation" title="Link to this definition"></a></dt>
+<dd><p>Create an OpenMM simulation from XML.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>xml_content</strong> – The content of an XML file as a string.</p></li>
+<li><p><strong>imd_force</strong> – Optionally, an imd force to populate and add to the
+system. The force must be created by
+<code class="xref py py-func docutils literal notranslate"><span class="pre">nanover.openmm.potentials.create_imd_force()</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>An instance of the simulation.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="nanover.openmm.serializer.serialize_simulation">
+<span class="sig-prename descclassname"><span class="pre">nanover.openmm.serializer.</span></span><span class="sig-name descname"><span class="pre">serialize_simulation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">simulation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Simulation</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#nanover.openmm.serializer.serialize_simulation" title="Link to this definition"></a></dt>
+<dd><p>Generate an XML string from a simulation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>simulation</strong> – The simulation to serialize.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A string with the content of an XML file describing the simulation.</p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
 
 
