@@ -11,3 +11,4 @@ This section provides an overview of the main concepts in NanoVer.
    frames.rst
    recording.rst
    base-protocol.rst
+   applications.rst

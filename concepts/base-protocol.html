@@ -21,7 +21,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="nanover" href="../python/modules.html" />
+    <link rel="next" title="Applications" href="applications.html" />
     <link rel="prev" title="Recording data" href="recording.html" /> 
 </head>
 
@@ -75,6 +75,7 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="applications.html">Applications</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../python/modules.html">nanover</a></li>
@@ -107,7 +108,7 @@
            <div itemprop="articleBody">
              
   <section id="the-nanover-protocol">
-<h1>The NanoVer protocol<a class="headerlink" href="#the-nanover-protocol" title="Link to this heading"></a></h1>
+<span id="base-protocol"></span><h1>The NanoVer protocol<a class="headerlink" href="#the-nanover-protocol" title="Link to this heading"></a></h1>
 <section id="general-architecture">
 <h2>General architecture<a class="headerlink" href="#general-architecture" title="Link to this heading"></a></h2>
 <p>NanoVer provides 3 services: the state service, the trajectory service,
@@ -130,7 +131,7 @@ different port. However, they are commonly served together from the same
 address and port. The default port is 38801.</p>
 </section>
 <section id="the-state-service">
-<h2>The state service<a class="headerlink" href="#the-state-service" title="Link to this heading"></a></h2>
+<span id="state-service"></span><h2>The state service<a class="headerlink" href="#the-state-service" title="Link to this heading"></a></h2>
 <p>The state service maintains a state that is shared between the server
 and the clients.</p>
 <section id="state-and-state-updates">
@@ -225,6 +226,10 @@ section.</p>
 to all subscribed clients. Clients may receive these updates aggregated with
 other updates depending on what updates were received by the server during the
 client’s subscription interval.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A non-existing key can be removed if the locks allow.</p>
+</div>
 <p>A server can make updates to the shared state. How the server does it is out of
 scope of the protocol, but the server updates need to appear in the state update
 stream of the subscribed clients.</p>
@@ -297,7 +302,7 @@ should be considered publicly exposed.</p>
 </section>
 </section>
 <section id="the-trajectory-service">
-<h2>The trajectory service<a class="headerlink" href="#the-trajectory-service" title="Link to this heading"></a></h2>
+<span id="trajectory-service"></span><h2>The trajectory service<a class="headerlink" href="#the-trajectory-service" title="Link to this heading"></a></h2>
 <p>A server can broadcast molecular systems using the trajectory service.
 Molecular systems can be running simulations, static structures, recorded
 trajectories, or any collection of particles regardless of how they are
@@ -311,7 +316,7 @@ of conventions to represent such systems, the protocol is mot limited to
 them.</p>
 </div>
 <section id="frame-description">
-<h3>Frame description<a class="headerlink" href="#frame-description" title="Link to this heading"></a></h3>
+<span id="id2"></span><h3>Frame description<a class="headerlink" href="#frame-description" title="Link to this heading"></a></h3>
 <div class="highlight-protobuf notranslate"><div class="highlight"><pre><span></span><span class="cm">/* A general structure to represent a frame of a trajectory. It is similar in structure to the Google Struct message, representing dynamically typed objects and lists. However, as frame&#39;s often consist of large arrays of data of the same type, a set of arrays are also provided as specified in nanover/protocol/array.proto */</span>
 <span class="kd">message</span><span class="w"> </span><span class="nc">FrameData</span><span class="w"> </span><span class="p">{</span>
 
@@ -469,7 +474,7 @@ client. This can cause an important disk and/or memory usage.</p>
 </section>
 </section>
 <section id="the-command-service">
-<h2>The command service<a class="headerlink" href="#the-command-service" title="Link to this heading"></a></h2>
+<span id="command-service"></span><h2>The command service<a class="headerlink" href="#the-command-service" title="Link to this heading"></a></h2>
 <p>A server can expose functions that clients can call. Such function can take
 arguments and return values. The function itself should return shortly after
 being called.</p>
@@ -549,7 +554,7 @@ running command either.</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="recording.html" class="btn btn-neutral float-left" title="Recording data" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../python/modules.html" class="btn btn-neutral float-right" title="nanover" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="applications.html" class="btn btn-neutral float-right" title="Applications" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

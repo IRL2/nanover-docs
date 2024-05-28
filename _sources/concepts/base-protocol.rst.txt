@@ -1,3 +1,5 @@
+.. _base-protocol:
+
 The NanoVer protocol
 ====================
 
@@ -26,6 +28,8 @@ service is used to pause or reset a molecular simulation.
 The services can be all served from a different address and/or a
 different port. However, they are commonly served together from the same
 address and port. The default port is 38801.
+
+.. _state-service:
 
 The state service
 -----------------
@@ -140,6 +144,10 @@ to all subscribed clients. Clients may receive these updates aggregated with
 other updates depending on what updates were received by the server during the
 client's subscription interval.
 
+.. note::
+
+   A non-existing key can be removed if the locks allow.
+
 A server can make updates to the shared state. How the server does it is out of
 scope of the protocol, but the server updates need to appear in the state update
 stream of the subscribed clients.
@@ -220,6 +228,8 @@ For now, no server and no client implement any form of encryption.
 Therefore, the access tokens used to lock keys in the shared state
 should be considered publicly exposed.
 
+.. _trajectory-service:
+
 The trajectory service
 ----------------------
 
@@ -235,6 +245,8 @@ frame represents a state of the molecular system.
    hence the wording in this documentation. However, while we established a set
    of conventions to represent such systems, the protocol is mot limited to
    them.
+
+.. _frame-description:
 
 Frame description
 ~~~~~~~~~~~~~~~~~
@@ -409,6 +421,8 @@ This subscription method can be security risk and servers may choose to not
 implement it. Indeed, if a client subscribes to all the frames with a long
 interval, the server needs to record all the frames until they are sent to the
 client. This can cause an important disk and/or memory usage.
+
+.. _command-service:
 
 The command service
 -------------------

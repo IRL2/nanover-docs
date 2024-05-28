@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Applications &mdash; NanoVer 2018.1.8 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=04c572cc"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="nanover" href="../python/modules.html" />
+    <link rel="prev" title="The NanoVer protocol" href="base-protocol.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            NanoVer
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation &amp; Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/tutorials.html">Tutorials</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="concepts.html">Concepts</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="architecture.html">NanoVer Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="frames.html">Trajectories and Frames</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recording.html">Recording data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="base-protocol.html">The NanoVer protocol</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Applications</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#the-multiplayer-application">The multiplayer application</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#coordinate-systems">Coordinate systems</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#avatars">Avatars</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user-origin">User origin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#play-space">Play space</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#radial-orient">Radial orient</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#the-trajectory-application">The trajectory application</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#frames">Frames</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#playback-commands">Playback commands</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#simulation-box-for-multi-user-use-cases">Simulation box for multi user use cases</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#the-imd-application">The iMD application</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#force-equations">Force equations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#velocity-reset">Velocity reset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sending-user-interactions">Sending user interactions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#framedata-keys">FrameData keys</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#miscellaneous-applications">Miscellaneous applications</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../python/modules.html">nanover</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../citations.html">How to cite NanoVer</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">NanoVer</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="concepts.html">Concepts</a></li>
+      <li class="breadcrumb-item active">Applications</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/concepts/applications.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="applications">
+<h1>Applications<a class="headerlink" href="#applications" title="Link to this heading"></a></h1>
+<p>The <a class="reference internal" href="base-protocol.html#base-protocol"><span class="std std-ref">NanoVer protocol</span></a> defines how clients and servers
+communicate with each other. It leaves ample room for customisation: it does
+not define the content of a <a class="reference internal" href="base-protocol.html#frame-description"><span class="std std-ref">FrameData</span></a>, the
+meaning of the shared state keys is not defined either, nor does the protocol
+specifies what the commands should be. This points are defined by applications.
+Applications define how to use the different services and how to format the
+content for specific tasks.</p>
+<section id="the-multiplayer-application">
+<span id="multiplayer-application"></span><h2>The multiplayer application<a class="headerlink" href="#the-multiplayer-application" title="Link to this heading"></a></h2>
+<p>Clients that implement the multiplayer application can send and receive avatars
+so users can share a virtual space. It is the core of multi-user use cases.</p>
+<p>Each user that is visible to the others have <a class="reference internal" href="#avatar-description"><span class="std std-ref">an avatar</span></a>, the characteristic of which it shares using the
+<a class="reference internal" href="base-protocol.html#state-service"><span class="std std-ref">state service</span></a>. An <a class="reference internal" href="#user-origin-description"><span class="std std-ref">origin</span></a> can optionally be associated to a user. That origin
+is a suggestion from the server to place a users relative to each other.
+Finally, a user can optionally describe its <a class="reference internal" href="#play-space-description"><span class="std std-ref">play space</span></a>, being the area around the user in which it is deemed
+safe to move.</p>
+<p>Avatars, user origins, and play spaces are linked to a user with a player ID.
+This ID is an arbitrary string chosen by the user’s client. Commonly, clients
+use a <a class="reference external" href="https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)">UUID4</a>
+to reduce the risk of collision between IDs produced by different clients.
+However, any non-empty string is a valid player ID.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>An empty string is an invalid player ID only by convention. At this time, no
+server will prevent the use of one. However, an empty player ID is more
+likely to enter in collision between clients which could cause a client’s
+avatar to be overwritten by another client.</p>
+</div>
+<p>A multiplayer application can optionally implement the <a class="reference internal" href="#radial-orient"><span class="std std-ref">radial orient</span></a> method to place the avatars in a circle around a point.</p>
+<section id="coordinate-systems">
+<span id="multiplayer-coordinate-systems"></span><h3>Coordinate systems<a class="headerlink" href="#coordinate-systems" title="Link to this heading"></a></h3>
+<p>The multiplayer application distinguishes between two coordinate spaces:</p>
+<ul class="simple">
+<li><p>the game space is the coordinate space of the client. It is fully the
+responsibility of the client and the server is not aware of any of its
+details.</p></li>
+<li><p>the server space is the space in which all coordinate through the server are
+expressed. It is a left-handed, Y-up, coordinate space, with lengths
+expressed in meters. The origin of the height is on the floor. It is modeled
+after Unity’s coordinate system.</p></li>
+</ul>
+<p>The client is free to represent the server space anywhere in its game space.
+Optionally, the server can suggest to a client where to place and how to orient
+the game space relative to the server space with the <a class="reference internal" href="#user-origin-description"><span class="std std-ref">user-origin</span></a> key.</p>
+</section>
+<section id="avatars">
+<span id="avatar-description"></span><h3>Avatars<a class="headerlink" href="#avatars" title="Link to this heading"></a></h3>
+<p>A client can expose an avatar to the other clients by periodically updating the
+corresponding key in the <a class="reference internal" href="base-protocol.html#state-updates"><span class="std std-ref">shared state</span></a>. Since client get
+updates 30 times per seconds by default, 30 avatar updates per seconds is the
+recommended update rate.</p>
+<p>Avatars are represented in the shared state as a protobuf <a class="reference external" href="https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Struct">Struct</a>
+under a key formatted as <code class="docutils literal notranslate"><span class="pre">avatar.&lt;PLAYER_ID&gt;</span></code>.</p>
+<p>Inside the Struct, an avatar refers to its player ID. It can also specify a
+name and a color. The most important part of an avatar is the list of its
+components. Components are elements of the avatar with a position and a rotation.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The avatar specifies its player ID twice: in the top level key and with the
+<code class="docutils literal notranslate"><span class="pre">playerid</span></code> sub-key. Both places MUST match. A discrepency between the two
+is undefined behaviour. See <a class="reference external" href="https://github.com/IRL2/nanover-protocol/issues/98">issue #98 in nanover-protocol</a>.</p>
+</div>
+<p>The name is an arbitrary string meant to be displayed to the other users as a
+human-readable identifier. The color is also meant to be displayed to the other
+users. The color is provided as a list of RGBA values between 0 and 1.</p>
+<p>The expected components are the head and the two hands. An avatar can contain
+other components, but they may not be supported by other clients. Each
+component is a Struct with the following keys:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">name</span></code>, the predefined name of the component. The supported names are
+“headset”, “hand.right”, and “hand.left”.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">position</span></code>, a translation vector in server space expressed as a vector
+of 3 values.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rotation</span></code>, the rotation of the component in server space expressed as
+a quaternion.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The avatar description currently only support VR controllers. See <a class="reference external" href="https://github.com/IRL2/nanover-protocol/issues/97">issue #97 in
+nanover-protocol</a> for
+hand-tracking support.</p>
+</div>
+<p>How to represent the avatar is the responsibility of the client. It must assume
+that any of the information may be missing.</p>
+<p>In summary, an avatar is structured as such:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">avatar</span><span class="o">.&lt;</span><span class="n">PLAYER_ID</span><span class="o">&gt;</span><span class="p">:</span> <span class="p">{</span>
+  <span class="n">components</span> <span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="n">name</span>
+      <span class="n">position</span><span class="p">:</span>
+      <span class="n">rotation</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+  <span class="n">playerid</span><span class="p">,</span>
+  <span class="n">name</span><span class="p">,</span>
+  <span class="n">color</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="user-origin">
+<span id="user-origin-description"></span><h3>User origin<a class="headerlink" href="#user-origin" title="Link to this heading"></a></h3>
+<p>Avatars are shared in server space. Each client is responsible to locate its
+server space wherever it prefers relative to its game space. However, the
+server can suggest how to center the game space relative to the server space in
+order to place the users according to each other. This is used by the
+<a class="reference internal" href="#radial-orient"><span class="std std-ref">radial orient</span></a> server feature.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We assume the user origin is always provided by the server. However, it can
+come from a client so it is possible to implement a client that will place
+the users relative to each other folowwing arbitrary pattern. This can be
+used, for instance, to prototype alternative to the radial orient feature
+without mofifying the server.</p>
+</div>
+<p>The suggested user origin describes where the server suggests a given user
+places the center of its game space and how to rotate that space. The
+origin is described as a protobuf Struct under the key
+<code class="docutils literal notranslate"><span class="pre">user-origin.&lt;PLAYER_ID&gt;</span></code> where <code class="docutils literal notranslate"><span class="pre">&lt;PLAYER_ID&gt;</span></code> is the ID of the user to whom
+the suggestion is addressed. The Struct has the following keys:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">position</span></code> is the suggested location of the center for the user’s game
+space in the server space;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rotation</span></code> is a quaternion describing the rotation of the user’s game
+space in the server space.</p></li>
+</ul>
+<p>A client may not follow the server suggestion and should not be assumed to do
+so. If the key is absent from the shared state, the client may locate itself in
+the server space as it chooses.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>A client has no way of knowing if the user origin emanates from a ligitimate
+source (i.e. the server or a trusted client). Therefore, a client could use
+this feature to move users without their conscent. This could cause
+discomfort if not used responsibly.</p>
+</div>
+<p>As a summary, the user origin is specified as follow in the shared state:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">user</span><span class="o">-</span><span class="n">origin</span><span class="o">.&lt;</span><span class="n">PLAYER_ID</span><span class="o">&gt;</span><span class="p">:</span> <span class="p">{</span>
+  <span class="n">position</span><span class="p">,</span>
+  <span class="n">rotation</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="play-space">
+<span id="play-space-description"></span><h3>Play space<a class="headerlink" href="#play-space" title="Link to this heading"></a></h3>
+<p>A client can share the shape of its play space with the others. A play space,
+or play area, is the area the user can safely reach. This is mostly relevant
+for VR clients which have to define such a safe space.</p>
+<p>The play area is defined as four points, each as a vector of 3 XYZ values, in
+server space, that form a quadrilateral. The play area is defined as a
+Struct in the shared state under the key <code class="docutils literal notranslate"><span class="pre">playarea.&lt;PLAYER_ID&gt;</span></code>. The points
+are defined under the keys <code class="docutils literal notranslate"><span class="pre">A</span></code>, <code class="docutils literal notranslate"><span class="pre">B</span></code>, <code class="docutils literal notranslate"><span class="pre">C</span></code>, and <code class="docutils literal notranslate"><span class="pre">D</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">playarea</span><span class="o">.&lt;</span><span class="n">PLAYER_ID</span><span class="o">&gt;</span><span class="p">:</span> <span class="p">{</span>
+   <span class="n">A</span><span class="p">,</span>
+   <span class="n">B</span><span class="p">,</span>
+   <span class="n">C</span><span class="p">,</span>
+   <span class="n">D</span><span class="p">,</span>
+ <span class="p">}</span>
+</pre></div>
+</div>
+<p>If they are available, a client can choose to represent them as they choose.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We assume that the points defining the play area are on the floor (Y=0).
+However, nothing forces a client to send them a such.</p>
+</div>
+</section>
+<section id="radial-orient">
+<span id="id1"></span><h3>Radial orient<a class="headerlink" href="#radial-orient" title="Link to this heading"></a></h3>
+<p>A server can, optionally, implement the radial orient feature as a command on
+the <a class="reference internal" href="base-protocol.html#command-service"><span class="std std-ref">command service</span></a>. The radial orient command places
+all the avatars on a circle around the origin of the server space by
+setting a <a class="reference internal" href="#user-origin-description"><span class="std std-ref">user origin</span></a> for each avatar.</p>
+<p>The command is named <code class="docutils literal notranslate"><span class="pre">multiuser/radially-orient-origins</span></code>. It takes a
+<code class="docutils literal notranslate"><span class="pre">radius</span></code> argument that is the distance, in meters, between the generated
+centers and the center of the server space. The default radius is 1 meter.
+The command does not return anything. This leads to the following signature:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">multiuser</span><span class="o">/</span><span class="n">radially</span><span class="o">-</span><span class="n">orient</span><span class="o">-</span><span class="n">origins</span><span class="p">(</span><span class="n">radius</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+</pre></div>
+</div>
+<p>Let a set of players <span class="math notranslate nohighlight">\(P = \{P_0, P_1, ... P_{N - 1}\}\)</span>, <span class="math notranslate nohighlight">\(N\)</span> the number of
+players, and <span class="math notranslate nohighlight">\(r\)</span> the radius given in argument. Then the center’s position
+<span class="math notranslate nohighlight">\(\mathbf{C}_i\)</span> for avatar <span class="math notranslate nohighlight">\(i\)</span> is computed using polar coordinates converted
+to Cartesian. Each avatar is assigned an angle <span class="math notranslate nohighlight">\(\theta_i\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\theta_i = \frac{i \times 2 \pi}{N}\]</div>
+<p>Then the positions is:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align}
+\mathbf{C}_i &amp;= \begin{bmatrix}
+  r\cos{\theta_i}\\
+  0\\
+  r\sin{\theta_i}\\
+\end{bmatrix}
+\end{align}\end{split}\]</div>
+<p>The rotation <span class="math notranslate nohighlight">\(\mathbf{R}_i\)</span> is expressed as a quaternion and is defined as:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align}
+\mathbf{R}_i &amp;= \begin{bmatrix}
+  0\\
+  \sin{\frac{1}{2} \big(-\theta_i - \frac{2\pi}{N}\big)}\\
+  0\\
+  \cos{\frac{1}{2} \big(-\theta_i - \frac{2\pi}{N}\big)}\\
+ \end{bmatrix}
+\end{align}\end{split}\]</div>
+</section>
+</section>
+<section id="the-trajectory-application">
+<span id="trajectory-application"></span><h2>The trajectory application<a class="headerlink" href="#the-trajectory-application" title="Link to this heading"></a></h2>
+<p>In the trajectory application, the server broadcasts molecular structures for
+the clients to display. The molecular structures can be static structures or
+snapshots of a trajectory; the protocol refer to these snapshots as frames. The
+application is agnostic about the frames being generated on-the-fly or being
+pre-calculated.</p>
+<p>This application defines a set of fields to describes the semantic of molecular
+systems with the <code class="docutils literal notranslate"><span class="pre">FrameData</span></code>. It also defines a set of optional commands a
+server can implement to give the clients some control over how the frames are
+streamed. Finally, it defines some interactions with the multiplayer
+application to share where to display the molecular system relative to the
+users, and how to render the molecules.</p>
+<section id="frames">
+<h3>Frames<a class="headerlink" href="#frames" title="Link to this heading"></a></h3>
+<p>The <a class="reference internal" href="base-protocol.html#trajectory-service"><span class="std std-ref">trajectory service</span></a> allows to stream snapshots
+of arbitrary data to clients. Each snapshot is described in a <a class="reference internal" href="base-protocol.html#frame-description"><span class="std std-ref">FrameData</span></a> which contains a key-value map of protobuf <a class="reference external" href="https://protobuf.dev/reference/protobuf/google.protobuf/#value">Values</a> and one of
+homogeneous arrays. Here, we define a set of keys and data format to describe
+the semantics of molecular systems.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A server using this set of keys can implement keys from another application
+as well. For instance, a server implementing the <a class="reference internal" href="#imd-application"><span class="std std-ref">iMD application</span></a> can implement both this set of keys and <a class="reference internal" href="#imd-framedata-keys"><span class="std std-ref">iMD-specific
+keys</span></a>.</p>
+</div>
+<p>All FrameData values used by the trajectory application use the following set
+of units:</p>
+<ul class="simple">
+<li><p>lengths are expressed in nanometers (<span class="math notranslate nohighlight">\(\text{nm}\)</span>)</p></li>
+<li><p>durations are expressed in picoseconds (<span class="math notranslate nohighlight">\(\text{ps}\)</span>)</p></li>
+<li><p>masses are expressed in atomic mass unit (AMU)</p></li>
+<li><p>charges are expressed in proton charge</p></li>
+<li><p>energies are expressed in <span class="math notranslate nohighlight">\(\text{kJ}\cdot\text{mol}^{-1}\)</span></p></li>
+<li><p>velocities are expressed in <span class="math notranslate nohighlight">\(\text{nm}\cdot{ps}^{-1}\)</span></p></li>
+<li><p>forces are expressed in <span class="math notranslate nohighlight">\(\text{kJ}\cdot\text{mol}^{-1}\cdot\text{nm}^{-1}\)</span></p></li>
+</ul>
+<p>The coordinate system is the right-handed, Z-up, system used in most software
+working with molecular systems.</p>
+<section id="particles">
+<h4>Particles<a class="headerlink" href="#particles" title="Link to this heading"></a></h4>
+<p>A molecular system is composed of atoms. The application refers to them as
+“particles” to account for representations that do not deal with individual
+atoms, such as coarse-grained models (<cite>e.g.</cite> <a class="reference external" href="http://cgmartini.nl/">Martini</a>
+or <a class="reference external" href="http://www.sirahff.com/">SIRAH</a>). Particles are described by the following
+keys in the array map:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">particle.positions</span></code>: the Cartesian coordinates of each particle. The
+coordinates are stored as a flat array of coordinates where each triplet
+corresponds to the XYZ coordinates of a particle.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">particle.velocities</span></code>: the velocity of each particle. Like the positions,
+they are expressed as a flattened array of triplets.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">particle.forces</span></code>: the force array applied to each particle, as a flattened
+array of triplets.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">particle.elements</span></code>: the chemical element for each particle expressed as
+atomic numbers. If a particle is not an atom, or if a chemical element is not
+relevant for any reason, the atomic number can be set to 0.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">particle.names</span></code>: a name for each particle. Each name is an arbitrary string
+to identify the particle, usually within a residue. If an atom does not have
+a name, set it to an empty string. When applicable, it is recommended to use
+the names used in the Protein Data Bank.</p></li>
+</ul>
+<div class="admonition warning" id="leap-frog-warning">
+<p class="admonition-title">Warning</p>
+<p>Many molecular dynamics integrators are based on the leap frog integration
+method that calculates the velocities at the half time step. Simulation engines
+will typically report these half step velocities with the forces and the
+positions for the time step. Except in specific implementations, the
+FrameData will report the velocities in the same way as the simulation
+engine.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The application used to define a <code class="docutils literal notranslate"><span class="pre">particle.types</span></code> key for non-atomic
+systems where <code class="docutils literal notranslate"><span class="pre">particle.elements</span></code> was not appropriate. However, the key
+not being used lead to a lack of support. The key not having a clear meaning
+defined, has been removed from the application. However, the protocol allows
+the use of arbitrary keys so users of the application can reintroduce this
+key, or any more appropriate ones, for their own use cases.</p>
+</div>
+<p>If the FrameData uses any key staring by <code class="docutils literal notranslate"><span class="pre">particle.</span></code>, it must set the key
+<code class="docutils literal notranslate"><span class="pre">particle.count</span></code> in the value map. The value of <code class="docutils literal notranslate"><span class="pre">particle.count</span></code> is the
+number of particles in the frame, it must match the length of the arrays.</p>
+</section>
+<section id="residues">
+<h4>Residues<a class="headerlink" href="#residues" title="Link to this heading"></a></h4>
+<p>Particles can be grouped in residues when the molecule is a polymer. A residue
+is usually a monomer within the polymer sequence. Particles are assigned to
+residues using the <code class="docutils literal notranslate"><span class="pre">particle.residues</span></code> key in the array map. Each value in
+the array is the index of the residue of which the corresponding particle is a
+part. The indices are indices in the following arrays:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">residue.names</span></code>: the name of each residue as arbitrary strings. The names
+are commonly the name of the monomer templates.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">residue.ids</span></code>: an identifier for the residue in the sequence. This ID is an
+arbitrary string. It is used to relate the residue with other data sources,
+such as the literature, the Protein Data Bank, or other data bases. This ID
+is often a numeric index starting at one and increasing monotonically. However,
+none of these properties should be relied upon. IDs can be strings
+representing negative numbers, for instance to convey that the residues have
+been alchemically added before the natural sequence of the polymer. There may
+be gap in the numerical sequence, for instance to convey that some residues
+are missing or if the IDs are shared with another sequence. The IDs may not
+represent numerical values whatsoever. Residue IDs should not be mistaken
+with the indices used in <code class="docutils literal notranslate"><span class="pre">particle.residues</span></code>.</p></li>
+</ul>
+<p>If the FrameData contains any array with a key staring with <code class="docutils literal notranslate"><span class="pre">residue.</span></code>, it
+must set a key <code class="docutils literal notranslate"><span class="pre">residue.count</span></code> in the value map. The value is the number of
+residues and must match the length of the residue-related arrays. Indices in
+the <code class="docutils literal notranslate"><span class="pre">particle.residues</span></code> array must be strictly lesser than the number of
+residues. However, these indices may not refer to all of the residues. This
+means it is possible to have residues with no particle attached to them. This
+allows to filter particles out without having to modify the list of residues.</p>
+</section>
+<section id="chains">
+<h4>Chains<a class="headerlink" href="#chains" title="Link to this heading"></a></h4>
+<p>Residues can be grouped by chains. There is not format semantic for chains
+except that they are groups of residues. However, a chain is commonly either
+(i) a complete set of residues connected by bonds or (ii) a complete set of
+connected residues and residues not connected by bonds but related to the main
+set. In both cases, missing residues count in the connectedness of the set. The
+later case matches the meaning of a chain in the PDB format. To group residues
+by chains, the FrameData must include the <code class="docutils literal notranslate"><span class="pre">residue.chains</span></code> key in the array
+map with each value of the array being the index of the chain of which the
+residue is a part. The FrameData also must set <code class="docutils literal notranslate"><span class="pre">chain.count</span></code> in the value map
+with the number of chains that must match the number of element in the
+<code class="docutils literal notranslate"><span class="pre">chain.name</span></code> array. Chains may not have residues assigned to them. The
+<code class="docutils literal notranslate"><span class="pre">chain.name</span></code> array describes the name of each chain as arbitrary strings.</p>
+</section>
+<section id="bonds">
+<h4>Bonds<a class="headerlink" href="#bonds" title="Link to this heading"></a></h4>
+<p>Particles can be connected by covalent bonds. These bonds are described by two
+keys in the array map of the FrameData:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">bond.pairs</span></code>: a flattened array of indices pairs. The indices reference the
+particles forming the pair in the arrays describing the particles.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bond.orders</span></code>: an array of floating point numbers describing the bond order
+for each bond. A single bond is represented by a value of 1.0, a double bond
+a value of 2.0. Delocalised orbitals can be represented by non-integer
+values. This array must have half the size of the <code class="docutils literal notranslate"><span class="pre">bond.pairs</span></code> array with
+each value of bond order corresponding to a successive pair in the
+<code class="docutils literal notranslate"><span class="pre">bond.pairs</span></code> array. If this array is not present, the default bond order is
+1.0.</p></li>
+</ul>
+</section>
+<section id="simulation-box">
+<h4>Simulation box<a class="headerlink" href="#simulation-box" title="Link to this heading"></a></h4>
+<p>Most molecular dynamics simulations are run in a sized box. The FrameData can
+describe a triclinic box with its three box vectors. They are stored in the
+array map under the <code class="docutils literal notranslate"><span class="pre">system.box.vectors</span></code> key as a flattened 3x3 matrix where
+each row is a vector and each column is a dimension of the coordinate system.
+The box is optional and should not be displayed if not provided.</p>
+</section>
+<section id="simulation-time">
+<h4>Simulation time<a class="headerlink" href="#simulation-time" title="Link to this heading"></a></h4>
+<p>If the frame corresponds to a given time in a simulation, this time can be
+specified in picoseconds in the value map under the <code class="docutils literal notranslate"><span class="pre">system.simulation.time</span></code>
+key.</p>
+</section>
+<section id="energies">
+<h4>Energies<a class="headerlink" href="#energies" title="Link to this heading"></a></h4>
+<p>The energy of the system for the frame can be stored in
+<span class="math notranslate nohighlight">\(\text{kJ}\cdot\text{mol}^{-1}\)</span> under the <code class="docutils literal notranslate"><span class="pre">energy.kinetic</span></code>,
+<code class="docutils literal notranslate"><span class="pre">energy.potential</span></code>, and <code class="docutils literal notranslate"><span class="pre">energy.total</span></code> key of the value map for the
+kinetic, potential, and total energies, respectivelly. The total energy is
+assumed to be the sum of the kinetic and potential energies.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Like <a class="reference internal" href="#leap-frog-warning"><span class="std std-ref">mentionned about particle velocities</span></a>, some
+molecular dynamics integrators use velocities computed out of sync of the
+positions. This may cause the kinetic and the potential energies to be out of
+sync as well. This is, however, a very common behaviour that can be ignored in
+most cases.</p>
+</div>
+</section>
+<section id="playback-indicators">
+<h4>Playback indicators<a class="headerlink" href="#playback-indicators" title="Link to this heading"></a></h4>
+<p>The trajectory application defines commands that allow resetting or loading a
+simulation. These keys in the value map allow to keep track of these reset and
+load events:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">system.reset.counter</span></code> is a counter of how many reset events occurred so far. It
+starts at 0 and is incremented whenever the simulation is reset, either from the
+reset command described below or from any other event.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">system.simulation.counter</span></code> counts how many loading events occurred after the
+initial one. The counter starts at 0 and is incremented when a simulation is loaded
+after the initial one.</p></li>
+</ul>
+</section>
+</section>
+<section id="playback-commands">
+<h3>Playback commands<a class="headerlink" href="#playback-commands" title="Link to this heading"></a></h3>
+<p>A trajectory application can define the following commands in the <a class="reference internal" href="base-protocol.html#command-service"><span class="std std-ref">command
+service</span></a> to control the stream of frames:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">playback/play()</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code>: in combination with <code class="docutils literal notranslate"><span class="pre">playback/pause</span></code>, this
+command controls if new frames are being generated or not. The command does
+not take any argument and does not return anything.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">playback/pause()</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code>: pauses the generation of frames. This command
+does not take any argument and returns nothing.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">playback/step()</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code>: generate the next frame and pause the frame
+generation. No arguments, no return.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">playback/reset()</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code>: reset the frame generation from the beginning.
+If the frames are read from a pre-generated trajectory, it will start over
+from the first frame. If the trajectory is being generated on-the-fly, it
+will restart from the initial conditions. No arguments, no return.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">playback/list()</span> <span class="pre">-&gt;</span> <span class="pre">{simulations:</span> <span class="pre">list</span> <span class="pre">of</span> <span class="pre">strings}</span></code>: if the server allows
+switching between molecular systems, this command returns the list of
+available systems. The order of the systems must match the indices used by
+<code class="docutils literal notranslate"><span class="pre">playback/load</span></code>. The list contains arbitrary names that allow to identify
+these systems. They are aimed at being read by humans. The list is returned
+under the <code class="docutils literal notranslate"><span class="pre">simulations</span></code> name. The command does not take any arguments.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">playback/load(index:</span> <span class="pre">int)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code>: if the server allows switching between
+molecular systems, this command requests the system with the given index to be
+loaded as the current system. The command takes an integer as the <code class="docutils literal notranslate"><span class="pre">index</span></code>
+argument and returns nothing. If the client does not provide an index,
+provides a misformatted index, or provides an invalid index, the command is
+ignored silently. The bahaviour in case the index is valid but the system
+could not be loaded is undefined.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">playback/next()</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code>: if the server allows switching between molecular
+systems, this command requests the simulation with the next index to be
+loaded as the current simulation. The server is free to cycle through the
+available systems or ignore the command when the current system is the last
+available one. The behaviour when the system fails to load is undefined.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>There is no command defined to toggle between playing and pausing the frame
+generation. This is on purpose as such a toggle command would be prone to
+race conditions when multiple clients call play/pause commands close to each
+other in time.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The playback commands do not define any error handling. The commands to
+switch among molecular systems can be silently ignored and a failure to load
+a system, which is a probable event, has no defined behaviour.</p>
+</div>
+</section>
+<section id="simulation-box-for-multi-user-use-cases">
+<h3>Simulation box for multi user use cases<a class="headerlink" href="#simulation-box-for-multi-user-use-cases" title="Link to this heading"></a></h3>
+<p>If the trajectory application is used in combination with the <a class="reference internal" href="#multiplayer-application"><span class="std std-ref">multiplayer
+application</span></a>, it can share where the simulation box
+should be placed relative to the avatar.</p>
+<p>The clients or the server can set the <code class="docutils literal notranslate"><span class="pre">scene</span></code> key in the <a class="reference internal" href="base-protocol.html#state-service"><span class="std std-ref">shared state</span></a>. The value under that key is a list of numbers that merges
+position of the box’s origin, its rotation as a quaternion, and the scaling
+compared to the default box size in each dimension. These are expressed in the
+<a class="reference internal" href="#multiplayer-coordinate-systems"><span class="std std-ref">server coordinate system</span></a>.</p>
+<p>By default:</p>
+<ul class="simple">
+<li><p>the origin of the simulation space is set at the origin of the server space
+(<cite>i.e.</cite> the position is <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">0,</span> <span class="pre">0]</span></code>);</p></li>
+<li><p>the Y and Z axes of the simulation space match the Y and Z axis of the server
+space, respectively; the X axis of the simulation space is reversed compared
+to the one of the server space, so positive X values in simulation space
+correspond to negative X values in the server space. This corresponds to a
+<code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">1]</span></code> quaternion.</p></li>
+<li><p>1 nanometer in simulation space corresponds to 1 meter in server space
+(<cite>i.e.</cite> the scale is <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">1,</span> <span class="pre">1]</span></code>). Negative scale values are not permitted.</p></li>
+</ul>
+<p>The default <code class="docutils literal notranslate"><span class="pre">scene</span></code> value is therefore <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">1,</span> <span class="pre">1,</span> <span class="pre">1,</span> <span class="pre">1]</span></code>.</p>
+<p>Client should ignore invalid values and fallback to the default value when they
+are encountered. Invalid values can be of the wrong type, be a list of the
+wrong length, or include negative scale values.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The server space is Y-up while the simulation space is Z-up. However, the
+default orientation of the box matches the XY axes of both space so clients
+are expected to represent the simulation Y-up. In cases where the up
+orientation of the simulation space is meaningful, the simulation space must
+be rotated by setting the <code class="docutils literal notranslate"><span class="pre">scene</span></code> key rather than by altering the default
+orientation.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The scale can be set to any value but it must be set to 3 identical
+values for the simulation space to keep its aspect ratio.</p>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">scene</span></code> key is likely to be modified often and by multiple users. To
+avoid conflict, users should <span class="xref std std-ref">lock</span> the key
+before updating it.</p>
+</section>
+</section>
+<section id="the-imd-application">
+<span id="imd-application"></span><h2>The iMD application<a class="headerlink" href="#the-imd-application" title="Link to this heading"></a></h2>
+<p>For now, the main application of NanoVer is interactive molecular dynamics
+simulations (iMD). A simulation runs on the server and users can apply forces
+to particles on-the-fly.</p>
+<p>The iMD application defines how to send user interactions to the server, the
+expected behaviour of the server regarding these interactions, and how the
+server can communicate the result of these interactions on the simulation to
+the clients.</p>
+<p>The application assumes it is used in conjunction with the <a class="reference internal" href="#trajectory-application"><span class="std std-ref">trajectory
+application</span></a> or a similar enough application to share
+the simulation itself.</p>
+<p>A user sends an interaction as a point of origin, the particles to which it
+applies and a set of parameters. The server, then collects all the user
+interactions, computes the corresponding forces and propagates them with the
+other forces in the simulation.</p>
+<p>The interactions can use different <a class="reference internal" href="#force-equations"><span class="std std-ref">equations</span></a> to
+compute the force <span class="math notranslate nohighlight">\(\mathbf{F}_{\text{COM}}\)</span> at the center of mass of the group of
+target particles. The force is then distributed among the particles;
+the method of force distribution depends on whether
+the interaction is mass weighted of not. If if it mass weighted, then the
+force <span class="math notranslate nohighlight">\(\mathbf{F}_i\)</span> applied to the particle <span class="math notranslate nohighlight">\(i\)</span> is <span class="math notranslate nohighlight">\(\mathbf{F}_i = s \cdot m_i
+\frac{\mathbf{F}_{\text{COM}}}{N}\)</span> with <span class="math notranslate nohighlight">\(s\)</span> a scaling factor set by the user,
+<span class="math notranslate nohighlight">\(m_i\)</span> the mass of particle <span class="math notranslate nohighlight">\(i\)</span>, and <span class="math notranslate nohighlight">\(N\)</span> the number of target
+particles for the interaction. If the interaction is not mass weighted, then
+<span class="math notranslate nohighlight">\(\mathbf{F}_i = s \cdot \frac{\mathbf{F}_{\text{COM}}}{N}\)</span>. Finally, <span class="math notranslate nohighlight">\(|\mathbf{F}_i|\)</span> can be
+capped to a maximum value specified by the user to avoid applying too large
+forces.</p>
+<p>Each interaction type also defines the equation for the energy associated with the user interaction
+<span class="math notranslate nohighlight">\(E_{\text{COM}}\)</span>. For mass weighted interaction, the energy for the
+interaction is <span class="math notranslate nohighlight">\(E = \frac{E_{\text{COM}}}{N}\sum_{i=0}^{N}m_i\)</span>. For non
+mass weighted <span class="math notranslate nohighlight">\(E = E_{\text{COM}}\)</span>.</p>
+<section id="force-equations">
+<span id="id2"></span><h3>Force equations<a class="headerlink" href="#force-equations" title="Link to this heading"></a></h3>
+<p>Each server is free to implement the interaction equation they choose. However,
+there are some that are commonly implemented: the Gaussian force, the harmonic
+force, and the constant force. They all depend on the vector <span class="math notranslate nohighlight">\(\mathbf{d}\)</span> between
+the origin of the interaction, <span class="math notranslate nohighlight">\(\mathbf{r}_{\text{user}}\)</span>, and the center of mass
+of the set of target particles <span class="math notranslate nohighlight">\(\mathbf{r}_{\text{COM}}\)</span>. So, <span class="math notranslate nohighlight">\(\mathbf{d} =
+\mathbf{r}_{\text{user}} - \mathbf{r}_{\text{COM}}\)</span>.</p>
+<p>The Gaussian force is defined by:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align}
+   \mathbf{F}_{\text{COM}}^{\text{Gaussian}} &amp;= -\frac{\mathbf{d}}{\sigma^2}\exp{-\frac{| \mathbf{d} | ^2}{2\sigma^2}} \\
+   E_{\text{COM}}^{\text{Gaussian}} &amp;= - \exp{-\frac{| \mathbf{d} |^2}{2\sigma^2}}
+\end{align}\end{split}\]</div>
+<p>with <span class="math notranslate nohighlight">\(\sigma = 1\)</span>. With this force, the user interaction is stronger when
+applied close to the particles.</p>
+<p>The harmonic force is defined by:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align}
+\mathbf{F}_{\text{COM}}^{\text{Harmonic}} &amp;= -k \mathbf{d} \\
+E_{\text{COM}}^{\text{Harmonic}} &amp;=  \frac{1}{2}k| \mathbf{d} |^2
+\end{align}\end{split}\]</div>
+<p>with <span class="math notranslate nohighlight">\(k = 2\)</span>.</p>
+<p>The constant force is defined by:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align}
+ \mathbf{F}_{\text{COM}}^{\text{Constant}} &amp;=
+ \begin{cases}
+   (0, 0, 0),&amp; \text{if } | \mathbf{d} | = 0 \\
+   \frac{ \mathbf{d} }{| \mathbf{d} |},&amp; \text{otherwise}
+ \end{cases} \\
+ E_{\text{COM}}^{\text{Constant}} &amp;=
+ \begin{cases}
+   0,&amp; \text{if } | \mathbf{d} | = 0 \\
+   1,&amp; \text{otherwise}
+ \end{cases}
+\end{align}\end{split}\]</div>
+<p>The direction of the constant force is undefined when the origin of the
+interaction and the center of mass of the selection overlap, so the force is
+not applied.</p>
+</section>
+<section id="velocity-reset">
+<span id="id3"></span><h3>Velocity reset<a class="headerlink" href="#velocity-reset" title="Link to this heading"></a></h3>
+<p>Some server implementations can kill any residual momentum in the system due to the user-applied forces after the user interaction has ended
+by setting the velocities of the affected particles to 0. This is called velocity
+reset and can be requested by the user as part of the interaction description.</p>
+<p>Servers that have the ability to do velocity reset should advertise the feature
+by setting the <code class="docutils literal notranslate"><span class="pre">imd.velocity_reset_available</span></code> key to true in the <a class="reference internal" href="base-protocol.html#state-service"><span class="std std-ref">shared
+state</span></a>.</p>
+</section>
+<section id="sending-user-interactions">
+<h3>Sending user interactions<a class="headerlink" href="#sending-user-interactions" title="Link to this heading"></a></h3>
+<p>Users send, on the <a class="reference internal" href="base-protocol.html#state-service"><span class="std std-ref">shared state</span></a>, the description of the
+interactions they want to apply. There is no limit to the number of interaction
+a user can send. Each interaction is described under the key
+<code class="docutils literal notranslate"><span class="pre">interaction.&lt;INTERACTION_ID&gt;</span></code> where <code class="docutils literal notranslate"><span class="pre">&lt;INTERACTION_ID&gt;</span></code> is an arbitrary
+string, unique to the interaction, used to identify it. It is commonly a UUID4.
+Under that key, the value is a Struct with the following keys:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">positions</span></code>: the coordinates of the interaction’s origin in simulation
+space. This is typically a position attached to the controller of the user in
+VR, but it does not have to be. By default, this is <cite>[0, 0, 0]</cite>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">particles</span></code>: the indices of the affected particles in the array of
+particles used by the <a class="reference internal" href="#trajectory-application"><span class="std std-ref">trajectory application</span></a>.
+If the order in this array does not match the order used by the simulation
+engine, it is the server’s responsibility to map them. The default value is
+an empty list.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">type</span></code>: the type of interaction to apply, this is what defines which
+<a class="reference internal" href="#force-equations"><span class="std std-ref">force equation</span></a> will be used. It should be set to
+<cite>gaussian</cite> for the Gaussian force, <cite>spring</cite> for the harmonic force, and
+<cite>constant</cite> for the constant force. Interactions with an type unknown to the
+server will be ignored silently. By default, the Gaussian force is assumed.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">scale</span></code>: the scaling factor <span class="math notranslate nohighlight">\(s\)</span> to apply to the force. The default
+scale is 1.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mass_weighted</span></code>: a boolean, true if the interaction is mass weighted, false
+otherwise. The default is true.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">max_force</span></code>: the maximum force magnitude that can be applied to a particle
+by this interaction. The default is 20,000
+<span class="math notranslate nohighlight">\(kJ\cdot\text{mol}^{-1}\cdot\text{nm}^{-1}\)</span>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">reset_velocities</span></code>: a boolean, true if <a class="reference internal" href="#velocity-reset"><span class="std std-ref">velocity reset</span></a> should be applied, false otherwise. This is false by
+default and will be ignored silently if the server does not have the feature.</p></li>
+</ul>
+<p>If the iMD application is used in conjunction with the <a class="reference internal" href="#multiplayer-application"><span class="std std-ref">multiplayer
+application</span></a>, then the interaction can also use the
+following fields:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">owner.id</span></code>: if the interaction originates from a client that defines an
+avatar, it can set this field to the player id attached to its avatar. This
+allows one to match interactions with avatars when analysing session recordings.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">label</span></code>: used with <code class="docutils literal notranslate"><span class="pre">owner.id</span></code>, this is the name of the avatar component
+from which the interaction originates (<cite>e.g.</cite> <code class="docutils literal notranslate"><span class="pre">hand.right</span></code> or
+<code class="docutils literal notranslate"><span class="pre">hand.left</span></code>).</p></li>
+</ul>
+</section>
+<section id="framedata-keys">
+<span id="imd-framedata-keys"></span><h3>FrameData keys<a class="headerlink" href="#framedata-keys" title="Link to this heading"></a></h3>
+<p>Some details about how the user interactions where applied can be added to the
+<a class="reference internal" href="base-protocol.html#frame-description"><span class="std std-ref">FrameData</span></a>.</p>
+<p>The sum of the energies from user interactions can be included, in
+<span class="math notranslate nohighlight">\(\text{kJ}\cdot\text{mol}^{-1}\)</span>, under the <code class="docutils literal notranslate"><span class="pre">energy.user.total</span></code> key in
+the value map. Depending on the implementations, this energy may or may not be
+included in the total energy included by the <a class="reference internal" href="#trajectory-application"><span class="std std-ref">trajectory application</span></a> under the <code class="docutils literal notranslate"><span class="pre">energy.total</span></code> key.</p>
+<p>The forces applied to each particle by the interactions can be stored under the
+<code class="docutils literal notranslate"><span class="pre">forces.user.index</span></code> and <code class="docutils literal notranslate"><span class="pre">forces.user.sparse</span></code> in the array map. Because the
+user interactions usually apply only to a small subset of the particles, it is
+wasteful to provide the forces for all the particles as they would be null for
+most of them. Instead, the user forces are transmitted in a sparse way by
+indicating which particles are affected with <code class="docutils literal notranslate"><span class="pre">forces.user.index</span></code> that will
+list the indices in relation of the particle arrays (<cite>e.g.</cite>
+<code class="docutils literal notranslate"><span class="pre">particle.positions</span></code>). The <code class="docutils literal notranslate"><span class="pre">forces.user.sparse</span></code> key contains the forces for
+the these particles in the same order as the <code class="docutils literal notranslate"><span class="pre">forces.user.index</span></code> as a flatten
+array.</p>
+</section>
+</section>
+<section id="miscellaneous-applications">
+<h2>Miscellaneous applications<a class="headerlink" href="#miscellaneous-applications" title="Link to this heading"></a></h2>
+<p>Some clients or servers may use their own keys in the <a class="reference internal" href="base-protocol.html#state-service"><span class="std std-ref">state</span></a> or <a class="reference internal" href="base-protocol.html#trajectory-service"><span class="std std-ref">trajectory</span></a> services. These keys
+are not formally part of any application, but documenting their meaning can
+only improve interoperability among the implementations.</p>
+<p>For diagnostics purpose, the time at which a frame has been generated, or
+sent to the trajectory service, can be stored under the <code class="docutils literal notranslate"><span class="pre">server.timestamp</span></code>
+key in the value map. It is expressed as a fractional number of seconds. This
+timestamp should only be used to compare with other timestamp in the same
+stream as there is no requirement about the clock used to generate it.</p>
+<p>A client can send an internal index of the updates it sends under the
+<code class="docutils literal notranslate"><span class="pre">update.index.&lt;USER_ID&gt;</span></code> key in the shared state; where <code class="docutils literal notranslate"><span class="pre">&lt;USER_ID&gt;</span></code> can be
+the player id used in the <a class="reference internal" href="#multiplayer-application"><span class="std std-ref">multiplayer application</span></a> or any string unique to the client. The index is the
+index of the update to be sent by the client in its own internal counter. By
+receiving this value in the update stream, the client can know which of its
+updates have been acknowledged by the server.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="base-protocol.html" class="btn btn-neutral float-left" title="The NanoVer protocol" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../python/modules.html" class="btn btn-neutral float-right" title="nanover" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright University of Bristol, Intangible Realities Lab (https://www.intangiblerealitieslab.org), University of Santiago de Compostela and other contributors.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

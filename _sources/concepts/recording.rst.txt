@@ -46,13 +46,13 @@ The :py:mod:`nanover.mdanalysis` module allows to read a trajectory recording as
 .. code:: python
 
     import MDAnalysis as mda
-    from narupa.mdanalysis import NarupaParser, NarupaReader
+    from nanover.mdanalysis import NanoverParser, NanoverReader
     import matplotlib.pyplot as plt
 
     u = mda.Universe(
         'hello.traj',
-        format=NarupaReader,
-        topology_format=NarupaParser,
+        format=NanoverReader,
+        topology_format=NanoverParser,
     )
 
     times = []
