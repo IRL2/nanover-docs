@@ -592,7 +592,7 @@ interactions, computes the corresponding forces and propagates them with the
 other forces in the simulation.
 
 The interactions can use different :ref:`equations <force-equations>` to
-compute the force :math:`\mathbf{F}_{\text{COM}}` to the center of mass of the group of
+compute the force :math:`\mathbf{F}_{\text{COM}}` at the center of mass of the group of
 target particles. The force is then distributed among the particles; 
 the method of force distribution depends on whether 
 the interaction is mass weighted of not. If if it mass weighted, then the
