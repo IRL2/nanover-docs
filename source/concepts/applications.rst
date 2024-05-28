@@ -708,7 +708,7 @@ following fields:
 
 * ``owner.id``: if the interaction originates from a client that defines an
   avatar, it can set this field to the player id attached to its avatar. This
-  allows to match interactions with avatars when analysing session recordings.
+  allows one to match interactions with avatars when analysing session recordings.
 * ``label``: used with ``owner.id``, this is the name of the avatar component
   from which the interaction originates (`e.g.` ``hand.right`` or
   ``hand.left``).
