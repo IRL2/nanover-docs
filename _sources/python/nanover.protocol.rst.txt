@@ -10,7 +10,6 @@ Subpackages
    :maxdepth: 4
 
    nanover.protocol.command
-   nanover.protocol.instance
    nanover.protocol.state
    nanover.protocol.trajectory
 
@@ -20,7 +19,5 @@ Submodules
 .. toctree::
    :maxdepth: 4
 
-   nanover.protocol.address_pb2
-   nanover.protocol.address_pb2_grpc
    nanover.protocol.array_pb2
    nanover.protocol.array_pb2_grpc
