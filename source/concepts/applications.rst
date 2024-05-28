@@ -425,7 +425,7 @@ Simulation box
 
 Most molecular dynamics simulations are run in a sized box. The FrameData can
 describe a triclinic box with its three box vectors. They are stored in the
-array map under the ``system.box.vectors`` key as a flatten 3x3 matrix where
+array map under the ``system.box.vectors`` key as a flattened 3x3 matrix where
 each row is a vector and each column is a dimension of the coordinate system.
 The box is optional and should not be displayed if not provided.
 
@@ -444,6 +444,20 @@ The energy of the system for the frame can be stored in
 ``energy.potential``, and ``energy.total`` key of the value map for the
 kinetic, potential, and total energies, respectivelly. The total energy is
 assumed to be the sum of the kinetic and potential energies.
+
+Playback indicators
+^^^^^^^^^^^^^^^^^^^
+
+The trajectory application defines commands that allow resetting or loading a
+simulation. These keys in the value map allow to keep track of these reset and
+load events:
+
+* ``system.reset.counter`` is a counter of how many reset events occurred so far. It
+  starts at 0 and is incremented whenever the simulation is reset, either from the
+  reset command described below or from any other event.
+* ``system.simulation.counter`` counts how many loading events occurred after the
+  initial one. The counter starts at 0 and is incremented when a simulation is loaded
+  after the initial one.
 
 Playback commands
 ~~~~~~~~~~~~~~~~~
