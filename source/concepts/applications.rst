@@ -335,6 +335,8 @@ keys in the array map:
   a name, set it to an empty string. When applicable, it is recommended to use
   the names used in the Protein Data Bank.
 
+.. _leap-frog-warning:
+
 .. warning::
 
    Many molecular dynamics integrators are based on the leap frog integration
@@ -444,6 +446,14 @@ The energy of the system for the frame can be stored in
 ``energy.potential``, and ``energy.total`` key of the value map for the
 kinetic, potential, and total energies, respectivelly. The total energy is
 assumed to be the sum of the kinetic and potential energies.
+
+.. note::
+
+   Like :ref:`mentionned about particle velocities <leap-frog-warning>`, some
+   molecular dynamics integrators use velocities computed out of sync of the
+   positions. This may cause the kinetic and the potential energies to be out of
+   sync as well. This is, however, a very common behaviour that can be ignored in
+   most cases.
 
 Playback indicators
 ^^^^^^^^^^^^^^^^^^^
