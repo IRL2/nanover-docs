@@ -97,7 +97,7 @@ other components, but they may not be supported by other clients. Each
 component is a Struct with the following keys:
 
 * ``name``, the predefined name of the component. The supported names are
-  "head", "hand.right", and "hand.left".
+  "headset", "hand.right", and "hand.left".
 * ``position``, a translation vector in server space expressed as a vector
   of 3 values.
 * ``rotation``, the rotation of the component in server space expressed as
