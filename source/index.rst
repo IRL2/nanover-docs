@@ -10,11 +10,11 @@ NanoVer is a free, open-source and flexible software that can be used as:
 
 As a client-server application, NanoVer consists of:
 
-(1) **The NanoVer server**: the server communicates with a physics engine, e.g. OpenMM or ASE, to facilitate interactive MD simulations.
-(2) **Nanover IMD**: this is the front end, which allows users to connect to a NanoVer server to access simulation data and facilitate user interaction with the molecular system. This can be done using:
+(1) **The NanoVer server**: the server communicates with a physics engine, e.g. OpenMM, to facilitate interactive MD simulations.
+(2) **Nanover IMD**: a client that can connect to a NanoVer server to access simulation data and facilitate user interaction with the molecular system. This can be done using:
 
     * A **python client**: a python script, e.g. a Jupyter notebook. Check out the :ref:`tutorials <Tutorials>` for further information.
-    * A **VR client**: the program (available `here <https://github.com/IRL2/nanover-imd/releases/download/nightly/StandaloneWindows64.zip>`_ as an executable) that enables a user to connect to a NanoVer server to visualise and interact with the real-time MD simulation in VR.
+    * A **VR client**: an instance of the NanoverIMD program (available `here <https://github.com/IRL2/nanover-imd/releases/download/nightly/StandaloneWindows64.zip>`_ as an executable) that enables a user to visualise and interact with the real-time MD simulation in VR.
 
 ----
 
@@ -29,6 +29,7 @@ As a client-server application, NanoVer consists of:
    python/modules.rst
    citations.rst
 
+----
 
 Indices and tables
 ==================
