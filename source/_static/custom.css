@@ -1,11 +1,8 @@
-.wy-nav-content {
-  max-width: none;
+/* Make the genindex page wider */
+body.genindex .wy-nav-content {
+  max-width: none; /* Set your desired max-width */
 }
 
-div.body {
-  max-width: none;
-}
-
-.wy-table-responsive table td, .wy-table-responsive table th {
-  white-space: normal;
+body.genindex div.body {
+  max-width: none; /* Set your desired max-width */
 }
