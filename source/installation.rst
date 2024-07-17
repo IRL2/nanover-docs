@@ -19,14 +19,29 @@ Installing the Server
 Conda Installation
 ##################
 
+* Install Anaconda
+* Open the "Anaconda Powershell Prompt" to type the following commands.
+* Create a conda environment (here we call the environment "nanover"): ``conda create -n nanover "python>3.11"``
+* Activate the conda environment: ``conda activate nanover``
+* Install the NanoVer packages:
+
 .. code:: bash
 
     conda install -c irl -c conda-forge nanover-server
 
+NanoVer can interact with the `LAMMPS <https://lammps.sandia.gov/>`_ simulation engine.
+If you want to use this specific feature, you need to:
+
+* install LAMMPS with python capabilities
+* install mpy4py:
+            * ``conda install -c conda-forge mpi4py`` on Linux and MacOS
+            * ``python -m pip install mpi4py`` on Windows.
+* install nanover-lammps: ``conda install -c irl -c conda-forge nanover-lammps``.
+
 Installing from source
 ######################
 
-To install from source, follow the instructions on the README
+Developers will want the manual install from source, follow the instructions on the README
 of the `code repository <https://github.com/IRL2/nanover-protocol>`_.
 
 
