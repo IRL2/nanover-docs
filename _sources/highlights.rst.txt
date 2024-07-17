@@ -1,0 +1,66 @@
+ .. _highlights:
+
+Highlights
+==========
+
+----
+
+#############################
+Interact with molecules in VR
+#############################
+
+NanoVer lets you **enter virtual reality and steer molecular dynamics simulations in real time**.
+Launch your molecular simulation through the NanoVer server and use your VR controllers to explore rare events such as conformational changes and ligand binding.
+To get up and running, head to :ref:`Installation & Getting Started <Installation>`.
+
+
+.. raw:: html
+
+   <div align="center">
+     <video width="320" height="240" controls>
+       <source src="/_static/nanotube_mixed_reality.mp4" type="video/mp4">
+     </video>
+   </div>
+
+
+
+----
+
+#############################################
+Integrate NanoVer into your existing workflow
+#############################################
+
+NanoVer uses a customisable python server and provides an API for easily **integrating different physics engines**.
+Check out the :ref:`tutorials here <Tutorials>`.
+
+..
+   _TODO: Add some kind of image here. Maybe some nice code?
+
+----
+
+#########################
+Create insightful visuals
+#########################
+
+Use python to control molecular representations,
+check out the `tutorial. <https://github.com/IRL2/nanover-protocol/blob/main/examples/fundamentals/visualisations.ipynb>`_
+
+.. image:: /_static/Renderers.gif
+    :alt: A gif showing a protein within the NanoVer VR environment cycling through several visual states.
+    :align: center
+    :scale: 30%
+
+----
+
+####################
+Develop with NanoVer
+####################
+
+**Contribute to the code** or **develop your own custom applications**.
+
+* `Get the source code for the server <https://github.com/IRL2/nanover-protocol>`_
+* `Get the source code of the VR client <https://github.com/IRL2/nanover-imd>`_
+
+NanoVer is distributed under the `MIT <https://github.com/IRL2/nanover-protocol/blob/main/LICENSE>`_ license.
+
+

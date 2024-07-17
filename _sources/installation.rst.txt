@@ -8,6 +8,10 @@ for running simulations, nanover-server, and the Unity3D libraries
 and applications for visualising and interacting with simulations
 in VR.
 
+* Install the server software (see below)
+* Interact with molecules in VR by `downloading the VR client <https://github.com/IRL2/nanover-imd/releases/download/nightly/StandaloneWindows64.zip>`_
+* Check out the :ref:`tutorials <Tutorials>`
+
 #####################
 Installing the Server
 #####################

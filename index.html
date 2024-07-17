@@ -22,7 +22,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Installation &amp; Getting Started" href="installation.html" /> 
+    <link rel="next" title="Highlights" href="highlights.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -46,6 +46,7 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="highlights.html">Highlights</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation &amp; Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorials/tutorials.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="concepts/concepts.html">Concepts</a></li>
@@ -79,41 +80,34 @@
              
   <section id="welcome-to-nanover-s-documentation">
 <h1>Welcome to NanoVer’s documentation!<a class="headerlink" href="#welcome-to-nanover-s-documentation" title="Link to this heading"></a></h1>
+<p>NanoVer is a free, open-source and flexible software that can be used as:</p>
+<ol class="arabic simple">
+<li><p>A <strong>framework</strong> for building <strong>multi-user virtual reality applications</strong> for molecular systems.</p></li>
+<li><p>A <strong>client-server</strong> application for <strong>collaborative interactive molecular dynamics simulations in virtual reality</strong> (iMD-VR).</p></li>
+</ol>
+<p>Nanover is distributed under the <a class="reference external" href="https://github.com/IRL2/nanover-protocol/blob/main/LICENSE">MIT</a> license.</p>
+<hr class="docutils" />
+<p>As a client-server application, NanoVer consists of:</p>
+<ol class="arabic simple">
+<li><p><strong>The NanoVer server</strong>: the server communicates with a physics engine, e.g. OpenMM, to facilitate interactive MD simulations.</p></li>
+<li><p><strong>Nanover IMD</strong>: a client that can connect to a NanoVer server to access simulation data and facilitate user interaction with the molecular system. This can be done using:</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://github.com/IRL2/nanover-imd/releases/download/nightly/StandaloneWindows64.zip">Download the VR client</a></p></li>
-<li><p><a class="reference internal" href="installation.html#installation"><span class="std std-ref">Install the software</span></a></p></li>
-<li><p><a class="reference internal" href="tutorials/tutorials.html#tutorials"><span class="std std-ref">Read tutorials</span></a></p></li>
+<li><p>A <strong>python client</strong>: a python script, e.g. a Jupyter notebook. Check out the <a class="reference internal" href="tutorials/tutorials.html#tutorials"><span class="std std-ref">tutorials</span></a> for further information.</p></li>
+<li><p>A <strong>VR client</strong>: an instance of the NanoverIMD program (see the <a class="reference external" href="https://github.com/IRL2/nanover-imd/releases">latest releases here</a>) that enables a user to visualise and interact with the real-time MD simulation in VR.</p></li>
 </ul>
-<section id="interact-with-molecules-in-virtual-reality">
-<h2>Interact with molecules in virtual reality<a class="headerlink" href="#interact-with-molecules-in-virtual-reality" title="Link to this heading"></a></h2>
-<p>NanoVer lets you enter virtual reality and steer molecular dynamics simulations
-in real time. Explore rare events and try docking poses.</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/IRL2/nanover-imd/releases/download/nightly/StandaloneWindows64.zip">Download the VR client</a></p></li>
-<li><p><a class="reference external" href="https://github.com/IRL2/nanover-imd">Get the source code of the VR client</a></p></li>
-</ul>
-</section>
-<section id="use-insightful-visuals">
-<h2>Use insightful visuals<a class="headerlink" href="#use-insightful-visuals" title="Link to this heading"></a></h2>
-<p>Use python to control molecular representations.</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/IRL2/nanover-protocol/blob/main/examples/fundamentals/visualisations.ipynb">Read the documentation on representations</a></p></li>
-</ul>
-</section>
-<section id="customise-your-workflow">
-<h2>Customise your workflow<a class="headerlink" href="#customise-your-workflow" title="Link to this heading"></a></h2>
-<p>NanoVer uses a customisable python server. Using the API you can integrate different physics engine and integrate NanoVer into your existing workflow.</p>
-<p>NanoVer is free, open source and distributed under the
-<a class="reference external" href="https://github.com/IRL2/nanover-protocol/blob/main/LICENSE">MIT</a> license.
-You can look at and contribute to the code for building server applications <a class="reference external" href="https://github.com/IRL2/nanover-protocol">here</a>,
-and our VR applications such as <a class="reference external" href="https://github.com/IRL2/nanover-imd">iMD-VR</a>.</p>
-<ul class="simple">
-<li><p><a class="reference internal" href="tutorials/tutorials.html#tutorials"><span class="std std-ref">Read tutorials</span></a></p></li>
-<li><p><a class="reference external" href="https://github.com/IRL2/nanover-protocol">Get the source code for the server</a></p></li>
-</ul>
+</li>
+</ol>
+<hr class="docutils" />
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="highlights.html">Highlights</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="highlights.html#interact-with-molecules-in-vr">Interact with molecules in VR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="highlights.html#integrate-nanover-into-your-existing-workflow">Integrate NanoVer into your existing workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="highlights.html#create-insightful-visuals">Create insightful visuals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="highlights.html#develop-with-nanover">Develop with NanoVer</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation &amp; Getting Started</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="installation.html#installing-the-server">Installing the Server</a></li>
 <li class="toctree-l2"><a class="reference internal" href="installation.html#installing-the-nanover-unity3d-libraries">Installing the NanoVer Unity3D libraries.</a></li>
@@ -145,7 +139,7 @@ and our VR applications such as <a class="reference external" href="https://gith
 </ul>
 </div>
 </section>
-</section>
+<hr class="docutils" />
 <section id="indices-and-tables">
 <h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Link to this heading"></a></h1>
 <ul class="simple">
@@ -159,7 +153,7 @@ and our VR applications such as <a class="reference external" href="https://gith
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="installation.html" class="btn btn-neutral float-right" title="Installation &amp; Getting Started" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="highlights.html" class="btn btn-neutral float-right" title="Highlights" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
