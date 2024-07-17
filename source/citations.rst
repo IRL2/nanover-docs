@@ -1,6 +1,6 @@
  .. _citations:
 
-How to cite NanoVer
+How to Cite NanoVer
 ===================
 
 NanoVer is forked from Narupa. If you find it useful, please cite the following
