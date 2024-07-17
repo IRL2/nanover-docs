@@ -60,7 +60,7 @@ html_theme = 'sphinx_rtd_theme'
 html_static_path = ['_static']
 
 html_context = {
-    'favicon': '_static/favicon.ico',
+    'favicon': '_static/favicon-32x32.ico',
     'favicon_32': '_static/favicon-32x32.png',
     'favicon_16': '_static/favicon-16x16.png',
     'apple_touch_icon': '_static/favicon.png',
