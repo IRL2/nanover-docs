@@ -59,8 +59,13 @@ html_theme = 'sphinx_rtd_theme'
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 
-# Add the NanoVer favicon
-html_favicon = '_static/favicon.png'
+html_context = {
+    'favicon': '_static/favicon.ico',
+    'favicon_32': '_static/favicon-32x32.png',
+    'favicon_16': '_static/favicon-16x16.png',
+    'apple_touch_icon': '_static/favicon.png',
+    'safari_pinned_tab': '_static/favicon.svg'
+}
 
 
 def run_apidoc(_):
