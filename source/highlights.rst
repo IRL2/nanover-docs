@@ -43,7 +43,7 @@ Create insightful visuals
 #########################
 
 Use python to control molecular representations,
-`read the documentation here. <https://github.com/IRL2/nanover-protocol/blob/main/examples/fundamentals/visualisations.ipynb>`_
+check out the `tutorial. <https://github.com/IRL2/nanover-protocol/blob/main/examples/fundamentals/visualisations.ipynb>`_
 
 .. image:: /_static/Renderers.gif
     :alt: A gif showing a protein within the NanoVer VR environment cycling through several visual states.
