@@ -1,53 +1,37 @@
 Welcome to NanoVer's documentation!
 ===================================
 
-* `Download the VR client <https://github.com/IRL2/nanover-imd/releases/download/nightly/StandaloneWindows64.zip>`_
-* :ref:`Install the software <Installation>`
-* :ref:`Read tutorials <Tutorials>`
+NanoVer is a free, open-source and flexible software that can be used as:
 
-Interact with molecules in virtual reality
-------------------------------------------
+(1) A **framework** for building **multi-user virtual reality applications** for molecular systems.
+(2) A **client-server** application for **collaborative interactive molecular dynamics simulations in virtual reality** (iMD-VR).
 
-NanoVer lets you enter virtual reality and steer molecular dynamics simulations
-in real time. Explore rare events and try docking poses.
+Nanover is distributed under the `MIT <https://github.com/IRL2/nanover-protocol/blob/main/LICENSE>`_ license.
 
-* `Download the VR client <https://github.com/IRL2/nanover-imd/releases/download/nightly/StandaloneWindows64.zip>`_
-* `Get the source code of the VR client <https://github.com/IRL2/nanover-imd>`_
+----
 
+As a client-server application, NanoVer consists of:
 
-Use insightful visuals
-----------------------
+(1) **The NanoVer server**: the server communicates with a physics engine, e.g. OpenMM, to facilitate interactive MD simulations.
+(2) **Nanover IMD**: a client that can connect to a NanoVer server to access simulation data and facilitate user interaction with the molecular system. This can be done using:
 
-Use python to control molecular representations.
+    * A **python client**: a python script, e.g. a Jupyter notebook. Check out the :ref:`tutorials <Tutorials>` for further information.
+    * A **VR client**: an instance of the NanoverIMD program (see the `latest releases here <https://github.com/IRL2/nanover-imd/releases>`_) that enables a user to visualise and interact with the real-time MD simulation in VR.
 
-* `Read the documentation on representations <https://github.com/IRL2/nanover-protocol/blob/main/examples/fundamentals/visualisations.ipynb>`_
-
-
-Customise your workflow
------------------------
-
-NanoVer uses a customisable python server. Using the API you can integrate different physics engine and integrate NanoVer into your existing workflow.
-
-NanoVer is free, open source and distributed under the
-`MIT <https://github.com/IRL2/nanover-protocol/blob/main/LICENSE>`_ license.
-You can look at and contribute to the code for building server applications `here <https://github.com/IRL2/nanover-protocol>`_,
-and our VR applications such as `iMD-VR <https://github.com/IRL2/nanover-imd>`_.
-
-* :ref:`Read tutorials <Tutorials>`
-* `Get the source code for the server <https://github.com/IRL2/nanover-protocol>`_
+----
 
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
 
+   highlights.rst
    installation.rst
    tutorials/tutorials.rst
    concepts/concepts.rst
    python/modules.rst
    citations.rst
 
-
-
+----
 
 Indices and tables
 ==================
