@@ -1,6 +1,6 @@
 # NanoVer Documentation
 
-Sphinx documentation for NanoVer. 
+Sphinx documentation for NanoVer, see the [documentation here](https://irl2.github.io/nanover/highlights.html).
 
 ## Getting Started
 
