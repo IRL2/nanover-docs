@@ -1,0 +1,8 @@
+/* Make the genindex page wider */
+body.genindex .wy-nav-content {
+  max-width: none; /* Set your desired max-width */
+}
+
+body.genindex div.body {
+  max-width: none; /* Set your desired max-width */
+}
