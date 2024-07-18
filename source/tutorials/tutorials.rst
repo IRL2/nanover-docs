@@ -25,7 +25,11 @@ If you wish to access the Jupyter notebooks via `JupyterLab <https://jupyter.org
    :maxdepth: 1
    :caption: Contents:
 
+   fundamentals.rst
+   openmm.rst
    ase.rst
+   lammps.rst
+   mdanalysis.rst
 
 Further reading
 ---------------
