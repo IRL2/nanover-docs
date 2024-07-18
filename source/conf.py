@@ -21,7 +21,7 @@ subprocess.call([sys.executable, './install.py'])
 
 project = 'NanoVer'
 
-copyright = 'Copyright 2024. Intangible Realities Lab | University of Santiago de Compostela | University of Bristol | and other contributors.'
+copyright = '2024, Intangible Realities Lab | University of Santiago de Compostela | University of Bristol | and other contributors'
 
 author = 'Intangible Realities Laboratory'
 
