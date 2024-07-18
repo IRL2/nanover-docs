@@ -13,6 +13,15 @@
 import os
 import sys
 import subprocess
+import requests
+
+def get_latest_release_version(repo_owner, repo_name):
+    url = f"https://api.github.com/repos/{repo_owner}/{repo_name}/releases/latest"
+    response = requests.get(url)
+    if response.status_code == 200:
+        return response.json()['tag_name']
+    else:
+        return 'unknown'
 
 subprocess.call([sys.executable, './install.py'])
 
@@ -23,8 +32,8 @@ project = 'NanoVer'
 copyright = 'University of Bristol, Intangible Realities Lab (https://www.intangiblerealitieslab.org), University of Santiago de Compostela and other contributors'
 author = 'Intangible Realities Laboratory'
 
-# The full version, including alpha/beta/rc tags
-release = '2018.1.8'
+# Set the version dynamically
+release = get_latest_release_version('IRL2', 'nanover-imd')
 
 
 # -- General configuration ---------------------------------------------------
