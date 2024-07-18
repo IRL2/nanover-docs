@@ -94,6 +94,7 @@ def run_apidoc(_):
         "--implicit-namespaces",
         "--force",
         "--separate",
+        "--no-toc",
         "--module-first",
         "-o", "./source/python",
         "./temp/python-source/nanover"

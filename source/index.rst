@@ -28,7 +28,7 @@ As a client-server application, NanoVer consists of:
    installation.rst
    tutorials/tutorials.rst
    concepts/concepts.rst
-   python/modules.rst
+   modules.rst
    citations.rst
 
 ----
