@@ -14,13 +14,10 @@ Launch your molecular simulation through the NanoVer server and use your VR cont
 To get up and running, head to :ref:`Installation & Getting Started <Installation>`.
 
 
-.. raw:: html
-
-   <div align="center">
-     <video width="320" height="240" controls>
-       <source src="/_static/nanotube_mixed_reality.mp4" type="video/mp4">
-     </video>
-   </div>
+.. image:: /_static/nanotube_mixed_reality.gif
+    :alt: A gif showing a user threading a methane molecule through a carbon nanotube.
+    :align: center
+    :scale: 30%
 
 
 
@@ -33,8 +30,8 @@ Integrate NanoVer into your existing workflow
 NanoVer uses a customisable python server and provides an API for easily **integrating different physics engines**.
 Check out the :ref:`tutorials here <Tutorials>`.
 
-..
-   _TODO: Add some kind of image here. Maybe some nice code?
+
+----
 
 ----
 
