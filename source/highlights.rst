@@ -30,8 +30,8 @@ Integrate NanoVer into your existing workflow
 NanoVer uses a customisable python server and provides an API for easily **integrating different physics engines**.
 Check out the :ref:`tutorials here <Tutorials>`.
 
-
-----
+..
+   _TODO: Add some kind of image here. Maybe some nice code?
 
 ----
 
