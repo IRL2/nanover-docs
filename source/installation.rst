@@ -57,10 +57,10 @@ For information on how to run NanoVer servers, check out the :ref:`tutorials <Tu
 Setting up the iMD-VR client
 ############################
 
-There are two main ways to set up the iMD-VR client:
+There are two ways to set up the iMD-VR client:
 
 * conda installation of the NanoVer iMD package
-* downloading the latest build of the NanoVer iMD executable (necessary to facilitate running natively on
+* downloading the latest release of NanoVer iMD (necessary to facilitate running natively on
   VR headsets)
 
 **Conda installation**
@@ -73,23 +73,24 @@ If you have not already set up a NanoVer conda environment, please refer to :ref
 
 #. To start the program, run the command ``NanoverImd``
 
-**Download the latest build**
+**Download the latest release**
 
-#. Download the latest build of `NanoVer iMD <https://github.com/IRL2/nanover-imd/releases>`_
+#. Download the latest release of `NanoVer iMD <https://github.com/IRL2/nanover-imd/releases>`_
 
 #. Extract the downloaded zip file
 
-The next step(s) depend on the type of operating system that your VR headset uses:
+The next step(s) depend on the operating system that you want to use to run the program:
 
 * **Android (Meta Quest, etc.)**:
-    * Sideload the ``NanoVerIMD.apk`` onto your device (you can use `SideQuest <https://sidequestvr.com>`_
+    * Sideload the ``nanover-imd.apk`` onto your device (you can use `SideQuest <https://sidequestvr.com>`_
       for this)
     * Look in the ``Unknown Sources`` section of your apps list and run NanoVer IMD
 
 * **Windows (OpenXR / Meta Quest Link, etc.)**:
-    * In the extracted directory, launch ``StandaloneWindows64.exe``. Windows will likely prompt you with
-      a warning about the executable not being signed. If it happens, click on the "More info" button, then
-      "Run anyway". You will also likely be prompted by the Windows firewall, allow NanoVer to access the network.
+    * Navigate to the ``windows`` directory in the extracted folder, and launch ``NanoVer iMD.exe``. Windows will
+      likely prompt you with a warning about the executable not being signed. If it happens, click on the "More
+      info" button, then "Run anyway". You will also likely be prompted by the Windows firewall, allow NanoVer
+      to access the network.
 
 ~~~~
 
