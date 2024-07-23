@@ -13,6 +13,7 @@
 import os
 import sys
 import subprocess
+from datetime import datetime
 import requests
 
 def get_latest_release_version(repo_owner, repo_name):
@@ -29,7 +30,10 @@ subprocess.call([sys.executable, './install.py'])
 # -- Project information -----------------------------------------------------
 
 project = 'NanoVer'
-copyright = 'University of Bristol, Intangible Realities Lab (https://www.intangiblerealitieslab.org), University of Santiago de Compostela and other contributors'
+
+copyright = (f'{datetime.now().year}, Intangible Realities Lab | University of Santiago de Compostela | University of '
+             f'Bristol | and other contributors')
+
 author = 'Intangible Realities Laboratory'
 
 # Set the version dynamically
