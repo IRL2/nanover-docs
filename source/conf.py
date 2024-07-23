@@ -13,6 +13,7 @@
 import os
 import sys
 import subprocess
+from datetime import datetime
 
 subprocess.call([sys.executable, './install.py'])
 
@@ -21,7 +22,8 @@ subprocess.call([sys.executable, './install.py'])
 
 project = 'NanoVer'
 
-copyright = '2024, Intangible Realities Lab | University of Santiago de Compostela | University of Bristol | and other contributors'
+copyright = (f'{datetime.now().year}, Intangible Realities Lab | University of Santiago de Compostela | University of '
+             f'Bristol | and other contributors')
 
 author = 'Intangible Realities Laboratory'
 
