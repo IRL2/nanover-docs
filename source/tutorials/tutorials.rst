@@ -34,4 +34,4 @@ If you wish to access the Jupyter notebooks via `JupyterLab <https://jupyter.org
 Further reading
 ---------------
 
-For more details, look at the documentation for the individual :mod:`modules <modules>`.
+For more details, look at the documentation for the individual :ref:`modules <modules>`.
