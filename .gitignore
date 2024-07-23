@@ -2,3 +2,4 @@ build/
 temp/
 source/python/
 .DS_Store
+/.idea
