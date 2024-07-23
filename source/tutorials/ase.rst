@@ -42,6 +42,9 @@ contains several Jupyter notebooks that explore how NanoVer can be used with Ope
 
 * `basic_example`: A notebook showing how one can run the server for an OpenMM simulation,  connect a client to it, and render a simple visualisation. 
 * `openmm_nanotube`: A notebook that runs a simulation of a carbon nanotube, then applies interactive forces to it from the notebook.
+* `openmm_graphene`: A notebook that runs a simulation of a graphene sheet, and demonstrates how parameters of the simulation can be controlled in real
+  time through the Jupyter notebook interface.
+* `openmm_neuraminidase`: A notebook that demonstrates how to construct an input file for an OpenMM simulation of neuraminidase to run with NanoVer from scratch.
 * `nanover_nglview`: A notebook that assumes a server is already running, and visualises it with `NGLView <https://github.com/arose/nglview>`_. To run this notebook, ensure NGLView is installed with:
 
 .. code-block:: bash
