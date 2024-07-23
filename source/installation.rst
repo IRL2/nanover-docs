@@ -118,8 +118,8 @@ Developers will want to manually install from source.
   <https://github.com/IRL2/nanover-protocol?tab=readme-ov-file#setup-nanover-protocol-for-developers-on-mac-and-linux>`_
   on the README of the `nanover-protocol repository <https://github.com/IRL2/nanover-protocol>`_.
 
-* If you want to customise the NanoVer iMD Unity project, instructions for obtaining the source code of the NanoVer iMD
-  Unity3D application are available in the `nanover-imd repository on GitHub <https://github.com/IRL2/nanover-imd>`_.
+* If you want to customise the NanoVer iMD Unity3D application, instructions for obtaining the source code are available
+  in the `nanover-imd repository on GitHub <https://github.com/IRL2/nanover-imd>`_.
 
-* If you want to build your own VR applications using unity, the NanoVer libraries for building your own VR applications
-  in Unity3D are available in the `NanoverUnityPlugin repository on GitHub <https://github.com/IRL2/NanoverUnityPlugin>`_.
+* If you want to build your own VR application that interfaces with NanoVer, the NanoVer Unity3D libraries are available
+  in the `NanoverUnityPlugin repository on GitHub <https://github.com/IRL2/NanoverUnityPlugin>`_.
