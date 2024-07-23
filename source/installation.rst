@@ -4,14 +4,10 @@
 Installation & Getting Started
 ==============================
 
-NanoVer consists of two components, the python-based libraries
-for running simulations, nanover-server, and the Unity3D libraries
-and applications for visualising and interacting with simulations
+NanoVer consists of two components: the python-based libraries
+for running simulations, and the Unity3D libraries
+and applications for visualising & interacting with simulations
 in VR.
-
-* Install the server software (see below)
-* Interact with molecules in VR by `downloading the VR client <https://github.com/IRL2/nanover-imd/releases/download/nightly/StandaloneWindows64.zip>`_
-* Check out the :ref:`tutorials <Tutorials>`
 
 .. contents:: Contents
     :depth: 3
@@ -27,11 +23,11 @@ User Installation Guide
 Creating a conda environment
 ############################
 
-#. Install Conda through whichever program you prefer, e.g. `Miniforge <https://github.com/conda-forge/miniforge>`_
+#. Install Conda through whichever program you prefer, e.g. `Miniforge <https://github.com/conda-forge/miniforge>`_.
 #. Open a terminal that you have conda installed in:
 
-    * On Windows, this is Windows Powershell
-    * On Mac and Linux, this is the terminal
+    * On Windows, this is Windows Powershell.
+    * On Mac and Linux, this is the terminal.
 
 #. Create a conda environment (here we call the environment "nanover"):
 
@@ -75,16 +71,16 @@ If you have not already set up a NanoVer conda environment, please refer to :ref
 
 **Download the latest release**
 
-#. Download the latest release of `NanoVer iMD <https://github.com/IRL2/nanover-imd/releases>`_
+#. Download the latest release of `NanoVer iMD <https://github.com/IRL2/nanover-imd/releases>`_.
 
-#. Extract the downloaded zip file
+#. Extract the downloaded zip file.
 
 The next step(s) depend on the operating system that you want to use to run the program:
 
 * **Android (Meta Quest, etc.)**:
     * Sideload the ``nanover-imd.apk`` onto your device (you can use `SideQuest <https://sidequestvr.com>`_
-      for this)
-    * Look in the ``Unknown Sources`` section of your apps list and run NanoVer IMD
+      for this).
+    * Look in the ``Unknown Sources`` section of your apps list and run NanoVer IMD.
 
 * **Windows (OpenXR / Meta Quest Link, etc.)**:
     * Navigate to the ``windows`` directory in the extracted folder, and launch ``NanoVer iMD.exe``. Windows will
@@ -102,9 +98,11 @@ If you want to use this specific feature, you need to:
 
 * install LAMMPS with python capabilities
 * install mpy4py:
+
             * ``conda install -c conda-forge mpi4py`` on Linux and MacOS
-            * ``python -m pip install mpi4py`` on Windows.
-* install nanover-lammps: ``conda install -c irl -c conda-forge nanover-lammps``.
+            * ``python -m pip install mpi4py`` on Windows
+
+* install nanover-lammps: ``conda install -c irl -c conda-forge nanover-lammps``
 
 ~~~~
 
@@ -112,18 +110,16 @@ If you want to use this specific feature, you need to:
 Developer Installation Guide
 ############################
 
-Developers will want the manual install from source, follow the instructions on the README
-of the `code repository <https://github.com/IRL2/nanover-protocol>`_.
+Developers will want to manually install from source.
 
+* If you want to create your own custom server, connect a different physics engine or create a custom client,
+  you can do this via modification of the NanoVer protocol. To download and install the source code, please follow the
+  `developer installation instructions
+  <https://github.com/IRL2/nanover-protocol?tab=readme-ov-file#setup-nanover-protocol-for-developers-on-mac-and-linux>`_
+  on the README of the `nanover-protocol repository <https://github.com/IRL2/nanover-protocol>`_.
 
-#########################################
-Installing the NanoVer Unity3D libraries.
-#########################################
+* If you want to customise the NanoVer iMD Unity project, instructions for obtaining the source code of the NanoVer iMD
+  Unity3D application are available in the `nanover-imd repository on GitHub <https://github.com/IRL2/nanover-imd>`_.
 
-The NanoVer libraries for building your own VR applications in Unity3D are available `as NanoverUnityPlugin on GitHub <https://github.com/IRL2/NanoverUnityPlugin>`_.
-
-######################
-Installing NanoVer iMD
-######################
-
-Instructions for downloading and running the NanoVer iMD Unity3D application are available `as nanover-imd on GitHub <https://github.com/IRL2/nanover-imd>`_.
+* If you want to build your own VR applications using unity, the NanoVer libraries for building your own VR applications
+  in Unity3D are available in the `NanoverUnityPlugin repository on GitHub <https://github.com/IRL2/NanoverUnityPlugin>`_.
