@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tutorials &mdash; NanoVer 2024.06.18 documentation</title>
+  <title>MDAnalysis &mdash; NanoVer 2024.06.18 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=b58f7763" />
@@ -24,8 +24,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="NanoVer Fundamentals" href="fundamentals.html" />
-    <link rel="prev" title="Installation &amp; Getting Started" href="../installation.html" />
+    <link rel="next" title="Concepts" href="../concepts/concepts.html" />
+    <link rel="prev" title="LAMMPS: Large scale Atomic/Molecular Massively Parallel Simulator" href="lammps.html" />
  
 <link rel="icon" type="image/x-icon" href="../_static/favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="../_static/favicon-32x32.png">
@@ -58,13 +58,13 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../highlights.html">Highlights</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation &amp; Getting Started</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Tutorials</a><ul>
+<li class="toctree-l1 current"><a class="reference internal" href="tutorials.html">Tutorials</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="fundamentals.html">NanoVer Fundamentals</a></li>
 <li class="toctree-l2"><a class="reference internal" href="openmm.html">OpenMM</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ase.html">ASE: Interactive Molecular Dynamics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="lammps.html">LAMMPS: Large scale Atomic/Molecular Massively Parallel Simulator</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mdanalysis.html">MDAnalysis</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#further-reading">Further reading</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">MDAnalysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials.html#further-reading">Further reading</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/concepts.html">Concepts</a></li>
@@ -86,9 +86,10 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Tutorials</li>
+          <li class="breadcrumb-item"><a href="tutorials.html">Tutorials</a></li>
+      <li class="breadcrumb-item active">MDAnalysis</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/tutorials/tutorials.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/tutorials/mdanalysis.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -96,44 +97,20 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="tutorials">
-<span id="id1"></span><h1>Tutorials<a class="headerlink" href="#tutorials" title="Link to this heading"></a></h1>
-<p>This section provides tutorials on getting started with NanoVer.
-We assume familiarity with setting up simulations in whichever
-framework you’re running with NanoVer.</p>
-<p>The tutorials use <a class="reference external" href="https://jupyter.org">Jupyter notebooks</a>, <a class="reference external" href="https://github.com/nglviewer/nglview">NGLView</a> for visualising trajectories, and while not strictly necessary, assumes you have the <a class="reference external" href="https://github.com/irl2/nanover-imd">NanoVer IMD</a> application installed (i.e. the VR client). These can all be installed with conda:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Assuming NanoVer is installed in a conda environment named &quot;nanover&quot;,</span>
-<span class="c1"># change the name otherwise.</span>
-conda<span class="w"> </span>activate<span class="w"> </span>nanover
-conda<span class="w"> </span>install<span class="w"> </span>jupyter
-conda<span class="w"> </span>install<span class="w"> </span>nglview
-<span class="c1"># On Windows only:</span>
-conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>irl<span class="w"> </span>nanover-imd
-</pre></div>
-</div>
-<p>If you wish to access the Jupyter notebooks via <a class="reference external" href="https://jupyter.org">JupyterLab</a>, installing JupyterLab <strong>before</strong> NGLView should install the correct dependencies for NGLView automatically (i.e. replacing <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">jupyter</span></code> with <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">jupyterlab</span></code> in the installation instructions above). If JupyterLab is installed outside of your conda environment, you will need to install <a class="reference external" href="https://ipywidgets.readthedocs.io/en/stable/">ipywidgets</a> in your NanoVer conda environment following  <a class="reference external" href="https://ipywidgets.readthedocs.io/en/latest/user_install.html#installing-in-jupyterlab-3-x">these instructions</a>.</p>
-<div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="fundamentals.html">NanoVer Fundamentals</a></li>
-<li class="toctree-l1"><a class="reference internal" href="openmm.html">OpenMM</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ase.html">ASE: Interactive Molecular Dynamics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lammps.html">LAMMPS: Large scale Atomic/Molecular Massively Parallel Simulator</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mdanalysis.html">MDAnalysis</a></li>
-</ul>
-</div>
-<section id="further-reading">
-<h2>Further reading<a class="headerlink" href="#further-reading" title="Link to this heading"></a></h2>
-<p>For more details, look at the documentation for the individual <code class="xref py py-mod docutils literal notranslate"><span class="pre">modules</span></code>.</p>
-</section>
+  <section id="mdanalysis">
+<h1>MDAnalysis<a class="headerlink" href="#mdanalysis" title="Link to this heading"></a></h1>
+<p>A set of tutorials that demonstrate how NanoVer can be interfaced with MDAnalysis
+to analyse interactive molecular dynamics simulations. A set of example Jupyter notebooks
+that demonstrate how to use NanoVer with MDAnalysis can be found
+<a class="reference external" href="https://github.com/IRL2/nanover-protocol/tree/main/examples/mdanalysis">here</a>.</p>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../installation.html" class="btn btn-neutral float-left" title="Installation &amp; Getting Started" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="fundamentals.html" class="btn btn-neutral float-right" title="NanoVer Fundamentals" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="lammps.html" class="btn btn-neutral float-left" title="LAMMPS: Large scale Atomic/Molecular Massively Parallel Simulator" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../concepts/concepts.html" class="btn btn-neutral float-right" title="Concepts" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

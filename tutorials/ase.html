@@ -24,8 +24,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Concepts" href="../concepts/concepts.html" />
-    <link rel="prev" title="Tutorials" href="tutorials.html" />
+    <link rel="next" title="LAMMPS: Large scale Atomic/Molecular Massively Parallel Simulator" href="lammps.html" />
+    <link rel="prev" title="OpenMM" href="openmm.html" />
  
 <link rel="icon" type="image/x-icon" href="../_static/favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="../_static/favicon-32x32.png">
@@ -59,11 +59,15 @@
 <li class="toctree-l1"><a class="reference internal" href="../highlights.html">Highlights</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation &amp; Getting Started</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="tutorials.html">Tutorials</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="fundamentals.html">NanoVer Fundamentals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="openmm.html">OpenMM</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">ASE: Interactive Molecular Dynamics</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#running-an-ase-openmm-server-from-the-command-line">Running an ASE OpenMM server from the command line</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#running-a-server-from-python">Running a server from python</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="lammps.html">LAMMPS: Large scale Atomic/Molecular Massively Parallel Simulator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mdanalysis.html">MDAnalysis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tutorials.html#further-reading">Further reading</a></li>
 </ul>
 </li>
@@ -133,6 +137,9 @@ contains several Jupyter notebooks that explore how NanoVer can be used with Ope
 <ul class="simple">
 <li><p><cite>basic_example</cite>: A notebook showing how one can run the server for an OpenMM simulation,  connect a client to it, and render a simple visualisation.</p></li>
 <li><p><cite>openmm_nanotube</cite>: A notebook that runs a simulation of a carbon nanotube, then applies interactive forces to it from the notebook.</p></li>
+<li><p><cite>openmm_graphene</cite>: A notebook that runs a simulation of a graphene sheet, and demonstrates how parameters of the simulation can be controlled in real
+time through the Jupyter notebook interface.</p></li>
+<li><p><cite>openmm_neuraminidase</cite>: A notebook that demonstrates how to construct an input file for an OpenMM simulation of neuraminidase to run with NanoVer from scratch.</p></li>
 <li><p><cite>nanover_nglview</cite>: A notebook that assumes a server is already running, and visualises it with <a class="reference external" href="https://github.com/arose/nglview">NGLView</a>. To run this notebook, ensure NGLView is installed with:</p></li>
 </ul>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>install<span class="w"> </span>nglview<span class="w"> </span>-c<span class="w"> </span>conda-forge
@@ -150,8 +157,8 @@ conda<span class="w"> </span>upgrade<span class="w"> </span>nglview<span class="
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="tutorials.html" class="btn btn-neutral float-left" title="Tutorials" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../concepts/concepts.html" class="btn btn-neutral float-right" title="Concepts" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="openmm.html" class="btn btn-neutral float-left" title="OpenMM" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="lammps.html" class="btn btn-neutral float-right" title="LAMMPS: Large scale Atomic/Molecular Massively Parallel Simulator" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
