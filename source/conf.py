@@ -14,6 +14,15 @@ import os
 import sys
 import subprocess
 from datetime import datetime
+import requests
+
+def get_latest_release_version(repo_owner, repo_name):
+    url = f"https://api.github.com/repos/{repo_owner}/{repo_name}/releases/latest"
+    response = requests.get(url)
+    if response.status_code == 200:
+        return response.json()['tag_name']
+    else:
+        return 'unknown'
 
 subprocess.call([sys.executable, './install.py'])
 
@@ -27,8 +36,8 @@ copyright = (f'{datetime.now().year}, Intangible Realities Lab | University of S
 
 author = 'Intangible Realities Laboratory'
 
-# The full version, including alpha/beta/rc tags
-release = '2018.1.8'
+# Set the version dynamically
+release = get_latest_release_version('IRL2', 'nanover-imd')
 
 
 # -- General configuration ---------------------------------------------------
