@@ -45,7 +45,7 @@ check out the `tutorial. <https://github.com/IRL2/nanover-protocol/blob/main/exa
 .. image:: /_static/Renderers.gif
     :alt: A gif showing a protein within the NanoVer VR environment cycling through several visual states.
     :align: center
-    :scale: 30%
+    :scale: 60%
 
 ----
 
