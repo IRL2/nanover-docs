@@ -18,12 +18,17 @@ in VR.
 User Installation Guide
 #######################
 
+This installation guide contains the information required to get NanoVer up and running on your computer. This includes
+creating a conda environment and installing the server, which is required for setting up and running simulations. You
+then have the option to install the iMD-VR client, which enables you to visualise and interact with your simulations
+inside VR.
+
 .. _creating_conda_env:
 
 Creating a conda environment
 ############################
 
-#. Install Conda through whichever program you prefer, e.g. `Miniforge <https://github.com/conda-forge/miniforge>`_.
+#. Install conda through whichever program you prefer, e.g. `Miniforge <https://github.com/conda-forge/miniforge>`_.
 #. Open a terminal that you have conda installed in:
 
     * On Windows, this is Windows Powershell.
@@ -53,7 +58,8 @@ For information on how to run NanoVer servers, check out the :ref:`tutorials <Tu
 Choosing your setup for the iMD-VR client
 #########################################
 
-Below is a flow chart to help you decide which setup to use for your iMD-VR client.
+If you wish to visualise and interact with your simulations in VR, you will need to install an iMD-VR client. Below is a
+flow diagram to help you decide which setup to use.
 
 .. image::  /_static/VR_client_flow_diagram.png
   :width: 600
@@ -64,17 +70,17 @@ Using PC-VR
 In this case, you have two options for running the VR client:
 
 * **Downloading the latest release of the NanoVer iMD executable**. This is a quick and easy option for those unfamiliar with conda, see :ref:`download_latest_release_VR_client`.
-* **Conda installation of the NanoVer iMD package**. This is a good option if you are familiar with conda, see :ref:`conda_installation_VR_client`.
+
+* **Conda installation of the NanoVer iMD package**. This is a good option if you are familiar with conda (or want to learn how to use it!), see :ref:`conda_installation_VR_client`.
 
 Both options are compatible with any of the following:
 
 * Meta Quest Link (tethered)
-* Meta Quest AirLink (wireless)
+* Meta Quest AirLink (wireless*)
 * SteamVR (tethered)
-* Steam Link (wireless)
+* Steam Link (wireless*)
 
-Note that you will need to meet the requirements for a Wi-Fi setup (see flow diagram above) if you want to use a
-wireless setup.
+\* Note that for a wireless setup you will need to meet the **requirements for a Wi-Fi setup** (see the key in the flow diagram above).
 
 Running locally on a Meta Quest headset
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -82,6 +88,8 @@ Running locally on a Meta Quest headset
 In this case, you have one option:
 
 * **Downloading the latest release of the NanoVer iMD apk** and installing this on your headset, see :ref:`download_latest_release_VR_client`.
+
+Note that you will need to meet the **requirements for a Wi-Fi setup** (see the key in the flow diagram above).
 
 ----
 
