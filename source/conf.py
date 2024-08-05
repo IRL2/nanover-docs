@@ -127,3 +127,4 @@ def run_apidoc(_):
 def setup(app):
     app.connect('builder-inited', run_apidoc)
     app.add_js_file('custom.js')
+    app.add_css_file('custom.css')

@@ -6,3 +6,26 @@ body.genindex .wy-nav-content {
 body.genindex div.body {
   max-width: none; /* Set your desired max-width */
 }
+
+/* Ensure text wraps inside table cells */
+.wy-table-responsive table td,
+.wy-table-responsive table th {
+    white-space: normal;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.wy-table-responsive {
+    display: table;
+    width: 100%;
+}
+
+.wy-table-responsive table {
+    table-layout: fixed;
+    width: 100%;
+}
+
+.wy-table-responsive th:nth-child(2),
+.wy-table-responsive td:nth-child(2) {
+    width: 80%;
+}
