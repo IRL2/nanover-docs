@@ -61,7 +61,16 @@
 <li class="toctree-l2"><a class="reference internal" href="#user-installation-guide">User Installation Guide</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#creating-a-conda-environment">Creating a conda environment</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#installing-the-server">Installing the server</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#setting-up-the-imd-vr-client">Setting up the iMD-VR client</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#choosing-your-setup-for-the-imd-vr-client">Choosing your setup for the iMD-VR client</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#using-pc-vr">Using PC-VR</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#running-locally-on-a-meta-quest-headset">Running locally on a Meta Quest headset</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#installing-the-imd-vr-client">Installing the iMD-VR client</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#download-the-latest-release">Download the latest release</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#conda-installation">Conda installation</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#installing-lammps-for-nanover">Installing LAMMPS for NanoVer</a></li>
 </ul>
 </li>
@@ -115,11 +124,12 @@ in VR.</p>
 <ul>
 <li><p><a class="reference internal" href="#creating-a-conda-environment" id="id3">Creating a conda environment</a></p></li>
 <li><p><a class="reference internal" href="#installing-the-server" id="id4">Installing the server</a></p></li>
-<li><p><a class="reference internal" href="#setting-up-the-imd-vr-client" id="id5">Setting up the iMD-VR client</a></p></li>
-<li><p><a class="reference internal" href="#installing-lammps-for-nanover" id="id6">Installing LAMMPS for NanoVer</a></p></li>
+<li><p><a class="reference internal" href="#choosing-your-setup-for-the-imd-vr-client" id="id5">Choosing your setup for the iMD-VR client</a></p></li>
+<li><p><a class="reference internal" href="#installing-the-imd-vr-client" id="id6">Installing the iMD-VR client</a></p></li>
+<li><p><a class="reference internal" href="#installing-lammps-for-nanover" id="id7">Installing LAMMPS for NanoVer</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#developer-installation-guide" id="id7">Developer Installation Guide</a></p></li>
+<li><p><a class="reference internal" href="#developer-installation-guide" id="id8">Developer Installation Guide</a></p></li>
 </ul>
 </li>
 </ul>
@@ -127,10 +137,14 @@ in VR.</p>
 <hr class="docutils" />
 <section id="user-installation-guide">
 <h2><a class="toc-backref" href="#id2" role="doc-backlink">User Installation Guide</a><a class="headerlink" href="#user-installation-guide" title="Link to this heading"></a></h2>
+<p>This guide contains the information required to get NanoVer up and running on your computer! This includes
+creating a conda environment and installing the server, which is required for setting up and running simulations. You
+then have the option to install the iMD-VR client, which you can use for visualising and interacting with your simulations
+inside VR.</p>
 <section id="creating-a-conda-environment">
 <span id="creating-conda-env"></span><h3><a class="toc-backref" href="#id3" role="doc-backlink">Creating a conda environment</a><a class="headerlink" href="#creating-a-conda-environment" title="Link to this heading"></a></h3>
 <ol class="arabic">
-<li><p>Install Conda through whichever program you prefer, e.g. <a class="reference external" href="https://github.com/conda-forge/miniforge">Miniforge</a>.</p></li>
+<li><p>Install conda through whichever program you prefer, e.g. <a class="reference external" href="https://github.com/conda-forge/miniforge">Miniforge</a>.</p></li>
 <li><p>Open a terminal that you have conda installed in:</p>
 <blockquote>
 <div><ul class="simple">
@@ -159,52 +173,83 @@ in VR.</p>
 <p>For information on how to run NanoVer servers, check out the <a class="reference internal" href="tutorials/tutorials.html#tutorials"><span class="std std-ref">tutorials</span></a>.</p>
 </section>
 <hr class="docutils" />
-<section id="setting-up-the-imd-vr-client">
-<h3><a class="toc-backref" href="#id5" role="doc-backlink">Setting up the iMD-VR client</a><a class="headerlink" href="#setting-up-the-imd-vr-client" title="Link to this heading"></a></h3>
-<p>There are two ways to set up the iMD-VR client:</p>
+<section id="choosing-your-setup-for-the-imd-vr-client">
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">Choosing your setup for the iMD-VR client</a><a class="headerlink" href="#choosing-your-setup-for-the-imd-vr-client" title="Link to this heading"></a></h3>
+<p>If you wish to visualise and interact with your simulations in VR, you will need to install an iMD-VR client. Below is a
+flow diagram to help you decide which setup to use.</p>
+<a class="reference internal image-reference" href="_images/VR_client_flow_diagram.png"><img alt="_images/VR_client_flow_diagram.png" src="_images/VR_client_flow_diagram.png" style="width: 600px;" /></a>
+<section id="using-pc-vr">
+<h4>Using PC-VR<a class="headerlink" href="#using-pc-vr" title="Link to this heading"></a></h4>
+<p>In this case, you have two options for running the VR client:</p>
 <ul class="simple">
-<li><p>conda installation of the NanoVer iMD package</p></li>
-<li><p>downloading the latest release of NanoVer iMD (necessary to facilitate running natively on
-VR headsets)</p></li>
+<li><p><strong>Downloading the latest release of the NanoVer iMD executable</strong>. This is a quick and easy option for those unfamiliar with conda, see <a class="reference internal" href="#download-latest-release-vr-client"><span class="std std-ref">Download the latest release</span></a>.</p></li>
+<li><p><strong>Conda installation of the NanoVer iMD package</strong>. This is a good option if you are familiar with conda (or want to learn how to use it!), see <a class="reference internal" href="#conda-installation-vr-client"><span class="std std-ref">Conda installation</span></a>.</p></li>
 </ul>
-<p><strong>Conda installation</strong></p>
-<p>If you have not already set up a NanoVer conda environment, please refer to <a class="reference internal" href="#creating-conda-env"><span class="std std-ref">Creating a conda environment</span></a>.</p>
-<ol class="arabic simple">
-<li><p>Activate your NanoVer conda environment: <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">activate</span> <span class="pre">nanover</span></code></p></li>
-<li><p>Install the NanoVer iMD package: <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">-c</span> <span class="pre">irl</span> <span class="pre">nanover-imd</span></code></p></li>
-<li><p>To start the program, run the command <code class="docutils literal notranslate"><span class="pre">NanoverImd</span></code></p></li>
-</ol>
-<p><strong>Download the latest release</strong></p>
+<p>Both options are compatible with any of the following:</p>
+<ul class="simple">
+<li><p>Meta Quest Link (tethered)</p></li>
+<li><p>Meta Quest AirLink (wireless*)</p></li>
+<li><p>SteamVR (tethered)</p></li>
+<li><p>Steam Link (wireless*)</p></li>
+</ul>
+<p>* Note that for a wireless setup you will need to meet the <strong>requirements for a Wi-Fi setup</strong> (see the key in the flow diagram above).</p>
+</section>
+<section id="running-locally-on-a-meta-quest-headset">
+<h4>Running locally on a Meta Quest headset<a class="headerlink" href="#running-locally-on-a-meta-quest-headset" title="Link to this heading"></a></h4>
+<p>In this case, you have one option:</p>
+<ul class="simple">
+<li><p><strong>Downloading the latest release of the NanoVer iMD apk</strong> and installing this on your headset, see <a class="reference internal" href="#download-latest-release-vr-client"><span class="std std-ref">Download the latest release</span></a>.</p></li>
+</ul>
+<p>Note that you will need to meet the <strong>requirements for a Wi-Fi setup</strong> (see the key in the flow diagram above).</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="installing-the-imd-vr-client">
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">Installing the iMD-VR client</a><a class="headerlink" href="#installing-the-imd-vr-client" title="Link to this heading"></a></h3>
+<section id="download-the-latest-release">
+<span id="download-latest-release-vr-client"></span><h4>Download the latest release<a class="headerlink" href="#download-the-latest-release" title="Link to this heading"></a></h4>
 <ol class="arabic simple">
 <li><p>Download the latest release of <a class="reference external" href="https://github.com/IRL2/nanover-imd/releases">NanoVer iMD</a>.</p></li>
 <li><p>Extract the downloaded zip file.</p></li>
 </ol>
-<p>The next step(s) depend on the operating system that you want to use to run the program:</p>
+<p>The next step depends on how you want to run the program:</p>
 <ul class="simple">
 <li><dl class="simple">
-<dt><strong>Android (Meta Quest, etc.)</strong>:</dt><dd><ul>
-<li><p>Sideload the <code class="docutils literal notranslate"><span class="pre">nanover-imd.apk</span></code> onto your device (you can use <a class="reference external" href="https://sidequestvr.com">SideQuest</a>
-for this).</p></li>
-<li><p>Look in the <code class="docutils literal notranslate"><span class="pre">Unknown</span> <span class="pre">Sources</span></code> section of your apps list and run NanoVer IMD.</p></li>
+<dt><strong>Using PC-VR</strong>:</dt><dd><ul>
+<li><p>Navigate to the <code class="docutils literal notranslate"><span class="pre">windows</span></code> directory in the extracted folder, and launch <code class="docutils literal notranslate"><span class="pre">NanoVer</span> <span class="pre">iMD.exe</span></code>.</p></li>
+<li><p>The first time you run this, Windows will likely prompt you with a warning about the executable not being signed.
+If this happens, click on the “More info” button, then “Run anyway”. You will also likely be prompted by the
+Windows firewall, allow NanoVer to access the network.</p></li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>Windows (OpenXR / Meta Quest Link, etc.)</strong>:</dt><dd><ul>
-<li><p>Navigate to the <code class="docutils literal notranslate"><span class="pre">windows</span></code> directory in the extracted folder, and launch <code class="docutils literal notranslate"><span class="pre">NanoVer</span> <span class="pre">iMD.exe</span></code>. Windows will
-likely prompt you with a warning about the executable not being signed. If it happens, click on the “More
-info” button, then “Run anyway”. You will also likely be prompted by the Windows firewall, allow NanoVer
-to access the network.</p></li>
+<dt><strong>Running locally on a Meta Quest headset</strong>:</dt><dd><ul>
+<li><p>Ensure that you have developer mode enabled on your headset (search online for up-to-date instructions).</p></li>
+<li><p>Sideload the <code class="docutils literal notranslate"><span class="pre">nanover-imd.apk</span></code> from the extracted zip file onto your device. You can use
+<a class="reference external" href="https://sidequestvr.com">SideQuest</a> or the
+<a class="reference external" href="https://developer.oculus.com/meta-quest-developer-hub/">Meta Quest Developer Hub</a> for this.</p></li>
+<li><p>Look in the <code class="docutils literal notranslate"><span class="pre">Unknown</span> <span class="pre">Sources</span></code> section of your apps list inside your headset and run <code class="docutils literal notranslate"><span class="pre">NanoVer</span> <span class="pre">IMD</span></code>.</p></li>
 </ul>
 </dd>
 </dl>
 </li>
 </ul>
 </section>
+<section id="conda-installation">
+<span id="conda-installation-vr-client"></span><h4>Conda installation<a class="headerlink" href="#conda-installation" title="Link to this heading"></a></h4>
+<p>If you have not already set up a NanoVer conda environment, please refer to <a class="reference internal" href="#creating-conda-env"><span class="std std-ref">Creating a conda environment</span></a>.</p>
+<ol class="arabic simple">
+<li><p>Activate your NanoVer conda environment: <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">activate</span> <span class="pre">nanover</span></code></p></li>
+<li><p>Install the NanoVer iMD package: <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">-c</span> <span class="pre">irl</span> <span class="pre">nanover-imd</span></code></p></li>
+<li><p>To start the program, run the command <code class="docutils literal notranslate"><span class="pre">NanoverImd</span></code></p></li>
+</ol>
+</section>
+</section>
 <hr class="docutils" />
 <section id="installing-lammps-for-nanover">
-<h3><a class="toc-backref" href="#id6" role="doc-backlink">Installing LAMMPS for NanoVer</a><a class="headerlink" href="#installing-lammps-for-nanover" title="Link to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">Installing LAMMPS for NanoVer</a><a class="headerlink" href="#installing-lammps-for-nanover" title="Link to this heading"></a></h3>
 <p>NanoVer can interact with the <a class="reference external" href="https://lammps.sandia.gov/">LAMMPS</a> simulation engine.
 If you want to use this specific feature, you need to:</p>
 <ul>
@@ -223,7 +268,7 @@ If you want to use this specific feature, you need to:</p>
 </section>
 <hr class="docutils" />
 <section id="developer-installation-guide">
-<h2><a class="toc-backref" href="#id7" role="doc-backlink">Developer Installation Guide</a><a class="headerlink" href="#developer-installation-guide" title="Link to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">Developer Installation Guide</a><a class="headerlink" href="#developer-installation-guide" title="Link to this heading"></a></h2>
 <p>Developers will want to manually install from source.</p>
 <ul class="simple">
 <li><p>If you want to create your own custom server, connect a different physics engine or create a custom client,
