@@ -18,9 +18,9 @@ in VR.
 User Installation Guide
 #######################
 
-This installation guide contains the information required to get NanoVer up and running on your computer. This includes
+This guide contains the information required to get NanoVer up and running on your computer! This includes
 creating a conda environment and installing the server, which is required for setting up and running simulations. You
-then have the option to install the iMD-VR client, which enables you to visualise and interact with your simulations
+then have the option to install the iMD-VR client, which you can use for visualising and interacting with your simulations
 inside VR.
 
 .. _creating_conda_env:
