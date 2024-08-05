@@ -4,14 +4,28 @@
 Using an iMD-VR Client
 ======================
 
-####################
-Using a PC-VR client
-####################
-
-
+##############
+A PC-VR client
+##############
 
 When you open a PC-VR client, either from the command line using conda or by running the executable, you will see an
-on-screen menu.
+on-screen menu with the following headings:
+
+#. :ref:`server`
+
+#. :ref:`User`
+
+#. :ref:`Simulation`
+
+#. :ref:`Colocation`
+
+#. :ref:`Debug`
+
+#. :ref:`Misc`
+
+----
+
+ .. _server:
 
 Server
 ~~~~~~
@@ -21,37 +35,61 @@ Server
     :scale: 45%
 
 +----------------------+---------------------------------------------------------------------------------------------+
-| **Function**         | **Description**                                                                             |
+| **Name**             | **Description**                                                                             |
 +======================+=============================================================================================+
-| **Autoconnect**      | Connects to the first server found on the network, using the default parameters. This       |
-|                      | is ideal when there is only one server running on your network, i.e., not for               |
-|                      | shared labs/offices.                                                                        |
+| **Autoconnect**      | Connects to the first server found on the network, using the default parameters.            |
 +----------------------+---------------------------------------------------------------------------------------------+
 | **Direct Connect**   | Toggles a menu where you can change the IP address and trajectory/multiplayer ports         |
-|                      | of the server you wish to connect to. Use this if you are not using the default ports       |
-|                      | (specified when you create a server) or if you are connecting to an IP of a different       |
-|                      | machine/cloud server.                                                                       |
-|                      |                                                                                             |
+|                      | of the server you wish to connect to.                                                       |
 +----------------------+---------------------------------------------------------------------------------------------+
-| **Discover Services**| Toggles a menu for searching for servers running on the network. Click “Search”. If         |
-|                      | there are servers available, they will appear underneath.                                   |
-|                      |                                                                                             |
+| **Discover Services**| Toggles a menu for searching for servers running on the network. Click "Search" to show the |
+|                      | available servers.                                                                          |
 +----------------------+---------------------------------------------------------------------------------------------+
-| **Disconnect**       | If connected to a server, disconnect.                                                       |
+| **Disconnect**       | If connected to a server, disconnects.                                                      |
 +----------------------+---------------------------------------------------------------------------------------------+
 
+
+.. _user:
 
 User
 ~~~~
 
+.. image:: /_static/UI_user.png
+    :align: left
+    :scale: 45%
+
 +----------------------+---------------------------------------------+
-| **Function**         | **Description**                             |
+| **Name**             | **Description**                             |
 +======================+=============================================+
-| **Interaction Force**| Scale the interaction force by dragging the |
-|                      | slider.                                     |
-|                      |                                             |
+| **Interaction Force**| Scales the user's interaction force.        |
 +----------------------+---------------------------------------------+
 
+
+.. _simulation:
+
+Simulation
+~~~~~~~~~~
+
+.. image:: /_static/UI_simulation.png
+    :align: left
+    :scale: 45%
+
++----------------------+---------------------------------------------------------------------------------------------+
+| **Name**             | **Description**                                                                             |
++======================+=============================================================================================+
+| **Play**             | Plays the simulation.                                                                       |
++----------------------+---------------------------------------------------------------------------------------------+
+| **Pause**            | Pauses the simulation.                                                                      |
++----------------------+---------------------------------------------------------------------------------------------+
+| **Step**             | Moves to the next frame of the simulation.                                                  |
++----------------------+---------------------------------------------------------------------------------------------+
+| **Reset**            | Resets the simulation to the starting positions.                                            |
++----------------------+---------------------------------------------------------------------------------------------+
+| **Reset Box**        | Moves and resizes the box to the original dimensions and position in the VR space.          |
++----------------------+---------------------------------------------------------------------------------------------+
+
+
+.. _colocation:
 
 Colocation
 ~~~~~~~~~~
@@ -61,12 +99,11 @@ Colocation
     :scale: 45%
 
 +--------------------------------+----------------------------------------+
-| **Function**                   | **Description**                        |
+| **Name**                       | **Description**                        |
 +================================+========================================+
-| **Colocated Lighthouses**      | Toggle this on if you have a           |
-|                                | colocated, multi-person setup. This is |
-|                                | only compatible with players using HTC |
-|                                | base stations.                         |
+| **Colocated Lighthouses**      | Toggles colocation. This is only       |
+|                                | compatible with players using HTC base |
+|                                | stations.                              |
 +--------------------------------+----------------------------------------+
 | **Reset Radial Orientation**   | Orients players' playspaces into a     |
 |                                | mandala.                               |
@@ -80,5 +117,35 @@ Colocation
 |                                | space.                                 |
 +--------------------------------+----------------------------------------+
 
+.. _debug:
+
+Debug
+~~~~~
+
+.. image:: /_static/UI_debug.png
+    :align: left
+    :scale: 45%
+
++--------------------------+--------------------------------------------------------+
+| **Name**                 | **Description**                                        |
++==========================+========================================================+
+| **Simulate Controllers** | Toggles the simulation of random interaction forces.   |
++--------------------------+--------------------------------------------------------+
+
+
+.. _misc:
+
+Misc
+~~~~
+
+.. image:: /_static/UI_misc.png
+    :align: left
+    :scale: 45%
+
++----------------------+---------------------------------------------+
+| **Name**             | **Description**                             |
++======================+=============================================+
+| **Quit**             | Quits the program.                          |
++----------------------+---------------------------------------------+
 
 
