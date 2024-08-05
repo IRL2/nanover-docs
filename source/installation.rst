@@ -68,9 +68,9 @@ In this case, you have two options for running the VR client:
 
 Both options are compatible with any of the following:
 
-* Meta Quest Link
+* Meta Quest Link (tethered)
 * Meta Quest AirLink (wireless)
-* SteamVR
+* SteamVR (tethered)
 * Steam Link (wireless)
 
 Note that you will need to meet the requirements for a Wi-Fi setup (see flow diagram above) if you want to use a
