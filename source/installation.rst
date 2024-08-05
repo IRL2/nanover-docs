@@ -63,8 +63,8 @@ Using PC-VR
 
 In this case, you have two options for running the VR client:
 
-* **downloading the latest release of the NanoVer iMD executable**. This is a quick and easy option for those unfamiliar with conda, see :ref:`download_latest_release_VR_client`.
-* **conda installation of the NanoVer iMD package**. This is a good option if you are familiar with conda, see :ref:`conda_installation_VR_client`.
+* **Downloading the latest release of the NanoVer iMD executable**. This is a quick and easy option for those unfamiliar with conda, see :ref:`download_latest_release_VR_client`.
+* **Conda installation of the NanoVer iMD package**. This is a good option if you are familiar with conda, see :ref:`conda_installation_VR_client`.
 
 Both options are compatible with any of the following:
 
@@ -81,7 +81,7 @@ Running locally on a Meta Quest headset
 
 In this case, you have one option:
 
-* **downloading the latest release of the NanoVer iMD apk** and installing this on your headset, see :ref:`download_latest_release_VR_client`.
+* **Downloading the latest release of the NanoVer iMD apk** and installing this on your headset, see :ref:`download_latest_release_VR_client`.
 
 ----
 
