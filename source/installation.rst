@@ -12,7 +12,7 @@ in VR.
 .. contents:: Contents
     :depth: 3
 
-~~~~
+----
 
 #######################
 User Installation Guide
@@ -35,7 +35,7 @@ Creating a conda environment
 
         conda create -n nanover "python>3.11"
 
-~~~~
+----
 
 Installing the server
 #####################
@@ -48,7 +48,7 @@ If you have not already set up a NanoVer conda environment, please refer to :ref
 
 For information on how to run NanoVer servers, check out the :ref:`tutorials <Tutorials>`.
 
-~~~~
+----
 
 Choosing your setup for the iMD-VR client
 #########################################
@@ -88,19 +88,6 @@ In this case, you have one option:
 Installing the iMD-VR client
 ############################
 
-.. _conda_installation_VR_client:
-
-Conda installation
-~~~~~~~~~~~~~~~~~~
-
-If you have not already set up a NanoVer conda environment, please refer to :ref:`creating_conda_env`.
-
-#. Activate your NanoVer conda environment: ``conda activate nanover``
-
-#. Install the NanoVer iMD package: ``conda install -c irl nanover-imd``
-
-#. To start the program, run the command ``NanoverImd``
-
 .. _download_latest_release_VR_client:
 
 Download the latest release
@@ -125,7 +112,20 @@ The next step depends on how you want to run the program:
       `Meta Quest Developer Hub <https://developer.oculus.com/meta-quest-developer-hub/>`_ for this.
     * Look in the ``Unknown Sources`` section of your apps list inside your headset and run ``NanoVer IMD``.
 
-~~~~
+.. _conda_installation_VR_client:
+
+Conda installation
+~~~~~~~~~~~~~~~~~~
+
+If you have not already set up a NanoVer conda environment, please refer to :ref:`creating_conda_env`.
+
+#. Activate your NanoVer conda environment: ``conda activate nanover``
+
+#. Install the NanoVer iMD package: ``conda install -c irl nanover-imd``
+
+#. To start the program, run the command ``NanoverImd``
+
+----
 
 Installing LAMMPS for NanoVer
 #############################
@@ -141,7 +141,7 @@ If you want to use this specific feature, you need to:
 
 * install nanover-lammps: ``conda install -c irl -c conda-forge nanover-lammps``
 
-~~~~
+----
 
 ############################
 Developer Installation Guide
