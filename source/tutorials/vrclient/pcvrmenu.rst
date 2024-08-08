@@ -1,15 +1,12 @@
- .. _vr-client-tutorial:
+ .. _pcvrmenu:
 
-======================
-Using an iMD-VR Client
-======================
+====================
+On-screen PC-VR menu
+====================
 
-##############
-A PC-VR client
-##############
 
-When you open a PC-VR client, either from the command line using conda or by running the executable, you will see an
-on-screen menu with the following headings:
+When you open the NanoVer iMD application on your PC, you will see a small menu in the top left of your screen with the
+following headings:
 
 #. :ref:`server`
 
@@ -34,9 +31,8 @@ Server
     :align: left
     :scale: 45%
 
+
 +----------------------+---------------------------------------------------------------------------------------------+
-| **Name**             | **Description**                                                                             |
-+======================+=============================================================================================+
 | **Autoconnect**      | Connects to the first server found on the network, using the default parameters.            |
 +----------------------+---------------------------------------------------------------------------------------------+
 | **Direct Connect**   | Toggles a menu where you can change the IP address and trajectory/multiplayer ports         |
@@ -49,6 +45,7 @@ Server
 +----------------------+---------------------------------------------------------------------------------------------+
 
 
+
 .. _user:
 
 User
@@ -59,11 +56,10 @@ User
     :scale: 45%
 
 +----------------------+---------------------------------------------+
-| **Name**             | **Description**                             |
-+======================+=============================================+
 | **Interaction Force**| Scales the user's interaction force.        |
 +----------------------+---------------------------------------------+
 
+|
 
 .. _simulation:
 
@@ -75,8 +71,6 @@ Simulation
     :scale: 45%
 
 +----------------------+---------------------------------------------------------------------------------------------+
-| **Name**             | **Description**                                                                             |
-+======================+=============================================================================================+
 | **Play**             | Plays the simulation.                                                                       |
 +----------------------+---------------------------------------------------------------------------------------------+
 | **Pause**            | Pauses the simulation.                                                                      |
@@ -99,8 +93,6 @@ Colocation
     :scale: 45%
 
 +--------------------------------+----------------------------------------+
-| **Name**                       | **Description**                        |
-+================================+========================================+
 | **Colocated Lighthouses**      | Toggles colocation. This is only       |
 |                                | compatible with players using HTC base |
 |                                | stations.                              |
@@ -127,8 +119,6 @@ Debug
     :scale: 45%
 
 +--------------------------+--------------------------------------------------------+
-| **Name**                 | **Description**                                        |
-+==========================+========================================================+
 | **Simulate Controllers** | Toggles the simulation of random interaction forces.   |
 +--------------------------+--------------------------------------------------------+
 
@@ -143,9 +133,5 @@ Misc
     :scale: 45%
 
 +----------------------+---------------------------------------------+
-| **Name**             | **Description**                             |
-+======================+=============================================+
 | **Quit**             | Quits the program.                          |
 +----------------------+---------------------------------------------+
-
-

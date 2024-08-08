@@ -1,10 +1,10 @@
 /* Make the genindex page wider */
 body.genindex .wy-nav-content {
-  max-width: none; /* Set your desired max-width */
+  max-width: none;
 }
 
 body.genindex div.body {
-  max-width: none; /* Set your desired max-width */
+  max-width: none;
 }
 
 /* Ensure text wraps inside table cells */
@@ -15,17 +15,8 @@ body.genindex div.body {
     overflow-wrap: break-word;
 }
 
+/* Set maximum width of tables to 100% so they don't go off page */
 .wy-table-responsive {
     display: table;
-    width: 100%;
-}
-
-.wy-table-responsive table {
-    table-layout: fixed;
-    width: 100%;
-}
-
-.wy-table-responsive th:nth-child(2),
-.wy-table-responsive td:nth-child(2) {
-    width: 70%;
+    max-width: 100%;
 }

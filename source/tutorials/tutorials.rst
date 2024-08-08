@@ -30,7 +30,7 @@ If you wish to access the Jupyter notebooks via `JupyterLab <https://jupyter.org
    ase.rst
    lammps.rst
    mdanalysis.rst
-   vrclient.rst
+   vrclient/vrclient.rst
 
 Further reading
 ---------------
