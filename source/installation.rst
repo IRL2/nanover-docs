@@ -80,16 +80,19 @@ Both options are compatible with any of the following:
 * SteamVR (tethered)
 * Steam Link (wireless*)
 
-\* Note that for a wireless setup you will need to meet the **requirements for a Wi-Fi setup** (see the key in the flow diagram above).
+\*Note that for a wireless setup you will need to meet the **requirements for a Wi-Fi setup** (see the key in the flow
+diagram above).
 
 Running locally on a Meta Quest headset
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 In this case, you have one option:
 
-* **Downloading the latest release of the NanoVer iMD apk** and installing this on your headset, see :ref:`download_latest_release_VR_client`.
+* **Downloading the latest release of the NanoVer iMD apk** and installing this on your headset, see
+  :ref:`download_latest_release_VR_client`.
 
-Note that you will need to meet the **requirements for a Wi-Fi setup** (see the key in the flow diagram above).
+Note that for a wireless setup you will need to meet the **requirements for a Wi-Fi setup** (see the key in the flow
+diagram above).
 
 ----
 
@@ -118,21 +121,21 @@ The next steps depend on how you want to run the program:
        If this happens, click on the "More info" button, then "Run anyway". You will also likely be prompted by the
        Windows firewall, allow NanoVer to access the network.
 
-* **Running locally on a Meta Quest headset**:
+* **Running locally on a Meta Quest headset (wireless)**:
     #. Ensure that you have developer mode enabled on your headset (search online for up-to-date instructions).
     #. Connect your headset to your computer with a cable and sideload the ``nanover-imd.apk`` from the extracted zip
        file onto your device. You can use `SideQuest <https://sidequestvr.com>`_ or the
        `Meta Quest Developer Hub <https://developer.oculus.com/meta-quest-developer-hub/>`_ for this.
     #. Look in the ``Unknown Sources`` section of your apps list inside your headset and run ``NanoVer IMD``.
 
-* **Running on a Meta Quest headset using the Meta Developer Hub (tethered)**:
+* **Running locally on a Meta Quest headset via the Meta Developer Hub (tethered)**:
     #. You can also run the apk on the headset using a tethered setup. First, follow the above instructions for
        installing the apk on your headset.
     #. Open the `Meta Quest Developer Hub <https://developer.oculus.com/meta-quest-developer-hub/>`_ and go to the
-       "Device Manager" menu on the left sidebar.
-    #. Look for the NanoverIMD app under "Apps". It should be called ``com.IntangibleRealitiesLaboratory.NanoVeriMD``
+       ``Device Manager`` menu on the left sidebar.
+    #. Look for the NanoverIMD app under ``Apps``. It should be called ``com.IntangibleRealitiesLaboratory.NanoVeriMD``
        (hover over it with you cursor to see the full name).
-    #. Click on the three dots (on the far right) for this app and select `Launch App`.
+    #. Click on the three dots (on the far right) for this app and select ``Launch App``.
 
 
 .. _conda_installation_VR_client:
