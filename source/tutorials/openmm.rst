@@ -12,7 +12,7 @@ folder of the GitHub repository. It contains:
 
 * `openmm_polyalanine`: A notebook that demonstrates how to set up an interactive
   OpenMM simulation from scratch with NanoVer, use features of OpenMM in conjunction
-  with NanoVer, and how to record and playback simulations directly using NanoVer.
+  with NanoVer, and record & playback simulations directly using NanoVer.
 * `openmm_nanotube`: A notebook that demonstrates how to interact with an OpenMM
   NanoVer simulation using a python client.
 * `openmm_neuraminidase`: A notebook that demonstrates how to set up an interactive
