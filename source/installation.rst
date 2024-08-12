@@ -96,6 +96,11 @@ Note that you will need to meet the **requirements for a Wi-Fi setup** (see the 
 Installing the iMD-VR client
 ############################
 
+**Important note**: VR is developing fast and there are constantly new features/apps/ways of doing things. Therefore,
+these instructions may not be an exhaustive list of all the possible VR setups. Please feel free to choose whichever
+one you are most comfortable with! We also recommend checking out the online documentation for your VR headset if you
+run into any problems relating to setting up your VR kit.
+
 .. _download_latest_release_VR_client:
 
 Download the latest release
@@ -105,20 +110,30 @@ Download the latest release
 
 #. Extract the downloaded zip file.
 
-The next step depends on how you want to run the program:
+The next steps depend on how you want to run the program:
 
 * **Using PC-VR**:
-    * Navigate to the ``windows`` directory in the extracted folder, and launch ``NanoVer iMD.exe``.
-    * The first time you run this, Windows will likely prompt you with a warning about the executable not being signed.
-      If this happens, click on the "More info" button, then "Run anyway". You will also likely be prompted by the
-      Windows firewall, allow NanoVer to access the network.
+    #. Navigate to the ``windows`` directory in the extracted folder, and launch ``NanoVer iMD.exe``.
+    #. The first time you run this, Windows will likely prompt you with a warning about the executable not being signed.
+       If this happens, click on the "More info" button, then "Run anyway". You will also likely be prompted by the
+       Windows firewall, allow NanoVer to access the network.
 
 * **Running locally on a Meta Quest headset**:
-    * Ensure that you have developer mode enabled on your headset (search online for up-to-date instructions).
-    * Sideload the ``nanover-imd.apk`` from the extracted zip file onto your device. You can use
-      `SideQuest <https://sidequestvr.com>`_ or the
-      `Meta Quest Developer Hub <https://developer.oculus.com/meta-quest-developer-hub/>`_ for this.
-    * Look in the ``Unknown Sources`` section of your apps list inside your headset and run ``NanoVer IMD``.
+    #. Ensure that you have developer mode enabled on your headset (search online for up-to-date instructions).
+    #. Connect your headset to your computer with a cable and sideload the ``nanover-imd.apk`` from the extracted zip
+       file onto your device. You can use `SideQuest <https://sidequestvr.com>`_ or the
+       `Meta Quest Developer Hub <https://developer.oculus.com/meta-quest-developer-hub/>`_ for this.
+    #. Look in the ``Unknown Sources`` section of your apps list inside your headset and run ``NanoVer IMD``.
+
+* **Running on a Meta Quest headset using the Meta Developer Hub (tethered)**:
+    #. You can also run the apk on the headset using a tethered setup. First, follow the above instructions for
+       installing the apk on your headset.
+    #. Open the `Meta Quest Developer Hub <https://developer.oculus.com/meta-quest-developer-hub/>`_ and go to the
+       "Device Manager" menu on the left sidebar.
+    #. Look for the NanoverIMD app under "Apps". It should be called ``com.IntangibleRealitiesLaboratory.NanoVeriMD``
+       (hover over it with you cursor to see the full name).
+    #. Click on the three dots (on the far right) for this app and select `Launch App`.
+
 
 .. _conda_installation_VR_client:
 
