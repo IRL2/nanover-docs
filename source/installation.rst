@@ -42,6 +42,8 @@ Creating a conda environment
 
 ----
 
+.. _installing_the_server:
+
 Installing the server
 #####################
 
@@ -168,6 +170,8 @@ If you want to use this specific feature, you need to:
 * install nanover-lammps: ``conda install -c irl -c conda-forge nanover-lammps``
 
 ----
+
+.. _developer_installation_guide:
 
 ############################
 Developer Installation Guide
