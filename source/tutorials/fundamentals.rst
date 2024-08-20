@@ -17,6 +17,8 @@ information in :ref:`concepts <Concepts>` to understand how NanoVer works and ar
 
 Here we give a summary of each tutorial:
 
+* `getting_started`: An **introductory notebook** on the very basics of running an interactive molecular dynamics
+  simulation. Perfect for new users!
 * `frame`: A notebook that introduces the concept of the **frame**, the object sent by
   the NanoVer server to the client that contains data associated with the molecular system.
 * `servers`: A notebook that introduces the concept of the **NanoVer server**, and
@@ -33,23 +35,63 @@ Running a server
 
 There are two NanoVer servers available:
 
-* A server provided in the `nanover-protocol <https://github.com/IRL2/nanover-protocol>`_ git repo, which is written in
-  python and is the go-to server for NanoVer users.
-* An additional server is provided in the `nanover-rs <https://github.com/IRL2/nanover-rs>`_ git repo, which is written
-  in Rust.
+* **The primary NanoVer server**, found in the `nanover-protocol <https://github.com/IRL2/nanover-protocol>`_ git repo.
+  This server is written in python and is the go-to server for NanoVer users.
+* The Rust Server, found in the `nanover-rs <https://github.com/IRL2/nanover-rs>`_ git repo, and is written
+  in Rust. We include brief instructions for using this server on this page, but we recommend using the Python Server.
 
-Nanover protocol
+Nanover Protocol
 ~~~~~~~~~~~~~~~~
 
-The NanoVer protocol package can be installed using conda (see :ref:`installing_the_server`) or using the source code
-(see the :ref:`developer_installation_guide`). Once installed, you can run a NanoVer server using either (a) the command
-line or (b) a python script or Jupyter notebook.
+The NanoVer protocol package can be installed using conda (see :ref:`user_installation_guide`) or using the source code
+(see :ref:`developer_installation_guide`). Once installed, you can run a NanoVer server using either
+(a) a python script or Jupyter notebook
+or (b) the command line.
+
+via a python script or notebook
+###############################
+
+For running a NanoVer server using a python script or Jupyter notebook, please see our :ref:`tutorials` page.
+If you are new to NanoVer, we recommend starting with our
+`getting_started notebook <https://github.com/IRL2/nanover-protocol/blob/main/examples/fundamentals/getting_started.ipynb>`_.
+
+via the command line
+####################
+
+Once you have the ``nanover-server`` package installed in your conda environment, you will be able to run the
+``nanover-omni`` command to run a server.
+This server can take any of the following:
+
+* An OpenMM NanoVer simulation
+* An OpenMM NanoVer simulation with ASE as an interface
+* A NanoVer recording, with either or both of the trajectory and shared state recording files
+
+Note that you can give the simulations/recordings either explicitly as a string
+or simply by typing the file path.
+Here are some example commands:
+
+.. code-block:: bash
+
+    # load a single NanoVer OpenMM simulation
+    nanover-omni --omm "my-openmm-sim.xml"
+
+    # load multiple simulations
+    nanover-omni --omm "my-openmm-sim-1.xml" "my-openmm-sim-2.xml" --omm-ase "my-ase-omm-sim.xml"
+
+    # load a NanoVer recording
+    nanover-omni --playback "my-recording.state" "my-recording.traj"
+
+For more information about the arguments provided with this command, type:
+
+.. code-block:: bash
+
+    nanover-omni --help
 
 
-The NanoVer Rust Server
-~~~~~~~~~~~~~~~~~~~~~~~
+The Rust Server
+~~~~~~~~~~~~~~~
 
-This server is compiled into an executable (or equivalent, depending on your operating system), rather than being
+The Rust Server is compiled into an executable (or equivalent, depending on your operating system), rather than being
 installed on your computer. For this, you have two options:
 
 * Download the `latest release <https://github.com/IRL2/nanover-rs/releases>`_ from the git repo, ensuring you choose
@@ -66,11 +108,12 @@ an interface) and has many features, including:
 * A graphic user interface (GUI), useful for new users to familiarise themselves quickly and easily with the various
   options offered by NanoVer
 
-Below are some basic instructions for running an example OpenMM simulation, with instructions on how to find
+Below are some basic instructions for running an OpenMM NanoVer simulation, with instructions on how to find
 further information on the other functionalities of this server.
 
 Windows
 #######
+
 Once you have downloaded the latest release (or compiled it yourself), extract the files from the zip folder and
 navigate to the ``windows-build`` directory. In this directory, you are provided with two executables for running
 a server:
@@ -83,23 +126,19 @@ your NanoVer simulation file, e.g.:
 
 .. code-block:: bash
 
-    .\nanover-cli.exe "example-nanover-simulation.xml"
+    # load a single simulation
+    .\nanover-cli.exe "my-openmm-sim.xml"
 
-Note that if you are not in the same directory as this executable, you will need to give the entire file path, e.g.:
+    # if you are not in the same directory as this executable, you will need to give the entire file path
+    .\path\to\build\directory\nanover-cli.exe "my-openmm-sim.xml"
 
-.. code-block:: bash
+    # load several simulations onto the server by passing multiple simulation files
+    .\nanover-cli.exe "my-openmm-sim-1.xml" "my-openmm-sim-2.xml"
 
-    .\path\to\build\directory\nanover-cli.exe "example-nanover-simulation.xml"
-
-You can load several simulations onto the server by passing multiple simulation files, e.g.:
-
-.. code-block:: bash
-
-    .\nanover-cli.exe "example-nanover-simulation-1.xml" "example-nanover-simulation-2.xml"
 
 .. _command line help:
 
-To learn about the optional arguments provided with this command, type:
+For more information about the arguments provided with this command, type:
 
 .. code-block:: bash
 
@@ -114,9 +153,10 @@ To run the server via the GUI, open `nanover-gui.exe` and you will see the follo
 |
 
 Simply click ``Run demonstration input!`` to run a demo simulation. Alternatively, click ``+OpenMM`` and select your
-own OpenMM NanoVer simulation file, then click `Run!` to start the server.
+own OpenMM NanoVer simulation file, then click `Run!` to start the server. You can also add NanoVer recordings by
+clicking ``+Recording`` and selecting your trajectory (.traj) and shared state (.state) files.
 
-You can click on the following headings to open up menus to customise your server further: Verbosity, Network,
+Please click on the headings to open up menus to customise your server further: Verbosity, Network,
 Simulation, and Recording.
 For further information about these options, use the :ref:`help function <command line help>` in the command line.
 

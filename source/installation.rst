@@ -14,6 +14,8 @@ in VR.
 
 ----
 
+.. _user_installation_guide:
+
 #######################
 User Installation Guide
 #######################
