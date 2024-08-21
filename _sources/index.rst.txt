@@ -20,6 +20,24 @@ As a client-server application, NanoVer consists of:
 
 ----
 
+################
+Current sponsors
+################
+
+.. image:: /_static/erc_text.png
+    :width: 225
+    :target: https://cordis.europa.eu/project/id/866559
+
+.. image:: /_static/erc_logo.png
+    :width: 225
+    :target: https://cordis.europa.eu/project/id/866559
+
+.. image:: /_static/xunta_de_galicia_logo.png
+    :width: 225
+    :target: https://www.xunta.gal/portada
+
+----
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
