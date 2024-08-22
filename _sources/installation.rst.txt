@@ -14,6 +14,8 @@ in VR.
 
 ----
 
+.. _user_installation_guide:
+
 #######################
 User Installation Guide
 #######################
@@ -41,6 +43,8 @@ Creating a conda environment
         conda create -n nanover "python>3.11"
 
 ----
+
+.. _installing_the_server:
 
 Installing the server
 #####################
@@ -168,6 +172,8 @@ If you want to use this specific feature, you need to:
 * install nanover-lammps: ``conda install -c irl -c conda-forge nanover-lammps``
 
 ----
+
+.. _developer_installation_guide:
 
 ############################
 Developer Installation Guide
