@@ -108,31 +108,51 @@ an interface) and has many features, including:
 * A graphical user interface (GUI), useful for new users to familiarise themselves quickly and easily with the various
   options offered by NanoVer
 
-Below are some basic instructions for user the Rust Server, including how to find
-further information about the functionalities of this server.
+To **run the server**, first, navigate to the build directory:
 
-Windows
-#######
+* If you have downloaded the latest release, extract the files from the zip folder and navigate to the build directory:
+  this directory will be named ``{operating_sys}-build`` (e.g. ``windows-build``).
+* If instead you have compiled from source, navigate to the build directory (e.g. ``cd {path_to_repo}/target/release``
+  on MacOS).
 
-Once you have downloaded the latest release (or compiled it yourself), extract the files from the zip folder and
-navigate to the ``windows-build`` directory. Here you are provided with two executables for running
-a server:
+Here you are provided with two executables for running a server:
 
-* `nanover-cli.exe`, via the command line
-* `nanover-gui.exe`, via the GUI
+* An executable for running via the command line (e.g. ``nanover-cli.exe`` on Windows)
+* An executable for running via the GUI (e.g. ``nanover-gui.exe`` on Windows)
 
-To run the server using the command line, simply use the `nanover-cli.exe` as a command, passing it the path to
+.. warning::
+    On MacOS, the first time you run either ``nanover-cli`` or ``nanover-gui`` from a downloaded release, it
+    is necessary to open the executables manually by
+
+    #. Opening the build directory in Finder
+    #. Right-clicking the executables and selecting ``Open``
+    #. When prompted, click ``Open``
+
+    The same needs to be done for the ``libOpenMM`` executables in the ``lib`` and ``lib/plugins`` directories.
+
+via the command line
+####################
+
+To run the server using the command line, run the executable as a command, passing it the path to
 your NanoVer simulation file, e.g.:
 
 .. code-block:: bash
 
-    # load a single simulation
+    # MacOS/Linux
+    ./nanover-cli "my-openmm-sim.xml"
+
+    # Windows Powershell
     .\nanover-cli.exe "my-openmm-sim.xml"
 
     # if you are not in the same directory as this executable, you will need to give the entire file path
+    # e.g. for Windows Powershell
     .\path\to\build\directory\nanover-cli.exe "my-openmm-sim.xml"
 
-    # load several simulations onto the server by passing multiple simulation files
+The server can serve multiple simulations: just pass it multiple input files.
+
+.. code-block:: bash
+
+    # load several simulations onto the server by passing multiple simulation files, e.g. Windows Powershell
     .\nanover-cli.exe "my-openmm-sim-1.xml" "my-openmm-sim-2.xml"
 
 
@@ -143,6 +163,9 @@ For more information about the arguments provided with this command, type:
 .. code-block:: bash
 
     .\nanover-cli.exe --help
+
+via the GUI
+###########
 
 To run the server via the GUI, open `nanover-gui.exe` and you will see the following interface:
 
