@@ -6,7 +6,7 @@ A set of tutorials that demonstrate how NanoVer can be interfaced with MDAnalysi
 trajectories in VR, and analyse the results of trajectories recorded using NanoVer.
 
 The Jupyter notebook tutorials that showcase these features can be found in the
-`examples folder <https://github.com/IRL2/nanover-protocol/tree/main/examples/mdanalysis>`_ of the GitHub repository.
+`examples <https://github.com/IRL2/nanover-protocol/tree/main/examples/mdanalysis>`_ folder of the GitHub repository.
 It contains:
 
 * `mdanalysis_lsd`: A notebook that demonstrates how to import a pdb into MDAnalysis and visualise this structure in VR,
