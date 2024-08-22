@@ -58,7 +58,7 @@ If you are new to NanoVer, we recommend starting with our
 via the command line
 ####################
 
-Once you have the ``nanover-server`` package installed in your conda environment, you will be able to run the
+Once you have the ``nanover-server`` package installed in your conda environment, you will be able to use the
 ``nanover-omni`` command to run a server.
 This server can take any of the following:
 
@@ -105,23 +105,23 @@ an interface) and has many features, including:
 * Recording NanoVer sessions
 * Loading multiple simulations and/or recordings onto a single server, and switching between them while the
   server is running
-* A graphic user interface (GUI), useful for new users to familiarise themselves quickly and easily with the various
+* A graphical user interface (GUI), useful for new users to familiarise themselves quickly and easily with the various
   options offered by NanoVer
 
-Below are some basic instructions for running an OpenMM NanoVer simulation, with instructions on how to find
-further information on the other functionalities of this server.
+Below are some basic instructions for user the Rust Server, including how to find
+further information about the functionalities of this server.
 
 Windows
 #######
 
 Once you have downloaded the latest release (or compiled it yourself), extract the files from the zip folder and
-navigate to the ``windows-build`` directory. In this directory, you are provided with two executables for running
+navigate to the ``windows-build`` directory. Here you are provided with two executables for running
 a server:
 
 * `nanover-cli.exe`, via the command line
 * `nanover-gui.exe`, via the GUI
 
-To run the server using the command line, simply use the `nanover-cli.exe` as a command, passing it the file path of
+To run the server using the command line, simply use the `nanover-cli.exe` as a command, passing it the path to
 your NanoVer simulation file, e.g.:
 
 .. code-block:: bash
