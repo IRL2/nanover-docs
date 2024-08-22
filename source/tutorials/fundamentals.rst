@@ -139,11 +139,11 @@ your NanoVer simulation file, e.g.:
 
 .. code-block::
 
-    # MacOS/Linux
-    ./nanover-cli "my-openmm-sim.xml"
-
     # Windows Powershell
     .\nanover-cli.exe "my-openmm-sim.xml"
+
+    # MacOS/Linux
+    ./nanover-cli "my-openmm-sim.xml"
 
     # if you are not in the same directory as this executable, you will need to give the entire file path
     # e.g. for Windows Powershell
@@ -163,7 +163,11 @@ For more information about the arguments provided with this command, type:
 
 .. code-block::
 
+    # Windows Powershell
     .\nanover-cli.exe --help
+
+    # MacOS/Linux
+    ./nanover-cli --help
 
 via the GUI
 ###########
