@@ -1,8 +1,22 @@
 /* Make the genindex page wider */
 body.genindex .wy-nav-content {
-  max-width: none; /* Set your desired max-width */
+  max-width: none;
 }
 
 body.genindex div.body {
-  max-width: none; /* Set your desired max-width */
+  max-width: none;
+}
+
+/* Ensure text wraps inside table cells */
+.wy-table-responsive table td,
+.wy-table-responsive table th {
+    white-space: normal;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+/* Set maximum width of tables to 100% so they don't go off page */
+.wy-table-responsive {
+    display: table;
+    max-width: 100%;
 }
