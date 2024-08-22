@@ -15,6 +15,6 @@ It contains:
 * `mdanalysis_trajectory`: A notebook that demonstrates how to import a trajectory into MDAnalysis from the topology
   (pdb) and trajectory (dcd) files and show this in VR. Learn how to hook up python commands such as play/pause/reset to
   the corresponding buttons on the handheld menu in the VR application.
-* `mdanalysis_nanover_recording`: A notebook that details how to extract data from an iMD simulation recorded with
-  NanoVer using MDAnalysis, and highlights some of the benefits of recording trajectories using the inbuilt recording
+* `mdanalysis_nanover_recording`: A notebook that details how to use MDAnalysis to extract data from an iMD simulation
+  recorded with NanoVer, and highlights some of the benefits of recording trajectories using the in-built recording
   functionality of NanoVer.
