@@ -167,7 +167,8 @@ For more information about the arguments provided with this command, type:
 via the GUI
 ###########
 
-To run the server via the GUI, open `nanover-gui.exe` and you will see the following interface:
+To run the server via the GUI, open the ``nanover-gui`` executable (or run it via the command line e.g.
+``./nanover-gui`` on MacOS) and you will see the following interface:
 
 .. image:: /_static/nanover-rs-gui.png
     :align: center
@@ -176,7 +177,7 @@ To run the server via the GUI, open `nanover-gui.exe` and you will see the follo
 |
 
 Simply click ``Run demonstration input!`` to run a demo simulation. Alternatively, click ``+OpenMM`` and select your
-own OpenMM NanoVer simulation file, then click `Run!` to start the server. You can also add NanoVer recordings by
+own OpenMM NanoVer simulation file, then click ``Run!`` to start the server. You can also add NanoVer recordings by
 clicking ``+Recording`` and selecting your trajectory (.traj) and shared state (.state) files.
 
 Please click on the headings to open up menus to customise your server further: Verbosity, Network,
