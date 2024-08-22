@@ -4,17 +4,18 @@
 NanoVer iMD
 ===========
 
-You can use the NanoVer iMD application to **incorporate VR into your workflow**, including:
+You can use the `NanoVer iMD application <https://github.com/IRL2/nanover-imd>`_
+to **incorporate VR into your workflow**, including:
 
-* connecting to NanoVer servers
-* visualising molecular systems
-* interacting with molecular systems using VR controllers
+* visualising molecular systems, including real-time MD simulations, recorded trajectories, and static structures
+* interacting with real-time molecular simulations using VR controllers
 * joining together with others for multi-person sessions in VR
+
+To install the NanoVer iMD application, please go to :ref:`installation`.
 
 
 The VR client
 #############
-
 
 We call an instance of the NanoVer iMD application a **VR client**.
 This is different to a *python client*, which is a client that connects to a server from a python script.
