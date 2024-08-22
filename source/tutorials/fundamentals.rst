@@ -11,6 +11,9 @@ The set of Jupyter notebook tutorials on the fundamentals of NanoVer can be foun
 `examples <https://github.com/IRL2/nanover-protocol/tree/main/examples/fundamentals>`_ folder
 of the GitHub repository, which contains the following tutorials:
 
+* `getting_started`: **New to NanoVer? Start here!** An introductory notebook that showcases how
+  NanoVer can be used to run an interactive molecular dynamics (iMD) simulation for a
+  pre-prepared methane & nanotube system.
 * `frame`: A notebook that introduces the concept of the **frame**, the object sent by
   the NanoVer server to the client that contains data associated with the molecular system.
 * `servers`: A notebook that introduces the concept of the **NanoVer server**, and
