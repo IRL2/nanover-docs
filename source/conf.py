@@ -73,7 +73,8 @@ html_css_files = ['custom.css']
 
 html_meta = {"description": "Documentation for the NanoVer application",
              "keywords": "nanover, imd, virtual reality, vr, molecular simulation, "
-                         "documentation, imd-vr, intangible realities lab, irl"}
+                         "documentation, imd-vr, intangible realities lab, irl,"
+                         "interactive molecular dynamics, molecular dynamics"}
 
 html_context = {
     'favicon': '_static/favicon-32x32.ico',
