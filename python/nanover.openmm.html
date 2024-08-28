@@ -27,7 +27,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="nanover.openmm.cli module" href="nanover.openmm.cli.html" />
-    <link rel="prev" title="nanover.mdanalysis.universe module" href="nanover.mdanalysis.universe.html" />
+    <link rel="prev" title="nanover.omni.rich module" href="nanover.omni.rich.html" />
  
 <link rel="icon" type="image/x-icon" href="../_static/favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="../_static/favicon-32x32.png">
@@ -73,9 +73,12 @@
 <li class="toctree-l4"><a class="reference internal" href="nanover.imd.html">nanover.imd package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nanover.lammps.html">nanover.lammps package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nanover.mdanalysis.html">nanover.mdanalysis package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.omni.html">nanover.omni package</a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#">nanover.openmm package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nanover.protocol.html">nanover.protocol namespace</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.recording.html">nanover.recording namespace</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nanover.state.html">nanover.state namespace</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.testing.html">nanover.testing package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nanover.trajectory.html">nanover.trajectory package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nanover.utilities.html">nanover.utilities package</a></li>
 </ul>
@@ -121,7 +124,6 @@
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="nanover.openmm.cli.html">nanover.openmm.cli module</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="nanover.openmm.cli.html#nanover.openmm.cli.handle_user_arguments"><code class="docutils literal notranslate"><span class="pre">handle_user_arguments()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="nanover.openmm.cli.html#nanover.openmm.cli.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
 </ul>
 </li>
@@ -132,24 +134,37 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="nanover.openmm.imd.html">nanover.openmm.imd module</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="nanover.openmm.imd.html#nanover.openmm.imd.InitialisationError"><code class="docutils literal notranslate"><span class="pre">InitialisationError</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="nanover.openmm.imd.html#nanover.openmm.imd.ImdForceManager"><code class="docutils literal notranslate"><span class="pre">ImdForceManager</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nanover.openmm.imd.html#nanover.openmm.imd.ImdForceManager.add_to_frame_data"><code class="docutils literal notranslate"><span class="pre">ImdForceManager.add_to_frame_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.openmm.imd.html#nanover.openmm.imd.ImdForceManager.update_interactions"><code class="docutils literal notranslate"><span class="pre">ImdForceManager.update_interactions()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="nanover.openmm.imd.html#nanover.openmm.imd.NanoverImdReporter"><code class="docutils literal notranslate"><span class="pre">NanoverImdReporter</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="nanover.openmm.imd.html#nanover.openmm.imd.NanoverImdReporter.describeNextReport"><code class="docutils literal notranslate"><span class="pre">NanoverImdReporter.describeNextReport()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nanover.openmm.imd.html#nanover.openmm.imd.NanoverImdReporter.force_interval"><code class="docutils literal notranslate"><span class="pre">NanoverImdReporter.force_interval</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nanover.openmm.imd.html#nanover.openmm.imd.NanoverImdReporter.frame_interval"><code class="docutils literal notranslate"><span class="pre">NanoverImdReporter.frame_interval</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nanover.openmm.imd.html#nanover.openmm.imd.NanoverImdReporter.frame_publisher"><code class="docutils literal notranslate"><span class="pre">NanoverImdReporter.frame_publisher</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nanover.openmm.imd.html#nanover.openmm.imd.NanoverImdReporter.get_masses"><code class="docutils literal notranslate"><span class="pre">NanoverImdReporter.get_masses()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nanover.openmm.imd.html#nanover.openmm.imd.NanoverImdReporter.imd_force"><code class="docutils literal notranslate"><span class="pre">NanoverImdReporter.imd_force</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nanover.openmm.imd.html#nanover.openmm.imd.NanoverImdReporter.imd_state"><code class="docutils literal notranslate"><span class="pre">NanoverImdReporter.imd_state</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nanover.openmm.imd.html#nanover.openmm.imd.NanoverImdReporter.masses"><code class="docutils literal notranslate"><span class="pre">NanoverImdReporter.masses</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nanover.openmm.imd.html#nanover.openmm.imd.NanoverImdReporter.n_particles"><code class="docutils literal notranslate"><span class="pre">NanoverImdReporter.n_particles</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nanover.openmm.imd.html#nanover.openmm.imd.NanoverImdReporter.positions"><code class="docutils literal notranslate"><span class="pre">NanoverImdReporter.positions</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.openmm.imd.html#nanover.openmm.imd.NanoverImdReporter.include_forces"><code class="docutils literal notranslate"><span class="pre">NanoverImdReporter.include_forces</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.openmm.imd.html#nanover.openmm.imd.NanoverImdReporter.include_velocities"><code class="docutils literal notranslate"><span class="pre">NanoverImdReporter.include_velocities</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.openmm.imd.html#nanover.openmm.imd.NanoverImdReporter.make_regular_frame"><code class="docutils literal notranslate"><span class="pre">NanoverImdReporter.make_regular_frame()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.openmm.imd.html#nanover.openmm.imd.NanoverImdReporter.make_topology_frame"><code class="docutils literal notranslate"><span class="pre">NanoverImdReporter.make_topology_frame()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nanover.openmm.imd.html#nanover.openmm.imd.NanoverImdReporter.report"><code class="docutils literal notranslate"><span class="pre">NanoverImdReporter.report()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nanover.openmm.imd.html#nanover.openmm.imd.NextReport"><code class="docutils literal notranslate"><span class="pre">NextReport</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nanover.openmm.imd.html#nanover.openmm.imd.NextReport.include_energies"><code class="docutils literal notranslate"><span class="pre">NextReport.include_energies</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.openmm.imd.html#nanover.openmm.imd.NextReport.include_forces"><code class="docutils literal notranslate"><span class="pre">NextReport.include_forces</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.openmm.imd.html#nanover.openmm.imd.NextReport.include_positions"><code class="docutils literal notranslate"><span class="pre">NextReport.include_positions</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.openmm.imd.html#nanover.openmm.imd.NextReport.include_velocities"><code class="docutils literal notranslate"><span class="pre">NextReport.include_velocities</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.openmm.imd.html#nanover.openmm.imd.NextReport.steps"><code class="docutils literal notranslate"><span class="pre">NextReport.steps</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.openmm.imd.html#nanover.openmm.imd.NextReport.wrap_positions"><code class="docutils literal notranslate"><span class="pre">NextReport.wrap_positions</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="nanover.openmm.imd.html#nanover.openmm.imd.add_imd_force_to_system"><code class="docutils literal notranslate"><span class="pre">add_imd_force_to_system()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="nanover.openmm.imd.html#nanover.openmm.imd.create_imd_force"><code class="docutils literal notranslate"><span class="pre">create_imd_force()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="nanover.openmm.imd.html#nanover.openmm.imd.get_imd_forces_from_system"><code class="docutils literal notranslate"><span class="pre">get_imd_forces_from_system()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="nanover.openmm.imd.html#nanover.openmm.imd.get_sparse_forces"><code class="docutils literal notranslate"><span class="pre">get_sparse_forces()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="nanover.openmm.imd.html#nanover.openmm.imd.populate_imd_force"><code class="docutils literal notranslate"><span class="pre">populate_imd_force()</span></code></a></li>
 </ul>
 </li>
@@ -175,16 +190,30 @@
 <li class="toctree-l3"><a class="reference internal" href="nanover.openmm.runner.html#nanover.openmm.runner.OpenMMRunner.force_interval"><code class="docutils literal notranslate"><span class="pre">OpenMMRunner.force_interval</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nanover.openmm.runner.html#nanover.openmm.runner.OpenMMRunner.frame_interval"><code class="docutils literal notranslate"><span class="pre">OpenMMRunner.frame_interval</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nanover.openmm.runner.html#nanover.openmm.runner.OpenMMRunner.from_xml_input"><code class="docutils literal notranslate"><span class="pre">OpenMMRunner.from_xml_input()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.openmm.runner.html#nanover.openmm.runner.OpenMMRunner.from_xml_inputs"><code class="docutils literal notranslate"><span class="pre">OpenMMRunner.from_xml_inputs()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.openmm.runner.html#nanover.openmm.runner.OpenMMRunner.include_forces"><code class="docutils literal notranslate"><span class="pre">OpenMMRunner.include_forces</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.openmm.runner.html#nanover.openmm.runner.OpenMMRunner.include_velocities"><code class="docutils literal notranslate"><span class="pre">OpenMMRunner.include_velocities</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nanover.openmm.runner.html#nanover.openmm.runner.OpenMMRunner.is_running"><code class="docutils literal notranslate"><span class="pre">OpenMMRunner.is_running</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.openmm.runner.html#nanover.openmm.runner.OpenMMRunner.list"><code class="docutils literal notranslate"><span class="pre">OpenMMRunner.list()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.openmm.runner.html#nanover.openmm.runner.OpenMMRunner.load"><code class="docutils literal notranslate"><span class="pre">OpenMMRunner.load()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nanover.openmm.runner.html#nanover.openmm.runner.OpenMMRunner.make_quiet"><code class="docutils literal notranslate"><span class="pre">OpenMMRunner.make_quiet()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nanover.openmm.runner.html#nanover.openmm.runner.OpenMMRunner.make_verbose"><code class="docutils literal notranslate"><span class="pre">OpenMMRunner.make_verbose()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.openmm.runner.html#nanover.openmm.runner.OpenMMRunner.next"><code class="docutils literal notranslate"><span class="pre">OpenMMRunner.next()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nanover.openmm.runner.html#nanover.openmm.runner.OpenMMRunner.pause"><code class="docutils literal notranslate"><span class="pre">OpenMMRunner.pause()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nanover.openmm.runner.html#nanover.openmm.runner.OpenMMRunner.play"><code class="docutils literal notranslate"><span class="pre">OpenMMRunner.play()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.openmm.runner.html#nanover.openmm.runner.OpenMMRunner.reporter"><code class="docutils literal notranslate"><span class="pre">OpenMMRunner.reporter</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nanover.openmm.runner.html#nanover.openmm.runner.OpenMMRunner.reset"><code class="docutils literal notranslate"><span class="pre">OpenMMRunner.reset()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nanover.openmm.runner.html#nanover.openmm.runner.OpenMMRunner.run"><code class="docutils literal notranslate"><span class="pre">OpenMMRunner.run()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.openmm.runner.html#nanover.openmm.runner.OpenMMRunner.simulation"><code class="docutils literal notranslate"><span class="pre">OpenMMRunner.simulation</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.openmm.runner.html#nanover.openmm.runner.OpenMMRunner.simulation_entry"><code class="docutils literal notranslate"><span class="pre">OpenMMRunner.simulation_entry</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nanover.openmm.runner.html#nanover.openmm.runner.OpenMMRunner.step"><code class="docutils literal notranslate"><span class="pre">OpenMMRunner.step()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nanover.openmm.runner.html#nanover.openmm.runner.OpenMMRunner.verbose"><code class="docutils literal notranslate"><span class="pre">OpenMMRunner.verbose</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nanover.openmm.runner.html#nanover.openmm.runner.OpenMMRunner.verbosity_interval"><code class="docutils literal notranslate"><span class="pre">OpenMMRunner.verbosity_interval</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nanover.openmm.runner.html#nanover.openmm.runner.SimulationEntry"><code class="docutils literal notranslate"><span class="pre">SimulationEntry</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nanover.openmm.runner.html#nanover.openmm.runner.SimulationEntry.reporter"><code class="docutils literal notranslate"><span class="pre">SimulationEntry.reporter</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.openmm.runner.html#nanover.openmm.runner.SimulationEntry.reset"><code class="docutils literal notranslate"><span class="pre">SimulationEntry.reset()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -203,7 +232,7 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="nanover.mdanalysis.universe.html" class="btn btn-neutral float-left" title="nanover.mdanalysis.universe module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="nanover.omni.rich.html" class="btn btn-neutral float-left" title="nanover.omni.rich module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="nanover.openmm.cli.html" class="btn btn-neutral float-right" title="nanover.openmm.cli module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

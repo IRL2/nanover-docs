@@ -13,5 +13,4 @@ Submodules
    :maxdepth: 4
 
    nanover.mdanalysis.converter
-   nanover.mdanalysis.recordings
    nanover.mdanalysis.universe

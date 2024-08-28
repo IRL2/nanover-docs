@@ -1,0 +1,13 @@
+nanover.recording namespace
+===========================
+
+.. py:module:: nanover.recording
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   nanover.recording.reading
+   nanover.recording.writing

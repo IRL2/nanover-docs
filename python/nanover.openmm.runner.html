@@ -72,9 +72,12 @@
 <li class="toctree-l4"><a class="reference internal" href="nanover.imd.html">nanover.imd package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nanover.lammps.html">nanover.lammps package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nanover.mdanalysis.html">nanover.mdanalysis package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.omni.html">nanover.omni package</a></li>
 <li class="toctree-l4 current"><a class="reference internal" href="nanover.openmm.html">nanover.openmm package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nanover.protocol.html">nanover.protocol namespace</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.recording.html">nanover.recording namespace</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nanover.state.html">nanover.state namespace</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.testing.html">nanover.testing package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nanover.trajectory.html">nanover.trajectory package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nanover.utilities.html">nanover.utilities package</a></li>
 </ul>
@@ -118,14 +121,14 @@
 <p>Facilities to run an OpenMM simulation.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="nanover.openmm.runner.OpenMMRunner">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nanover.openmm.runner.</span></span><span class="sig-name descname"><span class="pre">OpenMMRunner</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">simulation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Simulation</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">address</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.openmm.runner.OpenMMRunner" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nanover.openmm.runner.</span></span><span class="sig-name descname"><span class="pre">OpenMMRunner</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">simulation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Simulation</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">address</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.openmm.runner.OpenMMRunner" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="nanover.app.runner.html#nanover.app.runner.NanoverRunner" title="nanover.app.runner.NanoverRunner"><code class="xref py py-class docutils literal notranslate"><span class="pre">NanoverRunner</span></code></a></p>
 <p>Convenience class to run an OpenMM simulation.</p>
 <p>A <code class="xref py py-class docutils literal notranslate"><span class="pre">Runner</span></code> object wraps an OpenMM simulation. The
-<code class="xref py py-class docutils literal notranslate"><span class="pre">app.Simulation</span></code> instance is accessible via the <code class="xref py py-attr docutils literal notranslate"><span class="pre">simulation</span></code>
+<code class="xref py py-class docutils literal notranslate"><span class="pre">app.Simulation</span></code> instance is accessible via the <a class="reference internal" href="#nanover.openmm.runner.OpenMMRunner.simulation" title="nanover.openmm.runner.OpenMMRunner.simulation"><code class="xref py py-attr docutils literal notranslate"><span class="pre">simulation</span></code></a>
 attribute.</p>
 <p>Actually starting the simulation is done with the <a class="reference internal" href="#nanover.openmm.runner.OpenMMRunner.run" title="nanover.openmm.runner.OpenMMRunner.run"><code class="xref py py-meth docutils literal notranslate"><span class="pre">run()</span></code></a> method. The
-method takes an number of steps to run as an argument; by default, the
+method takes a number of steps to run as an argument; by default, the
 simulation runs indefinitely.</p>
 <p>By default, one frame is sent to clients every 5 MD steps. This rate can
 be changed by setting the <a class="reference internal" href="#nanover.openmm.runner.OpenMMRunner.frame_interval" title="nanover.openmm.runner.OpenMMRunner.frame_interval"><code class="xref py py-attr docutils literal notranslate"><span class="pre">frame_interval</span></code></a> attribute. By default, as
@@ -194,7 +197,7 @@ halt before returning.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nanover.openmm.runner.OpenMMRunner.from_xml_input">
-<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_xml_input</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_xml</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bytes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">PathLike</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">address</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">platform</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">RunnerClass</span></span></span><a class="headerlink" href="#nanover.openmm.runner.OpenMMRunner.from_xml_input" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_xml_input</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_xml</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">PathLike</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">address</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">platform</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">RunnerClass</span></span></span><a class="headerlink" href="#nanover.openmm.runner.OpenMMRunner.from_xml_input" title="Link to this definition"></a></dt>
 <dd><p>Create a runner from a serialized simulation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -217,6 +220,43 @@ by ESSD.</p></li>
 </div>
 </dd></dl>
 
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.openmm.runner.OpenMMRunner.from_xml_inputs">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_xml_inputs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_xmls</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">PathLike</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">address</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">platform</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">RunnerClass</span></span></span><a class="headerlink" href="#nanover.openmm.runner.OpenMMRunner.from_xml_inputs" title="Link to this definition"></a></dt>
+<dd><p>Create a runner from a serialized simulation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input_xmls</strong> – Paths to XML serialised OpenMM simulations.</p></li>
+<li><p><strong>name</strong> – A friendly name for the runner. It will be displayed
+by ESSD.</p></li>
+<li><p><strong>address</strong> – The IP address the server binds to.</p></li>
+<li><p><strong>port</strong> – The port the server listens to.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>An instance of the class.</p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>The XML serialized simulation can be produced by
+<a class="reference internal" href="nanover.openmm.serializer.html#nanover.openmm.serializer.serialize_simulation" title="nanover.openmm.serializer.serialize_simulation"><code class="xref py py-func docutils literal notranslate"><span class="pre">nanover.openmm.serializer.serialize_simulation()</span></code></a>.</p>
+</div>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nanover.openmm.runner.OpenMMRunner.include_forces">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">include_forces</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#nanover.openmm.runner.OpenMMRunner.include_forces" title="Link to this definition"></a></dt>
+<dd><p>Optionally include the particle forces in the frame data.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nanover.openmm.runner.OpenMMRunner.include_velocities">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">include_velocities</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#nanover.openmm.runner.OpenMMRunner.include_velocities" title="Link to this definition"></a></dt>
+<dd><p>Optionally include the particle velocities in the frame data.</p>
+</dd></dl>
+
 <dl class="py property">
 <dt class="sig sig-object py" id="nanover.openmm.runner.OpenMMRunner.is_running">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">is_running</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#nanover.openmm.runner.OpenMMRunner.is_running" title="Link to this definition"></a></dt>
@@ -224,6 +264,16 @@ by ESSD.</p></li>
 background thread or not.
 :return: <cite>True</cite>, if molecular dynamics is running, <cite>False</cite> otherwise.</p>
 </dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.openmm.runner.OpenMMRunner.list">
+<span class="sig-name descname"><span class="pre">list</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nanover.openmm.runner.OpenMMRunner.list" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.openmm.runner.OpenMMRunner.load">
+<span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.openmm.runner.OpenMMRunner.load" title="Link to this definition"></a></dt>
+<dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nanover.openmm.runner.OpenMMRunner.make_quiet">
@@ -249,6 +299,11 @@ every 10 simulation steps.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="nanover.openmm.runner.OpenMMRunner.next">
+<span class="sig-name descname"><span class="pre">next</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nanover.openmm.runner.OpenMMRunner.next" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="nanover.openmm.runner.OpenMMRunner.pause">
 <span class="sig-name descname"><span class="pre">pause</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nanover.openmm.runner.OpenMMRunner.pause" title="Link to this definition"></a></dt>
 <dd><p>Pause the simulation, by cancelling any current run.</p>
@@ -264,6 +319,11 @@ described in :mod:nanover.trajectory.frame_server.</p>
 <p>This method is called whenever a client runs the play command,
 described in :mod:nanover.trajectory.frame_server.</p>
 </dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nanover.openmm.runner.OpenMMRunner.reporter">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">reporter</span></span><a class="headerlink" href="#nanover.openmm.runner.OpenMMRunner.reporter" title="Link to this definition"></a></dt>
+<dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nanover.openmm.runner.OpenMMRunner.reset">
@@ -287,6 +347,16 @@ number of steps is provided and to <code class="docutils literal notranslate"><s
 </dl>
 </dd></dl>
 
+<dl class="py property">
+<dt class="sig sig-object py" id="nanover.openmm.runner.OpenMMRunner.simulation">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">simulation</span></span><a class="headerlink" href="#nanover.openmm.runner.OpenMMRunner.simulation" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nanover.openmm.runner.OpenMMRunner.simulation_entry">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">simulation_entry</span></span><a class="headerlink" href="#nanover.openmm.runner.OpenMMRunner.simulation_entry" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="nanover.openmm.runner.OpenMMRunner.step">
 <span class="sig-name descname"><span class="pre">step</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nanover.openmm.runner.OpenMMRunner.step" title="Link to this definition"></a></dt>
@@ -308,6 +378,22 @@ described in :mod:nanover.trajectory.frame_server.</p>
 <p>If the runner is not verbose, then the verbosity interval is 0.
 Same wise, if this interval is set to 0, then the runner is made quiet.</p>
 </dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="nanover.openmm.runner.SimulationEntry">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nanover.openmm.runner.</span></span><span class="sig-name descname"><span class="pre">SimulationEntry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">simulation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Simulation</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Unnamed</span> <span class="pre">Simulation'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.openmm.runner.SimulationEntry" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nanover.openmm.runner.SimulationEntry.reporter">
+<span class="sig-name descname"><span class="pre">reporter</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="nanover.openmm.imd.html#nanover.openmm.imd.NanoverImdReporter" title="nanover.openmm.imd.NanoverImdReporter"><span class="pre">NanoverImdReporter</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#nanover.openmm.runner.SimulationEntry.reporter" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.openmm.runner.SimulationEntry.reset">
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">app_server</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.openmm.runner.SimulationEntry.reset" title="Link to this definition"></a></dt>
+<dd></dd></dl>
 
 </dd></dl>
 

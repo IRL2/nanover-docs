@@ -73,9 +73,12 @@
 <li class="toctree-l4"><a class="reference internal" href="nanover.imd.html">nanover.imd package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nanover.lammps.html">nanover.lammps package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nanover.mdanalysis.html">nanover.mdanalysis package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.omni.html">nanover.omni package</a></li>
 <li class="toctree-l4 current"><a class="reference internal" href="nanover.openmm.html">nanover.openmm package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nanover.protocol.html">nanover.protocol namespace</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.recording.html">nanover.recording namespace</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nanover.state.html">nanover.state namespace</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.testing.html">nanover.testing package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nanover.trajectory.html">nanover.trajectory package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nanover.utilities.html">nanover.utilities package</a></li>
 </ul>
@@ -149,7 +152,7 @@ restrain.</p></li>
 the form of which is <span class="math notranslate nohighlight">\(k * distance(r, r0)^2\)</span>; where <span class="math notranslate nohighlight">\(k\)</span> is the
 force constant in kJ/(mol * nm^2), <span class="math notranslate nohighlight">\(r\)</span> is the position of the atom,
 and <span class="math notranslate nohighlight">\(r0\)</span> is the equilibrium position of that atom.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">simtk.unit</span> <span class="kn">import</span>  <span class="n">kilojoule_per_mole</span><span class="p">,</span> <span class="n">nanometer</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">openmm.unit</span> <span class="kn">import</span>  <span class="n">kilojoule_per_mole</span><span class="p">,</span> <span class="n">nanometer</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="c1"># Create the force</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">force_constant</span> <span class="o">=</span> <span class="mi">225</span> <span class="o">*</span> <span class="n">kilojoule_per_mole</span> <span class="o">/</span> <span class="n">nanometer</span> <span class="o">**</span> <span class="mi">2</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">force</span> <span class="o">=</span> <span class="n">restraint_force</span><span class="p">(</span><span class="n">force_constant</span><span class="p">)</span>

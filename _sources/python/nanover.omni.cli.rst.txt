@@ -1,0 +1,7 @@
+nanover.omni.cli module
+=======================
+
+.. automodule:: nanover.omni.cli
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -26,7 +26,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="nanover.trajectory.frame_client module" href="nanover.trajectory.frame_client.html" />
-    <link rel="prev" title="nanover.state.state_service module" href="nanover.state.state_service.html" />
+    <link rel="prev" title="nanover.testing.asserts module" href="nanover.testing.asserts.html" />
  
 <link rel="icon" type="image/x-icon" href="../_static/favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="../_static/favicon-32x32.png">
@@ -72,9 +72,12 @@
 <li class="toctree-l4"><a class="reference internal" href="nanover.imd.html">nanover.imd package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nanover.lammps.html">nanover.lammps package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nanover.mdanalysis.html">nanover.mdanalysis package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.omni.html">nanover.omni package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nanover.openmm.html">nanover.openmm package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nanover.protocol.html">nanover.protocol namespace</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.recording.html">nanover.recording namespace</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nanover.state.html">nanover.state namespace</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.testing.html">nanover.testing package</a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#">nanover.trajectory package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nanover.utilities.html">nanover.utilities package</a></li>
 </ul>
@@ -148,6 +151,7 @@
 <li class="toctree-l3"><a class="reference internal" href="nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.FrameData.particle_count"><code class="docutils literal notranslate"><span class="pre">FrameData.particle_count</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.FrameData.particle_elements"><code class="docutils literal notranslate"><span class="pre">FrameData.particle_elements</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.FrameData.particle_forces"><code class="docutils literal notranslate"><span class="pre">FrameData.particle_forces</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.FrameData.particle_forces_system"><code class="docutils literal notranslate"><span class="pre">FrameData.particle_forces_system</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.FrameData.particle_names"><code class="docutils literal notranslate"><span class="pre">FrameData.particle_names</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.FrameData.particle_positions"><code class="docutils literal notranslate"><span class="pre">FrameData.particle_positions</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.FrameData.particle_residues"><code class="docutils literal notranslate"><span class="pre">FrameData.particle_residues</span></code></a></li>
@@ -163,10 +167,12 @@
 <li class="toctree-l3"><a class="reference internal" href="nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.FrameData.set_index_array"><code class="docutils literal notranslate"><span class="pre">FrameData.set_index_array()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.FrameData.set_string_array"><code class="docutils literal notranslate"><span class="pre">FrameData.set_string_array()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.FrameData.shortcuts"><code class="docutils literal notranslate"><span class="pre">FrameData.shortcuts</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.FrameData.simulation_counter"><code class="docutils literal notranslate"><span class="pre">FrameData.simulation_counter</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.FrameData.simulation_time"><code class="docutils literal notranslate"><span class="pre">FrameData.simulation_time</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.FrameData.total_energy"><code class="docutils literal notranslate"><span class="pre">FrameData.total_energy</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.FrameData.used_shortcuts"><code class="docutils literal notranslate"><span class="pre">FrameData.used_shortcuts</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.FrameData.user_energy"><code class="docutils literal notranslate"><span class="pre">FrameData.user_energy</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.FrameData.user_forces_index"><code class="docutils literal notranslate"><span class="pre">FrameData.user_forces_index</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.FrameData.user_forces_sparse"><code class="docutils literal notranslate"><span class="pre">FrameData.user_forces_sparse</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.FrameData.value_keys"><code class="docutils literal notranslate"><span class="pre">FrameData.value_keys</span></code></a></li>
 </ul>
 </li>
@@ -221,7 +227,7 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="nanover.state.state_service.html" class="btn btn-neutral float-left" title="nanover.state.state_service module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="nanover.testing.asserts.html" class="btn btn-neutral float-left" title="nanover.testing.asserts module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="nanover.trajectory.frame_client.html" class="btn btn-neutral float-right" title="nanover.trajectory.frame_client module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

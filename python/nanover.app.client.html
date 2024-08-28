@@ -72,9 +72,12 @@
 <li class="toctree-l4"><a class="reference internal" href="nanover.imd.html">nanover.imd package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nanover.lammps.html">nanover.lammps package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nanover.mdanalysis.html">nanover.mdanalysis package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.omni.html">nanover.omni package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nanover.openmm.html">nanover.openmm package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nanover.protocol.html">nanover.protocol namespace</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.recording.html">nanover.recording namespace</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nanover.state.html">nanover.state namespace</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.testing.html">nanover.testing package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nanover.trajectory.html">nanover.trajectory package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nanover.utilities.html">nanover.utilities package</a></li>
 </ul>
@@ -508,6 +511,18 @@ multiplayer service</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="nanover.app.client.NanoverImdClient.run_list">
+<span class="sig-name descname"><span class="pre">run_list</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#nanover.app.client.NanoverImdClient.run_list" title="Link to this definition"></a></dt>
+<dd><p>Retrieves an ordered list of the available simulations for the load command.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.app.client.NanoverImdClient.run_load">
+<span class="sig-name descname"><span class="pre">run_load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.app.client.NanoverImdClient.run_load" title="Link to this definition"></a></dt>
+<dd><p>Sends a request for the trajectory service to switch to a particular simulation.</p>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="nanover.app.client.NanoverImdClient.run_multiplayer_command">
 <span class="sig-name descname"><span class="pre">run_multiplayer_command</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.app.client.NanoverImdClient.run_multiplayer_command" title="Link to this definition"></a></dt>
 <dd><p>Runs a command on the multiplayer service.</p>
@@ -522,6 +537,12 @@ multiplayer service</p>
 <dd class="field-even"><p>Results of the command, if any.</p>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.app.client.NanoverImdClient.run_next">
+<span class="sig-name descname"><span class="pre">run_next</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nanover.app.client.NanoverImdClient.run_next" title="Link to this definition"></a></dt>
+<dd><p>Sends a request for the trajectory service to switch to the next simulation.</p>
 </dd></dl>
 
 <dl class="py method">

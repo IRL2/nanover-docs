@@ -1,0 +1,7 @@
+nanover.omni.rich module
+========================
+
+.. automodule:: nanover.omni.rich
+   :members:
+   :undoc-members:
+   :show-inheritance:

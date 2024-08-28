@@ -73,9 +73,12 @@
 <li class="toctree-l4"><a class="reference internal" href="nanover.imd.html">nanover.imd package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nanover.lammps.html">nanover.lammps package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nanover.mdanalysis.html">nanover.mdanalysis package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.omni.html">nanover.omni package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nanover.openmm.html">nanover.openmm package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nanover.protocol.html">nanover.protocol namespace</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.recording.html">nanover.recording namespace</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nanover.state.html">nanover.state namespace</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.testing.html">nanover.testing package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nanover.trajectory.html">nanover.trajectory package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nanover.utilities.html">nanover.utilities package</a></li>
 </ul>
@@ -354,17 +357,6 @@
 <li class="toctree-l4"><a class="reference internal" href="nanover.mdanalysis.converter.html#nanover.mdanalysis.converter.nullable_int"><code class="docutils literal notranslate"><span class="pre">nullable_int()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="nanover.mdanalysis.recordings.html">nanover.mdanalysis.recordings module</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="nanover.mdanalysis.recordings.html#nanover.mdanalysis.recordings.InvalidMagicNumber"><code class="docutils literal notranslate"><span class="pre">InvalidMagicNumber</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="nanover.mdanalysis.recordings.html#nanover.mdanalysis.recordings.Unpacker"><code class="docutils literal notranslate"><span class="pre">Unpacker</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="nanover.mdanalysis.recordings.html#nanover.mdanalysis.recordings.UnsuportedFormatVersion"><code class="docutils literal notranslate"><span class="pre">UnsuportedFormatVersion</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="nanover.mdanalysis.recordings.html#nanover.mdanalysis.recordings.advance_to_first_coordinate_frame"><code class="docutils literal notranslate"><span class="pre">advance_to_first_coordinate_frame()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="nanover.mdanalysis.recordings.html#nanover.mdanalysis.recordings.advance_to_first_particle_frame"><code class="docutils literal notranslate"><span class="pre">advance_to_first_particle_frame()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="nanover.mdanalysis.recordings.html#nanover.mdanalysis.recordings.iter_trajectory_file"><code class="docutils literal notranslate"><span class="pre">iter_trajectory_file()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="nanover.mdanalysis.recordings.html#nanover.mdanalysis.recordings.iter_trajectory_recording"><code class="docutils literal notranslate"><span class="pre">iter_trajectory_recording()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="nanover.mdanalysis.recordings.html#nanover.mdanalysis.recordings.iter_trajectory_with_elpsed_integrated"><code class="docutils literal notranslate"><span class="pre">iter_trajectory_with_elpsed_integrated()</span></code></a></li>
-</ul>
-</li>
 <li class="toctree-l3"><a class="reference internal" href="nanover.mdanalysis.universe.html">nanover.mdanalysis.universe module</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="nanover.mdanalysis.universe.html#nanover.mdanalysis.universe.KeyConversion"><code class="docutils literal notranslate"><span class="pre">KeyConversion</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="nanover.mdanalysis.universe.html#nanover.mdanalysis.universe.NanoverParser"><code class="docutils literal notranslate"><span class="pre">NanoverParser</span></code></a></li>
@@ -378,10 +370,48 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="nanover.omni.html">nanover.omni package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nanover.omni.html#submodules">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nanover.omni.ase_omm.html">nanover.omni.ase_omm module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nanover.omni.ase_omm.html#nanover.omni.ase_omm.ASEOpenMMSimulation"><code class="docutils literal notranslate"><span class="pre">ASEOpenMMSimulation</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.omni.ase_omm.html#nanover.omni.ase_omm.InitialState"><code class="docutils literal notranslate"><span class="pre">InitialState</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.omni.cli.html">nanover.omni.cli module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nanover.omni.cli.html#nanover.omni.cli.get_all_paths"><code class="docutils literal notranslate"><span class="pre">get_all_paths()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.omni.cli.html#nanover.omni.cli.handle_user_arguments"><code class="docutils literal notranslate"><span class="pre">handle_user_arguments()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.omni.cli.html#nanover.omni.cli.initialise_runner"><code class="docutils literal notranslate"><span class="pre">initialise_runner()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.omni.cli.html#nanover.omni.cli.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.omni.omni.html">nanover.omni.omni module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nanover.omni.omni.html#nanover.omni.omni.InternalRunner"><code class="docutils literal notranslate"><span class="pre">InternalRunner</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.omni.omni.html#nanover.omni.omni.OmniRunner"><code class="docutils literal notranslate"><span class="pre">OmniRunner</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.omni.omni.html#nanover.omni.omni.Simulation"><code class="docutils literal notranslate"><span class="pre">Simulation</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.omni.openmm.html">nanover.omni.openmm module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nanover.omni.openmm.html#nanover.omni.openmm.OpenMMSimulation"><code class="docutils literal notranslate"><span class="pre">OpenMMSimulation</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.omni.playback.html">nanover.omni.playback module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nanover.omni.playback.html#nanover.omni.playback.PlaybackSimulation"><code class="docutils literal notranslate"><span class="pre">PlaybackSimulation</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.omni.record.html">nanover.omni.record module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nanover.omni.record.html#nanover.omni.record.record_from_server"><code class="docutils literal notranslate"><span class="pre">record_from_server()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.omni.record.html#nanover.omni.record.record_state"><code class="docutils literal notranslate"><span class="pre">record_state()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.omni.record.html#nanover.omni.record.record_trajectory"><code class="docutils literal notranslate"><span class="pre">record_trajectory()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.omni.rich.html">nanover.omni.rich module</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="nanover.openmm.html">nanover.openmm package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="nanover.openmm.html#submodules">Submodules</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="nanover.openmm.cli.html">nanover.openmm.cli module</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="nanover.openmm.cli.html#nanover.openmm.cli.handle_user_arguments"><code class="docutils literal notranslate"><span class="pre">handle_user_arguments()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="nanover.openmm.cli.html#nanover.openmm.cli.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
 </ul>
 </li>
@@ -392,11 +422,13 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="nanover.openmm.imd.html">nanover.openmm.imd module</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="nanover.openmm.imd.html#nanover.openmm.imd.InitialisationError"><code class="docutils literal notranslate"><span class="pre">InitialisationError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.openmm.imd.html#nanover.openmm.imd.ImdForceManager"><code class="docutils literal notranslate"><span class="pre">ImdForceManager</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="nanover.openmm.imd.html#nanover.openmm.imd.NanoverImdReporter"><code class="docutils literal notranslate"><span class="pre">NanoverImdReporter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.openmm.imd.html#nanover.openmm.imd.NextReport"><code class="docutils literal notranslate"><span class="pre">NextReport</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="nanover.openmm.imd.html#nanover.openmm.imd.add_imd_force_to_system"><code class="docutils literal notranslate"><span class="pre">add_imd_force_to_system()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="nanover.openmm.imd.html#nanover.openmm.imd.create_imd_force"><code class="docutils literal notranslate"><span class="pre">create_imd_force()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="nanover.openmm.imd.html#nanover.openmm.imd.get_imd_forces_from_system"><code class="docutils literal notranslate"><span class="pre">get_imd_forces_from_system()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.openmm.imd.html#nanover.openmm.imd.get_sparse_forces"><code class="docutils literal notranslate"><span class="pre">get_sparse_forces()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="nanover.openmm.imd.html#nanover.openmm.imd.populate_imd_force"><code class="docutils literal notranslate"><span class="pre">populate_imd_force()</span></code></a></li>
 </ul>
 </li>
@@ -411,6 +443,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="nanover.openmm.runner.html">nanover.openmm.runner module</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="nanover.openmm.runner.html#nanover.openmm.runner.OpenMMRunner"><code class="docutils literal notranslate"><span class="pre">OpenMMRunner</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.openmm.runner.html#nanover.openmm.runner.SimulationEntry"><code class="docutils literal notranslate"><span class="pre">SimulationEntry</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="nanover.openmm.serializer.html">nanover.openmm.serializer module</a><ul>
@@ -451,6 +484,42 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="nanover.recording.html">nanover.recording namespace</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nanover.recording.html#submodules">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nanover.recording.reading.html">nanover.recording.reading module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nanover.recording.reading.html#nanover.recording.reading.InvalidMagicNumber"><code class="docutils literal notranslate"><span class="pre">InvalidMagicNumber</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.recording.reading.html#nanover.recording.reading.Parseable"><code class="docutils literal notranslate"><span class="pre">Parseable</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.recording.reading.html#nanover.recording.reading.UnsupportedFormatVersion"><code class="docutils literal notranslate"><span class="pre">UnsupportedFormatVersion</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.recording.reading.html#nanover.recording.reading.advance_to_first_coordinate_frame"><code class="docutils literal notranslate"><span class="pre">advance_to_first_coordinate_frame()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.recording.reading.html#nanover.recording.reading.advance_to_first_particle_frame"><code class="docutils literal notranslate"><span class="pre">advance_to_first_particle_frame()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.recording.reading.html#nanover.recording.reading.iter_recording_buffers"><code class="docutils literal notranslate"><span class="pre">iter_recording_buffers()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.recording.reading.html#nanover.recording.reading.iter_recording_entries"><code class="docutils literal notranslate"><span class="pre">iter_recording_entries()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.recording.reading.html#nanover.recording.reading.iter_recording_files"><code class="docutils literal notranslate"><span class="pre">iter_recording_files()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.recording.reading.html#nanover.recording.reading.iter_state_file"><code class="docutils literal notranslate"><span class="pre">iter_state_file()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.recording.reading.html#nanover.recording.reading.iter_state_recording"><code class="docutils literal notranslate"><span class="pre">iter_state_recording()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.recording.reading.html#nanover.recording.reading.iter_trajectory_file"><code class="docutils literal notranslate"><span class="pre">iter_trajectory_file()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.recording.reading.html#nanover.recording.reading.iter_trajectory_recording"><code class="docutils literal notranslate"><span class="pre">iter_trajectory_recording()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.recording.reading.html#nanover.recording.reading.iter_trajectory_with_elapsed_integrated"><code class="docutils literal notranslate"><span class="pre">iter_trajectory_with_elapsed_integrated()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.recording.reading.html#nanover.recording.reading.read"><code class="docutils literal notranslate"><span class="pre">read()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.recording.reading.html#nanover.recording.reading.read_u128"><code class="docutils literal notranslate"><span class="pre">read_u128()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.recording.reading.html#nanover.recording.reading.read_u64"><code class="docutils literal notranslate"><span class="pre">read_u64()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.recording.writing.html">nanover.recording.writing module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nanover.recording.writing.html#nanover.recording.writing.Serializable"><code class="docutils literal notranslate"><span class="pre">Serializable</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.recording.writing.html#nanover.recording.writing.record_entries"><code class="docutils literal notranslate"><span class="pre">record_entries()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.recording.writing.html#nanover.recording.writing.record_messages"><code class="docutils literal notranslate"><span class="pre">record_messages()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.recording.writing.html#nanover.recording.writing.record_messages_to_file"><code class="docutils literal notranslate"><span class="pre">record_messages_to_file()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.recording.writing.html#nanover.recording.writing.write_entry"><code class="docutils literal notranslate"><span class="pre">write_entry()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.recording.writing.html#nanover.recording.writing.write_header"><code class="docutils literal notranslate"><span class="pre">write_header()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.recording.writing.html#nanover.recording.writing.write_u128"><code class="docutils literal notranslate"><span class="pre">write_u128()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.recording.writing.html#nanover.recording.writing.write_u64"><code class="docutils literal notranslate"><span class="pre">write_u64()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="nanover.state.html">nanover.state namespace</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="nanover.state.html#submodules">Submodules</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="nanover.state.state_dictionary.html">nanover.state.state_dictionary module</a><ul>
@@ -463,6 +532,18 @@
 <li class="toctree-l4"><a class="reference internal" href="nanover.state.state_service.html#nanover.state.state_service.locks_update_to_acquire_release"><code class="docutils literal notranslate"><span class="pre">locks_update_to_acquire_release()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="nanover.state.state_service.html#nanover.state.state_service.state_update_to_dictionary_change"><code class="docutils literal notranslate"><span class="pre">state_update_to_dictionary_change()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="nanover.state.state_service.html#nanover.state.state_service.validate_dict_is_serializable"><code class="docutils literal notranslate"><span class="pre">validate_dict_is_serializable()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nanover.testing.html">nanover.testing package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nanover.testing.html#submodules">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nanover.testing.asserts.html">nanover.testing.asserts module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nanover.testing.asserts.html#nanover.testing.asserts.assert_equal_soon"><code class="docutils literal notranslate"><span class="pre">assert_equal_soon()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.testing.asserts.html#nanover.testing.asserts.assert_in_soon"><code class="docutils literal notranslate"><span class="pre">assert_in_soon()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.testing.asserts.html#nanover.testing.asserts.assert_not_in_soon"><code class="docutils literal notranslate"><span class="pre">assert_not_in_soon()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -536,6 +617,8 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="nanover.utilities.timing.html">nanover.utilities.timing module</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="nanover.utilities.timing.html#nanover.utilities.timing.VariableIntervalGenerator"><code class="docutils literal notranslate"><span class="pre">VariableIntervalGenerator</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.utilities.timing.html#nanover.utilities.timing.wait_busy"><code class="docutils literal notranslate"><span class="pre">wait_busy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.utilities.timing.html#nanover.utilities.timing.wait_mixed"><code class="docutils literal notranslate"><span class="pre">wait_mixed()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="nanover.utilities.timing.html#nanover.utilities.timing.yield_interval"><code class="docutils literal notranslate"><span class="pre">yield_interval()</span></code></a></li>
 </ul>
 </li>

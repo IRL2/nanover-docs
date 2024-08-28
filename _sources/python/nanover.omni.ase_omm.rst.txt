@@ -1,0 +1,7 @@
+nanover.omni.ase\_omm module
+============================
+
+.. automodule:: nanover.omni.ase_omm
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,7 @@
+nanover.recording.writing module
+================================
+
+.. automodule:: nanover.recording.writing
+   :members:
+   :undoc-members:
+   :show-inheritance:

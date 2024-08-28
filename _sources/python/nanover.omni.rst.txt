@@ -1,0 +1,21 @@
+nanover.omni package
+====================
+
+.. automodule:: nanover.omni
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   nanover.omni.ase_omm
+   nanover.omni.cli
+   nanover.omni.omni
+   nanover.omni.openmm
+   nanover.omni.playback
+   nanover.omni.record
+   nanover.omni.rich

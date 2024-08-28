@@ -17,8 +17,11 @@ Subpackages
    nanover.imd
    nanover.lammps
    nanover.mdanalysis
+   nanover.omni
    nanover.openmm
    nanover.protocol
+   nanover.recording
    nanover.state
+   nanover.testing
    nanover.trajectory
    nanover.utilities
