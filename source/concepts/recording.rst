@@ -6,6 +6,10 @@ Recording data
 For a NanoVer session to be useful beyond the time the users spend in VR, it needs to be recorded.
 This recording can then be analysed or played back to get insight.
 
+.. contents:: Contents
+    :depth: 2
+    :local:
+
 What is recorded
 ----------------
 
