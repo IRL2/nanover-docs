@@ -71,8 +71,12 @@ Conceptually, the IMD server consists of three services: a trajectory service, a
   (note that these can be any arbitrary state variables).
   For instance, it synchronises the position of the users' avatars, allowing multi-user collaboration.
   It broadcasts users' avatar positions, therefore allowing multiuser collaboration with no server modification.
-* **The command service** allows the sending of playback control commands, such as requests to pause or reset
-  the simulation.
+* **The command service** facilitates the communication of commands between the client and the server.
+  For example, these could be playback control commands, such as requests to pause or reset the simulation.
+  You can also create your own custom commands that can be handled by this service.
+
+A server application can leverage these three services to implement IMD to facilitate the visualisation of, and
+interaction with, a simulation in real time.
 
 
 Front End Architecture
