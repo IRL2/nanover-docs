@@ -82,6 +82,10 @@ recording are read as part of the Universe.
 If the topology changes throughout the recording, for instance because another simulation was loaded,
 the library issues a warning and the frames with the new topology are ignored.
 
+See the example code below, or check out the
+`mdanalysis_nanover_recording <https://github.com/IRL2/nanover-protocol/blob/main/examples/mdanalysis/mdanalysis_nanover_recording.ipynb>`_
+jupyter notebook tutorial for further information.
+
 .. code:: python
 
     import MDAnalysis as mda
