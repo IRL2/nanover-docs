@@ -63,7 +63,11 @@
 <li class="toctree-l2"><a class="reference internal" href="fundamentals.html">NanoVer Fundamentals</a></li>
 <li class="toctree-l2"><a class="reference internal" href="openmm.html">OpenMM</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ase.html">ASE: Interactive Molecular Dynamics</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">LAMMPS: Large scale Atomic/Molecular Massively Parallel Simulator</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">LAMMPS: Large scale Atomic/Molecular Massively Parallel Simulator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#installing-lammps">Installing LAMMPS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#jupyter-notebook-tutorials">Jupyter notebook tutorials</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="mdanalysis.html">MDAnalysis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="vrclient/vrclient.html">NanoVer iMD</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tutorials.html#installing-jupyter">Installing Jupyter</a></li>
@@ -103,11 +107,38 @@
              
   <section id="lammps-large-scale-atomic-molecular-massively-parallel-simulator">
 <h1>LAMMPS: Large scale Atomic/Molecular Massively Parallel Simulator<a class="headerlink" href="#lammps-large-scale-atomic-molecular-massively-parallel-simulator" title="Link to this heading"></a></h1>
-<p>A set of tutorials that demonstrate how to use NanoVer to run interactive molecular
-dynamics simulations using LAMMPS. We are aware that the current tutorials for
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>We are aware that the current tutorials for
 interfacing LAMMPS with NanoVer are incomplete
 (see <a class="reference external" href="https://github.com/IRL2/nanover-protocol/issues/184">Issue #84</a>), and are
 working to resolve these problems.</p>
+</div>
+<section id="installing-lammps">
+<h2>Installing LAMMPS<a class="headerlink" href="#installing-lammps" title="Link to this heading"></a></h2>
+<p>NanoVer can interact with the <a class="reference external" href="https://lammps.sandia.gov/">LAMMPS</a> simulation engine.
+If you want to use this specific feature, you need to:</p>
+<ul>
+<li><p>install LAMMPS with python capabilities</p></li>
+<li><p>install mpy4py:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">-c</span> <span class="pre">conda-forge</span> <span class="pre">mpi4py</span></code> on Linux and MacOS</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">mpi4py</span></code> on Windows</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>install nanover-lammps: <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">-c</span> <span class="pre">irl</span> <span class="pre">-c</span> <span class="pre">conda-forge</span> <span class="pre">nanover-lammps</span></code></p></li>
+</ul>
+</section>
+<section id="jupyter-notebook-tutorials">
+<h2>Jupyter notebook tutorials<a class="headerlink" href="#jupyter-notebook-tutorials" title="Link to this heading"></a></h2>
+<p>A tutorial that demonstrates how to use NanoVer to run interactive molecular
+dynamics simulations using LAMMPS.</p>
+<ul class="simple">
+<li><p><cite>lammps_client_server</cite>: A notebook showing how to run an interactive molecular dynamics LAMMPS simulation.</p></li>
+</ul>
+</section>
 </section>
 
 

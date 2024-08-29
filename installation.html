@@ -72,7 +72,6 @@
 <li class="toctree-l4"><a class="reference internal" href="#conda-installation">Conda installation</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#installing-lammps-for-nanover">Installing LAMMPS for NanoVer</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#developer-installation-guide">Developer Installation Guide</a></li>
@@ -127,10 +126,9 @@ in VR.</p>
 <li><p><a class="reference internal" href="#installing-the-server" id="id8">Installing the server</a></p></li>
 <li><p><a class="reference internal" href="#choosing-your-setup-for-the-imd-vr-client" id="id9">Choosing your setup for the iMD-VR client</a></p></li>
 <li><p><a class="reference internal" href="#installing-the-imd-vr-client" id="id10">Installing the iMD-VR client</a></p></li>
-<li><p><a class="reference internal" href="#installing-lammps-for-nanover" id="id11">Installing LAMMPS for NanoVer</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#developer-installation-guide" id="id12">Developer Installation Guide</a></p></li>
+<li><p><a class="reference internal" href="#developer-installation-guide" id="id11">Developer Installation Guide</a></p></li>
 </ul>
 </li>
 </ul>
@@ -266,30 +264,12 @@ installing the apk on your headset.</p></li>
 <li><p>Install the NanoVer iMD package: <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">-c</span> <span class="pre">irl</span> <span class="pre">nanover-imd</span></code></p></li>
 <li><p>To start the program, run the command <code class="docutils literal notranslate"><span class="pre">NanoverImd</span></code></p></li>
 </ol>
-</section>
-</section>
 <hr class="docutils" />
-<section id="installing-lammps-for-nanover">
-<h3><a class="toc-backref" href="#id11" role="doc-backlink">Installing LAMMPS for NanoVer</a><a class="headerlink" href="#installing-lammps-for-nanover" title="Link to this heading"></a></h3>
-<p>NanoVer can interact with the <a class="reference external" href="https://lammps.sandia.gov/">LAMMPS</a> simulation engine.
-If you want to use this specific feature, you need to:</p>
-<ul>
-<li><p>install LAMMPS with python capabilities</p></li>
-<li><p>install mpy4py:</p>
-<blockquote>
-<div><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">-c</span> <span class="pre">conda-forge</span> <span class="pre">mpi4py</span></code> on Linux and MacOS</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">mpi4py</span></code> on Windows</p></li>
-</ul>
-</div></blockquote>
-</li>
-<li><p>install nanover-lammps: <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">-c</span> <span class="pre">irl</span> <span class="pre">-c</span> <span class="pre">conda-forge</span> <span class="pre">nanover-lammps</span></code></p></li>
-</ul>
-<hr class="docutils" />
+</section>
 </section>
 </section>
 <section id="developer-installation-guide">
-<span id="id4"></span><h2><a class="toc-backref" href="#id12" role="doc-backlink">Developer Installation Guide</a><a class="headerlink" href="#developer-installation-guide" title="Link to this heading"></a></h2>
+<span id="id4"></span><h2><a class="toc-backref" href="#id11" role="doc-backlink">Developer Installation Guide</a><a class="headerlink" href="#developer-installation-guide" title="Link to this heading"></a></h2>
 <p>Developers will want to manually install from source.</p>
 <ul class="simple">
 <li><p>If you want to create your own custom server, connect a different physics engine or create a custom client,
