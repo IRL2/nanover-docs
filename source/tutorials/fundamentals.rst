@@ -2,13 +2,6 @@
 NanoVer Fundamentals
 ====================
 
-.. contents:: Contents
-    :depth: 2
-    :local:
-
-Jupyter notebook tutorials
-==========================
-
 We provide a set of Jupyter notebook tutorials that introduce NanoVer as a framework for performing interactive
 molecular dynamics simulations, and the fundamental concepts associated with the client-server
 architecture that NanoVer uses. These tutorials can be used in conjunction with the
