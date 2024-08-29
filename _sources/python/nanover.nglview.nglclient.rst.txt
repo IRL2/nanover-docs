@@ -1,0 +1,7 @@
+nanover.nglview.nglclient module
+================================
+
+.. automodule:: nanover.nglview.nglclient
+   :members:
+   :undoc-members:
+   :show-inheritance:

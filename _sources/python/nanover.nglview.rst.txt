@@ -1,0 +1,15 @@
+nanover.nglview package
+=======================
+
+.. automodule:: nanover.nglview
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   nanover.nglview.nglclient

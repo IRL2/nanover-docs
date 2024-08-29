@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>nanover.essd.list_cli module &mdash; NanoVer 2024.06.18 documentation</title>
+  <title>nanover.nglview package &mdash; NanoVer 2024.06.18 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=23fdb008" />
@@ -25,8 +25,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="nanover.essd.server module" href="nanover.essd.server.html" />
-    <link rel="prev" title="nanover.essd.client module" href="nanover.essd.client.html" />
+    <link rel="next" title="nanover.nglview.nglclient module" href="nanover.nglview.nglclient.html" />
+    <link rel="prev" title="nanover.mdanalysis.universe module" href="nanover.mdanalysis.universe.html" />
  
 <link rel="icon" type="image/x-icon" href="../_static/favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="../_static/favicon-32x32.png">
@@ -68,11 +68,11 @@
 <li class="toctree-l4"><a class="reference internal" href="nanover.ase.html">nanover.ase package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nanover.command.html">nanover.command package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nanover.core.html">nanover.core package</a></li>
-<li class="toctree-l4 current"><a class="reference internal" href="nanover.essd.html">nanover.essd package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.essd.html">nanover.essd package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nanover.imd.html">nanover.imd package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nanover.lammps.html">nanover.lammps package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nanover.mdanalysis.html">nanover.mdanalysis package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="nanover.nglview.html">nanover.nglview package</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">nanover.nglview package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nanover.omni.html">nanover.omni package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nanover.openmm.html">nanover.openmm package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nanover.protocol.html">nanover.protocol namespace</a></li>
@@ -106,10 +106,9 @@
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../modules.html">Modules</a></li>
           <li class="breadcrumb-item"><a href="nanover.html">nanover namespace</a></li>
-          <li class="breadcrumb-item"><a href="nanover.essd.html">nanover.essd package</a></li>
-      <li class="breadcrumb-item active">nanover.essd.list_cli module</li>
+      <li class="breadcrumb-item active">nanover.nglview package</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/python/nanover.essd.list_cli.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/python/nanover.nglview.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -117,31 +116,39 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="module-nanover.essd.list_cli">
-<span id="nanover-essd-list-cli-module"></span><h1>nanover.essd.list_cli module<a class="headerlink" href="#module-nanover.essd.list_cli" title="Link to this heading"></a></h1>
-<dl class="py function">
-<dt class="sig sig-object py" id="nanover.essd.list_cli.handle_user_arguments">
-<span class="sig-prename descclassname"><span class="pre">nanover.essd.list_cli.</span></span><span class="sig-name descname"><span class="pre">handle_user_arguments</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Namespace</span></span></span><a class="headerlink" href="#nanover.essd.list_cli.handle_user_arguments" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="nanover.essd.list_cli.main">
-<span class="sig-prename descclassname"><span class="pre">nanover.essd.list_cli.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nanover.essd.list_cli.main" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="nanover.essd.list_cli.print_hub">
-<span class="sig-prename descclassname"><span class="pre">nanover.essd.list_cli.</span></span><span class="sig-name descname"><span class="pre">print_hub</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hub</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="nanover.essd.servicehub.html#nanover.essd.servicehub.ServiceHub" title="nanover.essd.servicehub.ServiceHub"><span class="pre">ServiceHub</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.essd.list_cli.print_hub" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
+  <section id="module-nanover.nglview">
+<span id="nanover-nglview-package"></span><h1>nanover.nglview package<a class="headerlink" href="#module-nanover.nglview" title="Link to this heading"></a></h1>
+<p>Module providing an NGLView python client for use in Jupyter notebooks or IPython.</p>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="nanover.nglview.nglclient.html">nanover.nglview.nglclient module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nanover.nglview.nglclient.html#nanover.nglview.nglclient.FrameDataStructure"><code class="docutils literal notranslate"><span class="pre">FrameDataStructure</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nanover.nglview.nglclient.html#nanover.nglview.nglclient.FrameDataStructure.get_structure_string"><code class="docutils literal notranslate"><span class="pre">FrameDataStructure.get_structure_string()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nanover.nglview.nglclient.html#nanover.nglview.nglclient.NGLClient"><code class="docutils literal notranslate"><span class="pre">NGLClient</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nanover.nglview.nglclient.html#nanover.nglview.nglclient.NGLClient.view"><code class="docutils literal notranslate"><span class="pre">NGLClient.view</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nanover.nglview.nglclient.html#nanover.nglview.nglclient.fill_empty_fields"><code class="docutils literal notranslate"><span class="pre">fill_empty_fields()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="nanover.nglview.nglclient.html#nanover.nglview.nglclient.frame_data_to_nglwidget"><code class="docutils literal notranslate"><span class="pre">frame_data_to_nglwidget()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="nanover.nglview.nglclient.html#nanover.nglview.nglclient.frame_data_to_pdb"><code class="docutils literal notranslate"><span class="pre">frame_data_to_pdb()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="nanover.nglview.nglclient.html#nanover.nglview.nglclient.mda_to_pdb_str"><code class="docutils literal notranslate"><span class="pre">mda_to_pdb_str()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="nanover.essd.client.html" class="btn btn-neutral float-left" title="nanover.essd.client module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="nanover.essd.server.html" class="btn btn-neutral float-right" title="nanover.essd.server module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="nanover.mdanalysis.universe.html" class="btn btn-neutral float-left" title="nanover.mdanalysis.universe module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="nanover.nglview.nglclient.html" class="btn btn-neutral float-right" title="nanover.nglview.nglclient module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

@@ -17,6 +17,7 @@ Subpackages
    nanover.imd
    nanover.lammps
    nanover.mdanalysis
+   nanover.nglview
    nanover.omni
    nanover.openmm
    nanover.protocol
