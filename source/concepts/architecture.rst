@@ -1,6 +1,13 @@
 NanoVer Architecture
 ====================
 
+.. contents:: Contents
+    :depth: 2
+    :local:
+
+Overview
+########
+
 NanoVer is a set of protocols, libraries and programs for performing interactive simulations,
 with a focus on virtual reality (VR).
 
