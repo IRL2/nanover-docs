@@ -26,6 +26,8 @@ of the GitHub repository:
 * `getting_started`: **New to NanoVer? Start here!** An introductory notebook that showcases how
   NanoVer can be used to run an interactive molecular dynamics (iMD) simulation for a
   pre-prepared methane & nanotube system.
+* `recording_and_replaying`: An introductory notebook that demonstrates how NanoVer can be used
+  to record and replay iMD simulations.
 * `nanover_nglview`: A notebook that assumes a server is already running, and visualises it
   with `NGLView <https://github.com/arose/nglview>`_.
 
