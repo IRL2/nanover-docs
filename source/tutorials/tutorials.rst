@@ -11,6 +11,7 @@ framework you're running with NanoVer.
    :maxdepth: 1
    :caption: Contents:
 
+   basics.rst
    fundamentals.rst
    openmm.rst
    ase.rst
