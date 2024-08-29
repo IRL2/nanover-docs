@@ -157,21 +157,6 @@ If you have not already set up a NanoVer conda environment, please refer to :ref
 
 ----
 
-Installing LAMMPS for NanoVer
-#############################
-
-NanoVer can interact with the `LAMMPS <https://lammps.sandia.gov/>`_ simulation engine.
-If you want to use this specific feature, you need to:
-
-* install LAMMPS with python capabilities
-* install mpy4py:
-
-            * ``conda install -c conda-forge mpi4py`` on Linux and MacOS
-            * ``python -m pip install mpi4py`` on Windows
-
-* install nanover-lammps: ``conda install -c irl -c conda-forge nanover-lammps``
-
-----
 
 .. _developer_installation_guide:
 
