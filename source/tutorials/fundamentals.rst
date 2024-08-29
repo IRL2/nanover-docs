@@ -169,6 +169,9 @@ For more information about the arguments provided with this command, type:
     # MacOS/Linux
     ./nanover-cli --help
 
+
+.. _rust_server_via_the_gui:
+
 via the GUI
 ###########
 
