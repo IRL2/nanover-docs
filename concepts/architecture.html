@@ -62,6 +62,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../tutorials/tutorials.html">Tutorials</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="concepts.html">Concepts</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">NanoVer Architecture</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#services">Services</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#an-example-interactive-molecular-dynamics">An Example: Interactive Molecular Dynamics</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#front-end-architecture">Front End Architecture</a></li>
@@ -104,33 +105,44 @@
              
   <section id="nanover-architecture">
 <h1>NanoVer Architecture<a class="headerlink" href="#nanover-architecture" title="Link to this heading"></a></h1>
+<nav class="contents local" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#overview" id="id1">Overview</a></p></li>
+<li><p><a class="reference internal" href="#services" id="id2">Services</a></p></li>
+<li><p><a class="reference internal" href="#an-example-interactive-molecular-dynamics" id="id3">An Example: Interactive Molecular Dynamics</a></p></li>
+<li><p><a class="reference internal" href="#front-end-architecture" id="id4">Front End Architecture</a></p></li>
+</ul>
+</nav>
+<section id="overview">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Overview</a><a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
 <p>NanoVer is a set of protocols, libraries and programs for performing interactive simulations,
 with a focus on virtual reality (VR).</p>
 <p>At the highest level, NanoVer uses a client/server model, in which a frontend application connects
-to a server that runs a simulation in real-time, establishing an interactive session. Simulation data, interactions and controls are transmitted
-over the network between the client and server.
+to a server that runs a simulation in real-time, establishing an interactive session.
+Simulation data, interactions and controls are transmitted over the network between the client and server.
 There a several good reasons for using this model:</p>
 <ul class="simple">
-<li><p>Separation of concerns. Keeping the simulation separate from the visualisation
+<li><p><strong>Separation of concerns</strong>. Keeping the simulation separate from the visualisation
 makes it easier to customise and add new features. You want to swap out a
 molecular simulation for a galaxy simulation? Just change the server!</p></li>
-<li><p>Scientific software is often written in different programming languages to
-those that we are best suited for visualisation. For example, most of our
+<li><p><strong>Scientific software is often written in different programming languages to
+those that are best suited for visualisation</strong>. For example, most of our
 molecular dynamics simulations run using python, while our VR application
 is written in C#.</p></li>
-<li><p>The server can be running wherever it is convenient, be it on your desktop,
+<li><p><strong>The server can be running wherever it is convenient</strong>, be it on your desktop,
 a cluster behind a firewall or on a cloud service, while multiple frontend
 applications can connect simultaneously, such as a VR app,
 smartphone app, or a Jupyter notebook.</p></li>
 </ul>
+</section>
 <section id="services">
-<h2>Services<a class="headerlink" href="#services" title="Link to this heading"></a></h2>
-<p>While the client/server model is useful, implementing monolithic client/server applications is not ideal, as it limits the
-customisability and extensibility of the framework. Instead, in NanoVer we have adopted a microservices architecture, in which
-many modular services communicate.</p>
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Services</a><a class="headerlink" href="#services" title="Link to this heading"></a></h2>
+<p>While the client/server model is useful, implementing monolithic client/server applications is not ideal,
+as it limits the customisability and extensibility of the framework.
+Instead, in NanoVer we have adopted a microservices architecture, in which many modular services communicate.</p>
 <p>This architecture makes NanoVer very flexible.
-New features can be added as new services as needed, without cluttering up
-the main framework.
+New features can be added as new services as needed, without cluttering up the main framework.
 We provide a number of service definitions and implementations, including:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="../python/nanover.trajectory.html"><span class="doc">nanover.trajectory</span></a>: Provides trajectories and live simulations.</p></li>
@@ -142,33 +154,40 @@ can be used to create custom services for different applications.</p>
 <p>These services are written using <a class="reference external" href="https://grpc.io/">gRPC</a>, a framework for remote procedure calls.
 The key features that make it great for NanoVer are:</p>
 <ul class="simple">
-<li><p>High performance, fast communication.</p></li>
-<li><p>Bidirectional streaming. Clients and servers can establish long lived
+<li><p><strong>High performance, fast communication</strong>.</p></li>
+<li><p><strong>Bidirectional streaming</strong>. Clients and servers can establish long lived
 connections and stream data to and from each other flexibly.</p></li>
-<li><p>Language portable. Clients and servers can be written in many languages,
+<li><p><strong>Language portable</strong>. Clients and servers can be written in many languages,
 including C#, Python and C++.</p></li>
-<li><p>Built on HTTP2, so includes routing, authentication and security.</p></li>
+<li><p><strong>Built on HTTP2</strong>, so includes routing, authentication and security.</p></li>
 </ul>
 </section>
 <section id="an-example-interactive-molecular-dynamics">
-<h2>An Example: Interactive Molecular Dynamics<a class="headerlink" href="#an-example-interactive-molecular-dynamics" title="Link to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">An Example: Interactive Molecular Dynamics</a><a class="headerlink" href="#an-example-interactive-molecular-dynamics" title="Link to this heading"></a></h2>
 <p>The canonical NanoVer session is one of interactive molecular dynamics (IMD), where one or more front end applications
 connect to a live simulation that can be visualised and interacted with through biasing potentials.</p>
-<p>Conceptually, the IMD server consists of three services: a trajectory service, a state service, and a command service. The trajectory
-service publishes the changes in the simulation to clients, enabling it to be visualised.
-The state service, meanwhile, takes care of incoming requests from the client applications to apply biasing potentials
-to the simulation. These are applied as forces to the molecular dynamics engine, which in turn integrates them. The state service
-allows to synchronise the state between all the clients and the server. For instance, it synchronises the position of the user’s avatars
-allowing multi-user collaboration. Such commands can be playblack
-control commands such as requesting the simulation to pause or reset.</p>
-<p>A server application can leverage these three services to implement IMD allowing to visualise and interact with a simulation in real time.</p>
-<p>The state service allows to synchronise arbitrary state variables between the server and all the clients. Is is used to broadcast user’s avatar
-positions, therefore allowing multiuser collaboration with no server modification.</p>
+<p>Conceptually, the IMD server consists of three services: a trajectory service, a state service, and a command service.</p>
+<ul class="simple">
+<li><p><strong>The trajectory service</strong> publishes the changes in the simulation to clients, enabling it to be visualised.</p></li>
+<li><p><strong>The state service</strong>, meanwhile, takes care of incoming requests from the client applications to apply biasing potentials
+to the simulation. These are applied as forces to the molecular dynamics engine, which in turn integrates them.
+This service allows synchronisation of the state between all the clients and the server
+(note that these can be any arbitrary state variables).
+For instance, it synchronises the position of the users’ avatars, allowing multi-user collaboration.
+It broadcasts users’ avatar positions, therefore allowing multiuser collaboration with no server modification.</p></li>
+<li><p><strong>The command service</strong> facilitates the communication of commands between the client and the server.
+For example, these could be playback control commands, such as requests to pause or reset the simulation.
+You can also create your own custom commands that can be handled by this service.</p></li>
+</ul>
+<p>A server application can leverage these three services to implement IMD to facilitate the visualisation of, and
+interaction with, a simulation in real time.</p>
 </section>
 <section id="front-end-architecture">
-<h2>Front End Architecture<a class="headerlink" href="#front-end-architecture" title="Link to this heading"></a></h2>
-<p>As the server side is modular, so too is the front end. The VR front end app, <a class="reference external" href="https://github.com/IRL2/nanover-imd">NanoVer iMD</a>,
-is built using the <a class="reference external" href="https://github.com/IRL2/NanoverUnityPlugin">NanoVer Unity plugin</a>, which provides a set of modules for building NanoVer applications.</p>
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Front End Architecture</a><a class="headerlink" href="#front-end-architecture" title="Link to this heading"></a></h2>
+<p>As the server side is modular, so too is the front end. The VR front end app,
+<a class="reference external" href="https://github.com/IRL2/nanover-imd">NanoVer iMD</a>,
+is built using the <a class="reference external" href="https://github.com/IRL2/NanoverUnityPlugin">NanoVer Unity plugin</a>,
+which provides a set of modules for building NanoVer applications.</p>
 </section>
 </section>
 
