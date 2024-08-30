@@ -26,7 +26,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="OpenMM" href="openmm.html" />
-    <link rel="prev" title="Tutorials" href="tutorials.html" />
+    <link rel="prev" title="NanoVer Basics" href="basics.html" />
  
 <link rel="icon" type="image/x-icon" href="../_static/favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="../_static/favicon-32x32.png">
@@ -60,15 +60,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../highlights.html">Highlights</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation &amp; Getting Started</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="tutorials.html">Tutorials</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">NanoVer Fundamentals</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#jupyter-notebook-tutorials">Jupyter notebook tutorials</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#running-a-server">Running a server</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id1">Nanover Protocol</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#the-rust-server">The Rust Server</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="basics.html">NanoVer Basics</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">NanoVer Fundamentals</a></li>
 <li class="toctree-l2"><a class="reference internal" href="openmm.html">OpenMM</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ase.html">ASE: Interactive Molecular Dynamics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="lammps.html">LAMMPS: Large scale Atomic/Molecular Massively Parallel Simulator</a></li>
@@ -111,20 +104,6 @@
              
   <section id="nanover-fundamentals">
 <h1>NanoVer Fundamentals<a class="headerlink" href="#nanover-fundamentals" title="Link to this heading"></a></h1>
-<nav class="contents local" id="contents">
-<p class="topic-title">Contents</p>
-<ul class="simple">
-<li><p><a class="reference internal" href="#jupyter-notebook-tutorials" id="id3">Jupyter notebook tutorials</a></p></li>
-<li><p><a class="reference internal" href="#running-a-server" id="id4">Running a server</a></p>
-<ul>
-<li><p><a class="reference internal" href="#id1" id="id5">Nanover Protocol</a></p></li>
-<li><p><a class="reference internal" href="#the-rust-server" id="id6">The Rust Server</a></p></li>
-</ul>
-</li>
-</ul>
-</nav>
-<section id="jupyter-notebook-tutorials">
-<h2><a class="toc-backref" href="#id3" role="doc-backlink">Jupyter notebook tutorials</a><a class="headerlink" href="#jupyter-notebook-tutorials" title="Link to this heading"></a></h2>
 <p>We provide a set of Jupyter notebook tutorials that introduce NanoVer as a framework for performing interactive
 molecular dynamics simulations, and the fundamental concepts associated with the client-server
 architecture that NanoVer uses. These tutorials can be used in conjunction with the
@@ -132,9 +111,6 @@ information in <a class="reference internal" href="../concepts/concepts.html#con
 <a class="reference external" href="https://github.com/IRL2/nanover-protocol/tree/main/examples/fundamentals">examples</a> folder of the GitHub repository.</p>
 <p>Here we give a summary of each tutorial:</p>
 <ul class="simple">
-<li><p><cite>getting_started</cite>: <strong>New to NanoVer? Start here!</strong> An introductory notebook that showcases how
-NanoVer can be used to run an interactive molecular dynamics (iMD) simulation for a
-pre-prepared methane &amp; nanotube system.</p></li>
 <li><p><cite>frame</cite>: A notebook that introduces the concept of the <strong>frame</strong>, the object sent by
 the NanoVer server to the client that contains data associated with the molecular system.</p></li>
 <li><p><cite>servers</cite>: A notebook that introduces the concept of the <strong>NanoVer server</strong>, and
@@ -146,151 +122,12 @@ how NanoVer achieves synchronised multi-user interactive molecular simulations v
 interactive molecular simulation within the NanoVer iMD VR client.</p></li>
 </ul>
 </section>
-<section id="running-a-server">
-<h2><a class="toc-backref" href="#id4" role="doc-backlink">Running a server</a><a class="headerlink" href="#running-a-server" title="Link to this heading"></a></h2>
-<p>There are two NanoVer servers available:</p>
-<ul class="simple">
-<li><p><strong>The primary NanoVer server</strong>, found in the <a class="reference external" href="https://github.com/IRL2/nanover-protocol">nanover-protocol</a> git repo.
-This server is written in python and is the go-to server for NanoVer users.</p></li>
-<li><p>The Rust Server, found in the <a class="reference external" href="https://github.com/IRL2/nanover-rs">nanover-rs</a> git repo, and is written
-in Rust. We include brief instructions for using this server on this page, but we recommend using the Python Server.</p></li>
-</ul>
-<section id="id1">
-<h3><a class="toc-backref" href="#id5" role="doc-backlink">Nanover Protocol</a><a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
-<p>The NanoVer protocol package can be installed using conda (see <a class="reference internal" href="../installation.html#user-installation-guide"><span class="std std-ref">User Installation Guide</span></a>) or using the source code
-(see <a class="reference internal" href="../installation.html#developer-installation-guide"><span class="std std-ref">Developer Installation Guide</span></a>). Once installed, you can run a NanoVer server using either
-(a) a python script or Jupyter notebook
-or (b) the command line.</p>
-<section id="via-a-python-script-or-notebook">
-<h4>via a python script or notebook<a class="headerlink" href="#via-a-python-script-or-notebook" title="Link to this heading"></a></h4>
-<p>For running a NanoVer server using a python script or Jupyter notebook, please see our <a class="reference internal" href="tutorials.html#tutorials"><span class="std std-ref">Tutorials</span></a> page.
-If you are new to NanoVer, we recommend starting with our
-<a class="reference external" href="https://github.com/IRL2/nanover-protocol/blob/main/examples/fundamentals/getting_started.ipynb">getting_started notebook</a>.</p>
-</section>
-<section id="via-the-command-line">
-<h4>via the command line<a class="headerlink" href="#via-the-command-line" title="Link to this heading"></a></h4>
-<p>Once you have the <code class="docutils literal notranslate"><span class="pre">nanover-server</span></code> package installed in your conda environment, you will be able to use the
-<code class="docutils literal notranslate"><span class="pre">nanover-omni</span></code> command to run a server.
-This server can take any of the following:</p>
-<ul class="simple">
-<li><p>An OpenMM NanoVer simulation</p></li>
-<li><p>An OpenMM NanoVer simulation with ASE as an interface</p></li>
-<li><p>A NanoVer recording, with either or both of the trajectory and shared state recording files</p></li>
-</ul>
-<p>Note that you can give the simulations/recordings either explicitly as a string
-or simply by typing the file path.
-Here are some example commands:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># load a single NanoVer OpenMM simulation</span>
-nanover-omni<span class="w"> </span>--omm<span class="w"> </span><span class="s2">&quot;my-openmm-sim.xml&quot;</span>
-
-<span class="c1"># load multiple simulations</span>
-nanover-omni<span class="w"> </span>--omm<span class="w"> </span><span class="s2">&quot;my-openmm-sim-1.xml&quot;</span><span class="w"> </span><span class="s2">&quot;my-openmm-sim-2.xml&quot;</span><span class="w"> </span>--omm-ase<span class="w"> </span><span class="s2">&quot;my-ase-omm-sim.xml&quot;</span>
-
-<span class="c1"># load a NanoVer recording</span>
-nanover-omni<span class="w"> </span>--playback<span class="w"> </span><span class="s2">&quot;my-recording.state&quot;</span><span class="w"> </span><span class="s2">&quot;my-recording.traj&quot;</span>
-</pre></div>
-</div>
-<p>For more information about the arguments provided with this command, type:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nanover-omni<span class="w"> </span>--help
-</pre></div>
-</div>
-</section>
-</section>
-<section id="the-rust-server">
-<h3><a class="toc-backref" href="#id6" role="doc-backlink">The Rust Server</a><a class="headerlink" href="#the-rust-server" title="Link to this heading"></a></h3>
-<p>The Rust Server is compiled into an executable (or equivalent, depending on your operating system), rather than being
-installed on your computer. For this, you have two options:</p>
-<ul class="simple">
-<li><p>Download the <a class="reference external" href="https://github.com/IRL2/nanover-rs/releases">latest release</a> from the git repo, ensuring you choose
-the correct option for your operating system.</p></li>
-<li><p>Compile it yourself using the source code by following the instructions in the
-<a class="reference external" href="https://github.com/IRL2/nanover-rs">README</a>.</p></li>
-</ul>
-<p>This program can run OpenMM NanoVer simulations and NanoVer recordings (but not simulations that use ASE as
-an interface) and has many features, including:</p>
-<ul class="simple">
-<li><p>Recording NanoVer sessions</p></li>
-<li><p>Loading multiple simulations and/or recordings onto a single server, and switching between them while the
-server is running</p></li>
-<li><p>A graphical user interface (GUI), useful for new users to familiarise themselves quickly and easily with the various
-options offered by NanoVer</p></li>
-</ul>
-<p>To <strong>run the server</strong>, first, navigate to the build directory:</p>
-<ul class="simple">
-<li><p>If you have downloaded the latest release, extract the files from the zip folder and navigate to the build directory:
-this directory will be named <code class="docutils literal notranslate"><span class="pre">{operating_sys}-build</span></code> (e.g. <code class="docutils literal notranslate"><span class="pre">windows-build</span></code>).</p></li>
-<li><p>If instead you have compiled from source, navigate to the build directory (e.g. <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">{path_to_repo}/target/release</span></code>
-on MacOS).</p></li>
-</ul>
-<p>Here you are provided with two executables for running a server:</p>
-<ul class="simple">
-<li><p>An executable for running via the command line (e.g. <code class="docutils literal notranslate"><span class="pre">nanover-cli.exe</span></code> on Windows)</p></li>
-<li><p>An executable for running via the GUI (e.g. <code class="docutils literal notranslate"><span class="pre">nanover-gui.exe</span></code> on Windows)</p></li>
-</ul>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>On MacOS, the first time you run either <code class="docutils literal notranslate"><span class="pre">nanover-cli</span></code> or <code class="docutils literal notranslate"><span class="pre">nanover-gui</span></code> from a downloaded release, it
-is necessary to open the executables manually by</p>
-<ol class="arabic simple">
-<li><p>Opening the build directory in Finder</p></li>
-<li><p>Right-clicking the executables and selecting <code class="docutils literal notranslate"><span class="pre">Open</span></code></p></li>
-<li><p>When prompted, click <code class="docutils literal notranslate"><span class="pre">Open</span></code></p></li>
-</ol>
-<p>The same needs to be done for the <code class="docutils literal notranslate"><span class="pre">libOpenMM</span></code> executables in the <code class="docutils literal notranslate"><span class="pre">lib</span></code> and <code class="docutils literal notranslate"><span class="pre">lib/plugins</span></code> directories.</p>
-</div>
-<section id="id2">
-<h4>via the command line<a class="headerlink" href="#id2" title="Link to this heading"></a></h4>
-<p>To run the server using the command line, run the executable as a command, passing it the path to
-your NanoVer simulation file, e.g.:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Windows Powershell</span>
-<span class="o">.</span>\<span class="n">nanover</span><span class="o">-</span><span class="n">cli</span><span class="o">.</span><span class="n">exe</span> <span class="s2">&quot;my-openmm-sim.xml&quot;</span>
-
-<span class="c1"># MacOS/Linux</span>
-<span class="o">./</span><span class="n">nanover</span><span class="o">-</span><span class="n">cli</span> <span class="s2">&quot;my-openmm-sim.xml&quot;</span>
-
-<span class="c1"># if you are not in the same directory as this executable, you will need to give the entire file path</span>
-<span class="c1"># e.g. for Windows Powershell</span>
-<span class="o">.</span>\<span class="n">path</span>\<span class="n">to</span>\<span class="n">build</span>\<span class="n">directory</span>\<span class="n">nanover</span><span class="o">-</span><span class="n">cli</span><span class="o">.</span><span class="n">exe</span> <span class="s2">&quot;my-openmm-sim.xml&quot;</span>
-</pre></div>
-</div>
-<p>The server can serve multiple simulations: just pass it multiple input files.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># load several simulations onto the server by passing multiple simulation files, e.g. Windows Powershell</span>
-<span class="o">.</span>\<span class="n">nanover</span><span class="o">-</span><span class="n">cli</span><span class="o">.</span><span class="n">exe</span> <span class="s2">&quot;my-openmm-sim-1.xml&quot;</span> <span class="s2">&quot;my-openmm-sim-2.xml&quot;</span>
-</pre></div>
-</div>
-<p id="command-line-help">For more information about the arguments provided with this command, type:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Windows Powershell</span>
-<span class="o">.</span>\<span class="n">nanover</span><span class="o">-</span><span class="n">cli</span><span class="o">.</span><span class="n">exe</span> <span class="o">--</span><span class="n">help</span>
-
-<span class="c1"># MacOS/Linux</span>
-<span class="o">./</span><span class="n">nanover</span><span class="o">-</span><span class="n">cli</span> <span class="o">--</span><span class="n">help</span>
-</pre></div>
-</div>
-</section>
-<section id="via-the-gui">
-<h4>via the GUI<a class="headerlink" href="#via-the-gui" title="Link to this heading"></a></h4>
-<p>To run the server via the GUI, open the <code class="docutils literal notranslate"><span class="pre">nanover-gui</span></code> executable (or run it via the command line e.g.
-<code class="docutils literal notranslate"><span class="pre">./nanover-gui</span></code> on MacOS) and you will see the following interface:</p>
-<a class="reference internal image-reference" href="../_images/nanover-rs-gui.png"><img alt="../_images/nanover-rs-gui.png" class="align-center" src="../_images/nanover-rs-gui.png" style="width: 391.5px; height: 313.5px;" /></a>
-<div class="line-block">
-<div class="line"><br /></div>
-</div>
-<p>Simply click <code class="docutils literal notranslate"><span class="pre">Run</span> <span class="pre">demonstration</span> <span class="pre">input!</span></code> to run a demo simulation. Alternatively, click <code class="docutils literal notranslate"><span class="pre">+OpenMM</span></code> and select your
-own OpenMM NanoVer simulation file, then click <code class="docutils literal notranslate"><span class="pre">Run!</span></code> to start the server. You can also add NanoVer recordings by
-clicking <code class="docutils literal notranslate"><span class="pre">+Recording</span></code> and selecting your trajectory (.traj) and shared state (.state) files.</p>
-<p>Please click on the headings to open up menus to customise your server further: <code class="docutils literal notranslate"><span class="pre">Verbosity</span></code>, <code class="docutils literal notranslate"><span class="pre">Network</span></code>,
-<code class="docutils literal notranslate"><span class="pre">Simulation</span></code>, and <code class="docutils literal notranslate"><span class="pre">Recording</span></code>.
-For further information about these options, use the <a class="reference internal" href="#command-line-help"><span class="std std-ref">help function</span></a> in the command line.</p>
-</section>
-</section>
-</section>
-</section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="tutorials.html" class="btn btn-neutral float-left" title="Tutorials" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="basics.html" class="btn btn-neutral float-left" title="NanoVer Basics" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="openmm.html" class="btn btn-neutral float-right" title="OpenMM" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
