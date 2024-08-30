@@ -65,9 +65,12 @@
 <li class="toctree-l2"><a class="reference internal" href="frames.html">Trajectories and Frames</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Recording data</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#what-is-recorded">What is recorded</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#how-to-record">How to record</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#visualise-recordings">Visualise recordings</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#read-recordings-using-python">Read recordings using python</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#recording-with-the-rust-server">Recording with the Rust Server</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#how-to-record">How to record</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#how-to-visualise-recordings">How to visualise recordings</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#reading-recordings-using-python">Reading recordings using python</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#recording-format">Recording format</a></li>
 </ul>
 </li>
@@ -106,33 +109,81 @@
              
   <section id="recording-data">
 <h1>Recording data<a class="headerlink" href="#recording-data" title="Link to this heading"></a></h1>
-<p>For a NanoVer session to be usefull beyond the time the users spend in VR, it needs to be recorded. This recorded can then be analysed or played back to get insight.</p>
+<p>For a NanoVer session to be useful beyond the time the users spend in VR, it needs to be recorded.
+This recording can then be analysed or played back to get insight.</p>
+<nav class="contents local" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#what-is-recorded" id="id3">What is recorded</a></p></li>
+<li><p><a class="reference internal" href="#recording-with-the-rust-server" id="id4">Recording with the Rust Server</a></p>
+<ul>
+<li><p><a class="reference internal" href="#how-to-record" id="id5">How to record</a></p></li>
+<li><p><a class="reference internal" href="#how-to-visualise-recordings" id="id6">How to visualise recordings</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#reading-recordings-using-python" id="id7">Reading recordings using python</a></p></li>
+<li><p><a class="reference internal" href="#recording-format" id="id8">Recording format</a></p></li>
+</ul>
+</nav>
 <section id="what-is-recorded">
-<h2>What is recorded<a class="headerlink" href="#what-is-recorded" title="Link to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">What is recorded</a><a class="headerlink" href="#what-is-recorded" title="Link to this heading"></a></h2>
 <p>NanoVer can record two different streams:</p>
 <ul class="simple">
 <li><p>the stream of simulation frame,</p></li>
 <li><p>and the stream of updates of the shared state.</p></li>
 </ul>
-<p>These two streams are the ones sent to the clients but they are supplemented with a timestamp that allows to synchronise the streams. Each stream is stored in a separate file.</p>
+<p>These two streams are identical to the streams sent to the clients during the live recording,
+with the addition of a timestamp that allows synchronisation of the streams during playback.
+Each stream is stored in a separate file.</p>
+<p>By convention, recordings of the frame stream have the <code class="docutils literal notranslate"><span class="pre">.traj</span></code> file extension,
+while recordings of the shared state stream  have the <code class="docutils literal notranslate"><span class="pre">.state</span></code> file extension.</p>
 </section>
+<section id="recording-with-the-rust-server">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Recording with the Rust Server</a><a class="headerlink" href="#recording-with-the-rust-server" title="Link to this heading"></a></h2>
 <section id="how-to-record">
-<h2>How to record<a class="headerlink" href="#how-to-record" title="Link to this heading"></a></h2>
-<p>Recording is done by the <a class="reference external" href="https://github.com/IRL2/nanover-rs">Rust server</a>. The server takes a snapshot of the streams 30 times a second (though, this may change with <a class="reference external" href="https://github.com/IRL2/nanover-rs/issues/200">issue #200</a> and issue <a class="reference external" href="https://github.com/IRL2/nanover-rs/issues/201">#201</a>).</p>
-<p>When using the <cite>nanover-cli</cite> command line, use the <cite>–trajectory</cite> argument to specify the file that will store the recording of the frame stream, and the <cite>–state</cite> argument to specify the file that will store the recording of the state updates. On the graphical interface, the files are specified in the “Recording” section before starting the server.</p>
-<p>By convention, recordings of the frame stream end with the <cite>.traj</cite> file extension, while recordings of the shared state stream end with the <cite>.state</cite> file extension.</p>
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">How to record</a><a class="headerlink" href="#how-to-record" title="Link to this heading"></a></h3>
+<p>The Rust Server takes a snapshot of the streams 30 times a second (although this may change with
+issues <a class="reference external" href="https://github.com/IRL2/nanover-rs/issues/200">#200</a> and
+<a class="reference external" href="https://github.com/IRL2/nanover-rs/issues/201">#201</a>).</p>
+<p>When using the <code class="docutils literal notranslate"><span class="pre">nanover-cli</span></code> command via the command line, use the <code class="docutils literal notranslate"><span class="pre">--trajectory</span></code> argument to specify the file that
+will store the recording of the frame stream, and the <code class="docutils literal notranslate"><span class="pre">--state</span></code> argument to specify the file that will store
+the recording of the shared state updates.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># For Windows Powershell</span>
+<span class="o">.</span>\<span class="n">nanover</span><span class="o">-</span><span class="n">cli</span><span class="o">.</span><span class="n">exe</span> <span class="s2">&quot;simulation.xml&quot;</span> <span class="o">--</span><span class="n">trajectory</span> <span class="s2">&quot;my-trajectory.traj&quot;</span> <span class="o">--</span><span class="n">state</span> <span class="s2">&quot;my-state.state&quot;</span>
+</pre></div>
+</div>
+<p>On the graphical interface, the files are specified in the <code class="docutils literal notranslate"><span class="pre">Recording</span></code> section before starting the server
+(see <a class="reference internal" href="../tutorials/basics.html#rust-server-via-the-gui"><span class="std std-ref">via the GUI</span></a>).</p>
 </section>
-<section id="visualise-recordings">
-<h2>Visualise recordings<a class="headerlink" href="#visualise-recordings" title="Link to this heading"></a></h2>
-<p>Recordings can be visualised using the <a class="reference external" href="https://github.com/IRL2/nanover-rs">Rust server</a>. The server will send the recorded streams to the client that will be able to show it as if they were a live streams.</p>
-<p>Using the the command line, providing a file with the <cite>.traj</cite> file extension will stream that frame stream only, providing a file with the <cite>.state</cite> extension will stream the state updates only. In order to send both streams together, provide the two file paths separated by a column, for instance: <code class="docutils literal notranslate"><span class="pre">my-trajectory.traj:my-state.state</span></code>.</p>
-<p>Using the graphical interface, add a recording to the list of simulations using the “+ Recording” button, then choose the files.</p>
-<p>The server sends the frames and the state updates and tries to respect the timing dictated by the timestamps stored in the file.</p>
+<section id="how-to-visualise-recordings">
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">How to visualise recordings</a><a class="headerlink" href="#how-to-visualise-recordings" title="Link to this heading"></a></h3>
+<p>The Rust Server can stream recorded NanoVer streams to a client. The client then plays back the recording as if it were
+a live stream.
+The server sends the frames and state updates whilst trying to respect the timing dictated by the timestamps stored
+in the file.</p>
+<p><strong>Using the the command line</strong>, providing only a <code class="docutils literal notranslate"><span class="pre">.traj</span></code> file will stream the frames only,
+and providing only a <code class="docutils literal notranslate"><span class="pre">.state</span></code> file will stream the state updates only.
+In order to send both streams together, provide the two file paths separated by a colon:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># For Windows Powershell</span>
+<span class="o">.</span>\<span class="n">nanover</span><span class="o">-</span><span class="n">cli</span><span class="o">.</span><span class="n">exe</span> <span class="s2">&quot;my-trajectory.traj:my-state.state&quot;</span>
+</pre></div>
+</div>
+<p><strong>Using the graphical interface</strong>, add a recording to the list of simulations using the <code class="docutils literal notranslate"><span class="pre">+</span> <span class="pre">Recording</span></code> button,
+then choose the files.</p>
 </section>
-<section id="read-recordings-using-python">
-<h2>Read recordings using python<a class="headerlink" href="#read-recordings-using-python" title="Link to this heading"></a></h2>
+</section>
+<section id="reading-recordings-using-python">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">Reading recordings using python</a><a class="headerlink" href="#reading-recordings-using-python" title="Link to this heading"></a></h2>
 <p>Recordings can be read and manipulated using the NanoVer python library.</p>
-<p>The <a class="reference internal" href="../python/nanover.mdanalysis.html#module-nanover.mdanalysis" title="nanover.mdanalysis"><code class="xref py py-mod docutils literal notranslate"><span class="pre">nanover.mdanalysis</span></code></a> module allows to read a trajectory recording as an <a class="reference external" href="https://userguide.mdanalysis.org/stable/universe.html#universe">MDAnalysis Universe</a>. As MDAnalysis does not support time-dependant topologies, only frames that correspond to the first topology in the recording are read as partof the Universe. If the topology changes throughout the recording, for instance because another simulation was loaded, the library issues a warning and the frames with the new topology are ignored.</p>
+<p>The <a class="reference internal" href="../python/nanover.mdanalysis.html#module-nanover.mdanalysis" title="nanover.mdanalysis"><code class="xref py py-mod docutils literal notranslate"><span class="pre">nanover.mdanalysis</span></code></a> module allows to read a trajectory recording as an
+<a class="reference external" href="https://userguide.mdanalysis.org/stable/universe.html#universe">MDAnalysis Universe</a>.
+As MDAnalysis does not support time-dependant topologies, only frames that correspond to the first topology in the
+recording are read as part of the Universe.
+If the topology changes throughout the recording, for instance because another simulation was loaded,
+the library issues a warning and the frames with the new topology are ignored.</p>
+<p>See the example code below, or check out the
+<a class="reference external" href="https://github.com/IRL2/nanover-protocol/blob/main/examples/mdanalysis/mdanalysis_nanover_recording.ipynb">mdanalysis_nanover_recording</a>
+jupyter notebook tutorial for further information.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">MDAnalysis</span> <span class="k">as</span> <span class="nn">mda</span>
 <span class="kn">from</span> <span class="nn">nanover.mdanalysis</span> <span class="kn">import</span> <span class="n">NanoverParser</span><span class="p">,</span> <span class="n">NanoverReader</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -168,23 +219,36 @@
 <span class="n">axis</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Energy (kJ/mol)&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Lower level methods are available in <code class="xref py py-mod docutils literal notranslate"><span class="pre">nanover.mdanalysis.recordings</span></code> to read the content of the files directly. This module is used in the <a class="reference external" href="https://github.com/IRL2/state-utils">state-utils</a> utility that allows to read shared state recordings in a python script or with the command line.</p>
+<p>Lower level methods are available in <code class="xref py py-mod docutils literal notranslate"><span class="pre">nanover.mdanalysis.recordings</span></code> to read the content of the files directly.
+This module is used in the <a class="reference external" href="https://github.com/IRL2/nanover-utils">state-utils</a> utility that allows to read shared
+state recordings in a python script or with the command line.</p>
 </section>
 <section id="recording-format">
-<h2>Recording format<a class="headerlink" href="#recording-format" title="Link to this heading"></a></h2>
-<p>The current version of the file format is version 2. A file contains a header and a sequence of records.</p>
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">Recording format</a><a class="headerlink" href="#recording-format" title="Link to this heading"></a></h2>
+<p>The current version of the file format is version 2.
+Each recording file contains a header and a sequence of records.</p>
 <p>The header contains two fields, stored as little endian 8 bytes unsigned integers:</p>
 <ul class="simple">
-<li><p>a magic number, its value is 6661355757386708963. This value was chosen arbitrarily and needs to be the first 8 bytes of the file to indicate it is indeed a NanoVer recording. A file without this magic number is not a NanoVer recording, however one need to keep in mind that a file that starts with that value could still not be a valid recording and should handle errors accordingly.</p></li>
-<li><p>the version of the file format. This version number dictates how the rest of the file will be written or parsed. Any change to the file format needs to increment this file format version The current version is 2.</p></li>
+<li><p><strong>a magic number, its value is 6661355757386708963</strong>. This value was chosen arbitrarily and needs to be the first
+8 bytes of the file to indicate it is indeed a NanoVer recording. A file without this magic number is not a NanoVer
+recording, however one should keep in mind that a file that starts with that value could still not be a valid
+recording and should handle errors accordingly.</p></li>
+<li><p><strong>the version of the file format</strong>. This version number dictates how the rest of the file will be written or parsed.
+Any change to the file format needs to increment this file format version. The current version is 2.</p></li>
 </ul>
 <p>A record contains:</p>
 <ul class="simple">
-<li><p>a timestamp encoded as a little endian 16 bytes unsigned integer that indicates the time, in microseconds, since the beginning of the recording. This timestamp indicates the timing of the records and allows to synchronise a trajectory and a state recordings.</p></li>
+<li><p>a timestamp encoded as a little endian 16 bytes unsigned integer that indicates the time, in microseconds,
+since the beginning of the recording.
+This timestamp indicates the timing of the records and allows synchronisation of a trajectory and a state recording.</p></li>
 <li><p>the size, in bytes, of the record; encoded as an 8 bytes little endian unsigned integer.</p></li>
 <li><p>the record itself as a protobuf message.</p></li>
 </ul>
-<p>In the case of a trajectory recording, each record contains a <cite>GetFrameResponse</cite> message. This message contains two fields: the frame index and the frame itself. The frame index is generally an integer that gets incremnted each time the server register a frame to broadcast. However, its value is only sognificant when it is 0 as it means the frame needs to be reset; for instance because the server loaded a new simulation. The frame is a <a class="reference internal" href="frames.html#traj-and-frames"><span class="std std-ref">FrameData</span></a>.</p>
+<p>In the case of a trajectory recording, each record contains a <code class="docutils literal notranslate"><span class="pre">GetFrameResponse</span></code> message.
+This message contains two fields: the frame index and the frame itself.
+The frame index is generally an integer that gets incremented each time the server register a frame to broadcast.
+However, its value is only significant when it is 0 as it means the frame needs to be reset;
+for instance because the server loaded a new simulation. The frame is a <a class="reference internal" href="frames.html#traj-and-frames"><span class="std std-ref">FrameData</span></a>.</p>
 <p>In the case of a shared state recording, each record contains a <a class="reference internal" href="base-protocol.html#state-updates"><span class="std std-ref">StateUpdate</span></a> message.</p>
 </section>
 </section>
