@@ -137,7 +137,7 @@ The header contains two fields, stored as little endian 8 bytes unsigned integer
 
 * **a magic number, its value is 6661355757386708963**. This value was chosen arbitrarily and needs to be the first
   8 bytes of the file to indicate it is indeed a NanoVer recording. A file without this magic number is not a NanoVer
-  recording, however one need to keep in mind that a file that starts with that value could still not be a valid
+  recording, however one should keep in mind that a file that starts with that value could still not be a valid
   recording and should handle errors accordingly.
 * **the version of the file format**. This version number dictates how the rest of the file will be written or parsed.
   Any change to the file format needs to increment this file format version. The current version is 2.
