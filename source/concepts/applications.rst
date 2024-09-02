@@ -84,7 +84,7 @@ components. Components are elements of the avatar with a position and a rotation
 .. warning::
 
    The avatar specifies its player ID twice: in the top level key and with the
-   ``playerid`` sub-key. Both places MUST match. A discrepency between the two
+   ``playerid`` sub-key. Both places MUST match. A discrepancy between the two
    is undefined behaviour. See `issue #98 in nanover-protocol
    <https://github.com/IRL2/nanover-protocol/issues/98>`_.
 
