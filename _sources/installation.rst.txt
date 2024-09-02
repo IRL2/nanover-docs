@@ -51,9 +51,17 @@ Installing the server
 
 If you have not already set up a NanoVer conda environment, please refer to :ref:`creating_conda_env`.
 
-#. Activate your NanoVer conda environment: ``conda activate nanover``
+#. Activate your NanoVer conda environment:
 
-#. Install the NanoVer packages: ``conda install -c irl -c conda-forge nanover-server``
+   .. code:: bash
+
+        conda activate nanover
+
+#. Install the NanoVer packages:
+
+   .. code:: bash
+
+        conda install -c irl -c conda-forge nanover-server
 
 For information on how to run NanoVer servers, check out the :ref:`tutorials <Tutorials>`.
 
@@ -149,11 +157,23 @@ Conda installation
 
 If you have not already set up a NanoVer conda environment, please refer to :ref:`creating_conda_env`.
 
-#. Activate your NanoVer conda environment: ``conda activate nanover``
+#. Activate your NanoVer conda environment:
 
-#. Install the NanoVer iMD package: ``conda install -c irl nanover-imd``
+   .. code:: bash
 
-#. To start the program, run the command ``NanoverImd``
+        conda activate nanover
+
+#. Install the NanoVer iMD package:
+
+   .. code:: bash
+
+        conda install -c irl nanover-imd
+
+#. To start the program, run the command:
+
+   .. code:: bash
+
+        NanoveriMD
 
 ----
 
