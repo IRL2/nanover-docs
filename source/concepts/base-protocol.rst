@@ -10,7 +10,7 @@ The NanoVer protocol
 General architecture
 --------------------
 
-NanoVer provides 3 services: the state service, the trajectory service,
+NanoVer provides three services: the state service, the trajectory service,
 and the command service. While none of these services are strictly
 mandatory, some features expect two or three services to cooperate.
 
