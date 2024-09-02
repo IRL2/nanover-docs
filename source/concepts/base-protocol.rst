@@ -187,18 +187,18 @@ State locks
 
 Multiple clients may update the same key. If they do so close enough in time,
 other clients will receive a different assortment of these updates which can
-appear as visual or logical glitch. In practice, if clients display an object
+appear as visual or logical glitches. In practice, if clients display an object
 with its location bound to a shared state key, and if multiple clients try to
-move that object, it may appear as jumping between different locations as
+move that object, it may appear to jump between different locations as
 clients receive conflicting locations. To avoid such situations, clients have
 the ability to request a lock on a key or set of keys.
 
 A lock applies to a key in the shared state. It has an access token, and a
 duration in seconds during which it is valid. The access token is an arbitrary
 string, chosen by the client, that associates the client with its locks. The
-client sends this key alongside its requests to update shared state, and the update
-only succeeds if all the keys in the request have no valid locks on them or if
-the locks are associated with the same access token as in the update request.
+client sends this key alongside its requests to update the shared state, and the
+update only succeeds if all the keys in the request have no valid locks on them
+or if the locks are associated with the same access token as in the update request.
 
 A client can create, renew, or remove locks. To do so, it needs to call the
 ``UpdateLocks`` method with an ``UpdateLocksRequest``. The request contains the
@@ -209,7 +209,7 @@ duration in seconds or a `Null value
 <https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.NullValue>`_
 as value. If the value is a duration, then the lock is created or renewed with
 the requested validity duration. If the value is null, then the lock is deleted.
-A lock can only be updated if: it does not yet exist, or if it exists but is
+A lock can only be updated if: it does not yet exist, or if it exists but has
 expired, or if it is held by the same access token as the request. Each update
 can be about one or multiple locks; a request only succeeds if all the locks can
 be updated. If any of the locks cannot be updated, then none of the locks are
