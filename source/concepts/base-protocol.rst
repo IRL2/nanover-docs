@@ -30,7 +30,7 @@ requested frame rate.
 The *command service* lets client run functions on the server. For example,
 this service is used to pause or reset a molecular simulation.
 
-The services can be all served from different addresses and/or a
+The services can all be served from different addresses and/or a
 different ports, however, they are commonly served together from the same
 address and port. The default port is 38801.
 
