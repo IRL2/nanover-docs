@@ -4,7 +4,8 @@ The NanoVer protocol
 ====================
 
 .. contents:: Contents
-    :depth: 3
+    :depth: 2
+    :local:
 
 
 General architecture
