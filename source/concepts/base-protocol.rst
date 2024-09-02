@@ -258,7 +258,7 @@ Frame description
 
 .. code:: protobuf
 
-    /* A general structure to represent a frame of a trajectory. It is similar in structure to the Google Struct message, representing dynamically typed objects and lists. However, as frame's often consist of large arrays of data of the same type, a set of arrays are also provided as specified in nanover/protocol/array.proto */
+    /* A general structure to represent a frame of a trajectory. It is similar in structure to the Google Struct message, representing dynamically typed objects and lists. However, as frames often consist of large arrays of data of the same type, a set of arrays are also provided as specified in nanover/protocol/array.proto */
     message FrameData {
 
       /* A standard key-value list of dynamically typed data */
@@ -330,8 +330,8 @@ being merged:
     * values:                * values:            * values:
       - key0: A                - key1: B            - key0: A
       - key1: A        +       - key4: B     =      - key1: B
-    * fields:                * fields:              - key4: B
-      - key2: A                - key2: B          * fields:
+    * arrays:                * arrays:              - key4: B
+      - key2: A                - key2: B          * arrays:
       - key3: A                                     - key2: B
                                                     - key3: A
 
