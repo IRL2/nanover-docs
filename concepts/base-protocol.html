@@ -121,33 +121,61 @@
              
   <section id="the-nanover-protocol">
 <span id="base-protocol"></span><h1>The NanoVer protocol<a class="headerlink" href="#the-nanover-protocol" title="Link to this heading"></a></h1>
+<nav class="contents local" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#general-architecture" id="id4">General architecture</a></p></li>
+<li><p><a class="reference internal" href="#the-state-service" id="id5">The state service</a></p>
+<ul>
+<li><p><a class="reference internal" href="#state-and-state-updates" id="id6">State and state updates</a></p></li>
+<li><p><a class="reference internal" href="#subscribing-to-state-updates" id="id7">Subscribing to state updates</a></p></li>
+<li><p><a class="reference internal" href="#updating-the-state" id="id8">Updating the state</a></p></li>
+<li><p><a class="reference internal" href="#state-locks" id="id9">State locks</a></p></li>
+<li><p><a class="reference internal" href="#security-issues" id="id10">Security issues</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#the-trajectory-service" id="id11">The trajectory service</a></p>
+<ul>
+<li><p><a class="reference internal" href="#frame-description" id="id12">Frame description</a></p></li>
+<li><p><a class="reference internal" href="#subscribing-to-the-latest-frames" id="id13">Subscribing to the latest frames</a></p></li>
+<li><p><a class="reference internal" href="#subscribing-to-all-frames" id="id14">Subscribing to all frames</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#the-command-service" id="id15">The command service</a></p>
+<ul>
+<li><p><a class="reference internal" href="#listing-available-commands" id="id16">Listing available commands</a></p></li>
+<li><p><a class="reference internal" href="#running-commands" id="id17">Running commands</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
 <section id="general-architecture">
-<h2>General architecture<a class="headerlink" href="#general-architecture" title="Link to this heading"></a></h2>
-<p>NanoVer provides 3 services: the state service, the trajectory service,
-and the command service. While none of the service is strictly
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">General architecture</a><a class="headerlink" href="#general-architecture" title="Link to this heading"></a></h2>
+<p>NanoVer provides three services: the state service, the trajectory service,
+and the command service. While none of these services are strictly
 mandatory, some features expect two or three services to cooperate.</p>
 <p>The <em>state service</em> maintains a state that is shared between the server
 and one or more clients. The state is presented as a key-value store;
 users can subscribe to updates to the state, send updates themselves,
-and request exclusive write access to some keys. This service is used to
-share the position of the user’s avatars, to send user’s interactions
-with molecular systems, and to share the molecular representations. It
+and request exclusive write access to some keys. This service is used to:
+share the position of the users’ avatars, send users’ interactions
+with molecular systems, and share the molecular representations. It
 can be used to send any arbitrary data to the server and to the clients.</p>
 <p>The <em>trajectory service</em> allows the server to broadcast the state of a
 simulation to the clients. It sends frames to the clients at the
 requested frame rate.</p>
-<p>The <em>command service</em> lets client run functions on the server. This
-service is used to pause or reset a molecular simulation.</p>
-<p>The services can be all served from a different address and/or a
-different port. However, they are commonly served together from the same
+<p>The <em>command service</em> lets client run functions on the server. For example,
+this service is used to pause or reset a molecular simulation.</p>
+<p>The services can all be served from different addresses and/or a
+different ports, however, they are commonly served together from the same
 address and port. The default port is 38801.</p>
 </section>
 <section id="the-state-service">
-<span id="state-service"></span><h2>The state service<a class="headerlink" href="#the-state-service" title="Link to this heading"></a></h2>
+<span id="state-service"></span><h2><a class="toc-backref" href="#id5" role="doc-backlink">The state service</a><a class="headerlink" href="#the-state-service" title="Link to this heading"></a></h2>
 <p>The state service maintains a state that is shared between the server
 and the clients.</p>
 <section id="state-and-state-updates">
-<span id="state-updates"></span><h3>State and state updates<a class="headerlink" href="#state-and-state-updates" title="Link to this heading"></a></h3>
+<span id="state-updates"></span><h3><a class="toc-backref" href="#id6" role="doc-backlink">State and state updates</a><a class="headerlink" href="#state-and-state-updates" title="Link to this heading"></a></h3>
 <p>The state is thought of as a key-value store.</p>
 <p>Clients can subscribe to a stream of updates and need to maintain their
 own version of the full state.</p>
@@ -161,9 +189,9 @@ own version of the full state.</p>
 <p>The state update is presented as a protobuf
 <a class="reference external" href="https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Struct">Struct</a>.
 The keys in the update directly refer to the keys in the full state. The
-values in the update are the new values the state should contain. <a class="reference external" href="https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.NullValue">Null
+values in the update are the new values that the state should contain. <a class="reference external" href="https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.NullValue">Null
 values</a>
-are a special case; indeed they correspond to keys that should be
+are a special case, corresponding to keys that should be
 removed from the full state. Therefore, the full state cannot contain
 null values.</p>
 <p>A state update can contain nested values. In that case, the whole nested
@@ -172,7 +200,7 @@ a single value and the protocol does not offer ways of performing a
 partial update of such structures.</p>
 </section>
 <section id="subscribing-to-state-updates">
-<h3>Subscribing to state updates<a class="headerlink" href="#subscribing-to-state-updates" title="Link to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">Subscribing to state updates</a><a class="headerlink" href="#subscribing-to-state-updates" title="Link to this heading"></a></h3>
 <div class="highlight-protobuf notranslate"><div class="highlight"><pre><span></span><span class="kd">service</span><span class="w"> </span><span class="n">State</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="c1">// Periodically received aggregated updates from last known state to latest</span>
 <span class="w">    </span><span class="c1">// state of a shared key/value store.</span>
@@ -187,10 +215,10 @@ partial update of such structures.</p>
 </pre></div>
 </div>
 <p>Clients can subscribe to a stream of updates. The server sends the
-update at the requested rate waiting at least the requested
-<code class="docutils literal notranslate"><span class="pre">update_interval</span></code> in between two updates. The waiting time may be
+updates at the requested rate, waiting at least the requested
+<code class="docutils literal notranslate"><span class="pre">update_interval</span></code> between two updates. The waiting time may be
 longer, though, due to a variety of factors including a slow server or
-network delays. Therefore, a client should not assume the rate is either
+network delays. Therefore, a client should not assume that the rate is
 regular, or even respected. Still, it is important to request the
 longest update interval that is suitable for the needs in order to
 reduce the load on all the involved actors.</p>
@@ -202,7 +230,7 @@ undefined.</p>
 </div>
 </section>
 <section id="updating-the-state">
-<h3>Updating the state<a class="headerlink" href="#updating-the-state" title="Link to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">Updating the state</a><a class="headerlink" href="#updating-the-state" title="Link to this heading"></a></h3>
 <div class="highlight-protobuf notranslate"><div class="highlight"><pre><span></span><span class="kd">service</span><span class="w"> </span><span class="n">State</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="c1">// Attempt to make an update to the shared key/value store.</span>
 <span class="w">    </span><span class="k">rpc</span><span class="w"> </span><span class="n">UpdateState</span><span class="p">(</span><span class="n">UpdateStateRequest</span><span class="p">)</span><span class="w"> </span><span class="k">returns</span><span class="w"> </span><span class="p">(</span><span class="n">UpdateStateResponse</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
@@ -231,10 +259,10 @@ resolve locks that may be set on the keys in the update. The method returns a
 <code class="docutils literal notranslate"><span class="pre">UpdateStateResponse</span></code> containing a boolean that is true if the update
 succeeded.</p>
 <p>State updates are “atomic” operations. All the keys in an update are updated at
-once and they are either all successfully updated or none is updated. An update
+once and they are either all successfully updated or none are updated. An update
 can fail if one key is locked by another client. See the <a class="reference internal" href="#state-locks-description"><span class="std std-ref">State locks</span></a>
 section.</p>
-<p>When an update succeeds, the server incorporate the changes and broadcast them
+<p>When an update succeeds, the server incorporates the changes and broadcasts them
 to all subscribed clients. Clients may receive these updates aggregated with
 other updates depending on what updates were received by the server during the
 client’s subscription interval.</p>
@@ -247,7 +275,7 @@ scope of the protocol, but the server updates need to appear in the state update
 stream of the subscribed clients.</p>
 </section>
 <section id="state-locks">
-<span id="state-locks-description"></span><h3>State locks<a class="headerlink" href="#state-locks" title="Link to this heading"></a></h3>
+<span id="state-locks-description"></span><h3><a class="toc-backref" href="#id9" role="doc-backlink">State locks</a><a class="headerlink" href="#state-locks" title="Link to this heading"></a></h3>
 <div class="highlight-protobuf notranslate"><div class="highlight"><pre><span></span><span class="kd">service</span><span class="w"> </span><span class="n">State</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="c1">// Attempt to acquire, renew, or release exclusive control of keys in the</span>
 <span class="w">    </span><span class="c1">// shared key/value store.</span>
@@ -272,17 +300,17 @@ stream of the subscribed clients.</p>
 </div>
 <p>Multiple clients may update the same key. If they do so close enough in time,
 other clients will receive a different assortment of these updates which can
-appear as visual or logical glitch. In practice, if clients display an object
+appear as visual or logical glitches. In practice, if clients display an object
 with its location bound to a shared state key, and if multiple clients try to
-move that object, it may appear as jumping between different locations as
+move that object, it may appear to jump between different locations as
 clients receive conflicting locations. To avoid such situations, clients have
-the ability to request a lock on a key or on a set of keys.</p>
+the ability to request a lock on a key or set of keys.</p>
 <p>A lock applies to a key in the shared state. It has an access token, and a
 duration in seconds during which it is valid. The access token is an arbitrary
-string, chosen by the client, that associate the client with its locks. The
-client sent this key alongside its requests to update shared state, the update
-only succeeds if all the keys in the request have no valid locks on them or if
-the locks are associated with the same access token as in the update request.</p>
+string, chosen by the client, that associates the client with its locks. The
+client sends this key alongside its requests to update the shared state, and the
+update only succeeds if all the keys in the request have no valid locks on them
+or if the locks are associated with the same access token as in the update request.</p>
 <p>A client can create, renew, or remove locks. To do so, it needs to call the
 <code class="docutils literal notranslate"><span class="pre">UpdateLocks</span></code> method with an <code class="docutils literal notranslate"><span class="pre">UpdateLocksRequest</span></code>. The request contains the
 access token and a <a class="reference external" href="https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Struct">Struct</a>.
@@ -290,8 +318,8 @@ with the state key associated with the lock to update as key, and either a
 duration in seconds or a <a class="reference external" href="https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.NullValue">Null value</a>
 as value. If the value is a duration, then the lock is created or renewed with
 the requested validity duration. If the value is null, then the lock is deleted.
-A lock can only be updated if it does not yet exist, if it exists but is
-expired, or if it is hold by the same access token as the request. Each update
+A lock can only be updated if: it does not yet exist, or if it exists but has
+expired, or if it is held by the same access token as the request. Each update
 can be about one or multiple locks; a request only succeeds if all the locks can
 be updated. If any of the locks cannot be updated, then none of the locks are
 updated.</p>
@@ -303,18 +331,18 @@ that would apply to it.</p>
 </div>
 </section>
 <section id="security-issues">
-<h3>Security issues<a class="headerlink" href="#security-issues" title="Link to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id10" role="doc-backlink">Security issues</a><a class="headerlink" href="#security-issues" title="Link to this heading"></a></h3>
 <p>The way to handle updates larger than a gRPC packet is undefined.
 Servers may implement that case by shutting down, implementing solutions
 that lead to a stale state or a degraded experience. This makes the
 state service very susceptible to low effort denial of service attacks.</p>
-<p>For now, no server and no client implement any form of encryption.
+<p>For now, no server nor client implement any form of encryption.
 Therefore, the access tokens used to lock keys in the shared state
 should be considered publicly exposed.</p>
 </section>
 </section>
 <section id="the-trajectory-service">
-<span id="trajectory-service"></span><h2>The trajectory service<a class="headerlink" href="#the-trajectory-service" title="Link to this heading"></a></h2>
+<span id="trajectory-service"></span><h2><a class="toc-backref" href="#id11" role="doc-backlink">The trajectory service</a><a class="headerlink" href="#the-trajectory-service" title="Link to this heading"></a></h2>
 <p>A server can broadcast molecular systems using the trajectory service.
 Molecular systems can be running simulations, static structures, recorded
 trajectories, or any collection of particles regardless of how they are
@@ -322,14 +350,14 @@ produced. They are represented as a sequence of one or more frames where each
 frame represents a state of the molecular system.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The trajectory service is initially designed with molecular systems in mind,
+<p>The trajectory service was initially designed with molecular systems in mind,
 hence the wording in this documentation. However, while we established a set
-of conventions to represent such systems, the protocol is mot limited to
+of conventions to represent such systems, the protocol is not limited to
 them.</p>
 </div>
 <section id="frame-description">
-<span id="id2"></span><h3>Frame description<a class="headerlink" href="#frame-description" title="Link to this heading"></a></h3>
-<div class="highlight-protobuf notranslate"><div class="highlight"><pre><span></span><span class="cm">/* A general structure to represent a frame of a trajectory. It is similar in structure to the Google Struct message, representing dynamically typed objects and lists. However, as frame&#39;s often consist of large arrays of data of the same type, a set of arrays are also provided as specified in nanover/protocol/array.proto */</span>
+<span id="id2"></span><h3><a class="toc-backref" href="#id12" role="doc-backlink">Frame description</a><a class="headerlink" href="#frame-description" title="Link to this heading"></a></h3>
+<div class="highlight-protobuf notranslate"><div class="highlight"><pre><span></span><span class="cm">/* A general structure to represent a frame of a trajectory. It is similar in structure to the Google Struct message, representing dynamically typed objects and lists. However, as frames often consist of large arrays of data of the same type, a set of arrays are also provided as specified in nanover/protocol/array.proto */</span>
 <span class="kd">message</span><span class="w"> </span><span class="nc">FrameData</span><span class="w"> </span><span class="p">{</span>
 
 <span class="w">  </span><span class="cm">/* A standard key-value list of dynamically typed data */</span>
@@ -347,13 +375,13 @@ aggregate <code class="docutils literal notranslate"><span class="pre">FrameData
 of the system.</p>
 <p>A <code class="docutils literal notranslate"><span class="pre">FrameData</span></code> contains two fields: <code class="docutils literal notranslate"><span class="pre">values</span></code> and <code class="docutils literal notranslate"><span class="pre">arrays</span></code>. The <code class="docutils literal notranslate"><span class="pre">values</span></code>
 field is a key-value map with string keys and protobuf <a class="reference external" href="https://protobuf.dev/reference/protobuf/google.protobuf/#value">Value</a> as values.
-This map aims at storing simple data related to the frame: data consisting in a
-single number, boolean, or string. It can contain more complex data strictures
+This map aims at storing simple data related to the frame: data consisting of a
+single number, boolean, or string. This being said, it can contain more complex data structures
 such as heterogeneous lists or protobuf <a class="reference external" href="https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Struct">Struct</a>.
-Homogeneous arrays (<em>i.e.</em> arrays where all the values have the same type) can
+Homogeneous arrays (i.e. arrays where all the values have the same type) can
 be stored in the <code class="docutils literal notranslate"><span class="pre">arrays</span></code> field of the <code class="docutils literal notranslate"><span class="pre">FrameData</span></code> where keys are strings
-and values are <code class="docutils literal notranslate"><span class="pre">ValueArray</span></code> as described bellow. A <code class="docutils literal notranslate"><span class="pre">ValueArray</span></code> can contain
-an homogeneous array of either  floats (<code class="docutils literal notranslate"><span class="pre">FloatArray</span></code>), unsigned integer
+and values are <code class="docutils literal notranslate"><span class="pre">ValueArray</span></code> as described below. A <code class="docutils literal notranslate"><span class="pre">ValueArray</span></code> can contain
+a homogeneous array of either floats (<code class="docutils literal notranslate"><span class="pre">FloatArray</span></code>), unsigned integers
 (<code class="docutils literal notranslate"><span class="pre">IndexArray</span></code>), or strings (<code class="docutils literal notranslate"><span class="pre">StringArray</span></code>). The meaning of the keys in both
 fields of the <code class="docutils literal notranslate"><span class="pre">FrameData</span></code> depends on the application.</p>
 <div class="highlight-protobuf notranslate"><div class="highlight"><pre><span></span><span class="kd">message</span><span class="w"> </span><span class="nc">FloatArray</span><span class="w"> </span><span class="p">{</span>
@@ -379,12 +407,13 @@ fields of the <code class="docutils literal notranslate"><span class="pre">Frame
 </div>
 <p>While a <code class="docutils literal notranslate"><span class="pre">FrameData</span></code> can describe a full frame, it is mostly used to describe
 the changes in a frame compared to the previous ones. As such, it is expected
-that a program worging with these frame will merge them. A <code class="docutils literal notranslate"><span class="pre">FrameData</span></code>
+that a program working with these frames will merge them. A <code class="docutils literal notranslate"><span class="pre">FrameData</span></code>
 contains the key-value pairs to change for both the <code class="docutils literal notranslate"><span class="pre">values</span></code> and the
 <code class="docutils literal notranslate"><span class="pre">arrays</span></code> fields. In case of complex structures in <code class="docutils literal notranslate"><span class="pre">values</span></code>, the new
 <code class="docutils literal notranslate"><span class="pre">FrameData</span></code> needs to contain the full new value even if only part of it
-changed; samewise, it needs to contain the full array in <code class="docutils literal notranslate"><span class="pre">arrays</span></code> even if a
-single element of it changed. When merging, key value pairs from the new frame
+changed. Likewise for <code class="docutils literal notranslate"><span class="pre">arrays</span></code>, the new <code class="docutils literal notranslate"><span class="pre">FrameData</span></code>
+needs to contain the full array in <code class="docutils literal notranslate"><span class="pre">arrays</span></code> even if only a
+single element of it has changed. When merging, key-value pairs from the new frame
 replace those from the aggregated frame. Key-value pairs that are only in the
 new frame are added to the aggregated frame. Pairs that do not appear in the
 new frame remain untouched in the aggregated one. Here is an example of frames
@@ -393,8 +422,8 @@ being merged:</p>
   <span class="o">*</span> <span class="n">values</span><span class="p">:</span>                <span class="o">*</span> <span class="n">values</span><span class="p">:</span>            <span class="o">*</span> <span class="n">values</span><span class="p">:</span>
     <span class="o">-</span> <span class="n">key0</span><span class="p">:</span> <span class="n">A</span>                <span class="o">-</span> <span class="n">key1</span><span class="p">:</span> <span class="n">B</span>            <span class="o">-</span> <span class="n">key0</span><span class="p">:</span> <span class="n">A</span>
     <span class="o">-</span> <span class="n">key1</span><span class="p">:</span> <span class="n">A</span>        <span class="o">+</span>       <span class="o">-</span> <span class="n">key4</span><span class="p">:</span> <span class="n">B</span>     <span class="o">=</span>      <span class="o">-</span> <span class="n">key1</span><span class="p">:</span> <span class="n">B</span>
-  <span class="o">*</span> <span class="n">fields</span><span class="p">:</span>                <span class="o">*</span> <span class="n">fields</span><span class="p">:</span>              <span class="o">-</span> <span class="n">key4</span><span class="p">:</span> <span class="n">B</span>
-    <span class="o">-</span> <span class="n">key2</span><span class="p">:</span> <span class="n">A</span>                <span class="o">-</span> <span class="n">key2</span><span class="p">:</span> <span class="n">B</span>          <span class="o">*</span> <span class="n">fields</span><span class="p">:</span>
+  <span class="o">*</span> <span class="n">arrays</span><span class="p">:</span>                <span class="o">*</span> <span class="n">arrays</span><span class="p">:</span>              <span class="o">-</span> <span class="n">key4</span><span class="p">:</span> <span class="n">B</span>
+    <span class="o">-</span> <span class="n">key2</span><span class="p">:</span> <span class="n">A</span>                <span class="o">-</span> <span class="n">key2</span><span class="p">:</span> <span class="n">B</span>          <span class="o">*</span> <span class="n">arrays</span><span class="p">:</span>
     <span class="o">-</span> <span class="n">key3</span><span class="p">:</span> <span class="n">A</span>                                     <span class="o">-</span> <span class="n">key2</span><span class="p">:</span> <span class="n">B</span>
                                                   <span class="o">-</span> <span class="n">key3</span><span class="p">:</span> <span class="n">A</span>
 </pre></div>
@@ -415,14 +444,14 @@ being merged:</p>
 <p>A <code class="docutils literal notranslate"><span class="pre">GetFrameResponse</span></code> message contains a <code class="docutils literal notranslate"><span class="pre">FrameData</span></code> and a frame index. This
 index is an unsigned integer that is commonly incremented every time a new
 frame is created. The exact value of the index, however, is only meaningful
-when it is 0. When it is, it signals that the aggregated frame needs to be
+when it is 0. When it is 0, it signals that the aggregated frame needs to be
 reset. This can occur when the new frame originates from a completely different
 simulation, for instance. In this case, the aggregated frame and the new frame
 do not describe the same system and they should not be merged. Note that this
-is the only mechanism that allows to remove a key from the aggregated frame.</p>
+is the only mechanism that allows the removal of a key from the aggregated frame.</p>
 </section>
 <section id="subscribing-to-the-latest-frames">
-<h3>Subscribing to the latest frames<a class="headerlink" href="#subscribing-to-the-latest-frames" title="Link to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id13" role="doc-backlink">Subscribing to the latest frames</a><a class="headerlink" href="#subscribing-to-the-latest-frames" title="Link to this heading"></a></h3>
 <div class="highlight-protobuf notranslate"><div class="highlight"><pre><span></span><span class="cm">/* A service which provides access to frames of a trajectory, which may either be precomputed or represent a live simulation. It can also be used to obtain one or more frames on demand, allowing molecules or trajectories to be generated based on requests */</span>
 <span class="kd">service</span><span class="w"> </span><span class="n">TrajectoryService</span><span class="w"> </span><span class="p">{</span>
 
@@ -441,7 +470,7 @@ is the only mechanism that allows to remove a key from the aggregated frame.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>A client can subscribe to a stream of the frames broadcasted by the server
+<p>A client can subscribe to a stream of the frames broadcast by the server
 using the <code class="docutils literal notranslate"><span class="pre">SubscribeLatestFrames</span></code> method. When subscribing, the client sends
 a <code class="docutils literal notranslate"><span class="pre">GetFrameRequest</span></code> message with a time interval expressed in seconds. The
 server will try to send new frames as they are available and at most at this
@@ -450,19 +479,19 @@ send the aggregate of these frames. The frames are sent as <code class="docutils
 messages.</p>
 <p>When subscribing, a client may provide additional data as part of the
 <code class="docutils literal notranslate"><span class="pre">GetFrameRequest</span></code>. This aims at allowing some server-side filtering of the
-broadcasted frames. <strong>At this time, no server use this data.</strong></p>
+broadcast frames. <strong>At this time, no server uses this data.</strong></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>A client subscribed to this stream may miss some data. If more than one
 frame is generated by the server during the interval, then an aggregated
 frame is sent by the server. This can cause the client to miss data when one
-frame overwrite keys from the previous one. Client should expect to always
+frame overwrites keys from the previous one. Client should expect to always
 receive the latest state of the trajectory, but not to receive all the time
 points generated by the server.</p>
 </div>
 </section>
 <section id="subscribing-to-all-frames">
-<h3>Subscribing to all frames<a class="headerlink" href="#subscribing-to-all-frames" title="Link to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id14" role="doc-backlink">Subscribing to all frames</a><a class="headerlink" href="#subscribing-to-all-frames" title="Link to this heading"></a></h3>
 <div class="highlight-protobuf notranslate"><div class="highlight"><pre><span></span><span class="cm">/* A service which provides access to frames of a trajectory, which may either be precomputed or represent a live simulation. It can also be used to obtain one or more frames on demand, allowing molecules or trajectories to be generated based on requests */</span>
 <span class="kd">service</span><span class="w"> </span><span class="n">TrajectoryService</span><span class="w"> </span><span class="p">{</span>
 
@@ -471,32 +500,32 @@ points generated by the server.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p><strong>Optionally</strong>, a server may allow a client to subscribe to all the broadcasted
+<p><strong>Optionally</strong>, a server may allow a client to subscribe to all the broadcast
 frames using the <code class="docutils literal notranslate"><span class="pre">SubscribeFrames</span></code> method. In this case, the client sends a
 <code class="docutils literal notranslate"><span class="pre">GetFrameRequest</span></code> with a time interval and possibly extra data. The server
 will send frames as <code class="docutils literal notranslate"><span class="pre">GetFrameResponse</span></code> objects when they are available and at
 most at the requested interval. However, the frames will not be aggregated so
 the last frame received by the client may not be the last frame that was
 produced. A client subscribing to this stream will receive all the time points
-produced by the server, but may bag behind the current state of the simulation.</p>
-<p>This subscription method can be security risk and servers may choose to not
+produced by the server, but may lag behind the current state of the simulation.</p>
+<p>This subscription method can be a security risk and servers may choose to not
 implement it. Indeed, if a client subscribes to all the frames with a long
 interval, the server needs to record all the frames until they are sent to the
-client. This can cause an important disk and/or memory usage.</p>
+client. This can cause significant disk and/or memory usage.</p>
 </section>
 </section>
 <section id="the-command-service">
-<span id="command-service"></span><h2>The command service<a class="headerlink" href="#the-command-service" title="Link to this heading"></a></h2>
-<p>A server can expose functions that clients can call. Such function can take
-arguments and return values. The function itself should return shortly after
+<span id="command-service"></span><h2><a class="toc-backref" href="#id15" role="doc-backlink">The command service</a><a class="headerlink" href="#the-command-service" title="Link to this heading"></a></h2>
+<p>A server can expose functions that clients can call. Such functions can take
+arguments and return values. Each function itself should return shortly after
 being called.</p>
-<p>These functions are exposed through the command service. A client can use the
+<p>These functions are exposed through the command service. A client can use this
 service to list the commands that are available and to call commands.</p>
 <p>Each command has a name and a list of arguments. The name is an arbitrary
 string. By convention the name can be attached to a namespace by naming the
 command <code class="docutils literal notranslate"><span class="pre">namespace/command_name</span></code>.</p>
 <section id="listing-available-commands">
-<h3>Listing available commands<a class="headerlink" href="#listing-available-commands" title="Link to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id16" role="doc-backlink">Listing available commands</a><a class="headerlink" href="#listing-available-commands" title="Link to this heading"></a></h3>
 <div class="highlight-protobuf notranslate"><div class="highlight"><pre><span></span><span class="kd">service</span><span class="w"> </span><span class="n">Command</span><span class="w"> </span><span class="p">{</span>
 
 <span class="w">    </span><span class="cm">/* Get a list of all the commands available on this service */</span>
@@ -518,15 +547,15 @@ command <code class="docutils literal notranslate"><span class="pre">namespace/c
 </pre></div>
 </div>
 <p>A client can call the <code class="docutils literal notranslate"><span class="pre">GetCommands</span></code> method to list the commands exposed by
-the server. It needs to send a <code class="docutils literal notranslate"><span class="pre">GetCommandRequest</span></code> message, that is a message
-without content, and it receives a list of the commands. This list is wrapped
-in a <code class="docutils literal notranslate"><span class="pre">GetCommandsReply</span></code> under the <cite>commands`</cite> field. Each command is
+the server. It needs to send a <code class="docutils literal notranslate"><span class="pre">GetCommandRequest</span></code> message—that is a message
+without content—and it receives a list of the commands. This list is wrapped
+in a <code class="docutils literal notranslate"><span class="pre">GetCommandsReply</span></code> under the <code class="docutils literal notranslate"><span class="pre">commands</span></code> field. Each command is
 presented as a <code class="docutils literal notranslate"><span class="pre">CommandMessage</span></code> that contains the name of the command, and
-the list of arguments that the command accept alongside the default values for
+the list of arguments that the command accepts alongside the default values for
 these arguments.</p>
 </section>
 <section id="running-commands">
-<h3>Running commands<a class="headerlink" href="#running-commands" title="Link to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id17" role="doc-backlink">Running commands</a><a class="headerlink" href="#running-commands" title="Link to this heading"></a></h3>
 <div class="highlight-protobuf notranslate"><div class="highlight"><pre><span></span><span class="kd">service</span><span class="w"> </span><span class="n">Command</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="cm">/* Runs a command on the service */</span>
 <span class="w">    </span><span class="k">rpc</span><span class="w"> </span><span class="n">RunCommand</span><span class="w"> </span><span class="p">(</span><span class="n">CommandMessage</span><span class="p">)</span><span class="w"> </span><span class="k">returns</span><span class="w"> </span><span class="p">(</span><span class="n">CommandReply</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
@@ -548,14 +577,14 @@ invoke and a Struct of arguments to pass to the command. The server will use
 the default value for arguments that are missing from the <code class="docutils literal notranslate"><span class="pre">CommandMessage</span></code>.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">RunCommand</span></code> method returns a <code class="docutils literal notranslate"><span class="pre">CommandReply</span></code> that contains a Struct of
 the values returned by the server-side function.</p>
-<p>If the name of the command or one of the name of an argument is unknown to the
+<p>If the name of the command or one of the names of an argument is unknown to the
 server, the <code class="docutils literal notranslate"><span class="pre">RunCommand</span></code> method fails with a <code class="docutils literal notranslate"><span class="pre">INVALID_ARGUMENT</span></code> status
 code.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The protocol does not have an in-built way of handling errors during the
-execution of the command. It does not have an in-built way to handle long
-running command either.</p>
+execution of the command. It does not have an in-built way of handling
+long-running commands either.</p>
 </div>
 </section>
 </section>

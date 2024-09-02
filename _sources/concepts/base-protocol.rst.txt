@@ -3,30 +3,35 @@
 The NanoVer protocol
 ====================
 
+.. contents:: Contents
+    :depth: 2
+    :local:
+
+
 General architecture
 --------------------
 
-NanoVer provides 3 services: the state service, the trajectory service,
-and the command service. While none of the service is strictly
+NanoVer provides three services: the state service, the trajectory service,
+and the command service. While none of these services are strictly
 mandatory, some features expect two or three services to cooperate.
 
 The *state service* maintains a state that is shared between the server
 and one or more clients. The state is presented as a key-value store;
 users can subscribe to updates to the state, send updates themselves,
-and request exclusive write access to some keys. This service is used to
-share the position of the user’s avatars, to send user’s interactions
-with molecular systems, and to share the molecular representations. It
+and request exclusive write access to some keys. This service is used to:
+share the position of the users' avatars, send users' interactions
+with molecular systems, and share the molecular representations. It
 can be used to send any arbitrary data to the server and to the clients.
 
 The *trajectory service* allows the server to broadcast the state of a
 simulation to the clients. It sends frames to the clients at the
 requested frame rate.
 
-The *command service* lets client run functions on the server. This
-service is used to pause or reset a molecular simulation.
+The *command service* lets client run functions on the server. For example,
+this service is used to pause or reset a molecular simulation.
 
-The services can be all served from a different address and/or a
-different port. However, they are commonly served together from the same
+The services can all be served from different addresses and/or a
+different ports, however, they are commonly served together from the same
 address and port. The default port is 38801.
 
 .. _state-service:
@@ -58,9 +63,9 @@ own version of the full state.
 The state update is presented as a protobuf
 `Struct <https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Struct>`_.
 The keys in the update directly refer to the keys in the full state. The
-values in the update are the new values the state should contain. `Null
+values in the update are the new values that the state should contain. `Null
 values <https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.NullValue>`_
-are a special case; indeed they correspond to keys that should be
+are a special case, corresponding to keys that should be
 removed from the full state. Therefore, the full state cannot contain
 null values.
 
@@ -87,10 +92,10 @@ Subscribing to state updates
    }
 
 Clients can subscribe to a stream of updates. The server sends the
-update at the requested rate waiting at least the requested
-``update_interval`` in between two updates. The waiting time may be
+updates at the requested rate, waiting at least the requested
+``update_interval`` between two updates. The waiting time may be
 longer, though, due to a variety of factors including a slow server or
-network delays. Therefore, a client should not assume the rate is either
+network delays. Therefore, a client should not assume that the rate is
 regular, or even respected. Still, it is important to request the
 longest update interval that is suitable for the needs in order to
 reduce the load on all the involved actors.
@@ -134,12 +139,12 @@ resolve locks that may be set on the keys in the update. The method returns a
 succeeded.
 
 State updates are "atomic" operations. All the keys in an update are updated at
-once and they are either all successfully updated or none is updated. An update
+once and they are either all successfully updated or none are updated. An update
 can fail if one key is locked by another client. See the :ref:`State locks
 <state-locks-description>`
 section.
 
-When an update succeeds, the server incorporate the changes and broadcast them
+When an update succeeds, the server incorporates the changes and broadcasts them
 to all subscribed clients. Clients may receive these updates aggregated with
 other updates depending on what updates were received by the server during the
 client's subscription interval.
@@ -182,18 +187,18 @@ State locks
 
 Multiple clients may update the same key. If they do so close enough in time,
 other clients will receive a different assortment of these updates which can
-appear as visual or logical glitch. In practice, if clients display an object
+appear as visual or logical glitches. In practice, if clients display an object
 with its location bound to a shared state key, and if multiple clients try to
-move that object, it may appear as jumping between different locations as
+move that object, it may appear to jump between different locations as
 clients receive conflicting locations. To avoid such situations, clients have
-the ability to request a lock on a key or on a set of keys.
+the ability to request a lock on a key or set of keys.
 
 A lock applies to a key in the shared state. It has an access token, and a
 duration in seconds during which it is valid. The access token is an arbitrary
-string, chosen by the client, that associate the client with its locks. The
-client sent this key alongside its requests to update shared state, the update
-only succeeds if all the keys in the request have no valid locks on them or if
-the locks are associated with the same access token as in the update request.
+string, chosen by the client, that associates the client with its locks. The
+client sends this key alongside its requests to update the shared state, and the
+update only succeeds if all the keys in the request have no valid locks on them
+or if the locks are associated with the same access token as in the update request.
 
 A client can create, renew, or remove locks. To do so, it needs to call the
 ``UpdateLocks`` method with an ``UpdateLocksRequest``. The request contains the
@@ -204,8 +209,8 @@ duration in seconds or a `Null value
 <https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.NullValue>`_
 as value. If the value is a duration, then the lock is created or renewed with
 the requested validity duration. If the value is null, then the lock is deleted.
-A lock can only be updated if it does not yet exist, if it exists but is
-expired, or if it is hold by the same access token as the request. Each update
+A lock can only be updated if: it does not yet exist, or if it exists but has
+expired, or if it is held by the same access token as the request. Each update
 can be about one or multiple locks; a request only succeeds if all the locks can
 be updated. If any of the locks cannot be updated, then none of the locks are
 updated.
@@ -224,7 +229,7 @@ Servers may implement that case by shutting down, implementing solutions
 that lead to a stale state or a degraded experience. This makes the
 state service very susceptible to low effort denial of service attacks.
 
-For now, no server and no client implement any form of encryption.
+For now, no server nor client implement any form of encryption.
 Therefore, the access tokens used to lock keys in the shared state
 should be considered publicly exposed.
 
@@ -241,9 +246,9 @@ frame represents a state of the molecular system.
 
 .. note::
 
-   The trajectory service is initially designed with molecular systems in mind,
+   The trajectory service was initially designed with molecular systems in mind,
    hence the wording in this documentation. However, while we established a set
-   of conventions to represent such systems, the protocol is mot limited to
+   of conventions to represent such systems, the protocol is not limited to
    them.
 
 .. _frame-description:
@@ -253,7 +258,7 @@ Frame description
 
 .. code:: protobuf
 
-    /* A general structure to represent a frame of a trajectory. It is similar in structure to the Google Struct message, representing dynamically typed objects and lists. However, as frame's often consist of large arrays of data of the same type, a set of arrays are also provided as specified in nanover/protocol/array.proto */
+    /* A general structure to represent a frame of a trajectory. It is similar in structure to the Google Struct message, representing dynamically typed objects and lists. However, as frames often consist of large arrays of data of the same type, a set of arrays are also provided as specified in nanover/protocol/array.proto */
     message FrameData {
 
       /* A standard key-value list of dynamically typed data */
@@ -272,14 +277,14 @@ of the system.
 A ``FrameData`` contains two fields: ``values`` and ``arrays``. The ``values``
 field is a key-value map with string keys and protobuf `Value
 <https://protobuf.dev/reference/protobuf/google.protobuf/#value>`_ as values.
-This map aims at storing simple data related to the frame: data consisting in a
-single number, boolean, or string. It can contain more complex data strictures
+This map aims at storing simple data related to the frame: data consisting of a
+single number, boolean, or string. This being said, it can contain more complex data structures
 such as heterogeneous lists or protobuf `Struct
 <https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Struct>`_.
-Homogeneous arrays (*i.e.* arrays where all the values have the same type) can
+Homogeneous arrays (i.e. arrays where all the values have the same type) can
 be stored in the ``arrays`` field of the ``FrameData`` where keys are strings
-and values are ``ValueArray`` as described bellow. A ``ValueArray`` can contain
-an homogeneous array of either  floats (``FloatArray``), unsigned integer
+and values are ``ValueArray`` as described below. A ``ValueArray`` can contain
+a homogeneous array of either floats (``FloatArray``), unsigned integers
 (``IndexArray``), or strings (``StringArray``). The meaning of the keys in both
 fields of the ``FrameData`` depends on the application.
 
@@ -307,12 +312,13 @@ fields of the ``FrameData`` depends on the application.
 
 While a ``FrameData`` can describe a full frame, it is mostly used to describe
 the changes in a frame compared to the previous ones. As such, it is expected
-that a program worging with these frame will merge them. A ``FrameData``
+that a program working with these frames will merge them. A ``FrameData``
 contains the key-value pairs to change for both the ``values`` and the
 ``arrays`` fields. In case of complex structures in ``values``, the new
 ``FrameData`` needs to contain the full new value even if only part of it
-changed; samewise, it needs to contain the full array in ``arrays`` even if a
-single element of it changed. When merging, key value pairs from the new frame
+changed. Likewise for ``arrays``, the new ``FrameData``
+needs to contain the full array in ``arrays`` even if only a
+single element of it has changed. When merging, key-value pairs from the new frame
 replace those from the aggregated frame. Key-value pairs that are only in the
 new frame are added to the aggregated frame. Pairs that do not appear in the
 new frame remain untouched in the aggregated one. Here is an example of frames
@@ -324,8 +330,8 @@ being merged:
     * values:                * values:            * values:
       - key0: A                - key1: B            - key0: A
       - key1: A        +       - key4: B     =      - key1: B
-    * fields:                * fields:              - key4: B
-      - key2: A                - key2: B          * fields:
+    * arrays:                * arrays:              - key4: B
+      - key2: A                - key2: B          * arrays:
       - key3: A                                     - key2: B
                                                     - key3: A
 
@@ -347,11 +353,11 @@ When part of a stream, ``FrameData`` messages are wrapped into ``GetFrameRespons
 A ``GetFrameResponse`` message contains a ``FrameData`` and a frame index. This
 index is an unsigned integer that is commonly incremented every time a new
 frame is created. The exact value of the index, however, is only meaningful
-when it is 0. When it is, it signals that the aggregated frame needs to be
+when it is 0. When it is 0, it signals that the aggregated frame needs to be
 reset. This can occur when the new frame originates from a completely different
 simulation, for instance. In this case, the aggregated frame and the new frame
 do not describe the same system and they should not be merged. Note that this
-is the only mechanism that allows to remove a key from the aggregated frame.
+is the only mechanism that allows the removal of a key from the aggregated frame.
 
 Subscribing to the latest frames
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -375,7 +381,7 @@ Subscribing to the latest frames
       float frame_interval = 2;
     }
 
-A client can subscribe to a stream of the frames broadcasted by the server
+A client can subscribe to a stream of the frames broadcast by the server
 using the ``SubscribeLatestFrames`` method. When subscribing, the client sends
 a ``GetFrameRequest`` message with a time interval expressed in seconds. The
 server will try to send new frames as they are available and at most at this
@@ -385,14 +391,14 @@ messages.
 
 When subscribing, a client may provide additional data as part of the
 ``GetFrameRequest``. This aims at allowing some server-side filtering of the
-broadcasted frames. **At this time, no server use this data.**
+broadcast frames. **At this time, no server uses this data.**
 
 .. note::
 
    A client subscribed to this stream may miss some data. If more than one
    frame is generated by the server during the interval, then an aggregated
    frame is sent by the server. This can cause the client to miss data when one
-   frame overwrite keys from the previous one. Client should expect to always
+   frame overwrites keys from the previous one. Client should expect to always
    receive the latest state of the trajectory, but not to receive all the time
    points generated by the server.
 
@@ -408,30 +414,30 @@ Subscribing to all frames
       rpc SubscribeFrames (GetFrameRequest) returns (stream GetFrameResponse);
     }
 
-**Optionally**, a server may allow a client to subscribe to all the broadcasted
+**Optionally**, a server may allow a client to subscribe to all the broadcast
 frames using the ``SubscribeFrames`` method. In this case, the client sends a
 ``GetFrameRequest`` with a time interval and possibly extra data. The server
 will send frames as ``GetFrameResponse`` objects when they are available and at
 most at the requested interval. However, the frames will not be aggregated so
 the last frame received by the client may not be the last frame that was
 produced. A client subscribing to this stream will receive all the time points
-produced by the server, but may bag behind the current state of the simulation.
+produced by the server, but may lag behind the current state of the simulation.
 
-This subscription method can be security risk and servers may choose to not
+This subscription method can be a security risk and servers may choose to not
 implement it. Indeed, if a client subscribes to all the frames with a long
 interval, the server needs to record all the frames until they are sent to the
-client. This can cause an important disk and/or memory usage.
+client. This can cause significant disk and/or memory usage.
 
 .. _command-service:
 
 The command service
 -------------------
 
-A server can expose functions that clients can call. Such function can take
-arguments and return values. The function itself should return shortly after
+A server can expose functions that clients can call. Such functions can take
+arguments and return values. Each function itself should return shortly after
 being called.
 
-These functions are exposed through the command service. A client can use the
+These functions are exposed through the command service. A client can use this
 service to list the commands that are available and to call commands.
 
 Each command has a name and a list of arguments. The name is an arbitrary
@@ -463,11 +469,11 @@ Listing available commands
     }
 
 A client can call the ``GetCommands`` method to list the commands exposed by
-the server. It needs to send a ``GetCommandRequest`` message, that is a message
-without content, and it receives a list of the commands. This list is wrapped
-in a ``GetCommandsReply`` under the `commands`` field. Each command is
+the server. It needs to send a ``GetCommandRequest`` message—that is a message
+without content—and it receives a list of the commands. This list is wrapped
+in a ``GetCommandsReply`` under the ``commands`` field. Each command is
 presented as a ``CommandMessage`` that contains the name of the command, and
-the list of arguments that the command accept alongside the default values for
+the list of arguments that the command accepts alongside the default values for
 these arguments.
 
 Running commands
@@ -497,12 +503,12 @@ the default value for arguments that are missing from the ``CommandMessage``.
 The ``RunCommand`` method returns a ``CommandReply`` that contains a Struct of
 the values returned by the server-side function.
 
-If the name of the command or one of the name of an argument is unknown to the
+If the name of the command or one of the names of an argument is unknown to the
 server, the ``RunCommand`` method fails with a ``INVALID_ARGUMENT`` status
 code.
 
 .. note::
 
    The protocol does not have an in-built way of handling errors during the
-   execution of the command. It does not have an in-built way to handle long
-   running command either.
+   execution of the command. It does not have an in-built way of handling
+   long-running commands either.

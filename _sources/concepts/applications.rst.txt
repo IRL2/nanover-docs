@@ -564,7 +564,7 @@ wrong length, or include negative scale values.
    values for the simulation space to keep its aspect ratio.
 
 The ``scene`` key is likely to be modified often and by multiple users. To
-avoid conflict, users should :ref:`lock <state-lock-description>` the key
+avoid conflict, users should :ref:`lock <state-locks-description>` the key
 before updating it.
 
 
