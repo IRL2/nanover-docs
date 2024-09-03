@@ -38,7 +38,7 @@ Creating a conda environment
 
 #. Create a conda environment (here we call the environment "nanover"):
 
-    .. code:: bash
+   .. code:: bash
 
         conda create -n nanover "python>3.11"
 
