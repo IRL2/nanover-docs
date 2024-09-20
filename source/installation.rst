@@ -65,6 +65,26 @@ If you have not already set up a NanoVer conda environment, please refer to :ref
 
 For information on how to run NanoVer servers, check out the :ref:`tutorials <Tutorials>`.
 
+Updating the conda package
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#. Determine the currently installed version:
+
+   .. code:: bash
+
+        conda list nanover-server
+
+#. Attempt to update to latest version:
+
+   .. code:: bash
+
+        conda update nanover-server
+
+If you can't seem to update to the latest version of the NanoVer server, run ``python --version`` to check that
+the python version used in your conda environment is at least as recent as in the
+:ref:`installation instructions<creating_conda_env>`.
+If it isn't, you will need to create a new conda environment with a newer version of python.
+
 ----
 
 Choosing your setup for the iMD-VR client
