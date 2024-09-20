@@ -32,9 +32,9 @@ Installing Jupyter
 ------------------
 
 The tutorials use `Jupyter notebooks <https://jupyter.org>`_, `NGLView <https://github.com/nglviewer/nglview>`_ for
-visualising trajectories, and while not strictly necessary, assumes you have the
-`NanoVer IMD <https://github.com/irl2/nanover-imd>`_ application installed (i.e. the VR client). These can all be
-installed with conda:
+visualising trajectories, and, while not strictly necessary, assumes you have the
+`NanoVer IMD <https://github.com/irl2/nanover-imd>`_ application installed (see :ref:`installing_imdvr_client`).
+Install Jupyter notebooks and NGLView with conda:
 
 .. code-block:: bash
 
@@ -43,8 +43,6 @@ installed with conda:
    conda activate nanover
    conda install jupyter
    conda install nglview
-   # On Windows only:
-   conda install -c irl nanover-imd
 
 If you wish to access the Jupyter notebooks via `JupyterLab <https://jupyter.org>`_, installing JupyterLab
 **before** NGLView should install the correct dependencies for NGLView automatically (i.e. replacing

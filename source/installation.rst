@@ -108,6 +108,8 @@ diagram above).
 
 ----
 
+.. _installing_imdvr_client:
+
 Installing the iMD-VR client
 ############################
 
