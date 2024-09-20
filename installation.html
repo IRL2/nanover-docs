@@ -64,7 +64,10 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Installation &amp; Getting Started</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#user-installation-guide">User Installation Guide</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#creating-a-conda-environment">Creating a conda environment</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#installing-the-server">Installing the server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#installing-the-server">Installing the server</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#updating-the-conda-package">Updating the conda package</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#choosing-your-setup-for-the-imd-vr-client">Choosing your setup for the iMD-VR client</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#using-pc-vr">Using PC-VR</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#running-locally-on-a-meta-quest-headset">Running locally on a Meta Quest headset</a></li>
@@ -179,6 +182,25 @@ inside VR.</p>
 </li>
 </ol>
 <p>For information on how to run NanoVer servers, check out the <a class="reference internal" href="tutorials/tutorials.html#tutorials"><span class="std std-ref">tutorials</span></a>.</p>
+<section id="updating-the-conda-package">
+<h4>Updating the conda package<a class="headerlink" href="#updating-the-conda-package" title="Link to this heading"></a></h4>
+<ol class="arabic">
+<li><p>Determine the currently installed version:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>list<span class="w"> </span>nanover-server
+</pre></div>
+</div>
+</li>
+<li><p>Attempt to update to latest version:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>update<span class="w"> </span>nanover-server
+</pre></div>
+</div>
+</li>
+</ol>
+<p>If you can’t seem to update to the latest version of the NanoVer server, run <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">--version</span></code> to check that
+the python version used in your conda environment is at least as recent as in the
+<a class="reference internal" href="#creating-conda-env"><span class="std std-ref">installation instructions</span></a>.
+If it isn’t, you will need to create a new conda environment with a newer version of python.</p>
+</section>
 </section>
 <hr class="docutils" />
 <section id="choosing-your-setup-for-the-imd-vr-client">
