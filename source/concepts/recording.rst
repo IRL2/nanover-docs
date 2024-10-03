@@ -47,7 +47,6 @@ the recording of the shared state updates.
 On the graphical interface, the files are specified in the ``Recording`` section before starting the server
 (see :ref:`rust_server_via_the_gui`).
 
-
 How to visualise recordings
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -69,8 +68,42 @@ In order to send both streams together, provide the two file paths separated by 
 **Using the graphical interface**, add a recording to the list of simulations using the ``+ Recording`` button,
 then choose the files.
 
+Recording with the Python client
+--------------------------------
 
-Reading recordings using python
+How to record
+~~~~~~~~~~~~~
+
+You can also record NanoVer sessions using a Python client from the nanover.omni module.
+Here is an example of how to define the file names and paths for the recording and pass them to the recording function:
+
+.. code:: python
+
+    from nanover.omni.record import record_from_server
+    # Define the .traj and .state file names and paths
+    traj_path = 'simulation_recording.traj'
+    state_path = 'simulation_recording.state'
+    # Pass the runner to the recording function
+    record_from_server("localhost:38801", traj_path, state_path)
+
+How to visualise recordings
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The Python client can also play back the recordings.
+
+.. code:: python
+
+    from nanover.omni import OmniRunner
+    from nanover.omni.playback import PlaybackSimulation
+    simulation_recording = PlaybackSimulation(name='simulation-recording', traj='files/simulation_recording.traj',
+                                           state='files/simulation_recording.state')
+    # Create a runner for the simulation
+    recording_runner = OmniRunner.with_basic_server(simulation_recording, name='simulation-recording-server')
+    # Start the runner
+    recording_runner.next()
+    # Close the runner
+    recording_runner.close()
+
+Reading recordings using mdanalysis in python
 -------------------------------
 
 Recordings can be read and manipulated using the NanoVer python library.
