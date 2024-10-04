@@ -83,7 +83,7 @@ Here is an example of how to define the file names and paths for the recording a
     # Define the .traj and .state file names and paths
     traj_path = 'simulation_recording.traj'
     state_path = 'simulation_recording.state'
-    # Pass the runner to the recording function
+    # create a recording from a server and save it to the files
     record_from_server("localhost:38801", traj_path, state_path)
 
 How to visualise recordings
