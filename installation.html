@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="./">
 <head>
@@ -6,25 +8,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Installation &amp; Getting Started &mdash; NanoVer 2024.06.18 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=7ab3649f" />
       <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="_static/custom.css?v=23fdb008" />
       <link rel="stylesheet" type="text/css" href="_static/custom.css?v=23fdb008" />
 
   
-    <link rel="shortcut icon" href=""/>
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="_static/jquery.js?v=5d32c60e"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=a5a2f12d"></script>
-        <script src="_static/doctools.js?v=9a2dae69"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script src="_static/clipboard.min.js?v=a7894cd8"></script>
-        <script src="_static/copybutton.js?v=f281be69"></script>
-        <script src="_static/custom.js?v=6d5f2585"></script>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=a5a2f12d"></script>
+      <script src="_static/doctools.js?v=9a2dae69"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=f281be69"></script>
+      <script src="_static/custom.js?v=6d5f2585"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -207,7 +204,8 @@ If it isn’t, you will need to create a new conda environment with a newer vers
 <h3><a class="toc-backref" href="#id9" role="doc-backlink">Choosing your setup for the iMD-VR client</a><a class="headerlink" href="#choosing-your-setup-for-the-imd-vr-client" title="Link to this heading"></a></h3>
 <p>If you wish to visualise and interact with your simulations in VR, you will need to install an iMD-VR client. Below is a
 flow diagram to help you decide which setup to use.</p>
-<a class="reference internal image-reference" href="_images/VR_client_flow_diagram.png"><img alt="_images/VR_client_flow_diagram.png" src="_images/VR_client_flow_diagram.png" style="width: 600px;" /></a>
+<a class="reference internal image-reference" href="_images/VR_client_flow_diagram.png"><img alt="_images/VR_client_flow_diagram.png" src="_images/VR_client_flow_diagram.png" style="width: 600px;" />
+</a>
 <section id="using-pc-vr">
 <h4>Using PC-VR<a class="headerlink" href="#using-pc-vr" title="Link to this heading"></a></h4>
 <p>In this case, you have two options for running the VR client:</p>
@@ -217,12 +215,13 @@ flow diagram to help you decide which setup to use.</p>
 </ul>
 <p>Both options are compatible with any of the following:</p>
 <ul class="simple">
-<li><p>Meta Quest Link (tethered)</p></li>
+<li><p>Meta Quest Link (tethered<sup>†</sup>)</p></li>
 <li><p>Meta Quest AirLink (wireless*)</p></li>
-<li><p>SteamVR (tethered)</p></li>
+<li><p>SteamVR (tethered<sup>†</sup>)</p></li>
 <li><p>Steam Link (wireless*)</p></li>
 </ul>
-<p>*Note that for a wireless setup you will need to meet the <strong>requirements for a Wi-Fi setup</strong> (see the key in the flow
+<p><sup>†</sup> <strong>Tethered</strong>: using a cable to connect your headset to your computer.</p>
+<p>* Note that for a <strong>wireless setup</strong> you will need to meet the <strong>requirements for a Wi-Fi setup</strong> (see the key in the flow
 diagram above).</p>
 </section>
 <section id="running-locally-on-a-meta-quest-headset">
@@ -232,7 +231,7 @@ diagram above).</p>
 <li><p><strong>Downloading the latest release of the NanoVer iMD apk</strong> and installing this on your headset, see
 <a class="reference internal" href="#download-latest-release-vr-client"><span class="std std-ref">Download the latest release</span></a>.</p></li>
 </ul>
-<p>Note that for a wireless setup you will need to meet the <strong>requirements for a Wi-Fi setup</strong> (see the key in the flow
+<p>Note that for a <strong>wireless setup</strong> you will need to meet the <strong>requirements for a Wi-Fi setup</strong> (see the key in the flow
 diagram above).</p>
 <hr class="docutils" />
 </section>
@@ -273,9 +272,11 @@ file onto your device. You can use <a class="reference external" href="https://s
 </dl>
 </li>
 <li><dl class="simple">
-<dt><strong>Running locally on a Meta Quest headset via the Meta Developer Hub (tethered)</strong>:</dt><dd><ol class="arabic simple">
+<dt><strong>Running locally on a Meta Quest headset via the Meta Developer Hub</strong> (tethered<sup>†</sup>):</dt><dd><ol class="arabic simple">
 <li><p>You can also run the apk on the headset using a tethered setup. First, follow the above instructions for
 installing the apk on your headset.</p></li>
+<li><p>Connect your headset to your computer with a cable. A notification may appear inside your headset stating:
+“USB Detected: click on this notification to allow the connected device to access files”. Allow this.</p></li>
 <li><p>Open the <a class="reference external" href="https://developer.oculus.com/meta-quest-developer-hub/">Meta Quest Developer Hub</a> and go to the
 <code class="docutils literal notranslate"><span class="pre">Device</span> <span class="pre">Manager</span></code> menu on the left sidebar.</p></li>
 <li><p>Look for the NanoverIMD app under <code class="docutils literal notranslate"><span class="pre">Apps</span></code>. It should be called <code class="docutils literal notranslate"><span class="pre">com.IntangibleRealitiesLaboratory.NanoVeriMD</span></code>
@@ -286,6 +287,7 @@ installing the apk on your headset.</p></li>
 </dl>
 </li>
 </ul>
+<p><sup>†</sup> <strong>Tethered</strong>: using a cable to connect your headset to your computer.</p>
 </section>
 <section id="conda-installation">
 <span id="conda-installation-vr-client"></span><h4>Conda installation<a class="headerlink" href="#conda-installation" title="Link to this heading"></a></h4>
