@@ -11,6 +11,7 @@ This section provides an overview of the main concepts in NanoVer.
    :caption: Contents:
 
    architecture.rst
+   xml-files.rst
    frames.rst
    recording.rst
    base-protocol.rst
