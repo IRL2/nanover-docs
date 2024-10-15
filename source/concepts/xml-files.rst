@@ -1,4 +1,4 @@
-XML Files
+XML Openmm Simulation Files
 ==============================================
 
 The XML format for serializing OpenMM simulations consists of a root element ``<OpenMMSimulation>`` containing three main components:
@@ -8,6 +8,7 @@ The XML format for serializing OpenMM simulations consists of a root element ``<
 3. **OpenMM Serialized Integrator**: Enclosed in the ``<Integrator>`` tag
 
 An optional fourth component, the OpenMM serialized state, may also be included.
+The format allows for efficient storage and exchange of OpenMM simulation data, including the starting structure, system configuration, and integrator settings.
 
 XML Structure
 -------------
@@ -81,9 +82,7 @@ The ``<Integrator>`` tag contains parameters specific to the integration method 
 Usage
 -----
 
-This XML format serves two primary purposes:
+The :mod:`nanover.openmm.serializer` module provides the following functions to convert to/from a serialized OpenMM simulation:
 
 1. **Serialization**: Converting an existing OpenMM simulation instance into an XML file
 2. **Deserialization**: Creating an OpenMM simulation instance from an XML file
-
-The format allows for efficient storage and exchange of OpenMM simulation data, including the starting structure, system configuration, and integrator settings.
