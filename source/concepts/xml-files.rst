@@ -5,7 +5,7 @@ The XML format for serializing OpenMM simulations consists of a root element ``<
 
 1. **Starting Structure**: Enclosed in either ``<pdbx>`` or ``<pdb>`` tags
 2. **OpenMM Serialized System**: Enclosed in the ``<System>`` tag
-3. **OpenMM Serialized Integrator**: Enclosed in ``<Integrator>`` tags
+3. **OpenMM Serialized Integrator**: Enclosed in the ``<Integrator>`` tag
 
 An optional fourth component, the OpenMM serialized state, may also be included.
 
