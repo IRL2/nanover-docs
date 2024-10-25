@@ -15,7 +15,6 @@ framework you're running with NanoVer.
    fundamentals.rst
    openmm.rst
    ase.rst
-   lammps.rst
    mdanalysis.rst
    vrclient/vrclient.rst
 
