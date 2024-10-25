@@ -27,8 +27,8 @@ inside VR.
 
 .. _creating_conda_env:
 
-Creating a conda environment
-############################
+Setting up conda
+################
 
 #. Install conda through whichever program you prefer, e.g. `Miniforge <https://github.com/conda-forge/miniforge>`_.
 #. Open a terminal that you have conda installed in:
@@ -36,11 +36,8 @@ Creating a conda environment
     * On Windows, this is Windows Powershell.
     * On Mac and Linux, this is the terminal.
 
-#. Create a conda environment (here we call the environment "nanover"):
-
-   .. code:: bash
-
-        conda create -n nanover "python>3.11"
+At this point, you are ready to create your conda environment and install the NanoVer server! Please refer to
+:ref:`installing_the_server`.
 
 ----
 
@@ -49,19 +46,21 @@ Creating a conda environment
 Installing the server
 #####################
 
-If you have not already set up a NanoVer conda environment, please refer to :ref:`creating_conda_env`.
+We can create our conda environment and install the NanoVer packages all in one go!
+Doing so ensures that we install the correct version of python for our packages.
 
-#. Activate your NanoVer conda environment:
+#. Create your conda environment (here we call the environment "nanover") and install the NanoVer
+   packages by running the following command in the terminal that you have conda installed in:
+
+   .. code:: bash
+
+        conda create -n nanover -c irl -c conda-forge nanover-server
+
+#. To use your newly created NanoVer conda environment, activate it as follows:
 
    .. code:: bash
 
         conda activate nanover
-
-#. Install the NanoVer packages:
-
-   .. code:: bash
-
-        conda install -c irl -c conda-forge nanover-server
 
 For information on how to run NanoVer servers, check out the :ref:`tutorials <Tutorials>`.
 
@@ -183,7 +182,8 @@ The next steps depend on how you want to run the program:
 Conda installation
 ~~~~~~~~~~~~~~~~~~
 
-If you have not already set up a NanoVer conda environment, please refer to :ref:`creating_conda_env`.
+If you have not already created a NanoVer conda environment, please refer to
+:ref:`creating_conda_env` and :ref:`installing_the_server`.
 
 #. Activate your NanoVer conda environment:
 
@@ -202,6 +202,7 @@ If you have not already set up a NanoVer conda environment, please refer to :ref
    .. code:: bash
 
         NanoveriMD
+
 
 ----
 
