@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ASE: Interactive Molecular Dynamics &mdash; NanoVer 2024.06.18 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=7ab3649f" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=23fdb008" />
       <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=23fdb008" />
@@ -17,7 +17,7 @@
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="../_static/documentation_options.js?v=a5a2f12d"></script>
-      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
       <script src="../_static/copybutton.js?v=f281be69"></script>
@@ -63,11 +63,7 @@
 <li class="toctree-l2"><a class="reference internal" href="basics.html">NanoVer Basics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="fundamentals.html">NanoVer Fundamentals</a></li>
 <li class="toctree-l2"><a class="reference internal" href="openmm.html">OpenMM</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">ASE: Interactive Molecular Dynamics</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#running-an-ase-openmm-server-from-the-command-line">Running an ASE OpenMM server from the command line</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#running-a-server-from-python">Running a server from python</a></li>
-</ul>
-</li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">ASE: Interactive Molecular Dynamics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="lammps.html">LAMMPS: Large scale Atomic/Molecular Massively Parallel Simulator</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mdanalysis.html">MDAnalysis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="vrclient/vrclient.html">NanoVer iMD</a></li>
@@ -108,53 +104,21 @@
              
   <section id="ase-interactive-molecular-dynamics">
 <h1>ASE: Interactive Molecular Dynamics<a class="headerlink" href="#ase-interactive-molecular-dynamics" title="Link to this heading"></a></h1>
-<section id="running-an-ase-openmm-server-from-the-command-line">
-<h2>Running an ASE OpenMM server from the command line<a class="headerlink" href="#running-an-ase-openmm-server-from-the-command-line" title="Link to this heading"></a></h2>
-<p>When <cite>nanover-ase</cite> is installed, it provides the <cite>nanover-omm-ase</cite>
-command in the command line. When provided with the description of an
-OpenMM simulation as an XML file serialised as described in the <a class="reference external" href="https://github.com/IRL2/nanover-protocol/tree/main/python-libraries/nanover-openmm">NanoVer OpenMM documentation</a>
-, <cite>nanover-omm-ase</cite> runs an interactive simulation.
-The host address and port can be set with
-the <code class="docutils literal notranslate"><span class="pre">--address</span></code> and the <code class="docutils literal notranslate"><span class="pre">--port</span></code> option, respectively.</p>
-</section>
-<section id="running-a-server-from-python">
-<h2>Running a server from python<a class="headerlink" href="#running-a-server-from-python" title="Link to this heading"></a></h2>
-<p>The <cite>nanover-ase</cite> module provides the
-<code class="xref py py-class docutils literal notranslate"><span class="pre">nanover.ase.ASEImdServer</span></code> class. Given an ASE simulation set up with an
-<a class="reference external" href="https://wiki.fysik.dtu.dk/ase/ase/md.html">ASE molecular dynamics runner</a>, this class will
-attach interactive molecular dynamics functionality and frame serving to the dynamics.
-An example is given below, assuming an ASE Atoms object has been set up, named <cite>atoms</cite>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ase</span> <span class="kn">import</span> <span class="n">units</span>
-<span class="kn">from</span> <span class="nn">ase.md</span> <span class="kn">import</span> <span class="n">Langevin</span>
-<span class="kn">from</span> <span class="nn">nanover.ase.imd_server</span> <span class="kn">import</span> <span class="n">ASEImdServer</span>
-
-<span class="c1"># Given some ASE atoms object appropriately set up, set up dynamics.</span>
-<span class="n">dyn</span> <span class="o">=</span> <span class="n">Langevin</span><span class="p">(</span><span class="n">atoms</span><span class="p">,</span> <span class="mi">1</span> <span class="o">*</span> <span class="n">units</span><span class="o">.</span><span class="n">fs</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
-
-<span class="c1"># Attach the IMD calculator and server to the dynamics object.</span>
-<span class="n">imd</span> <span class="o">=</span> <span class="n">ASEImdServer</span><span class="p">(</span><span class="n">dyn</span><span class="p">)</span>
-<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-    <span class="n">imd</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Full examples are given in the <a class="reference external" href="https://github.com/IRL2/nanover-protocol/tree/main/examples/ase">examples</a> folder, which additionally
-contains several Jupyter notebooks that explore how NanoVer can be used with OpenMM:</p>
+<p>A set of tutorials that demonstrate how to use NanoVer to run interactive molecular
+dynamics simulations using ASE.</p>
+<p>The Jupyter notebook tutorials that demonstrate how to run interactive molecular dynamics simulations
+by interfacing NanoVer with ASE can be found in the
+<a class="reference external" href="https://github.com/IRL2/nanover-protocol/tree/main/examples/ase">examples</a> folder fo the GitHub
+repository. This folder also contains notebooks that explore how ASE can be used in NanoVer in
+conjunction with OpenMM. It contains:</p>
 <ul class="simple">
-<li><p><cite>basic_example</cite>: A notebook showing how one can run the server for an OpenMM simulation,  connect a client to it, and render a simple visualisation.</p></li>
-<li><p><cite>openmm_nanotube</cite>: A notebook that runs a simulation of a carbon nanotube, then applies interactive forces to it from the notebook.</p></li>
-<li><p><cite>openmm_graphene</cite>: A notebook that runs a simulation of a graphene sheet, and demonstrates how parameters of the simulation can be controlled in real
+<li><p><cite>ase_basic_example</cite>: A notebook showing how one can run the server for an ASE simulation,  connect a client to it, and render a simple visualisation.</p></li>
+<li><p><cite>ase_openmm_nanotube</cite>: A notebook that runs a simulation of a carbon nanotube using ASE and OpenMM, then applies interactive forces to it from the notebook.</p></li>
+<li><p><cite>ase_openmm_graphene</cite>: A notebook that runs a simulation of a graphene sheet using ASE and OpenMM, and demonstrates how parameters of the simulation can be controlled in real
 time through the Jupyter notebook interface.</p></li>
-<li><p><cite>openmm_neuraminidase</cite>: A notebook that demonstrates how to construct an input file for an OpenMM simulation of neuraminidase to run with NanoVer from scratch.</p></li>
+<li><p><cite>ase_openmm_neuraminidase</cite>: A notebook that demonstrates how to construct an input file for an OpenMM simulation of neuraminidase to run with NanoVer from scratch, and then
+runs the simulation using ASE with an OpenMM calculator.</p></li>
 </ul>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>install<span class="w"> </span>nglview<span class="w"> </span>-c<span class="w"> </span>conda-forge
-<span class="c1"># might need: jupyter-nbextension enable nglview --py --sys-prefix</span>
-
-<span class="c1"># if you already installed nglview, you can `upgrade`</span>
-conda<span class="w"> </span>upgrade<span class="w"> </span>nglview<span class="w"> </span>--force
-<span class="c1"># might need: jupyter-nbextension enable nglview --py --sys-prefix</span>
-</pre></div>
-</div>
-</section>
 </section>
 
 
