@@ -11,11 +11,11 @@ The NanoVer protocol
 General architecture
 --------------------
 
-NanoVer provides three services: the state service, the trajectory service,
-and the command service. While none of these services are strictly
+NanoVer provides three services: the **state service**, the **trajectory service**,
+and the **command service**. While none of these services are strictly
 mandatory, some features expect two or three services to cooperate.
 
-The *state service* maintains a state that is shared between the server
+The **state service** maintains a state that is shared between the server
 and one or more clients. The state is presented as a key-value store;
 users can subscribe to updates to the state, send updates themselves,
 and request exclusive write access to some keys. This service is used to:
@@ -23,11 +23,11 @@ share the position of the users' avatars, send users' interactions
 with molecular systems, and share the molecular representations. It
 can be used to send any arbitrary data to the server and to the clients.
 
-The *trajectory service* allows the server to broadcast the state of a
+The **trajectory service** allows the server to broadcast the state of a
 simulation to the clients. It sends frames to the clients at the
 requested frame rate.
 
-The *command service* lets client run functions on the server. For example,
+The **command service** lets client run functions on the server. For example,
 this service is used to pause or reset a molecular simulation.
 
 The services can all be served from different addresses and/or a
@@ -39,8 +39,11 @@ address and port. The default port is 38801.
 The state service
 -----------------
 
-The state service maintains a state that is shared between the server
-and the clients.
+The **state service** maintains a state that is shared between the server
+and the clients. This section explores the technical details of the state
+service. For an interactive tutorial Jupyter notebook that
+complements the information presented in this section, check out our
+`commands_and_state` notebook (see :ref:`nanover-fundamentals`).
 
 .. _state-updates:
 
@@ -209,11 +212,15 @@ duration in seconds or a `Null value
 <https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.NullValue>`_
 as value. If the value is a duration, then the lock is created or renewed with
 the requested validity duration. If the value is null, then the lock is deleted.
-A lock can only be updated if: it does not yet exist, or if it exists but has
-expired, or if it is held by the same access token as the request. Each update
-can be about one or multiple locks; a request only succeeds if all the locks can
-be updated. If any of the locks cannot be updated, then none of the locks are
-updated.
+A lock can only be updated if:
+
+* it does not yet exist
+* it exists but has expired
+* it is held by the same access token as the request
+
+Each update can be about one or multiple locks; a request only succeeds if
+all the locks can be updated. If any of the locks cannot be updated, then
+none of the locks are updated.
 
 .. note::
 
