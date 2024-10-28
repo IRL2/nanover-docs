@@ -245,10 +245,10 @@ should be considered publicly exposed.
 The trajectory service
 ----------------------
 
-A server can broadcast molecular systems using the trajectory service.
+A server can broadcast molecular systems using the **trajectory service**.
 Molecular systems can be running simulations, static structures, recorded
 trajectories, or any collection of particles regardless of how they are
-produced. They are represented as a sequence of one or more frames where each
+produced. They are represented as a sequence of one or more **frames** where each
 frame represents a state of the molecular system.
 
 .. note::
@@ -265,7 +265,12 @@ Frame description
 
 .. code:: protobuf
 
-    /* A general structure to represent a frame of a trajectory. It is similar in structure to the Google Struct message, representing dynamically typed objects and lists. However, as frames often consist of large arrays of data of the same type, a set of arrays are also provided as specified in nanover/protocol/array.proto */
+    /* A general structure to represent a frame of a trajectory.
+    It is similar in structure to the Google Struct message,
+    representing dynamically typed objects and lists. However,
+    as frames often consist of large arrays of data of the same
+    type, a set of arrays are also provided as specified in
+    nanover/protocol/array.proto */
     message FrameData {
 
       /* A standard key-value list of dynamically typed data */
@@ -281,19 +286,20 @@ the trajectory. An implementation using this structure needs to maintain an
 aggregate ``FrameData`` and merge all incoming frames to get the current state
 of the system.
 
-A ``FrameData`` contains two fields: ``values`` and ``arrays``. The ``values``
-field is a key-value map with string keys and protobuf `Value
-<https://protobuf.dev/reference/protobuf/google.protobuf/#value>`_ as values.
-This map aims at storing simple data related to the frame: data consisting of a
-single number, boolean, or string. This being said, it can contain more complex data structures
-such as heterogeneous lists or protobuf `Struct
-<https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Struct>`_.
-Homogeneous arrays (i.e. arrays where all the values have the same type) can
-be stored in the ``arrays`` field of the ``FrameData`` where keys are strings
-and values are ``ValueArray`` as described below. A ``ValueArray`` can contain
-a homogeneous array of either floats (``FloatArray``), unsigned integers
-(``IndexArray``), or strings (``StringArray``). The meaning of the keys in both
-fields of the ``FrameData`` depends on the application.
+A ``FrameData`` contains two fields: ``values`` and ``arrays``.
+
+* The ``values`` field is a key-value map where each key is a string and each value is
+  a protobuf `Value <https://protobuf.dev/reference/protobuf/google.protobuf/#value>`_.
+  This map typically stores simple data related to the frame: data consisting of a
+  single number, boolean, or string. This being said, it can contain more complex data structures
+  such as heterogeneous lists or protobuf `Structs
+  <https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Struct>`_.
+* The ``arrays`` field is a key-value map in which homogeneous arrays (i.e. arrays
+  where all the values have the same type) can be stored. In this map, each key is a string
+  and each value is a ``ValueArray``, which can contain a homogeneous array of either
+  floats (``FloatArray``), unsigned integers (``IndexArray``), or strings (``StringArray``).
+
+The meaning of the keys in both fields of the ``FrameData`` depends on the application.
 
 .. code:: protobuf
 
@@ -380,17 +386,22 @@ Subscribing to the latest frames
 
 .. code:: protobuf
 
-    /* A service which provides access to frames of a trajectory, which may either be precomputed or represent a live simulation. It can also be used to obtain one or more frames on demand, allowing molecules or trajectories to be generated based on requests */
+    /* A service which provides access to frames of a trajectory,
+    which may either be precomputed or represent a live simulation.
+    It can also be used to obtain one or more frames on demand,
+    allowing molecules or trajectories to be generated based on requests */
     service TrajectoryService {
 
-      /* Subscribe to a continuous updating source of frames. The client gets the latest available frame at the time of transmission. */
+      /* Subscribe to a continuous updating source of frames.
+      The client gets the latest available frame at the time of transmission. */
       rpc SubscribeLatestFrames (GetFrameRequest) returns (stream GetFrameResponse);
     }
 
     /* A client request to get frame(s) from a trajectory service */
     message GetFrameRequest {
 
-      /* Arbitrary data that can be used by a TrajectoryService to decide what frames to return */
+      /* Arbitrary data that can be used by a TrajectoryService to
+      decide what frames to return */
       google.protobuf.Struct data = 1;
 
       /* Interval to send new frames at e.g 1/30 sends 30 frames every second. */
@@ -423,10 +434,14 @@ Subscribing to all frames
 
 .. code:: protobuf
 
-    /* A service which provides access to frames of a trajectory, which may either be precomputed or represent a live simulation. It can also be used to obtain one or more frames on demand, allowing molecules or trajectories to be generated based on requests */
+    /* A service which provides access to frames of a trajectory,
+    which may either be precomputed or represent a live simulation.
+    It can also be used to obtain one or more frames on demand,
+    allowing molecules or trajectories to be generated based on requests */
     service TrajectoryService {
 
-      /* Subscribe to a continuous updating source of frames. Frames are added to the stream when they are available */
+      /* Subscribe to a continuous updating source of frames.
+      Frames are added to the stream when they are available */
       rpc SubscribeFrames (GetFrameRequest) returns (stream GetFrameResponse);
     }
 
