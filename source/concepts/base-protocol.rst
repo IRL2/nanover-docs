@@ -321,8 +321,17 @@ needs to contain the full array in ``arrays`` even if only a
 single element of it has changed. When merging, key-value pairs from the new frame
 replace those from the aggregated frame. Key-value pairs that are only in the
 new frame are added to the aggregated frame. Pairs that do not appear in the
-new frame remain untouched in the aggregated one. Here is an example of frames
-being merged:
+new frame remain untouched in the aggregated one.
+
+.. note::
+
+   This aggregation process is made use of in NanoVer's interactive molecular
+   dynamics application, in which clients can access the most
+   recent updates to the frame (:py:attr:`NanoverImdClient.latest_frame`) or
+   the full set of aggregated data pertaining to the current frame of the
+   simulation (:py:attr:`NanoverImdClient.current_frame`).
+
+Here is an example of frames being merged:
 
 ::
 
