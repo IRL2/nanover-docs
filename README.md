@@ -11,10 +11,10 @@ python -m pip install -r requirements.txt
 ```
 
 (OPTIONAL) In order to also build the docstring documentation, you also need to 
-install `nanover-server` and `nanover-lammps`:
+install `nanover-server`:
 
 ```
-conda install -c irl -c conda-forge nanover-server nanover-lammps
+conda install -c irl -c conda-forge nanover-server
 ```
 
 To generate docs for a development version of NanoVer, it is necessary to 
