@@ -39,9 +39,9 @@ This architecture makes NanoVer very flexible.
 New features can be added as new services as needed, without cluttering up the main framework.
 We provide a number of service definitions and implementations, including:
 
-* :doc:`nanover.trajectory <../../python/nanover.trajectory>`: Provides trajectories and live simulations. 
-* :doc:`nanover.imd <../../python/nanover.imd>`: Provides methods for applying interactive biasing potentials to a simulation.
+* :doc:`nanover.trajectory <../../python/nanover.trajectory>`: Provides trajectories and live simulations.
 * :doc:`nanover.state <../../python/nanover.state>`: Provides synchronisation of avatars and state for multiplayer applications.
+* :doc:`nanover.command <../../python/nanover.command>`: Provides facilities to run arbitrary functions performed by the server.
 
 The services described above provide the core for the NanoVer iMD application, but the tools
 can be used to create custom services for different applications.
@@ -64,7 +64,8 @@ connect to a live simulation that can be visualised and interacted with through 
 
 Conceptually, the IMD server consists of three services: a trajectory service, a state service, and a command service.
 
-* **The trajectory service** publishes the changes in the simulation to clients, enabling it to be visualised.
+* **The trajectory service** provides updates as the state of the simulation progresses, enabling real-time analysis and
+  visualisation of the system.
 * **The state service**, meanwhile, takes care of incoming requests from the client applications to apply biasing potentials
   to the simulation. These are applied as forces to the molecular dynamics engine, which in turn integrates them.
   This service allows synchronisation of the state between all the clients and the server
@@ -79,10 +80,11 @@ A server application can leverage these three services to implement IMD to facil
 interaction with, a simulation in real time.
 
 
-Front End Architecture
-######################
+VR Front End
+############
 
-As the server side is modular, so too is the front end. The VR front end app,
-`NanoVer iMD <https://github.com/IRL2/nanover-imd>`_,
-is built using the `NanoVer Unity plugin <https://github.com/IRL2/NanoverUnityPlugin>`_,
-which provides a set of modules for building NanoVer applications.
+The VR front end app, :ref:`NanoVer iMD <vr-client-tutorial>`, intended for 3D visualisation and
+intuitive spatial iMD (iMD-VR), is a `distinct Unity/C# codebase <https://github.com/IRL2/nanover-imd>`_
+that follows the `gRPC protocol definitions <https://github.com/IRL2/nanover-protocol/tree/main/protocol/nanover/protocol>`_
+and :ref:`application conventions <applications>` laid out in the present documentation.
+
