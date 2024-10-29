@@ -41,7 +41,7 @@ The state service
 
 The **state service** maintains a state that is shared between the server
 and the clients. This section explores the technical details of the state
-service. For an interactive tutorial Jupyter notebook that
+service. For an interactive Jupyter notebook tutorial that
 complements the information presented in this section, check out our
 `commands_and_state` notebook (see :ref:`nanover-fundamentals`).
 
@@ -301,6 +301,9 @@ A ``FrameData`` contains two fields: ``values`` and ``arrays``.
 
 The meaning of the keys in both fields of the ``FrameData`` depends on the application.
 
+To see examples of how these types of data are added to frames in practice, take a look
+at our `frame` tutorial notebook (see :ref:`nanover-fundamentals`).
+
 .. code:: protobuf
 
     message FloatArray {
@@ -468,7 +471,7 @@ A server can expose functions that clients can call. Such functions can take
 arguments and return values. Each function itself should return shortly after
 being called.
 
-These functions are exposed through the command service. A client can use this
+These functions are exposed through the **command service**. A client can use this
 service to list the commands that are available and to call commands.
 
 Each command has a name and a list of arguments. The name is an arbitrary
@@ -543,3 +546,7 @@ code.
    The protocol does not have an in-built way of handling errors during the
    execution of the command. It does not have an in-built way of handling
    long-running commands either.
+
+For an interactive Jupyter notebook tutorial that demonstrates how to set up
+and run commands in practice, check out our `commands_and_state` notebook
+(see :ref:`nanover-fundamentals`).
