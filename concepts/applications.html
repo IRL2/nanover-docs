@@ -123,7 +123,7 @@
            <div itemprop="articleBody">
              
   <section id="applications">
-<h1>Applications<a class="headerlink" href="#applications" title="Link to this heading"></a></h1>
+<span id="id1"></span><h1>Applications<a class="headerlink" href="#applications" title="Link to this heading"></a></h1>
 <p>The <a class="reference internal" href="base-protocol.html#base-protocol"><span class="std std-ref">NanoVer protocol</span></a> defines how clients and servers
 communicate with each other. It leaves ample room for customisation: it does
 not define the content of a <a class="reference internal" href="base-protocol.html#frame-description"><span class="std std-ref">FrameData</span></a>, the
@@ -293,7 +293,7 @@ However, nothing forces a client to send them a such.</p>
 </div>
 </section>
 <section id="radial-orient">
-<span id="id1"></span><h3>Radial orient<a class="headerlink" href="#radial-orient" title="Link to this heading"></a></h3>
+<span id="id2"></span><h3>Radial orient<a class="headerlink" href="#radial-orient" title="Link to this heading"></a></h3>
 <p>A server can, optionally, implement the radial orient feature as a command on
 the <a class="reference internal" href="base-protocol.html#command-service"><span class="std std-ref">command service</span></a>. The radial orient command places
 all the avatars on a circle around the origin of the server space by
@@ -647,7 +647,7 @@ forces.</p>
 interaction is <span class="math notranslate nohighlight">\(E = \frac{E_{\text{COM}}}{N}\sum_{i=0}^{N}m_i\)</span>. For non
 mass weighted <span class="math notranslate nohighlight">\(E = E_{\text{COM}}\)</span>.</p>
 <section id="force-equations">
-<span id="id2"></span><h3>Force equations<a class="headerlink" href="#force-equations" title="Link to this heading"></a></h3>
+<span id="id3"></span><h3>Force equations<a class="headerlink" href="#force-equations" title="Link to this heading"></a></h3>
 <p>Each server is free to implement the interaction equation they choose. However,
 there are some that are commonly implemented: the Gaussian force, the harmonic
 force, and the constant force. They all depend on the vector <span class="math notranslate nohighlight">\(\mathbf{d}\)</span> between
@@ -688,7 +688,7 @@ interaction and the center of mass of the selection overlap, so the force is
 not applied.</p>
 </section>
 <section id="velocity-reset">
-<span id="id3"></span><h3>Velocity reset<a class="headerlink" href="#velocity-reset" title="Link to this heading"></a></h3>
+<span id="id4"></span><h3>Velocity reset<a class="headerlink" href="#velocity-reset" title="Link to this heading"></a></h3>
 <p>Some server implementations can kill any residual momentum in the system due to the user-applied forces after the user interaction has ended
 by setting the velocities of the affected particles to 0. This is called velocity
 reset and can be requested by the user as part of the interaction description.</p>

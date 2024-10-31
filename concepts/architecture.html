@@ -65,7 +65,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#services">Services</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#an-example-interactive-molecular-dynamics">An Example: Interactive Molecular Dynamics</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#front-end-architecture">Front End Architecture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vr-front-end">VR Front End</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="frames.html">Trajectories and Frames</a></li>
@@ -111,7 +111,7 @@
 <li><p><a class="reference internal" href="#overview" id="id1">Overview</a></p></li>
 <li><p><a class="reference internal" href="#services" id="id2">Services</a></p></li>
 <li><p><a class="reference internal" href="#an-example-interactive-molecular-dynamics" id="id3">An Example: Interactive Molecular Dynamics</a></p></li>
-<li><p><a class="reference internal" href="#front-end-architecture" id="id4">Front End Architecture</a></p></li>
+<li><p><a class="reference internal" href="#vr-front-end" id="id4">VR Front End</a></p></li>
 </ul>
 </nav>
 <section id="overview">
@@ -146,8 +146,8 @@ New features can be added as new services as needed, without cluttering up the m
 We provide a number of service definitions and implementations, including:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="../python/nanover.trajectory.html"><span class="doc">nanover.trajectory</span></a>: Provides trajectories and live simulations.</p></li>
-<li><p><a class="reference internal" href="../python/nanover.imd.html"><span class="doc">nanover.imd</span></a>: Provides methods for applying interactive biasing potentials to a simulation.</p></li>
 <li><p><a class="reference internal" href="../python/nanover.state.html"><span class="doc">nanover.state</span></a>: Provides synchronisation of avatars and state for multiplayer applications.</p></li>
+<li><p><a class="reference internal" href="../python/nanover.command.html"><span class="doc">nanover.command</span></a>: Provides facilities to run arbitrary functions performed by the server.</p></li>
 </ul>
 <p>The services described above provide the core for the NanoVer iMD application, but the tools
 can be used to create custom services for different applications.</p>
@@ -168,7 +168,8 @@ including C#, Python and C++.</p></li>
 connect to a live simulation that can be visualised and interacted with through biasing potentials.</p>
 <p>Conceptually, the IMD server consists of three services: a trajectory service, a state service, and a command service.</p>
 <ul class="simple">
-<li><p><strong>The trajectory service</strong> publishes the changes in the simulation to clients, enabling it to be visualised.</p></li>
+<li><p><strong>The trajectory service</strong> provides updates as the state of the simulation progresses, enabling real-time analysis and
+visualisation of the system.</p></li>
 <li><p><strong>The state service</strong>, meanwhile, takes care of incoming requests from the client applications to apply biasing potentials
 to the simulation. These are applied as forces to the molecular dynamics engine, which in turn integrates them.
 This service allows synchronisation of the state between all the clients and the server
@@ -182,12 +183,12 @@ You can also create your own custom commands that can be handled by this service
 <p>A server application can leverage these three services to implement IMD to facilitate the visualisation of, and
 interaction with, a simulation in real time.</p>
 </section>
-<section id="front-end-architecture">
-<h2><a class="toc-backref" href="#id4" role="doc-backlink">Front End Architecture</a><a class="headerlink" href="#front-end-architecture" title="Link to this heading"></a></h2>
-<p>As the server side is modular, so too is the front end. The VR front end app,
-<a class="reference external" href="https://github.com/IRL2/nanover-imd">NanoVer iMD</a>,
-is built using the <a class="reference external" href="https://github.com/IRL2/NanoverUnityPlugin">NanoVer Unity plugin</a>,
-which provides a set of modules for building NanoVer applications.</p>
+<section id="vr-front-end">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">VR Front End</a><a class="headerlink" href="#vr-front-end" title="Link to this heading"></a></h2>
+<p>The VR front end app, <a class="reference internal" href="../tutorials/vrclient/vrclient.html#vr-client-tutorial"><span class="std std-ref">NanoVer iMD</span></a>, intended for 3D visualisation and
+intuitive spatial iMD (iMD-VR), is a <a class="reference external" href="https://github.com/IRL2/nanover-imd">distinct Unity/C# codebase</a>
+that follows the <a class="reference external" href="https://github.com/IRL2/nanover-protocol/tree/main/protocol/nanover/protocol">gRPC protocol definitions</a>
+and <a class="reference internal" href="applications.html#applications"><span class="std std-ref">application conventions</span></a> laid out in the present documentation.</p>
 </section>
 </section>
 

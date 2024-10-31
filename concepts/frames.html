@@ -104,13 +104,18 @@ of the system describing the particles and their positions. A <strong>trajectory
 of these frames, forming a three dimensional ‘movie’. Simulations are essentially
 trajectories which are being generated on the fly.</p>
 <p>Each frame consists of information about the system and the atoms within it. This
-data takes the form of values related to the frame (such as the system’s temperature
-or energy) and arrays storing information about the atoms themselves (such as position
-or element).</p>
-<p>The approach taken by NanoVer is to use a key value system to store frames, as what is
+data takes the form of <strong>values</strong> related to the frame (such as the system’s instantaneous temperature
+or potential energy) and <strong>arrays</strong> storing information about the atoms themselves (such as position
+or element symbol). Some of these data are updated each frame as the simulation progresses (such
+as particle positions, simulation time or system potential energy) whilst others remain constant
+throughout the simulation (such as element type or number of particles). NanoVer handles this by
+only updating values or arrays that change between frames; to find out more about
+this, please refer to <a class="reference internal" href="base-protocol.html#frame-description"><span class="std std-ref">Frame description</span></a>.</p>
+<p>The approach taken by NanoVer is to use a key-value system to store frames, as what is
 available in a frame varies dramatically based on what is being simulated. NanoVer applications
 use a set of standard keys to define common fields, such as ‘particle_positions’ for the the field
-containing the coordinates of the particles in the system. See the python implementation of <a class="reference internal" href="../python/nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.FrameData" title="nanover.trajectory.frame_data.FrameData"><code class="xref py py-class docutils literal notranslate"><span class="pre">FrameData</span></code></a>
+containing the coordinates of the particles in the system. See the python implementation of
+<a class="reference internal" href="../python/nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.FrameData" title="nanover.trajectory.frame_data.FrameData"><code class="xref py py-class docutils literal notranslate"><span class="pre">FrameData</span></code></a>
 or some of our <a class="reference internal" href="../python/nanover.openmm.converter.html#module-nanover.openmm.converter" title="nanover.openmm.converter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">conversion</span></code></a>  utilities for more examples.</p>
 <p>For a basic interactive molecular simulation, a frame typically has the following fields:</p>
 <ul class="simple">
@@ -132,7 +137,9 @@ or some of our <a class="reference internal" href="../python/nanover.openmm.conv
 </ul>
 <p>If you need to customize a frame with your own data, you can - just pick a good key by which to identify
 it, and convert your data into either an array of integers, bytes, floats, strings, or a single value type such as
-integer, byte, float, string, or a JSON like Struct.</p>
+integer, byte, float, string, or a JSON like <a class="reference external" href="https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Struct">Struct</a>.</p>
+<p>To learn more about the types of data you can send in a frame, or to see how to add data to a frame in practice,
+take a look at our <cite>frame</cite> tutorial notebook (see <a class="reference internal" href="../tutorials/fundamentals.html#nanover-fundamentals"><span class="std std-ref">NanoVer Fundamentals</span></a>).</p>
 </section>
 
 
