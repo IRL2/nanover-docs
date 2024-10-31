@@ -28,7 +28,6 @@ while recordings of the shared state stream  have the ``.state`` file extension.
 Recording format
 ----------------
 
-The current version of the file format is version 2.
 Each recording file contains a header and a sequence of records.
 
 The header contains two fields, stored as little endian 8 bytes unsigned integers:
@@ -52,7 +51,7 @@ In the case of a trajectory recording, each record contains a ``GetFrameResponse
 This message contains two fields: the frame index and the frame itself.
 The frame index is generally an integer that gets incremented each time the server register a frame to broadcast.
 However, its value is only significant when it is 0 as it means the frame needs to be reset;
-for instance because the server loaded a new simulation. The frame is a :ref:`FrameData <traj-and-frames>`.
+for instance because the server loaded a new simulation. The frame itself is an instance of the :ref:`FrameData <traj-and-frames>` class.
 
 In the case of a shared state recording, each record contains a :ref:`StateUpdate <state-updates>` message.
 
@@ -87,10 +86,12 @@ in the file.
 
     from nanover.omni import OmniRunner
     from nanover.omni.playback import PlaybackSimulation
-    simulation_recording = PlaybackSimulation(name='simulation-recording', traj='files/simulation_recording.traj',
+    simulation_recording = PlaybackSimulation(name='simulation-recording',
+                                           traj='files/simulation_recording.traj',
                                            state='files/simulation_recording.state')
     # Create a runner for the simulation
-    recording_runner = OmniRunner.with_basic_server(simulation_recording, name='simulation-recording-server')
+    recording_runner = OmniRunner.with_basic_server(simulation_recording,
+                                                    name='simulation-recording-server')
     # Start the runner
     recording_runner.next()
     # Close the runner
@@ -139,7 +140,7 @@ In order to send both streams together, provide the two file paths separated by 
 then choose the files.
 
 
-Reading recordings using mdanalysis in python
+Reading NanoVer recordings using MDAnalysis in python
 -------------------------------
 
 Recordings can be read and manipulated using the NanoVer python library.
