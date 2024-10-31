@@ -15,8 +15,8 @@ NanoVer provides three services: the **state service**, the **trajectory service
 and the **command service**. While none of these services are strictly
 mandatory, some features expect two or three services to cooperate.
 
-The **state service** maintains a state that is shared between the server
-and one or more clients. The state is presented as a key-value store;
+The **state service** coordinates a shared data store that is shared between
+the server and one or more clients. The state is presented as a key-value store;
 users can subscribe to updates to the state, send updates themselves,
 and request exclusive write access to some keys. This service is used to:
 share the position of the users' avatars, send users' interactions
@@ -39,9 +39,9 @@ address and port. The default port is 38801.
 The state service
 -----------------
 
-The **state service** maintains a state that is shared between the server
-and the clients. This section explores the technical details of the state
-service. For an interactive Jupyter notebook tutorial that
+The **state service** coordinates a shared data store that is shared between
+the server and the clients. This section explores the technical details of
+the state service. For an interactive Jupyter notebook tutorial that
 complements the information presented in this section, check out our
 `commands_and_state` notebook (see :ref:`nanover-fundamentals`).
 
