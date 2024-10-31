@@ -92,6 +92,9 @@ conda environment and reinstalling :code:`nanover-server`, following the
 Installing the iMD-VR client
 ############################
 
+To get access to NanoVer iMD, you can either :ref:`install it via conda<conda_installation_VR_client>`
+or :ref:`download the latest release<download_latest_release_VR_client>`.
+
 
 .. _conda_installation_VR_client:
 
@@ -125,37 +128,56 @@ If you have not already created a NanoVer conda environment, please refer to
 Download the latest release
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Download the latest release of `NanoVer iMD <https://github.com/IRL2/nanover-imd/releases>`_.
+#. Download the latest release from the git repo `here <https://github.com/IRL2/nanover-imd/releases>`_.
 
 #. Extract the downloaded zip file.
 
-The next steps depend on how you want to run the program:
+#. The next steps depend on your desired VR setup:
 
-* **Using PC-VR**:
+    * :ref:`using PC-VR<using_pc-vr>` (wireless or tethered)
+    * :ref:`running locally on a Meta Quest headset<running_locally_on_meta_quest_wireless>` (wireless)
+    * :ref:`running locally on a Meta Quest headset via the Meta Developer Hub<running_locally_on_meta_quest_developer_hub>` (tethered)
+
+.. admonition:: Key definition
+
+    \ **Tethered**: using a cable to connect your VR headset to your computer.
+
+.. _using_pc-vr:
+
+* **Using PC-VR** (wireless or tethered), including `Meta Quest Link & AirLink <https://www.meta.com/en-gb/help/quest/articles/headsets-and-accessories/oculus-link/connect-with-air-link/>`_,
+  and `SteamVR <https://store.steampowered.com/app/250820/SteamVR/>`_:
+
     #. Navigate to the ``windows`` directory in the extracted folder, and launch ``NanoVer iMD.exe``.
     #. The first time you run this, Windows will likely prompt you with a warning about the executable not being signed.
-       If this happens, click on the "More info" button, then "Run anyway". You will also likely be prompted by the
-       Windows firewall, allow NanoVer to access the network.
+       If this happens, click on the **"More info"** button, then **"Run anyway"**.
+       You will also likely be prompted by the Windows firewall, **allow NanoVer to access the network**.
 
-* **Running locally on a Meta Quest headset (wireless)**:
+.. _running_locally_on_meta_quest_wireless:
+
+* **Running locally on a Meta Quest headset** (wireless):
+
     #. Ensure that you have developer mode enabled on your headset (search online for up-to-date instructions).
     #. Connect your headset to your computer with a cable and sideload the ``nanover-imd.apk`` from the extracted zip
        file onto your device. You can use `SideQuest <https://sidequestvr.com>`_ or the
        `Meta Quest Developer Hub <https://developer.oculus.com/meta-quest-developer-hub/>`_ for this.
-    #. Look in the ``Unknown Sources`` section of your apps list inside your headset and run ``NanoVer IMD``.
+    #. Inside the VR headset, open Apps and filter ``Unknown Sources`` from the drop-down menu in the top right corner.
+       Locate and run ``NanoVer IMD``.
 
-* **Running locally on a Meta Quest headset via the Meta Developer Hub** (tethered\ :sup:`†`):
-    #. You can also run the apk on the headset using a tethered setup. First, follow the above instructions for
-       installing the apk on your headset.
-    #. Connect your headset to your computer with a cable. A notification may appear inside your headset stating:
-       "USB Detected: click on this notification to allow the connected device to access files". Allow this.
-    #. Open the `Meta Quest Developer Hub <https://developer.oculus.com/meta-quest-developer-hub/>`_ and go to the
-       ``Device Manager`` menu on the left sidebar.
+
+.. _running_locally_on_meta_quest_developer_hub:
+
+* **Running locally on a Meta Quest headset via the Meta Developer Hub** (tethered):
+
+    #. First, follow the :ref:`above instructions<running_locally_on_meta_quest_wireless>` for sideloading the apk onto your headset.
+    #. Connect your headset to your computer with a cable. A notification may appear inside your headset stating
+       ``USB Detected: click on this notification to allow the connected device to access files``. Allow this.
+    #. On your computer, open the `Meta Quest Developer Hub <https://developer.oculus.com/meta-quest-developer-hub/>`_
+       and go to the ``Device Manager`` menu on the left sidebar.
     #. Look for the NanoverIMD app under ``Apps``. It should be called ``com.IntangibleRealitiesLaboratory.NanoVeriMD``
        (hover over it with you cursor to see the full name).
     #. Click on the three dots (on the far right) for this app and select ``Launch App``.
 
-\ :sup:`†` **Tethered**: using a cable to connect your headset to your computer.
+
 
 
 ----
