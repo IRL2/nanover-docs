@@ -86,58 +86,39 @@ conda environment and reinstalling :code:`nanover-server`, following the
 
 ----
 
-Choosing your setup for the iMD-VR client
-#########################################
-
-If you wish to visualise and interact with your simulations in VR, you will need to install an iMD-VR client. Below is a
-flow diagram to help you decide which setup to use.
-
-.. image::  /_static/VR_client_flow_diagram.png
-  :width: 600
-
-Using PC-VR
-~~~~~~~~~~~
-
-In this case, you have two options for running the VR client:
-
-* **Downloading the latest release of the NanoVer iMD executable**. This is a quick and easy option for those unfamiliar with conda, see :ref:`download_latest_release_VR_client`.
-
-* **Conda installation of the NanoVer iMD package**. This is a good option if you are familiar with conda (or want to learn how to use it!), see :ref:`conda_installation_VR_client`.
-
-Both options are compatible with any of the following:
-
-* Meta Quest Link (tethered\ :sup:`†`)
-* Meta Quest AirLink (wireless*)
-* SteamVR (tethered\ :sup:`†`)
-* Steam Link (wireless*)
-
-\ :sup:`†` **Tethered**: using a cable to connect your headset to your computer.
-
-\* Note that for a **wireless setup** you will need to meet the **requirements for a Wi-Fi setup** (see the key in the flow
-diagram above).
-
-Running locally on a Meta Quest headset
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-In this case, you have one option:
-
-* **Downloading the latest release of the NanoVer iMD apk** and installing this on your headset, see
-  :ref:`download_latest_release_VR_client`.
-
-Note that for a **wireless setup** you will need to meet the **requirements for a Wi-Fi setup** (see the key in the flow
-diagram above).
-
-----
 
 .. _installing_imdvr_client:
 
 Installing the iMD-VR client
 ############################
 
-**Important note**: VR is developing fast and there are constantly new features/apps/ways of doing things. Therefore,
-these instructions may not be an exhaustive list of all the possible VR setups. Please feel free to choose whichever
-one you are most comfortable with! We also recommend checking out the online documentation for your VR headset if you
-run into any problems relating to setting up your VR kit.
+
+.. _conda_installation_VR_client:
+
+Conda installation
+~~~~~~~~~~~~~~~~~~
+
+If you have not already created a NanoVer conda environment, please refer to
+:ref:`creating_conda_env` and :ref:`installing_the_server`.
+
+#. Activate your NanoVer conda environment:
+
+   .. code:: bash
+
+        conda activate nanover
+
+#. Install the NanoVer iMD package:
+
+   .. code:: bash
+
+        conda install -c irl nanover-imd
+
+#. To start the program, run the command:
+
+   .. code:: bash
+
+        NanoveriMD
+
 
 .. _download_latest_release_VR_client:
 
@@ -175,33 +156,6 @@ The next steps depend on how you want to run the program:
     #. Click on the three dots (on the far right) for this app and select ``Launch App``.
 
 \ :sup:`†` **Tethered**: using a cable to connect your headset to your computer.
-
-
-.. _conda_installation_VR_client:
-
-Conda installation
-~~~~~~~~~~~~~~~~~~
-
-If you have not already created a NanoVer conda environment, please refer to
-:ref:`creating_conda_env` and :ref:`installing_the_server`.
-
-#. Activate your NanoVer conda environment:
-
-   .. code:: bash
-
-        conda activate nanover
-
-#. Install the NanoVer iMD package:
-
-   .. code:: bash
-
-        conda install -c irl nanover-imd
-
-#. To start the program, run the command:
-
-   .. code:: bash
-
-        NanoveriMD
 
 
 ----

@@ -14,6 +14,60 @@ to **incorporate VR into your workflow**, including:
 To install the NanoVer iMD application, please go to :ref:`installation`.
 
 
+Choosing your setup for the iMD-VR client
+#########################################
+
+.. note::
+
+    VR is developing fast and there are constantly new features/apps/ways of doing things. Therefore,
+    these instructions may not be an exhaustive list of all the possible VR setups. Please feel free to choose whichever
+    one you are most comfortable with! We also recommend checking out the online documentation for your VR headset if you
+    run into any problems relating to setting up your VR kit.
+
+
+If you wish to visualise and interact with your simulations in VR, you will need to install an iMD-VR client. Below is a
+flow diagram to help you decide which setup to use.
+
+.. image::  /_static/VR_client_flow_diagram.png
+  :width: 600
+
+Using PC-VR
+~~~~~~~~~~~
+
+In this case, you have two options for running the VR client:
+
+* **Downloading the latest release of the NanoVer iMD executable**. This is a quick and easy option for those unfamiliar with conda, see :ref:`download_latest_release_VR_client`.
+
+* **Conda installation of the NanoVer iMD package**. This is a good option if you are familiar with conda (or want to learn how to use it!), see :ref:`conda_installation_VR_client`.
+
+Both options are compatible with any of the following:
+
+* Meta Quest Link (tethered\ :sup:`†`)
+* Meta Quest AirLink (wireless*)
+* SteamVR (tethered\ :sup:`†`)
+* Steam Link (wireless*)
+
+\ :sup:`†` **Tethered**: using a cable to connect your headset to your computer.
+
+\* Note that for a **wireless setup** you will need to meet the **requirements for a Wi-Fi setup** (see the key in the flow
+diagram above).
+
+Running locally on a Meta Quest headset
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In this case, you have one option:
+
+* **Downloading the latest release of the NanoVer iMD apk** and installing this on your headset, see
+  :ref:`download_latest_release_VR_client`.
+
+Note that for a **wireless setup** you will need to meet the **requirements for a Wi-Fi setup** (see the key in the flow
+diagram above).
+
+----
+
+.. _installing_imdvr_client:
+
+
 The VR client
 #############
 
