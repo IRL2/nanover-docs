@@ -25,10 +25,10 @@ folder of the GitHub repository. It contains:
   OpenMM simulation from scratch with NanoVer and change the visualisations of
   different atom selections for a protein-ligand system.
 
-XML Files
+Openmm XML Files
 ==============================================
 
-The XML format for serializing OpenMM simulations consists of a root element ``<OpenMMSimulation>`` containing three main components:
+The XML format described here is used specifically for manipulating NanoVer simulations from OpenMM serialized XML files. It consists of a root element ``<OpenMMSimulation>`` containing three main components:
 
 1. **Starting Structure**: Enclosed in either ``<pdbx>`` or ``<pdb>`` tags
 2. **OpenMM Serialized System**: Enclosed in the ``<System>`` tag
@@ -37,7 +37,7 @@ The XML format for serializing OpenMM simulations consists of a root element ``<
 An optional fourth component, the OpenMM serialized state, may also be included.
 The format allows for efficient storage and exchange of OpenMM simulation data, including the starting structure, system configuration, and integrator settings.
 
-XML Structure
+XML structure
 -------------
 
 .. code-block:: xml
@@ -54,21 +54,22 @@ XML Structure
         </Integrator>
     </OpenMMSimulation>
 
-Components Description
+Components description
 ----------------------
 
-1. **Starting Structure**:
+1. **Starting structure**:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
    * Tag: ``<pdbx>`` (preferred) or ``<pdb>`` (for backward compatibility)
    * Content: The entire PDBx or PDB file content
 
-2. **OpenMM Serialized System**:
+2. **OpenMM serialized system**:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Within this tag, you'll find:
 
     **Particles:** They are represented with ``<Particle>`` tags, each containing:
+
         - Mass
         - Charge (if using a `NonbondedForce`)
 
@@ -97,7 +98,7 @@ Within this tag, you'll find:
            </Constraints>
 
 
-3. **OpenMM Serialized Integrator**:
+3. **OpenMM serialized integrator**:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The ``<Integrator>`` tag contains parameters that specify the integration method to be used to simulate dynamics, such as the type of integrator, simulation time step and temperature:
@@ -117,20 +118,20 @@ The :mod:`nanover.openmm.serializer` module provides the ``serialize_simulation`
 - OpenMM System definition
 - Integrator configuration
 
-Serializing a Simulation
+Serializing a simulation
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-To save a simulation to XML::
+To save a simulation to an Openmm XML::
 
     xml_string = nanover.openmm.serializer.serialize_simulation(simulation)
 
     with open("sim.xml", "w") as f:
         f.write(xml_string)
 
-Deserializing a Simulation
+Deserializing a simulation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To load a simulation from XML::
+To load a simulation from an Openmm XML::
 
     with open("sim.xml", "r") as f:
         simulation = nanover.openmm.serializer.deserialize_simulation(f.read())
