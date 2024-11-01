@@ -63,6 +63,11 @@ If you wish to visualise and/or interact with your simulations in VR, you will n
 We focus on NanoVer iMD as the prototypical iMD-VR client, but these instructions can be generalised to any iMD-VR client,
 e.g. your own custom VR application that uses the NanoverUnityPlugin.
 
+Please feel free to use the instructions below to help you choose your VR setup,
+then search online (or follow the links given below) for the documentation of your chosen method for the latest
+instructions on configuring your setup.
+Once you're ready, head to :ref:`installation` to get started with NanoVer iMD.
+
 
 .. note::
 
@@ -71,30 +76,15 @@ e.g. your own custom VR application that uses the NanoverUnityPlugin.
     one you are most comfortable with! We also recommend checking out the online documentation for your VR headset if you
     run into any problems relating to setting up your VR kit.
 
+
 Flow diagram for choosing your VR setup
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Below is a flow diagram to help you decide which VR setup to choose.
+Below is a flow diagram to help you decide which setup to choose based on: the operating system of your computer,
+the type of network you have access to, your VR headset, and your desired configuration (single-/multi-person VR).
 
 .. image::  /_static/VR_client_flow_diagram.png
   :width: 600
-
-
-Using PC-VR
-~~~~~~~~~~~
-
-You can run PC-VR via any of the following setups:
-
-* Meta Quest Link (tethered\ :sup:`†`)
-* Meta Quest AirLink (wireless*)
-* SteamVR (tethered\ :sup:`†`)
-* Steam Link (wireless*)
-
-You can use either NanoVer-iMD installation option:
-
-* **Downloading the latest release of the NanoVer iMD executable**, see :ref:`download_latest_release_VR_client`.
-
-* **Conda installation of the NanoVer iMD package**, see :ref:`conda_installation_VR_client`.
 
 .. admonition:: Key point
 
@@ -105,16 +95,44 @@ You can use either NanoVer-iMD installation option:
 
     \ **Tethered**: using a cable to connect your VR headset to your computer.
 
+Please use the following dropdown boxes to see more details about the different VR setups:
 
-Running locally on a Meta Quest headset
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. dropdown:: Using PC-VR
 
-In this case, you must:
+    Using PC-VR
+    ~~~~~~~~~~~
 
-* **Download the latest release of the NanoVer iMD apk** and sideload this onto your headset, see
-  :ref:`download_latest_release_VR_client`. If you wish to use your VR headset wirelessly,
-  then you must meet the requirements for a wireless setup (see above).
+    This option is compatible with the following VR setups:
 
+    * `Meta Quest Link <https://www.meta.com/en-gb/help/quest/articles/headsets-and-accessories/oculus-link/connect-with-air-link/>`_ (tethered)
+    * `Meta Quest AirLink <https://www.meta.com/en-gb/help/quest/articles/headsets-and-accessories/oculus-link/connect-with-air-link/>`_ (wireless)
+    * `SteamVR <https://store.steampowered.com/app/250820/SteamVR/>`_ (tethered)
+    * `Steam Link <https://store.steampowered.com/app/353380/Steam_Link/>`_ (wireless)
+
+    You can use either NanoVer-iMD installation method:
+
+    * **Downloading the latest release of the NanoVer iMD executable**, see :ref:`download_latest_release_VR_client`.
+
+    * **Conda installation of the NanoVer iMD package**, see :ref:`conda_installation_VR_client`.
+
+.. dropdown:: Running locally on a Meta Quest headset
+
+    Running locally on a Meta Quest headset
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    This option is compatible with the following VR setups:
+
+    * Run directly on the App store of a Meta Quest headset (wireless)
+    * `Meta Quest Link <https://www.meta.com/en-gb/help/quest/articles/headsets-and-accessories/oculus-link/connect-with-air-link/>`_
+      with `Meta Quest Developer Hub <https://developer.oculus.com/meta-quest-developer-hub/>`_ (tethered)
+
+    You must use the following NanoVer-iMD installation method:
+
+    * **Download the latest release of the NanoVer iMD apk** and sideload this onto your headset, see
+      :ref:`download_latest_release_VR_client`. If you wish to use your VR headset wirelessly,
+      then you must meet the requirements for a wireless setup (see above).
+
+    Choosing this option means that you cannot run NanoVer iMD via conda.
 
 ----
 
