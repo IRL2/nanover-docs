@@ -54,7 +54,7 @@ via a python script or notebook
 
 For running a NanoVer server using a python script or Jupyter notebook, please see our :ref:`tutorials` page.
 If you are new to NanoVer, we recommend starting with our
-`getting_started notebook <https://github.com/IRL2/nanover-protocol/blob/main/examples/fundamentals/getting_started.ipynb>`_.
+`getting_started notebook <https://github.com/IRL2/nanover-protocol/blob/main/examples/basics/getting_started.ipynb>`_.
 
 via the command line
 ####################
