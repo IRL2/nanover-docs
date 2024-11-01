@@ -94,6 +94,8 @@ Installing the iMD-VR client
 
 To get access to NanoVer iMD, you can either :ref:`install it via conda<conda_installation_VR_client>`
 or :ref:`download the latest release<download_latest_release_VR_client>`.
+For more information on how to configure your VR setup and which installation method to choose, please check out the
+:ref:`choosing your iMD-VR setup<choosing_setup_iMD-VR_client>` section on the NanoVer iMD tutorial page.
 
 
 .. _conda_installation_VR_client:
@@ -174,11 +176,8 @@ Download the latest release
     #. On your computer, open the `Meta Quest Developer Hub <https://developer.oculus.com/meta-quest-developer-hub/>`_
        and go to the ``Device Manager`` menu on the left sidebar.
     #. Look for the NanoverIMD app under ``Apps``. It should be called ``com.IntangibleRealitiesLaboratory.NanoVeriMD``
-       (hover over it with you cursor to see the full name).
+       (hover over it with your cursor to see the full name).
     #. Click on the three dots (on the far right) for this app and select ``Launch App``.
-
-
-
 
 ----
 
@@ -189,16 +188,16 @@ Download the latest release
 Developer Installation Guide
 ############################
 
-Developers will want to manually install from source.
+We refer developers to the relevant code bases:
 
 * If you want to create your own custom server, connect a different physics engine or create a custom client,
   you can do this via modification of the NanoVer protocol. To download and install the source code, please follow the
   `developer installation instructions
-  <https://github.com/IRL2/nanover-protocol?tab=readme-ov-file#setup-nanover-protocol-for-developers-on-mac-and-linux>`_
-  on the README of the `nanover-protocol repository <https://github.com/IRL2/nanover-protocol>`_.
+  <https://github.com/IRL2/nanover-protocol?tab=readme-ov-file#developer-installation>`_
+  in the README of the `nanover-protocol repository <https://github.com/IRL2/nanover-protocol>`_ on GitHub.
 
 * If you want to customise the NanoVer iMD Unity3D application, instructions for obtaining the source code are available
-  in the `nanover-imd repository on GitHub <https://github.com/IRL2/nanover-imd>`_.
+  in the `nanover-imd repository <https://github.com/IRL2/nanover-imd>`_ on GitHub .
 
 * If you want to build your own VR application that interfaces with NanoVer, the NanoVer Unity3D libraries are available
-  in the `NanoverUnityPlugin repository on GitHub <https://github.com/IRL2/NanoverUnityPlugin>`_.
+  in the `NanoverUnityPlugin repository <https://github.com/IRL2/NanoverUnityPlugin>`_ on GitHub .

@@ -13,6 +13,7 @@ to **incorporate VR into your workflow**, including:
 
 To install the NanoVer iMD application, please go to :ref:`installation`.
 
+.. _choosing_setup_iMD-VR_client:
 
 Choosing your setup for the iMD-VR client
 #########################################
