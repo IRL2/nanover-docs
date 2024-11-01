@@ -19,6 +19,41 @@ For help choosing your VR setup, please see :ref:`choosing_setup_iMD-VR` below.
 
 ----
 
+
+Using NanoVer iMD
+#################
+
+We call an instance of the NanoVer iMD application an iMD-VR client, or simply a **VR client**.
+This is different to a *python client*, which connects to a NanoVer server from a python script or Jupyter notebook.
+This distinction is important since the two types of client offer different functionalities.
+For example, *both* can connect to a NanoVer server to access simulation data, run commands
+such as play/pause/reset, & apply forces to the molecule system (interactive MD).
+However, *only a VR client* allows you to visualise & interact with a simulation in VR,
+and *only a python client* allows you to change the visualisation of the molecular system.
+
+.. admonition:: Key point
+
+   A **VR Client** or **iMD-VR client** is an instance of the NanoVer iMD application that has connected to a NanoVer server.
+
+User Interface
+~~~~~~~~~~~~~~
+
+There are two types of user interface (UI) in the NanoVer iMD application:
+
+.. toctree::
+   :maxdepth: 1
+
+   pcvrmenu.rst
+   invrmenu.rst
+
+
+.. figure:: /_static/UI_full-screen.png
+    :align: center
+    :width: 800px
+
+    Screenshot of the NanoVer iMD application showing the on-screen (top left) and in-VR (center) menus.
+
+
 .. _choosing_setup_iMD-VR:
 
 Choosing your setup for iMD-VR
@@ -83,38 +118,5 @@ In this case, you must:
 
 ----
 
-
-Using NanoVer iMD
-#################
-
-We call an instance of the NanoVer iMD application an iMD-VR client, or simply a **VR client**.
-This is different to a *python client*, which connects to a NanoVer server from a python script or Jupyter notebook.
-This distinction is important since the two types of client offer different functionalities.
-For example, *both* can connect to a NanoVer server to access simulation data, run commands
-such as play/pause/reset, & apply forces to the molecule system (interactive MD).
-However, *only a VR client* allows you to visualise & interact with a simulation in VR,
-and *only a python client* allows you to change the visualisation of the molecular system.
-
-.. admonition:: Key point
-
-   A **VR Client** or **iMD-VR client** is an instance of the NanoVer iMD application that has connected to a NanoVer server.
-
-User Interface
-~~~~~~~~~~~~~~
-
-There are two types of user interface (UI) in the NanoVer iMD application:
-
-.. toctree::
-   :maxdepth: 1
-
-   pcvrmenu.rst
-   invrmenu.rst
-
-
-.. figure:: /_static/UI_full-screen.png
-    :align: center
-    :width: 800px
-
-    Screenshot of the NanoVer iMD application showing the on-screen (top left) and in-VR (center) menus.
 
 
