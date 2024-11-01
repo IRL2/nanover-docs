@@ -25,6 +25,7 @@ creating a conda environment and installing the server, which is required for se
 then have the option to install the iMD-VR client, which you can use for visualising and interacting with your simulations
 inside VR.
 
+
 .. _creating_conda_env:
 
 Setting up conda
@@ -39,7 +40,6 @@ Setting up conda
 At this point, you are ready to create your conda environment and install the NanoVer server! Please refer to
 :ref:`installing_the_server`.
 
-----
 
 .. _installing_the_server:
 
@@ -84,8 +84,6 @@ issue with the dependencies of the packages. In this case, we recommend creating
 conda environment and reinstalling :code:`nanover-server`, following the
 :ref:`installation instructions<installing_the_server>`.
 
-----
-
 
 .. _installing_imdvr_client:
 
@@ -122,7 +120,9 @@ If you have not already created a NanoVer conda environment, please refer to
 
         conda install -c irl nanover-imd
 
-#. To start the program, run the command:
+#. Set up your VR headset.
+
+#. To start the program, run the following command:
 
    .. code:: bash
 
@@ -138,20 +138,17 @@ Download the latest release
 
 #. Extract the downloaded zip file.
 
-#. The next steps depend on your desired VR setup:
+#. Set up your VR headset.
 
-    * :ref:`using PC-VR<using_pc-vr>` (wireless or tethered)
-    * :ref:`running locally on a Meta Quest headset<running_locally_on_meta_quest_wireless>` (wireless)
-    * :ref:`running locally on a Meta Quest headset via the Meta Developer Hub<running_locally_on_meta_quest_developer_hub>` (tethered)
-
-.. admonition:: Key definition
-
-    \ **Tethered**: using a cable to connect your VR headset to your computer.
+#. The next steps depend on your chosen VR setup:
 
 .. _using_pc-vr:
 
-* **Using PC-VR** (wireless or tethered), including `Meta Quest Link & AirLink <https://www.meta.com/en-gb/help/quest/articles/headsets-and-accessories/oculus-link/connect-with-air-link/>`_,
-  and `SteamVR <https://store.steampowered.com/app/250820/SteamVR/>`_:
+.. dropdown:: **Using PC-VR** (wireless or tethered)
+
+    This includes
+    `Meta Quest Link & AirLink <https://www.meta.com/en-gb/help/quest/articles/headsets-and-accessories/oculus-link/connect-with-air-link/>`_,
+    and `SteamVR <https://store.steampowered.com/app/250820/SteamVR/>`_:
 
     #. Navigate to the ``windows`` directory in the extracted folder, and launch ``NanoVer iMD.exe``.
     #. The first time you run this, Windows will likely prompt you with a warning about the executable not being signed.
@@ -160,7 +157,7 @@ Download the latest release
 
 .. _running_locally_on_meta_quest_wireless:
 
-* **Running locally on a Meta Quest headset** (wireless):
+.. dropdown:: **Running locally on a Meta Quest headset** (wireless)
 
     #. Ensure that you have developer mode enabled on your headset (search online for up-to-date instructions).
     #. Connect your headset to your computer with a cable and sideload the ``nanover-imd.apk`` from the extracted zip
@@ -172,7 +169,7 @@ Download the latest release
 
 .. _running_locally_on_meta_quest_developer_hub:
 
-* **Running locally on a Meta Quest headset via the Meta Developer Hub** (tethered):
+.. dropdown:: **Running locally on a Meta Quest headset via the Meta Developer Hub** (tethered)
 
     #. First, follow the :ref:`above instructions<running_locally_on_meta_quest_wireless>` for sideloading the apk onto your headset.
     #. Connect your headset to your computer with a cable. A notification may appear inside your headset stating
@@ -182,6 +179,15 @@ Download the latest release
     #. Look for the NanoverIMD app under ``Apps``. It should be called ``com.IntangibleRealitiesLaboratory.NanoVeriMD``
        (hover over it with your cursor to see the full name).
     #. Click on the three dots (on the far right) for this app and select ``Launch App``.
+
+.. admonition:: Key point
+
+    For a **wireless setup** you will need to have a strong and stable internet connection that allows communication over the network.
+    This option is often incompatible with public / institutional networks.
+
+.. admonition:: Key definition
+
+    \ **Tethered**: using a cable to connect your VR headset to your computer.
 
 ----
 
