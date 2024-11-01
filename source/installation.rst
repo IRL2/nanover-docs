@@ -92,10 +92,14 @@ conda environment and reinstalling :code:`nanover-server`, following the
 Installing the iMD-VR client
 ############################
 
-To get access to NanoVer iMD, you can either :ref:`install it via conda<conda_installation_VR_client>`
-or :ref:`download the latest release<download_latest_release_VR_client>`.
+To use NanoVer iMD, you have two options:
+
+* **Conda installation of the NanoVer iMD package**. This is a good option if you are familiar with conda (or want to learn how to use it!), see :ref:`conda_installation_VR_client`.
+
+* **Download the latest release of the NanoVer iMD executable**. This is a quick and easy option for those unfamiliar with conda, see :ref:`download_latest_release_VR_client`.
+
 For more information on how to configure your VR setup and which installation method to choose, please check out the
-:ref:`choosing your iMD-VR setup<choosing_setup_iMD-VR_client>` section on the NanoVer iMD tutorial page.
+:ref:`choosing your iMD-VR setup<choosing_setup_iMD-VR>` section on the NanoVer iMD tutorial page.
 
 
 .. _conda_installation_VR_client:

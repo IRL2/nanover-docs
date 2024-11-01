@@ -12,11 +12,22 @@ to **incorporate VR into your workflow**, including:
 * joining together with others for multi-person sessions in VR
 
 To install the NanoVer iMD application, please go to :ref:`installation`.
+For help choosing your VR setup, please see :ref:`choosing_setup_iMD-VR` below.
 
-.. _choosing_setup_iMD-VR_client:
+.. contents:: Contents
+    :depth: 3
 
-Choosing your setup for the iMD-VR client
-#########################################
+----
+
+.. _choosing_setup_iMD-VR:
+
+Choosing your setup for iMD-VR
+##############################
+
+If you wish to visualise and/or interact with your simulations in VR, you will need to use an iMD-VR client.
+We focus on NanoVer iMD as the prototypical iMD-VR client, but these instructions can be generalised to any iMD-VR client,
+e.g. your own custom VR application that uses the NanoverUnityPlugin.
+
 
 .. note::
 
@@ -25,70 +36,73 @@ Choosing your setup for the iMD-VR client
     one you are most comfortable with! We also recommend checking out the online documentation for your VR headset if you
     run into any problems relating to setting up your VR kit.
 
+Flow diagram for choosing your VR setup
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-If you wish to visualise and interact with your simulations in VR, you will need to install an iMD-VR client. Below is a
-flow diagram to help you decide which setup to use.
+Below is a flow diagram to help you decide which VR setup to choose.
 
 .. image::  /_static/VR_client_flow_diagram.png
   :width: 600
 
+
 Using PC-VR
 ~~~~~~~~~~~
 
-In this case, you have two options for running the VR client:
-
-* **Downloading the latest release of the NanoVer iMD executable**. This is a quick and easy option for those unfamiliar with conda, see :ref:`download_latest_release_VR_client`.
-
-* **Conda installation of the NanoVer iMD package**. This is a good option if you are familiar with conda (or want to learn how to use it!), see :ref:`conda_installation_VR_client`.
-
-Both options are compatible with any of the following:
+You can run PC-VR via any of the following setups:
 
 * Meta Quest Link (tethered\ :sup:`†`)
 * Meta Quest AirLink (wireless*)
 * SteamVR (tethered\ :sup:`†`)
 * Steam Link (wireless*)
 
-\ :sup:`†` **Tethered**: using a cable to connect your headset to your computer.
+You can use either NanoVer-iMD installation option:
 
-\* Note that for a **wireless setup** you will need to meet the **requirements for a Wi-Fi setup** (see the key in the flow
-diagram above).
+* **Downloading the latest release of the NanoVer iMD executable**, see :ref:`download_latest_release_VR_client`.
+
+* **Conda installation of the NanoVer iMD package**, see :ref:`conda_installation_VR_client`.
+
+.. admonition:: Key point
+
+    For a **wireless setup** you will need to have a strong and stable internet connection that allows communication over the network.
+    This option is often incompatible with public / institutional networks.
+
+.. admonition:: Key definition
+
+    \ **Tethered**: using a cable to connect your VR headset to your computer.
+
 
 Running locally on a Meta Quest headset
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In this case, you have one option:
+In this case, you must:
 
-* **Downloading the latest release of the NanoVer iMD apk** and installing this on your headset, see
-  :ref:`download_latest_release_VR_client`.
+* **Download the latest release of the NanoVer iMD apk** and sideload this onto your headset, see
+  :ref:`download_latest_release_VR_client`. If you wish to use your VR headset wirelessly,
+  then you must meet the requirements for a wireless setup (see above).
 
-Note that for a **wireless setup** you will need to meet the **requirements for a Wi-Fi setup** (see the key in the flow
-diagram above).
 
 ----
 
-.. _installing_imdvr_client:
 
+Using NanoVer iMD
+#################
 
-The VR client
-#############
-
-We call an instance of the NanoVer iMD application a **VR client**.
-This is different to a *python client*, which connects to a server from a python script.
+We call an instance of the NanoVer iMD application an iMD-VR client, or simply a **VR client**.
+This is different to a *python client*, which connects to a NanoVer server from a python script or Jupyter notebook.
 This distinction is important since the two types of client offer different functionalities.
-For example, *both* can connect to a NanoVer server to access simulation data & run commands
-such as play/pause/reset.
+For example, *both* can connect to a NanoVer server to access simulation data, run commands
+such as play/pause/reset, & apply forces to the molecule system (interactive MD).
 However, *only a VR client* allows you to visualise & interact with a simulation in VR,
 and *only a python client* allows you to change the visualisation of the molecular system.
 
 .. admonition:: Key point
 
-   A **VR Client** is an instance of the NanoVer iMD application.
+   A **VR Client** or **iMD-VR client** is an instance of the NanoVer iMD application that has connected to a NanoVer server.
 
+User Interface
+~~~~~~~~~~~~~~
 
-The UI
-######
-
-There are two types of UI in the NanoVer iMD application:
+There are two types of user interface (UI) in the NanoVer iMD application:
 
 .. toctree::
    :maxdepth: 1
