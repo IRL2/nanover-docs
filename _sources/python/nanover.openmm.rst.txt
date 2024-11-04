@@ -17,5 +17,4 @@ Submodules
    nanover.openmm.imd
    nanover.openmm.nanoverreporter
    nanover.openmm.potentials
-   nanover.openmm.runner
    nanover.openmm.serializer

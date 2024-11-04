@@ -1,0 +1,7 @@
+nanover.ase.openmm.frame\_adaptor module
+========================================
+
+.. automodule:: nanover.ase.openmm.frame_adaptor
+   :members:
+   :undoc-members:
+   :show-inheritance:

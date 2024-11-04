@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>nanover.trajectory.frame_client module &mdash; NanoVer 2024.06.18 documentation</title>
+  <title>nanover.ase.openmm.frame_adaptor module &mdash; NanoVer 2024.06.18 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -25,8 +25,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="nanover.trajectory.frame_data module" href="nanover.trajectory.frame_data.html" />
-    <link rel="prev" title="nanover.trajectory package" href="nanover.trajectory.html" />
+    <link rel="next" title="nanover.ase.converter module" href="nanover.ase.converter.html" />
+    <link rel="prev" title="nanover.ase.openmm.calculator module" href="nanover.ase.openmm.calculator.html" />
  
 <link rel="icon" type="image/x-icon" href="../_static/favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="../_static/favicon-32x32.png">
@@ -65,7 +65,7 @@
 <li class="toctree-l2 current"><a class="reference internal" href="nanover.html">nanover namespace</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="nanover.html#subpackages">Subpackages</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="nanover.app.html">nanover.app package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="nanover.ase.html">nanover.ase package</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="nanover.ase.html">nanover.ase package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nanover.command.html">nanover.command package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nanover.core.html">nanover.core package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nanover.essd.html">nanover.essd package</a></li>
@@ -78,7 +78,7 @@
 <li class="toctree-l4"><a class="reference internal" href="nanover.recording.html">nanover.recording namespace</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nanover.state.html">nanover.state namespace</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nanover.testing.html">nanover.testing package</a></li>
-<li class="toctree-l4 current"><a class="reference internal" href="nanover.trajectory.html">nanover.trajectory package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.trajectory.html">nanover.trajectory package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nanover.utilities.html">nanover.utilities package</a></li>
 </ul>
 </li>
@@ -105,10 +105,11 @@
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../modules.html">Modules</a></li>
           <li class="breadcrumb-item"><a href="nanover.html">nanover namespace</a></li>
-          <li class="breadcrumb-item"><a href="nanover.trajectory.html">nanover.trajectory package</a></li>
-      <li class="breadcrumb-item active">nanover.trajectory.frame_client module</li>
+          <li class="breadcrumb-item"><a href="nanover.ase.html">nanover.ase package</a></li>
+          <li class="breadcrumb-item"><a href="nanover.ase.openmm.html">nanover.ase.openmm package</a></li>
+      <li class="breadcrumb-item active">nanover.ase.openmm.frame_adaptor module</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/python/nanover.trajectory.frame_client.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/python/nanover.ase.openmm.frame_adaptor.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -116,37 +117,17 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="module-nanover.trajectory.frame_client">
-<span id="nanover-trajectory-frame-client-module"></span><h1>nanover.trajectory.frame_client module<a class="headerlink" href="#module-nanover.trajectory.frame_client" title="Link to this heading"></a></h1>
-<dl class="py class">
-<dt class="sig sig-object py" id="nanover.trajectory.frame_client.FrameClient">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nanover.trajectory.frame_client.</span></span><span class="sig-name descname"><span class="pre">FrameClient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Channel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">make_channel_owner</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.trajectory.frame_client.FrameClient" title="Link to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="nanover.core.nanover_client.html#nanover.core.nanover_client.NanoverStubClient" title="nanover.core.nanover_client.NanoverStubClient"><code class="xref py py-class docutils literal notranslate"><span class="pre">NanoverStubClient</span></code></a></p>
-<dl class="py method">
-<dt class="sig sig-object py" id="nanover.trajectory.frame_client.FrameClient.subscribe_frames_async">
-<span class="sig-name descname"><span class="pre">subscribe_frames_async</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callback</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frame_interval</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Future</span></span></span><a class="headerlink" href="#nanover.trajectory.frame_client.FrameClient.subscribe_frames_async" title="Link to this definition"></a></dt>
+  <section id="module-nanover.ase.openmm.frame_adaptor">
+<span id="nanover-ase-openmm-frame-adaptor-module"></span><h1>nanover.ase.openmm.frame_adaptor module<a class="headerlink" href="#module-nanover.ase.openmm.frame_adaptor" title="Link to this heading"></a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="nanover.ase.openmm.frame_adaptor.openmm_ase_atoms_to_frame_data">
+<span class="sig-prename descclassname"><span class="pre">nanover.ase.openmm.frame_adaptor.</span></span><span class="sig-name descname"><span class="pre">openmm_ase_atoms_to_frame_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ase_atoms</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Atoms</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">topology</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.FrameData" title="nanover.trajectory.frame_data.FrameData"><span class="pre">FrameData</span></a></span></span><a class="headerlink" href="#nanover.ase.openmm.frame_adaptor.openmm_ase_atoms_to_frame_data" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
-<dt class="sig sig-object py" id="nanover.trajectory.frame_client.FrameClient.subscribe_frames_blocking">
-<span class="sig-name descname"><span class="pre">subscribe_frames_blocking</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callback</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frame_interval</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.trajectory.frame_client.FrameClient.subscribe_frames_blocking" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="nanover.trajectory.frame_client.FrameClient.subscribe_frames_iterate">
-<span class="sig-name descname"><span class="pre">subscribe_frames_iterate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frame_interval</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.trajectory.frame_client.FrameClient.subscribe_frames_iterate" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="nanover.trajectory.frame_client.FrameClient.subscribe_last_frames_async">
-<span class="sig-name descname"><span class="pre">subscribe_last_frames_async</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callback</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frame_interval</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Future</span></span></span><a class="headerlink" href="#nanover.trajectory.frame_client.FrameClient.subscribe_last_frames_async" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="nanover.trajectory.frame_client.FrameClient.subscribe_last_frames_blocking">
-<span class="sig-name descname"><span class="pre">subscribe_last_frames_blocking</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callback</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frame_interval</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.trajectory.frame_client.FrameClient.subscribe_last_frames_blocking" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
+<dl class="py function">
+<dt class="sig sig-object py" id="nanover.ase.openmm.frame_adaptor.openmm_ase_frame_adaptor">
+<span class="sig-prename descclassname"><span class="pre">nanover.ase.openmm.frame_adaptor.</span></span><span class="sig-name descname"><span class="pre">openmm_ase_frame_adaptor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ase_atoms</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Atoms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frame_publisher</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="nanover.trajectory.frame_publisher.html#nanover.trajectory.frame_publisher.FramePublisher" title="nanover.trajectory.frame_publisher.FramePublisher"><span class="pre">FramePublisher</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.ase.openmm.frame_adaptor.openmm_ase_frame_adaptor" title="Link to this definition"></a></dt>
+<dd><p>Generates and sends frames for a simulation using an :class: OpenMMCalculator.</p>
 </dd></dl>
 
 </section>
@@ -155,8 +136,8 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="nanover.trajectory.html" class="btn btn-neutral float-left" title="nanover.trajectory package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="nanover.trajectory.frame_data.html" class="btn btn-neutral float-right" title="nanover.trajectory.frame_data module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="nanover.ase.openmm.calculator.html" class="btn btn-neutral float-left" title="nanover.ase.openmm.calculator module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="nanover.ase.converter.html" class="btn btn-neutral float-right" title="nanover.ase.converter module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

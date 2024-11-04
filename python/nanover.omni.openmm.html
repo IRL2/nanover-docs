@@ -22,6 +22,7 @@
       <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
       <script src="../_static/copybutton.js?v=f281be69"></script>
       <script src="../_static/custom.js?v=6d5f2585"></script>
+      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -70,7 +71,6 @@
 <li class="toctree-l4"><a class="reference internal" href="nanover.core.html">nanover.core package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nanover.essd.html">nanover.essd package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nanover.imd.html">nanover.imd package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="nanover.lammps.html">nanover.lammps package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nanover.mdanalysis.html">nanover.mdanalysis package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nanover.nglview.html">nanover.nglview package</a></li>
 <li class="toctree-l4 current"><a class="reference internal" href="nanover.omni.html">nanover.omni package</a></li>
@@ -123,7 +123,34 @@
 <dt class="sig sig-object py" id="nanover.omni.openmm.OpenMMSimulation">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nanover.omni.openmm.</span></span><span class="sig-name descname"><span class="pre">OpenMMSimulation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.omni.openmm.OpenMMSimulation" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>A wrapper for OpenMM simulations so they can be run inside the OmniRunner.</p>
+<p>A wrapper for OpenMM simulations to run inside the OmniRunner.</p>
+<p>The following attributes can be configured after construction:
+- <a class="reference internal" href="#nanover.omni.openmm.OpenMMSimulation.frame_interval" title="nanover.omni.openmm.OpenMMSimulation.frame_interval"><code class="xref py py-attr docutils literal notranslate"><span class="pre">frame_interval</span></code></a>: Number of simulation steps to advance between frames.
+- <a class="reference internal" href="#nanover.omni.openmm.OpenMMSimulation.include_velocities" title="nanover.omni.openmm.OpenMMSimulation.include_velocities"><code class="xref py py-attr docutils literal notranslate"><span class="pre">include_velocities</span></code></a>: Include particle velocities in frames.
+- <a class="reference internal" href="#nanover.omni.openmm.OpenMMSimulation.include_forces" title="nanover.omni.openmm.OpenMMSimulation.include_forces"><code class="xref py py-attr docutils literal notranslate"><span class="pre">include_forces</span></code></a>: Include particle forces in frames.
+- <a class="reference internal" href="#nanover.omni.openmm.OpenMMSimulation.platform_name" title="nanover.omni.openmm.OpenMMSimulation.platform_name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">platform_name</span></code></a>: Name of OpenMM platform to use when loading the system from XML.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.omni.openmm.OpenMMSimulation.add_contribution_to_work">
+<span class="sig-name descname"><span class="pre">add_contribution_to_work</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">forces</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">_ScalarType_co</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">positions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">_ScalarType_co</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.omni.openmm.OpenMMSimulation.add_contribution_to_work" title="Link to this definition"></a></dt>
+<dd><p>The expression for the work done on the system by the user is</p>
+<div class="math notranslate nohighlight">
+\[W = \sum_{t = 1}^{n_{steps}} \sum_{i = 1}^{N} \mathbf{F}_{i}(t - 1)
+ \cdot (\mathbf{r}_{i}(t) - \mathbf{r}_{i}(t - 1)))\]</div>
+<p>which can be rewritten as</p>
+<div class="math notranslate nohighlight">
+\[W = \sum_{t = 1}^{n_{steps}} \bigg(  \sum_{i = 1}^{N} \mathbf{F}_{i}(t - 1)
+ \cdot \mathbf{r}_{i}(t) \bigg)  - \bigg(  \sum_{i = 1}^{N} \mathbf{F}_{i}(t - 1)
+ \cdot \mathbf{r}_{i}(t - 1) \bigg)\]</div>
+<p>where the contribution at each value of t is separated into an
+previous-step contribution (t-1) and an on-step contribution (t). Doing so
+enables calculation of the work done on-the-fly without having to save
+the positions of the atoms at each time step that the user applies an
+iMD force.</p>
+<p>This function calculates the contribution to the work done on the system by the user
+for a set of forces and positions, and add it to the work done on the system. Only
+involves the atoms affected by the user interaction.</p>
+</dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="nanover.omni.openmm.OpenMMSimulation.advance_by_one_step">
 <span class="sig-name descname"><span class="pre">advance_by_one_step</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nanover.omni.openmm.OpenMMSimulation.advance_by_one_step" title="Link to this definition"></a></dt>
@@ -143,6 +170,12 @@
 <dd><p>Step the simulation to the next point a frame should be reported, and send that frame.</p>
 </dd></dl>
 
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nanover.omni.openmm.OpenMMSimulation.frame_interval">
+<span class="sig-name descname"><span class="pre">frame_interval</span></span><a class="headerlink" href="#nanover.omni.openmm.OpenMMSimulation.frame_interval" title="Link to this definition"></a></dt>
+<dd><p>Number of simulation steps to advance between frames.</p>
+</dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="nanover.omni.openmm.OpenMMSimulation.from_simulation">
 <em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_simulation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">simulation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Simulation</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.omni.openmm.OpenMMSimulation.from_simulation" title="Link to this definition"></a></dt>
@@ -157,6 +190,18 @@
 <dd><p>Construct this from an existing NanoVer OpenMM XML file at a given path.
 :param path: Path of the NanoVer OpenMM XML file
 :param name: An optional name for the simulation instead of filename</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nanover.omni.openmm.OpenMMSimulation.include_forces">
+<span class="sig-name descname"><span class="pre">include_forces</span></span><a class="headerlink" href="#nanover.omni.openmm.OpenMMSimulation.include_forces" title="Link to this definition"></a></dt>
+<dd><p>Include particle forces in frames.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nanover.omni.openmm.OpenMMSimulation.include_velocities">
+<span class="sig-name descname"><span class="pre">include_velocities</span></span><a class="headerlink" href="#nanover.omni.openmm.OpenMMSimulation.include_velocities" title="Link to this definition"></a></dt>
+<dd><p>Include particle velocities in frames.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -176,6 +221,12 @@
 <dt class="sig sig-object py" id="nanover.omni.openmm.OpenMMSimulation.make_topology_frame">
 <span class="sig-name descname"><span class="pre">make_topology_frame</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nanover.omni.openmm.OpenMMSimulation.make_topology_frame" title="Link to this definition"></a></dt>
 <dd><p>Make a NanoVer FrameData corresponding to the current particle positions and topology of the simulation.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nanover.omni.openmm.OpenMMSimulation.platform_name">
+<span class="sig-name descname"><span class="pre">platform_name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#nanover.omni.openmm.OpenMMSimulation.platform_name" title="Link to this definition"></a></dt>
+<dd><p>Name of OpenMM platform to use at the time the system is loaded from XML.</p>
 </dd></dl>
 
 <dl class="py method">

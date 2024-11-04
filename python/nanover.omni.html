@@ -22,10 +22,11 @@
       <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
       <script src="../_static/copybutton.js?v=f281be69"></script>
       <script src="../_static/custom.js?v=6d5f2585"></script>
+      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="nanover.omni.ase_omm module" href="nanover.omni.ase_omm.html" />
+    <link rel="next" title="nanover.omni.ase module" href="nanover.omni.ase.html" />
     <link rel="prev" title="nanover.nglview.nglclient module" href="nanover.nglview.nglclient.html" />
  
 <link rel="icon" type="image/x-icon" href="../_static/favicon.ico">
@@ -70,7 +71,6 @@
 <li class="toctree-l4"><a class="reference internal" href="nanover.core.html">nanover.core package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nanover.essd.html">nanover.essd package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nanover.imd.html">nanover.imd package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="nanover.lammps.html">nanover.lammps package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nanover.mdanalysis.html">nanover.mdanalysis package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nanover.nglview.html">nanover.nglview package</a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#">nanover.omni package</a></li>
@@ -123,23 +123,37 @@
 <h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
 <div class="toctree-wrapper compound">
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="nanover.omni.ase.html">nanover.omni.ase module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nanover.omni.ase.html#nanover.omni.ase.ASEAtomsToFrameData"><code class="docutils literal notranslate"><span class="pre">ASEAtomsToFrameData</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="nanover.omni.ase.html#nanover.omni.ase.ASESimulation"><code class="docutils literal notranslate"><span class="pre">ASESimulation</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nanover.omni.ase.html#nanover.omni.ase.ASESimulation.advance_by_one_step"><code class="docutils literal notranslate"><span class="pre">ASESimulation.advance_by_one_step()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.omni.ase.html#nanover.omni.ase.ASESimulation.advance_by_seconds"><code class="docutils literal notranslate"><span class="pre">ASESimulation.advance_by_seconds()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.omni.ase.html#nanover.omni.ase.ASESimulation.advance_to_next_report"><code class="docutils literal notranslate"><span class="pre">ASESimulation.advance_to_next_report()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.omni.ase.html#nanover.omni.ase.ASESimulation.atoms"><code class="docutils literal notranslate"><span class="pre">ASESimulation.atoms</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.omni.ase.html#nanover.omni.ase.ASESimulation.from_ase_dynamics"><code class="docutils literal notranslate"><span class="pre">ASESimulation.from_ase_dynamics()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.omni.ase.html#nanover.omni.ase.ASESimulation.load"><code class="docutils literal notranslate"><span class="pre">ASESimulation.load()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.omni.ase.html#nanover.omni.ase.ASESimulation.make_regular_frame"><code class="docutils literal notranslate"><span class="pre">ASESimulation.make_regular_frame()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.omni.ase.html#nanover.omni.ase.ASESimulation.make_topology_frame"><code class="docutils literal notranslate"><span class="pre">ASESimulation.make_topology_frame()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.omni.ase.html#nanover.omni.ase.ASESimulation.reset"><code class="docutils literal notranslate"><span class="pre">ASESimulation.reset()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nanover.omni.ase.html#nanover.omni.ase.InitialState"><code class="docutils literal notranslate"><span class="pre">InitialState</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nanover.omni.ase.html#nanover.omni.ase.InitialState.cell"><code class="docutils literal notranslate"><span class="pre">InitialState.cell</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.omni.ase.html#nanover.omni.ase.InitialState.positions"><code class="docutils literal notranslate"><span class="pre">InitialState.positions</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.omni.ase.html#nanover.omni.ase.InitialState.velocities"><code class="docutils literal notranslate"><span class="pre">InitialState.velocities</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="nanover.omni.ase_omm.html">nanover.omni.ase_omm module</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="nanover.omni.ase_omm.html#nanover.omni.ase_omm.ASEOpenMMSimulation"><code class="docutils literal notranslate"><span class="pre">ASEOpenMMSimulation</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="nanover.omni.ase_omm.html#nanover.omni.ase_omm.ASEOpenMMSimulation.advance_by_one_step"><code class="docutils literal notranslate"><span class="pre">ASEOpenMMSimulation.advance_by_one_step()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nanover.omni.ase_omm.html#nanover.omni.ase_omm.ASEOpenMMSimulation.advance_by_seconds"><code class="docutils literal notranslate"><span class="pre">ASEOpenMMSimulation.advance_by_seconds()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nanover.omni.ase_omm.html#nanover.omni.ase_omm.ASEOpenMMSimulation.advance_to_next_report"><code class="docutils literal notranslate"><span class="pre">ASEOpenMMSimulation.advance_to_next_report()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nanover.omni.ase_omm.html#nanover.omni.ase_omm.ASEOpenMMSimulation.from_simulation"><code class="docutils literal notranslate"><span class="pre">ASEOpenMMSimulation.from_simulation()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nanover.omni.ase_omm.html#nanover.omni.ase_omm.ASEOpenMMSimulation.from_xml_path"><code class="docutils literal notranslate"><span class="pre">ASEOpenMMSimulation.from_xml_path()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nanover.omni.ase_omm.html#nanover.omni.ase_omm.ASEOpenMMSimulation.load"><code class="docutils literal notranslate"><span class="pre">ASEOpenMMSimulation.load()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nanover.omni.ase_omm.html#nanover.omni.ase_omm.ASEOpenMMSimulation.reset"><code class="docutils literal notranslate"><span class="pre">ASEOpenMMSimulation.reset()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="nanover.omni.ase_omm.html#nanover.omni.ase_omm.InitialState"><code class="docutils literal notranslate"><span class="pre">InitialState</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="nanover.omni.ase_omm.html#nanover.omni.ase_omm.InitialState.cell"><code class="docutils literal notranslate"><span class="pre">InitialState.cell</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nanover.omni.ase_omm.html#nanover.omni.ase_omm.InitialState.positions"><code class="docutils literal notranslate"><span class="pre">InitialState.positions</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="nanover.omni.ase_omm.html#nanover.omni.ase_omm.InitialState.velocities"><code class="docutils literal notranslate"><span class="pre">InitialState.velocities</span></code></a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="nanover.omni.ase_omm.html#nanover.omni.ase_omm.make_default_ase_omm_dynamics"><code class="docutils literal notranslate"><span class="pre">make_default_ase_omm_dynamics()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="nanover.omni.cli.html">nanover.omni.cli module</a><ul>
@@ -169,6 +183,7 @@
 <li class="toctree-l3"><a class="reference internal" href="nanover.omni.omni.html#nanover.omni.omni.OmniRunner.print_basic_info_and_wait"><code class="docutils literal notranslate"><span class="pre">OmniRunner.print_basic_info_and_wait()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nanover.omni.omni.html#nanover.omni.omni.OmniRunner.reset"><code class="docutils literal notranslate"><span class="pre">OmniRunner.reset()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nanover.omni.omni.html#nanover.omni.omni.OmniRunner.runner"><code class="docutils literal notranslate"><span class="pre">OmniRunner.runner</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.omni.omni.html#nanover.omni.omni.OmniRunner.set_simulation_selections"><code class="docutils literal notranslate"><span class="pre">OmniRunner.set_simulation_selections()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nanover.omni.omni.html#nanover.omni.omni.OmniRunner.simulation"><code class="docutils literal notranslate"><span class="pre">OmniRunner.simulation</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nanover.omni.omni.html#nanover.omni.omni.OmniRunner.step"><code class="docutils literal notranslate"><span class="pre">OmniRunner.step()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nanover.omni.omni.html#nanover.omni.omni.OmniRunner.with_basic_server"><code class="docutils literal notranslate"><span class="pre">OmniRunner.with_basic_server()</span></code></a></li>
@@ -186,14 +201,19 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="nanover.omni.openmm.html">nanover.omni.openmm module</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="nanover.omni.openmm.html#nanover.omni.openmm.OpenMMSimulation"><code class="docutils literal notranslate"><span class="pre">OpenMMSimulation</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nanover.omni.openmm.html#nanover.omni.openmm.OpenMMSimulation.add_contribution_to_work"><code class="docutils literal notranslate"><span class="pre">OpenMMSimulation.add_contribution_to_work()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nanover.omni.openmm.html#nanover.omni.openmm.OpenMMSimulation.advance_by_one_step"><code class="docutils literal notranslate"><span class="pre">OpenMMSimulation.advance_by_one_step()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nanover.omni.openmm.html#nanover.omni.openmm.OpenMMSimulation.advance_by_seconds"><code class="docutils literal notranslate"><span class="pre">OpenMMSimulation.advance_by_seconds()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nanover.omni.openmm.html#nanover.omni.openmm.OpenMMSimulation.advance_to_next_report"><code class="docutils literal notranslate"><span class="pre">OpenMMSimulation.advance_to_next_report()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.omni.openmm.html#nanover.omni.openmm.OpenMMSimulation.frame_interval"><code class="docutils literal notranslate"><span class="pre">OpenMMSimulation.frame_interval</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nanover.omni.openmm.html#nanover.omni.openmm.OpenMMSimulation.from_simulation"><code class="docutils literal notranslate"><span class="pre">OpenMMSimulation.from_simulation()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nanover.omni.openmm.html#nanover.omni.openmm.OpenMMSimulation.from_xml_path"><code class="docutils literal notranslate"><span class="pre">OpenMMSimulation.from_xml_path()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.omni.openmm.html#nanover.omni.openmm.OpenMMSimulation.include_forces"><code class="docutils literal notranslate"><span class="pre">OpenMMSimulation.include_forces</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.omni.openmm.html#nanover.omni.openmm.OpenMMSimulation.include_velocities"><code class="docutils literal notranslate"><span class="pre">OpenMMSimulation.include_velocities</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nanover.omni.openmm.html#nanover.omni.openmm.OpenMMSimulation.load"><code class="docutils literal notranslate"><span class="pre">OpenMMSimulation.load()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nanover.omni.openmm.html#nanover.omni.openmm.OpenMMSimulation.make_regular_frame"><code class="docutils literal notranslate"><span class="pre">OpenMMSimulation.make_regular_frame()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nanover.omni.openmm.html#nanover.omni.openmm.OpenMMSimulation.make_topology_frame"><code class="docutils literal notranslate"><span class="pre">OpenMMSimulation.make_topology_frame()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nanover.omni.openmm.html#nanover.omni.openmm.OpenMMSimulation.platform_name"><code class="docutils literal notranslate"><span class="pre">OpenMMSimulation.platform_name</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="nanover.omni.openmm.html#nanover.omni.openmm.OpenMMSimulation.reset"><code class="docutils literal notranslate"><span class="pre">OpenMMSimulation.reset()</span></code></a></li>
 </ul>
 </li>
@@ -229,7 +249,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="nanover.nglview.nglclient.html" class="btn btn-neutral float-left" title="nanover.nglview.nglclient module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="nanover.omni.ase_omm.html" class="btn btn-neutral float-right" title="nanover.omni.ase_omm module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="nanover.omni.ase.html" class="btn btn-neutral float-right" title="nanover.omni.ase module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

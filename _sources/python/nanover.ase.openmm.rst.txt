@@ -13,5 +13,4 @@ Submodules
    :maxdepth: 4
 
    nanover.ase.openmm.calculator
-   nanover.ase.openmm.cli
-   nanover.ase.openmm.runner
+   nanover.ase.openmm.frame_adaptor

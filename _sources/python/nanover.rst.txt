@@ -15,7 +15,6 @@ Subpackages
    nanover.core
    nanover.essd
    nanover.imd
-   nanover.lammps
    nanover.mdanalysis
    nanover.nglview
    nanover.omni

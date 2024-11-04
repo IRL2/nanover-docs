@@ -12,6 +12,7 @@ Submodules
 .. toctree::
    :maxdepth: 4
 
+   nanover.omni.ase
    nanover.omni.ase_omm
    nanover.omni.cli
    nanover.omni.omni

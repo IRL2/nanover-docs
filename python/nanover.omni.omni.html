@@ -70,7 +70,6 @@
 <li class="toctree-l4"><a class="reference internal" href="nanover.core.html">nanover.core package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nanover.essd.html">nanover.essd package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nanover.imd.html">nanover.imd package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="nanover.lammps.html">nanover.lammps package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nanover.mdanalysis.html">nanover.mdanalysis package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nanover.nglview.html">nanover.nglview package</a></li>
 <li class="toctree-l4 current"><a class="reference internal" href="nanover.omni.html">nanover.omni package</a></li>
@@ -155,7 +154,8 @@
 <dl class="py property">
 <dt class="sig sig-object py" id="nanover.omni.omni.OmniRunner.app_server">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">app_server</span></span><a class="headerlink" href="#nanover.omni.omni.OmniRunner.app_server" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>The NanoVer application server used by this runner.</p>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nanover.omni.omni.OmniRunner.close">
@@ -166,7 +166,12 @@
 <dl class="py property">
 <dt class="sig sig-object py" id="nanover.omni.omni.OmniRunner.is_paused">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">is_paused</span></span><a class="headerlink" href="#nanover.omni.omni.OmniRunner.is_paused" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the current simulation is paused, False otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nanover.omni.omni.OmniRunner.list">
@@ -217,10 +222,16 @@
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">runner</span></span><a class="headerlink" href="#nanover.omni.omni.OmniRunner.runner" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.omni.omni.OmniRunner.set_simulation_selections">
+<span class="sig-name descname"><span class="pre">set_simulation_selections</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">simulation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#nanover.omni.omni.Simulation" title="nanover.omni.omni.Simulation"><span class="pre">Simulation</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">selections</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="nanover.app.selection.html#nanover.app.selection.RenderingSelection" title="nanover.app.selection.RenderingSelection"><span class="pre">RenderingSelection</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.omni.omni.OmniRunner.set_simulation_selections" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
 <dl class="py property">
 <dt class="sig sig-object py" id="nanover.omni.omni.OmniRunner.simulation">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">simulation</span></span><a class="headerlink" href="#nanover.omni.omni.OmniRunner.simulation" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>The currently selected simulation.</p>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nanover.omni.omni.OmniRunner.step">

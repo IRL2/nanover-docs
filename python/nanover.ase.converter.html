@@ -26,7 +26,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="nanover.ase.frame_adaptor module" href="nanover.ase.frame_adaptor.html" />
-    <link rel="prev" title="nanover.ase.openmm.runner module" href="nanover.ase.openmm.runner.html" />
+    <link rel="prev" title="nanover.ase.openmm.frame_adaptor module" href="nanover.ase.openmm.frame_adaptor.html" />
  
 <link rel="icon" type="image/x-icon" href="../_static/favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="../_static/favicon-32x32.png">
@@ -70,7 +70,6 @@
 <li class="toctree-l4"><a class="reference internal" href="nanover.core.html">nanover.core package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nanover.essd.html">nanover.essd package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nanover.imd.html">nanover.imd package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="nanover.lammps.html">nanover.lammps package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nanover.mdanalysis.html">nanover.mdanalysis package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nanover.nglview.html">nanover.nglview package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nanover.omni.html">nanover.omni package</a></li>
@@ -213,6 +212,11 @@ particle elements.</p>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="nanover.ase.converter.ase_atoms_to_frame_data">
+<span class="sig-prename descclassname"><span class="pre">nanover.ase.converter.</span></span><span class="sig-name descname"><span class="pre">ase_atoms_to_frame_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ase_atoms</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Atoms</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">topology</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.FrameData" title="nanover.trajectory.frame_data.FrameData"><span class="pre">FrameData</span></a></span></span><a class="headerlink" href="#nanover.ase.converter.ase_atoms_to_frame_data" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="nanover.ase.converter.ase_to_frame_data">
 <span class="sig-prename descclassname"><span class="pre">nanover.ase.converter.</span></span><span class="sig-name descname"><span class="pre">ase_to_frame_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ase_atoms</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Atoms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">positions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">topology</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">box_vectors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">generate_bonds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_velocities</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_forces</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.FrameData" title="nanover.trajectory.frame_data.FrameData"><span class="pre">FrameData</span></a></span></span><a class="headerlink" href="#nanover.ase.converter.ase_to_frame_data" title="Link to this definition"></a></dt>
 <dd><p>Constructs a NanoVer frame from the state of the atoms in an ASE simulation.</p>
@@ -338,7 +342,7 @@ symbol is not known.</p></li>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="nanover.ase.openmm.runner.html" class="btn btn-neutral float-left" title="nanover.ase.openmm.runner module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="nanover.ase.openmm.frame_adaptor.html" class="btn btn-neutral float-left" title="nanover.ase.openmm.frame_adaptor module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="nanover.ase.frame_adaptor.html" class="btn btn-neutral float-right" title="nanover.ase.frame_adaptor module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

@@ -131,6 +131,8 @@
 </li>
       <li><a href="python/nanover.protocol.command.command_service_pb2_grpc.html#nanover.protocol.command.command_service_pb2_grpc.add_CommandServicer_to_server">add_CommandServicer_to_server() (in module nanover.protocol.command.command_service_pb2_grpc)</a>
 </li>
+      <li><a href="python/nanover.omni.openmm.html#nanover.omni.openmm.OpenMMSimulation.add_contribution_to_work">add_contribution_to_work() (nanover.omni.openmm.OpenMMSimulation method)</a>
+</li>
       <li><a href="python/nanover.ase.converter.html#nanover.ase.converter.add_frame_data_positions_to_ase">add_frame_data_positions_to_ase() (in module nanover.ase.converter)</a>
 </li>
       <li><a href="python/nanover.ase.converter.html#nanover.ase.converter.add_frame_data_topology_to_ase">add_frame_data_topology_to_ase() (in module nanover.ase.converter)</a>
@@ -176,8 +178,6 @@
 </li>
         <li><a href="python/nanover.ase.imd.html#nanover.ase.imd.NanoverASEDynamics.address">(nanover.ase.imd.NanoverASEDynamics property)</a>
 </li>
-        <li><a href="python/nanover.ase.openmm.runner.html#nanover.ase.openmm.runner.ImdParams.address">(nanover.ase.openmm.runner.ImdParams attribute)</a>
-</li>
         <li><a href="python/nanover.core.grpc_server.html#nanover.core.grpc_server.GrpcServer.address">(nanover.core.grpc_server.GrpcServer property)</a>
 </li>
         <li><a href="python/nanover.essd.servicehub.html#nanover.essd.servicehub.ServiceHub.address">(nanover.essd.servicehub.ServiceHub property)</a>
@@ -191,7 +191,7 @@
 </li>
       <li><a href="python/nanover.ase.wall_constraint.html#nanover.ase.wall_constraint.VelocityWallConstraint.adjust_positions">adjust_positions() (nanover.ase.wall_constraint.VelocityWallConstraint method)</a>
 </li>
-      <li><a href="python/nanover.omni.ase_omm.html#nanover.omni.ase_omm.ASEOpenMMSimulation.advance_by_one_step">advance_by_one_step() (nanover.omni.ase_omm.ASEOpenMMSimulation method)</a>
+      <li><a href="python/nanover.omni.ase.html#nanover.omni.ase.ASESimulation.advance_by_one_step">advance_by_one_step() (nanover.omni.ase.ASESimulation method)</a>
 
       <ul>
         <li><a href="python/nanover.omni.omni.html#nanover.omni.omni.Simulation.advance_by_one_step">(nanover.omni.omni.Simulation method)</a>
@@ -203,7 +203,7 @@
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="python/nanover.omni.ase_omm.html#nanover.omni.ase_omm.ASEOpenMMSimulation.advance_by_seconds">advance_by_seconds() (nanover.omni.ase_omm.ASEOpenMMSimulation method)</a>
+      <li><a href="python/nanover.omni.ase.html#nanover.omni.ase.ASESimulation.advance_by_seconds">advance_by_seconds() (nanover.omni.ase.ASESimulation method)</a>
 
       <ul>
         <li><a href="python/nanover.omni.omni.html#nanover.omni.omni.Simulation.advance_by_seconds">(nanover.omni.omni.Simulation method)</a>
@@ -219,7 +219,7 @@
 </li>
       <li><a href="python/nanover.omni.playback.html#nanover.omni.playback.PlaybackSimulation.advance_to_next_entry">advance_to_next_entry() (nanover.omni.playback.PlaybackSimulation method)</a>
 </li>
-      <li><a href="python/nanover.omni.ase_omm.html#nanover.omni.ase_omm.ASEOpenMMSimulation.advance_to_next_report">advance_to_next_report() (nanover.omni.ase_omm.ASEOpenMMSimulation method)</a>
+      <li><a href="python/nanover.omni.ase.html#nanover.omni.ase.ASESimulation.advance_to_next_report">advance_to_next_report() (nanover.omni.ase.ASESimulation method)</a>
 
       <ul>
         <li><a href="python/nanover.omni.openmm.html#nanover.omni.openmm.OpenMMSimulation.advance_to_next_report">(nanover.omni.openmm.OpenMMSimulation method)</a>
@@ -230,11 +230,7 @@
       <li><a href="python/nanover.app.runner.html#nanover.app.runner.NanoverRunner.app_server">app_server (nanover.app.runner.NanoverRunner property)</a>
 
       <ul>
-        <li><a href="python/nanover.ase.openmm.runner.html#nanover.ase.openmm.runner.ASEOpenMMRunner.app_server">(nanover.ase.openmm.runner.ASEOpenMMRunner property)</a>
-</li>
         <li><a href="python/nanover.omni.omni.html#nanover.omni.omni.OmniRunner.app_server">(nanover.omni.omni.OmniRunner property)</a>
-</li>
-        <li><a href="python/nanover.openmm.runner.html#nanover.openmm.runner.OpenMMRunner.app_server">(nanover.openmm.runner.OpenMMRunner property)</a>
 </li>
       </ul></li>
       <li><a href="python/nanover.imd.imd_force.html#nanover.imd.imd_force.apply_single_interaction_force">apply_single_interaction_force() (in module nanover.imd.imd_force)</a>
@@ -247,11 +243,15 @@
 </li>
       <li><a href="python/nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.ArraysView">ArraysView (class in nanover.trajectory.frame_data)</a>
 </li>
+      <li><a href="python/nanover.ase.converter.html#nanover.ase.converter.ase_atoms_to_frame_data">ase_atoms_to_frame_data() (in module nanover.ase.converter)</a>
+</li>
       <li><a href="python/nanover.ase.converter.html#nanover.ase.converter.ase_to_frame_data">ase_to_frame_data() (in module nanover.ase.converter)</a>
 </li>
-      <li><a href="python/nanover.ase.openmm.runner.html#nanover.ase.openmm.runner.ASEOpenMMRunner">ASEOpenMMRunner (class in nanover.ase.openmm.runner)</a>
+      <li><a href="python/nanover.omni.ase.html#nanover.omni.ase.ASEAtomsToFrameData">ASEAtomsToFrameData (class in nanover.omni.ase)</a>
 </li>
       <li><a href="python/nanover.omni.ase_omm.html#nanover.omni.ase_omm.ASEOpenMMSimulation">ASEOpenMMSimulation (class in nanover.omni.ase_omm)</a>
+</li>
+      <li><a href="python/nanover.omni.ase.html#nanover.omni.ase.ASESimulation">ASESimulation (class in nanover.omni.ase)</a>
 </li>
       <li><a href="python/nanover.testing.asserts.html#nanover.testing.asserts.assert_equal_soon">assert_equal_soon() (in module nanover.testing.asserts)</a>
 </li>
@@ -263,6 +263,8 @@
 
       <ul>
         <li><a href="python/nanover.ase.trajectory_logger.html#nanover.ase.trajectory_logger.TrajectoryLogger.atoms">(nanover.ase.trajectory_logger.TrajectoryLogger attribute)</a>
+</li>
+        <li><a href="python/nanover.omni.ase.html#nanover.omni.ase.ASESimulation.atoms">(nanover.omni.ase.ASESimulation property)</a>
 </li>
       </ul></li>
       <li><a href="python/nanover.core.nanover_client.html#nanover.core.nanover_client.NanoverClient.attempt_update_locks">attempt_update_locks() (nanover.core.nanover_client.NanoverClient method)</a>
@@ -286,8 +288,6 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="python/nanover.ase.trajectory_logger.html#nanover.ase.trajectory_logger.TrajectoryLogger.base_path">base_path (nanover.ase.trajectory_logger.TrajectoryLogger attribute)</a>
-</li>
-      <li><a href="python/nanover.ase.openmm.runner.html#nanover.ase.openmm.runner.TrajectoryLoggerInfo.base_trajectory_path">base_trajectory_path (nanover.ase.openmm.runner.TrajectoryLoggerInfo property)</a>
 </li>
       <li><a href="python/nanover.ase.imd.html#nanover.ase.imd.NanoverASEDynamics.basic_imd">basic_imd() (nanover.ase.imd.NanoverASEDynamics class method)</a>
 </li>
@@ -330,12 +330,8 @@
       <li><a href="python/nanover.command.command_service.html#nanover.command.command_service.CommandRegistration.callback">callback (nanover.command.command_service.CommandRegistration attribute)</a>
 </li>
       <li><a href="python/nanover.ase.imd.html#nanover.ase.imd.NanoverASEDynamics.cancel_run">cancel_run() (nanover.ase.imd.NanoverASEDynamics method)</a>
-
-      <ul>
-        <li><a href="python/nanover.openmm.runner.html#nanover.openmm.runner.OpenMMRunner.cancel_run">(nanover.openmm.runner.OpenMMRunner method)</a>
 </li>
-      </ul></li>
-      <li><a href="python/nanover.omni.ase_omm.html#nanover.omni.ase_omm.InitialState.cell">cell (nanover.omni.ase_omm.InitialState attribute)</a>
+      <li><a href="python/nanover.omni.ase.html#nanover.omni.ase.InitialState.cell">cell (nanover.omni.ase.InitialState attribute)</a>
 </li>
       <li><a href="python/nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.FrameData.chain_count">chain_count (nanover.trajectory.frame_data.FrameData property)</a>
 </li>
@@ -360,10 +356,6 @@
 </li>
         <li><a href="python/nanover.ase.imd.html#nanover.ase.imd.NanoverASEDynamics.close">(nanover.ase.imd.NanoverASEDynamics method)</a>
 </li>
-        <li><a href="python/nanover.ase.openmm.runner.html#nanover.ase.openmm.runner.ASEOpenMMRunner.close">(nanover.ase.openmm.runner.ASEOpenMMRunner method)</a>
-</li>
-        <li><a href="python/nanover.ase.openmm.runner.html#nanover.ase.openmm.runner.TrajectoryLoggerInfo.close">(nanover.ase.openmm.runner.TrajectoryLoggerInfo method)</a>
-</li>
         <li><a href="python/nanover.ase.trajectory_logger.html#nanover.ase.trajectory_logger.TrajectoryLogger.close">(nanover.ase.trajectory_logger.TrajectoryLogger method)</a>
 </li>
         <li><a href="python/nanover.core.grpc_client.html#nanover.core.grpc_client.GrpcClient.close">(nanover.core.grpc_client.GrpcClient method)</a>
@@ -380,11 +372,7 @@
 </li>
         <li><a href="python/nanover.imd.imd_client.html#nanover.imd.imd_client.ImdClient.close">(nanover.imd.imd_client.ImdClient method)</a>
 </li>
-        <li><a href="python/nanover.lammps.LammpsImd.html#nanover.lammps.LammpsImd.LammpsImd.close">(nanover.lammps.LammpsImd.LammpsImd method)</a>
-</li>
         <li><a href="python/nanover.omni.omni.html#nanover.omni.omni.OmniRunner.close">(nanover.omni.omni.OmniRunner method)</a>
-</li>
-        <li><a href="python/nanover.openmm.runner.html#nanover.openmm.runner.OpenMMRunner.close">(nanover.openmm.runner.OpenMMRunner method)</a>
 </li>
         <li><a href="python/nanover.state.state_service.html#nanover.state.state_service.StateService.close">(nanover.state.state_service.StateService method)</a>
 </li>
@@ -550,35 +538,15 @@
       <li><a href="python/nanover.utilities.request_queues.html#nanover.utilities.request_queues.DictOfQueues">DictOfQueues (class in nanover.utilities.request_queues)</a>
 </li>
       <li><a href="python/nanover.app.app_server.html#nanover.app.app_server.NanoverApplicationServer.discovery">discovery (nanover.app.app_server.NanoverApplicationServer property)</a>
-
-      <ul>
-        <li><a href="python/nanover.ase.openmm.runner.html#nanover.ase.openmm.runner.ImdParams.discovery">(nanover.ase.openmm.runner.ImdParams attribute)</a>
 </li>
-      </ul></li>
-      <li><a href="python/nanover.ase.openmm.runner.html#nanover.ase.openmm.runner.ASEOpenMMRunner.discovery_port">discovery_port (nanover.ase.openmm.runner.ASEOpenMMRunner property)</a>
-
-      <ul>
-        <li><a href="python/nanover.ase.openmm.runner.html#nanover.ase.openmm.runner.ImdParams.discovery_port">(nanover.ase.openmm.runner.ImdParams attribute)</a>
-</li>
-      </ul></li>
       <li><a href="python/nanover.essd.client.html#nanover.essd.client.DiscoveryClient">DiscoveryClient (class in nanover.essd.client)</a>
 </li>
       <li><a href="python/nanover.essd.server.html#nanover.essd.server.DiscoveryServer">DiscoveryServer (class in nanover.essd.server)</a>
 </li>
       <li><a href="python/nanover.ase.imd.html#nanover.ase.imd.NanoverASEDynamics.dynamics">dynamics (nanover.ase.imd.NanoverASEDynamics attribute)</a>
-
-      <ul>
-        <li><a href="python/nanover.ase.openmm.runner.html#nanover.ase.openmm.runner.ASEOpenMMRunner.dynamics">(nanover.ase.openmm.runner.ASEOpenMMRunner property)</a>
 </li>
-      </ul></li>
       <li><a href="python/nanover.ase.imd.html#nanover.ase.imd.NanoverASEDynamics.dynamics_interval">dynamics_interval (nanover.ase.imd.NanoverASEDynamics property)</a>
-
-      <ul>
-        <li><a href="python/nanover.ase.openmm.runner.html#nanover.ase.openmm.runner.ASEOpenMMRunner.dynamics_interval">(nanover.ase.openmm.runner.ASEOpenMMRunner property)</a>
 </li>
-        <li><a href="python/nanover.openmm.runner.html#nanover.openmm.runner.OpenMMRunner.dynamics_interval">(nanover.openmm.runner.OpenMMRunner property)</a>
-</li>
-      </ul></li>
   </ul></td>
 </tr></table>
 
@@ -587,15 +555,11 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="python/nanover.omni.playback.html#nanover.omni.playback.PlaybackSimulation.emit">emit() (nanover.omni.playback.PlaybackSimulation method)</a>
 </li>
-      <li><a href="python/nanover.utilities.event.html#nanover.utilities.event.Event">Event (class in nanover.utilities.event)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python/nanover.utilities.event.html#nanover.utilities.event.Event">Event (class in nanover.utilities.event)</a>
+</li>
       <li><a href="python/nanover.mdanalysis.universe.html#nanover.mdanalysis.universe.explosion_mask">explosion_mask() (in module nanover.mdanalysis.universe)</a>
-</li>
-      <li><a href="python/nanover.lammps.mock.html#nanover.lammps.mock.MockLammps.extract_atom">extract_atom() (nanover.lammps.mock.MockLammps method)</a>
-</li>
-      <li><a href="python/nanover.lammps.mock.html#nanover.lammps.mock.MockLammps.extract_global">extract_global() (nanover.lammps.mock.MockLammps method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -604,8 +568,6 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="python/nanover.nglview.nglclient.html#nanover.nglview.nglclient.fill_empty_fields">fill_empty_fields() (in module nanover.nglview.nglclient)</a>
-</li>
-      <li><a href="python/nanover.lammps.LammpsImd.html#nanover.lammps.LammpsImd.LammpsImd.find_unit_type">find_unit_type() (nanover.lammps.LammpsImd.LammpsImd method)</a>
 </li>
       <li><a href="python/nanover.app.client.html#nanover.app.client.NanoverImdClient.first_frame">first_frame (nanover.app.client.NanoverImdClient property)</a>
 </li>
@@ -616,14 +578,8 @@
       <li><a href="python/nanover.app.selection.html#nanover.app.selection.RenderingSelection.flush_changes">flush_changes() (nanover.app.selection.RenderingSelection method)</a>
 </li>
       <li><a href="python/nanover.openmm.imd.html#nanover.openmm.imd.NanoverImdReporter.force_interval">force_interval (nanover.openmm.imd.NanoverImdReporter attribute)</a>
-
-      <ul>
-        <li><a href="python/nanover.openmm.runner.html#nanover.openmm.runner.OpenMMRunner.force_interval">(nanover.openmm.runner.OpenMMRunner property)</a>
 </li>
-      </ul></li>
       <li><a href="python/nanover.imd.imd_force.html#nanover.imd.imd_force.ForceCalculator">ForceCalculator (class in nanover.imd.imd_force)</a>
-</li>
-      <li><a href="python/nanover.lammps.conversions.html#nanover.lammps.conversions.LammpsUnitConverter.forces">forces (nanover.lammps.conversions.LammpsUnitConverter attribute)</a>
 </li>
       <li><a href="python/nanover.ase.trajectory_logger.html#nanover.ase.trajectory_logger.TrajectoryLogger.format">format (nanover.ase.trajectory_logger.TrajectoryLogger attribute)</a>
 </li>
@@ -639,14 +595,10 @@
 </li>
       <li><a href="python/nanover.ase.trajectory_logger.html#nanover.ase.trajectory_logger.TrajectoryLogger.frame_index">frame_index (nanover.ase.trajectory_logger.TrajectoryLogger attribute)</a>
 </li>
-      <li><a href="python/nanover.ase.openmm.runner.html#nanover.ase.openmm.runner.ASEOpenMMRunner.frame_interval">frame_interval (nanover.ase.openmm.runner.ASEOpenMMRunner property)</a>
+      <li><a href="python/nanover.omni.openmm.html#nanover.omni.openmm.OpenMMSimulation.frame_interval">frame_interval (nanover.omni.openmm.OpenMMSimulation attribute)</a>
 
       <ul>
-        <li><a href="python/nanover.ase.openmm.runner.html#nanover.ase.openmm.runner.ImdParams.frame_interval">(nanover.ase.openmm.runner.ImdParams attribute)</a>
-</li>
         <li><a href="python/nanover.openmm.imd.html#nanover.openmm.imd.NanoverImdReporter.frame_interval">(nanover.openmm.imd.NanoverImdReporter attribute)</a>
-</li>
-        <li><a href="python/nanover.openmm.runner.html#nanover.openmm.runner.OpenMMRunner.frame_interval">(nanover.openmm.runner.OpenMMRunner property)</a>
 </li>
       </ul></li>
       <li><a href="python/nanover.app.frame_app.html#nanover.app.frame_app.NanoverFrameApplication.frame_publisher">frame_publisher (nanover.app.frame_app.NanoverFrameApplication property)</a>
@@ -659,14 +611,14 @@
 </li>
       <li><a href="python/nanover.trajectory.frame_client.html#nanover.trajectory.frame_client.FrameClient">FrameClient (class in nanover.trajectory.frame_client)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="python/nanover.protocol.trajectory.frame_pb2.html#nanover.protocol.trajectory.frame_pb2.FrameData">FrameData (class in nanover.protocol.trajectory.frame_pb2)</a>
 
       <ul>
         <li><a href="python/nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.FrameData">(class in nanover.trajectory.frame_data)</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="python/nanover.protocol.trajectory.frame_pb2.html#nanover.protocol.trajectory.frame_pb2.FrameData.ArraysEntry">FrameData.ArraysEntry (class in nanover.protocol.trajectory.frame_pb2)</a>
 </li>
       <li><a href="python/nanover.protocol.trajectory.frame_pb2.html#nanover.protocol.trajectory.frame_pb2.FrameData.ValuesEntry">FrameData.ValuesEntry (class in nanover.protocol.trajectory.frame_pb2)</a>
@@ -691,6 +643,8 @@
         <li><a href="python/nanover.utilities.change_buffers.html#nanover.utilities.change_buffers.DictionaryChangeMultiView.freeze">(nanover.utilities.change_buffers.DictionaryChangeMultiView method)</a>
 </li>
       </ul></li>
+      <li><a href="python/nanover.omni.ase.html#nanover.omni.ase.ASESimulation.from_ase_dynamics">from_ase_dynamics() (nanover.omni.ase.ASESimulation class method)</a>
+</li>
       <li><a href="python/nanover.app.selection.html#nanover.app.selection.RenderingSelection.from_dictionary">from_dictionary() (nanover.app.selection.RenderingSelection class method)</a>
 </li>
       <li><a href="python/nanover.essd.servicehub.html#nanover.essd.servicehub.ServiceHub.from_json">from_json() (nanover.essd.servicehub.ServiceHub class method)</a>
@@ -706,14 +660,6 @@
 </li>
       </ul></li>
       <li><a href="python/nanover.ase.openmm.calculator.html#nanover.ase.openmm.calculator.OpenMMCalculator.from_xml">from_xml() (nanover.ase.openmm.calculator.OpenMMCalculator class method)</a>
-
-      <ul>
-        <li><a href="python/nanover.ase.openmm.runner.html#nanover.ase.openmm.runner.ASEOpenMMRunner.from_xml">(nanover.ase.openmm.runner.ASEOpenMMRunner class method)</a>
-</li>
-      </ul></li>
-      <li><a href="python/nanover.openmm.runner.html#nanover.openmm.runner.OpenMMRunner.from_xml_input">from_xml_input() (nanover.openmm.runner.OpenMMRunner class method)</a>
-</li>
-      <li><a href="python/nanover.openmm.runner.html#nanover.openmm.runner.OpenMMRunner.from_xml_inputs">from_xml_inputs() (nanover.openmm.runner.OpenMMRunner class method)</a>
 </li>
       <li><a href="python/nanover.omni.ase_omm.html#nanover.omni.ase_omm.ASEOpenMMSimulation.from_xml_path">from_xml_path() (nanover.omni.ase_omm.ASEOpenMMSimulation class method)</a>
 
@@ -721,16 +667,12 @@
         <li><a href="python/nanover.omni.openmm.html#nanover.omni.openmm.OpenMMSimulation.from_xml_path">(nanover.omni.openmm.OpenMMSimulation class method)</a>
 </li>
       </ul></li>
-      <li><a href="python/nanover.ase.openmm.runner.html#nanover.ase.openmm.runner.ASEOpenMMRunner.from_xmls">from_xmls() (nanover.ase.openmm.runner.ASEOpenMMRunner class method)</a>
-</li>
   </ul></td>
 </tr></table>
 
 <h2 id="G">G</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="python/nanover.lammps.mock.html#nanover.lammps.mock.MockLammps.gather_atoms">gather_atoms() (nanover.lammps.mock.MockLammps method)</a>
-</li>
       <li><a href="python/nanover.ase.openmm.calculator.html#nanover.ase.openmm.calculator.OpenMMCalculator.generate_atoms">generate_atoms() (nanover.ase.openmm.calculator.OpenMMCalculator method)</a>
 </li>
       <li><a href="python/nanover.ase.converter.html#nanover.ase.converter.generate_bonds_from_ase">generate_bonds_from_ase() (in module nanover.ase.converter)</a>
@@ -765,14 +707,12 @@
 </li>
       <li><a href="python/nanover.essd.utils.html#nanover.essd.utils.get_ipv4_addresses">get_ipv4_addresses() (in module nanover.essd.utils)</a>
 </li>
-      <li><a href="python/nanover.lammps.mock.html#nanover.lammps.mock.MockLammps.get_natoms">get_natoms() (nanover.lammps.mock.MockLammps method)</a>
-</li>
       <li><a href="python/nanover.app.selection.html#nanover.app.selection.get_nested_or_default">get_nested_or_default() (in module nanover.app.selection)</a>
+</li>
+      <li><a href="python/nanover.ase.imd_calculator.html#nanover.ase.imd_calculator.get_periodic_box_lengths">get_periodic_box_lengths() (in module nanover.ase.imd_calculator)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="python/nanover.ase.imd_calculator.html#nanover.ase.imd_calculator.get_periodic_box_lengths">get_periodic_box_lengths() (in module nanover.ase.imd_calculator)</a>
-</li>
       <li><a href="python/nanover.ase.converter.html#nanover.ase.converter.get_radius_of_element">get_radius_of_element() (in module nanover.ase.converter)</a>
 </li>
       <li><a href="python/nanover.core.grpc_server.html#nanover.core.grpc_server.get_requested_port_or_default">get_requested_port_or_default() (in module nanover.core.grpc_server)</a>
@@ -851,8 +791,6 @@
 </li>
       <li><a href="python/nanover.openmm.imd.html#nanover.openmm.imd.ImdForceManager">ImdForceManager (class in nanover.openmm.imd)</a>
 </li>
-      <li><a href="python/nanover.ase.openmm.runner.html#nanover.ase.openmm.runner.ImdParams">ImdParams (class in nanover.ase.openmm.runner)</a>
-</li>
       <li><a href="python/nanover.imd.imd_server.html#nanover.imd.imd_server.ImdServer">ImdServer (class in nanover.imd.imd_server)</a>
 </li>
       <li><a href="python/nanover.imd.imd_state.html#nanover.imd.imd_state.ImdStateWrapper">ImdStateWrapper (class in nanover.imd.imd_state)</a>
@@ -861,22 +799,22 @@
 </li>
       <li><a href="python/nanover.openmm.imd.html#nanover.openmm.imd.NextReport.include_energies">include_energies (nanover.openmm.imd.NextReport attribute)</a>
 </li>
-      <li><a href="python/nanover.openmm.imd.html#nanover.openmm.imd.NanoverImdReporter.include_forces">include_forces (nanover.openmm.imd.NanoverImdReporter attribute)</a>
+      <li><a href="python/nanover.omni.openmm.html#nanover.omni.openmm.OpenMMSimulation.include_forces">include_forces (nanover.omni.openmm.OpenMMSimulation attribute)</a>
 
       <ul>
-        <li><a href="python/nanover.openmm.imd.html#nanover.openmm.imd.NextReport.include_forces">(nanover.openmm.imd.NextReport attribute)</a>
+        <li><a href="python/nanover.openmm.imd.html#nanover.openmm.imd.NanoverImdReporter.include_forces">(nanover.openmm.imd.NanoverImdReporter attribute)</a>
 </li>
-        <li><a href="python/nanover.openmm.runner.html#nanover.openmm.runner.OpenMMRunner.include_forces">(nanover.openmm.runner.OpenMMRunner property)</a>
+        <li><a href="python/nanover.openmm.imd.html#nanover.openmm.imd.NextReport.include_forces">(nanover.openmm.imd.NextReport attribute)</a>
 </li>
       </ul></li>
       <li><a href="python/nanover.openmm.imd.html#nanover.openmm.imd.NextReport.include_positions">include_positions (nanover.openmm.imd.NextReport attribute)</a>
 </li>
-      <li><a href="python/nanover.openmm.imd.html#nanover.openmm.imd.NanoverImdReporter.include_velocities">include_velocities (nanover.openmm.imd.NanoverImdReporter attribute)</a>
+      <li><a href="python/nanover.omni.openmm.html#nanover.omni.openmm.OpenMMSimulation.include_velocities">include_velocities (nanover.omni.openmm.OpenMMSimulation attribute)</a>
 
       <ul>
-        <li><a href="python/nanover.openmm.imd.html#nanover.openmm.imd.NextReport.include_velocities">(nanover.openmm.imd.NextReport attribute)</a>
+        <li><a href="python/nanover.openmm.imd.html#nanover.openmm.imd.NanoverImdReporter.include_velocities">(nanover.openmm.imd.NanoverImdReporter attribute)</a>
 </li>
-        <li><a href="python/nanover.openmm.runner.html#nanover.openmm.runner.OpenMMRunner.include_velocities">(nanover.openmm.runner.OpenMMRunner property)</a>
+        <li><a href="python/nanover.openmm.imd.html#nanover.openmm.imd.NextReport.include_velocities">(nanover.openmm.imd.NextReport attribute)</a>
 </li>
       </ul></li>
       <li><a href="python/nanover.protocol.array_pb2.html#nanover.protocol.array_pb2.IndexArray">IndexArray (class in nanover.protocol.array_pb2)</a>
@@ -885,7 +823,7 @@
 </li>
       <li><a href="python/nanover.omni.cli.html#nanover.omni.cli.initialise_runner">initialise_runner() (in module nanover.omni.cli)</a>
 </li>
-      <li><a href="python/nanover.omni.ase_omm.html#nanover.omni.ase_omm.InitialState">InitialState (class in nanover.omni.ase_omm)</a>
+      <li><a href="python/nanover.omni.ase.html#nanover.omni.ase.InitialState">InitialState (class in nanover.omni.ase)</a>
 </li>
       <li><a href="python/nanover.core.grpc_client.html#nanover.core.grpc_client.GrpcClient.insecure_channel">insecure_channel() (nanover.core.grpc_client.GrpcClient class method)</a>
 </li>
@@ -893,10 +831,10 @@
 </li>
       <li><a href="python/nanover.app.selection.html#nanover.app.selection.RenderingSelection.interaction_method">interaction_method (nanover.app.selection.RenderingSelection property)</a>
 </li>
-      <li><a href="python/nanover.imd.imd_state.html#nanover.imd.imd_state.interaction_to_dict">interaction_to_dict() (in module nanover.imd.imd_state)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python/nanover.imd.imd_state.html#nanover.imd.imd_state.interaction_to_dict">interaction_to_dict() (in module nanover.imd.imd_state)</a>
+</li>
       <li><a href="python/nanover.imd.particle_interaction.html#nanover.imd.particle_interaction.ParticleInteraction.interaction_type">interaction_type (nanover.imd.particle_interaction.ParticleInteraction property)</a>
 </li>
       <li><a href="python/nanover.app.client.html#nanover.app.client.NanoverImdClient.interactions">interactions (nanover.app.client.NanoverImdClient property)</a>
@@ -905,8 +843,6 @@
         <li><a href="python/nanover.ase.imd_calculator.html#nanover.ase.imd_calculator.ImdCalculator.interactions">(nanover.ase.imd_calculator.ImdCalculator property)</a>
 </li>
         <li><a href="python/nanover.imd.imd_client.html#nanover.imd.imd_client.ImdClient.interactions">(nanover.imd.imd_client.ImdClient property)</a>
-</li>
-        <li><a href="python/nanover.lammps.LammpsImd.html#nanover.lammps.LammpsImd.LammpsImd.interactions">(nanover.lammps.LammpsImd.LammpsImd property)</a>
 </li>
       </ul></li>
       <li><a href="python/nanover.ase.imd.html#nanover.ase.imd.NanoverASEDynamics.internal_calculator">internal_calculator (nanover.ase.imd.NanoverASEDynamics property)</a>
@@ -931,10 +867,6 @@
 
       <ul>
         <li><a href="python/nanover.ase.imd.html#nanover.ase.imd.NanoverASEDynamics.is_running">(nanover.ase.imd.NanoverASEDynamics property)</a>
-</li>
-        <li><a href="python/nanover.ase.openmm.runner.html#nanover.ase.openmm.runner.ASEOpenMMRunner.is_running">(nanover.ase.openmm.runner.ASEOpenMMRunner property)</a>
-</li>
-        <li><a href="python/nanover.openmm.runner.html#nanover.openmm.runner.OpenMMRunner.is_running">(nanover.openmm.runner.OpenMMRunner property)</a>
 </li>
       </ul></li>
       <li><a href="python/nanover.utilities.request_queues.html#nanover.utilities.request_queues.DictOfQueues.iter_queues">iter_queues() (nanover.utilities.request_queues.DictOfQueues method)</a>
@@ -985,12 +917,6 @@
 <h2 id="L">L</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="python/nanover.lammps.LammpsImd.html#nanover.lammps.LammpsImd.LammpsImd.lammps_hook">lammps_hook() (nanover.lammps.LammpsImd.LammpsImd method)</a>
-</li>
-      <li><a href="python/nanover.lammps.LammpsImd.html#nanover.lammps.LammpsImd.LammpsImd">LammpsImd (class in nanover.lammps.LammpsImd)</a>
-</li>
-      <li><a href="python/nanover.lammps.conversions.html#nanover.lammps.conversions.LammpsUnitConverter">LammpsUnitConverter (class in nanover.lammps.conversions)</a>
-</li>
       <li><a href="python/nanover.trajectory.frame_publisher.html#nanover.trajectory.frame_publisher.FramePublisher.last_frame">last_frame (nanover.trajectory.frame_publisher.FramePublisher attribute)</a>
 </li>
       <li><a href="python/nanover.trajectory.frame_publisher.html#nanover.trajectory.frame_publisher.FramePublisher.last_frame_index">last_frame_index (nanover.trajectory.frame_publisher.FramePublisher attribute)</a>
@@ -1001,17 +927,11 @@
 </li>
       <li><a href="python/nanover.app.client.html#nanover.app.client.NanoverImdClient.latest_multiplayer_values">latest_multiplayer_values (nanover.app.client.NanoverImdClient property)</a>
 </li>
-      <li><a href="python/nanover.ase.openmm.runner.html#nanover.ase.openmm.runner.ASEOpenMMRunner.list">list() (nanover.ase.openmm.runner.ASEOpenMMRunner method)</a>
-
-      <ul>
-        <li><a href="python/nanover.omni.omni.html#nanover.omni.omni.OmniRunner.list">(nanover.omni.omni.OmniRunner method)</a>
+      <li><a href="python/nanover.omni.omni.html#nanover.omni.omni.OmniRunner.list">list() (nanover.omni.omni.OmniRunner method)</a>
 </li>
-        <li><a href="python/nanover.openmm.runner.html#nanover.openmm.runner.OpenMMRunner.list">(nanover.openmm.runner.OpenMMRunner method)</a>
-</li>
-      </ul></li>
       <li><a href="python/nanover.utilities.protobuf_utilities.html#nanover.utilities.protobuf_utilities.list_value_to_list">list_value_to_list() (in module nanover.utilities.protobuf_utilities)</a>
 </li>
-      <li><a href="python/nanover.ase.openmm.runner.html#nanover.ase.openmm.runner.ASEOpenMMRunner.load">load() (nanover.ase.openmm.runner.ASEOpenMMRunner method)</a>
+      <li><a href="python/nanover.omni.ase.html#nanover.omni.ase.ASESimulation.load">load() (nanover.omni.ase.ASESimulation method)</a>
 
       <ul>
         <li><a href="python/nanover.omni.ase_omm.html#nanover.omni.ase_omm.ASEOpenMMSimulation.load">(nanover.omni.ase_omm.ASEOpenMMSimulation method)</a>
@@ -1023,8 +943,6 @@
         <li><a href="python/nanover.omni.openmm.html#nanover.omni.openmm.OpenMMSimulation.load">(nanover.omni.openmm.OpenMMSimulation method)</a>
 </li>
         <li><a href="python/nanover.omni.playback.html#nanover.omni.playback.PlaybackSimulation.load">(nanover.omni.playback.PlaybackSimulation method)</a>
-</li>
-        <li><a href="python/nanover.openmm.runner.html#nanover.openmm.runner.OpenMMRunner.load">(nanover.openmm.runner.OpenMMRunner method)</a>
 </li>
       </ul></li>
   </ul></td>
@@ -1047,40 +965,38 @@
 </li>
       <li><a href="python/nanover.essd.server.html#nanover.essd.server.DiscoveryServer.log_addresses">log_addresses() (nanover.essd.server.DiscoveryServer method)</a>
 </li>
-      <li><a href="python/nanover.ase.openmm.runner.html#nanover.ase.openmm.runner.LoggingParams">LoggingParams (class in nanover.ase.openmm.runner)</a>
-</li>
   </ul></td>
 </tr></table>
 
 <h2 id="M">M</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="python/nanover.ase.openmm.cli.html#nanover.ase.openmm.cli.main">main() (in module nanover.ase.openmm.cli)</a>
+      <li><a href="python/nanover.essd.list_cli.html#nanover.essd.list_cli.main">main() (in module nanover.essd.list_cli)</a>
 
       <ul>
-        <li><a href="python/nanover.essd.list_cli.html#nanover.essd.list_cli.main">(in module nanover.essd.list_cli)</a>
-</li>
         <li><a href="python/nanover.omni.cli.html#nanover.omni.cli.main">(in module nanover.omni.cli)</a>
 </li>
         <li><a href="python/nanover.openmm.cli.html#nanover.openmm.cli.main">(in module nanover.openmm.cli)</a>
 </li>
       </ul></li>
-      <li><a href="python/nanover.openmm.runner.html#nanover.openmm.runner.OpenMMRunner.make_quiet">make_quiet() (nanover.openmm.runner.OpenMMRunner method)</a>
+      <li><a href="python/nanover.omni.ase_omm.html#nanover.omni.ase_omm.make_default_ase_omm_dynamics">make_default_ase_omm_dynamics() (in module nanover.omni.ase_omm)</a>
 </li>
-      <li><a href="python/nanover.omni.openmm.html#nanover.omni.openmm.OpenMMSimulation.make_regular_frame">make_regular_frame() (nanover.omni.openmm.OpenMMSimulation method)</a>
+      <li><a href="python/nanover.omni.ase.html#nanover.omni.ase.ASESimulation.make_regular_frame">make_regular_frame() (nanover.omni.ase.ASESimulation method)</a>
 
       <ul>
+        <li><a href="python/nanover.omni.openmm.html#nanover.omni.openmm.OpenMMSimulation.make_regular_frame">(nanover.omni.openmm.OpenMMSimulation method)</a>
+</li>
         <li><a href="python/nanover.openmm.imd.html#nanover.openmm.imd.NanoverImdReporter.make_regular_frame">(nanover.openmm.imd.NanoverImdReporter method)</a>
 </li>
       </ul></li>
-      <li><a href="python/nanover.omni.openmm.html#nanover.omni.openmm.OpenMMSimulation.make_topology_frame">make_topology_frame() (nanover.omni.openmm.OpenMMSimulation method)</a>
+      <li><a href="python/nanover.omni.ase.html#nanover.omni.ase.ASESimulation.make_topology_frame">make_topology_frame() (nanover.omni.ase.ASESimulation method)</a>
 
       <ul>
+        <li><a href="python/nanover.omni.openmm.html#nanover.omni.openmm.OpenMMSimulation.make_topology_frame">(nanover.omni.openmm.OpenMMSimulation method)</a>
+</li>
         <li><a href="python/nanover.openmm.imd.html#nanover.openmm.imd.NanoverImdReporter.make_topology_frame">(nanover.openmm.imd.NanoverImdReporter method)</a>
 </li>
       </ul></li>
-      <li><a href="python/nanover.openmm.runner.html#nanover.openmm.runner.OpenMMRunner.make_verbose">make_verbose() (nanover.openmm.runner.OpenMMRunner method)</a>
-</li>
       <li><a href="python/nanover.imd.particle_interaction.html#nanover.imd.particle_interaction.ParticleInteraction.mass_weighted">mass_weighted (nanover.imd.particle_interaction.ParticleInteraction property)</a>
 </li>
       <li><a href="python/nanover.imd.particle_interaction.html#nanover.imd.particle_interaction.ParticleInteraction.MASS_WEIGHTED_KEY">MASS_WEIGHTED_KEY (nanover.imd.particle_interaction.ParticleInteraction attribute)</a>
@@ -1096,8 +1012,6 @@
       <li><a href="python/nanover.essd.servicehub.html#nanover.essd.servicehub.ServiceHub.message">message (nanover.essd.servicehub.ServiceHub property)</a>
 </li>
       <li><a href="python/nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.MissingDataError">MissingDataError</a>
-</li>
-      <li><a href="python/nanover.lammps.mock.html#nanover.lammps.mock.MockLammps">MockLammps (class in nanover.lammps.mock)</a>
 </li>
       <li><a href="python/nanover.app.selection.html#nanover.app.selection.RenderingSelection.modify">modify() (nanover.app.selection.RenderingSelection method)</a>
 </li>
@@ -1139,9 +1053,7 @@
 </li>
         <li><a href="python/nanover.ase.openmm.calculator.html#module-nanover.ase.openmm.calculator">nanover.ase.openmm.calculator</a>
 </li>
-        <li><a href="python/nanover.ase.openmm.cli.html#module-nanover.ase.openmm.cli">nanover.ase.openmm.cli</a>
-</li>
-        <li><a href="python/nanover.ase.openmm.runner.html#module-nanover.ase.openmm.runner">nanover.ase.openmm.runner</a>
+        <li><a href="python/nanover.ase.openmm.frame_adaptor.html#module-nanover.ase.openmm.frame_adaptor">nanover.ase.openmm.frame_adaptor</a>
 </li>
         <li><a href="python/nanover.ase.trajectory_logger.html#module-nanover.ase.trajectory_logger">nanover.ase.trajectory_logger</a>
 </li>
@@ -1187,14 +1099,6 @@
 </li>
         <li><a href="python/nanover.imd.particle_interaction.html#module-nanover.imd.particle_interaction">nanover.imd.particle_interaction</a>
 </li>
-        <li><a href="python/nanover.lammps.html#module-nanover.lammps">nanover.lammps</a>
-</li>
-        <li><a href="python/nanover.lammps.conversions.html#module-nanover.lammps.conversions">nanover.lammps.conversions</a>
-</li>
-        <li><a href="python/nanover.lammps.LammpsImd.html#module-nanover.lammps.LammpsImd">nanover.lammps.LammpsImd</a>
-</li>
-        <li><a href="python/nanover.lammps.mock.html#module-nanover.lammps.mock">nanover.lammps.mock</a>
-</li>
         <li><a href="python/nanover.mdanalysis.html#module-nanover.mdanalysis">nanover.mdanalysis</a>
 </li>
         <li><a href="python/nanover.mdanalysis.converter.html#module-nanover.mdanalysis.converter">nanover.mdanalysis.converter</a>
@@ -1206,6 +1110,8 @@
         <li><a href="python/nanover.nglview.nglclient.html#module-nanover.nglview.nglclient">nanover.nglview.nglclient</a>
 </li>
         <li><a href="python/nanover.omni.html#module-nanover.omni">nanover.omni</a>
+</li>
+        <li><a href="python/nanover.omni.ase.html#module-nanover.omni.ase">nanover.omni.ase</a>
 </li>
         <li><a href="python/nanover.omni.ase_omm.html#module-nanover.omni.ase_omm">nanover.omni.ase_omm</a>
 </li>
@@ -1230,8 +1136,6 @@
         <li><a href="python/nanover.openmm.nanoverreporter.html#module-nanover.openmm.nanoverreporter">nanover.openmm.nanoverreporter</a>
 </li>
         <li><a href="python/nanover.openmm.potentials.html#module-nanover.openmm.potentials">nanover.openmm.potentials</a>
-</li>
-        <li><a href="python/nanover.openmm.runner.html#module-nanover.openmm.runner">nanover.openmm.runner</a>
 </li>
         <li><a href="python/nanover.openmm.serializer.html#module-nanover.openmm.serializer">nanover.openmm.serializer</a>
 </li>
@@ -1320,8 +1224,6 @@
 
       <ul>
         <li><a href="python/nanover.app.runner.html#nanover.app.runner.NanoverRunner.name">(nanover.app.runner.NanoverRunner property)</a>
-</li>
-        <li><a href="python/nanover.ase.openmm.runner.html#nanover.ase.openmm.runner.ImdParams.name">(nanover.ase.openmm.runner.ImdParams attribute)</a>
 </li>
         <li><a href="python/nanover.command.command_info.html#nanover.command.command_info.CommandInfo.name">(nanover.command.command_info.CommandInfo property)</a>
 </li>
@@ -1450,17 +1352,10 @@
 </li>
       </ul></li>
       <li>
-    nanover.ase.openmm.cli
+    nanover.ase.openmm.frame_adaptor
 
       <ul>
-        <li><a href="python/nanover.ase.openmm.cli.html#module-nanover.ase.openmm.cli">module</a>
-</li>
-      </ul></li>
-      <li>
-    nanover.ase.openmm.runner
-
-      <ul>
-        <li><a href="python/nanover.ase.openmm.runner.html#module-nanover.ase.openmm.runner">module</a>
+        <li><a href="python/nanover.ase.openmm.frame_adaptor.html#module-nanover.ase.openmm.frame_adaptor">module</a>
 </li>
       </ul></li>
       <li>
@@ -1618,34 +1513,6 @@
 </li>
       </ul></li>
       <li>
-    nanover.lammps
-
-      <ul>
-        <li><a href="python/nanover.lammps.html#module-nanover.lammps">module</a>
-</li>
-      </ul></li>
-      <li>
-    nanover.lammps.conversions
-
-      <ul>
-        <li><a href="python/nanover.lammps.conversions.html#module-nanover.lammps.conversions">module</a>
-</li>
-      </ul></li>
-      <li>
-    nanover.lammps.LammpsImd
-
-      <ul>
-        <li><a href="python/nanover.lammps.LammpsImd.html#module-nanover.lammps.LammpsImd">module</a>
-</li>
-      </ul></li>
-      <li>
-    nanover.lammps.mock
-
-      <ul>
-        <li><a href="python/nanover.lammps.mock.html#module-nanover.lammps.mock">module</a>
-</li>
-      </ul></li>
-      <li>
     nanover.mdanalysis
 
       <ul>
@@ -1688,6 +1555,13 @@
 </li>
       </ul></li>
       <li>
+    nanover.omni.ase
+
+      <ul>
+        <li><a href="python/nanover.omni.ase.html#module-nanover.omni.ase">module</a>
+</li>
+      </ul></li>
+      <li>
     nanover.omni.ase_omm
 
       <ul>
@@ -1722,8 +1596,6 @@
         <li><a href="python/nanover.omni.playback.html#module-nanover.omni.playback">module</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     nanover.omni.record
 
@@ -1731,6 +1603,8 @@
         <li><a href="python/nanover.omni.record.html#module-nanover.omni.record">module</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     nanover.openmm
 
@@ -1771,13 +1645,6 @@
 
       <ul>
         <li><a href="python/nanover.openmm.potentials.html#module-nanover.openmm.potentials">module</a>
-</li>
-      </ul></li>
-      <li>
-    nanover.openmm.runner
-
-      <ul>
-        <li><a href="python/nanover.openmm.runner.html#module-nanover.openmm.runner">module</a>
 </li>
       </ul></li>
       <li>
@@ -2078,18 +1945,10 @@
 </li>
       <li><a href="python/nanover.app.client.html#nanover.app.client.need_multiplayer">need_multiplayer() (in module nanover.app.client)</a>
 </li>
-      <li><a href="python/nanover.lammps.LammpsImd.html#nanover.lammps.LammpsImd.LammpsImd.need_to_collect_topology">need_to_collect_topology (nanover.lammps.LammpsImd.LammpsImd attribute)</a>
-</li>
       <li><a href="python/nanover.app.client.html#nanover.app.client.need_trajectory_joined">need_trajectory_joined() (in module nanover.app.client)</a>
 </li>
-      <li><a href="python/nanover.ase.openmm.runner.html#nanover.ase.openmm.runner.ASEOpenMMRunner.next">next() (nanover.ase.openmm.runner.ASEOpenMMRunner method)</a>
-
-      <ul>
-        <li><a href="python/nanover.omni.omni.html#nanover.omni.omni.OmniRunner.next">(nanover.omni.omni.OmniRunner method)</a>
+      <li><a href="python/nanover.omni.omni.html#nanover.omni.omni.OmniRunner.next">next() (nanover.omni.omni.OmniRunner method)</a>
 </li>
-        <li><a href="python/nanover.openmm.runner.html#nanover.openmm.runner.OpenMMRunner.next">(nanover.openmm.runner.OpenMMRunner method)</a>
-</li>
-      </ul></li>
       <li><a href="python/nanover.openmm.imd.html#nanover.openmm.imd.NextReport">NextReport (class in nanover.openmm.imd)</a>
 </li>
       <li><a href="python/nanover.nglview.nglclient.html#nanover.nglview.nglclient.NGLClient">NGLClient (class in nanover.nglview.nglclient)</a>
@@ -2116,13 +1975,13 @@
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="python/nanover.ase.openmm.runner.html#nanover.ase.openmm.runner.openmm_ase_frame_adaptor">openmm_ase_frame_adaptor() (in module nanover.ase.openmm.runner)</a>
+      <li><a href="python/nanover.ase.openmm.frame_adaptor.html#nanover.ase.openmm.frame_adaptor.openmm_ase_atoms_to_frame_data">openmm_ase_atoms_to_frame_data() (in module nanover.ase.openmm.frame_adaptor)</a>
+</li>
+      <li><a href="python/nanover.ase.openmm.frame_adaptor.html#nanover.ase.openmm.frame_adaptor.openmm_ase_frame_adaptor">openmm_ase_frame_adaptor() (in module nanover.ase.openmm.frame_adaptor)</a>
 </li>
       <li><a href="python/nanover.openmm.converter.html#nanover.openmm.converter.openmm_to_frame_data">openmm_to_frame_data() (in module nanover.openmm.converter)</a>
 </li>
       <li><a href="python/nanover.ase.openmm.calculator.html#nanover.ase.openmm.calculator.OpenMMCalculator">OpenMMCalculator (class in nanover.ase.openmm.calculator)</a>
-</li>
-      <li><a href="python/nanover.openmm.runner.html#nanover.openmm.runner.OpenMMRunner">OpenMMRunner (class in nanover.openmm.runner)</a>
 </li>
       <li><a href="python/nanover.omni.openmm.html#nanover.omni.openmm.OpenMMSimulation">OpenMMSimulation (class in nanover.omni.openmm)</a>
 </li>
@@ -2165,25 +2024,17 @@
       <ul>
         <li><a href="python/nanover.ase.imd.html#nanover.ase.imd.NanoverASEDynamics.pause">(nanover.ase.imd.NanoverASEDynamics method)</a>
 </li>
-        <li><a href="python/nanover.ase.openmm.runner.html#nanover.ase.openmm.runner.ASEOpenMMRunner.pause">(nanover.ase.openmm.runner.ASEOpenMMRunner method)</a>
-</li>
         <li><a href="python/nanover.omni.omni.html#nanover.omni.omni.OmniRunner.pause">(nanover.omni.omni.OmniRunner method)</a>
 </li>
-        <li><a href="python/nanover.openmm.runner.html#nanover.openmm.runner.OpenMMRunner.pause">(nanover.openmm.runner.OpenMMRunner method)</a>
-</li>
       </ul></li>
-      <li><a href="python/nanover.ase.openmm.runner.html#nanover.ase.openmm.runner.ImdParams.platform">platform (nanover.ase.openmm.runner.ImdParams attribute)</a>
+      <li><a href="python/nanover.omni.openmm.html#nanover.omni.openmm.OpenMMSimulation.platform_name">platform_name (nanover.omni.openmm.OpenMMSimulation attribute)</a>
 </li>
       <li><a href="python/nanover.app.runner.html#nanover.app.runner.NanoverRunner.play">play() (nanover.app.runner.NanoverRunner method)</a>
 
       <ul>
         <li><a href="python/nanover.ase.imd.html#nanover.ase.imd.NanoverASEDynamics.play">(nanover.ase.imd.NanoverASEDynamics method)</a>
 </li>
-        <li><a href="python/nanover.ase.openmm.runner.html#nanover.ase.openmm.runner.ASEOpenMMRunner.play">(nanover.ase.openmm.runner.ASEOpenMMRunner method)</a>
-</li>
         <li><a href="python/nanover.omni.omni.html#nanover.omni.omni.OmniRunner.play">(nanover.omni.omni.OmniRunner method)</a>
-</li>
-        <li><a href="python/nanover.openmm.runner.html#nanover.openmm.runner.OpenMMRunner.play">(nanover.openmm.runner.OpenMMRunner method)</a>
 </li>
       </ul></li>
   </ul></td>
@@ -2203,8 +2054,6 @@
 </li>
         <li><a href="python/nanover.ase.imd.html#nanover.ase.imd.NanoverASEDynamics.port">(nanover.ase.imd.NanoverASEDynamics property)</a>
 </li>
-        <li><a href="python/nanover.ase.openmm.runner.html#nanover.ase.openmm.runner.ImdParams.port">(nanover.ase.openmm.runner.ImdParams attribute)</a>
-</li>
         <li><a href="python/nanover.core.grpc_server.html#nanover.core.grpc_server.GrpcServer.port">(nanover.core.grpc_server.GrpcServer property)</a>
 </li>
         <li><a href="python/nanover.essd.client.html#nanover.essd.client.DiscoveryClient.port">(nanover.essd.client.DiscoveryClient property)</a>
@@ -2212,12 +2061,8 @@
       </ul></li>
       <li><a href="python/nanover.imd.particle_interaction.html#nanover.imd.particle_interaction.ParticleInteraction.position">position (nanover.imd.particle_interaction.ParticleInteraction property)</a>
 </li>
-      <li><a href="python/nanover.lammps.conversions.html#nanover.lammps.conversions.LammpsUnitConverter.positions">positions (nanover.lammps.conversions.LammpsUnitConverter attribute)</a>
-
-      <ul>
-        <li><a href="python/nanover.omni.ase_omm.html#nanover.omni.ase_omm.InitialState.positions">(nanover.omni.ase_omm.InitialState attribute)</a>
+      <li><a href="python/nanover.omni.ase.html#nanover.omni.ase.InitialState.positions">positions (nanover.omni.ase.InitialState attribute)</a>
 </li>
-      </ul></li>
       <li><a href="python/nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.FrameData.potential_energy">potential_energy (nanover.trajectory.frame_data.FrameData property)</a>
 </li>
       <li><a href="python/nanover.omni.omni.html#nanover.omni.omni.OmniRunner.print_basic_info_and_wait">print_basic_info_and_wait() (nanover.omni.omni.OmniRunner method)</a>
@@ -2334,12 +2179,6 @@
         <li><a href="python/nanover.openmm.nanoverreporter.html#nanover.openmm.nanoverreporter.NanoverReporter.report">(nanover.openmm.nanoverreporter.NanoverReporter method)</a>
 </li>
       </ul></li>
-      <li><a href="python/nanover.openmm.runner.html#nanover.openmm.runner.OpenMMRunner.reporter">reporter (nanover.openmm.runner.OpenMMRunner property)</a>
-
-      <ul>
-        <li><a href="python/nanover.openmm.runner.html#nanover.openmm.runner.SimulationEntry.reporter">(nanover.openmm.runner.SimulationEntry attribute)</a>
-</li>
-      </ul></li>
       <li><a href="python/nanover.mdanalysis.converter.html#nanover.mdanalysis.converter.FrameDataField.required">required (nanover.mdanalysis.converter.FrameDataField attribute)</a>
 </li>
       <li><a href="python/nanover.app.runner.html#nanover.app.runner.NanoverRunner.reset">reset() (nanover.app.runner.NanoverRunner method)</a>
@@ -2347,9 +2186,9 @@
       <ul>
         <li><a href="python/nanover.ase.imd.html#nanover.ase.imd.NanoverASEDynamics.reset">(nanover.ase.imd.NanoverASEDynamics method)</a>
 </li>
-        <li><a href="python/nanover.ase.openmm.runner.html#nanover.ase.openmm.runner.ASEOpenMMRunner.reset">(nanover.ase.openmm.runner.ASEOpenMMRunner method)</a>
-</li>
         <li><a href="python/nanover.ase.trajectory_logger.html#nanover.ase.trajectory_logger.TrajectoryLogger.reset">(nanover.ase.trajectory_logger.TrajectoryLogger method)</a>
+</li>
+        <li><a href="python/nanover.omni.ase.html#nanover.omni.ase.ASESimulation.reset">(nanover.omni.ase.ASESimulation method)</a>
 </li>
         <li><a href="python/nanover.omni.ase_omm.html#nanover.omni.ase_omm.ASEOpenMMSimulation.reset">(nanover.omni.ase_omm.ASEOpenMMSimulation method)</a>
 </li>
@@ -2360,10 +2199,6 @@
         <li><a href="python/nanover.omni.openmm.html#nanover.omni.openmm.OpenMMSimulation.reset">(nanover.omni.openmm.OpenMMSimulation method)</a>
 </li>
         <li><a href="python/nanover.omni.playback.html#nanover.omni.playback.PlaybackSimulation.reset">(nanover.omni.playback.PlaybackSimulation method)</a>
-</li>
-        <li><a href="python/nanover.openmm.runner.html#nanover.openmm.runner.OpenMMRunner.reset">(nanover.openmm.runner.OpenMMRunner method)</a>
-</li>
-        <li><a href="python/nanover.openmm.runner.html#nanover.openmm.runner.SimulationEntry.reset">(nanover.openmm.runner.SimulationEntry method)</a>
 </li>
       </ul></li>
   </ul></td>
@@ -2399,11 +2234,7 @@
       <ul>
         <li><a href="python/nanover.ase.imd.html#nanover.ase.imd.NanoverASEDynamics.run">(nanover.ase.imd.NanoverASEDynamics method)</a>
 </li>
-        <li><a href="python/nanover.ase.openmm.runner.html#nanover.ase.openmm.runner.ASEOpenMMRunner.run">(nanover.ase.openmm.runner.ASEOpenMMRunner method)</a>
-</li>
         <li><a href="python/nanover.omni.omni.html#nanover.omni.omni.InternalRunner.run">(nanover.omni.omni.InternalRunner method)</a>
-</li>
-        <li><a href="python/nanover.openmm.runner.html#nanover.openmm.runner.OpenMMRunner.run">(nanover.openmm.runner.OpenMMRunner method)</a>
 </li>
       </ul></li>
       <li><a href="python/nanover.app.client.html#nanover.app.client.NanoverImdClient.run_command">run_command() (nanover.app.client.NanoverImdClient method)</a>
@@ -2443,11 +2274,7 @@
       <li><a href="python/nanover.omni.omni.html#nanover.omni.omni.OmniRunner.runner">runner (nanover.omni.omni.OmniRunner property)</a>
 </li>
       <li><a href="python/nanover.app.app_server.html#nanover.app.app_server.NanoverApplicationServer.running_discovery">running_discovery (nanover.app.app_server.NanoverApplicationServer property)</a>
-
-      <ul>
-        <li><a href="python/nanover.ase.openmm.runner.html#nanover.ase.openmm.runner.ASEOpenMMRunner.running_discovery">(nanover.ase.openmm.runner.ASEOpenMMRunner property)</a>
 </li>
-      </ul></li>
   </ul></td>
 </tr></table>
 
@@ -2457,8 +2284,6 @@
       <li><a href="python/nanover.imd.particle_interaction.html#nanover.imd.particle_interaction.ParticleInteraction.scale">scale (nanover.imd.particle_interaction.ParticleInteraction property)</a>
 </li>
       <li><a href="python/nanover.imd.particle_interaction.html#nanover.imd.particle_interaction.ParticleInteraction.SCALE_KEY">SCALE_KEY (nanover.imd.particle_interaction.ParticleInteraction attribute)</a>
-</li>
-      <li><a href="python/nanover.lammps.mock.html#nanover.lammps.mock.MockLammps.scatter_atoms">scatter_atoms() (nanover.lammps.mock.MockLammps method)</a>
 </li>
       <li><a href="python/nanover.essd.client.html#nanover.essd.client.DiscoveryClient.search_for_services">search_for_services() (nanover.essd.client.DiscoveryClient method)</a>
 </li>
@@ -2518,6 +2343,8 @@
 </li>
       <li><a href="python/nanover.app.client.html#nanover.app.client.NanoverImdClient.set_shared_value">set_shared_value() (nanover.app.client.NanoverImdClient method)</a>
 </li>
+      <li><a href="python/nanover.omni.omni.html#nanover.omni.omni.OmniRunner.set_simulation_selections">set_simulation_selections() (nanover.omni.omni.OmniRunner method)</a>
+</li>
       <li><a href="python/nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.FrameData.set_string_array">set_string_array() (nanover.trajectory.frame_data.FrameData method)</a>
 </li>
       <li><a href="python/nanover.core.grpc_server.html#nanover.core.grpc_server.GrpcServer.setup_services">setup_services() (nanover.core.grpc_server.GrpcServer method)</a>
@@ -2537,16 +2364,10 @@
       <ul>
         <li><a href="python/nanover.omni.omni.html#nanover.omni.omni.OmniRunner.simulation">(nanover.omni.omni.OmniRunner property)</a>
 </li>
-        <li><a href="python/nanover.openmm.runner.html#nanover.openmm.runner.OpenMMRunner.simulation">(nanover.openmm.runner.OpenMMRunner property)</a>
-</li>
       </ul></li>
       <li><a href="python/nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.FrameData.simulation_counter">simulation_counter (nanover.trajectory.frame_data.FrameData property)</a>
 </li>
-      <li><a href="python/nanover.openmm.runner.html#nanover.openmm.runner.OpenMMRunner.simulation_entry">simulation_entry (nanover.openmm.runner.OpenMMRunner property)</a>
-</li>
       <li><a href="python/nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.FrameData.simulation_time">simulation_time (nanover.trajectory.frame_data.FrameData property)</a>
-</li>
-      <li><a href="python/nanover.openmm.runner.html#nanover.openmm.runner.SimulationEntry">SimulationEntry (class in nanover.openmm.runner)</a>
 </li>
       <li><a href="python/nanover.utilities.request_queues.html#nanover.utilities.request_queues.SingleItemQueue">SingleItemQueue (class in nanover.utilities.request_queues)</a>
 </li>
@@ -2558,10 +2379,10 @@
         <li><a href="python/nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.ValuesView.singular">(nanover.trajectory.frame_data.ValuesView attribute)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="python/nanover.essd.server.html#nanover.essd.server.DiscoveryServer.start">start() (nanover.essd.server.DiscoveryServer method)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="python/nanover.app.app_server.html#nanover.app.app_server.start_default_server_and_discovery">start_default_server_and_discovery() (in module nanover.app.app_server)</a>
 </li>
       <li><a href="python/nanover.app.client.html#nanover.app.client.NanoverImdClient.start_interaction">start_interaction() (nanover.app.client.NanoverImdClient method)</a>
@@ -2591,11 +2412,7 @@
       <ul>
         <li><a href="python/nanover.ase.imd.html#nanover.ase.imd.NanoverASEDynamics.step">(nanover.ase.imd.NanoverASEDynamics method)</a>
 </li>
-        <li><a href="python/nanover.ase.openmm.runner.html#nanover.ase.openmm.runner.ASEOpenMMRunner.step">(nanover.ase.openmm.runner.ASEOpenMMRunner method)</a>
-</li>
         <li><a href="python/nanover.omni.omni.html#nanover.omni.omni.OmniRunner.step">(nanover.omni.omni.OmniRunner method)</a>
-</li>
-        <li><a href="python/nanover.openmm.runner.html#nanover.openmm.runner.OpenMMRunner.step">(nanover.openmm.runner.OpenMMRunner method)</a>
 </li>
       </ul></li>
       <li><a href="python/nanover.openmm.imd.html#nanover.openmm.imd.NextReport.steps">steps (nanover.openmm.imd.NextReport attribute)</a>
@@ -2678,37 +2495,23 @@
 </li>
       <li><a href="python/nanover.core.grpc_client.html#nanover.core.grpc_client.GrpcClient.threads">threads (nanover.core.grpc_client.GrpcClient attribute)</a>
 </li>
-      <li><a href="python/nanover.ase.openmm.runner.html#nanover.ase.openmm.runner.ASEOpenMMRunner.time_step">time_step (nanover.ase.openmm.runner.ASEOpenMMRunner property)</a>
-
-      <ul>
-        <li><a href="python/nanover.ase.openmm.runner.html#nanover.ase.openmm.runner.ImdParams.time_step">(nanover.ase.openmm.runner.ImdParams attribute)</a>
-</li>
-      </ul></li>
       <li><a href="python/nanover.ase.trajectory_logger.html#nanover.ase.trajectory_logger.TrajectoryLogger.timestamping">timestamping (nanover.ase.trajectory_logger.TrajectoryLogger property)</a>
 </li>
       <li><a href="python/nanover.app.selection.html#nanover.app.selection.RenderingSelection.to_dictionary">to_dictionary() (nanover.app.selection.RenderingSelection method)</a>
 </li>
       <li><a href="python/nanover.essd.servicehub.html#nanover.essd.servicehub.ServiceHub.to_message">to_message() (nanover.essd.servicehub.ServiceHub method)</a>
 </li>
-      <li><a href="python/nanover.ase.openmm.calculator.html#nanover.ase.openmm.calculator.OpenMMCalculator.topology">topology (nanover.ase.openmm.calculator.OpenMMCalculator property)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="python/nanover.ase.openmm.runner.html#nanover.ase.openmm.runner.LoggingParams.trajectory_file">trajectory_file (nanover.ase.openmm.runner.LoggingParams attribute)</a>
-</li>
-      <li><a href="python/nanover.ase.openmm.runner.html#nanover.ase.openmm.runner.TrajectoryLoggerInfo.trajectory_path">trajectory_path (nanover.ase.openmm.runner.TrajectoryLoggerInfo property)</a>
+      <li><a href="python/nanover.ase.openmm.calculator.html#nanover.ase.openmm.calculator.OpenMMCalculator.topology">topology (nanover.ase.openmm.calculator.OpenMMCalculator property)</a>
 </li>
       <li><a href="python/nanover.ase.trajectory_logger.html#nanover.ase.trajectory_logger.TrajectoryLogger">TrajectoryLogger (class in nanover.ase.trajectory_logger)</a>
-</li>
-      <li><a href="python/nanover.ase.openmm.runner.html#nanover.ase.openmm.runner.TrajectoryLoggerInfo">TrajectoryLoggerInfo (class in nanover.ase.openmm.runner)</a>
 </li>
       <li><a href="python/nanover.protocol.trajectory.trajectory_service_pb2_grpc.html#nanover.protocol.trajectory.trajectory_service_pb2_grpc.TrajectoryService">TrajectoryService (class in nanover.protocol.trajectory.trajectory_service_pb2_grpc)</a>
 </li>
       <li><a href="python/nanover.protocol.trajectory.trajectory_service_pb2_grpc.html#nanover.protocol.trajectory.trajectory_service_pb2_grpc.TrajectoryServiceServicer">TrajectoryServiceServicer (class in nanover.protocol.trajectory.trajectory_service_pb2_grpc)</a>
 </li>
       <li><a href="python/nanover.protocol.trajectory.trajectory_service_pb2_grpc.html#nanover.protocol.trajectory.trajectory_service_pb2_grpc.TrajectoryServiceStub">TrajectoryServiceStub (class in nanover.protocol.trajectory.trajectory_service_pb2_grpc)</a>
-</li>
-      <li><a href="python/nanover.lammps.conversions.html#nanover.lammps.conversions.LammpsUnitConverter.type">type (nanover.lammps.conversions.LammpsUnitConverter attribute)</a>
 </li>
       <li><a href="python/nanover.imd.particle_interaction.html#nanover.imd.particle_interaction.ParticleInteraction.TYPE_KEY">TYPE_KEY (nanover.imd.particle_interaction.ParticleInteraction attribute)</a>
 </li>
@@ -2808,6 +2611,8 @@
 </li>
       <li><a href="python/nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.FrameData.user_forces_sparse">user_forces_sparse (nanover.trajectory.frame_data.FrameData property)</a>
 </li>
+      <li><a href="python/nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.FrameData.user_work_done">user_work_done (nanover.trajectory.frame_data.FrameData property)</a>
+</li>
   </ul></td>
 </tr></table>
 
@@ -2828,27 +2633,17 @@
 </li>
       <li><a href="python/nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.ValuesView">ValuesView (class in nanover.trajectory.frame_data)</a>
 </li>
-      <li><a href="python/nanover.utilities.timing.html#nanover.utilities.timing.VariableIntervalGenerator">VariableIntervalGenerator (class in nanover.utilities.timing)</a>
-</li>
-      <li><a href="python/nanover.omni.ase_omm.html#nanover.omni.ase_omm.InitialState.velocities">velocities (nanover.omni.ase_omm.InitialState attribute)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python/nanover.utilities.timing.html#nanover.utilities.timing.VariableIntervalGenerator">VariableIntervalGenerator (class in nanover.utilities.timing)</a>
+</li>
+      <li><a href="python/nanover.omni.ase.html#nanover.omni.ase.InitialState.velocities">velocities (nanover.omni.ase.InitialState attribute)</a>
+</li>
       <li><a href="python/nanover.app.selection.html#nanover.app.selection.RenderingSelection.velocity_reset">velocity_reset (nanover.app.selection.RenderingSelection property)</a>
 </li>
       <li><a href="python/nanover.imd.imd_state.html#nanover.imd.imd_state.ImdStateWrapper.velocity_reset_available">velocity_reset_available (nanover.imd.imd_state.ImdStateWrapper property)</a>
 </li>
       <li><a href="python/nanover.ase.wall_constraint.html#nanover.ase.wall_constraint.VelocityWallConstraint">VelocityWallConstraint (class in nanover.ase.wall_constraint)</a>
-</li>
-      <li><a href="python/nanover.ase.openmm.runner.html#nanover.ase.openmm.runner.ASEOpenMMRunner.verbose">verbose (nanover.ase.openmm.runner.ASEOpenMMRunner property)</a>
-
-      <ul>
-        <li><a href="python/nanover.ase.openmm.runner.html#nanover.ase.openmm.runner.ImdParams.verbose">(nanover.ase.openmm.runner.ImdParams attribute)</a>
-</li>
-        <li><a href="python/nanover.openmm.runner.html#nanover.openmm.runner.OpenMMRunner.verbose">(nanover.openmm.runner.OpenMMRunner property)</a>
-</li>
-      </ul></li>
-      <li><a href="python/nanover.openmm.runner.html#nanover.openmm.runner.OpenMMRunner.verbosity_interval">verbosity_interval (nanover.openmm.runner.OpenMMRunner property)</a>
 </li>
       <li><a href="python/nanover.essd.servicehub.html#nanover.essd.servicehub.ServiceHub.version">version (nanover.essd.servicehub.ServiceHub property)</a>
 </li>
@@ -2866,28 +2661,20 @@
 </li>
       <li><a href="python/nanover.app.client.html#nanover.app.client.NanoverImdClient.wait_until_first_frame">wait_until_first_frame() (nanover.app.client.NanoverImdClient method)</a>
 </li>
-      <li><a href="python/nanover.ase.openmm.runner.html#nanover.ase.openmm.runner.ImdParams.walls">walls (nanover.ase.openmm.runner.ImdParams attribute)</a>
-</li>
       <li><a href="python/nanover.omni.omni.html#nanover.omni.omni.OmniRunner.with_basic_server">with_basic_server() (nanover.omni.omni.OmniRunner class method)</a>
 </li>
       <li><a href="python/nanover.imd.imd_force.html#nanover.imd.imd_force.wrap_pbc">wrap_pbc() (in module nanover.imd.imd_force)</a>
 </li>
-      <li><a href="python/nanover.openmm.imd.html#nanover.openmm.imd.NextReport.wrap_positions">wrap_positions (nanover.openmm.imd.NextReport attribute)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="python/nanover.openmm.imd.html#nanover.openmm.imd.NextReport.wrap_positions">wrap_positions (nanover.openmm.imd.NextReport attribute)</a>
+</li>
       <li><a href="python/nanover.ase.trajectory_logger.html#nanover.ase.trajectory_logger.TrajectoryLogger.write">write() (nanover.ase.trajectory_logger.TrajectoryLogger method)</a>
 </li>
       <li><a href="python/nanover.recording.writing.html#nanover.recording.writing.write_entry">write_entry() (in module nanover.recording.writing)</a>
 </li>
       <li><a href="python/nanover.recording.writing.html#nanover.recording.writing.write_header">write_header() (in module nanover.recording.writing)</a>
 </li>
-      <li><a href="python/nanover.ase.openmm.runner.html#nanover.ase.openmm.runner.LoggingParams.write_interval">write_interval (nanover.ase.openmm.runner.LoggingParams attribute)</a>
-
-      <ul>
-        <li><a href="python/nanover.ase.openmm.runner.html#nanover.ase.openmm.runner.TrajectoryLoggerInfo.write_interval">(nanover.ase.openmm.runner.TrajectoryLoggerInfo property)</a>
-</li>
-      </ul></li>
       <li><a href="python/nanover.recording.writing.html#nanover.recording.writing.write_u128">write_u128() (in module nanover.recording.writing)</a>
 </li>
       <li><a href="python/nanover.recording.writing.html#nanover.recording.writing.write_u64">write_u64() (in module nanover.recording.writing)</a>
