@@ -6,7 +6,7 @@ OpenMM
     :depth: 2
     :local:
 
-Openmm Tutorials
+OpenMM Tutorials
 ==============================================
 A set of tutorials that demonstrate how to use NanoVer to run interactive molecular
 dynamics simulations using OpenMM directly.
@@ -25,10 +25,10 @@ folder of the GitHub repository. It contains:
   OpenMM simulation from scratch with NanoVer and change the visualisations of
   different atom selections for a protein-ligand system.
 
-Openmm XML Files
+OpenMM XML Files
 ==============================================
 
-The XML format described here is used specifically for manipulating NanoVer simulations from OpenMM serialized XML files. It consists of a root element ``<OpenMMSimulation>`` containing three main components:
+The XML format described here is used specifically for saving and loading NanoVer OpenMM simulations. It consists of a root element ``<OpenMMSimulation>`` containing three main components:
 
 1. **Starting Structure**: Enclosed in either ``<pdbx>`` or ``<pdb>`` tags
 2. **OpenMM Serialized System**: Enclosed in the ``<System>`` tag
@@ -36,6 +36,11 @@ The XML format described here is used specifically for manipulating NanoVer simu
 
 An optional fourth component, the OpenMM serialized state, may also be included.
 The format allows for efficient storage and exchange of OpenMM simulation data, including the starting structure, system configuration, and integrator settings.
+
+.. note::
+    There is a slight difference between the OpenMM format and the NanoVer format.
+    NanoVer xml files for OpenMM simulations contain a PDB and a number of serialized objects.
+    Although the serialized objects are identical to those used by OpenMM, the overall contents and structure of the files are specific to NanoVer and cannot be read by OpenMM on its own.
 
 XML structure
 -------------
@@ -73,7 +78,7 @@ Within this tag, you'll find:
         - Mass
         - Charge (if using a `NonbondedForce`)
 
-    **Forces:** Various force components are represented by specific tags (a detailed list could be found `here <http://docs.openmm.org/latest/userguide/theory/02_standard_forces.html#standard-forces>`_), for example:
+    **Forces:** Various force components are represented by specific tags (a detailed list could be found in this `link <http://docs.openmm.org/latest/userguide/theory/02_standard_forces.html#standard-forces>`_), for example:
 
         - ``<HarmonicBondForce>``: For bond stretching
         - ``<HarmonicAngleForce>``: For angle bending
@@ -121,7 +126,7 @@ The :mod:`nanover.openmm.serializer` module provides the ``serialize_simulation`
 Serializing a simulation
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-To save a simulation to an Openmm XML::
+To save a simulation to a NanoVer OpenMM XML::
 
     xml_string = nanover.openmm.serializer.serialize_simulation(simulation)
 
@@ -131,7 +136,7 @@ To save a simulation to an Openmm XML::
 Deserializing a simulation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To load a simulation from an Openmm XML::
+To load a simulation from a NanoVer OpenMM XML::
 
     with open("sim.xml", "r") as f:
         simulation = nanover.openmm.serializer.deserialize_simulation(f.read())
@@ -148,4 +153,4 @@ For example::
         platform_name="CUDA"
     )
 
-
+For more details, refer to the OpenMM example on saving systems to XML `files <https://github.com/openmm/openmm-cookbook/blob/main/notebooks/cookbook/Saving%20Systems%20to%20XML%20Files.ipynb>`_.
