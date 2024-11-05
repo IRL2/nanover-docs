@@ -96,7 +96,7 @@ To use NanoVer iMD, you have two options:
 
 * **Download the latest release of the NanoVer iMD executable**. This is a quick and easy option for those unfamiliar with conda, see :ref:`download_latest_release_VR_client`.
 
-For more information on how to configure your VR setup and which installation method to choose, please check out the
+For more information on how to choose your installation method based on your VR setup, please check out the
 :ref:`choosing your iMD-VR setup<choosing_setup_iMD-VR>` section on the NanoVer iMD tutorial page.
 
 
@@ -138,8 +138,6 @@ Download the latest release
 
 #. Extract the downloaded zip file.
 
-#. Set up your VR headset.
-
 #. The next steps depend on your chosen VR setup:
 
 .. _using_pc-vr:
@@ -150,6 +148,7 @@ Download the latest release
     `Meta Quest Link & AirLink <https://www.meta.com/en-gb/help/quest/articles/headsets-and-accessories/oculus-link/connect-with-air-link/>`_,
     and `SteamVR <https://store.steampowered.com/app/250820/SteamVR/>`_:
 
+    #. Set up your headset according to your chosen setup (see the links above).
     #. Navigate to the ``windows`` directory in the extracted folder, and launch ``NanoVer iMD.exe``.
     #. The first time you run this, Windows will likely prompt you with a warning about the executable not being signed.
        If this happens, click on the **"More info"** button, then **"Run anyway"**.
