@@ -122,7 +122,7 @@
 <dt class="sig sig-object py" id="nanover.omni.ase_omm.ASEOpenMMSimulation">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nanover.omni.ase_omm.</span></span><span class="sig-name descname"><span class="pre">ASEOpenMMSimulation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.omni.ase_omm.ASEOpenMMSimulation" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="nanover.omni.ase.html#nanover.omni.ase.ASESimulation" title="nanover.omni.ase.ASESimulation"><code class="xref py py-class docutils literal notranslate"><span class="pre">ASESimulation</span></code></a></p>
-<p>A wrapper for ASE OpenMM simulations so they can be run inside the OmniRunner.</p>
+<p>A wrapper for ASE OpenMM simulations so they can be run inside the OmniRunner with some preset default dynamics.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="nanover.omni.ase_omm.ASEOpenMMSimulation.from_simulation">
 <em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_simulation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">simulation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Simulation</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.omni.ase_omm.ASEOpenMMSimulation.from_simulation" title="Link to this definition"></a></dt>
@@ -132,25 +132,9 @@
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="nanover.omni.ase_omm.ASEOpenMMSimulation.from_xml_path">
-<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_xml_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">PathLike</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.omni.ase_omm.ASEOpenMMSimulation.from_xml_path" title="Link to this definition"></a></dt>
-<dd><p>Construct this from an existing NanoVer OpenMM XML file at a given path.
-:param path: Path of the NanoVer OpenMM XML file
-:param name: An optional name for the simulation instead of filename</p>
-</dd></dl>
-
-<dl class="py method">
 <dt class="sig sig-object py" id="nanover.omni.ase_omm.ASEOpenMMSimulation.load">
 <span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nanover.omni.ase_omm.ASEOpenMMSimulation.load" title="Link to this definition"></a></dt>
 <dd><p>Load and set up the simulation if it isn’t done already.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="nanover.omni.ase_omm.ASEOpenMMSimulation.reset">
-<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">app_server</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="nanover.app.imd_app.html#nanover.app.imd_app.NanoverImdApplication" title="nanover.app.imd_app.NanoverImdApplication"><span class="pre">NanoverImdApplication</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.omni.ase_omm.ASEOpenMMSimulation.reset" title="Link to this definition"></a></dt>
-<dd><p>Reset the simulation to its initial conditions, reset IMD interactions, and reset frame stream to begin with
-topology and continue.
-:param app_server: The app server hosting the frame publisher and imd state</p>
 </dd></dl>
 
 </dd></dl>

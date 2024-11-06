@@ -1,0 +1,7 @@
+nanover.ase.omm\_calculator module
+==================================
+
+.. automodule:: nanover.ase.omm_calculator
+   :members:
+   :undoc-members:
+   :show-inheritance:

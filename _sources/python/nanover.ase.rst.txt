@@ -6,14 +6,6 @@ nanover.ase package
    :undoc-members:
    :show-inheritance:
 
-Subpackages
------------
-
-.. toctree::
-   :maxdepth: 4
-
-   nanover.ase.openmm
-
 Submodules
 ----------
 
@@ -21,9 +13,8 @@ Submodules
    :maxdepth: 4
 
    nanover.ase.converter
-   nanover.ase.frame_adaptor
-   nanover.ase.imd
    nanover.ase.imd_calculator
    nanover.ase.null_calculator
+   nanover.ase.omm_calculator
    nanover.ase.trajectory_logger
    nanover.ase.wall_constraint
