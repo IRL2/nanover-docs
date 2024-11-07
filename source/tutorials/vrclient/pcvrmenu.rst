@@ -5,7 +5,7 @@ On-screen PC-VR menu
 ====================
 
 
-When you open the NanoVer iMD application on your PC, you will see a small menu in the top left of your screen with the
+When you open the NanoVer iMD application on your PC, you will see a small menu in the top left of your monitor with the
 following headings:
 
 #. :ref:`server`
@@ -33,15 +33,15 @@ Server
 
 
 +----------------------+---------------------------------------------------------------------------------------------+
-| **Autoconnect**      | Connects to the first server found on the network, using the default parameters.            |
+| **Autoconnect**      | Connect to the first server found on the network, using the default parameters.             |
 +----------------------+---------------------------------------------------------------------------------------------+
-| **Direct Connect**   | Toggles a menu where you can change the IP address and trajectory/multiplayer ports         |
+| **Direct Connect**   | Toggle a menu where you can change the IP address and trajectory/multiplayer ports          |
 |                      | of the server you wish to connect to.                                                       |
 +----------------------+---------------------------------------------------------------------------------------------+
-| **Discover Services**| Toggles a menu for searching for servers running on the network. Click "Search" to show the |
+| **Discover Services**| Toggle a menu to search for servers running on the network. Click "Search" to show the      |
 |                      | available servers.                                                                          |
 +----------------------+---------------------------------------------------------------------------------------------+
-| **Disconnect**       | If connected to a server, disconnects.                                                      |
+| **Disconnect**       | If connected to a server, disconnect.                                                       |
 +----------------------+---------------------------------------------------------------------------------------------+
 
 
@@ -56,7 +56,7 @@ User
     :scale: 45%
 
 +----------------------+---------------------------------------------+
-| **Interaction Force**| Scales the user's interaction force.        |
+| **Interaction Force**| Scale the user's interaction force.         |
 +----------------------+---------------------------------------------+
 
 |
@@ -71,15 +71,15 @@ Simulation
     :scale: 45%
 
 +----------------------+---------------------------------------------------------------------------------------------+
-| **Play**             | Plays the simulation.                                                                       |
+| **Play**             | Play the simulation.                                                                        |
 +----------------------+---------------------------------------------------------------------------------------------+
-| **Pause**            | Pauses the simulation.                                                                      |
+| **Pause**            | Pause the simulation.                                                                       |
 +----------------------+---------------------------------------------------------------------------------------------+
-| **Step**             | Moves to the next frame of the simulation.                                                  |
+| **Step**             | Move to the next frame of the simulation.                                                   |
 +----------------------+---------------------------------------------------------------------------------------------+
-| **Reset**            | Resets the simulation to the starting positions.                                            |
+| **Reset**            | Reset the simulation to the starting positions.                                             |
 +----------------------+---------------------------------------------------------------------------------------------+
-| **Reset Box**        | Moves and resizes the box to the original dimensions and position in the VR space.          |
+| **Reset Box**        | Move and resize the box to the original dimensions and position in the VR space.            |
 +----------------------+---------------------------------------------------------------------------------------------+
 
 
@@ -93,19 +93,19 @@ Colocation
     :scale: 45%
 
 +--------------------------------+----------------------------------------+
-| **Colocated Lighthouses**      | Toggles colocation. This is only       |
+| **Colocated Lighthouses**      | Toggle colocation. This is only        |
 |                                | compatible with players using HTC base |
 |                                | stations.                              |
 +--------------------------------+----------------------------------------+
-| **Reset Radial Orientation**   | Orients players' playspaces into a     |
+| **Reset Radial Orientation**   | Orient players' VR play spaces into a  |
 |                                | mandala.                               |
 +--------------------------------+----------------------------------------+
-| **Radial Displacement**        | Slides players' playspaces inwards and |
-|                                | outwards from the centre of the shared |
-|                                | space.                                 |
+| **Radial Displacement**        | Slide players' VR play spaces inwards  |
+|                                | and outwards from the centre of the    |
+|                                | shared space.                          |
 +--------------------------------+----------------------------------------+
-| **Rotation Correction**        | Adjusts the rotation of players'       |
-|                                | playspaces to align with the shared    |
+| **Rotation Correction**        | Adjust the rotation of players' VR     |
+|                                | play spaces to align with the shared   |
 |                                | space.                                 |
 +--------------------------------+----------------------------------------+
 
@@ -118,9 +118,9 @@ Debug
     :align: left
     :scale: 45%
 
-+--------------------------+--------------------------------------------------------+
-| **Simulate Controllers** | Toggles the simulation of random interaction forces.   |
-+--------------------------+--------------------------------------------------------+
++--------------------------+-----------------------------------------------------------------------------+
+| **Simulate Controllers** | Toggle the simulation of random interaction forces.                         |
++--------------------------+-----------------------------------------------------------------------------+
 
 
 .. _misc:
@@ -133,5 +133,5 @@ Misc
     :scale: 45%
 
 +----------------------+---------------------------------------------+
-| **Quit**             | Quits the program.                          |
+| **Quit**             | Quit the program.                           |
 +----------------------+---------------------------------------------+
