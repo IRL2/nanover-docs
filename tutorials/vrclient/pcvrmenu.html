@@ -11,6 +11,7 @@
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=23fdb008" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
       <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=23fdb008" />
 
   
@@ -22,6 +23,7 @@
       <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
       <script src="../../_static/copybutton.js?v=f281be69"></script>
       <script src="../../_static/custom.js?v=6d5f2585"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -66,12 +68,11 @@
 <li class="toctree-l2"><a class="reference internal" href="../ase.html">ASE: Interactive Molecular Dynamics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../mdanalysis.html">MDAnalysis</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="vrclient.html">NanoVer iMD</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="vrclient.html#the-vr-client">The VR client</a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="vrclient.html#the-ui">The UI</a><ul class="current">
-<li class="toctree-l4 current"><a class="current reference internal" href="#">On-screen PC-VR menu</a></li>
-<li class="toctree-l4"><a class="reference internal" href="invrmenu.html">In-VR menus</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="vrclient.html#using-nanover-imd">Using NanoVer iMD</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="vrclient.html#user-interface">User Interface</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="vrclient.html#choosing-your-setup-for-imd-vr">Choosing your setup for iMD-VR</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials.html#installing-jupyter">Installing Jupyter</a></li>
@@ -114,7 +115,7 @@
 <div></div></blockquote>
 <section id="on-screen-pc-vr-menu">
 <span id="pcvrmenu"></span><h1>On-screen PC-VR menu<a class="headerlink" href="#on-screen-pc-vr-menu" title="Link to this heading"></a></h1>
-<p>When you open the NanoVer iMD application on your PC, you will see a small menu in the top left of your screen with the
+<p>When you open the NanoVer iMD application on your PC, you will see a small menu in the top left of your monitor with the
 following headings:</p>
 <ol class="arabic simple">
 <li><p><a class="reference internal" href="#server"><span class="std std-ref">Server</span></a></p></li>
@@ -134,18 +135,18 @@ following headings:</p>
 <table class="docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><strong>Autoconnect</strong></p></td>
-<td><p>Connects to the first server found on the network, using the default parameters.</p></td>
+<td><p>Connect to the first server found on the network, using the default parameters.</p></td>
 </tr>
 <tr class="row-even"><td><p><strong>Direct Connect</strong></p></td>
-<td><p>Toggles a menu where you can change the IP address and trajectory/multiplayer ports
+<td><p>Toggle a menu where you can change the IP address and trajectory/multiplayer ports
 of the server you wish to connect to.</p></td>
 </tr>
 <tr class="row-odd"><td><p><strong>Discover Services</strong></p></td>
-<td><p>Toggles a menu for searching for servers running on the network. Click “Search” to show the
+<td><p>Toggle a menu to search for servers running on the network. Click “Search” to show the
 available servers.</p></td>
 </tr>
 <tr class="row-even"><td><p><strong>Disconnect</strong></p></td>
-<td><p>If connected to a server, disconnects.</p></td>
+<td><p>If connected to a server, disconnect.</p></td>
 </tr>
 </tbody>
 </table>
@@ -157,7 +158,7 @@ available servers.</p></td>
 <table class="docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><strong>Interaction Force</strong></p></td>
-<td><p>Scales the user’s interaction force.</p></td>
+<td><p>Scale the user’s interaction force.</p></td>
 </tr>
 </tbody>
 </table>
@@ -172,19 +173,19 @@ available servers.</p></td>
 <table class="docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><strong>Play</strong></p></td>
-<td><p>Plays the simulation.</p></td>
+<td><p>Play the simulation.</p></td>
 </tr>
 <tr class="row-even"><td><p><strong>Pause</strong></p></td>
-<td><p>Pauses the simulation.</p></td>
+<td><p>Pause the simulation.</p></td>
 </tr>
 <tr class="row-odd"><td><p><strong>Step</strong></p></td>
-<td><p>Moves to the next frame of the simulation.</p></td>
+<td><p>Move to the next frame of the simulation.</p></td>
 </tr>
 <tr class="row-even"><td><p><strong>Reset</strong></p></td>
-<td><p>Resets the simulation to the starting positions.</p></td>
+<td><p>Reset the simulation to the starting positions.</p></td>
 </tr>
 <tr class="row-odd"><td><p><strong>Reset Box</strong></p></td>
-<td><p>Moves and resizes the box to the original dimensions and position in the VR space.</p></td>
+<td><p>Move and resize the box to the original dimensions and position in the VR space.</p></td>
 </tr>
 </tbody>
 </table>
@@ -196,22 +197,22 @@ available servers.</p></td>
 <table class="docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><strong>Colocated Lighthouses</strong></p></td>
-<td><p>Toggles colocation. This is only
+<td><p>Toggle colocation. This is only
 compatible with players using HTC base
 stations.</p></td>
 </tr>
 <tr class="row-even"><td><p><strong>Reset Radial Orientation</strong></p></td>
-<td><p>Orients players’ playspaces into a
+<td><p>Orient players’ VR play spaces into a
 mandala.</p></td>
 </tr>
 <tr class="row-odd"><td><p><strong>Radial Displacement</strong></p></td>
-<td><p>Slides players’ playspaces inwards and
-outwards from the centre of the shared
-space.</p></td>
+<td><p>Slide players’ VR play spaces inwards
+and outwards from the centre of the
+shared space.</p></td>
 </tr>
 <tr class="row-even"><td><p><strong>Rotation Correction</strong></p></td>
-<td><p>Adjusts the rotation of players’
-playspaces to align with the shared
+<td><p>Adjust the rotation of players’ VR
+play spaces to align with the shared
 space.</p></td>
 </tr>
 </tbody>
@@ -224,7 +225,7 @@ space.</p></td>
 <table class="docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><strong>Simulate Controllers</strong></p></td>
-<td><p>Toggles the simulation of random interaction forces.</p></td>
+<td><p>Toggle the simulation of random interaction forces.</p></td>
 </tr>
 </tbody>
 </table>
@@ -236,7 +237,7 @@ space.</p></td>
 <table class="docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><strong>Quit</strong></p></td>
-<td><p>Quits the program.</p></td>
+<td><p>Quit the program.</p></td>
 </tr>
 </tbody>
 </table>

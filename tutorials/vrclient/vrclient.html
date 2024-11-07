@@ -11,6 +11,7 @@
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=23fdb008" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
       <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=23fdb008" />
 
   
@@ -22,6 +23,7 @@
       <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
       <script src="../../_static/copybutton.js?v=f281be69"></script>
       <script src="../../_static/custom.js?v=6d5f2585"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -66,10 +68,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../ase.html">ASE: Interactive Molecular Dynamics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../mdanalysis.html">MDAnalysis</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">NanoVer iMD</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#the-vr-client">The VR client</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#the-ui">The UI</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="pcvrmenu.html">On-screen PC-VR menu</a></li>
-<li class="toctree-l4"><a class="reference internal" href="invrmenu.html">In-VR menus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-nanover-imd">Using NanoVer iMD</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#user-interface">User Interface</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#choosing-your-setup-for-imd-vr">Choosing your setup for iMD-VR</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#flow-diagram-for-choosing-your-vr-setup">Flow diagram for choosing your VR setup</a></li>
 </ul>
 </li>
 </ul>
@@ -112,7 +116,7 @@
   <blockquote>
 <div></div></blockquote>
 <section id="nanover-imd">
-<span id="vr-client-tutorial"></span><h1>NanoVer iMD<a class="headerlink" href="#nanover-imd" title="Link to this heading"></a></h1>
+<span id="vr-client-tutorial"></span><h1><a class="toc-backref" href="#id3" role="doc-backlink">NanoVer iMD</a><a class="headerlink" href="#nanover-imd" title="Link to this heading"></a></h1>
 <p>You can use the <a class="reference external" href="https://github.com/IRL2/nanover-imd">NanoVer iMD application</a>
 to <strong>incorporate VR into your workflow</strong>, including:</p>
 <ul class="simple">
@@ -120,37 +124,126 @@ to <strong>incorporate VR into your workflow</strong>, including:</p>
 <li><p>interacting with real-time molecular simulations using VR controllers</p></li>
 <li><p>joining together with others for multi-person sessions in VR</p></li>
 </ul>
-<p>To install the NanoVer iMD application, please go to <a class="reference internal" href="../../installation.html#installation"><span class="std std-ref">Installation &amp; Getting Started</span></a>.</p>
-<section id="the-vr-client">
-<h2>The VR client<a class="headerlink" href="#the-vr-client" title="Link to this heading"></a></h2>
-<p>We call an instance of the NanoVer iMD application a <strong>VR client</strong>.
-This is different to a <em>python client</em>, which connects to a server from a python script.
+<p>To install the NanoVer iMD application, please go to <a class="reference internal" href="../../installation.html#installation"><span class="std std-ref">Installation &amp; Getting Started</span></a>.
+For help choosing your VR setup, please see <a class="reference internal" href="#choosing-setup-imd-vr"><span class="std std-ref">Choosing your setup for iMD-VR</span></a> below.</p>
+<nav class="contents" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#nanover-imd" id="id3">NanoVer iMD</a></p>
+<ul>
+<li><p><a class="reference internal" href="#using-nanover-imd" id="id4">Using NanoVer iMD</a></p>
+<ul>
+<li><p><a class="reference internal" href="#user-interface" id="id5">User Interface</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#choosing-your-setup-for-imd-vr" id="id6">Choosing your setup for iMD-VR</a></p>
+<ul>
+<li><p><a class="reference internal" href="#flow-diagram-for-choosing-your-vr-setup" id="id7">Flow diagram for choosing your VR setup</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+<hr class="docutils" />
+<section id="using-nanover-imd">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Using NanoVer iMD</a><a class="headerlink" href="#using-nanover-imd" title="Link to this heading"></a></h2>
+<p>We call an instance of the NanoVer iMD application an iMD-VR client, or simply a <strong>VR client</strong>.
+This is different to a <em>python client</em>, which connects to a NanoVer server from a python script or Jupyter notebook.
 This distinction is important since the two types of client offer different functionalities.
-For example, <em>both</em> can connect to a NanoVer server to access simulation data &amp; run commands
-such as play/pause/reset.
+For example, <em>both</em> can connect to a NanoVer server to access simulation data, run commands
+such as play/pause/reset, &amp; apply forces to the molecule system (interactive MD).
 However, <em>only a VR client</em> allows you to visualise &amp; interact with a simulation in VR,
 and <em>only a python client</em> allows you to change the visualisation of the molecular system.</p>
 <div class="admonition-key-point admonition">
 <p class="admonition-title">Key point</p>
-<p>A <strong>VR Client</strong> is an instance of the NanoVer iMD application.</p>
+<p>A <strong>VR Client</strong> or <strong>iMD-VR client</strong> is an instance of the NanoVer iMD application that has connected to a NanoVer server.</p>
 </div>
-</section>
-<section id="the-ui">
-<h2>The UI<a class="headerlink" href="#the-ui" title="Link to this heading"></a></h2>
-<p>There are two types of UI in the NanoVer iMD application:</p>
+<section id="user-interface">
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">User Interface</a><a class="headerlink" href="#user-interface" title="Link to this heading"></a></h3>
+<p>There are two types of user interface (UI) in the NanoVer iMD application:</p>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="pcvrmenu.html">On-screen PC-VR menu</a></li>
 <li class="toctree-l1"><a class="reference internal" href="invrmenu.html">In-VR menus</a></li>
 </ul>
 </div>
-<figure class="align-center" id="id1">
+<figure class="align-center" id="id2">
 <a class="reference internal image-reference" href="../../_images/UI_full-screen.png"><img alt="../../_images/UI_full-screen.png" src="../../_images/UI_full-screen.png" style="width: 800px;" />
 </a>
 <figcaption>
-<p><span class="caption-text">Screenshot of the NanoVer iMD application showing the on-screen (top left) and in-VR (center) menus.</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+<p><span class="caption-text">Screenshot of the NanoVer iMD application showing the on-screen (top left) and in-VR (center) menus.</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
 </figcaption>
 </figure>
+</section>
+</section>
+<section id="choosing-your-setup-for-imd-vr">
+<span id="choosing-setup-imd-vr"></span><h2><a class="toc-backref" href="#id6" role="doc-backlink">Choosing your setup for iMD-VR</a><a class="headerlink" href="#choosing-your-setup-for-imd-vr" title="Link to this heading"></a></h2>
+<p>If you wish to visualise and/or interact with your simulations in VR, you will need to use an iMD-VR client.
+We focus on NanoVer iMD as the prototypical iMD-VR client, but these instructions can be generalised to any iMD-VR client,
+e.g. your own custom VR application that uses the NanoverUnityPlugin.</p>
+<p>Please feel free to use the instructions below to help you choose your VR setup,
+then search online (or follow the links given below) for the documentation of your chosen method for the latest
+instructions on configuring your setup.
+Once you’re ready, head to <a class="reference internal" href="../../installation.html#installation"><span class="std std-ref">Installation &amp; Getting Started</span></a> to get started with NanoVer iMD.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>VR is developing fast and there are constantly new features/apps/ways of doing things. Therefore,
+these instructions may not be an exhaustive list of all the possible VR setups. Please feel free to choose whichever
+one you are most comfortable with! We also recommend checking out the online documentation for your VR headset if you
+run into any problems relating to setting up your VR kit.</p>
+</div>
+<section id="flow-diagram-for-choosing-your-vr-setup">
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">Flow diagram for choosing your VR setup</a><a class="headerlink" href="#flow-diagram-for-choosing-your-vr-setup" title="Link to this heading"></a></h3>
+<p>Below is a flow diagram to help you decide which setup to choose based on: the operating system of your computer,
+the type of network you have access to, your VR headset, and your desired configuration (single-/multi-person VR).</p>
+<a class="reference internal image-reference" href="../../_images/VR_client_flow_diagram.png"><img alt="../../_images/VR_client_flow_diagram.png" src="../../_images/VR_client_flow_diagram.png" style="width: 600px;" />
+</a>
+<div class="admonition-key-point admonition">
+<p class="admonition-title">Key point</p>
+<p>For a <strong>wireless setup</strong> you will need to have a strong and stable internet connection that allows communication over the network.
+This option is often incompatible with public / institutional networks.</p>
+</div>
+<div class="admonition-key-definition admonition">
+<p class="admonition-title">Key definition</p>
+<p><strong>Tethered</strong>: using a cable to connect your VR headset to your computer.</p>
+</div>
+<p>Please use the following dropdown boxes to see more details about the different VR setups:</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Using PC-VR</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">This option is compatible with the following VR setups:</p>
+<ul class="simple">
+<li><p class="sd-card-text"><a class="reference external" href="https://www.meta.com/en-gb/help/quest/articles/headsets-and-accessories/oculus-link/connect-with-air-link/">Meta Quest Link</a> (tethered)</p></li>
+<li><p class="sd-card-text"><a class="reference external" href="https://www.meta.com/en-gb/help/quest/articles/headsets-and-accessories/oculus-link/connect-with-air-link/">Meta Quest AirLink</a> (wireless)</p></li>
+<li><p class="sd-card-text"><a class="reference external" href="https://store.steampowered.com/app/250820/SteamVR/">SteamVR</a> (tethered)</p></li>
+<li><p class="sd-card-text"><a class="reference external" href="https://store.steampowered.com/app/353380/Steam_Link/">Steam Link</a> (wireless)</p></li>
+</ul>
+<p class="sd-card-text">You can use either NanoVer-iMD installation method:</p>
+<ul class="simple">
+<li><p class="sd-card-text"><strong>Downloading the latest release of the NanoVer iMD executable</strong>, see <a class="reference internal" href="../../installation.html#download-latest-release-vr-client"><span class="std std-ref">Download the latest release</span></a>.</p></li>
+<li><p class="sd-card-text"><strong>Conda installation of the NanoVer iMD package</strong>, see <a class="reference internal" href="../../installation.html#conda-installation-vr-client"><span class="std std-ref">Conda installation</span></a>.</p></li>
+</ul>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Running locally on a Meta Quest headset</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">This option is compatible with the following VR setups:</p>
+<ul class="simple">
+<li><p class="sd-card-text">Run directly on the App store of a Meta Quest headset (wireless)</p></li>
+<li><p class="sd-card-text"><a class="reference external" href="https://www.meta.com/en-gb/help/quest/articles/headsets-and-accessories/oculus-link/connect-with-air-link/">Meta Quest Link</a>
+with <a class="reference external" href="https://developer.oculus.com/meta-quest-developer-hub/">Meta Quest Developer Hub</a> (tethered)</p></li>
+</ul>
+<p class="sd-card-text">You must use the following NanoVer-iMD installation method:</p>
+<ul class="simple">
+<li><p class="sd-card-text"><strong>Download the latest release of the NanoVer iMD apk</strong> and sideload this onto your headset, see
+<a class="reference internal" href="../../installation.html#download-latest-release-vr-client"><span class="std std-ref">Download the latest release</span></a>. If you wish to use your VR headset wirelessly,
+then you must meet the requirements for a wireless setup (see above).</p></li>
+</ul>
+<p class="sd-card-text">Choosing this option means that you cannot run NanoVer iMD via conda.</p>
+</div>
+</details><hr class="docutils" />
+</section>
 </section>
 </section>
 
