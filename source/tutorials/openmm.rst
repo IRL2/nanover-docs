@@ -33,14 +33,7 @@ The XML format described here is used specifically for saving and loading NanoVe
 1. **Starting Structure**: Enclosed in either ``<pdbx>`` or ``<pdb>`` tags
 2. **OpenMM Serialized System**: Enclosed in the ``<System>`` tag
 3. **OpenMM Serialized Integrator**: Enclosed in the ``<Integrator>`` tag
-
-An optional fourth component, the OpenMM serialized state, may also be included.
-The format allows for efficient storage and exchange of OpenMM simulation data, including the starting structure, system configuration, and integrator settings.
-
-.. note::
-    There is a slight difference between the OpenMM format and the NanoVer format.
-    NanoVer xml files for OpenMM simulations contain a PDB and a number of serialized objects.
-    Although the serialized objects are identical to those used by OpenMM, the overall contents and structure of the files are specific to NanoVer and cannot be read by OpenMM on its own.
+4. **OpenMM Serialized State**: Enclosed in the ``<State>`` tag (optional)
 
 XML structure
 -------------
@@ -57,7 +50,16 @@ XML structure
         <Integrator ...>
             <!-- XML content of the OpenMM serialized integrator -->
         </Integrator>
+        <State ...>
+            <!-- XML content of the OpenMM serialized state -->
+        </State>
     </OpenMMSimulation>
+
+.. note::
+    There is a slight difference between the OpenMM format and the NanoVer format.
+    NanoVer xml files for OpenMM simulations contain a PDB and a number of serialized objects.
+    Although the serialized objects are identical to those used by OpenMM, the overall contents and structure of the files are specific to NanoVer and cannot be read by OpenMM on its own.
+
 
 Components description
 ----------------------
@@ -114,14 +116,25 @@ The ``<Integrator>`` tag contains parameters that specify the integration method
 
 More details on integrators can be found `here <http://docs.openmm.org/latest/userguide/theory/04_integrators.html>`_.
 
+4. **OpenMM serialized state**:
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The ``<State>`` tag contains the serialized state of the simulation, including:
+
+- Particle velocities ``<Velocities>``
+- Adjustable parameters that have been defined by Force objects in the System ``<Parameters>``
+- Periodic box vectors (if periodic boundary conditions are used) ``<PeriodicBoxVectors>``
+- Integrator parameters ``<IntegratorParameters>``
+
 Usage
 -----
 
-The :mod:`nanover.openmm.serializer` module provides the ``serialize_simulation`` and ``deserialize_simulation`` functions which allow saving and loading OpenMM simulations to/from XML files. The serialization captures the complete simulation state including:
+The :mod:`nanover.openmm.serializer` module provides the ``serialize_simulation`` and ``deserialize_simulation`` functions which allow saving and loading OpenMM simulations to/from XML files. The serialization captures by default the complete simulation including:
 
 - Structure coordinates and topology (as PDBx/PDB)
 - OpenMM System definition
 - Integrator configuration
+- Serialized state (optional)
 
 Serializing a simulation
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -132,6 +145,10 @@ To save a simulation to a NanoVer OpenMM XML::
 
     with open("sim.xml", "w") as f:
         f.write(xml_string)
+
+The ``serialize_simulation`` function accepts optional arguments:
+
+- ``save_state``: Whether to include the serialized state in the XML (default: ``False``)
 
 Deserializing a simulation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -145,7 +162,7 @@ The ``deserialize_simulation`` function accepts optional arguments:
 
 - ``imd_force``: A CustomExternalForce for interactive molecular dynamics
 - ``platform_name``: The OpenMM platform to use (e.g. "CUDA", "OpenCL")
-
+- ``ignore_state``: Whether to ignore the serialized state in the XML (default: ``False``)
 For example::
 
     simulation = nanover.openmm.serializer.deserialize_simulation(
