@@ -1,10 +1,10 @@
-Recording data
+Recording simulations using NanoVer
 ==============
 
 .. _Rust server: https://github.com/IRL2/nanover-rs
 
 For a NanoVer session to be useful beyond the time the users spend in VR, it needs to be recorded.
-This recording can then be analysed or played back to get insight.
+This recording can then be analysed or played back to get insight. In this document, we describe how to record a NanoVer session and how to visualise the recording using inbuilt methods.
 
 .. contents:: Contents
     :depth: 2
@@ -43,17 +43,17 @@ A record contains:
 
 * a timestamp encoded as a little endian 16 bytes unsigned integer that indicates the time, in microseconds,
   since the beginning of the recording.
-  This timestamp indicates the timing of the records and allows synchronisation of a trajectory and a state recording.
+  This timestamp indicates the timing of the records and allows synchronisation of a NanoVer trajectory and a state recording.
 * the size, in bytes, of the record; encoded as an 8 bytes little endian unsigned integer.
 * the record itself as a protobuf message.
 
-In the case of a trajectory recording, each record contains a ``GetFrameResponse`` message.
+In the case of a NanoVer trajectory recording, each record contains a ``GetFrameResponse`` message.
 This message contains two fields: the frame index and the frame itself.
 The frame index is generally an integer that gets incremented each time the server register a frame to broadcast.
 However, its value is only significant when it is 0 as it means the frame needs to be reset;
 for instance because the server loaded a new simulation. The frame itself is an instance of the :ref:`FrameData <traj-and-frames>` class.
 
-In the case of a shared state recording, each record contains a :ref:`StateUpdate <state-updates>` message.
+In the case of a NanoVer shared state recording, each record contains a :ref:`StateUpdate <state-updates>` message.
 
 
 Recording with Python
@@ -145,8 +145,8 @@ Reading NanoVer recordings using MDAnalysis in python
 
 Recordings can be read and manipulated using the NanoVer python library.
 
-The :py:mod:`nanover.mdanalysis` module allows to read a trajectory recording as an
-`MDAnalysis Universe <https://userguide.mdanalysis.org/stable/universe.html#universe>`_.
+The :py:mod:`nanover.mdanalysis` module allows to read a NanoVer trajectory recording as an
+`MDAnalysis Universe <https://userguide.mdanalysis.org/stable/universe.html#universe>`_, which is a data structure used by the MDAnalysis library to handle molecular dynamics simulations.
 As MDAnalysis does not support time-dependant topologies, only frames that correspond to the first topology in the
 recording are read as part of the Universe.
 If the topology changes throughout the recording, for instance because another simulation was loaded,
@@ -194,5 +194,5 @@ jupyter notebook tutorial for further information.
 
 
 Lower level methods are available in :py:mod:`nanover.mdanalysis.recordings` to read the content of the files directly.
-This module is used in the `state-utils <https://github.com/IRL2/nanover-utils>`_ utility that allows to read shared
+This module is used in the `state-utils <https://github.com/IRL2/nanover-utils>`_ utility that allows to read NanoVer shared
 state recordings in a python script or with the command line.
