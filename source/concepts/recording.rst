@@ -1,5 +1,5 @@
 Recording simulations using NanoVer
-==============
+===================================
 
 .. _Rust server: https://github.com/IRL2/nanover-rs
 
@@ -15,49 +15,53 @@ What is recorded
 
 NanoVer can record two different streams:
 
-* the stream of simulation frame,
+* the stream of simulation frames,
 * and the stream of updates of the shared state.
 
 These two streams are identical to the streams sent to the clients during the live recording,
-with the addition of a timestamp that allows synchronisation of the streams during playback.
+with the addition of a timestamp that enables synchronisation of the streams during playback.
 Each stream is stored in a separate file.
 
 By convention, recordings of the frame stream have the ``.traj`` file extension,
-while recordings of the shared state stream  have the ``.state`` file extension.
+while recordings of the shared state stream have the ``.state`` file extension.
 
-Recording format
-----------------
+.. warning::
 
-Each recording file contains a header and a sequence of records.
+   In order to pass the trajectory and state files to a NanoVer server via the
+   :class:`PlaybackSimulation` class in the :mod:`nanover.omni.playback` module,
+   they must adopt the above file extension conventions.
 
-The header contains two fields, stored as little endian 8 bytes unsigned integers:
+NanoVer recording format
+------------------------
 
-* **a magic number, its value is 6661355757386708963**. This value was chosen arbitrarily and needs to be the first
-  8 bytes of the file to indicate it is indeed a NanoVer recording. A file without this magic number is not a NanoVer
-  recording, however one should keep in mind that a file that starts with that value could still not be a valid
-  recording and should handle errors accordingly.
-* **the version of the file format**. This version number dictates how the rest of the file will be written or parsed.
-  Any change to the file format needs to increment this file format version. The current version is 2.
+Each NanoVer recording file contains a header and a sequence of records:
 
-A record contains:
+* The header contains two fields, stored as little endian 8 bytes unsigned integers:
 
-* a timestamp encoded as a little endian 16 bytes unsigned integer that indicates the time, in microseconds,
-  since the beginning of the recording.
-  This timestamp indicates the timing of the records and allows synchronisation of a NanoVer trajectory and a state recording.
-* the size, in bytes, of the record; encoded as an 8 bytes little endian unsigned integer.
-* the record itself as a protobuf message.
+    * **a magic number, its value is 6661355757386708963**. This value was chosen arbitrarily and needs to be the first
+      8 bytes of the file to indicate it is indeed a NanoVer recording. A file without this magic number is not a NanoVer
+      recording, however one should keep in mind that a file that starts with that value could still not be a valid
+      recording and should handle errors accordingly.
+    * **the version of the file format**. This version number dictates how the rest of the file will be written or parsed.
+      Any change to the file format needs to increment this file format version. The current version is 2.
 
-In the case of a NanoVer trajectory recording, each record contains a ``GetFrameResponse`` message.
-This message contains two fields: the frame index and the frame itself.
-The frame index is generally an integer that gets incremented each time the server register a frame to broadcast.
-However, its value is only significant when it is 0 as it means the frame needs to be reset;
-for instance because the server loaded a new simulation. The frame itself is an instance of the :ref:`FrameData <traj-and-frames>` class.
+* Each record contains:
 
-In the case of a NanoVer shared state recording, each record contains a :ref:`StateUpdate <state-updates>` message.
+    * a timestamp encoded as a little endian 16 bytes unsigned integer that indicates the time, in microseconds,
+      since the beginning of the recording.
+      This timestamp indicates the timing of the records and allows synchronisation of a NanoVer trajectory and a state recording.
+    * the size, in bytes, of the record; encoded as an 8 bytes little endian unsigned integer.
+    * a :ref:`StateUpdate <state-updates>` (NanoVer *shared state* recordings **only**), as a protobuf message.
+    * a ``GetFrameResponse`` (NanoVer *trajectory* recordings **only**) as a protobuf message, comprising:
+
+        * The **frame index**: this is generally an integer that gets incremented each time the server register a frame to broadcast.
+          However, its value is only significant when it is 0 as it means the frame needs to be reset,
+          for instance because the server loaded a new simulation.
+        * The **frame** itself: this is an instance of the :ref:`FrameData <traj-and-frames>` class.
 
 
 Recording with Python
---------------------------------
+---------------------
 
 How to record
 ~~~~~~~~~~~~~
