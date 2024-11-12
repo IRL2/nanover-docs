@@ -73,8 +73,8 @@ Here is an example of how to define the file names and paths for the recording a
 
     from nanover.omni.record import record_from_server
     # Define the .traj and .state file names and paths
-    traj_path = 'simulation_recording.traj'
-    state_path = 'simulation_recording.state'
+    traj_path = 'path/to/simulation_recording.traj'
+    state_path = 'path/to/simulation_recording.state'
     # create a recording from a server and save it to the files
     record_from_server("localhost:38801", traj_path, state_path)
 
@@ -83,7 +83,7 @@ How to visualise recordings
 Visualising and playing back recordings can be done using :mod:`nanover.omni.playback` module.
 The Python Server can stream recorded NanoVer streams read by a ``PlaybackSimulation`` object to a client. The client then plays back the recording as if it were
 a live stream.
-The server sends the frames and state updates whilst trying to respect the timing dictated by the timestamps stored
+The server sends the frame and state updates whilst trying to respect the timing dictated by the timestamps stored
 in the file.
 
 .. code:: python
@@ -91,8 +91,8 @@ in the file.
     from nanover.omni import OmniRunner
     from nanover.omni.playback import PlaybackSimulation
     simulation_recording = PlaybackSimulation(name='simulation-recording',
-                                           traj='files/simulation_recording.traj',
-                                           state='files/simulation_recording.state')
+                                           traj='path/to/recording.traj',
+                                           state='path/to/recording.state')
     # Create a runner for the simulation
     recording_runner = OmniRunner.with_basic_server(simulation_recording,
                                                     name='simulation-recording-server')
@@ -103,7 +103,8 @@ in the file.
 
 .. note::
 
-    Further instructions and information on how to record and replay using the NanoVer Python module can be found in this notebook `recording_and_replaying.ipynb <https://github.com/IRL2/nanover-protocol/blob/main/examples/basics/recording_and_replaying.ipynb>`_.
+    Further instructions and information on how to record and replay using the NanoVer Python module can be found in
+    this notebook `recording_and_replaying.ipynb <https://github.com/IRL2/nanover-protocol/blob/main/examples/basics/recording_and_replaying.ipynb>`_.
 
 Recording with the Rust Server
 ------------------------------
@@ -122,7 +123,7 @@ the recording of the shared state updates.
 .. code-block::
 
     # For Windows Powershell
-    .\nanover-cli.exe "simulation.xml" --trajectory "my-trajectory.traj" --state "my-state.state"
+    .\nanover-cli.exe "simulation.xml" --trajectory "path/to/recording.traj" --state "path/to/recording.state"
 
 On the graphical interface, the files are specified in the ``Recording`` section before starting the server
 (see :ref:`rust_server_via_the_gui`).
@@ -137,7 +138,7 @@ In order to send both streams together, provide the two file paths separated by 
 .. code-block::
 
     # For Windows Powershell
-    .\nanover-cli.exe "my-trajectory.traj:my-state.state"
+    .\nanover-cli.exe "path/to/recording.traj:path/to/recording.state"
 
 
 **Using the graphical interface**, add a recording to the list of simulations using the ``+ Recording`` button,
@@ -149,7 +150,7 @@ Reading NanoVer recordings using MDAnalysis in python
 
 Recordings can be read and manipulated using the NanoVer python library.
 
-The :py:mod:`nanover.mdanalysis` module allows to read a NanoVer trajectory recording as an
+The :py:mod:`nanover.mdanalysis` module enables us to read a NanoVer trajectory recording as an
 `MDAnalysis Universe <https://userguide.mdanalysis.org/stable/universe.html#universe>`_, which is a data structure used by the MDAnalysis library to handle molecular dynamics simulations.
 As MDAnalysis does not support time-dependant topologies, only frames that correspond to the first topology in the
 recording are read as part of the Universe.
@@ -198,5 +199,5 @@ jupyter notebook tutorial for further information.
 
 
 Lower level methods are available in :py:mod:`nanover.mdanalysis.recordings` to read the content of the files directly.
-This module is used in the `state-utils <https://github.com/IRL2/nanover-utils>`_ utility that allows to read NanoVer shared
-state recordings in a python script or with the command line.
+We also have a `python script <https://github.com/IRL2/nanover-utils/tree/main/parsing-recordings/read_state.py>`_ located
+in the `nanover-utils <https://github.com/IRL2/nanover-utils>`_ repository for parsing NanoVer shared state recordings.
