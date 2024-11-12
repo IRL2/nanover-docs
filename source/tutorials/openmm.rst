@@ -6,8 +6,8 @@ OpenMM
     :depth: 2
     :local:
 
-OpenMM Tutorials
-==============================================
+Jupyter notebook tutorials
+==========================
 A set of tutorials that demonstrate how to use NanoVer to run interactive molecular
 dynamics simulations using OpenMM directly.
 
@@ -25,8 +25,8 @@ folder of the GitHub repository. It contains:
   OpenMM simulation from scratch with NanoVer and change the visualisations of
   different atom selections for a protein-ligand system.
 
-Nanover OpenMM XML Files
-==============================================
+NanoVer OpenMM XML files
+========================
 
 The XML format described here is used specifically for saving and loading NanoVer OpenMM simulations. It consists of a root element ``<OpenMMSimulation>`` containing three main components:
 
@@ -161,7 +161,7 @@ To load a simulation from a NanoVer OpenMM XML::
 The ``deserialize_simulation`` function accepts optional arguments:
 
 - ``imd_force``: A CustomExternalForce for interactive molecular dynamics
-- ``platform_name``: The OpenMM platform to use (e.g. "CUDA", "OpenCL")
+- ``platform_name``: The parallel computing platform for OpenMM to use (e.g. "CUDA", "OpenCL")
 - ``ignore_state``: Whether to ignore the serialized state in the XML (default: ``False``)
 For example::
 
@@ -170,4 +170,4 @@ For example::
         platform_name="CUDA"
     )
 
-For more details, refer to the OpenMM example on saving systems to XML `files <https://github.com/IRL2/nanover-protocol/blob/main/examples/openmm/openmm_polyalanine.ipynb>`_.
+For more details, refer to our `example notebook <https://github.com/IRL2/nanover-protocol/blob/main/examples/openmm/openmm_polyalanine.ipynb>`_ on saving OpenMM systems to NanoVer OpenMM XML files.
