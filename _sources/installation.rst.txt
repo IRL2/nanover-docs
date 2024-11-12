@@ -146,7 +146,7 @@ Download the latest release
 
     This includes
     `Meta Quest Link & AirLink <https://www.meta.com/en-gb/help/quest/articles/headsets-and-accessories/oculus-link/connect-with-air-link/>`_,
-    and `SteamVR <https://store.steampowered.com/app/250820/SteamVR/>`_:
+    `SteamVR <https://store.steampowered.com/app/250820/SteamVR/>`_, and `Steam Link <https://store.steampowered.com/app/353380/Steam_Link/>`_:
 
     #. Set up your headset according to your chosen setup (see the links above).
     #. Navigate to the ``windows`` directory in the extracted folder, and launch ``NanoVer iMD.exe``.
