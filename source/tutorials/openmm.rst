@@ -25,7 +25,7 @@ folder of the GitHub repository. It contains:
   OpenMM simulation from scratch with NanoVer and change the visualisations of
   different atom selections for a protein-ligand system.
 
-OpenMM XML Files
+Nanover OpenMM XML Files
 ==============================================
 
 The XML format described here is used specifically for saving and loading NanoVer OpenMM simulations. It consists of a root element ``<OpenMMSimulation>`` containing three main components:
@@ -170,4 +170,4 @@ For example::
         platform_name="CUDA"
     )
 
-For more details, refer to the OpenMM example on saving systems to XML `files <https://github.com/openmm/openmm-cookbook/blob/main/notebooks/cookbook/Saving%20Systems%20to%20XML%20Files.ipynb>`_.
+For more details, refer to the OpenMM example on saving systems to XML `files <https://github.com/IRL2/nanover-protocol/blob/main/examples/openmm/openmm_polyalanine.ipynb>`_.
