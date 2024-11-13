@@ -15,7 +15,8 @@ To install the NanoVer iMD application, please go to :ref:`installation`.
 For help choosing your VR setup, please see :ref:`choosing_setup_iMD-VR` below.
 
 .. contents:: Contents
-    :depth: 3
+    :depth: 2
+    :local:
 
 ----
 
