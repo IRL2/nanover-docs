@@ -10,7 +10,8 @@ and applications for visualising & interacting with simulations
 in VR.
 
 .. contents:: Contents
-    :depth: 3
+    :depth: 2
+    :local:
 
 ----
 
