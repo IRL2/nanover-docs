@@ -309,26 +309,6 @@ many particles as the system.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="nanover.openmm.imd.get_sparse_forces">
-<span class="sig-prename descclassname"><span class="pre">nanover.openmm.imd.</span></span><span class="sig-name descname"><span class="pre">get_sparse_forces</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_forces</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">_ScalarType_co</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">_ScalarType_co</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">_ScalarType_co</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#nanover.openmm.imd.get_sparse_forces" title="Link to this definition"></a></dt>
-<dd><p>Takes in an array of user forces acting on the system containing N particles
-and outputs two arrays that describe these user forces in a sparse form:</p>
-<ul class="simple">
-<li><p>The first contains the indices of the particles for which the user forces
-are non-zero</p></li>
-<li><p>The second contains the non-zero user forces associated with each index</p></li>
-</ul>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>user_forces</strong> – Array of user forces with dimensions (N, 3)</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Array of particle indices, Array of corresponding user forces</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
 <dt class="sig sig-object py" id="nanover.openmm.imd.populate_imd_force">
 <span class="sig-prename descclassname"><span class="pre">nanover.openmm.imd.</span></span><span class="sig-name descname"><span class="pre">populate_imd_force</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">force</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">CustomExternalForce</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">system</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">System</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#nanover.openmm.imd.populate_imd_force" title="Link to this definition"></a></dt>
 <dd><p>Add all the particles to the iMD force.</p>
