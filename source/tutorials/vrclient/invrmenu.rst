@@ -80,14 +80,14 @@ Main menu: connecting to a NanoVer server
         If a server was found, the menu will close and you will see your simulation.
 
 
-In-simulation controls
-======================
+Controls & menus
+================
 
 Once you have connected to a server, you can visualize & interact with your simulation,
 and have access to several menus.
 
-Main controls
-#############
+In-simulation controls
+######################
 
 You can access the main controls anytime you are in the simulation space and don't have any menus open.
 With these controls, you can:
@@ -124,8 +124,8 @@ With these controls, you can:
 
 
 
-Right hand controls
-###################
+Right hand menus
+################
 
 Here you can adjust aspects of your interaction with the molecules, including:
 
@@ -170,8 +170,8 @@ Handheld menu (right)
 
 
 
-Left hand controls
-##################
+Left hand menus
+###############
 
 Within these menus you can:
 
