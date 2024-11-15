@@ -58,16 +58,6 @@ With these controls, you can:
          - Press and hold both grip buttons to move & resize the simulation box.
 
 
-----
-
-Right hand menus
-################
-
-Here you can adjust aspects of your interaction with the molecules, including:
-
-* changing the magnitude of the interaction force
-* toggling between interacting with individual atoms or entire residues
-
 .. dropdown:: Change the magnitude of the interaction force
 
    .. list-table::
@@ -81,6 +71,15 @@ Here you can adjust aspects of your interaction with the molecules, including:
          - Push and hold the joystick on the right controller to the right to increase the force, or to the left to decrease it.
            Doing so will alter the scaling value of the interaction force (see video).
            Note that this changes the force for both controllers.
+
+----
+
+Right hand menus
+################
+
+Here you can adjust aspects of your interaction with the molecules, including:
+
+* toggling between interacting with individual atoms or entire residues
 
 
 Handheld menu (right)
@@ -170,7 +169,6 @@ Here, you will see the following options:
          - Select the ``Reset`` button.
 
 
-
 Full screen menu
 ~~~~~~~~~~~~~~~~
 
@@ -185,13 +183,13 @@ Here you will be able to:
     and use your **right controller** to interact with the buttons.
     When you are finished, click ``Back`` to return to the simulation.
 
-.. dropdown:: Change simulation
+.. dropdown:: Switch simulation
 
    .. list-table::
        :widths: 40 60
        :header-rows: 0
 
-       * - .. video:: /_static/in-vr-menu_change-simulation.mp4
+       * - .. video:: /_static/in-vr-menu_switch-simulation.mp4
              :width: 250
              :height: 250
 
