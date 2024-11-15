@@ -1,11 +1,14 @@
 .. _controlsandmenus:
 
-
 Controls & menus
 ================
 
 Once you have connected to a server, you can visualize & interact with your simulation,
 and have access to several menus.
+
+.. contents:: Contents
+    :depth: 2
+    :local:
 
 In-simulation controls
 ######################
