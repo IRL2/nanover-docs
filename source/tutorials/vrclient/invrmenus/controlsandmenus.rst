@@ -80,7 +80,7 @@ Right hand menus
 
 Here you can adjust aspects of your interaction with the molecules, including:
 
-* toggling between interacting with individual atoms or entire residues
+* **Select your interaction type**: toggle between interacting with individual atoms or entire residues
 
 
 Handheld menu (right)
@@ -103,9 +103,9 @@ Open the dropdown below to see the **video tutorial**:
              :width: 250
              :height: 250
 
-         - Select your interaction type: ``Single`` (default) or ``Residue``.
+         - Select your interaction type:
 
-           * ``Single``: when interacting, you will apply a force to the nearest atom.
+           * ``Single`` (default): when interacting, you will apply a force to the nearest atom.
 
            * ``Residue``: when interacting, you will apply a force to the nearest residue.
 
