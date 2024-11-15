@@ -9,7 +9,8 @@ These buttons are in similar positions on most common VR controllers,
 but please refer to your VR headset's documentation if you cannot locate them.
 
 .. important::
-    To press a virtual button on the in-VR menus, **place the end of your VR controller on the button and click the trigger**.
+    To press a button on a menu in VR,
+    **place the end of your controller on the button and click the trigger**.
 
 .. list-table::
    :widths: 40 60

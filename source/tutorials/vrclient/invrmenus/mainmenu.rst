@@ -3,12 +3,15 @@
 Main menu: connecting to a NanoVer server
 =========================================
 
+.. important::
+    To press a button on the main menu in VR,
+    **place the end of your right controller** on the button and **click the trigger**.
+
+You have several options for connecting to a NanoVer server:
+
 * **Autoconnect**: connect to the first server (using the default port) found on the network.
 * **Discover**: find all servers (using the default port) on the network and list them for the user to choose from.
 * **Manual**: allow the user to specify the IP address and port of the server they wish to connect to and then, if found, connect to it.
-
-.. important::
-    Interact with this menu using your **right controller**.
 
 .. list-table::
    :widths: 40 60
