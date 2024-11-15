@@ -50,7 +50,7 @@ Main menu: connecting to a NanoVer server
 * **Manual**: allow the user to specify the IP address and port of the server they wish to connect to and then, if found, connect to it.
 
 .. important::
-    You interact with this menu using your **right controller**.
+    Interact with this menu using your **right controller**.
 
 .. list-table::
    :widths: 40 60
@@ -89,7 +89,7 @@ and have access to several menus.
 Main controls
 #############
 
-You can access the main controls anytime you are in the simulation space and no menus are open.
+You can access the main controls anytime you are in the simulation space and don't have any menus open.
 With these controls, you can:
 
 * interact with the simulation
@@ -129,7 +129,7 @@ Right hand controls
 
 Here you can adjust aspects of your interaction with the molecules, including:
 
-* changing the magnitude of the force
+* changing the magnitude of the interaction force
 * toggling between interacting with individual atoms or entire residues
 
 .. list-table::
@@ -142,16 +142,17 @@ Here you can adjust aspects of your interaction with the molecules, including:
 
      - **Change the magnitude of the interaction force**:
         Push and hold the joystick on the right controller to the right to increase the force, or to the left to decrease it.
+        Doing so will alter the scaling value of the interaction force (see video).
         Note that this changes the force for both controllers.
 
 
-First menu (handheld)
+Handheld menu (right)
 ~~~~~~~~~~~~~~~~~~~~~
 
 .. important::
-    Open this menu by **holding down the joystick on your right controller**.
+    Open the right handheld menu by **holding the joystick of your right controller in the down position**.
     With the joystick held down, move your controller to a button and press the trigger to click it.
-    Let go of the joystick to close the menu.
+    Release the joystick to close the menu.
 
 .. list-table::
    :widths: 40 60
@@ -175,22 +176,22 @@ Left hand controls
 Within these menus you can:
 
 * run simulation commands, such as play/pause/reset
-* change simulation
+* switch between loaded simulations
 * customize your avatar
 
-First menu (handheld)
-~~~~~~~~~~~~~~~~~~~~~
+Handheld menu (left)
+~~~~~~~~~~~~~~~~~~~~
 
 .. important::
-    Open this menu by **holding down the joystick on your left controller**.
+    Open the left handheld menu by **holding the joystick of your left controller in the down position**.
     With the joystick held down, move your controller to a button and press the trigger to click it.
-    Let go of the joystick to close the menu.
+    Release the joystick to close the menu.
 
 Here, you will see the following options:
 
-* pause the simulation
-* play the simulation
-* restart the simulation
+* **Pause**: pauses a running simulation.
+* **Play**: plays a paused simulation.
+* **Reset**: resets the system to its initial coordinates.
 
 .. list-table::
    :widths: 40 60
@@ -200,32 +201,35 @@ Here, you will see the following options:
          :width: 250
          :height: 250
 
-     - **Pause** the simulation.
+     - **Pause**
+        Select the ``Pause`` button.
 
    * - .. video:: /_static/in-vr-menu_play.mp4
          :width: 250
          :height: 250
 
-     - **Play** the simulation.
+     - **Play**
+        Select the ``Play`` button.
 
    * - .. video:: /_static/in-vr-menu_reset.mp4
          :width: 250
          :height: 250
 
-     - **Restart** the simulation.
+     - **Reset**
+        Select the ``Reset`` button.
 
-Second menu (full screen)
-~~~~~~~~~~~~~~~~~~~~~~~~~
+Full screen menu
+~~~~~~~~~~~~~~~~
 
-Click ``Menu`` on the first menu to open the second menu.
+Click ``Menu`` on the left handheld menu to open the full screen menu.
 Here you will be able to:
 
-* change simulation
-* change avatar name & color
+* switch between loaded simulations
+* customize your avatar name & color
 
 .. important::
-    You interact with this menu with your **right controller**.
-    Release the joystick on your left controller, and use your right controller to interact with buttons on this menu.
+    Once you have opened the full screen menu, release the joystick on your left controller
+    and use your **right controller** to interact with the buttons.
     When you are finished, click ``Back`` to return to the simulation.
 
 .. list-table::
@@ -236,17 +240,20 @@ Here you will be able to:
          :width: 250
          :height: 250
 
-     - **Change simulation** by selecting ``Sims`` and choosing from the list of simulations loaded onto the server.
-       Click ``Back`` to return to the menu.
+     - **Change simulation**
+        Select ``Sims`` and choose from the list of simulations loaded onto the server.
+        Click ``Back`` to return to the full screen menu.
 
    * - .. video:: /_static/in-vr-menu_change-name-and-color.mp4
          :width: 250
          :height: 250
 
-     - Change your **avatar name** by clicking on your avatar name at the bottom of the second menu.
-       Delete the previous name, type a new one, and click ``>`` to return to the menu.
+     - **Change your avatar name**
+        Click on your avatar name at the bottom of the full screen menu.
+        Delete the previous name, type a new one, and click ``>`` to return to the full screen menu.
 
-       Change your **avatar color** by selecting one of the colored circles around your avatar.
+       **Change your avatar color**
+        Select one of the colored circles around your avatar (on the full screen menu).
 
        Although not visible to you, these fields are stored in the shared state and determine how others will see your
        avatar during multiplayer sessions.
