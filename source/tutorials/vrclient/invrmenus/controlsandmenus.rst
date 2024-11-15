@@ -16,7 +16,8 @@ In-simulation controls
 ######################
 
 You can access the main controls anytime you are in the simulation space and don't have any menus open.
-With these controls, you can:
+
+Select from the dropdown options below to see the **video tutorials**:
 
 .. dropdown:: Interact with the simulation
 
@@ -90,6 +91,8 @@ Handheld menu (right)
     With the joystick held down, move your controller to a button and press the trigger to click it.
     Release the joystick to close the menu.
 
+Open the dropdown below to see the **video tutorial**:
+
 .. dropdown:: Select your interaction type
 
    .. list-table::
@@ -131,6 +134,8 @@ Here, you will see the following options:
 * **Pause**: pauses a running simulation.
 * **Play**: plays a paused simulation.
 * **Reset**: resets the system to its initial coordinates.
+
+Select from the dropdown options below to see the **video tutorials**:
 
 .. dropdown:: Pause
 
@@ -183,7 +188,10 @@ Here you will be able to:
     and use your **right controller** to interact with the buttons.
     When you are finished, click ``Back`` to return to the simulation.
 
-.. dropdown:: Switch simulation
+
+Select from the dropdown options below to see the **video tutorials**:
+
+.. dropdown:: Switch between loaded simulations
 
    .. list-table::
        :widths: 40 60
