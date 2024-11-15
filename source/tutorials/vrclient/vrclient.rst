@@ -45,7 +45,7 @@ There are two types of user interface (UI) in the NanoVer iMD application:
    :maxdepth: 1
 
    pcvrmenu.rst
-   invrmenu.rst
+   invrmenus/invrmenus.rst
 
 
 .. figure:: /_static/UI_full-screen.png
