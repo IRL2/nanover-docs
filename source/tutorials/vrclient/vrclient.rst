@@ -100,9 +100,6 @@ Please use the following dropdown boxes to see more details about the different 
 
 .. dropdown:: Using PC-VR
 
-    Using PC-VR
-    ~~~~~~~~~~~
-
     This option is compatible with the following VR setups:
 
     * `Meta Quest Link <https://www.meta.com/en-gb/help/quest/articles/headsets-and-accessories/oculus-link/connect-with-air-link/>`_ (tethered)
@@ -117,9 +114,6 @@ Please use the following dropdown boxes to see more details about the different 
     * **Conda installation of the NanoVer iMD package**, see :ref:`conda_installation_VR_client`.
 
 .. dropdown:: Running locally on a Meta Quest headset
-
-    Running locally on a Meta Quest headset
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     This option is compatible with the following VR setups:
 
