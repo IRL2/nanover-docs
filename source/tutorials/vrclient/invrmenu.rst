@@ -87,7 +87,7 @@ Once you have connected to a server, you can visualize & interact with your simu
 and have access to several menus.
 
 Main controls
-############
+#############
 
 You can access the main controls anytime you are in the simulation space and no menus are open.
 With these controls, you can:
