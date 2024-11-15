@@ -43,7 +43,7 @@ but please refer to your VR headset's documentation if you cannot locate them.
 
 
 Main menu: connecting to a NanoVer server
-==============================
+=========================================
 
 * **Autoconnect**: connect to the first server (using the default port) found on the network.
 * **Discover**: find all servers (using the default port) on the network and list them for the user to choose from.
