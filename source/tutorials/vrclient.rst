@@ -11,14 +11,17 @@ to **incorporate VR into your workflow**, including:
 * interacting with real-time molecular simulations using VR controllers
 * joining together with others for multi-person sessions in VR
 
-To install the NanoVer iMD application, please go to :ref:`installation`.
-For help choosing your VR setup, please see :ref:`choosing_setup_iMD-VR` below.
+To install the NanoVer iMD application, go to :ref:`installation`.
+For help choosing your VR setup, see :ref:`choosing_setup_iMD-VR`.
+For guidance on using the NanoVer iMD application, see :ref:`navigatingnanoverinvr`.
 
 .. contents:: Contents
     :depth: 2
     :local:
 
 ----
+
+.. _navigatingnanoverinvr:
 
 ########################
 Navigating NanoVer in VR
@@ -39,6 +42,7 @@ and *only a python client* allows you to change the visualisation of the molecul
 
    A **VR Client** or **iMD-VR client** is an instance of the NanoVer iMD application that has connected to a NanoVer server.
 
+|
 
 Your VR controllers
 ~~~~~~~~~~~~~~~~~~~
@@ -87,13 +91,13 @@ You should now have NanoVer iMD and your VR setup ready to go! To begin, follow 
 
 #. **Open NanoVer iMD** (see :ref:`installing_imdvr_client`)
 
-#. **Select your option for connecting to a Server**.
-   This can be done from inside your VR headset using the :ref:`in-VR menu<vrclientinvrmenumainmenu>`
-   or using the :ref:`desktop menu<vrclientdesktopmenu>` (PC-VR only).
+#. **Select your option for connecting to a Server**: this can be done from inside your VR headset using the
+   :ref:`in-VR main menu<vrclientinvrmenumainmenu>` or using the
+   :ref:`desktop main menu<vrclientdesktopmenu>` (PC-VR only)
 
 #. **Check out your molecular simulation in VR!** See instructions for the
-   :ref:`in-VR controls<vrclientinvrcontrolsandmenus>` and check out our :ref:`tutorials <Tutorials>` page for
-   examples of how to integrate NanoVer iMD into your workflow.
+   :ref:`VR controls and menus<vrclientvrcontrolsandmenus>` and check out the :ref:`tutorials <Tutorials>` page for
+   examples of how to integrate NanoVer iMD into your workflow
 
 |
 
@@ -104,20 +108,32 @@ Connecting to a NanoVer server
 
 You have several options for connecting to a NanoVer server:
 
-* **Autoconnect**: connect to the first server (using the default port) found on the network.
-* **Discover**: find all servers (using the default port) on the network and list them for the user to choose from.
-* **Manual**: allow the user to specify the IP address and port of the server they wish to connect to and then, if found, connect to it.
+* **Autoconnect**: connect to the first server (using the default port) found on the network
+* **Discover**: find all servers (using the default port) on the network and list them for the user to choose from
+* **Manual**: allow the user to specify the IP address and port of the server they wish to connect to and then, if found, connect to it
 
-----
+|
 
 .. _vrclientinvrmenumainmenu:
 
 In-VR main menu
 ~~~~~~~~~~~~~~~
 
-.. important::
-    To press a button on the main menu in VR,
-    **place the end of your right controller** on the button and **click the trigger**.
+.. grid:: 2
+   :gutter: 2
+
+   .. grid-item::
+
+      .. figure:: /_static/in-vr_main-menu.png
+         :align: center
+         :width: 85%
+
+   .. grid-item::
+
+        .. important::
+            To press a button on the main menu in VR,
+            **place the end of your right controller** on the button and **click the trigger**.
+
 
 Select from the dropdown options below to see the **video tutorials**:
 
@@ -161,7 +177,7 @@ Select from the dropdown options below to see the **video tutorials**:
          - Click ``Manual``, then type your IP address & port and click ``Connect``.
            If a server was found, the menu will close and you will see your simulation.
 
-----
+|
 
 .. _vrclientdesktopmenu:
 
@@ -269,20 +285,30 @@ Select from the dropdown options below for further information and to see other 
 
 ----
 
-.. _vrclientinvrcontrolsandmenus:
+.. _vrclientvrcontrolsandmenus:
 
-In-VR: controls & menus
-#######################
+VR controls & menus
+###################
 
-Once you have connected to a server, you can visualize & interact with your simulation,
-and have access to several menus.
+Once you have connected to a server, you can visualize & interact with your simulation.
+You also have access to your VR controls & several menus:
 
-----
+* :ref:`insimulationcontrols`
+
+* :ref:`righthandheldmenu`
+
+* :ref:`lefthandheldmenu`
+
+* :ref:`fullscreenmenu`
+
+|
+
+.. _insimulationcontrols:
 
 In-simulation controls
 ~~~~~~~~~~~~~~~~~~~~~~
 
-You can access the main controls anytime you are in the simulation space and don't have any menus open.
+You can access the in-simulation controls anytime you are connected to a server and don't have any menus open.
 Select from the dropdown options below to see the **video tutorials**:
 
 .. dropdown:: Interact with the simulation
@@ -339,23 +365,32 @@ Select from the dropdown options below to see the **video tutorials**:
            Doing so will alter the scaling value of the interaction force (see video).
            Note that this changes the force for both controllers.
 
-----
+|
 
-Right hand menus
-----------------
+.. _righthandheldmenu:
+
+Right handheld menu
+~~~~~~~~~~~~~~~~~~~
 
 Here you can adjust aspects of your interaction with the molecules, including:
 
 * **Select your interaction type**: toggle between interacting with individual atoms or entire residues
 
+.. grid:: 2
+   :gutter: 2
 
-Handheld menu (right)
-^^^^^^^^^^^^^^^^^^^^^
+   .. grid-item::
 
-.. important::
-    Open the right handheld menu by **holding the joystick of your right controller in the down position**.
-    With the joystick held down, move your controller to a button and press the trigger to click it.
-    Release the joystick to close the menu.
+      .. figure:: /_static/in-vr_right-handheld-menu.png
+         :align: center
+         :width: 65%
+
+   .. grid-item::
+
+      .. important::
+         Open the right handheld menu by **holding the joystick of your right controller in the down position**.
+         With the joystick held down, move your controller to a button and press the trigger to click it.
+         Release the joystick to close the menu.
 
 Open the dropdown below to see the **video tutorial**:
 
@@ -375,31 +410,34 @@ Open the dropdown below to see the **video tutorial**:
 
            * ``Residue``: when interacting, you will apply a force to the nearest residue.
 
+|
 
-----
+.. _lefthandheldmenu:
 
-Left hand menus
----------------
+Left handheld menu
+~~~~~~~~~~~~~~~~~~
 
-Within these menus you can:
+Here you can access the fullscreen menu and run simulation commands such as:
 
-* run simulation commands, such as play/pause/reset
-* switch between loaded simulations
-* customize your avatar
+* **Pause**: pause a running simulation
+* **Play**: play a paused simulation
+* **Reset**: reset the system to its initial coordinates
 
-Handheld menu (left)
-^^^^^^^^^^^^^^^^^^^^
+.. grid:: 2
+   :gutter: 2
 
-.. important::
-    Open the left handheld menu by **holding the joystick of your left controller in the down position**.
-    With the joystick held down, move your controller to a button and press the trigger to click it.
-    Release the joystick to close the menu.
+   .. grid-item::
 
-Here, you will see the following options:
+      .. figure:: /_static/in-vr_left-handheld-menu.png
+         :align: center
+         :width: 60%
 
-* **Pause**: pauses a running simulation.
-* **Play**: plays a paused simulation.
-* **Reset**: resets the system to its initial coordinates.
+   .. grid-item::
+
+      .. important::
+         Open the left handheld menu by **holding the joystick of your left controller in the down position**.
+         With the joystick held down, move your controller to a button and press the trigger to click it.
+         Release the joystick to close the menu.
 
 Select from the dropdown options below to see the **video tutorials**:
 
@@ -439,22 +477,34 @@ Select from the dropdown options below to see the **video tutorials**:
 
          - Select the ``Reset`` button.
 
-----
+|
 
-Full screen menu
-^^^^^^^^^^^^^^^^
+.. _fullscreenmenu:
 
-Click ``Menu`` on the left handheld menu to open the full screen menu.
-Here you will be able to:
+Fullscreen menu
+~~~~~~~~~~~~~~~
+
+Click ``Menu`` on the left handheld menu to open the fullscreen menu.
+Here you can:
 
 * switch between loaded simulations
 * customize your avatar name & color
 
-.. important::
-    Once you have opened the full screen menu, release the joystick on your left controller
-    and use your **right controller** to interact with the buttons.
-    When you are finished, click ``Back`` to return to the simulation.
+.. grid:: 2
+   :gutter: 2
 
+   .. grid-item::
+
+      .. figure:: /_static/in-vr_full-screen-menu.png
+         :align: center
+         :width: 85%
+
+   .. grid-item::
+
+        .. important::
+            Once you have opened the fullscreen menu, release the joystick on your left controller
+            and use your **right controller** to interact with the buttons.
+            When you are finished, click ``Back`` to return to the simulation.
 
 Select from the dropdown options below to see the **video tutorials**:
 
@@ -469,7 +519,7 @@ Select from the dropdown options below to see the **video tutorials**:
              :height: 250
 
          - Select ``Sims`` and choose from the list of simulations loaded onto the server.
-           Click ``Back`` to return to the full screen menu.
+           Click ``Back`` to return to the fullscreen menu.
 
 .. dropdown:: Customize your avatar
 
@@ -482,11 +532,11 @@ Select from the dropdown options below to see the **video tutorials**:
              :height: 250
 
          - **Change your avatar name**
-            Click on your avatar name at the bottom of the full screen menu.
-            Delete the previous name, type a new one, and click ``>`` to return to the full screen menu.
+            Click on your avatar name at the bottom of the fullscreen menu.
+            Delete the previous name, type a new one, and click ``>`` to return to the fullscreen menu.
 
            **Change your avatar color**
-            Select one of the colored circles around your avatar (on the full screen menu).
+            Select one of the colored circles around your avatar (on the fullscreen menu).
 
            Although not visible to you, these fields are stored in the shared state and determine how others will see your
            avatar during multiplayer sessions.
@@ -497,9 +547,9 @@ Select from the dropdown options below to see the **video tutorials**:
 
 .. _choosing_setup_iMD-VR:
 
-##############################
-Choosing your setup for iMD-VR
-##############################
+##########################
+Choosing your iMD-VR setup
+##########################
 
 If you wish to visualise and/or interact with your simulations in VR, you will need to use an iMD-VR client.
 We focus on NanoVer iMD as the prototypical iMD-VR client, but these instructions can be generalised to any iMD-VR client,
@@ -508,7 +558,11 @@ e.g. your own custom VR application that uses the NanoverUnityPlugin.
 Please feel free to use the instructions below to help you choose your VR setup,
 then search online (or follow the links given below) for the documentation of your chosen method for the latest
 instructions on configuring your setup.
-Once you're ready, head to :ref:`installation` to get started with NanoVer iMD.
+
+
+#. For help choosing your VR setup, see our flow diagram in :ref:`choosingyourvrsetup`
+#. Once you know your VR setup, head to :ref:`choosingyourinstallationmethod`
+#. Once you're ready, head to :ref:`installation`
 
 
 .. note::
@@ -518,10 +572,12 @@ Once you're ready, head to :ref:`installation` to get started with NanoVer iMD.
     one you are most comfortable with! We also recommend checking out the online documentation for your VR headset if you
     run into any problems relating to setting up your VR kit.
 
-----
+|
 
-Flow diagram
-############
+.. _choosingyourvrsetup:
+
+Choosing your VR setup
+######################
 
 Below is a flow diagram to help you decide which setup to choose based on: the operating system of your computer,
 the type of network you have access to, your VR headset, and your desired configuration (single-/multi-person VR).
@@ -538,12 +594,14 @@ the type of network you have access to, your VR headset, and your desired config
 
     \ **Tethered**: using a cable to connect your VR headset to your computer.
 
-----
+|
 
-PC-VR & running locally on a Meta Quest headset
-###############################################
+.. _choosingyourinstallationmethod:
 
-Please use the following dropdown boxes to see more details about the different VR setups:
+Choosing your installation method
+#################################
+
+Please choose from the dropdown options below to learn about how to install NanoVer iMD with your chosen VR setup:
 
 .. dropdown:: Using PC-VR
 
