@@ -24,6 +24,9 @@ For help choosing your VR setup, please see :ref:`choosing_setup_iMD-VR` below.
 Navigating NanoVer in VR
 ########################
 
+Introduction
+############
+
 We call an instance of the NanoVer iMD application an iMD-VR client, or simply a **VR client**.
 This is different to a *python client*, which connects to a NanoVer server from a python script or Jupyter notebook.
 This distinction is important since the two types of client offer different functionalities.
@@ -36,10 +39,9 @@ and *only a python client* allows you to change the visualisation of the molecul
 
    A **VR Client** or **iMD-VR client** is an instance of the NanoVer iMD application that has connected to a NanoVer server.
 
-.. _usingyourvrcontrollers:
 
 Your VR controllers
-###################
+~~~~~~~~~~~~~~~~~~~
 
 Below are diagrams showing the positions of the VR controller buttons that you will use in NanoVer iMD,
 using the Meta Quest 2 controllers for demonstration.
@@ -72,29 +74,104 @@ but please refer to your VR headset's documentation if you cannot locate them.
 
      - **Joystick**
 
+|
 
+----
 
-The user interface (UI)
-#######################
+A typical iMD-VR workflow
+#########################
 
-When you open the NanoVer iMD application on your computer using PC-VR, you will see an on-screen menu (top left) and
-in-VR menu (center).
-If you open the application natively on your Meta Quest headset, then you will only see the in-VR menu
-(full screen in front of you).
-The full screen menu will follow you as you move your head.
+You should now have NanoVer iMD and your VR setup ready to go! To begin, follow these steps:
 
-.. figure:: /_static/UI_full-screen.png
-    :align: center
-    :width: 400px
+#. **Start your NanoVer server** (see :ref:`basicsrunningaserver`)
+
+#. **Open NanoVer iMD** (see :ref:`installing_imdvr_client`)
+
+#. **Select your option for connecting to a Server**.
+   This can be done from inside your VR headset using the :ref:`in-VR menu<vrclientinvrmenumainmenu>`
+   or using the :ref:`desktop menu<vrclientdesktopmenu>` (PC-VR only).
+
+#. **Check out your molecular simulation in VR!** See instructions for the
+   :ref:`in-VR controls<vrclientinvrcontrolsandmenus>` and check out our :ref:`tutorials <Tutorials>` page for
+   examples of how to integrate NanoVer iMD into your workflow.
 
 |
 
-On-screen PC-VR menu
-####################
+----
+
+Connecting to a NanoVer server
+##############################
+
+You have several options for connecting to a NanoVer server:
+
+* **Autoconnect**: connect to the first server (using the default port) found on the network.
+* **Discover**: find all servers (using the default port) on the network and list them for the user to choose from.
+* **Manual**: allow the user to specify the IP address and port of the server they wish to connect to and then, if found, connect to it.
+
+----
+
+.. _vrclientinvrmenumainmenu:
+
+In-VR main menu
+~~~~~~~~~~~~~~~
+
+.. important::
+    To press a button on the main menu in VR,
+    **place the end of your right controller** on the button and **click the trigger**.
+
+Select from the dropdown options below to see the **video tutorials**:
+
+.. dropdown:: Autoconnect
+
+   .. list-table::
+       :widths: 40 60
+       :header-rows: 0
+
+       * - .. video:: /_static/in-vr-menu_autoconnect.mp4
+             :width: 250
+             :height: 250
+
+         - Click ``Autoconnect``. If a server was found, the menu will close and you will see your simulation.
 
 
-When you open the NanoVer iMD application on your PC, you will see a small menu in the top left of your monitor with the
-following headings:
+.. dropdown:: Discover
+
+   .. list-table::
+       :widths: 40 60
+       :header-rows: 0
+
+       * - .. video:: /_static/in-vr-menu_discover.mp4
+             :width: 250
+             :height: 250
+
+         - Click ``Discover`` to show a list of available servers. Click your chosen server or click ``Refresh`` to
+           search again.
+
+
+.. dropdown:: Manual
+
+   .. list-table::
+       :widths: 40 60
+       :header-rows: 0
+
+       * - .. video:: /_static/in-vr-menu_manual.mp4
+             :width: 250
+             :height: 250
+
+         - Click ``Manual``, then type your IP address & port and click ``Connect``.
+           If a server was found, the menu will close and you will see your simulation.
+
+----
+
+.. _vrclientdesktopmenu:
+
+Desktop main menu (PC-VR only)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+When you open the NanoVer iMD application on your PC, you will see a small menu on the top left of your monitor with the
+below headings.
+In **Server**, you can connect to your NanoVer server.
+Select from the dropdown options below for further information and to see other features:
 
 .. dropdown:: Server
 
@@ -119,7 +196,6 @@ following headings:
     .. image:: /_static/UI_server.png
         :align: left
         :scale: 45%
-
 
     +----------------------+---------------------------------------------------------------------------------------------+
     | **Autoconnect**      | Connect to the first server found on the network, using the default parameters.             |
@@ -198,74 +274,24 @@ following headings:
     | **Quit**             | Quit the program.                           |
     +----------------------+---------------------------------------------+
 
+|
 
-Main menu: connecting to a NanoVer server
-#########################################
+----
 
-.. important::
-    To press a button on the main menu in VR,
-    **place the end of your right controller** on the button and **click the trigger**.
+.. _vrclientinvrcontrolsandmenus:
 
-You have several options for connecting to a NanoVer server:
-
-* **Autoconnect**: connect to the first server (using the default port) found on the network.
-* **Discover**: find all servers (using the default port) on the network and list them for the user to choose from.
-* **Manual**: allow the user to specify the IP address and port of the server they wish to connect to and then, if found, connect to it.
-
-Select from the dropdown options below to see the **video tutorials**:
-
-.. dropdown:: Autoconnect
-
-   .. list-table::
-       :widths: 40 60
-       :header-rows: 0
-
-       * - .. video:: /_static/in-vr-menu_autoconnect.mp4
-             :width: 250
-             :height: 250
-
-         - Click ``Autoconnect``. If a server was found, the menu will close and you will see your simulation.
-
-
-.. dropdown:: Discover
-
-   .. list-table::
-       :widths: 40 60
-       :header-rows: 0
-
-       * - .. video:: /_static/in-vr-menu_discover.mp4
-             :width: 250
-             :height: 250
-
-         - Click ``Discover`` to show a list of available servers. Click your chosen server or click ``Refresh`` to
-           search again.
-
-
-.. dropdown:: Manual
-
-   .. list-table::
-       :widths: 40 60
-       :header-rows: 0
-
-       * - .. video:: /_static/in-vr-menu_manual.mp4
-             :width: 250
-             :height: 250
-
-         - Click ``Manual``, then type your IP address & port and click ``Connect``.
-           If a server was found, the menu will close and you will see your simulation.
-
-
-Controls & menus
-^^^^^^^^^^^^^^^^
+In-VR: controls & menus
+#######################
 
 Once you have connected to a server, you can visualize & interact with your simulation,
 and have access to several menus.
 
+----
+
 In-simulation controls
-""""""""""""""""""""""
+~~~~~~~~~~~~~~~~~~~~~~
 
 You can access the main controls anytime you are in the simulation space and don't have any menus open.
-
 Select from the dropdown options below to see the **video tutorials**:
 
 .. dropdown:: Interact with the simulation
@@ -325,7 +351,7 @@ Select from the dropdown options below to see the **video tutorials**:
 ----
 
 Right hand menus
-################
+----------------
 
 Here you can adjust aspects of your interaction with the molecules, including:
 
@@ -333,7 +359,7 @@ Here you can adjust aspects of your interaction with the molecules, including:
 
 
 Handheld menu (right)
-~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^
 
 .. important::
     Open the right handheld menu by **holding the joystick of your right controller in the down position**.
@@ -362,7 +388,7 @@ Open the dropdown below to see the **video tutorial**:
 ----
 
 Left hand menus
-###############
+---------------
 
 Within these menus you can:
 
@@ -371,7 +397,7 @@ Within these menus you can:
 * customize your avatar
 
 Handheld menu (left)
-~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^
 
 .. important::
     Open the left handheld menu by **holding the joystick of your left controller in the down position**.
@@ -422,9 +448,10 @@ Select from the dropdown options below to see the **video tutorials**:
 
          - Select the ``Reset`` button.
 
+----
 
 Full screen menu
-~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^
 
 Click ``Menu`` on the left handheld menu to open the full screen menu.
 Here you will be able to:
@@ -473,9 +500,7 @@ Select from the dropdown options below to see the **video tutorials**:
            Although not visible to you, these fields are stored in the shared state and determine how others will see your
            avatar during multiplayer sessions.
 
-
-
-
+|
 
 ----
 
@@ -502,9 +527,10 @@ Once you're ready, head to :ref:`installation` to get started with NanoVer iMD.
     one you are most comfortable with! We also recommend checking out the online documentation for your VR headset if you
     run into any problems relating to setting up your VR kit.
 
+----
 
-Flow diagram for choosing your VR setup
-#######################################
+Flow diagram
+############
 
 Below is a flow diagram to help you decide which setup to choose based on: the operating system of your computer,
 the type of network you have access to, your VR headset, and your desired configuration (single-/multi-person VR).
@@ -520,6 +546,11 @@ the type of network you have access to, your VR headset, and your desired config
 .. admonition:: Key definition
 
     \ **Tethered**: using a cable to connect your VR headset to your computer.
+
+----
+
+PC-VR & running locally on a Meta Quest headset
+###############################################
 
 Please use the following dropdown boxes to see more details about the different VR setups:
 
@@ -554,7 +585,4 @@ Please use the following dropdown boxes to see more details about the different 
 
     Choosing this option means that you cannot run NanoVer iMD via conda.
 
-----
-
-
-
+|

@@ -16,7 +16,7 @@ framework you're running with NanoVer.
    openmm.rst
    ase.rst
    mdanalysis.rst
-   vrclient/vrclient.rst
+   vrclient.rst
 
 Many of the tutorials for NanoVer are written as `Jupyter notebooks <https://jupyter.org>`_, and thus require that you
 have Jupyter installed in your NanoVer conda environment (see the :ref:`installation instructions <installing_jupyter>`
