@@ -193,22 +193,13 @@ Select from the dropdown options below for further information and to see other 
 
 .. dropdown:: User
 
-    .. image:: /_static/UI_server.png
+    .. image:: /_static/UI_user.png
         :align: left
         :scale: 45%
 
-    +----------------------+---------------------------------------------------------------------------------------------+
-    | **Autoconnect**      | Connect to the first server found on the network, using the default parameters.             |
-    +----------------------+---------------------------------------------------------------------------------------------+
-    | **Direct Connect**   | Toggle a menu where you can change the IP address and trajectory/multiplayer ports          |
-    |                      | of the server you wish to connect to.                                                       |
-    +----------------------+---------------------------------------------------------------------------------------------+
-    | **Discover Services**| Toggle a menu to search for servers running on the network. Click "Search" to show the      |
-    |                      | available servers.                                                                          |
-    +----------------------+---------------------------------------------------------------------------------------------+
-    | **Disconnect**       | If connected to a server, disconnect.                                                       |
-    +----------------------+---------------------------------------------------------------------------------------------+
-
+    +----------------------+---------------------------------------------+
+    | **Interaction Force**| Scale the user's interaction force.         |
+    +----------------------+---------------------------------------------+
 
 .. dropdown:: Simulation
 
