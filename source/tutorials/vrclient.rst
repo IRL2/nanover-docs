@@ -89,14 +89,14 @@ You should now have NanoVer iMD and your VR setup ready to go! To begin, follow 
 
 #. **Start your NanoVer server** (see :ref:`basicsrunningaserver`)
 
-#. **Open NanoVer iMD** (see :ref:`installing_imdvr_client`)
+#. **Setup your VR kit & open NanoVer iMD** (see :ref:`installing_imdvr_client`)
 
-#. **Select your option for connecting to a Server**: this can be done from inside your VR headset using the
-   :ref:`in-VR main menu<vrclientinvrmenumainmenu>` or using the
+#. **Select your option for connecting to a Server**: using either the
+   :ref:`in-VR main menu<vrclientinvrmenumainmenu>` or
    :ref:`desktop main menu<vrclientdesktopmenu>` (PC-VR only)
 
 #. **Check out your molecular simulation in VR!** See instructions for the
-   :ref:`VR controls and menus<vrclientvrcontrolsandmenus>` and check out the :ref:`tutorials <Tutorials>` page for
+   :ref:`VR controls and menus<vrclientvrcontrolsandmenus>`, or check out the :ref:`tutorials <Tutorials>` page for
    examples of how to integrate NanoVer iMD into your workflow
 
 |
@@ -131,7 +131,7 @@ In-VR main menu
    .. grid-item::
 
         .. important::
-            To press a button on the main menu in VR,
+            To press a button on the in-VR main menu,
             **place the end of your right controller** on the button and **click the trigger**.
 
 
@@ -187,7 +187,7 @@ Desktop main menu (PC-VR only)
 When you open the NanoVer iMD application on your PC, you will see a small menu on the top left of your monitor with the
 below headings.
 In **Server**, you can connect to your NanoVer server.
-Select from the dropdown options below for further information and to see other features:
+Select from the dropdown options below for further information and to browse other features:
 
 .. dropdown:: Server
 
@@ -291,7 +291,7 @@ VR controls & menus
 ###################
 
 Once you have connected to a server, you can visualize & interact with your simulation.
-You also have access to your VR controls & several menus:
+You now have access to your VR controls & several menus:
 
 * :ref:`insimulationcontrols`
 
@@ -372,7 +372,7 @@ Select from the dropdown options below to see the **video tutorials**:
 Right handheld menu
 ~~~~~~~~~~~~~~~~~~~
 
-Here you can adjust aspects of your interaction with the molecules, including:
+Here you can adjust aspects of your interaction with the molecules, such as:
 
 * **Select your interaction type**: toggle between interacting with individual atoms or entire residues
 
