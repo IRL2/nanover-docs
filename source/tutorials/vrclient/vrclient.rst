@@ -20,9 +20,9 @@ For help choosing your VR setup, please see :ref:`choosing_setup_iMD-VR` below.
 
 ----
 
-
-Using NanoVer iMD
-#################
+########################
+Navigating NanoVer in VR
+########################
 
 We call an instance of the NanoVer iMD application an iMD-VR client, or simply a **VR client**.
 This is different to a *python client*, which connects to a NanoVer server from a python script or Jupyter notebook.
@@ -36,27 +36,452 @@ and *only a python client* allows you to change the visualisation of the molecul
 
    A **VR Client** or **iMD-VR client** is an instance of the NanoVer iMD application that has connected to a NanoVer server.
 
-User Interface
-~~~~~~~~~~~~~~
+.. _usingyourvrcontrollers:
 
-There are two types of user interface (UI) in the NanoVer iMD application:
+Your VR controllers
+###################
 
-.. toctree::
-   :maxdepth: 1
+Below are diagrams showing the positions of the VR controller buttons that you will use in NanoVer iMD,
+using the Meta Quest 2 controllers for demonstration.
+These buttons are in similar positions on most common VR controllers,
+but please refer to your VR headset's documentation if you cannot locate them.
 
-   pcvrmenu.rst
-   invrmenus/invrmenus.rst
+.. important::
+    To press a button on a menu in VR,
+    **place the end of your controller on the button and click the trigger**.
 
+.. list-table::
+   :widths: 40 60
+   :header-rows: 0
+
+   * - .. figure:: /_static/left-controller_trigger.png
+         :align: center
+         :width: 300px
+
+     - **Trigger button**
+
+   * - .. figure:: /_static/left-controller_grip.png
+         :align: center
+         :width: 300px
+
+     - **Grip button**
+
+   * - .. figure:: /_static/left-controller_joystick.png
+         :align: center
+         :width: 300px
+
+     - **Joystick**
+
+
+
+The user interface (UI)
+#######################
+
+When you open the NanoVer iMD application on your computer using PC-VR, you will see an on-screen menu (top left) and
+in-VR menu (center).
+If you open the application natively on your Meta Quest headset, then you will only see the in-VR menu
+(full screen in front of you).
+The full screen menu will follow you as you move your head.
 
 .. figure:: /_static/UI_full-screen.png
     :align: center
-    :width: 800px
+    :width: 400px
 
-    Screenshot of the NanoVer iMD application showing the on-screen (top left) and in-VR (center) menus.
+|
 
+On-screen PC-VR menu
+####################
+
+
+When you open the NanoVer iMD application on your PC, you will see a small menu in the top left of your monitor with the
+following headings:
+
+.. dropdown:: Server
+
+    .. image:: /_static/UI_server.png
+        :align: left
+        :scale: 45%
+
+    +----------------------+---------------------------------------------------------------------------------------------+
+    | **Autoconnect**      | Connect to the first server found on the network, using the default parameters.             |
+    +----------------------+---------------------------------------------------------------------------------------------+
+    | **Direct Connect**   | Toggle a menu where you can change the IP address and trajectory/multiplayer ports          |
+    |                      | of the server you wish to connect to.                                                       |
+    +----------------------+---------------------------------------------------------------------------------------------+
+    | **Discover Services**| Toggle a menu to search for servers running on the network. Click "Search" to show the      |
+    |                      | available servers.                                                                          |
+    +----------------------+---------------------------------------------------------------------------------------------+
+    | **Disconnect**       | If connected to a server, disconnect.                                                       |
+    +----------------------+---------------------------------------------------------------------------------------------+
+
+.. dropdown:: User
+
+    .. image:: /_static/UI_server.png
+        :align: left
+        :scale: 45%
+
+
+    +----------------------+---------------------------------------------------------------------------------------------+
+    | **Autoconnect**      | Connect to the first server found on the network, using the default parameters.             |
+    +----------------------+---------------------------------------------------------------------------------------------+
+    | **Direct Connect**   | Toggle a menu where you can change the IP address and trajectory/multiplayer ports          |
+    |                      | of the server you wish to connect to.                                                       |
+    +----------------------+---------------------------------------------------------------------------------------------+
+    | **Discover Services**| Toggle a menu to search for servers running on the network. Click "Search" to show the      |
+    |                      | available servers.                                                                          |
+    +----------------------+---------------------------------------------------------------------------------------------+
+    | **Disconnect**       | If connected to a server, disconnect.                                                       |
+    +----------------------+---------------------------------------------------------------------------------------------+
+
+
+.. dropdown:: Simulation
+
+    .. image:: /_static/UI_simulation.png
+        :align: left
+        :scale: 45%
+
+    +----------------------+---------------------------------------------------------------------------------------------+
+    | **Play**             | Play the simulation.                                                                        |
+    +----------------------+---------------------------------------------------------------------------------------------+
+    | **Pause**            | Pause the simulation.                                                                       |
+    +----------------------+---------------------------------------------------------------------------------------------+
+    | **Step**             | Move to the next frame of the simulation.                                                   |
+    +----------------------+---------------------------------------------------------------------------------------------+
+    | **Reset**            | Reset the simulation to the starting positions.                                             |
+    +----------------------+---------------------------------------------------------------------------------------------+
+    | **Reset Box**        | Move and resize the box to the original dimensions and position in the VR space.            |
+    +----------------------+---------------------------------------------------------------------------------------------+
+
+
+.. dropdown:: Colocation
+
+    .. image:: /_static/UI_colocation.png
+        :align: left
+        :scale: 45%
+
+    +--------------------------------+----------------------------------------+
+    | **Colocated Lighthouses**      | Toggle colocation. This is only        |
+    |                                | compatible with players using HTC base |
+    |                                | stations.                              |
+    +--------------------------------+----------------------------------------+
+    | **Reset Radial Orientation**   | Orient players' VR play spaces into a  |
+    |                                | mandala.                               |
+    +--------------------------------+----------------------------------------+
+    | **Radial Displacement**        | Slide players' VR play spaces inwards  |
+    |                                | and outwards from the centre of the    |
+    |                                | shared space.                          |
+    +--------------------------------+----------------------------------------+
+    | **Rotation Correction**        | Adjust the rotation of players' VR     |
+    |                                | play spaces to align with the shared   |
+    |                                | space.                                 |
+    +--------------------------------+----------------------------------------+
+
+
+.. dropdown:: Debug
+
+    .. image:: /_static/UI_debug.png
+        :align: left
+        :scale: 45%
+
+    +--------------------------+-----------------------------------------------------------------------------+
+    | **Simulate Controllers** | Toggle the simulation of random interaction forces.                         |
+    +--------------------------+-----------------------------------------------------------------------------+
+
+
+.. dropdown:: Misc
+
+    .. image:: /_static/UI_misc.png
+        :align: left
+        :scale: 45%
+
+    +----------------------+---------------------------------------------+
+    | **Quit**             | Quit the program.                           |
+    +----------------------+---------------------------------------------+
+
+
+Main menu: connecting to a NanoVer server
+#########################################
+
+.. important::
+    To press a button on the main menu in VR,
+    **place the end of your right controller** on the button and **click the trigger**.
+
+You have several options for connecting to a NanoVer server:
+
+* **Autoconnect**: connect to the first server (using the default port) found on the network.
+* **Discover**: find all servers (using the default port) on the network and list them for the user to choose from.
+* **Manual**: allow the user to specify the IP address and port of the server they wish to connect to and then, if found, connect to it.
+
+Select from the dropdown options below to see the **video tutorials**:
+
+.. dropdown:: Autoconnect
+
+   .. list-table::
+       :widths: 40 60
+       :header-rows: 0
+
+       * - .. video:: /_static/in-vr-menu_autoconnect.mp4
+             :width: 250
+             :height: 250
+
+         - Click ``Autoconnect``. If a server was found, the menu will close and you will see your simulation.
+
+
+.. dropdown:: Discover
+
+   .. list-table::
+       :widths: 40 60
+       :header-rows: 0
+
+       * - .. video:: /_static/in-vr-menu_discover.mp4
+             :width: 250
+             :height: 250
+
+         - Click ``Discover`` to show a list of available servers. Click your chosen server or click ``Refresh`` to
+           search again.
+
+
+.. dropdown:: Manual
+
+   .. list-table::
+       :widths: 40 60
+       :header-rows: 0
+
+       * - .. video:: /_static/in-vr-menu_manual.mp4
+             :width: 250
+             :height: 250
+
+         - Click ``Manual``, then type your IP address & port and click ``Connect``.
+           If a server was found, the menu will close and you will see your simulation.
+
+
+Controls & menus
+^^^^^^^^^^^^^^^^
+
+Once you have connected to a server, you can visualize & interact with your simulation,
+and have access to several menus.
+
+In-simulation controls
+""""""""""""""""""""""
+
+You can access the main controls anytime you are in the simulation space and don't have any menus open.
+
+Select from the dropdown options below to see the **video tutorials**:
+
+.. dropdown:: Interact with the simulation
+
+   .. list-table::
+       :widths: 40 60
+       :header-rows: 0
+
+       * - .. video:: /_static/in-vr-menu_interaction.mp4
+             :width: 250
+             :height: 250
+
+         - Press and hold the trigger button on either controller to apply a force to the nearest atom of the molecule.
+           You can use both controllers at the same time.
+
+
+.. dropdown:: Move the simulation box
+
+   .. list-table::
+       :widths: 40 60
+       :header-rows: 0
+
+       * - .. video:: /_static/in-vr-menu_move-box.mp4
+             :width: 250
+             :height: 250
+
+         - Press and hold the grip button on either controller to move the simulation box.
+
+
+.. dropdown:: Resize the simulation box
+
+   .. list-table::
+       :widths: 40 60
+       :header-rows: 0
+
+       * - .. video:: /_static/in-vr-menu_resize-box.mp4
+             :width: 250
+             :height: 250
+
+         - Press and hold both grip buttons to move & resize the simulation box.
+
+
+.. dropdown:: Change the magnitude of the interaction force
+
+   .. list-table::
+       :widths: 40 60
+       :header-rows: 0
+
+       * - .. video:: /_static/in-vr-menu_change-interaction-scale.mp4
+             :width: 250
+             :height: 250
+
+         - Push and hold the joystick on the right controller to the right to increase the force, or to the left to decrease it.
+           Doing so will alter the scaling value of the interaction force (see video).
+           Note that this changes the force for both controllers.
+
+----
+
+Right hand menus
+################
+
+Here you can adjust aspects of your interaction with the molecules, including:
+
+* **Select your interaction type**: toggle between interacting with individual atoms or entire residues
+
+
+Handheld menu (right)
+~~~~~~~~~~~~~~~~~~~~~
+
+.. important::
+    Open the right handheld menu by **holding the joystick of your right controller in the down position**.
+    With the joystick held down, move your controller to a button and press the trigger to click it.
+    Release the joystick to close the menu.
+
+Open the dropdown below to see the **video tutorial**:
+
+.. dropdown:: Select your interaction type
+
+   .. list-table::
+       :widths: 40 60
+       :header-rows: 0
+
+       * - .. video:: /_static/in-vr-menu_change-interaction-type.mp4
+             :width: 250
+             :height: 250
+
+         - Select your interaction type:
+
+           * ``Single`` (default): when interacting, you will apply a force to the nearest atom.
+
+           * ``Residue``: when interacting, you will apply a force to the nearest residue.
+
+
+----
+
+Left hand menus
+###############
+
+Within these menus you can:
+
+* run simulation commands, such as play/pause/reset
+* switch between loaded simulations
+* customize your avatar
+
+Handheld menu (left)
+~~~~~~~~~~~~~~~~~~~~
+
+.. important::
+    Open the left handheld menu by **holding the joystick of your left controller in the down position**.
+    With the joystick held down, move your controller to a button and press the trigger to click it.
+    Release the joystick to close the menu.
+
+Here, you will see the following options:
+
+* **Pause**: pauses a running simulation.
+* **Play**: plays a paused simulation.
+* **Reset**: resets the system to its initial coordinates.
+
+Select from the dropdown options below to see the **video tutorials**:
+
+.. dropdown:: Pause
+
+   .. list-table::
+       :widths: 40 60
+       :header-rows: 0
+
+       * - .. video:: /_static/in-vr-menu_pause.mp4
+             :width: 250
+             :height: 250
+
+         - Select the ``Pause`` button.
+
+.. dropdown:: Play
+
+   .. list-table::
+       :widths: 40 60
+       :header-rows: 0
+
+       * - .. video:: /_static/in-vr-menu_play.mp4
+             :width: 250
+             :height: 250
+
+         - Select the ``Play`` button.
+
+.. dropdown:: Reset
+
+   .. list-table::
+       :widths: 40 60
+       :header-rows: 0
+
+       * - .. video:: /_static/in-vr-menu_reset.mp4
+             :width: 250
+             :height: 250
+
+         - Select the ``Reset`` button.
+
+
+Full screen menu
+~~~~~~~~~~~~~~~~
+
+Click ``Menu`` on the left handheld menu to open the full screen menu.
+Here you will be able to:
+
+* switch between loaded simulations
+* customize your avatar name & color
+
+.. important::
+    Once you have opened the full screen menu, release the joystick on your left controller
+    and use your **right controller** to interact with the buttons.
+    When you are finished, click ``Back`` to return to the simulation.
+
+
+Select from the dropdown options below to see the **video tutorials**:
+
+.. dropdown:: Switch between loaded simulations
+
+   .. list-table::
+       :widths: 40 60
+       :header-rows: 0
+
+       * - .. video:: /_static/in-vr-menu_switch-simulation.mp4
+             :width: 250
+             :height: 250
+
+         - Select ``Sims`` and choose from the list of simulations loaded onto the server.
+           Click ``Back`` to return to the full screen menu.
+
+.. dropdown:: Customize your avatar
+
+   .. list-table::
+       :widths: 40 60
+       :header-rows: 0
+
+       * - .. video:: /_static/in-vr-menu_change-name-and-color.mp4
+             :width: 250
+             :height: 250
+
+         - **Change your avatar name**
+            Click on your avatar name at the bottom of the full screen menu.
+            Delete the previous name, type a new one, and click ``>`` to return to the full screen menu.
+
+           **Change your avatar color**
+            Select one of the colored circles around your avatar (on the full screen menu).
+
+           Although not visible to you, these fields are stored in the shared state and determine how others will see your
+           avatar during multiplayer sessions.
+
+
+
+
+
+----
 
 .. _choosing_setup_iMD-VR:
 
+##############################
 Choosing your setup for iMD-VR
 ##############################
 
@@ -79,7 +504,7 @@ Once you're ready, head to :ref:`installation` to get started with NanoVer iMD.
 
 
 Flow diagram for choosing your VR setup
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#######################################
 
 Below is a flow diagram to help you decide which setup to choose based on: the operating system of your computer,
 the type of network you have access to, your VR headset, and your desired configuration (single-/multi-person VR).
