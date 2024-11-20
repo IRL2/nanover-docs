@@ -38,7 +38,7 @@ There are two NanoVer servers available:
 
 * **The primary NanoVer server**, found in the `nanover-server-py <https://github.com/IRL2/nanover-server-py>`_ git repo.
   This server is written in python and is the go-to server for NanoVer users.
-* The Rust Server, found in the `nanover-rs <https://github.com/IRL2/nanover-rs>`_ git repo, and is written
+* The Rust Server, found in the `nanover-server-rs <https://github.com/IRL2/nanover-server-rs>`_ git repo, and is written
   in Rust. We include brief instructions for using this server on this page, but we recommend using the Python Server.
 
 Nanover Protocol
@@ -95,10 +95,10 @@ The Rust Server
 The Rust Server is compiled into an executable (or equivalent, depending on your operating system), rather than being
 installed on your computer. For this, you have two options:
 
-* Download the `latest release <https://github.com/IRL2/nanover-rs/releases>`_ from the git repo, ensuring you choose
+* Download the `latest release <https://github.com/IRL2/nanover-server-rs/releases>`_ from the git repo, ensuring you choose
   the correct option for your operating system.
 * Compile it yourself using the source code by following the instructions in the
-  `README <https://github.com/IRL2/nanover-rs>`_.
+  `README <https://github.com/IRL2/nanover-server-rs>`_.
 
 This program can run OpenMM NanoVer simulations and NanoVer recordings (but not simulations that use ASE as
 an interface) and has many features, including:
@@ -178,7 +178,7 @@ via the GUI
 To run the server via the GUI, open the ``nanover-gui`` executable (or run it via the command line e.g.
 ``./nanover-gui`` on MacOS) and you will see the following interface:
 
-.. image:: /_static/nanover-rs-gui.png
+.. image:: /_static/nanover-server-rs-gui.png
     :align: center
     :scale: 50%
 
