@@ -203,8 +203,8 @@ We refer developers to the relevant code bases:
 * If you want to create your own custom server, connect a different physics engine or create a custom client,
   you can do this via modification of the NanoVer protocol. To download and install the source code, please follow the
   `developer installation instructions
-  <https://github.com/IRL2/nanover-protocol?tab=readme-ov-file#developer-installation>`_
-  in the README of the `nanover-protocol repository <https://github.com/IRL2/nanover-protocol>`_ on GitHub.
+  <https://github.com/IRL2/nanover-server-py?tab=readme-ov-file#developer-installation>`_
+  in the README of the `nanover-server-py repository <https://github.com/IRL2/nanover-server-py>`_ on GitHub.
 
 * If you want to customise the NanoVer iMD Unity3D application, instructions for obtaining the source code are available
   in the `nanover-imd repository <https://github.com/IRL2/nanover-imd>`_ on GitHub .

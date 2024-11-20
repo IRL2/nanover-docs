@@ -36,7 +36,7 @@ jobs:
         run: conda install -y mpi4py openmm
       - name: Install NanoVer
         run: |
-          cd source/nanover-protocol
+          cd source/nanover-server-py
           ./compile.sh --no-dotnet
       - name: Install documentation dependencies
         run: |

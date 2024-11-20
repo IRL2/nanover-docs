@@ -104,7 +104,7 @@ in the file.
 .. note::
 
     Further instructions and information on how to record and replay using the NanoVer Python module can be found in
-    this notebook `recording_and_replaying.ipynb <https://github.com/IRL2/nanover-protocol/blob/main/examples/basics/recording_and_replaying.ipynb>`_.
+    this notebook `recording_and_replaying.ipynb <https://github.com/IRL2/nanover-server-py/blob/main/examples/basics/recording_and_replaying.ipynb>`_.
 
 Recording with the Rust Server
 ------------------------------
@@ -158,7 +158,7 @@ If the topology changes throughout the recording, for instance because another s
 the library issues a warning and the frames with the new topology are ignored.
 
 See the example code below, or check out the
-`mdanalysis_nanover_recording <https://github.com/IRL2/nanover-protocol/blob/main/examples/mdanalysis/mdanalysis_nanover_recording.ipynb>`_
+`mdanalysis_nanover_recording <https://github.com/IRL2/nanover-server-py/blob/main/examples/mdanalysis/mdanalysis_nanover_recording.ipynb>`_
 jupyter notebook tutorial for further information.
 
 .. code:: python

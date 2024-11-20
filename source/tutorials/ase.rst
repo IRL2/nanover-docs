@@ -7,7 +7,7 @@ dynamics simulations using ASE.
 
 The Jupyter notebook tutorials that demonstrate how to run interactive molecular dynamics simulations
 by interfacing NanoVer with ASE can be found in the
-`examples <https://github.com/IRL2/nanover-protocol/tree/main/examples/ase>`_ folder fo the GitHub
+`examples <https://github.com/IRL2/nanover-server-py/tree/main/examples/ase>`_ folder fo the GitHub
 repository. This folder also contains notebooks that explore how ASE can be used in NanoVer in
 conjunction with OpenMM. It contains:
 

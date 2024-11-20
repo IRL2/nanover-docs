@@ -19,7 +19,7 @@ conda install -c irl -c conda-forge nanover-server
 
 To generate docs for a development version of NanoVer, it is necessary to 
 install the NanoVer Protocol from source, the instructions for which
-can be found [here](https://github.com/IRL2/nanover-protocol/blob/main/README.md#setup-nanover-protocol-for-developers-on-mac-and-linux).
+can be found [here](https://github.com/IRL2/nanover-server-py/blob/main/README.md#setup-nanover-server-py-for-developers-on-mac-and-linux).
 
 Make sure the submodules are initialised: 
 
@@ -47,6 +47,6 @@ make.bat html
 
 ## Posting to readthedocs 
 
-The repository automatically tracks updates to the nanover-protocol repository, 
+The repository automatically tracks updates to the nanover-server-py repository, 
 and a webhook exists on readthedocs to build the documentation. 
 

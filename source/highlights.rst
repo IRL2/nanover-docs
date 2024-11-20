@@ -40,7 +40,7 @@ Create insightful visuals
 #########################
 
 Use python to control molecular representations,
-check out the `tutorial. <https://github.com/IRL2/nanover-protocol/blob/main/examples/fundamentals/visualisations.ipynb>`_
+check out the `tutorial. <https://github.com/IRL2/nanover-server-py/blob/main/examples/fundamentals/visualisations.ipynb>`_
 
 .. image:: /_static/Renderers.gif
     :alt: A gif showing a protein within the NanoVer VR environment cycling through several visual states.
@@ -55,9 +55,9 @@ Develop with NanoVer
 
 **Contribute to the code** or **develop your own custom applications**.
 
-* `Get the source code for the server <https://github.com/IRL2/nanover-protocol>`_
+* `Get the source code for the server <https://github.com/IRL2/nanover-server-py>`_
 * `Get the source code of the VR client <https://github.com/IRL2/nanover-imd>`_
 
-NanoVer is distributed under the `MIT <https://github.com/IRL2/nanover-protocol/blob/main/LICENSE>`_ license.
+NanoVer is distributed under the `MIT <https://github.com/IRL2/nanover-server-py/blob/main/LICENSE>`_ license.
 
 

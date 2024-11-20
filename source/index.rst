@@ -6,7 +6,7 @@ NanoVer is a free, open-source and flexible software that can be used as:
 (1) A **framework** for building **multi-user virtual reality applications** for molecular systems.
 (2) A **client-server** application for **collaborative interactive molecular dynamics simulations in virtual reality** (iMD-VR).
 
-Nanover is distributed under the `MIT <https://github.com/IRL2/nanover-protocol/blob/main/LICENSE>`_ license.
+Nanover is distributed under the `MIT <https://github.com/IRL2/nanover-server-py/blob/main/LICENSE>`_ license.
 
 ----
 

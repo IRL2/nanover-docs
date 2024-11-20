@@ -18,6 +18,6 @@ if 'READTHEDOCS' in os.environ:
         os.path.dirname(sys.executable),
         os.environ['PATH'],
     ])
-    os.chdir('../nanover-protocol')
+    os.chdir('../nanover-server-py')
     subprocess.call(['./compile.sh', '--no-edit'])
     import nanover
