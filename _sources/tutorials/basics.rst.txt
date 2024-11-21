@@ -31,6 +31,9 @@ of the GitHub repository:
 * `nanover_nglview`: A notebook that assumes a server is already running, and visualises it
   with `NGLView <https://github.com/arose/nglview>`_.
 
+
+.. _basicsrunningaserver:
+
 Running a server
 ================
 

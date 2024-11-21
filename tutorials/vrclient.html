@@ -1,0 +1,849 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NanoVer iMD-VR &mdash; NanoVer 2024.06.18 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=23fdb008" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=23fdb008" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=a5a2f12d"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=f281be69"></script>
+      <script src="../_static/custom.js?v=6d5f2585"></script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Concepts" href="../concepts/concepts.html" />
+    <link rel="prev" title="MDAnalysis" href="mdanalysis.html" />
+ 
+<link rel="icon" type="image/x-icon" href="../_static/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="../_static/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../_static/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../_static/favicon.png">
+<link rel="mask-icon" href="../_static/favicon.svg" color="#5bbad5">
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            NanoVer
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../highlights.html">Highlights</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation &amp; Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="tutorials.html">Tutorials</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="basics.html">NanoVer Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fundamentals.html">NanoVer Fundamentals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="openmm.html">OpenMM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ase.html">ASE: Interactive Molecular Dynamics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mdanalysis.html">MDAnalysis</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">NanoVer iMD-VR</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#navigating-nanover-in-vr">Navigating NanoVer in VR</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#your-vr-controllers">Your VR controllers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#a-typical-imd-vr-workflow">A typical iMD-VR workflow</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#connecting-to-a-nanover-server">Connecting to a NanoVer server</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#vr-controls-menus">VR controls &amp; menus</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#choosing-your-imd-vr-setup">Choosing your iMD-VR setup</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#choosing-your-vr-setup">Choosing your VR setup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#choosing-your-installation-method">Choosing your installation method</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials.html#installing-jupyter">Installing Jupyter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials.html#tips-for-using-nanover-in-jupyter">Tips for using NanoVer in Jupyter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials.html#further-reading">Further reading</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../citations.html">How to Cite NanoVer</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">NanoVer</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="tutorials.html">Tutorials</a></li>
+      <li class="breadcrumb-item active">NanoVer iMD-VR</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/tutorials/vrclient.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <blockquote>
+<div></div></blockquote>
+<section id="nanover-imd-vr">
+<span id="vr-client-tutorial"></span><h1>NanoVer iMD-VR<a class="headerlink" href="#nanover-imd-vr" title="Link to this heading"></a></h1>
+<p>You can use the <a class="reference external" href="https://github.com/IRL2/nanover-imd-vr">NanoVer iMD-VR application</a>
+to <strong>incorporate VR into your workflow</strong>, including:</p>
+<ul class="simple">
+<li><p>visualising molecular systems in VR, including real-time MD simulations, recorded trajectories, and static structures</p></li>
+<li><p>interacting with real-time molecular simulations using VR controllers</p></li>
+<li><p>joining together with others for multi-person sessions in VR</p></li>
+</ul>
+<p>To install the NanoVer iMD-VR application, go to <a class="reference internal" href="../installation.html#installation"><span class="std std-ref">Installation &amp; Getting Started</span></a>.
+For help choosing your VR setup, see <a class="reference internal" href="#choosing-setup-imd-vr"><span class="std std-ref">Choosing your iMD-VR setup</span></a>.
+For guidance on using the NanoVer iMD-VR application, see <a class="reference internal" href="#navigatingnanoverinvr"><span class="std std-ref">Navigating NanoVer in VR</span></a>.</p>
+<nav class="contents local" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#navigating-nanover-in-vr" id="id2">Navigating NanoVer in VR</a></p>
+<ul>
+<li><p><a class="reference internal" href="#introduction" id="id3">Introduction</a></p></li>
+<li><p><a class="reference internal" href="#your-vr-controllers" id="id4">Your VR controllers</a></p></li>
+<li><p><a class="reference internal" href="#a-typical-imd-vr-workflow" id="id5">A typical iMD-VR workflow</a></p></li>
+<li><p><a class="reference internal" href="#connecting-to-a-nanover-server" id="id6">Connecting to a NanoVer server</a></p></li>
+<li><p><a class="reference internal" href="#vr-controls-menus" id="id7">VR controls &amp; menus</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#choosing-your-imd-vr-setup" id="id8">Choosing your iMD-VR setup</a></p>
+<ul>
+<li><p><a class="reference internal" href="#choosing-your-vr-setup" id="id9">Choosing your VR setup</a></p></li>
+<li><p><a class="reference internal" href="#choosing-your-installation-method" id="id10">Choosing your installation method</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<hr class="docutils" />
+<section id="navigating-nanover-in-vr">
+<span id="navigatingnanoverinvr"></span><h2><a class="toc-backref" href="#id2" role="doc-backlink">Navigating NanoVer in VR</a><a class="headerlink" href="#navigating-nanover-in-vr" title="Link to this heading"></a></h2>
+<section id="introduction">
+<h3><a class="toc-backref" href="#id3" role="doc-backlink">Introduction</a><a class="headerlink" href="#introduction" title="Link to this heading"></a></h3>
+<p>We call an instance of the NanoVer iMD-VR application an iMD-VR client, or simply a <strong>VR client</strong>.
+This is different to a <em>python client</em>, which connects to a NanoVer server from a python script or Jupyter notebook.
+This distinction is important since the two types of client offer different functionalities.
+For example, <em>both</em> can connect to a NanoVer server to access simulation data, run commands
+such as play/pause/reset, &amp; apply forces to the molecule system (interactive MD).
+However, <em>only a VR client</em> allows you to visualise &amp; interact with a simulation in VR,
+and <em>only a python client</em> allows you to change the visualisation of the molecular system.</p>
+<div class="admonition-key-point admonition">
+<p class="admonition-title">Key point</p>
+<p>A <strong>VR Client</strong> or <strong>iMD-VR client</strong> is an instance of the NanoVer iMD-VR application that has connected to a NanoVer server.</p>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="your-vr-controllers">
+<h3><a class="toc-backref" href="#id4" role="doc-backlink">Your VR controllers</a><a class="headerlink" href="#your-vr-controllers" title="Link to this heading"></a></h3>
+<p>Below are diagrams showing the positions of the VR controller buttons that you will use in NanoVer iMD-VR,
+using the Meta Quest 2 controllers for demonstration.
+These buttons are in similar positions on most common VR controllers,
+but please refer to your VR headset’s documentation if you cannot locate them.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>To press a button on a menu in VR,
+<strong>place the end of your controller on the button and click the trigger</strong>.</p>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 40.0%" />
+<col style="width: 60.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><figure class="align-center">
+<a class="reference internal image-reference" href="../_images/left-controller_trigger.png"><img alt="../_images/left-controller_trigger.png" src="../_images/left-controller_trigger.png" style="width: 300px;" />
+</a>
+</figure>
+</td>
+<td><p><strong>Trigger button</strong></p></td>
+</tr>
+<tr class="row-even"><td><figure class="align-center">
+<a class="reference internal image-reference" href="../_images/left-controller_grip.png"><img alt="../_images/left-controller_grip.png" src="../_images/left-controller_grip.png" style="width: 300px;" />
+</a>
+</figure>
+</td>
+<td><p><strong>Grip button</strong></p></td>
+</tr>
+<tr class="row-odd"><td><figure class="align-center">
+<a class="reference internal image-reference" href="../_images/left-controller_joystick.png"><img alt="../_images/left-controller_joystick.png" src="../_images/left-controller_joystick.png" style="width: 300px;" />
+</a>
+</figure>
+</td>
+<td><p><strong>Joystick</strong></p></td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="a-typical-imd-vr-workflow">
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">A typical iMD-VR workflow</a><a class="headerlink" href="#a-typical-imd-vr-workflow" title="Link to this heading"></a></h3>
+<p>You should now have NanoVer iMD-VR and your VR setup ready to go! To begin, follow these steps:</p>
+<ol class="arabic simple">
+<li><p><strong>Start your NanoVer server</strong> (see <a class="reference internal" href="basics.html#basicsrunningaserver"><span class="std std-ref">Running a server</span></a>)</p></li>
+<li><p><strong>Setup your VR kit &amp; open NanoVer iMD-VR</strong> (see <a class="reference internal" href="../installation.html#installing-imdvr-client"><span class="std std-ref">Installing the iMD-VR client</span></a>)</p></li>
+<li><p><strong>Select your option for connecting to a Server</strong>: using either the
+<a class="reference internal" href="#vrclientinvrmenumainmenu"><span class="std std-ref">in-VR main menu</span></a> or
+<a class="reference internal" href="#vrclientdesktopmenu"><span class="std std-ref">desktop main menu</span></a> (PC-VR only)</p></li>
+<li><p><strong>Check out your molecular simulation in VR!</strong> See instructions for the
+<a class="reference internal" href="#vrclientvrcontrolsandmenus"><span class="std std-ref">VR controls and menus</span></a>, or check out the <a class="reference internal" href="tutorials.html#tutorials"><span class="std std-ref">tutorials</span></a> page for
+examples of how to integrate NanoVer iMD-VR into your workflow</p></li>
+</ol>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="connecting-to-a-nanover-server">
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">Connecting to a NanoVer server</a><a class="headerlink" href="#connecting-to-a-nanover-server" title="Link to this heading"></a></h3>
+<p>You have several options for connecting to a NanoVer server:</p>
+<ul class="simple">
+<li><p><strong>Autoconnect</strong>: connect to the first server (using the default port) found on the network</p></li>
+<li><p><strong>Discover</strong>: find all servers (using the default port) on the network and list them for the user to choose from</p></li>
+<li><p><strong>Manual</strong>: allow the user to specify the IP address and port of the server they wish to connect to and then, if found, connect to it</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<section id="in-vr-main-menu">
+<span id="vrclientinvrmenumainmenu"></span><h4>In-VR main menu<a class="headerlink" href="#in-vr-main-menu" title="Link to this heading"></a></h4>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-2 sd-row-cols-xs-2 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 sd-g-2 sd-g-xs-2 sd-g-sm-2 sd-g-md-2 sd-g-lg-2 docutils">
+<div class="sd-col sd-d-flex-column docutils">
+<figure class="align-center">
+<a class="reference internal image-reference" href="../_images/in-vr_main-menu.png"><img alt="../_images/in-vr_main-menu.png" src="../_images/in-vr_main-menu.png" style="width: 85%;" />
+</a>
+</figure>
+</div>
+<div class="sd-col sd-d-flex-column docutils">
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>To press a button on the in-VR main menu,
+<strong>place the end of your right controller</strong> on the button and <strong>click the trigger</strong>.</p>
+</div>
+</div>
+</div>
+</div>
+<p>Select from the dropdown options below to see the <strong>video tutorials</strong>:</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Autoconnect</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 40.0%" />
+<col style="width: 60.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><video controls="True" height="250" preload="auto" width="250"><source src="../_images/in-vr-menu_autoconnect.mp4" type="video/mp4"></video></td>
+<td><p class="sd-card-text">Click <code class="docutils literal notranslate"><span class="pre">Autoconnect</span></code>. If a server was found, the menu will close and you will see your simulation.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Discover</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 40.0%" />
+<col style="width: 60.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><video controls="True" height="250" preload="auto" width="250"><source src="../_images/in-vr-menu_discover.mp4" type="video/mp4"></video></td>
+<td><p class="sd-card-text">Click <code class="docutils literal notranslate"><span class="pre">Discover</span></code> to show a list of available servers. Click your chosen server or click <code class="docutils literal notranslate"><span class="pre">Refresh</span></code> to
+search again.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Manual</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 40.0%" />
+<col style="width: 60.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><video controls="True" height="250" preload="auto" width="250"><source src="../_images/in-vr-menu_manual.mp4" type="video/mp4"></video></td>
+<td><p class="sd-card-text">Click <code class="docutils literal notranslate"><span class="pre">Manual</span></code>, then type your IP address &amp; port and click <code class="docutils literal notranslate"><span class="pre">Connect</span></code>.
+If a server was found, the menu will close and you will see your simulation.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</details><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="desktop-main-menu-pc-vr-only">
+<span id="vrclientdesktopmenu"></span><h4>Desktop main menu (PC-VR only)<a class="headerlink" href="#desktop-main-menu-pc-vr-only" title="Link to this heading"></a></h4>
+<p>When you open the NanoVer iMD-VR application on your PC, you will see a small menu on the top left of your monitor with the
+below headings.
+In <strong>Server</strong>, you can connect to your NanoVer server.
+Select from the dropdown options below for further information and to browse other features:</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Server</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<a class="reference internal image-reference" href="../_images/UI_server.png"><img alt="../_images/UI_server.png" class="align-left" src="../_images/UI_server.png" style="width: 143.1px; height: 92.25px;" />
+</a>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p class="sd-card-text"><strong>Autoconnect</strong></p></td>
+<td><p class="sd-card-text">Connect to the first server found on the network, using the default parameters.</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text"><strong>Direct Connect</strong></p></td>
+<td><p class="sd-card-text">Toggle a menu where you can change the IP address and trajectory/multiplayer ports
+of the server you wish to connect to.</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text"><strong>Discover Services</strong></p></td>
+<td><p class="sd-card-text">Toggle a menu to search for servers running on the network. Click “Search” to show the
+available servers.</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text"><strong>Disconnect</strong></p></td>
+<td><p class="sd-card-text">If connected to a server, disconnect.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">User</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<a class="reference internal image-reference" href="../_images/UI_user.png"><img alt="../_images/UI_user.png" class="align-left" src="../_images/UI_user.png" style="width: 142.20000000000002px; height: 50.4px;" />
+</a>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p class="sd-card-text"><strong>Interaction Force</strong></p></td>
+<td><p class="sd-card-text">Scale the user’s interaction force.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Simulation</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<a class="reference internal image-reference" href="../_images/UI_simulation.png"><img alt="../_images/UI_simulation.png" class="align-left" src="../_images/UI_simulation.png" style="width: 147.15px; height: 110.7px;" />
+</a>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p class="sd-card-text"><strong>Play</strong></p></td>
+<td><p class="sd-card-text">Play the simulation.</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text"><strong>Pause</strong></p></td>
+<td><p class="sd-card-text">Pause the simulation.</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text"><strong>Step</strong></p></td>
+<td><p class="sd-card-text">Move to the next frame of the simulation.</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text"><strong>Reset</strong></p></td>
+<td><p class="sd-card-text">Reset the simulation to the starting positions.</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text"><strong>Reset Box</strong></p></td>
+<td><p class="sd-card-text">Move and resize the box to the original dimensions and position in the VR space.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Colocation</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<a class="reference internal image-reference" href="../_images/UI_colocation.png"><img alt="../_images/UI_colocation.png" class="align-left" src="../_images/UI_colocation.png" style="width: 147.15px; height: 112.5px;" />
+</a>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p class="sd-card-text"><strong>Colocated Lighthouses</strong></p></td>
+<td><p class="sd-card-text">Toggle colocation. This is only
+compatible with players using HTC base
+stations.</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text"><strong>Reset Radial Orientation</strong></p></td>
+<td><p class="sd-card-text">Orient players’ VR play spaces into a
+mandala.</p></td>
+</tr>
+<tr class="row-odd"><td><p class="sd-card-text"><strong>Radial Displacement</strong></p></td>
+<td><p class="sd-card-text">Slide players’ VR play spaces inwards
+and outwards from the centre of the
+shared space.</p></td>
+</tr>
+<tr class="row-even"><td><p class="sd-card-text"><strong>Rotation Correction</strong></p></td>
+<td><p class="sd-card-text">Adjust the rotation of players’ VR
+play spaces to align with the shared
+space.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Debug</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<a class="reference internal image-reference" href="../_images/UI_debug.png"><img alt="../_images/UI_debug.png" class="align-left" src="../_images/UI_debug.png" style="width: 156.6px; height: 35.550000000000004px;" />
+</a>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p class="sd-card-text"><strong>Simulate Controllers</strong></p></td>
+<td><p class="sd-card-text">Toggle the simulation of random interaction forces.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Misc</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<a class="reference internal image-reference" href="../_images/UI_misc.png"><img alt="../_images/UI_misc.png" class="align-left" src="../_images/UI_misc.png" style="width: 155.70000000000002px; height: 37.800000000000004px;" />
+</a>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p class="sd-card-text"><strong>Quit</strong></p></td>
+<td><p class="sd-card-text">Quit the program.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</details><div class="line-block">
+<div class="line"><br /></div>
+</div>
+<hr class="docutils" />
+</section>
+</section>
+<section id="vr-controls-menus">
+<span id="vrclientvrcontrolsandmenus"></span><h3><a class="toc-backref" href="#id7" role="doc-backlink">VR controls &amp; menus</a><a class="headerlink" href="#vr-controls-menus" title="Link to this heading"></a></h3>
+<p>Once you have connected to a server, you can visualize &amp; interact with your simulation.
+You now have access to your VR controls &amp; several menus:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#insimulationcontrols"><span class="std std-ref">In-simulation controls</span></a></p></li>
+<li><p><a class="reference internal" href="#righthandheldmenu"><span class="std std-ref">Right handheld menu</span></a></p></li>
+<li><p><a class="reference internal" href="#lefthandheldmenu"><span class="std std-ref">Left handheld menu</span></a></p></li>
+<li><p><a class="reference internal" href="#fullscreenmenu"><span class="std std-ref">Fullscreen menu</span></a></p></li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<section id="in-simulation-controls">
+<span id="insimulationcontrols"></span><h4>In-simulation controls<a class="headerlink" href="#in-simulation-controls" title="Link to this heading"></a></h4>
+<p>You can access the in-simulation controls anytime you are connected to a server and don’t have any menus open.
+Select from the dropdown options below to see the <strong>video tutorials</strong>:</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Interact with the simulation</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 40.0%" />
+<col style="width: 60.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><video controls="True" height="250" preload="auto" width="250"><source src="../_images/in-vr-menu_interaction.mp4" type="video/mp4"></video></td>
+<td><p class="sd-card-text">Press and hold the trigger button on either controller to apply a force to the nearest atom of the molecule.
+You can use both controllers at the same time.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Move the simulation box</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 40.0%" />
+<col style="width: 60.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><video controls="True" height="250" preload="auto" width="250"><source src="../_images/in-vr-menu_move-box.mp4" type="video/mp4"></video></td>
+<td><p class="sd-card-text">Press and hold the grip button on either controller to move the simulation box.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Resize the simulation box</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 40.0%" />
+<col style="width: 60.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><video controls="True" height="250" preload="auto" width="250"><source src="../_images/in-vr-menu_resize-box.mp4" type="video/mp4"></video></td>
+<td><p class="sd-card-text">Press and hold both grip buttons to move &amp; resize the simulation box.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Change the magnitude of the interaction force</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 40.0%" />
+<col style="width: 60.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><video controls="True" height="250" preload="auto" width="250"><source src="../_images/in-vr-menu_change-interaction-scale.mp4" type="video/mp4"></video></td>
+<td><p class="sd-card-text">Push and hold the joystick on the right controller to the right to increase the force, or to the left to decrease it.
+Doing so will alter the scaling value of the interaction force (see video).
+Note that this changes the force for both controllers.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</details><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="right-handheld-menu">
+<span id="righthandheldmenu"></span><h4>Right handheld menu<a class="headerlink" href="#right-handheld-menu" title="Link to this heading"></a></h4>
+<p>Here you can adjust aspects of your interaction with the molecules, such as:</p>
+<ul class="simple">
+<li><p><strong>Select your interaction type</strong>: toggle between interacting with individual atoms or entire residues</p></li>
+</ul>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-2 sd-row-cols-xs-2 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 sd-g-2 sd-g-xs-2 sd-g-sm-2 sd-g-md-2 sd-g-lg-2 docutils">
+<div class="sd-col sd-d-flex-column docutils">
+<figure class="align-center">
+<a class="reference internal image-reference" href="../_images/in-vr_right-handheld-menu.png"><img alt="../_images/in-vr_right-handheld-menu.png" src="../_images/in-vr_right-handheld-menu.png" style="width: 65%;" />
+</a>
+</figure>
+</div>
+<div class="sd-col sd-d-flex-column docutils">
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Open the right handheld menu by <strong>holding the joystick of your right controller in the down position</strong>.
+With the joystick held down, move your controller to a button and press the trigger to click it.
+Release the joystick to close the menu.</p>
+</div>
+</div>
+</div>
+</div>
+<p>Open the dropdown below to see the <strong>video tutorial</strong>:</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Select your interaction type</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 40.0%" />
+<col style="width: 60.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><video controls="True" height="250" preload="auto" width="250"><source src="../_images/in-vr-menu_change-interaction-type.mp4" type="video/mp4"></video></td>
+<td><p class="sd-card-text">Select your interaction type:</p>
+<ul class="simple">
+<li><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">Single</span></code> (default): when interacting, you will apply a force to the nearest atom.</p></li>
+<li><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">Residue</span></code>: when interacting, you will apply a force to the nearest residue.</p></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</details><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="left-handheld-menu">
+<span id="lefthandheldmenu"></span><h4>Left handheld menu<a class="headerlink" href="#left-handheld-menu" title="Link to this heading"></a></h4>
+<p>Here you can access the fullscreen menu and run simulation commands such as:</p>
+<ul class="simple">
+<li><p><strong>Pause</strong>: pause a running simulation</p></li>
+<li><p><strong>Play</strong>: play a paused simulation</p></li>
+<li><p><strong>Reset</strong>: reset the system to its initial coordinates</p></li>
+</ul>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-2 sd-row-cols-xs-2 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 sd-g-2 sd-g-xs-2 sd-g-sm-2 sd-g-md-2 sd-g-lg-2 docutils">
+<div class="sd-col sd-d-flex-column docutils">
+<figure class="align-center">
+<a class="reference internal image-reference" href="../_images/in-vr_left-handheld-menu.png"><img alt="../_images/in-vr_left-handheld-menu.png" src="../_images/in-vr_left-handheld-menu.png" style="width: 60%;" />
+</a>
+</figure>
+</div>
+<div class="sd-col sd-d-flex-column docutils">
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Open the left handheld menu by <strong>holding the joystick of your left controller in the down position</strong>.
+With the joystick held down, move your controller to a button and press the trigger to click it.
+Release the joystick to close the menu.</p>
+</div>
+</div>
+</div>
+</div>
+<p>Select from the dropdown options below to see the <strong>video tutorials</strong>:</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Pause</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 40.0%" />
+<col style="width: 60.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><video controls="True" height="250" preload="auto" width="250"><source src="../_images/in-vr-menu_pause.mp4" type="video/mp4"></video></td>
+<td><p class="sd-card-text">Select the <code class="docutils literal notranslate"><span class="pre">Pause</span></code> button.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Play</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 40.0%" />
+<col style="width: 60.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><video controls="True" height="250" preload="auto" width="250"><source src="../_images/in-vr-menu_play.mp4" type="video/mp4"></video></td>
+<td><p class="sd-card-text">Select the <code class="docutils literal notranslate"><span class="pre">Play</span></code> button.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Reset</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 40.0%" />
+<col style="width: 60.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><video controls="True" height="250" preload="auto" width="250"><source src="../_images/in-vr-menu_reset.mp4" type="video/mp4"></video></td>
+<td><p class="sd-card-text">Select the <code class="docutils literal notranslate"><span class="pre">Reset</span></code> button.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</details><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="fullscreen-menu">
+<span id="fullscreenmenu"></span><h4>Fullscreen menu<a class="headerlink" href="#fullscreen-menu" title="Link to this heading"></a></h4>
+<p>Click <code class="docutils literal notranslate"><span class="pre">Menu</span></code> on the left handheld menu to open the fullscreen menu.
+Here you can:</p>
+<ul class="simple">
+<li><p>switch between loaded simulations</p></li>
+<li><p>customize your avatar name &amp; color</p></li>
+</ul>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-2 sd-row-cols-xs-2 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 sd-g-2 sd-g-xs-2 sd-g-sm-2 sd-g-md-2 sd-g-lg-2 docutils">
+<div class="sd-col sd-d-flex-column docutils">
+<figure class="align-center">
+<a class="reference internal image-reference" href="../_images/in-vr_full-screen-menu.png"><img alt="../_images/in-vr_full-screen-menu.png" src="../_images/in-vr_full-screen-menu.png" style="width: 85%;" />
+</a>
+</figure>
+</div>
+<div class="sd-col sd-d-flex-column docutils">
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Once you have opened the fullscreen menu, release the joystick on your left controller
+and use your <strong>right controller</strong> to interact with the buttons.
+When you are finished, click <code class="docutils literal notranslate"><span class="pre">Back</span></code> to return to the simulation.</p>
+</div>
+</div>
+</div>
+</div>
+<p>Select from the dropdown options below to see the <strong>video tutorials</strong>:</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Switch between loaded simulations</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 40.0%" />
+<col style="width: 60.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><video controls="True" height="250" preload="auto" width="250"><source src="../_images/in-vr-menu_switch-simulation.mp4" type="video/mp4"></video></td>
+<td><p class="sd-card-text">Select <code class="docutils literal notranslate"><span class="pre">Sims</span></code> and choose from the list of simulations loaded onto the server.
+Click <code class="docutils literal notranslate"><span class="pre">Back</span></code> to return to the fullscreen menu.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Customize your avatar</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 40.0%" />
+<col style="width: 60.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><video controls="True" height="250" preload="auto" width="250"><source src="../_images/in-vr-menu_change-name-and-color.mp4" type="video/mp4"></video></td>
+<td><dl class="simple">
+<dt><strong>Change your avatar name</strong></dt><dd><p class="sd-card-text">Click on your avatar name at the bottom of the fullscreen menu.
+Delete the previous name, type a new one, and click <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> to return to the fullscreen menu.</p>
+</dd>
+<dt><strong>Change your avatar color</strong></dt><dd><p class="sd-card-text">Select one of the colored circles around your avatar (on the fullscreen menu).</p>
+</dd>
+</dl>
+<p class="sd-card-text">Although not visible to you, these fields are stored in the shared state and determine how others will see your
+avatar during multiplayer sessions.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</details><div class="line-block">
+<div class="line"><br /></div>
+</div>
+<hr class="docutils" />
+</section>
+</section>
+</section>
+<section id="choosing-your-imd-vr-setup">
+<span id="choosing-setup-imd-vr"></span><h2><a class="toc-backref" href="#id8" role="doc-backlink">Choosing your iMD-VR setup</a><a class="headerlink" href="#choosing-your-imd-vr-setup" title="Link to this heading"></a></h2>
+<p>If you wish to visualise and/or interact with your simulations in VR, you will need to use an iMD-VR client.
+We focus on NanoVer iMD-VR as the prototypical iMD-VR client, but these instructions can be generalised to any iMD-VR client,
+e.g. your own custom VR application that uses the NanoverUnityPlugin.</p>
+<p>Please feel free to use the instructions below to help you choose your VR setup,
+then search online (or follow the links given below) for the documentation of your chosen method for the latest
+instructions on configuring your setup.</p>
+<ol class="arabic simple">
+<li><p>For help choosing your VR setup, see our flow diagram in <a class="reference internal" href="#choosingyourvrsetup"><span class="std std-ref">Choosing your VR setup</span></a></p></li>
+<li><p>Once you know your VR setup, head to <a class="reference internal" href="#choosingyourinstallationmethod"><span class="std std-ref">Choosing your installation method</span></a></p></li>
+<li><p>Once you’re ready, head to <a class="reference internal" href="../installation.html#installation"><span class="std std-ref">Installation &amp; Getting Started</span></a></p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>VR is developing fast and there are constantly new features/apps/ways of doing things. Therefore,
+these instructions may not be an exhaustive list of all the possible VR setups. Please feel free to choose whichever
+one you are most comfortable with! We also recommend checking out the online documentation for your VR headset if you
+run into any problems relating to setting up your VR kit.</p>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<section id="choosing-your-vr-setup">
+<span id="choosingyourvrsetup"></span><h3><a class="toc-backref" href="#id9" role="doc-backlink">Choosing your VR setup</a><a class="headerlink" href="#choosing-your-vr-setup" title="Link to this heading"></a></h3>
+<p>Below is a flow diagram to help you decide which setup to choose based on: the operating system of your computer,
+the type of network you have access to, your VR headset, and your desired configuration (single-/multi-person VR).</p>
+<a class="reference internal image-reference" href="../_images/VR_client_flow_diagram.png"><img alt="../_images/VR_client_flow_diagram.png" src="../_images/VR_client_flow_diagram.png" style="width: 600px;" />
+</a>
+<div class="admonition-key-point admonition">
+<p class="admonition-title">Key point</p>
+<p>For a <strong>wireless setup</strong> you will need to have a strong and stable internet connection that allows communication over the network.
+This option is often incompatible with public / institutional networks.</p>
+</div>
+<div class="admonition-key-definition admonition">
+<p class="admonition-title">Key definition</p>
+<p><strong>Tethered</strong>: using a cable to connect your VR headset to your computer.</p>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="choosing-your-installation-method">
+<span id="choosingyourinstallationmethod"></span><h3><a class="toc-backref" href="#id10" role="doc-backlink">Choosing your installation method</a><a class="headerlink" href="#choosing-your-installation-method" title="Link to this heading"></a></h3>
+<p>Please choose from the dropdown options below to learn about how to install NanoVer iMD-VR with your chosen VR setup:</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Using PC-VR</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">This option is compatible with the following VR setups:</p>
+<ul class="simple">
+<li><p class="sd-card-text"><a class="reference external" href="https://www.meta.com/en-gb/help/quest/articles/headsets-and-accessories/oculus-link/connect-with-air-link/">Meta Quest Link</a> (tethered)</p></li>
+<li><p class="sd-card-text"><a class="reference external" href="https://www.meta.com/en-gb/help/quest/articles/headsets-and-accessories/oculus-link/connect-with-air-link/">Meta Quest AirLink</a> (wireless)</p></li>
+<li><p class="sd-card-text"><a class="reference external" href="https://store.steampowered.com/app/250820/SteamVR/">SteamVR</a> (tethered)</p></li>
+<li><p class="sd-card-text"><a class="reference external" href="https://store.steampowered.com/app/353380/Steam_Link/">Steam Link</a> (wireless)</p></li>
+</ul>
+<p class="sd-card-text">You can use either NanoVer iMD-VR installation method:</p>
+<ul class="simple">
+<li><p class="sd-card-text"><strong>Downloading the latest release of the NanoVer iMD-VR executable</strong>, see <a class="reference internal" href="../installation.html#download-latest-release-vr-client"><span class="std std-ref">Download the latest release</span></a>.</p></li>
+<li><p class="sd-card-text"><strong>Conda installation of the NanoVer iMD-VR package</strong>, see <a class="reference internal" href="../installation.html#conda-installation-vr-client"><span class="std std-ref">Conda installation</span></a>.</p></li>
+</ul>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Running locally on a Meta Quest headset</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">This option is compatible with the following VR setups:</p>
+<ul class="simple">
+<li><p class="sd-card-text">Run directly on the App store of a Meta Quest headset (wireless)</p></li>
+<li><p class="sd-card-text"><a class="reference external" href="https://www.meta.com/en-gb/help/quest/articles/headsets-and-accessories/oculus-link/connect-with-air-link/">Meta Quest Link</a>
+with <a class="reference external" href="https://developer.oculus.com/meta-quest-developer-hub/">Meta Quest Developer Hub</a> (tethered)</p></li>
+</ul>
+<p class="sd-card-text">You must use the following NanoVer iMD-VR installation method:</p>
+<ul class="simple">
+<li><p class="sd-card-text"><strong>Download the latest release of the NanoVer iMD-VR apk</strong> and sideload this onto your headset, see
+<a class="reference internal" href="../installation.html#download-latest-release-vr-client"><span class="std std-ref">Download the latest release</span></a>. If you wish to use your VR headset wirelessly,
+then you must meet the requirements for a wireless setup (see above).</p></li>
+</ul>
+<p class="sd-card-text">Choosing this option means that you cannot run NanoVer iMD-VR via conda.</p>
+</div>
+</details><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="mdanalysis.html" class="btn btn-neutral float-left" title="MDAnalysis" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../concepts/concepts.html" class="btn btn-neutral float-right" title="Concepts" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Intangible Realities Lab | University of Santiago de Compostela | University of Bristol | and other contributors.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
