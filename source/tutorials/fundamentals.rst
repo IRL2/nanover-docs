@@ -20,4 +20,4 @@ Here we give a summary of each tutorial:
   how NanoVer achieves synchronised multi-user interactive molecular simulations via the
   **shared state** dictionary.
 * `visualisations`: A notebook that demonstrates how to change the **visualisation** of the
-  interactive molecular simulation within the NanoVer iMD VR client.
+  interactive molecular simulation within the NanoVer iMD-VR client.

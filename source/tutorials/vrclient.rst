@@ -1,19 +1,19 @@
  .. _vr-client-tutorial:
 
-===========
-NanoVer iMD
-===========
+==============
+NanoVer iMD-VR
+==============
 
-You can use the `NanoVer iMD application <https://github.com/IRL2/nanover-imd>`_
+You can use the `NanoVer iMD-VR application <https://github.com/IRL2/nanover-imd>`_
 to **incorporate VR into your workflow**, including:
 
 * visualising molecular systems in VR, including real-time MD simulations, recorded trajectories, and static structures
 * interacting with real-time molecular simulations using VR controllers
 * joining together with others for multi-person sessions in VR
 
-To install the NanoVer iMD application, go to :ref:`installation`.
+To install the NanoVer iMD-VR application, go to :ref:`installation`.
 For help choosing your VR setup, see :ref:`choosing_setup_iMD-VR`.
-For guidance on using the NanoVer iMD application, see :ref:`navigatingnanoverinvr`.
+For guidance on using the NanoVer iMD-VR application, see :ref:`navigatingnanoverinvr`.
 
 .. contents:: Contents
     :depth: 2
@@ -30,7 +30,7 @@ Navigating NanoVer in VR
 Introduction
 ############
 
-We call an instance of the NanoVer iMD application an iMD-VR client, or simply a **VR client**.
+We call an instance of the NanoVer iMD-VR application an iMD-VR client, or simply a **VR client**.
 This is different to a *python client*, which connects to a NanoVer server from a python script or Jupyter notebook.
 This distinction is important since the two types of client offer different functionalities.
 For example, *both* can connect to a NanoVer server to access simulation data, run commands
@@ -40,14 +40,14 @@ and *only a python client* allows you to change the visualisation of the molecul
 
 .. admonition:: Key point
 
-   A **VR Client** or **iMD-VR client** is an instance of the NanoVer iMD application that has connected to a NanoVer server.
+   A **VR Client** or **iMD-VR client** is an instance of the NanoVer iMD-VR application that has connected to a NanoVer server.
 
 |
 
 Your VR controllers
 ~~~~~~~~~~~~~~~~~~~
 
-Below are diagrams showing the positions of the VR controller buttons that you will use in NanoVer iMD,
+Below are diagrams showing the positions of the VR controller buttons that you will use in NanoVer iMD-VR,
 using the Meta Quest 2 controllers for demonstration.
 These buttons are in similar positions on most common VR controllers,
 but please refer to your VR headset's documentation if you cannot locate them.
@@ -85,11 +85,11 @@ but please refer to your VR headset's documentation if you cannot locate them.
 A typical iMD-VR workflow
 #########################
 
-You should now have NanoVer iMD and your VR setup ready to go! To begin, follow these steps:
+You should now have NanoVer iMD-VR and your VR setup ready to go! To begin, follow these steps:
 
 #. **Start your NanoVer server** (see :ref:`basicsrunningaserver`)
 
-#. **Setup your VR kit & open NanoVer iMD** (see :ref:`installing_imdvr_client`)
+#. **Setup your VR kit & open NanoVer iMD-VR** (see :ref:`installing_imdvr_client`)
 
 #. **Select your option for connecting to a Server**: using either the
    :ref:`in-VR main menu<vrclientinvrmenumainmenu>` or
@@ -97,7 +97,7 @@ You should now have NanoVer iMD and your VR setup ready to go! To begin, follow 
 
 #. **Check out your molecular simulation in VR!** See instructions for the
    :ref:`VR controls and menus<vrclientvrcontrolsandmenus>`, or check out the :ref:`tutorials <Tutorials>` page for
-   examples of how to integrate NanoVer iMD into your workflow
+   examples of how to integrate NanoVer iMD-VR into your workflow
 
 |
 
@@ -184,7 +184,7 @@ Select from the dropdown options below to see the **video tutorials**:
 Desktop main menu (PC-VR only)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-When you open the NanoVer iMD application on your PC, you will see a small menu on the top left of your monitor with the
+When you open the NanoVer iMD-VR application on your PC, you will see a small menu on the top left of your monitor with the
 below headings.
 In **Server**, you can connect to your NanoVer server.
 Select from the dropdown options below for further information and to browse other features:
@@ -552,7 +552,7 @@ Choosing your iMD-VR setup
 ##########################
 
 If you wish to visualise and/or interact with your simulations in VR, you will need to use an iMD-VR client.
-We focus on NanoVer iMD as the prototypical iMD-VR client, but these instructions can be generalised to any iMD-VR client,
+We focus on NanoVer iMD-VR as the prototypical iMD-VR client, but these instructions can be generalised to any iMD-VR client,
 e.g. your own custom VR application that uses the NanoverUnityPlugin.
 
 Please feel free to use the instructions below to help you choose your VR setup,
@@ -601,7 +601,7 @@ the type of network you have access to, your VR headset, and your desired config
 Choosing your installation method
 #################################
 
-Please choose from the dropdown options below to learn about how to install NanoVer iMD with your chosen VR setup:
+Please choose from the dropdown options below to learn about how to install NanoVer iMD-VR with your chosen VR setup:
 
 .. dropdown:: Using PC-VR
 
@@ -612,11 +612,11 @@ Please choose from the dropdown options below to learn about how to install Nano
     * `SteamVR <https://store.steampowered.com/app/250820/SteamVR/>`_ (tethered)
     * `Steam Link <https://store.steampowered.com/app/353380/Steam_Link/>`_ (wireless)
 
-    You can use either NanoVer-iMD installation method:
+    You can use either NanoVer iMD-VR installation method:
 
-    * **Downloading the latest release of the NanoVer iMD executable**, see :ref:`download_latest_release_VR_client`.
+    * **Downloading the latest release of the NanoVer iMD-VR executable**, see :ref:`download_latest_release_VR_client`.
 
-    * **Conda installation of the NanoVer iMD package**, see :ref:`conda_installation_VR_client`.
+    * **Conda installation of the NanoVer iMD-VR package**, see :ref:`conda_installation_VR_client`.
 
 .. dropdown:: Running locally on a Meta Quest headset
 
@@ -626,12 +626,12 @@ Please choose from the dropdown options below to learn about how to install Nano
     * `Meta Quest Link <https://www.meta.com/en-gb/help/quest/articles/headsets-and-accessories/oculus-link/connect-with-air-link/>`_
       with `Meta Quest Developer Hub <https://developer.oculus.com/meta-quest-developer-hub/>`_ (tethered)
 
-    You must use the following NanoVer-iMD installation method:
+    You must use the following NanoVer iMD-VR installation method:
 
-    * **Download the latest release of the NanoVer iMD apk** and sideload this onto your headset, see
+    * **Download the latest release of the NanoVer iMD-VR apk** and sideload this onto your headset, see
       :ref:`download_latest_release_VR_client`. If you wish to use your VR headset wirelessly,
       then you must meet the requirements for a wireless setup (see above).
 
-    Choosing this option means that you cannot run NanoVer iMD via conda.
+    Choosing this option means that you cannot run NanoVer iMD-VR via conda.
 
 |
