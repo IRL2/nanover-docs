@@ -36,15 +36,15 @@ Running a server
 
 There are two NanoVer servers available:
 
-* **The primary NanoVer server**, found in the `nanover-server-py <https://github.com/IRL2/nanover-server-py>`_ git repo.
+* **The NanoVer Python Server**, found in the `nanover-server-py <https://github.com/IRL2/nanover-server-py>`_ git repo.
   This server is written in python and is the go-to server for NanoVer users.
-* The Rust Server, found in the `nanover-server-rs <https://github.com/IRL2/nanover-server-rs>`_ git repo, and is written
+* The NanoVer Rust Server, found in the `nanover-server-rs <https://github.com/IRL2/nanover-server-rs>`_ git repo, and is written
   in Rust. We include brief instructions for using this server on this page, but we recommend using the Python Server.
 
-Nanover Protocol
-~~~~~~~~~~~~~~~~
+The NanoVer Python server
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The NanoVer protocol package can be installed using conda (see :ref:`user_installation_guide`) or using the source code
+The NanoVer Python Server package can be installed using conda (see :ref:`user_installation_guide`) or using the source code
 (see :ref:`developer_installation_guide`). Once installed, you can run a NanoVer server using either
 (a) a python script or Jupyter notebook
 or (b) the command line.
@@ -89,10 +89,10 @@ For more information about the arguments provided with this command, type:
     nanover-omni --help
 
 
-The Rust Server
-~~~~~~~~~~~~~~~
+The NanoVer Rust Server
+~~~~~~~~~~~~~~~~~~~~~~~
 
-The Rust Server is compiled into an executable (or equivalent, depending on your operating system), rather than being
+The NanoVer Rust Server is compiled into an executable (or equivalent, depending on your operating system), rather than being
 installed on your computer. For this, you have two options:
 
 * Download the `latest release <https://github.com/IRL2/nanover-server-rs/releases>`_ from the git repo, ensuring you choose

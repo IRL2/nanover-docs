@@ -201,7 +201,7 @@ Developer Installation Guide
 We refer developers to the relevant code bases:
 
 * If you want to create your own custom server, connect a different physics engine or create a custom client,
-  you can do this via modification of the NanoVer protocol. To download and install the source code, please follow the
+  you can do this via modification of the NanoVer Python Server. To download and install the source code, please follow the
   `developer installation instructions
   <https://github.com/IRL2/nanover-server-py?tab=readme-ov-file#developer-installation>`_
   in the README of the `nanover-server-py repository <https://github.com/IRL2/nanover-server-py>`_ on GitHub.
