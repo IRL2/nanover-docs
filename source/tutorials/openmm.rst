@@ -38,7 +38,7 @@ The XML format described here is used specifically for saving and loading NanoVe
 XML structure
 -------------
 
-.. code-block:: xml
+.. code-block:: text
 
     <OpenMMSimulation>
         <pdbx>
@@ -163,6 +163,7 @@ The ``deserialize_simulation`` function accepts optional arguments:
 - ``imd_force``: A CustomExternalForce for interactive molecular dynamics
 - ``platform_name``: The parallel computing platform for OpenMM to use (e.g. "CUDA", "OpenCL")
 - ``ignore_state``: Whether to ignore the serialized state in the XML (default: ``False``)
+
 For example::
 
     simulation = nanover.openmm.serializer.deserialize_simulation(

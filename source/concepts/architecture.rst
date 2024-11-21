@@ -43,7 +43,7 @@ We provide a number of service definitions and implementations, including:
 * :doc:`nanover.state <../../python/nanover.state>`: Provides synchronisation of avatars and state for multiplayer applications.
 * :doc:`nanover.command <../../python/nanover.command>`: Provides facilities to run arbitrary functions performed by the server.
 
-The services described above provide the core for the NanoVer iMD application, but the tools
+The services described above provide the core for the NanoVer iMD-VR application, but the tools
 can be used to create custom services for different applications.
 
 These services are written using `gRPC <https://grpc.io/>`_, a framework for remote procedure calls. 
@@ -83,8 +83,8 @@ interaction with, a simulation in real time.
 VR Front End
 ############
 
-The VR front end app, :ref:`NanoVer iMD <vr-client-tutorial>`, intended for 3D visualisation and
-intuitive spatial iMD (iMD-VR), is a `distinct Unity/C# codebase <https://github.com/IRL2/nanover-imd>`_
+The VR front end app, :ref:`NanoVer iMD-VR <vr-client-tutorial>`, intended for 3D visualisation and
+intuitive spatial iMD (iMD-VR), is a `distinct Unity/C# codebase <https://github.com/IRL2/nanover-imd-vr>`_
 that follows the `gRPC protocol definitions <https://github.com/IRL2/nanover-protocol/tree/main/protocol/nanover/protocol>`_
 and :ref:`application conventions <applications>` laid out in the present documentation.
 
