@@ -146,7 +146,7 @@ then choose the files.
 
 
 Reading NanoVer recordings using MDAnalysis in python
--------------------------------
+-----------------------------------------------------
 
 Recordings can be read and manipulated using the NanoVer python library.
 
