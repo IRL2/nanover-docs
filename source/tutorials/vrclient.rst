@@ -44,8 +44,10 @@ and *only a python client* allows you to change the visualisation of the molecul
 
 |
 
+----
+
 Your VR controllers
-~~~~~~~~~~~~~~~~~~~
+###################
 
 Below are diagrams showing the positions of the VR controller buttons that you will use in NanoVer iMD-VR,
 using the Meta Quest 2 controllers for demonstration.
