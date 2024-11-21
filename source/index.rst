@@ -19,7 +19,7 @@ As a client-server application, NanoVer consists of:
 
     * A **python client**: a python script, e.g. a Jupyter notebook. Check out the :ref:`tutorials <Tutorials>` for further information.
     * A **-VR client**: an instance of the Nanover iMD-VR program
-      (see the `latest releases here <https://github.com/IRL2/nanover-imd/releases>`_) that enables a user to
+      (see the `latest releases here <https://github.com/IRL2/nanover-imd-vr/releases>`_) that enables a user to
       visualise and interact with the real-time MD simulation in VR.
 
 ----

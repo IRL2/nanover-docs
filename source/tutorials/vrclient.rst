@@ -4,7 +4,7 @@
 NanoVer iMD-VR
 ==============
 
-You can use the `NanoVer iMD-VR application <https://github.com/IRL2/nanover-imd>`_
+You can use the `NanoVer iMD-VR application <https://github.com/IRL2/nanover-imd-vr>`_
 to **incorporate VR into your workflow**, including:
 
 * visualising molecular systems in VR, including real-time MD simulations, recorded trajectories, and static structures

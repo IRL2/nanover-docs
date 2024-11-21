@@ -84,7 +84,7 @@ VR Front End
 ############
 
 The VR front end app, :ref:`NanoVer iMD-VR <vr-client-tutorial>`, intended for 3D visualisation and
-intuitive spatial iMD (iMD-VR), is a `distinct Unity/C# codebase <https://github.com/IRL2/nanover-imd>`_
+intuitive spatial iMD (iMD-VR), is a `distinct Unity/C# codebase <https://github.com/IRL2/nanover-imd-vr>`_
 that follows the `gRPC protocol definitions <https://github.com/IRL2/nanover-protocol/tree/main/protocol/nanover/protocol>`_
 and :ref:`application conventions <applications>` laid out in the present documentation.
 

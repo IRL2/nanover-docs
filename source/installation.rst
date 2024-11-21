@@ -135,7 +135,7 @@ If you have not already created a NanoVer conda environment, please refer to
 Download the latest release
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Download the latest release from the git repo `here <https://github.com/IRL2/nanover-imd/releases>`_.
+#. Download the latest release from the git repo `here <https://github.com/IRL2/nanover-imd-vr/releases>`_.
 
 #. Extract the downloaded zip file.
 
@@ -207,7 +207,7 @@ We refer developers to the relevant code bases:
   in the README of the `nanover-protocol repository <https://github.com/IRL2/nanover-protocol>`_ on GitHub.
 
 * If you want to customise the NanoVer iMD-VR Unity3D application, instructions for obtaining the source code are available
-  in the `nanover-imd repository <https://github.com/IRL2/nanover-imd>`_ on GitHub .
+  in the `nanover-imd repository <https://github.com/IRL2/nanover-imd-vr>`_ on GitHub .
 
 * If you want to build your own VR application that interfaces with NanoVer, the NanoVer Unity3D libraries are available
   in the `NanoverUnityPlugin repository <https://github.com/IRL2/NanoverUnityPlugin>`_ on GitHub .
