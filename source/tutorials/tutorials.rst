@@ -16,7 +16,7 @@ framework you're running with NanoVer.
    openmm.rst
    ase.rst
    mdanalysis.rst
-   vrclient/vrclient.rst
+   vrclient.rst
 
 Many of the tutorials for NanoVer are written as `Jupyter notebooks <https://jupyter.org>`_, and thus require that you
 have Jupyter installed in your NanoVer conda environment (see the :ref:`installation instructions <installing_jupyter>`
@@ -32,7 +32,7 @@ Installing Jupyter
 
 The tutorials use `Jupyter notebooks <https://jupyter.org>`_, `NGLView <https://github.com/nglviewer/nglview>`_ for
 visualising trajectories, and, while not strictly necessary, assumes you have the
-`NanoVer IMD <https://github.com/irl2/nanover-imd>`_ application installed (see :ref:`installing_imdvr_client`).
+`NanoVer iMD-VR <https://github.com/IRL2/nanover-imd-vr>`_ application installed (see :ref:`installing_imdvr_client`).
 Install Jupyter notebooks and NGLView with conda:
 
 .. code-block:: bash

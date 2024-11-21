@@ -56,7 +56,7 @@ Develop with NanoVer
 **Contribute to the code** or **develop your own custom applications**.
 
 * `Get the source code for the server <https://github.com/IRL2/nanover-protocol>`_
-* `Get the source code of the VR client <https://github.com/IRL2/nanover-imd>`_
+* `Get the source code of the VR client <https://github.com/IRL2/nanover-imd-vr>`_
 
 NanoVer is distributed under the `MIT <https://github.com/IRL2/nanover-protocol/blob/main/LICENSE>`_ license.
 
