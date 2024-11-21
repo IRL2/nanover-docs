@@ -118,8 +118,56 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="nanover-omni-rich-module">
-<h1>nanover.omni.rich module<a class="headerlink" href="#nanover-omni-rich-module" title="Link to this heading"></a></h1>
+  <section id="module-nanover.omni.rich">
+<span id="nanover-omni-rich-module"></span><h1>nanover.omni.rich module<a class="headerlink" href="#module-nanover.omni.rich" title="Link to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="nanover.omni.rich.OmniTextualApp">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nanover.omni.rich.</span></span><span class="sig-name descname"><span class="pre">OmniTextualApp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">omni</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="nanover.omni.omni.html#nanover.omni.omni.OmniRunner" title="nanover.omni.omni.OmniRunner"><span class="pre">OmniRunner</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.omni.rich.OmniTextualApp" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">App</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nanover.omni.rich.OmniTextualApp.BINDINGS">
+<span class="sig-name descname"><span class="pre">BINDINGS</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">BindingType</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[('q',</span> <span class="pre">'quit',</span> <span class="pre">'Quit')]</span></em><a class="headerlink" href="#nanover.omni.rich.OmniTextualApp.BINDINGS" title="Link to this definition"></a></dt>
+<dd><p>The default key bindings.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nanover.omni.rich.OmniTextualApp.CSS_PATH">
+<span class="sig-name descname"><span class="pre">CSS_PATH</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">CSSPathType</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'rich.tcss'</span></em><a class="headerlink" href="#nanover.omni.rich.OmniTextualApp.CSS_PATH" title="Link to this definition"></a></dt>
+<dd><p>File paths to load CSS from.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nanover.omni.rich.OmniTextualApp.TITLE">
+<span class="sig-name descname"><span class="pre">TITLE</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'NanoVer</span> <span class="pre">Omni</span> <span class="pre">Server'</span></em><a class="headerlink" href="#nanover.omni.rich.OmniTextualApp.TITLE" title="Link to this definition"></a></dt>
+<dd><p>A class variable to set the <em>default</em> title for the application.</p>
+<p>To update the title while the app is running, you can set the [title][textual.app.App.title] attribute.
+See also [the <cite>Screen.TITLE</cite> attribute][textual.screen.Screen.TITLE].</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.omni.rich.OmniTextualApp.compose">
+<span class="sig-name descname"><span class="pre">compose</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><span class="pre">Widget</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#nanover.omni.rich.OmniTextualApp.compose" title="Link to this definition"></a></dt>
+<dd><p>Yield child widgets for a container.</p>
+<p>This method should be implemented in a subclass.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.omni.rich.OmniTextualApp.on_button_pressed">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">on_button_pressed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Pressed</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.omni.rich.OmniTextualApp.on_button_pressed" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.omni.rich.OmniTextualApp.on_mount">
+<span class="sig-name descname"><span class="pre">on_mount</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nanover.omni.rich.OmniTextualApp.on_mount" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.omni.rich.OmniTextualApp.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nanover.omni.rich.OmniTextualApp.update" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </section>
 
 
