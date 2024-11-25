@@ -123,7 +123,7 @@
 <p>Provides an implementation of IMD force field in ASE.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="nanover.ase.imd_calculator.ImdCalculator">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nanover.ase.imd_calculator.</span></span><span class="sig-name descname"><span class="pre">ImdCalculator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">imd_state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="nanover.imd.imd_state.html#nanover.imd.imd_state.ImdStateWrapper" title="nanover.imd.imd_state.ImdStateWrapper"><span class="pre">ImdStateWrapper</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">calculator</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Calculator</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atoms</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Atoms</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dynamics</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">MolecularDynamics</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reset_scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.ase.imd_calculator.ImdCalculator" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nanover.ase.imd_calculator.</span></span><span class="sig-name descname"><span class="pre">ImdCalculator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">imd_state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="nanover.imd.imd_state.html#nanover.imd.imd_state.ImdStateWrapper" title="nanover.imd.imd_state.ImdStateWrapper"><span class="pre">ImdStateWrapper</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">imd_force_manager</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#nanover.ase.imd_calculator.ImdForceManager" title="nanover.ase.imd_calculator.ImdForceManager"><span class="pre">ImdForceManager</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calculator</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Calculator</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atoms</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Atoms</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dynamics</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">MolecularDynamics</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reset_scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.ase.imd_calculator.ImdCalculator" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Calculator</span></code></p>
 <p>Implementation of IMD as an ASE calculator.</p>
 <p>Given another ASE calculator to act as the internal calculator, will compute the external energy
@@ -145,6 +145,18 @@ and forces via the IMD service, and add them to the internal force calculations.
 <p>The <code class="xref py py-class docutils literal notranslate"><span class="pre">ImdServer</span></code> class makes use of this class, and makes
 running an interactive molecular dynamics simulation in ASE straightforward.</p>
 </div>
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.ase.imd_calculator.ImdCalculator.add_to_frame_data">
+<span class="sig-name descname"><span class="pre">add_to_frame_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frame_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.FrameData" title="nanover.trajectory.frame_data.FrameData"><span class="pre">FrameData</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.ase.imd_calculator.ImdCalculator.add_to_frame_data" title="Link to this definition"></a></dt>
+<dd><p>Add the iMD forces and energy to the frame data via the
+ImdForceManager.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>frame_data</strong> – The FrameData object to which the iMD results are appended.</p>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="nanover.ase.imd_calculator.ImdCalculator.calculate">
 <span class="sig-name descname"><span class="pre">calculate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atoms</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Atoms</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">properties</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">('energy',</span> <span class="pre">'forces')</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">system_changes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['positions',</span> <span class="pre">'numbers',</span> <span class="pre">'cell',</span> <span class="pre">'pbc',</span> <span class="pre">'initial_charges',</span> <span class="pre">'initial_magmoms']</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.ase.imd_calculator.ImdCalculator.calculate" title="Link to this definition"></a></dt>
@@ -218,6 +230,48 @@ that no dynamics object has been passed, or the dynamics object does not impleme
 temperature or ‘temp’ attribute.</p>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.ase.imd_calculator.ImdCalculator.update_interactions">
+<span class="sig-name descname"><span class="pre">update_interactions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nanover.ase.imd_calculator.ImdCalculator.update_interactions" title="Link to this definition"></a></dt>
+<dd><p>Update the iMD interaction energies and forces (in ASE units)
+via the ImdForceManager, and subsequently resets the velocities
+(if applicable).</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="nanover.ase.imd_calculator.ImdForceManager">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nanover.ase.imd_calculator.</span></span><span class="sig-name descname"><span class="pre">ImdForceManager</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">imd_state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="nanover.imd.imd_state.html#nanover.imd.imd_state.ImdStateWrapper" title="nanover.imd.imd_state.ImdStateWrapper"><span class="pre">ImdStateWrapper</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">atoms</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Atoms</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.ase.imd_calculator.ImdForceManager" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A class that calculates and stores the iMD forces and energies for
+an ASE simulation. This class manages data associated with the iMD interactions
+for the <a class="reference internal" href="#nanover.ase.imd_calculator.ImdCalculator" title="nanover.ase.imd_calculator.ImdCalculator"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImdCalculator</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>imd_state</strong> – A wrapper that provides access to the active interactive forces.</p></li>
+<li><p><strong>atoms</strong> – An ASE atoms object to use.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.ase.imd_calculator.ImdForceManager.add_to_frame_data">
+<span class="sig-name descname"><span class="pre">add_to_frame_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frame_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.FrameData" title="nanover.trajectory.frame_data.FrameData"><span class="pre">FrameData</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.ase.imd_calculator.ImdForceManager.add_to_frame_data" title="Link to this definition"></a></dt>
+<dd><p>Add the iMD forces and energy to the frame data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>frame_data</strong> – The FrameData object to which the iMD results are appended.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nanover.ase.imd_calculator.ImdForceManager.update_interactions">
+<span class="sig-name descname"><span class="pre">update_interactions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nanover.ase.imd_calculator.ImdForceManager.update_interactions" title="Link to this definition"></a></dt>
+<dd><p>Update the iMD interaction energies and forces (in ASE units).</p>
 </dd></dl>
 
 </dd></dl>

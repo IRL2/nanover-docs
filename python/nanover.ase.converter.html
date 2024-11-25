@@ -139,6 +139,22 @@ object to the given <code class="xref py py-class docutils literal notranslate">
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="nanover.ase.converter.add_ase_forces_to_frame_data">
+<span class="sig-prename descclassname"><span class="pre">nanover.ase.converter.</span></span><span class="sig-name descname"><span class="pre">add_ase_forces_to_frame_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.FrameData" title="nanover.trajectory.frame_data.FrameData"><span class="pre">FrameData</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">ase_atoms</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Atoms</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.ase.converter.add_ase_forces_to_frame_data" title="Link to this definition"></a></dt>
+<dd><p>Adds ASE forces to the frame data, converting to kJ mol-1 per nanometer. If the ASE
+calculator is an ImdCalculator, removes the iMD forces from the ASE forces to deliver
+the system forces (iMD forces delivered separately elsewhere).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> – <code class="xref py py-class docutils literal notranslate"><span class="pre">FrameData</span></code> to add atom forces to.</p></li>
+<li><p><strong>ase_atoms</strong> – ASE <code class="xref py py-class docutils literal notranslate"><span class="pre">Atoms</span></code> to add particle positions to.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="nanover.ase.converter.add_ase_positions_to_frame_data">
 <span class="sig-prename descclassname"><span class="pre">nanover.ase.converter.</span></span><span class="sig-name descname"><span class="pre">add_ase_positions_to_frame_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.FrameData" title="nanover.trajectory.frame_data.FrameData"><span class="pre">FrameData</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">positions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">_ScalarType_co</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.ase.converter.add_ase_positions_to_frame_data" title="Link to this definition"></a></dt>
 <dd><p>Adds ASE positions to the frame data, converting to nanometers.</p>
@@ -156,7 +172,11 @@ object to the given <code class="xref py py-class docutils literal notranslate">
 <dt class="sig sig-object py" id="nanover.ase.converter.add_ase_state_to_frame_data">
 <span class="sig-prename descclassname"><span class="pre">nanover.ase.converter.</span></span><span class="sig-name descname"><span class="pre">add_ase_state_to_frame_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frame_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.FrameData" title="nanover.trajectory.frame_data.FrameData"><span class="pre">FrameData</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">ase_atoms</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Atoms</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.ase.converter.add_ase_state_to_frame_data" title="Link to this definition"></a></dt>
 <dd><p>Adds simulation state information to the frame,
-consisting of the potential energy and kinetic energy.</p>
+consisting of the potential energy and kinetic energy of the
+molecular system. If the ASE calculator is an ImdCalculator,
+removes the iMD energy from the ASE potential energy to deliver
+the system potential energy (iMD energy delivered separately
+elsewhere).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -178,6 +198,20 @@ criteria.</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>frame_data</strong> – Frame data to add topology information to.</p></li>
 <li><p><strong>ase_atoms</strong> – ASE atoms to extract topology information from.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="nanover.ase.converter.add_ase_velocities_to_frame_data">
+<span class="sig-prename descclassname"><span class="pre">nanover.ase.converter.</span></span><span class="sig-name descname"><span class="pre">add_ase_velocities_to_frame_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="nanover.trajectory.frame_data.html#nanover.trajectory.frame_data.FrameData" title="nanover.trajectory.frame_data.FrameData"><span class="pre">FrameData</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">ase_atoms</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Atoms</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.ase.converter.add_ase_velocities_to_frame_data" title="Link to this definition"></a></dt>
+<dd><p>Adds ASE velocities to the frame data, converting to nanometers per picosecond.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> – <code class="xref py py-class docutils literal notranslate"><span class="pre">FrameData</span></code> to add atom velocities to.</p></li>
+<li><p><strong>ase_atoms</strong> – ASE <code class="xref py py-class docutils literal notranslate"><span class="pre">Atoms</span></code> to add particle positions to.</p></li>
 </ul>
 </dd>
 </dl>
