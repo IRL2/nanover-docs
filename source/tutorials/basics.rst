@@ -30,6 +30,8 @@ of the GitHub repository:
   to record and replay iMD simulations.
 * `nanover_nglview`: A notebook that assumes a server is already running, and visualises it
   with `NGLView <https://github.com/arose/nglview>`_.
+* `multiple_simulations`: This notebook demonstrates how to load and run multiple simulation files into
+  a single OmniRunner server, providing default visualizations, and switch among them within a single VR session.
 
 
 .. _basicsrunningaserver:
