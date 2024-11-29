@@ -20,7 +20,7 @@ exhibit some core features of NanoVer in a quick, intuitive way. If you are new 
 these tutorials are the perfect place to start!
 
 Here we give a summary of the available Jupyter notebook tutorials, that can be found in the
-`examples <https://github.com/IRL2/nanover-protocol/tree/main/examples/basics>`_ folder
+`examples <https://github.com/IRL2/nanover-server-py/tree/main/examples/basics>`_ folder
 of the GitHub repository:
 
 * `getting_started`: **New to NanoVer? Start here!** An introductory notebook that showcases how
@@ -39,15 +39,15 @@ Running a server
 
 There are two NanoVer servers available:
 
-* **The primary NanoVer server**, found in the `nanover-protocol <https://github.com/IRL2/nanover-protocol>`_ git repo.
+* **The NanoVer Python Server**, found in the `nanover-server-py <https://github.com/IRL2/nanover-server-py>`_ git repo.
   This server is written in python and is the go-to server for NanoVer users.
-* The Rust Server, found in the `nanover-rs <https://github.com/IRL2/nanover-rs>`_ git repo, and is written
+* The NanoVer Rust Server, found in the `nanover-server-rs <https://github.com/IRL2/nanover-server-rs>`_ git repo, and is written
   in Rust. We include brief instructions for using this server on this page, but we recommend using the Python Server.
 
-Nanover Protocol
-~~~~~~~~~~~~~~~~
+The NanoVer Python server
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The NanoVer protocol package can be installed using conda (see :ref:`user_installation_guide`) or using the source code
+The NanoVer Python Server package can be installed using conda (see :ref:`user_installation_guide`) or using the source code
 (see :ref:`developer_installation_guide`). Once installed, you can run a NanoVer server using either
 (a) a python script or Jupyter notebook
 or (b) the command line.
@@ -57,7 +57,7 @@ via a python script or notebook
 
 For running a NanoVer server using a python script or Jupyter notebook, please see our :ref:`tutorials` page.
 If you are new to NanoVer, we recommend starting with our
-`getting_started notebook <https://github.com/IRL2/nanover-protocol/blob/main/examples/basics/getting_started.ipynb>`_.
+`getting_started notebook <https://github.com/IRL2/nanover-server-py/blob/main/examples/basics/getting_started.ipynb>`_.
 
 via the command line
 ####################
@@ -92,16 +92,16 @@ For more information about the arguments provided with this command, type:
     nanover-omni --help
 
 
-The Rust Server
-~~~~~~~~~~~~~~~
+The NanoVer Rust Server
+~~~~~~~~~~~~~~~~~~~~~~~
 
-The Rust Server is compiled into an executable (or equivalent, depending on your operating system), rather than being
+The NanoVer Rust Server is compiled into an executable (or equivalent, depending on your operating system), rather than being
 installed on your computer. For this, you have two options:
 
-* Download the `latest release <https://github.com/IRL2/nanover-rs/releases>`_ from the git repo, ensuring you choose
+* Download the `latest release <https://github.com/IRL2/nanover-server-rs/releases>`_ from the git repo, ensuring you choose
   the correct option for your operating system.
 * Compile it yourself using the source code by following the instructions in the
-  `README <https://github.com/IRL2/nanover-rs>`_.
+  `README <https://github.com/IRL2/nanover-server-rs>`_.
 
 This program can run OpenMM NanoVer simulations and NanoVer recordings (but not simulations that use ASE as
 an interface) and has many features, including:
@@ -181,7 +181,7 @@ via the GUI
 To run the server via the GUI, open the ``nanover-gui`` executable (or run it via the command line e.g.
 ``./nanover-gui`` on MacOS) and you will see the following interface:
 
-.. image:: /_static/nanover-rs-gui.png
+.. image:: /_static/nanover-server-rs-gui.png
     :align: center
     :scale: 50%
 

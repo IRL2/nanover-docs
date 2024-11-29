@@ -100,7 +100,7 @@ def run_apidoc(_):
 
     print("Working directory: " + os.getcwd())
     print("Copying python code")
-    for directory in glob.glob('nanover-protocol/python-libraries/*/src/nanover'):
+    for directory in glob.glob('nanover-server-py/python-libraries/*/src/nanover'):
         print(directory)
         copy_tree(src=directory, dst='./temp/python-source/nanover')
 
