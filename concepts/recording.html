@@ -27,7 +27,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="The NanoVer protocol" href="base-protocol.html" />
+    <link rel="next" title="The NanoVer gRPC protocol" href="base-protocol.html" />
     <link rel="prev" title="Trajectories and Frames" href="frames.html" />
  
 <link rel="icon" type="image/x-icon" href="../_static/favicon.ico">
@@ -81,7 +81,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#reading-nanover-recordings-using-mdanalysis-in-python">Reading NanoVer recordings using MDAnalysis in python</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="base-protocol.html">The NanoVer protocol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="base-protocol.html">The NanoVer gRPC protocol</a></li>
 <li class="toctree-l2"><a class="reference internal" href="applications.html">Applications</a></li>
 </ul>
 </li>
@@ -235,7 +235,7 @@ in the file.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Further instructions and information on how to record and replay using the NanoVer Python module can be found in
-this notebook <a class="reference external" href="https://github.com/IRL2/nanover-protocol/blob/main/examples/basics/recording_and_replaying.ipynb">recording_and_replaying.ipynb</a>.</p>
+this notebook <a class="reference external" href="https://github.com/IRL2/nanover-server-py/blob/main/examples/basics/recording_and_replaying.ipynb">recording_and_replaying.ipynb</a>.</p>
 </div>
 </section>
 </section>
@@ -244,8 +244,8 @@ this notebook <a class="reference external" href="https://github.com/IRL2/nanove
 <section id="id1">
 <h3><a class="toc-backref" href="#id11" role="doc-backlink">How to record</a><a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
 <p>The Rust Server takes a snapshot of the streams 30 times a second (although this may change with
-issues <a class="reference external" href="https://github.com/IRL2/nanover-rs/issues/200">#200</a> and
-<a class="reference external" href="https://github.com/IRL2/nanover-rs/issues/201">#201</a>).</p>
+issues <a class="reference external" href="https://github.com/IRL2/nanover-server-rs/issues/200">#200</a> and
+<a class="reference external" href="https://github.com/IRL2/nanover-server-rs/issues/201">#201</a>).</p>
 <p>When using the <code class="docutils literal notranslate"><span class="pre">nanover-cli</span></code> command via the command line, use the <code class="docutils literal notranslate"><span class="pre">--trajectory</span></code> argument to specify the file that
 will store the recording of the frame stream, and the <code class="docutils literal notranslate"><span class="pre">--state</span></code> argument to specify the file that will store
 the recording of the shared state updates.</p>
@@ -279,7 +279,7 @@ recording are read as part of the Universe.
 If the topology changes throughout the recording, for instance because another simulation was loaded,
 the library issues a warning and the frames with the new topology are ignored.</p>
 <p>See the example code below, or check out the
-<a class="reference external" href="https://github.com/IRL2/nanover-protocol/blob/main/examples/mdanalysis/mdanalysis_nanover_recording.ipynb">mdanalysis_nanover_recording</a>
+<a class="reference external" href="https://github.com/IRL2/nanover-server-py/blob/main/examples/mdanalysis/mdanalysis_nanover_recording.ipynb">mdanalysis_nanover_recording</a>
 jupyter notebook tutorial for further information.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">MDAnalysis</span> <span class="k">as</span> <span class="nn">mda</span>
 <span class="kn">from</span> <span class="nn">nanover.mdanalysis</span> <span class="kn">import</span> <span class="n">NanoverParser</span><span class="p">,</span> <span class="n">NanoverReader</span>
@@ -327,7 +327,7 @@ in the <a class="reference external" href="https://github.com/IRL2/nanover-utils
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="frames.html" class="btn btn-neutral float-left" title="Trajectories and Frames" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="base-protocol.html" class="btn btn-neutral float-right" title="The NanoVer protocol" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="base-protocol.html" class="btn btn-neutral float-right" title="The NanoVer gRPC protocol" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

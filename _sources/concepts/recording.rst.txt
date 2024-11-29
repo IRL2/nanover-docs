@@ -1,7 +1,7 @@
 Recording simulations using NanoVer
 ===================================
 
-.. _Rust server: https://github.com/IRL2/nanover-rs
+.. _Rust server: https://github.com/IRL2/nanover-server-rs
 
 For a NanoVer session to be useful beyond the time the users spend in VR, it needs to be recorded.
 This recording can then be analysed or played back to get insight. In this document, we describe how to record a NanoVer session and how to visualise the recording using inbuilt methods.
@@ -104,7 +104,7 @@ in the file.
 .. note::
 
     Further instructions and information on how to record and replay using the NanoVer Python module can be found in
-    this notebook `recording_and_replaying.ipynb <https://github.com/IRL2/nanover-protocol/blob/main/examples/basics/recording_and_replaying.ipynb>`_.
+    this notebook `recording_and_replaying.ipynb <https://github.com/IRL2/nanover-server-py/blob/main/examples/basics/recording_and_replaying.ipynb>`_.
 
 Recording with the Rust Server
 ------------------------------
@@ -113,8 +113,8 @@ How to record
 ~~~~~~~~~~~~~
 
 The Rust Server takes a snapshot of the streams 30 times a second (although this may change with
-issues `#200 <https://github.com/IRL2/nanover-rs/issues/200>`_ and
-`#201 <https://github.com/IRL2/nanover-rs/issues/201>`_).
+issues `#200 <https://github.com/IRL2/nanover-server-rs/issues/200>`_ and
+`#201 <https://github.com/IRL2/nanover-server-rs/issues/201>`_).
 
 When using the ``nanover-cli`` command via the command line, use the ``--trajectory`` argument to specify the file that
 will store the recording of the frame stream, and the ``--state`` argument to specify the file that will store
@@ -158,7 +158,7 @@ If the topology changes throughout the recording, for instance because another s
 the library issues a warning and the frames with the new topology are ignored.
 
 See the example code below, or check out the
-`mdanalysis_nanover_recording <https://github.com/IRL2/nanover-protocol/blob/main/examples/mdanalysis/mdanalysis_nanover_recording.ipynb>`_
+`mdanalysis_nanover_recording <https://github.com/IRL2/nanover-server-py/blob/main/examples/mdanalysis/mdanalysis_nanover_recording.ipynb>`_
 jupyter notebook tutorial for further information.
 
 .. code:: python

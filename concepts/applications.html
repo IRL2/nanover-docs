@@ -29,7 +29,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Modules" href="../modules.html" />
-    <link rel="prev" title="The NanoVer protocol" href="base-protocol.html" />
+    <link rel="prev" title="The NanoVer gRPC protocol" href="base-protocol.html" />
  
 <link rel="icon" type="image/x-icon" href="../_static/favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="../_static/favicon-32x32.png">
@@ -67,7 +67,7 @@
 <li class="toctree-l2"><a class="reference internal" href="architecture.html">NanoVer Architecture</a></li>
 <li class="toctree-l2"><a class="reference internal" href="frames.html">Trajectories and Frames</a></li>
 <li class="toctree-l2"><a class="reference internal" href="recording.html">Recording simulations using NanoVer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="base-protocol.html">The NanoVer protocol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="base-protocol.html">The NanoVer gRPC protocol</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Applications</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#the-multiplayer-application">The multiplayer application</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#coordinate-systems">Coordinate systems</a></li>
@@ -186,7 +186,7 @@ components. Components are elements of the avatar with a position and a rotation
 <p class="admonition-title">Warning</p>
 <p>The avatar specifies its player ID twice: in the top level key and with the
 <code class="docutils literal notranslate"><span class="pre">playerid</span></code> sub-key. Both places MUST match. A discrepancy between the two
-is undefined behaviour. See <a class="reference external" href="https://github.com/IRL2/nanover-protocol/issues/98">issue #98 in nanover-protocol</a>.</p>
+is undefined behaviour. See <a class="reference external" href="https://github.com/IRL2/nanover-server-py/issues/98">issue #98 in nanover-server-py</a>.</p>
 </div>
 <p>The name is an arbitrary string meant to be displayed to the other users as a
 human-readable identifier. The color is also meant to be displayed to the other
@@ -204,8 +204,8 @@ a quaternion.</p></li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The avatar description currently only support VR controllers. See <a class="reference external" href="https://github.com/IRL2/nanover-protocol/issues/97">issue #97 in
-nanover-protocol</a> for
+<p>The avatar description currently only support VR controllers. See <a class="reference external" href="https://github.com/IRL2/nanover-server-py/issues/97">issue #97 in
+nanover-server-py</a> for
 hand-tracking support.</p>
 </div>
 <p>How to represent the avatar is the responsibility of the client. It must assume
@@ -785,7 +785,7 @@ updates have been acknowledged by the server.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="base-protocol.html" class="btn btn-neutral float-left" title="The NanoVer protocol" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="base-protocol.html" class="btn btn-neutral float-left" title="The NanoVer gRPC protocol" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="../modules.html" class="btn btn-neutral float-right" title="Modules" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

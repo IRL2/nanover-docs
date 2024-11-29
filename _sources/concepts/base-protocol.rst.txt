@@ -1,6 +1,6 @@
 .. _base-protocol:
 
-The NanoVer protocol
+The NanoVer gRPC protocol
 ====================
 
 .. contents:: Contents
@@ -11,7 +11,7 @@ The NanoVer protocol
 General architecture
 --------------------
 
-NanoVer provides three services: the **state service**, the **trajectory service**,
+NanoVer provides three gRPC services: the **state service**, the **trajectory service**,
 and the **command service**. While none of these services are strictly
 mandatory, some features expect two or three services to cooperate.
 

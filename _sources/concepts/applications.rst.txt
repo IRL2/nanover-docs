@@ -87,8 +87,8 @@ components. Components are elements of the avatar with a position and a rotation
 
    The avatar specifies its player ID twice: in the top level key and with the
    ``playerid`` sub-key. Both places MUST match. A discrepancy between the two
-   is undefined behaviour. See `issue #98 in nanover-protocol
-   <https://github.com/IRL2/nanover-protocol/issues/98>`_.
+   is undefined behaviour. See `issue #98 in nanover-server-py
+   <https://github.com/IRL2/nanover-server-py/issues/98>`_.
 
 The name is an arbitrary string meant to be displayed to the other users as a
 human-readable identifier. The color is also meant to be displayed to the other
@@ -108,7 +108,7 @@ component is a Struct with the following keys:
 .. note::
 
    The avatar description currently only support VR controllers. See `issue #97 in
-   nanover-protocol <https://github.com/IRL2/nanover-protocol/issues/97>`_ for
+   nanover-server-py <https://github.com/IRL2/nanover-server-py/issues/97>`_ for
    hand-tracking support.
 
 How to represent the avatar is the responsibility of the client. It must assume

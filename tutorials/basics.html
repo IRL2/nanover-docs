@@ -65,8 +65,8 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">NanoVer Basics</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#jupyter-notebook-tutorials">Jupyter notebook tutorials</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#running-a-server">Running a server</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id1">Nanover Protocol</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#the-rust-server">The Rust Server</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#the-nanover-python-server">The NanoVer Python server</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#the-nanover-rust-server">The NanoVer Rust Server</a></li>
 </ul>
 </li>
 </ul>
@@ -119,24 +119,24 @@ page to start running interactive molecular dynamics (iMD) simulations with Nano
 <nav class="contents local" id="contents">
 <p class="topic-title">Contents</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#jupyter-notebook-tutorials" id="id3">Jupyter notebook tutorials</a></p></li>
-<li><p><a class="reference internal" href="#running-a-server" id="id4">Running a server</a></p>
+<li><p><a class="reference internal" href="#jupyter-notebook-tutorials" id="id2">Jupyter notebook tutorials</a></p></li>
+<li><p><a class="reference internal" href="#running-a-server" id="id3">Running a server</a></p>
 <ul>
-<li><p><a class="reference internal" href="#id1" id="id5">Nanover Protocol</a></p></li>
-<li><p><a class="reference internal" href="#the-rust-server" id="id6">The Rust Server</a></p></li>
+<li><p><a class="reference internal" href="#the-nanover-python-server" id="id4">The NanoVer Python server</a></p></li>
+<li><p><a class="reference internal" href="#the-nanover-rust-server" id="id5">The NanoVer Rust Server</a></p></li>
 </ul>
 </li>
 </ul>
 </nav>
 <section id="jupyter-notebook-tutorials">
-<h2><a class="toc-backref" href="#id3" role="doc-backlink">Jupyter notebook tutorials</a><a class="headerlink" href="#jupyter-notebook-tutorials" title="Link to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Jupyter notebook tutorials</a><a class="headerlink" href="#jupyter-notebook-tutorials" title="Link to this heading"></a></h2>
 <p>We provide a set of short Jupyter notebook tutorials that introduce NanoVer as a framework
 for running interactive molecular dynamics simulations. These notebooks are designed to provide
 new users with some basic examples that demonstrate how to get up and running with NanoVer, and
 exhibit some core features of NanoVer in a quick, intuitive way. If you are new to NanoVer,
 these tutorials are the perfect place to start!</p>
 <p>Here we give a summary of the available Jupyter notebook tutorials, that can be found in the
-<a class="reference external" href="https://github.com/IRL2/nanover-protocol/tree/main/examples/basics">examples</a> folder
+<a class="reference external" href="https://github.com/IRL2/nanover-server-py/tree/main/examples/basics">examples</a> folder
 of the GitHub repository:</p>
 <ul class="simple">
 <li><p><cite>getting_started</cite>: <strong>New to NanoVer? Start here!</strong> An introductory notebook that showcases how
@@ -149,17 +149,17 @@ with <a class="reference external" href="https://github.com/arose/nglview">NGLVi
 </ul>
 </section>
 <section id="running-a-server">
-<span id="basicsrunningaserver"></span><h2><a class="toc-backref" href="#id4" role="doc-backlink">Running a server</a><a class="headerlink" href="#running-a-server" title="Link to this heading"></a></h2>
+<span id="basicsrunningaserver"></span><h2><a class="toc-backref" href="#id3" role="doc-backlink">Running a server</a><a class="headerlink" href="#running-a-server" title="Link to this heading"></a></h2>
 <p>There are two NanoVer servers available:</p>
 <ul class="simple">
-<li><p><strong>The primary NanoVer server</strong>, found in the <a class="reference external" href="https://github.com/IRL2/nanover-protocol">nanover-protocol</a> git repo.
+<li><p><strong>The NanoVer Python Server</strong>, found in the <a class="reference external" href="https://github.com/IRL2/nanover-server-py">nanover-server-py</a> git repo.
 This server is written in python and is the go-to server for NanoVer users.</p></li>
-<li><p>The Rust Server, found in the <a class="reference external" href="https://github.com/IRL2/nanover-rs">nanover-rs</a> git repo, and is written
+<li><p>The NanoVer Rust Server, found in the <a class="reference external" href="https://github.com/IRL2/nanover-server-rs">nanover-server-rs</a> git repo, and is written
 in Rust. We include brief instructions for using this server on this page, but we recommend using the Python Server.</p></li>
 </ul>
-<section id="id1">
-<h3><a class="toc-backref" href="#id5" role="doc-backlink">Nanover Protocol</a><a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
-<p>The NanoVer protocol package can be installed using conda (see <a class="reference internal" href="../installation.html#user-installation-guide"><span class="std std-ref">User Installation Guide</span></a>) or using the source code
+<section id="the-nanover-python-server">
+<h3><a class="toc-backref" href="#id4" role="doc-backlink">The NanoVer Python server</a><a class="headerlink" href="#the-nanover-python-server" title="Link to this heading"></a></h3>
+<p>The NanoVer Python Server package can be installed using conda (see <a class="reference internal" href="../installation.html#user-installation-guide"><span class="std std-ref">User Installation Guide</span></a>) or using the source code
 (see <a class="reference internal" href="../installation.html#developer-installation-guide"><span class="std std-ref">Developer Installation Guide</span></a>). Once installed, you can run a NanoVer server using either
 (a) a python script or Jupyter notebook
 or (b) the command line.</p>
@@ -167,7 +167,7 @@ or (b) the command line.</p>
 <h4>via a python script or notebook<a class="headerlink" href="#via-a-python-script-or-notebook" title="Link to this heading"></a></h4>
 <p>For running a NanoVer server using a python script or Jupyter notebook, please see our <a class="reference internal" href="tutorials.html#tutorials"><span class="std std-ref">Tutorials</span></a> page.
 If you are new to NanoVer, we recommend starting with our
-<a class="reference external" href="https://github.com/IRL2/nanover-protocol/blob/main/examples/basics/getting_started.ipynb">getting_started notebook</a>.</p>
+<a class="reference external" href="https://github.com/IRL2/nanover-server-py/blob/main/examples/basics/getting_started.ipynb">getting_started notebook</a>.</p>
 </section>
 <section id="via-the-command-line">
 <h4>via the command line<a class="headerlink" href="#via-the-command-line" title="Link to this heading"></a></h4>
@@ -198,15 +198,15 @@ nanover-omni<span class="w"> </span>--playback<span class="w"> </span><span clas
 </div>
 </section>
 </section>
-<section id="the-rust-server">
-<h3><a class="toc-backref" href="#id6" role="doc-backlink">The Rust Server</a><a class="headerlink" href="#the-rust-server" title="Link to this heading"></a></h3>
-<p>The Rust Server is compiled into an executable (or equivalent, depending on your operating system), rather than being
+<section id="the-nanover-rust-server">
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">The NanoVer Rust Server</a><a class="headerlink" href="#the-nanover-rust-server" title="Link to this heading"></a></h3>
+<p>The NanoVer Rust Server is compiled into an executable (or equivalent, depending on your operating system), rather than being
 installed on your computer. For this, you have two options:</p>
 <ul class="simple">
-<li><p>Download the <a class="reference external" href="https://github.com/IRL2/nanover-rs/releases">latest release</a> from the git repo, ensuring you choose
+<li><p>Download the <a class="reference external" href="https://github.com/IRL2/nanover-server-rs/releases">latest release</a> from the git repo, ensuring you choose
 the correct option for your operating system.</p></li>
 <li><p>Compile it yourself using the source code by following the instructions in the
-<a class="reference external" href="https://github.com/IRL2/nanover-rs">README</a>.</p></li>
+<a class="reference external" href="https://github.com/IRL2/nanover-server-rs">README</a>.</p></li>
 </ul>
 <p>This program can run OpenMM NanoVer simulations and NanoVer recordings (but not simulations that use ASE as
 an interface) and has many features, including:</p>
@@ -240,8 +240,8 @@ is necessary to open the executables manually by</p>
 </ol>
 <p>The same needs to be done for the <code class="docutils literal notranslate"><span class="pre">libOpenMM</span></code> executables in the <code class="docutils literal notranslate"><span class="pre">lib</span></code> and <code class="docutils literal notranslate"><span class="pre">lib/plugins</span></code> directories.</p>
 </div>
-<section id="id2">
-<h4>via the command line<a class="headerlink" href="#id2" title="Link to this heading"></a></h4>
+<section id="id1">
+<h4>via the command line<a class="headerlink" href="#id1" title="Link to this heading"></a></h4>
 <p>To run the server using the command line, run the executable as a command, passing it the path to
 your NanoVer simulation file, e.g.:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Windows Powershell</span>
@@ -273,7 +273,7 @@ your NanoVer simulation file, e.g.:</p>
 <span id="rust-server-via-the-gui"></span><h4>via the GUI<a class="headerlink" href="#via-the-gui" title="Link to this heading"></a></h4>
 <p>To run the server via the GUI, open the <code class="docutils literal notranslate"><span class="pre">nanover-gui</span></code> executable (or run it via the command line e.g.
 <code class="docutils literal notranslate"><span class="pre">./nanover-gui</span></code> on MacOS) and you will see the following interface:</p>
-<a class="reference internal image-reference" href="../_images/nanover-rs-gui.png"><img alt="../_images/nanover-rs-gui.png" class="align-center" src="../_images/nanover-rs-gui.png" style="width: 391.5px; height: 313.5px;" />
+<a class="reference internal image-reference" href="../_images/nanover-server-rs-gui.png"><img alt="../_images/nanover-server-rs-gui.png" class="align-center" src="../_images/nanover-server-rs-gui.png" style="width: 391.5px; height: 313.5px;" />
 </a>
 <div class="line-block">
 <div class="line"><br /></div>
