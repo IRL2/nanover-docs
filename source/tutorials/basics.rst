@@ -34,7 +34,6 @@ of the GitHub repository:
   with `NGLView <https://github.com/arose/nglview>`_.
 
 
-
 .. _basicsrunningaserver:
 
 Running a server
