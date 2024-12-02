@@ -302,13 +302,26 @@ the semantics of molecular systems.
 All FrameData values used by the trajectory application use the following set
 of units:
 
-* lengths are expressed in nanometers (:math:`\text{nm}`)
-* durations are expressed in picoseconds (:math:`\text{ps}`)
-* masses are expressed in atomic mass unit (AMU)
-* charges are expressed in proton charge
-* energies are expressed in :math:`\text{kJ}\cdot\text{mol}^{-1}`
-* velocities are expressed in :math:`\text{nm}\cdot{ps}^{-1}`
-* forces are expressed in :math:`\text{kJ}\cdot\text{mol}^{-1}\cdot\text{nm}^{-1}`
+.. list-table:: Units in NanoVer
+    :widths: 25 60
+    :header-rows: 1
+
+    * - Quantity
+      - Unit
+    * - length
+      - :math:`\text{nm}`
+    * - time
+      - :math:`\text{ps}`
+    * - masses
+      - atomic mass unit (AMU)
+    * - charge
+      - proton charge
+    * - energy
+      - :math:`\text{kJ}\cdot\text{mol}^{-1}`
+    * - velocity
+      - :math:`\text{nm}\cdot\text{ps}^{-1}`
+    * - force
+      - :math:`\text{kJ}\cdot\text{mol}^{-1}\cdot\text{nm}^{-1}`
 
 The coordinate system is the right-handed, Z-up, system used in most software
 working with molecular systems.
