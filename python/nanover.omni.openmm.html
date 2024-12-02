@@ -218,6 +218,14 @@ topology and continue.
 
 </dd></dl>
 
+<dl class="py function">
+<dt class="sig sig-object py" id="nanover.omni.openmm.reinitialize_simulation_forces">
+<span class="sig-prename descclassname"><span class="pre">nanover.omni.openmm.</span></span><span class="sig-name descname"><span class="pre">reinitialize_simulation_forces</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">simulation</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nanover.omni.openmm.reinitialize_simulation_forces" title="Link to this definition"></a></dt>
+<dd><p>Call updateParametersInContext on all forces to ensure they are up to date.
+See: <a class="reference external" href="https://github.com/IRL2/nanover-server-py/issues/322">https://github.com/IRL2/nanover-server-py/issues/322</a></p>
+<p>This was previous achieved with <cite>simulation.context.reinitialize()</cite> which is significantly slower.</p>
+</dd></dl>
+
 </section>
 
 
