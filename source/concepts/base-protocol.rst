@@ -1,7 +1,7 @@
 .. _base-protocol:
 
 The NanoVer gRPC protocol
-====================
+=========================
 
 .. contents:: Contents
     :depth: 2
