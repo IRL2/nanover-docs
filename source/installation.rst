@@ -189,6 +189,13 @@ Download the latest release
 
     \ **Tethered**: using a cable to connect your VR headset to your computer.
 
+.. warning::
+
+    Some renderers do not render correctly when using the standalone apk build, including ``cartoon``,
+    ``geometric spline``, and ``noodles``.
+    We are currently working to resolve this, please see the
+    `issue <https://github.com/IRL2/nanover-server-py/issues/192>`_ on our git repo for updates.
+
 ----
 
 
