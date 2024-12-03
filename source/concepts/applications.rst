@@ -308,26 +308,26 @@ of units:
    .. grid-item::
 
    .. grid-item::
-        .. list-table:: Units in NanoVer
-           :widths: auto
-           :header-rows: 1
+      .. list-table:: Units in NanoVer
+         :widths: auto
+         :header-rows: 1
 
-           * - Quantity
-             - Unit
-           * - length
-             - :math:`\text{nm}`
-           * - time
-             - :math:`\text{ps}`
-           * - mass
-             - atomic mass unit (AMU)
-           * - charge
-             - proton charge
-           * - energy
-             - :math:`\text{kJ}\cdot\text{mol}^{-1}`
-           * - velocity
-             - :math:`\text{nm}\cdot\text{ps}^{-1}`
-           * - force
-             - :math:`\text{kJ}\cdot\text{mol}^{-1}\cdot\text{nm}^{-1}`
+         * - Quantity
+           - Unit
+         * - length
+           - :math:`\text{nm}`
+         * - time
+           - :math:`\text{ps}`
+         * - mass
+           - atomic mass unit (AMU)
+         * - charge
+           - proton charge
+         * - energy
+           - :math:`\text{kJ}\cdot\text{mol}^{-1}`
+         * - velocity
+           - :math:`\text{nm}\cdot\text{ps}^{-1}`
+         * - force
+           - :math:`\text{kJ}\cdot\text{mol}^{-1}\cdot\text{nm}^{-1}`
 
    .. grid-item::
 
