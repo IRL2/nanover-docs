@@ -80,9 +80,11 @@ Updating the conda package
 
         conda update nanover-server
 
-If you can't seem to update to the latest version of the NanoVer server, there may be some
-issue with the dependencies of the packages. In this case, we recommend creating a new
-conda environment and reinstalling :code:`nanover-server`, following the
+
+You can find the latest version of ``nanover-server`` on the `Anaconda page for the package <https://anaconda.org/IRL/nanover-server>`_.
+If you can't seem to update to the latest version, there may be some
+issue with the dependencies of the packages.
+In this case, we recommend creating a new conda environment and reinstalling :code:`nanover-server`, following the
 :ref:`installation instructions<installing_the_server>`.
 
 
