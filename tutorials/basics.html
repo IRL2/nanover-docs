@@ -119,17 +119,17 @@ page to start running interactive molecular dynamics (iMD) simulations with Nano
 <nav class="contents local" id="contents">
 <p class="topic-title">Contents</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#jupyter-notebook-tutorials" id="id2">Jupyter notebook tutorials</a></p></li>
-<li><p><a class="reference internal" href="#running-a-server" id="id3">Running a server</a></p>
+<li><p><a class="reference internal" href="#jupyter-notebook-tutorials" id="id3">Jupyter notebook tutorials</a></p></li>
+<li><p><a class="reference internal" href="#running-a-server" id="id4">Running a server</a></p>
 <ul>
-<li><p><a class="reference internal" href="#the-nanover-python-server" id="id4">The NanoVer Python server</a></p></li>
-<li><p><a class="reference internal" href="#the-nanover-rust-server" id="id5">The NanoVer Rust Server</a></p></li>
+<li><p><a class="reference internal" href="#the-nanover-python-server" id="id5">The NanoVer Python server</a></p></li>
+<li><p><a class="reference internal" href="#the-nanover-rust-server" id="id6">The NanoVer Rust Server</a></p></li>
 </ul>
 </li>
 </ul>
 </nav>
 <section id="jupyter-notebook-tutorials">
-<h2><a class="toc-backref" href="#id2" role="doc-backlink">Jupyter notebook tutorials</a><a class="headerlink" href="#jupyter-notebook-tutorials" title="Link to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Jupyter notebook tutorials</a><a class="headerlink" href="#jupyter-notebook-tutorials" title="Link to this heading"></a></h2>
 <p>We provide a set of short Jupyter notebook tutorials that introduce NanoVer as a framework
 for running interactive molecular dynamics simulations. These notebooks are designed to provide
 new users with some basic examples that demonstrate how to get up and running with NanoVer, and
@@ -146,10 +146,11 @@ pre-prepared methane &amp; nanotube system.</p></li>
 to record and replay iMD simulations.</p></li>
 <li><p><cite>nanover_nglview</cite>: A notebook that assumes a server is already running, and visualises it
 with <a class="reference external" href="https://github.com/arose/nglview">NGLView</a>.</p></li>
+<li><p><cite>runner_GUI</cite>: A notebook that demonstrates how to use the NanoVer GUI to run a server.</p></li>
 </ul>
 </section>
 <section id="running-a-server">
-<span id="basicsrunningaserver"></span><h2><a class="toc-backref" href="#id3" role="doc-backlink">Running a server</a><a class="headerlink" href="#running-a-server" title="Link to this heading"></a></h2>
+<span id="basicsrunningaserver"></span><h2><a class="toc-backref" href="#id4" role="doc-backlink">Running a server</a><a class="headerlink" href="#running-a-server" title="Link to this heading"></a></h2>
 <p>There are two NanoVer servers available:</p>
 <ul class="simple">
 <li><p><strong>The NanoVer Python Server</strong>, found in the <a class="reference external" href="https://github.com/IRL2/nanover-server-py">nanover-server-py</a> git repo.
@@ -158,7 +159,7 @@ This server is written in python and is the go-to server for NanoVer users.</p><
 in Rust. We include brief instructions for using this server on this page, but we recommend using the Python Server.</p></li>
 </ul>
 <section id="the-nanover-python-server">
-<h3><a class="toc-backref" href="#id4" role="doc-backlink">The NanoVer Python server</a><a class="headerlink" href="#the-nanover-python-server" title="Link to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">The NanoVer Python server</a><a class="headerlink" href="#the-nanover-python-server" title="Link to this heading"></a></h3>
 <p>The NanoVer Python Server package can be installed using conda (see <a class="reference internal" href="../installation.html#user-installation-guide"><span class="std std-ref">User Installation Guide</span></a>) or using the source code
 (see <a class="reference internal" href="../installation.html#developer-installation-guide"><span class="std std-ref">Developer Installation Guide</span></a>). Once installed, you can run a NanoVer server using either
 (a) a python script or Jupyter notebook
@@ -175,8 +176,8 @@ If you are new to NanoVer, we recommend starting with our
 <code class="docutils literal notranslate"><span class="pre">nanover-omni</span></code> command to run a server.
 This server can take any of the following:</p>
 <ul class="simple">
-<li><p>An OpenMM NanoVer simulation</p></li>
-<li><p>An OpenMM NanoVer simulation with ASE as an interface</p></li>
+<li><p>A NanoVer OpenMM simulation</p></li>
+<li><p>A NanoVer OpenMM simulation with ASE as an interface</p></li>
 <li><p>A NanoVer recording, with either or both of the trajectory and shared state recording files</p></li>
 </ul>
 <p>Note that you can give the simulations/recordings either explicitly as a string
@@ -197,9 +198,24 @@ nanover-omni<span class="w"> </span>--playback<span class="w"> </span><span clas
 </pre></div>
 </div>
 </section>
+<section id="via-the-gui">
+<h4>via the GUI<a class="headerlink" href="#via-the-gui" title="Link to this heading"></a></h4>
+<p>The python GUI creates a web-based graphical interface for running a NanoVer Server.
+It supports both real-time simulations from NanoVer OpenMM XML files and playback of recorded trajectories.
+The interface provides controls for simulation parameters, network settings, and trajectory recording options.</p>
+<p>To run a server via the GUI there are two options:</p>
+<ul class="simple">
+<li><p>Open the <code class="docutils literal notranslate"><span class="pre">runner_GUI.ipynb</span></code> notebook where you will find a step by step guide on how to use the GUI.</p></li>
+<li><p>Run the GUI directly from the command line by running <code class="docutils literal notranslate"><span class="pre">UI.py</span></code>.</p></li>
+</ul>
+<p>If everything is set up correctly, you should see the following interface:</p>
+<a class="reference internal image-reference" href="../_images/GUI-py.png"><img alt="../_images/GUI-py.png" class="align-center" src="../_images/GUI-py.png" style="width: 666.0px; height: 475.5px;" />
+</a>
+<p></p>
+</section>
 </section>
 <section id="the-nanover-rust-server">
-<h3><a class="toc-backref" href="#id5" role="doc-backlink">The NanoVer Rust Server</a><a class="headerlink" href="#the-nanover-rust-server" title="Link to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">The NanoVer Rust Server</a><a class="headerlink" href="#the-nanover-rust-server" title="Link to this heading"></a></h3>
 <p>The NanoVer Rust Server is compiled into an executable (or equivalent, depending on your operating system), rather than being
 installed on your computer. For this, you have two options:</p>
 <ul class="simple">
@@ -208,7 +224,7 @@ the correct option for your operating system.</p></li>
 <li><p>Compile it yourself using the source code by following the instructions in the
 <a class="reference external" href="https://github.com/IRL2/nanover-server-rs">README</a>.</p></li>
 </ul>
-<p>This program can run OpenMM NanoVer simulations and NanoVer recordings (but not simulations that use ASE as
+<p>This program can run NanoVer OpenMM simulations and NanoVer recordings (but not simulations that use ASE as
 an interface) and has many features, including:</p>
 <ul class="simple">
 <li><p>Recording NanoVer sessions</p></li>
@@ -269,8 +285,8 @@ your NanoVer simulation file, e.g.:</p>
 </pre></div>
 </div>
 </section>
-<section id="via-the-gui">
-<span id="rust-server-via-the-gui"></span><h4>via the GUI<a class="headerlink" href="#via-the-gui" title="Link to this heading"></a></h4>
+<section id="rust-server-via-the-gui">
+<span id="id2"></span><h4>via the GUI<a class="headerlink" href="#rust-server-via-the-gui" title="Link to this heading"></a></h4>
 <p>To run the server via the GUI, open the <code class="docutils literal notranslate"><span class="pre">nanover-gui</span></code> executable (or run it via the command line e.g.
 <code class="docutils literal notranslate"><span class="pre">./nanover-gui</span></code> on MacOS) and you will see the following interface:</p>
 <a class="reference internal image-reference" href="../_images/nanover-server-rs-gui.png"><img alt="../_images/nanover-server-rs-gui.png" class="align-center" src="../_images/nanover-server-rs-gui.png" style="width: 391.5px; height: 313.5px;" />
@@ -279,7 +295,7 @@ your NanoVer simulation file, e.g.:</p>
 <div class="line"><br /></div>
 </div>
 <p>Simply click <code class="docutils literal notranslate"><span class="pre">Run</span> <span class="pre">demonstration</span> <span class="pre">input!</span></code> to run a demo simulation. Alternatively, click <code class="docutils literal notranslate"><span class="pre">+OpenMM</span></code> and select your
-own OpenMM NanoVer simulation file, then click <code class="docutils literal notranslate"><span class="pre">Run!</span></code> to start the server. You can also add NanoVer recordings by
+own NanoVer OpenMM XML file, then click <code class="docutils literal notranslate"><span class="pre">Run!</span></code> to start the server. You can also add NanoVer recordings by
 clicking <code class="docutils literal notranslate"><span class="pre">+Recording</span></code> and selecting your trajectory (.traj) and shared state (.state) files.</p>
 <p>Please click on the headings to open up menus to customise your server further: <code class="docutils literal notranslate"><span class="pre">Verbosity</span></code>, <code class="docutils literal notranslate"><span class="pre">Network</span></code>,
 <code class="docutils literal notranslate"><span class="pre">Simulation</span></code>, and <code class="docutils literal notranslate"><span class="pre">Recording</span></code>.
