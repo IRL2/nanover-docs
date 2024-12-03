@@ -95,14 +95,14 @@ Installing the iMD-VR client
 
 To use NanoVer iMD-VR, you have two options:
 
-* **Conda installation of the NanoVer iMD-VR package**: :ref:`conda_installation_VR_client`.
+* **Conda installation of the NanoVer iMD-VR package**, see :ref:`conda_installation_VR_client`.
   *Please note that this installs the Windows build of the package, thus is not compatible with MacOS or Linux.*
 
 
-* **Download the latest release of the NanoVer iMD-VR executable**: :ref:`download_latest_release_VR_client`.
+* **Download the latest release of the NanoVer iMD-VR executable**, see :ref:`download_latest_release_VR_client`.
   This directory includes: (a) the Windows build of the package, and (b) the standalone apk for installation on your
   Meta Quest headset.
-  *If you are using MacOS or Linux, you must use the standalone apk.*
+  *If you are using MacOS or Linux, you must run the program locally on your Meta Quest headset using the standalone apk.*
 
 .. admonition:: Important
 
