@@ -287,10 +287,13 @@ Frames
 
 The :ref:`trajectory service <trajectory-service>` allows to stream snapshots
 of arbitrary data to clients. Each snapshot is described in a :ref:`FrameData
-<frame-description>` which contains a key-value map of protobuf `Values
-<https://protobuf.dev/reference/protobuf/google.protobuf/#value>`_ and one of
-homogeneous arrays. Here, we define a set of keys and data format to describe
-the semantics of molecular systems.
+<frame-description>` object, which contains:
+
+* a key-value map of protobuf `Values <https://protobuf.dev/reference/protobuf/google.protobuf/#value>`_
+* a key-value map of homogeneous arrays
+
+Here, we define a set of keys and data formats to describe the semantics of
+molecular systems.
 
 .. note::
 
@@ -328,6 +331,7 @@ of units:
            - :math:`\text{nm}\cdot\text{ps}^{-1}`
          * - force
            - :math:`\text{kJ}\cdot\text{mol}^{-1}\cdot\text{nm}^{-1}`
+
 
    .. grid-item::
 
