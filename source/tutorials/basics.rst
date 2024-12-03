@@ -108,6 +108,8 @@ If everything is set up correctly, you should see the following interface:
     :align: center
     :scale: 50%
 
+\
+
 The NanoVer Rust Server
 ~~~~~~~~~~~~~~~~~~~~~~~
 
