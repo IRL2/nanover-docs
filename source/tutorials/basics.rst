@@ -66,8 +66,8 @@ Once you have the ``nanover-server`` package installed in your conda environment
 ``nanover-omni`` command to run a server.
 This server can take any of the following:
 
-* An OpenMM NanoVer simulation
-* An OpenMM NanoVer simulation with ASE as an interface
+* A NanoVer OpenMM simulation
+* A NanoVer OpenMM simulation with ASE as an interface
 * A NanoVer recording, with either or both of the trajectory and shared state recording files
 
 Note that you can give the simulations/recordings either explicitly as a string
@@ -95,7 +95,7 @@ via the GUI
 ###########
 
 The python GUI creates a web-based graphical interface for running a NanoVer Server.
-It supports both real-time simulations from XML files and playback of recorded trajectories. The interface provides controls for simulation parameters, network settings, and trajectory recording options.
+It supports both real-time simulations from NanoVer OpenMM XML files and playback of recorded trajectories. The interface provides controls for simulation parameters, network settings, and trajectory recording options.
 
 To run a server via the GUI there are two options:
 
@@ -121,7 +121,7 @@ installed on your computer. For this, you have two options:
 * Compile it yourself using the source code by following the instructions in the
   `README <https://github.com/IRL2/nanover-server-rs>`_.
 
-This program can run OpenMM NanoVer simulations and NanoVer recordings (but not simulations that use ASE as
+This program can run NanoVer OpenMM simulations and NanoVer recordings (but not simulations that use ASE as
 an interface) and has many features, including:
 
 * Recording NanoVer sessions
@@ -206,7 +206,7 @@ To run the server via the GUI, open the ``nanover-gui`` executable (or run it vi
 |
 
 Simply click ``Run demonstration input!`` to run a demo simulation. Alternatively, click ``+OpenMM`` and select your
-own OpenMM NanoVer simulation file, then click ``Run!`` to start the server. You can also add NanoVer recordings by
+own NanoVer OpenMM XML file, then click ``Run!`` to start the server. You can also add NanoVer recordings by
 clicking ``+Recording`` and selecting your trajectory (.traj) and shared state (.state) files.
 
 Please click on the headings to open up menus to customise your server further: ``Verbosity``, ``Network``,
