@@ -271,12 +271,12 @@ The trajectory application
 
 In the trajectory application, the server broadcasts molecular structures for
 the clients to display. The molecular structures can be static structures or
-snapshots of a trajectory; the protocol refer to these snapshots as frames. The
+snapshots of a trajectory; the protocol refers to these snapshots as frames. The
 application is agnostic about the frames being generated on-the-fly or being
 pre-calculated.
 
-This application defines a set of fields to describes the semantic of molecular
-systems with the ``FrameData``. It also defines a set of optional commands a
+This application defines a set of fields to describe the semantics of molecular
+systems within the ``FrameData``. It also defines a set of optional commands a
 server can implement to give the clients some control over how the frames are
 streamed. Finally, it defines some interactions with the multiplayer
 application to share where to display the molecular system relative to the
