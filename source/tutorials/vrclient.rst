@@ -638,8 +638,8 @@ Please choose from the dropdown options below to learn about how to install Nano
 
 .. warning::
 
-    Some renderers do not render correctly when using the standalone apk build, including ``cartoon``,
-    ``geometric spline``, and ``noodles``.
+    Some renderers do not render correctly when using the standalone apk build, including ``spline``,
+    ``geometric spline``, and ``cartoon``.
     We are currently working to resolve this, please see the
     `issue <https://github.com/IRL2/nanover-server-py/issues/192>`_ on our git repo for updates.
 
