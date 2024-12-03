@@ -28,6 +28,8 @@ of the GitHub repository:
   pre-prepared methane & nanotube system.
 * `recording_and_replaying`: An introductory notebook that demonstrates how NanoVer can be used
   to record and replay iMD simulations.
+* `multiple_simulations`: This notebook demonstrates how to load and run multiple simulation files using a single OmniRunner server,
+  providing default visualizations, and details how to switch between them using the Jupyter notebook and VR interfaces.
 * `nanover_nglview`: A notebook that assumes a server is already running, and visualises it
   with `NGLView <https://github.com/arose/nglview>`_.
 * `runner_GUI`: A notebook that demonstrates how to use the NanoVer GUI to run a server.
