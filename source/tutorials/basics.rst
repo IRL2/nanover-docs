@@ -91,6 +91,21 @@ For more information about the arguments provided with this command, type:
 
     nanover-omni --help
 
+via the GUI
+###########
+
+The python GUI creates a web-based graphical interface for running a NanoVer Server.
+It supports both real-time simulations from XML files and playback of recorded trajectories. The interface provides controls for simulation parameters, network settings, and trajectory recording options.
+
+To run a server via the GUI there are two options:
+* Open the ``runner_GUI.ipynb`` notebook where you will find a step by step guide on how to use the GUI.
+* Run the GUI directly from the command line by running ``UI.py``.
+
+If everything is set up correctly, you should see the following interface:
+
+.. image:: /_static/GUI-py.png
+    :align: center
+    :scale: 50%
 
 The NanoVer Rust Server
 ~~~~~~~~~~~~~~~~~~~~~~~
