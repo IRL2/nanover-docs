@@ -636,4 +636,11 @@ Please choose from the dropdown options below to learn about how to install Nano
 
     Choosing this option means that you cannot run NanoVer iMD-VR via conda.
 
+.. warning::
+
+    Some renderers do not render correctly when using the standalone apk build, including ``cartoon``,
+    ``geometric spline``, and ``noodles``.
+    We are currently working to resolve this, please see the
+    `issue <https://github.com/IRL2/nanover-server-py/issues/192>`_ on our git repo for updates.
+
 |
