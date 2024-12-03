@@ -605,7 +605,7 @@ Choosing your installation method
 
 Please choose from the dropdown options below to learn about how to install NanoVer iMD-VR with your chosen VR setup:
 
-.. dropdown:: Using PC-VR
+.. dropdown:: Using PC-VR (Windows only)
 
     This option is compatible with the following VR setups:
 
