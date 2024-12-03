@@ -95,7 +95,8 @@ via the GUI
 ###########
 
 The python GUI creates a web-based graphical interface for running a NanoVer Server.
-It supports both real-time simulations from NanoVer OpenMM XML files and playback of recorded trajectories. The interface provides controls for simulation parameters, network settings, and trajectory recording options.
+It supports both real-time simulations from NanoVer OpenMM XML files and playback of recorded trajectories.
+The interface provides controls for simulation parameters, network settings, and trajectory recording options.
 
 To run a server via the GUI there are two options:
 
