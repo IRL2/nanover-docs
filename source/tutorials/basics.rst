@@ -30,7 +30,7 @@ of the GitHub repository:
   to record and replay iMD simulations.
 * `nanover_nglview`: A notebook that assumes a server is already running, and visualises it
   with `NGLView <https://github.com/arose/nglview>`_.
-
+* `runner_GUI`: A notebook that demonstrates how to use the NanoVer GUI to run a server.
 
 .. _basicsrunningaserver:
 
@@ -98,6 +98,7 @@ The python GUI creates a web-based graphical interface for running a NanoVer Ser
 It supports both real-time simulations from XML files and playback of recorded trajectories. The interface provides controls for simulation parameters, network settings, and trajectory recording options.
 
 To run a server via the GUI there are two options:
+
 * Open the ``runner_GUI.ipynb`` notebook where you will find a step by step guide on how to use the GUI.
 * Run the GUI directly from the command line by running ``UI.py``.
 
