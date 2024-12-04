@@ -441,7 +441,7 @@ part. The indices are indices in the following arrays:
 If the FrameData contains any array with a key staring with ``residue.``, it
 must set a key ``residue.count`` in the value map. The value is the number of
 residues and must match the length of the residue-related arrays. Indices in
-the ``particle.residues`` array must be strictly lesser than the number of
+the ``particle.residues`` array must be strictly less than the number of
 residues. However, these indices may not refer to all of the residues. This
 means it is possible to have residues with no particle attached to them. This
 allows to filter particles out without having to modify the list of residues.
