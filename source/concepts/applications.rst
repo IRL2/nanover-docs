@@ -339,6 +339,26 @@ of units:
 The coordinate system is the right-handed, Z-up, system used in most software
 working with molecular systems.
 
+.. important::
+
+   The units used in NanoVer may differ from those used in the physics engine
+   simulating the molecular system. This means that accessing a data field directly
+   from the simulation itself may yield a different value to that delivered in the
+   FrameData object generated for the same time step/configuration of the molecular
+   system. **This is expected behaviour**.
+
+   For example, for an :class:`ASESimulation` called :code:`ase_sim` and a
+   NanoVer python client called :code:`client`:
+
+   .. code-block:: python
+
+      # Retrieve potential energy via ASE dynamics object directly (in ASE native units)
+      ase_PE = ase_sim.dynamics.atoms.get_potential_energy()
+
+      # Retrieve potential energy from the current frame (in NanoVer units)
+      nanover_PE = client.current_frame.potential_energy
+
+
 Particles
 ^^^^^^^^^
 
