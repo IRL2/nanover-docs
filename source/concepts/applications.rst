@@ -383,6 +383,14 @@ keys in the array map:
   a name, set it to an empty string. When applicable, it is recommended to use
   the names used in the Protein Data Bank.
 
+.. important::
+
+   As the iMD application delivers system quantities separately from the interaction
+   quantities, the key ``particle.forces.system`` is now used in place of
+   ``particle.forces`` in iMD. The former contains the force array
+   applied to each particle due to interactions from *within the molecular system*
+   (i.e. excluding forces arising from iMD interactions).
+
 .. _leap-frog-warning:
 
 .. warning::
@@ -403,7 +411,7 @@ keys in the array map:
    the use of arbitrary keys so users of the application can reintroduce this
    key, or any more appropriate ones, for their own use cases.
 
-If the FrameData uses any key staring by ``particle.``, it must set the key
+If the FrameData uses any key starting with ``particle.``, it must set the key
 ``particle.count`` in the value map. The value of ``particle.count`` is the
 number of particles in the frame, it must match the length of the arrays.
 
