@@ -508,7 +508,7 @@ The kinetic and potential energies of the system for the frame can be stored (in
 
    In the iMD application, the potential energy delivered under ``energy.potential``
    is the potential energy of the system *excluding* the potential energy associated
-   with the iMD interaction.
+   with iMD interactions.
 
 .. note::
 
