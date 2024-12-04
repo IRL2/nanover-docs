@@ -27,10 +27,9 @@ framework you're running with NanoVer.
    basics.rst
    vrclient.rst
    fundamentals.rst
-   openmm.rst
    ase.rst
    mdanalysis.rst
-
+   openmm.rst
 
 .. _using_nanover_in_jupyter:
 
