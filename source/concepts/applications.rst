@@ -500,19 +500,36 @@ key.
 Energies
 ^^^^^^^^
 
-The energy of the system for the frame can be stored in
-:math:`\text{kJ}\cdot\text{mol}^{-1}` under the ``energy.kinetic``,
-``energy.potential``, and ``energy.total`` key of the value map for the
-kinetic, potential, and total energies, respectivelly. The total energy is
-assumed to be the sum of the kinetic and potential energies.
+The kinetic and potential energies of the system for the frame can be stored (in
+:math:`\text{kJ}\cdot\text{mol}^{-1}`) under the ``energy.kinetic`` and
+``energy.potential`` keys of the value map, respectively.
+
+.. important::
+
+   In the iMD application, the potential energy delivered under ``energy.potential``
+   is the potential energy of the system *excluding* the potential energy associated
+   with the iMD interaction.
 
 .. note::
 
-   Like :ref:`mentionned about particle velocities <leap-frog-warning>`, some
-   molecular dynamics integrators use velocities computed out of sync of the
+   As :ref:`mentioned for particle velocities <leap-frog-warning>`, some
+   molecular dynamics integrators compute velocities that are out of sync with the
    positions. This may cause the kinetic and the potential energies to be out of
-   sync as well. This is, however, a very common behaviour that can be ignored in
-   most cases.
+   sync as well, depending on whether the velocities of the system are corrected
+   for by the physics engine before the kinetic energy is calculated. It is up to
+   the user to determine whether this is an issue for the integrator they employ
+   in their chosen physics engine, and whether it is corrected for in any way.
+
+.. warning::
+
+   In the current implementation of iMD in NanoVer, when using OpenMM as a physics
+   engine for molecular simulation *with* a
+   :ref:`leapfrog algorithm <leap-frog-warning>`, the kinetic energy delivered
+   *during an iMD interaction* differs marginally from the true kinetic energy of the
+   system (see `Issue #324 <https://github.com/IRL2/nanover-server-py/issues/324>`_).
+   This is not an issue when using the ASE as the physics engine with an
+   :class:`OpenMMCalculator`.
+
 
 Playback indicators
 ^^^^^^^^^^^^^^^^^^^
