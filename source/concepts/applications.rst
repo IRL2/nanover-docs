@@ -449,12 +449,15 @@ allows to filter particles out without having to modify the list of residues.
 Chains
 ^^^^^^
 
-Residues can be grouped by chains. There is not format semantic for chains
+Residues can be grouped by chains. There is no format semantic for chains
 except that they are groups of residues. However, a chain is commonly either
-(i) a complete set of residues connected by bonds or (ii) a complete set of
-connected residues and residues not connected by bonds but related to the main
-set. In both cases, missing residues count in the connectedness of the set. The
-later case matches the meaning of a chain in the PDB format. To group residues
+
+(i) a complete set of residues connected by bonds, or
+(ii) a complete set of connected residues and residues not connected by bonds but
+     related to the main set.
+
+In both cases, missing residues count in the connectedness of the set. The
+latter case matches the meaning of a chain in the PDB format. To group residues
 by chains, the FrameData must include the ``residue.chains`` key in the array
 map with each value of the array being the index of the chain of which the
 residue is a part. The FrameData also must set ``chain.count`` in the value map
