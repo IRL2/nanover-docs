@@ -494,7 +494,7 @@ Simulation time
 ^^^^^^^^^^^^^^^
 
 If the frame corresponds to a given time in a simulation, this time can be
-specified in picoseconds in the value map under the ``system.simulation.time``
+specified (in picoseconds) in the value map under the ``system.simulation.time``
 key.
 
 Energies
