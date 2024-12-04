@@ -63,12 +63,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation &amp; Getting Started</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Tutorials</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="basics.html">NanoVer Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vrclient.html">NanoVer iMD-VR</a></li>
 <li class="toctree-l2"><a class="reference internal" href="fundamentals.html">NanoVer Fundamentals</a></li>
-<li class="toctree-l2"><a class="reference internal" href="openmm.html">OpenMM</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ase.html">ASE: Atomic Simulation Environment</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mdanalysis.html">MDAnalysis</a></li>
-<li class="toctree-l2"><a class="reference internal" href="vrclient.html">NanoVer iMD-VR</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#installing-jupyter">Installing Jupyter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="openmm.html">OpenMM</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#tips-for-using-nanover-in-jupyter">Tips for using NanoVer in Jupyter</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#further-reading">Further reading</a></li>
 </ul>
@@ -107,42 +106,30 @@
 <p>This section provides tutorials on getting started with NanoVer.
 We assume familiarity with setting up simulations in whichever
 framework you’re running with NanoVer.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Our tutorials are provided as <a class="reference external" href="https://jupyter.org">Jupyter notebooks</a>, and thus require Jupyter to run.
+Some of our notebooks also use <a class="reference external" href="https://github.com/nglviewer/nglview">NGLView</a> for visualising simulations.
+Both <code class="docutils literal notranslate"><span class="pre">jupyterlab</span></code> and <code class="docutils literal notranslate"><span class="pre">nglview</span></code> are installed automatically when you install <code class="docutils literal notranslate"><span class="pre">nanover-server</span></code>.</p>
+</div>
+<ul class="simple">
+<li><p>For <strong>useful tips on how to explore the functionality of NanoVer in Jupyter notebooks</strong>, please refer to the
+<a class="reference internal" href="#using-nanover-in-jupyter"><span class="std std-ref">Tips for using NanoVer in Jupyter</span></a> section below.</p></li>
+<li><p><strong>Our tutorials can be used in conjunction with our iMD-VR application</strong>,
+<a class="reference external" href="https://github.com/IRL2/nanover-imd-vr">NanoVer iMD-VR</a>, see the instructions for
+<a class="reference internal" href="../installation.html#installing-imdvr-client"><span class="std std-ref">Installing the iMD-VR client</span></a>.</p></li>
+</ul>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="basics.html">NanoVer Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vrclient.html">NanoVer iMD-VR</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fundamentals.html">NanoVer Fundamentals</a></li>
-<li class="toctree-l1"><a class="reference internal" href="openmm.html">OpenMM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ase.html">ASE: Atomic Simulation Environment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mdanalysis.html">MDAnalysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="vrclient.html">NanoVer iMD-VR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="openmm.html">OpenMM</a></li>
 </ul>
 </div>
-<p>Many of the tutorials for NanoVer are written as <a class="reference external" href="https://jupyter.org">Jupyter notebooks</a>, and thus require that you
-have Jupyter installed in your NanoVer conda environment (see the <a class="reference internal" href="#installing-jupyter"><span class="std std-ref">installation instructions</span></a>
-below).</p>
-<p>For useful tips on how to explore the functionality of NanoVer in Jupyter notebooks, please refer to the
-<a class="reference internal" href="#using-nanover-in-jupyter"><span class="std std-ref">Tips for using NanoVer in Jupyter</span></a> section below.</p>
-<section id="installing-jupyter">
-<span id="id2"></span><h2>Installing Jupyter<a class="headerlink" href="#installing-jupyter" title="Link to this heading"></a></h2>
-<p>The tutorials use <a class="reference external" href="https://jupyter.org">Jupyter notebooks</a>, <a class="reference external" href="https://github.com/nglviewer/nglview">NGLView</a> for
-visualising trajectories, and, while not strictly necessary, assumes you have the
-<a class="reference external" href="https://github.com/IRL2/nanover-imd-vr">NanoVer iMD-VR</a> application installed (see <a class="reference internal" href="../installation.html#installing-imdvr-client"><span class="std std-ref">Installing the iMD-VR client</span></a>).
-Install Jupyter notebooks and NGLView with conda:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Assuming NanoVer is installed in a conda environment named &quot;nanover&quot;,</span>
-<span class="c1"># change the name otherwise.</span>
-conda<span class="w"> </span>activate<span class="w"> </span>nanover
-conda<span class="w"> </span>install<span class="w"> </span>jupyter
-conda<span class="w"> </span>install<span class="w"> </span>nglview
-</pre></div>
-</div>
-<p>If you wish to access the Jupyter notebooks via <a class="reference external" href="https://jupyter.org">JupyterLab</a>, installing JupyterLab
-<strong>before</strong> NGLView should install the correct dependencies for NGLView automatically (i.e. replacing
-<code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">jupyter</span></code> with <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">jupyterlab</span></code> in the installation instructions above).
-If JupyterLab is installed outside of your conda environment, you will need to install
-<a class="reference external" href="https://ipywidgets.readthedocs.io/en/stable/">ipywidgets</a> in your NanoVer conda environment following
-<a class="reference external" href="https://ipywidgets.readthedocs.io/en/latest/user_install.html#installing-in-jupyterlab-3-x">these instructions</a>.</p>
-</section>
 <section id="tips-for-using-nanover-in-jupyter">
 <span id="using-nanover-in-jupyter"></span><h2>Tips for using NanoVer in Jupyter<a class="headerlink" href="#tips-for-using-nanover-in-jupyter" title="Link to this heading"></a></h2>
 <p>NanoVer provides a set of libraries that define a range of objects (classes, functions, etc.) that can be used to
