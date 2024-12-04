@@ -25,11 +25,11 @@ framework you're running with NanoVer.
    :caption: Contents:
 
    basics.rst
+   vrclient.rst
    fundamentals.rst
    openmm.rst
    ase.rst
    mdanalysis.rst
-   vrclient.rst
 
 
 .. _using_nanover_in_jupyter:
