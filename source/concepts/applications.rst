@@ -832,12 +832,12 @@ under the following keys:
 * ``particle.forces.system``: the force array applied to each particle resulting from
   interactions within the molecular system (i.e. without iMD forces), as a flattened
   array of triplets.
-* ``forces.user.index``: a 1-D array of indices (with :math:`n` entries) of the particles
+* ``forces.user.index``: a 1-D array of indices (with :math:`n` elements) of the particles
   to which iMD forces are being applied.
 * ``forces.user.sparse``: the force array applied to each particle for a subset of
   particles, resulting from iMD interactions (i.e. the total iMD forces applied to
   specific atoms in the molecular system), as a flattened array of triplets (with
-  :math:`3n` entries). The particles to which the forces are applied are specified by
+  :math:`3n` elements). The particles to which the forces are applied are specified by
   the indices in ``forces.user.index`` (more on this below).
 
 As the user interactions usually apply only to a small subset
@@ -847,7 +847,7 @@ a sparse way by indicating which particles are affected with ``forces.user.index
 whose entries are the indices of the particles affected by the iMD force,
 corresponding to the indexing in the particle arrays (`e.g.` ``particle.positions``).
 The ``forces.user.sparse`` key contains the corresponding forces applied to these particles
-as a flattened array of triplets. The order of the entries of ``forces.user.index`` correspond to the
+as a flattened array of triplets. The order of the elements of ``forces.user.index`` correspond to the
 order of the triplets stored in ``forces.user.sparse``.
 
 .. _velocity-reset:
