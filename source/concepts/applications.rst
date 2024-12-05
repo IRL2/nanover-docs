@@ -680,10 +680,10 @@ particles for the interaction. If the interaction is not mass weighted, then
 capped to a maximum value specified by the user to avoid applying too large
 forces.
 
-Each interaction type also defines the equation for the energy associated with the user interaction
-:math:`E_{\text{COM}}`. For mass weighted interaction, the energy for the
-interaction is :math:`E = \frac{E_{\text{COM}}}{N}\sum_{i=0}^{N}m_i`. For non
-mass weighted :math:`E = E_{\text{COM}}`.
+Each interaction type also defines the equation for the potential energy associated
+with the user interaction :math:`E_{\text{COM}}`. For mass weighted interaction, the
+energy for the interaction is :math:`E = \frac{E_{\text{COM}}}{N}\sum_{i=0}^{N}m_i`.
+For non mass weighted :math:`E = E_{\text{COM}}`.
 
 .. _force-equations:
 
@@ -800,25 +800,55 @@ following fields:
 FrameData keys
 ~~~~~~~~~~~~~~
 
-Some details about how the user interactions where applied can be added to the
+Some details about how the user interactions where applied are added to the
 :ref:`FrameData <frame-description>`.
 
-The sum of the energies from user interactions can be included, in
-:math:`\text{kJ}\cdot\text{mol}^{-1}`, under the ``energy.user.total`` key in
-the value map. Depending on the implementations, this energy may or may not be
-included in the total energy included by the :ref:`trajectory application
-<trajectory-application>` under the ``energy.total`` key.
+Each of the interactions applied to the molecular system by a user in the iMD
+application has an associated potential energy. As multiple users can interact
+simultaneously with the same atom(s), the resultant iMD force applied to the each
+atom is a sum of the individual forces applied by the users. Similarly, the iMD
+potential energy associated with the resultant forces is a sum of all of the iMD
+potentials applied to the system by the users. Both the potential energy and the
+resultant forces associated with iMD interactions are delivered to the user in
+the FrameData. These quantities are only non-zero during user interactions.
 
-The forces applied to each particle by the interactions can be stored under the
-``forces.user.index`` and ``forces.user.sparse`` in the array map. Because the
-user interactions usually apply only to a small subset of the particles, it is
-wasteful to provide the forces for all the particles as they would be null for
-most of them. Instead, the user forces are transmitted in a sparse way by
-indicating which particles are affected with ``forces.user.index`` that will
-list the indices in relation of the particle arrays (`e.g.`
-``particle.positions``). The ``forces.user.sparse`` key contains the forces for
-the these particles in the same order as the ``forces.user.index`` as a flatten
-array.
+To distinguish the contributions to the overall potential energy of the
+simulation, the iMD application delivers the potential energy associated with
+interactions within the molecular system itself *separately* from the iMD potential
+energy, under the following keys:
+
+* ``energy.potential``: the potential energy of the molecular system
+  (i.e. without iMD interactions)
+* ``energy.user.total``: the total iMD potential energy (i.e. the sum of the
+  potential energies of all current user interactions)
+
+Both of these energies are delivered in units of :math:`\text{kJ}\cdot\text{mol}^{-1}`.
+
+Similarly, to distinguish the contributions to the total forces acting on the atoms
+in the simulation, the iMD application delivers the forces associated with interactions
+within the molecular system *separately* from the resultant forces from iMD interactions,
+under the following keys:
+
+* ``particle.forces.system``: the force array applied to each particle resulting from
+  interactions within the molecular system (i.e. without iMD forces), as a flattened
+  array of triplets.
+* ``forces.user.index``: a 1-D array of indices (with :math:`n` entries) of the particles
+  to which iMD forces are being applied.
+* ``forces.user.sparse``: the force array applied to each particle for a subset of
+  particles, resulting from iMD interactions (i.e. the total iMD forces applied to
+  specific atoms in the molecular system), as a flattened array of triplets (with
+  :math:`3n` entries). The particles to which the forces are applied are specified by
+  the indices in ``forces.user.index`` (more on this below).
+
+As the user interactions usually apply only to a small subset
+of the particles, it would be wasteful to provide the forces for all the particles
+in the FrameData, as most would be null. Instead, the user forces are transmitted in
+a sparse way by indicating which particles are affected with ``forces.user.index``,
+whose entries are the indices of the particles affected by the iMD force,
+corresponding to the indexing in the particle arrays (`e.g.` ``particle.positions``).
+The ``forces.user.sparse`` key contains the corresponding forces applied to these particles
+as a flattened array of triplets. The order of the entries of ``forces.user.index`` correspond to the
+order of the triplets stored in ``forces.user.sparse``.
 
 .. _velocity-reset:
 
