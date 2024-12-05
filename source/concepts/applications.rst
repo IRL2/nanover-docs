@@ -285,9 +285,9 @@ users, and how to render the molecules.
 Frames
 ~~~~~~
 
-The :ref:`trajectory service <trajectory-service>` allows to stream snapshots
-of arbitrary data to clients. Each snapshot is described in a :ref:`FrameData
-<frame-description>` object, which contains:
+The trajectory application uses the :ref:`trajectory service <trajectory-service>`,
+which allows a server to stream snapshots of arbitrary data to clients. Each snapshot is
+described in a :ref:`FrameData <frame-description>` object, which contains:
 
 * a key-value map of protobuf `Values <https://protobuf.dev/reference/protobuf/google.protobuf/#value>`_
 * a key-value map of homogeneous arrays
@@ -552,59 +552,48 @@ A trajectory application can define the following commands in the :ref:`command
 service <command-service>` to control the stream of frames:
 
 * ``playback/play() -> None``: in combination with ``playback/pause``, this
-  command controls if new frames are being generated or not. The command does
-  not take any argument and does not return anything.
-* ``playback/pause() -> None``: pauses the generation of frames. This command
+  command controls whether the simulation or playback is advancing
+  or not. The command does not take any argument and does not return anything.
+* ``playback/pause() -> None``: pauses the simulation or playback. This command
   does not take any argument and returns nothing.
-* ``playback/step() -> None``: generate the next frame and pause the frame
-  generation. No arguments, no return.
-* ``playback/reset() -> None``: reset the frame generation from the beginning.
-  If the frames are read from a pre-generated trajectory, it will start over
+* ``playback/step() -> None``: advances simulation or playback until the next frame
+  and then pause. No arguments, no return.
+* ``playback/reset() -> None``: resets the simulation or playback to its initial
+  state. If the frames are read from a pre-generated trajectory, it will start over
   from the first frame. If the trajectory is being generated on-the-fly, it
   will restart from the initial conditions. No arguments, no return.
-* ``playback/list() -> {simulations: list of strings}``: if the server allows
-  switching between molecular systems, this command returns the list of
-  available systems. The order of the systems must match the indices used by
-  ``playback/load``. The list contains arbitrary names that allow to identify
-  these systems. They are aimed at being read by humans. The list is returned
+* ``playback/list() -> {simulations: list of strings}``: returns the list of
+  loadable simulations or recordings. Their names are arbitrary, user-facing
+  strings for the sole purpose of identification. The list is returned
   under the ``simulations`` name. The command does not take any arguments.
-* ``playback/load(index: int) -> None``: if the server allows switching between
-  molecular systems, this command requests the system with the given index to be
-  loaded as the current system. The command takes an integer as the ``index``
-  argument and returns nothing. If the client does not provide an index,
-  provides a misformatted index, or provides an invalid index, the command is
-  ignored silently. The bahaviour in case the index is valid but the system
-  could not be loaded is undefined.
-* ``playback/next() -> None``: if the server allows switching between molecular
-  systems, this command requests the simulation with the next index to be
-  loaded as the current simulation. The server is free to cycle through the
-  available systems or ignore the command when the current system is the last
-  available one. The behaviour when the system fails to load is undefined.
-
-.. note::
-
-   There is no command defined to toggle between playing and pausing the frame
-   generation. This is on purpose as such a toggle command would be prone to
-   race conditions when multiple clients call play/pause commands close to each
-   other in time.
+* ``playback/load(index: int) -> None``: switches from the current system to the
+  system corresponding to the index argument with respect to the available systems
+  , as listed by the ``playback/list`` command. Indexing starts from 0. The command
+  takes an integer as the ``index`` argument and returns nothing.
+* ``playback/next() -> None``: switches from the current system to the next
+  system in the list of available systems, as listed by the ``playback/list`` command.
+  When called from the final system, cycles back to the first system.
+  Note that the Rust server does not cycle back after the final system.
+  This command does not take any arguments and does not return anything.
 
 .. warning::
 
-   The playback commands do not define any error handling. The commands to
-   switch among molecular systems can be silently ignored and a failure to load
-   a system, which is a probable event, has no defined behaviour.
+   At this time, the playback commands do not provide any error handling visible
+   to the client. If a system fails to load, there is no client-side way to
+   detect this.
 
 Simulation box for multi user use cases
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 If the trajectory application is used in combination with the :ref:`multiplayer
-application <multiplayer-application>`, it can share where the simulation box
-should be placed relative to the avatar.
+application <multiplayer-application>`, the position and orientation of the
+simulation box can be defined in the shared virtual space by means of the ``scene``
+key in the :ref:`shared state <state-service>`. The clients and the server can
+freely modify the ``scene`` key to reposition, reorient and resize the simulation box.
 
-The clients or the server can set the ``scene`` key in the :ref:`shared state
-<state-service>`. The value under that key is a list of numbers that merges
+The value under that key is a list of numbers that merges
 position of the box's origin, its rotation as a quaternion, and the scaling
-compared to the default box size in each dimension. These are expressed in the
+compared to the default box size. These are expressed in the
 :ref:`server coordinate system <multiplayer-coordinate-systems>`.
 
 By default:
@@ -636,8 +625,8 @@ wrong length, or include negative scale values.
 
 .. warning::
 
-   The scale can be set to any value but it must be set to 3 identical
-   values for the simulation space to keep its aspect ratio.
+   The scaling format technically supports non-uniform scales, however this is
+   likely to cause rendering issues.
 
 The ``scene`` key is likely to be modified often and by multiple users. To
 avoid conflict, users should :ref:`lock <state-locks-description>` the key
