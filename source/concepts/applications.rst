@@ -886,6 +886,17 @@ The ``forces.user.sparse`` key contains the corresponding forces applied to thes
 as a flattened array of triplets. The order of the elements of ``forces.user.index`` correspond to the
 order of the triplets stored in ``forces.user.sparse``.
 
+In addition to delivering information about the forces and potential energies associated
+with the iMD interactions applied to the molecular simulation, the iMD application also
+calculates the cumulative work done on the molecular system by the iMD interactions,
+delivered under the following key:
+
+* ``forces.user.work_done``: the cumulative work done on the molecular system by all iMD
+  forces applied to the system.
+
+The user work done is delivered in the same units as the potential energies, i.e.
+:math:`\text{kJ}\cdot\text{mol}^{-1}`.
+
 .. _velocity-reset:
 
 Velocity reset
