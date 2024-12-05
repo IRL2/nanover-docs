@@ -639,25 +639,27 @@ The iMD application
 -------------------
 
 For now, the main application of NanoVer is interactive molecular dynamics
-simulations (iMD). A simulation runs on the server and users can apply forces
-to particles on-the-fly.
+(iMD) simulations, in  which a simulation runs on the server and users can
+apply forces to particles on-the-fly. The iMD application builds on the capacity of the
+:ref:`trajectory application <trajectory-application>` to provide live molecular
+dynamics by defining the means to perform real-time interactions with the
+simulation.
 
-The iMD application defines how to send user interactions to the server, the
+The application defines how to send user interactions to the server, the
 expected behaviour of the server regarding these interactions, and how the
 server can communicate the result of these interactions on the simulation to
 the clients.
 
-The application assumes it is used in conjunction with the :ref:`trajectory
-application <trajectory-application>` or a similar enough application to share
-the simulation itself.
+A user sends an interaction as a point of origin (in simulation space),
+the particles to which it applies and a set of parameters. The server, then
+collects all the user interactions, computes the corresponding forces and
+propagates them with the other forces in the simulation.
 
-A user sends an interaction as a point of origin, the particles to which it
-applies and a set of parameters. The server, then collects all the user
-interactions, computes the corresponding forces and propagates them with the
-other forces in the simulation.
+Interactive forces
+~~~~~~~~~~~~~~~~~~
 
 The interactions can use different :ref:`equations <force-equations>` to
-compute the force :math:`\mathbf{F}_{\text{COM}}` at the center of mass of the group of
+compute :math:`\mathbf{F}_{\text{COM}}`, the force at the center of mass of the group of
 target particles. The force is then distributed among the particles; 
 the method of force distribution depends on whether 
 the interaction is mass weighted of not. If if it mass weighted, then the
@@ -681,7 +683,7 @@ Force equations
 
 Each server is free to implement the interaction equation they choose. However,
 there are some that are commonly implemented: the Gaussian force, the harmonic
-force, and the constant force. They all depend on the vector :math:`\mathbf{d}` between
+(spring) force, and the constant force. They all depend on the vector :math:`\mathbf{d}` between
 the origin of the interaction, :math:`\mathbf{r}_{\text{user}}`, and the center of mass
 of the set of target particles :math:`\mathbf{r}_{\text{COM}}`. So, :math:`\mathbf{d} =
 \mathbf{r}_{\text{user}} - \mathbf{r}_{\text{COM}}`.
@@ -730,19 +732,6 @@ The direction of the constant force is undefined when the origin of the
 interaction and the center of mass of the selection overlap, so the force is
 not applied.
 
-.. _velocity-reset:
-
-Velocity reset
-~~~~~~~~~~~~~~
-
-Some server implementations can kill any residual momentum in the system due to the user-applied forces after the user interaction has ended
-by setting the velocities of the affected particles to 0. This is called velocity
-reset and can be requested by the user as part of the interaction description.
-
-Servers that have the ability to do velocity reset should advertise the feature
-by setting the ``imd.velocity_reset_available`` key to true in the :ref:`shared
-state <state-service>`.
-
 Sending user interactions
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -772,10 +761,19 @@ Under that key, the value is a Struct with the following keys:
   otherwise. The default is true.
 * ``max_force``: the maximum force magnitude that can be applied to a particle
   by this interaction. The default is 20,000
-  :math:`kJ\cdot\text{mol}^{-1}\cdot\text{nm}^{-1}`.
+  :math:`\text{kJ}\cdot\text{mol}^{-1}\cdot\text{nm}^{-1}`.
 * ``reset_velocities``: a boolean, true if :ref:`velocity reset
   <velocity-reset>` should be applied, false otherwise. This is false by
   default and will be ignored silently if the server does not have the feature.
+
+.. warning::
+
+   The Rust server does not currently support non-mass-weighted interactions.
+
+.. note::
+
+   The pure OpenMM server implementation does not support velocity reset at this
+   time.
 
 If the iMD application is used in conjunction with the :ref:`multiplayer
 application <multiplayer-application>`, then the interaction can also use the
@@ -812,6 +810,19 @@ list the indices in relation of the particle arrays (`e.g.`
 ``particle.positions``). The ``forces.user.sparse`` key contains the forces for
 the these particles in the same order as the ``forces.user.index`` as a flatten
 array.
+
+.. _velocity-reset:
+
+Velocity reset
+~~~~~~~~~~~~~~
+
+Some server implementations can kill any residual momentum in the system due to the user-applied forces after the user interaction has ended
+by setting the velocities of the affected particles to 0. This is called velocity
+reset and can be requested by the user as part of the interaction description.
+
+Servers that have the ability to do velocity reset should advertise the feature
+by setting the ``imd.velocity_reset_available`` key to true in the :ref:`shared
+state <state-service>`.
 
 Miscellaneous applications
 --------------------------
