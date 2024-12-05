@@ -664,6 +664,40 @@ the particles to which it applies and a set of parameters. The server, then
 collects all the user interactions, computes the corresponding forces and
 propagates them with the other forces in the simulation.
 
+Blueprint for quantitative iMD
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The :ref:`trajectory service <trajectory-service>` used by the
+:ref:`trajectory application <trajectory-application>` (and thus by the iMD
+application) allows users to choose a frame interval, an integer that specifies
+the number of simulation steps to be performed by the physics engine between each
+published frame. This can take an integer value :math:`n_{\text{f}} \geq 1`, and
+by default is set to 5 in the iMD application. The frame interval enables a balance
+to be struck between the accuracy of the numerical integration of the equations of
+motion in the physics engine and the usability of the application for watching
+the molecular simulation progress in real-time.
+
+In the iMD application, clients can apply forces to the molecular simulation in
+real-time. In order for any client connecting to a server to gain all of the
+information relevant for quantitative analysis of the effect of iMD interactions
+on the dynamics of the system on-the-fly, all implementations of the iMD application
+in NanoVer are modelled on the following blueprint that describes how to progress
+from one frame to the next:
+
+1. Perform :math:`n_{\text{f}}` simulation steps
+2. Use the final particle positions to calculate the iMD forces (and potential energies)
+   to be applied to the molecular system during the next :math:`n_{\text{f}}` simulation
+   steps
+3. Publish a frame containing all of the information about the current state of
+   the system (including any iMD forces calculated in step 2)
+
+Steps 1--3 are iterated to perform an interactive iMD simulation in which all
+quantitative information regarding the instantaneous state of the system and
+all information about the iMD interactions applied to the system are delivered
+to the clients connecting to the server. The iMD forces and energies calculated in step
+2 remain constant throughout the following :math:`n_{\text{f}}` simulation steps,
+so all clients know what iMD forces act on the simulation between consecutive frames.
+
 Interactive forces
 ~~~~~~~~~~~~~~~~~~
 
