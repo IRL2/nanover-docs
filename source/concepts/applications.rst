@@ -264,6 +264,15 @@ The rotation :math:`\mathbf{R}_i` is expressed as a quaternion and is defined as
     \end{bmatrix}
    \end{align}
 
+
+A client can send an internal index of the updates it sends under the
+``update.index.<USER_ID>`` key in the shared state; where ``<USER_ID>`` can be
+the player id used in the :ref:`multiplayer application
+<multiplayer-application>` or any string unique to the client. The index is the
+index of the update to be sent by the client in its own internal counter. By
+receiving this value in the update stream, the client can know which of its
+updates have been acknowledged by the server.
+
 .. _trajectory-application:
 
 The trajectory application
@@ -827,21 +836,8 @@ state <state-service>`.
 Miscellaneous applications
 --------------------------
 
-Some clients or servers may use their own keys in the :ref:`state
-<state-service>` or :ref:`trajectory <trajectory-service>` services. These keys
-are not formally part of any application, but documenting their meaning can
-only improve interoperability among the implementations.
-
 For diagnostics purpose, the time at which a frame has been generated, or
 sent to the trajectory service, can be stored under the ``server.timestamp``
 key in the value map. It is expressed as a fractional number of seconds. This
 timestamp should only be used to compare with other timestamp in the same
 stream as there is no requirement about the clock used to generate it.
-
-A client can send an internal index of the updates it sends under the
-``update.index.<USER_ID>`` key in the shared state; where ``<USER_ID>`` can be
-the player id used in the :ref:`multiplayer application
-<multiplayer-application>` or any string unique to the client. The index is the
-index of the update to be sent by the client in its own internal counter. By
-receiving this value in the update stream, the client can know which of its
-updates have been acknowledged by the server.
