@@ -840,6 +840,8 @@ under the following keys:
   :math:`3n` elements). The particles to which the forces are applied are specified by
   the indices in ``forces.user.index`` (more on this below).
 
+Both force arrays are delivered in units of :math:`\text{kJ}\cdot\text{mol}^{-1}\text{nm}^{-1}`.
+
 As the user interactions usually apply only to a small subset
 of the particles, it would be wasteful to provide the forces for all the particles
 in the FrameData, as most would be null. Instead, the user forces are transmitted in
