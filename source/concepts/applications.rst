@@ -264,6 +264,15 @@ The rotation :math:`\mathbf{R}_i` is expressed as a quaternion and is defined as
     \end{bmatrix}
    \end{align}
 
+
+A client can send an internal index of the updates it sends under the
+``update.index.<USER_ID>`` key in the shared state; where ``<USER_ID>`` can be
+the player id used in the :ref:`multiplayer application
+<multiplayer-application>` or any string unique to the client. The index is the
+index of the update to be sent by the client in its own internal counter. By
+receiving this value in the update stream, the client can know which of its
+updates have been acknowledged by the server.
+
 .. _trajectory-application:
 
 The trajectory application
@@ -271,12 +280,12 @@ The trajectory application
 
 In the trajectory application, the server broadcasts molecular structures for
 the clients to display. The molecular structures can be static structures or
-snapshots of a trajectory; the protocol refer to these snapshots as frames. The
+snapshots of a trajectory; the protocol refers to these snapshots as frames. The
 application is agnostic about the frames being generated on-the-fly or being
 pre-calculated.
 
-This application defines a set of fields to describes the semantic of molecular
-systems with the ``FrameData``. It also defines a set of optional commands a
+This application defines a set of fields to describe the semantics of molecular
+systems within the ``FrameData``. It also defines a set of optional commands a
 server can implement to give the clients some control over how the frames are
 streamed. Finally, it defines some interactions with the multiplayer
 application to share where to display the molecular system relative to the
@@ -285,12 +294,15 @@ users, and how to render the molecules.
 Frames
 ~~~~~~
 
-The :ref:`trajectory service <trajectory-service>` allows to stream snapshots
-of arbitrary data to clients. Each snapshot is described in a :ref:`FrameData
-<frame-description>` which contains a key-value map of protobuf `Values
-<https://protobuf.dev/reference/protobuf/google.protobuf/#value>`_ and one of
-homogeneous arrays. Here, we define a set of keys and data format to describe
-the semantics of molecular systems.
+The trajectory application uses the :ref:`trajectory service <trajectory-service>`,
+which allows a server to stream snapshots of arbitrary data to clients. Each snapshot is
+described in a :ref:`FrameData <frame-description>` object, which contains:
+
+* a key-value map of protobuf `Values <https://protobuf.dev/reference/protobuf/google.protobuf/#value>`_
+* a key-value map of homogeneous arrays
+
+Here, we define a set of keys and data formats to describe the semantics of
+molecular systems.
 
 .. note::
 
@@ -302,16 +314,59 @@ the semantics of molecular systems.
 All FrameData values used by the trajectory application use the following set
 of units:
 
-* lengths are expressed in nanometers (:math:`\text{nm}`)
-* durations are expressed in picoseconds (:math:`\text{ps}`)
-* masses are expressed in atomic mass unit (AMU)
-* charges are expressed in proton charge
-* energies are expressed in :math:`\text{kJ}\cdot\text{mol}^{-1}`
-* velocities are expressed in :math:`\text{nm}\cdot{ps}^{-1}`
-* forces are expressed in :math:`\text{kJ}\cdot\text{mol}^{-1}\cdot\text{nm}^{-1}`
+.. grid:: 3
+   :gutter: 3
+
+   .. grid-item::
+
+   .. grid-item::
+      .. list-table:: Units in NanoVer
+         :widths: auto
+         :header-rows: 1
+
+         * - Quantity
+           - Unit
+         * - length
+           - :math:`\text{nm}`
+         * - time
+           - :math:`\text{ps}`
+         * - mass
+           - atomic mass unit (AMU)
+         * - charge
+           - proton charge
+         * - energy
+           - :math:`\text{kJ}\cdot\text{mol}^{-1}`
+         * - velocity
+           - :math:`\text{nm}\cdot\text{ps}^{-1}`
+         * - force
+           - :math:`\text{kJ}\cdot\text{mol}^{-1}\cdot\text{nm}^{-1}`
+
+
+   .. grid-item::
+
 
 The coordinate system is the right-handed, Z-up, system used in most software
 working with molecular systems.
+
+.. important::
+
+   The units used in NanoVer may differ from those used in the physics engine
+   simulating the molecular system. This means that accessing a data field directly
+   from the simulation itself may yield a different value to that delivered in the
+   FrameData object generated for the same time step/configuration of the molecular
+   system. **This is expected behaviour**.
+
+   For example, for an :class:`ASESimulation` called :code:`ase_sim` and a
+   NanoVer python client called :code:`client`:
+
+   .. code-block:: python
+
+      # Retrieve potential energy via ASE dynamics object directly (in ASE native units)
+      ase_PE = ase_sim.dynamics.atoms.get_potential_energy()
+
+      # Retrieve potential energy from the current frame (in NanoVer units)
+      nanover_PE = client.current_frame.potential_energy
+
 
 Particles
 ^^^^^^^^^
@@ -337,6 +392,14 @@ keys in the array map:
   a name, set it to an empty string. When applicable, it is recommended to use
   the names used in the Protein Data Bank.
 
+.. important::
+
+   As the iMD application delivers system quantities separately from the interaction
+   quantities, the key ``particle.forces.system`` is now used in place of
+   ``particle.forces`` in iMD. The former contains the force array
+   applied to each particle due to interactions from *within the molecular system*
+   (i.e. excluding forces arising from iMD interactions).
+
 .. _leap-frog-warning:
 
 .. warning::
@@ -357,7 +420,7 @@ keys in the array map:
    the use of arbitrary keys so users of the application can reintroduce this
    key, or any more appropriate ones, for their own use cases.
 
-If the FrameData uses any key staring by ``particle.``, it must set the key
+If the FrameData uses any key starting with ``particle.``, it must set the key
 ``particle.count`` in the value map. The value of ``particle.count`` is the
 number of particles in the frame, it must match the length of the arrays.
 
@@ -387,7 +450,7 @@ part. The indices are indices in the following arrays:
 If the FrameData contains any array with a key staring with ``residue.``, it
 must set a key ``residue.count`` in the value map. The value is the number of
 residues and must match the length of the residue-related arrays. Indices in
-the ``particle.residues`` array must be strictly lesser than the number of
+the ``particle.residues`` array must be strictly less than the number of
 residues. However, these indices may not refer to all of the residues. This
 means it is possible to have residues with no particle attached to them. This
 allows to filter particles out without having to modify the list of residues.
@@ -395,12 +458,15 @@ allows to filter particles out without having to modify the list of residues.
 Chains
 ^^^^^^
 
-Residues can be grouped by chains. There is not format semantic for chains
+Residues can be grouped by chains. There is no format semantic for chains
 except that they are groups of residues. However, a chain is commonly either
-(i) a complete set of residues connected by bonds or (ii) a complete set of
-connected residues and residues not connected by bonds but related to the main
-set. In both cases, missing residues count in the connectedness of the set. The
-later case matches the meaning of a chain in the PDB format. To group residues
+
+(i) a complete set of residues connected by bonds, or
+(ii) a complete set of connected residues and residues not connected by bonds but
+     related to the main set.
+
+In both cases, missing residues count in the connectedness of the set. The
+latter case matches the meaning of a chain in the PDB format. To group residues
 by chains, the FrameData must include the ``residue.chains`` key in the array
 map with each value of the array being the index of the chain of which the
 residue is a part. The FrameData also must set ``chain.count`` in the value map
@@ -437,25 +503,42 @@ Simulation time
 ^^^^^^^^^^^^^^^
 
 If the frame corresponds to a given time in a simulation, this time can be
-specified in picoseconds in the value map under the ``system.simulation.time``
+specified (in picoseconds) in the value map under the ``system.simulation.time``
 key.
 
 Energies
 ^^^^^^^^
 
-The energy of the system for the frame can be stored in
-:math:`\text{kJ}\cdot\text{mol}^{-1}` under the ``energy.kinetic``,
-``energy.potential``, and ``energy.total`` key of the value map for the
-kinetic, potential, and total energies, respectivelly. The total energy is
-assumed to be the sum of the kinetic and potential energies.
+The kinetic and potential energies of the system for the frame can be stored (in
+:math:`\text{kJ}\cdot\text{mol}^{-1}`) under the ``energy.kinetic`` and
+``energy.potential`` keys of the value map, respectively.
+
+.. important::
+
+   In the iMD application, the potential energy delivered under ``energy.potential``
+   is the potential energy of the system *excluding* the potential energy associated
+   with iMD interactions.
 
 .. note::
 
-   Like :ref:`mentionned about particle velocities <leap-frog-warning>`, some
-   molecular dynamics integrators use velocities computed out of sync of the
+   As :ref:`mentioned for particle velocities <leap-frog-warning>`, some
+   molecular dynamics integrators compute velocities that are out of sync with the
    positions. This may cause the kinetic and the potential energies to be out of
-   sync as well. This is, however, a very common behaviour that can be ignored in
-   most cases.
+   sync as well, depending on whether the velocities of the system are corrected
+   for by the physics engine before the kinetic energy is calculated. It is up to
+   the user to determine whether this is an issue for the integrator they employ
+   in their chosen physics engine, and whether it is corrected for in any way.
+
+.. warning::
+
+   In the current implementation of iMD in NanoVer, when using OpenMM as a physics
+   engine for molecular simulation *with* a
+   :ref:`leapfrog algorithm <leap-frog-warning>`, the kinetic energy delivered
+   *during an iMD interaction* differs marginally from the true kinetic energy of the
+   system (see `Issue #324 <https://github.com/IRL2/nanover-server-py/issues/324>`_).
+   This is not an issue when using the ASE as the physics engine with an
+   :class:`OpenMMCalculator`.
+
 
 Playback indicators
 ^^^^^^^^^^^^^^^^^^^
@@ -478,59 +561,48 @@ A trajectory application can define the following commands in the :ref:`command
 service <command-service>` to control the stream of frames:
 
 * ``playback/play() -> None``: in combination with ``playback/pause``, this
-  command controls if new frames are being generated or not. The command does
-  not take any argument and does not return anything.
-* ``playback/pause() -> None``: pauses the generation of frames. This command
+  command controls whether the simulation or playback is advancing
+  or not. The command does not take any argument and does not return anything.
+* ``playback/pause() -> None``: pauses the simulation or playback. This command
   does not take any argument and returns nothing.
-* ``playback/step() -> None``: generate the next frame and pause the frame
-  generation. No arguments, no return.
-* ``playback/reset() -> None``: reset the frame generation from the beginning.
-  If the frames are read from a pre-generated trajectory, it will start over
+* ``playback/step() -> None``: advances simulation or playback until the next frame
+  and then pause. No arguments, no return.
+* ``playback/reset() -> None``: resets the simulation or playback to its initial
+  state. If the frames are read from a pre-generated trajectory, it will start over
   from the first frame. If the trajectory is being generated on-the-fly, it
   will restart from the initial conditions. No arguments, no return.
-* ``playback/list() -> {simulations: list of strings}``: if the server allows
-  switching between molecular systems, this command returns the list of
-  available systems. The order of the systems must match the indices used by
-  ``playback/load``. The list contains arbitrary names that allow to identify
-  these systems. They are aimed at being read by humans. The list is returned
+* ``playback/list() -> {simulations: list of strings}``: returns the list of
+  loadable simulations or recordings. Their names are arbitrary, user-facing
+  strings for the sole purpose of identification. The list is returned
   under the ``simulations`` name. The command does not take any arguments.
-* ``playback/load(index: int) -> None``: if the server allows switching between
-  molecular systems, this command requests the system with the given index to be
-  loaded as the current system. The command takes an integer as the ``index``
-  argument and returns nothing. If the client does not provide an index,
-  provides a misformatted index, or provides an invalid index, the command is
-  ignored silently. The bahaviour in case the index is valid but the system
-  could not be loaded is undefined.
-* ``playback/next() -> None``: if the server allows switching between molecular
-  systems, this command requests the simulation with the next index to be
-  loaded as the current simulation. The server is free to cycle through the
-  available systems or ignore the command when the current system is the last
-  available one. The behaviour when the system fails to load is undefined.
-
-.. note::
-
-   There is no command defined to toggle between playing and pausing the frame
-   generation. This is on purpose as such a toggle command would be prone to
-   race conditions when multiple clients call play/pause commands close to each
-   other in time.
+* ``playback/load(index: int) -> None``: switches from the current system to the
+  system corresponding to the index argument with respect to the available systems
+  , as listed by the ``playback/list`` command. Indexing starts from 0. The command
+  takes an integer as the ``index`` argument and returns nothing.
+* ``playback/next() -> None``: switches from the current system to the next
+  system in the list of available systems, as listed by the ``playback/list`` command.
+  When called from the final system, cycles back to the first system.
+  Note that the Rust server does not cycle back after the final system.
+  This command does not take any arguments and does not return anything.
 
 .. warning::
 
-   The playback commands do not define any error handling. The commands to
-   switch among molecular systems can be silently ignored and a failure to load
-   a system, which is a probable event, has no defined behaviour.
+   At this time, the playback commands do not provide any error handling visible
+   to the client. If a system fails to load, there is no client-side way to
+   detect this.
 
 Simulation box for multi user use cases
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 If the trajectory application is used in combination with the :ref:`multiplayer
-application <multiplayer-application>`, it can share where the simulation box
-should be placed relative to the avatar.
+application <multiplayer-application>`, the position and orientation of the
+simulation box can be defined in the shared virtual space by means of the ``scene``
+key in the :ref:`shared state <state-service>`. The clients and the server can
+freely modify the ``scene`` key to reposition, reorient and resize the simulation box.
 
-The clients or the server can set the ``scene`` key in the :ref:`shared state
-<state-service>`. The value under that key is a list of numbers that merges
+The value under that key is a list of numbers that merges
 position of the box's origin, its rotation as a quaternion, and the scaling
-compared to the default box size in each dimension. These are expressed in the
+compared to the default box size. These are expressed in the
 :ref:`server coordinate system <multiplayer-coordinate-systems>`.
 
 By default:
@@ -562,8 +634,8 @@ wrong length, or include negative scale values.
 
 .. warning::
 
-   The scale can be set to any value but it must be set to 3 identical
-   values for the simulation space to keep its aspect ratio.
+   The scaling format technically supports non-uniform scales, however this is
+   likely to cause rendering issues.
 
 The ``scene`` key is likely to be modified often and by multiple users. To
 avoid conflict, users should :ref:`lock <state-locks-description>` the key
@@ -576,25 +648,61 @@ The iMD application
 -------------------
 
 For now, the main application of NanoVer is interactive molecular dynamics
-simulations (iMD). A simulation runs on the server and users can apply forces
-to particles on-the-fly.
+(iMD) simulations, in  which a simulation runs on the server and users can
+apply forces to particles on-the-fly. The iMD application builds on the capacity of the
+:ref:`trajectory application <trajectory-application>` to provide live molecular
+dynamics by defining the means to perform real-time interactions with the
+simulation.
 
-The iMD application defines how to send user interactions to the server, the
+The application defines how to send user interactions to the server, the
 expected behaviour of the server regarding these interactions, and how the
 server can communicate the result of these interactions on the simulation to
 the clients.
 
-The application assumes it is used in conjunction with the :ref:`trajectory
-application <trajectory-application>` or a similar enough application to share
-the simulation itself.
+A user sends an interaction as a point of origin (in simulation space),
+the particles to which it applies and a set of parameters. The server, then
+collects all the user interactions, computes the corresponding forces and
+propagates them with the other forces in the simulation.
 
-A user sends an interaction as a point of origin, the particles to which it
-applies and a set of parameters. The server, then collects all the user
-interactions, computes the corresponding forces and propagates them with the
-other forces in the simulation.
+Blueprint for quantitative iMD
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The :ref:`trajectory service <trajectory-service>` used by the
+:ref:`trajectory application <trajectory-application>` (and thus by the iMD
+application) allows users to choose a frame interval, an integer that specifies
+the number of simulation steps to be performed by the physics engine between each
+published frame. This can take an integer value :math:`n_{\text{f}} \geq 1`, and
+by default is set to 5 in the iMD application. The frame interval enables a balance
+to be struck between the accuracy of the numerical integration of the equations of
+motion in the physics engine and the usability of the application for watching
+the molecular simulation progress in real-time.
+
+In the iMD application, clients can apply forces to the molecular simulation in
+real-time. In order for any client connecting to a server to gain all of the
+information relevant for quantitative analysis of the effect of iMD interactions
+on the dynamics of the system on-the-fly, all implementations of the iMD application
+in NanoVer are modelled on the following blueprint that describes how to progress
+from one frame to the next:
+
+1. Perform :math:`n_{\text{f}}` simulation steps
+2. Use the final particle positions to calculate the iMD forces (and potential energies)
+   to be applied to the molecular system during the next :math:`n_{\text{f}}` simulation
+   steps
+3. Publish a frame containing all of the information about the current state of
+   the system (including any iMD forces calculated in step 2)
+
+Steps 1--3 are iterated to perform an interactive iMD simulation in which all
+quantitative information regarding the instantaneous state of the system and
+all information about the iMD interactions applied to the system are delivered
+to the clients connecting to the server. The iMD forces and energies calculated in step
+2 remain constant throughout the following :math:`n_{\text{f}}` simulation steps,
+so all clients know what iMD forces act on the simulation between consecutive frames.
+
+Interactive forces
+~~~~~~~~~~~~~~~~~~
 
 The interactions can use different :ref:`equations <force-equations>` to
-compute the force :math:`\mathbf{F}_{\text{COM}}` at the center of mass of the group of
+compute :math:`\mathbf{F}_{\text{COM}}`, the force at the center of mass of the group of
 target particles. The force is then distributed among the particles; 
 the method of force distribution depends on whether 
 the interaction is mass weighted of not. If if it mass weighted, then the
@@ -606,10 +714,10 @@ particles for the interaction. If the interaction is not mass weighted, then
 capped to a maximum value specified by the user to avoid applying too large
 forces.
 
-Each interaction type also defines the equation for the energy associated with the user interaction
-:math:`E_{\text{COM}}`. For mass weighted interaction, the energy for the
-interaction is :math:`E = \frac{E_{\text{COM}}}{N}\sum_{i=0}^{N}m_i`. For non
-mass weighted :math:`E = E_{\text{COM}}`.
+Each interaction type also defines the equation for the potential energy associated
+with the user interaction :math:`E_{\text{COM}}`. For mass weighted interaction, the
+energy for the interaction is :math:`E = \frac{E_{\text{COM}}}{N}\sum_{i=0}^{N}m_i`.
+For non mass weighted :math:`E = E_{\text{COM}}`.
 
 .. _force-equations:
 
@@ -618,7 +726,7 @@ Force equations
 
 Each server is free to implement the interaction equation they choose. However,
 there are some that are commonly implemented: the Gaussian force, the harmonic
-force, and the constant force. They all depend on the vector :math:`\mathbf{d}` between
+(spring) force, and the constant force. They all depend on the vector :math:`\mathbf{d}` between
 the origin of the interaction, :math:`\mathbf{r}_{\text{user}}`, and the center of mass
 of the set of target particles :math:`\mathbf{r}_{\text{COM}}`. So, :math:`\mathbf{d} =
 \mathbf{r}_{\text{user}} - \mathbf{r}_{\text{COM}}`.
@@ -667,19 +775,6 @@ The direction of the constant force is undefined when the origin of the
 interaction and the center of mass of the selection overlap, so the force is
 not applied.
 
-.. _velocity-reset:
-
-Velocity reset
-~~~~~~~~~~~~~~
-
-Some server implementations can kill any residual momentum in the system due to the user-applied forces after the user interaction has ended
-by setting the velocities of the affected particles to 0. This is called velocity
-reset and can be requested by the user as part of the interaction description.
-
-Servers that have the ability to do velocity reset should advertise the feature
-by setting the ``imd.velocity_reset_available`` key to true in the :ref:`shared
-state <state-service>`.
-
 Sending user interactions
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -709,10 +804,19 @@ Under that key, the value is a Struct with the following keys:
   otherwise. The default is true.
 * ``max_force``: the maximum force magnitude that can be applied to a particle
   by this interaction. The default is 20,000
-  :math:`kJ\cdot\text{mol}^{-1}\cdot\text{nm}^{-1}`.
+  :math:`\text{kJ}\cdot\text{mol}^{-1}\cdot\text{nm}^{-1}`.
 * ``reset_velocities``: a boolean, true if :ref:`velocity reset
   <velocity-reset>` should be applied, false otherwise. This is false by
   default and will be ignored silently if the server does not have the feature.
+
+.. warning::
+
+   The Rust server does not currently support non-mass-weighted interactions.
+
+.. note::
+
+   The pure OpenMM server implementation does not support velocity reset at this
+   time.
 
 If the iMD application is used in conjunction with the :ref:`multiplayer
 application <multiplayer-application>`, then the interaction can also use the
@@ -730,44 +834,87 @@ following fields:
 FrameData keys
 ~~~~~~~~~~~~~~
 
-Some details about how the user interactions where applied can be added to the
+Some details about how the user interactions where applied are added to the
 :ref:`FrameData <frame-description>`.
 
-The sum of the energies from user interactions can be included, in
-:math:`\text{kJ}\cdot\text{mol}^{-1}`, under the ``energy.user.total`` key in
-the value map. Depending on the implementations, this energy may or may not be
-included in the total energy included by the :ref:`trajectory application
-<trajectory-application>` under the ``energy.total`` key.
+Each of the interactions applied to the molecular system by a user in the iMD
+application has an associated potential energy. As multiple users can interact
+simultaneously with the same atom(s), the resultant iMD force applied to the each
+atom is a sum of the individual forces applied by the users. Similarly, the iMD
+potential energy associated with the resultant forces is a sum of all of the iMD
+potentials applied to the system by the users. Both the potential energy and the
+resultant forces associated with iMD interactions are delivered to the user in
+the FrameData. These quantities are only non-zero during user interactions.
 
-The forces applied to each particle by the interactions can be stored under the
-``forces.user.index`` and ``forces.user.sparse`` in the array map. Because the
-user interactions usually apply only to a small subset of the particles, it is
-wasteful to provide the forces for all the particles as they would be null for
-most of them. Instead, the user forces are transmitted in a sparse way by
-indicating which particles are affected with ``forces.user.index`` that will
-list the indices in relation of the particle arrays (`e.g.`
-``particle.positions``). The ``forces.user.sparse`` key contains the forces for
-the these particles in the same order as the ``forces.user.index`` as a flatten
-array.
+To distinguish the contributions to the overall potential energy of the
+simulation, the iMD application delivers the potential energy associated with
+interactions within the molecular system itself *separately* from the iMD potential
+energy, under the following keys:
+
+* ``energy.potential``: the potential energy of the molecular system
+  (i.e. without iMD interactions)
+* ``energy.user.total``: the total iMD potential energy (i.e. the sum of the
+  potential energies of all current user interactions)
+
+Both of these energies are delivered in units of :math:`\text{kJ}\cdot\text{mol}^{-1}`.
+
+Similarly, to distinguish the contributions to the total forces acting on the atoms
+in the simulation, the iMD application delivers the forces associated with interactions
+within the molecular system *separately* from the resultant forces from iMD interactions,
+under the following keys:
+
+* ``particle.forces.system``: the force array applied to each particle resulting from
+  interactions within the molecular system (i.e. without iMD forces), as a flattened
+  array of triplets.
+* ``forces.user.index``: a 1-D array of indices (with :math:`n` elements) of the particles
+  to which iMD forces are being applied.
+* ``forces.user.sparse``: the force array applied to each particle for a subset of
+  particles, resulting from iMD interactions (i.e. the total iMD forces applied to
+  specific atoms in the molecular system), as a flattened array of triplets (with
+  :math:`3n` elements). The particles to which the forces are applied are specified by
+  the indices in ``forces.user.index`` (more on this below).
+
+Both force arrays are delivered in units of :math:`\text{kJ}\cdot\text{mol}^{-1}\text{nm}^{-1}`.
+
+As the user interactions usually apply only to a small subset
+of the particles, it would be wasteful to provide the forces for all the particles
+in the FrameData, as most would be null. Instead, the user forces are transmitted in
+a sparse way by indicating which particles are affected with ``forces.user.index``,
+whose entries are the indices of the particles affected by the iMD force,
+corresponding to the indexing in the particle arrays (`e.g.` ``particle.positions``).
+The ``forces.user.sparse`` key contains the corresponding forces applied to these particles
+as a flattened array of triplets. The order of the elements of ``forces.user.index`` correspond to the
+order of the triplets stored in ``forces.user.sparse``.
+
+In addition to delivering information about the forces and potential energies associated
+with the iMD interactions applied to the molecular simulation, the iMD application also
+calculates the cumulative work done on the molecular system by the iMD interactions,
+delivered under the following key:
+
+* ``forces.user.work_done``: the cumulative work done on the molecular system by all iMD
+  forces applied to the system.
+
+The user work done is delivered in the same units as the potential energies, i.e.
+:math:`\text{kJ}\cdot\text{mol}^{-1}`.
+
+.. _velocity-reset:
+
+Velocity reset
+~~~~~~~~~~~~~~
+
+Some server implementations can kill any residual momentum in the system due to the user-applied forces after the user interaction has ended
+by setting the velocities of the affected particles to 0. This is called velocity
+reset and can be requested by the user as part of the interaction description.
+
+Servers that have the ability to do velocity reset should advertise the feature
+by setting the ``imd.velocity_reset_available`` key to true in the :ref:`shared
+state <state-service>`.
 
 Miscellaneous applications
 --------------------------
-
-Some clients or servers may use their own keys in the :ref:`state
-<state-service>` or :ref:`trajectory <trajectory-service>` services. These keys
-are not formally part of any application, but documenting their meaning can
-only improve interoperability among the implementations.
 
 For diagnostics purpose, the time at which a frame has been generated, or
 sent to the trajectory service, can be stored under the ``server.timestamp``
 key in the value map. It is expressed as a fractional number of seconds. This
 timestamp should only be used to compare with other timestamp in the same
 stream as there is no requirement about the clock used to generate it.
-
-A client can send an internal index of the updates it sends under the
-``update.index.<USER_ID>`` key in the shared state; where ``<USER_ID>`` can be
-the player id used in the :ref:`multiplayer application
-<multiplayer-application>` or any string unique to the client. The index is the
-index of the update to be sent by the client in its own internal counter. By
-receiving this value in the update stream, the client can know which of its
-updates have been acknowledged by the server.
