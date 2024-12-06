@@ -10,34 +10,25 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
-import os
 import sys
 import subprocess
 from datetime import datetime
-import requests
-
-def get_latest_release_version(repo_owner, repo_name):
-    url = f"https://api.github.com/repos/{repo_owner}/{repo_name}/releases/latest"
-    response = requests.get(url)
-    if response.status_code == 200:
-        return response.json()['tag_name']
-    else:
-        return 'unknown'
+from pytz import timezone
 
 subprocess.call([sys.executable, './install.py'])
-
 
 # -- Project information -----------------------------------------------------
 
 project = 'NanoVer'
 
+timezone = timezone('UTC')
+release = datetime.now(timezone).strftime("%d-%m-%Y")
+full_release_date = datetime.now(timezone).strftime("%a, %d %b %Y %H:%M:%S")
+
 copyright = (f'{datetime.now().year}, Intangible Realities Lab | University of Santiago de Compostela | University of '
-             f'Bristol | and other contributors')
+             f'Bristol | and other contributors. Last updated on {full_release_date} UTC')
 
 author = 'Intangible Realities Laboratory'
-
-# Set the version dynamically
-release = get_latest_release_version('IRL2', 'nanover-imd')
 
 
 # -- General configuration ---------------------------------------------------
@@ -57,7 +48,6 @@ templates_path = ['_templates']
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = []
 
-
 master_doc = 'index'
 
 
@@ -65,8 +55,11 @@ master_doc = 'index'
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-#
+
 html_theme = 'sphinx_rtd_theme'
+
+# TODO: Add the version number of nanover-server-py
+html_title = f"NanoVer documentation"
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
