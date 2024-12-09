@@ -68,6 +68,14 @@ Optionally, the server can suggest to a client where to place and how to orient
 the game space relative to the server space with the :ref:`user-origin
 <user-origin-description>` key.
 
+.. note::
+
+   In MD applications there is an additional **simulation space** coordinate
+   system. Its relation to the server space is determined by the position
+   of the simulation box (via `scene` key) and iMD interactions use this
+   coordinate space.
+
+
 .. _avatar-description:
 
 Avatars
@@ -136,7 +144,7 @@ In summary, an avatar is structured as such:
 
 .. _play-space-description:
 
-Play space
+Play area
 ~~~~~~~~~~
 
 A client, typically in the case of a VR client, can share the a rough
