@@ -134,56 +134,6 @@ In summary, an avatar is structured as such:
      color,
    }
 
-.. _user-origin-description:
-
-User origin
-~~~~~~~~~~~
-
-Avatars are shared in server space. Each client is responsible to locate its
-server space wherever it prefers relative to its game space. However, the
-server can suggest how to center the game space relative to the server space in
-order to place the users according to each other. This is used by the
-:ref:`radial orient <radial-orient>` server feature.
-
-.. note::
-
-   We assume the user origin is always provided by the server. However, it can
-   come from a client so it is possible to implement a client that will place
-   the users relative to each other folowwing arbitrary pattern. This can be
-   used, for instance, to prototype alternative to the radial orient feature
-   without mofifying the server.
-
-The suggested user origin describes where the server suggests a given user
-places the center of its game space and how to rotate that space. The
-origin is described as a protobuf Struct under the key
-``user-origin.<PLAYER_ID>`` where ``<PLAYER_ID>`` is the ID of the user to whom
-the suggestion is addressed. The Struct has the following keys:
-
-* ``position`` is the suggested location of the center for the user's game
-  space in the server space;
-* ``rotation`` is a quaternion describing the rotation of the user's game
-  space in the server space.
-
-A client may not follow the server suggestion and should not be assumed to do
-so. If the key is absent from the shared state, the client may locate itself in
-the server space as it chooses.
-
-.. warning::
-
-   A client has no way of knowing if the user origin emanates from a ligitimate
-   source (i.e. the server or a trusted client). Therefore, a client could use
-   this feature to move users without their conscent. This could cause
-   discomfort if not used responsibly.
-
-As a summary, the user origin is specified as follow in the shared state:
-
-.. code::
-
-   user-origin.<PLAYER_ID>: {
-     position,
-     rotation,
-   }
-
 .. _play-space-description:
 
 Play space
@@ -219,10 +169,11 @@ If they are available, a client can choose to represent them as they choose.
 Radial orient
 ~~~~~~~~~~~~~
 
-A server can, optionally, implement the radial orient feature as a command on
-the :ref:`command service <command-service>`. The radial orient command places
-all the avatars on a circle around the origin of the server space by
-setting a :ref:`user origin <user-origin-description>` for each avatar.
+The radial orient feature is an command optionally implemented on the
+:ref:`command service <command-service>`. This command suggests how clients
+should position their avatars relative to server space such that all clients
+are positioned in a circle around the origin. These suggestions are in
+the form of a :ref:`user origin <user-origin-description>` for each avatar.
 
 The command is named ``multiuser/radially-orient-origins``. It takes a
 ``radius`` argument that is the distance, in meters, between the generated
@@ -267,14 +218,48 @@ The rotation :math:`\mathbf{R}_i` is expressed as a quaternion and is defined as
     \end{bmatrix}
    \end{align}
 
+.. _user-origin-description:
 
-A client can send an internal index of the updates it sends under the
-``update.index.<USER_ID>`` key in the shared state; where ``<USER_ID>`` can be
-the player id used in the :ref:`multiplayer application
-<multiplayer-application>` or any string unique to the client. The index is the
-index of the update to be sent by the client in its own internal counter. By
-receiving this value in the update stream, the client can know which of its
-updates have been acknowledged by the server.
+User origin
+~~~~~~~~~~~
+
+A user-origin is a suggestion to the client of how to situate its coordinate
+space (and therefore avatar) relative to server space. This is used by the
+:ref:`radial orient <radial-orient>` server feature.
+
+.. note::
+
+   Any client can add user-origin keys. This can be used, for instance, to
+   prototype alternative to the radial orient feature without modifying the server.
+
+The suggested user origin describes where the server suggests a given user
+places the center of its game space and how to rotate that space. The
+origin is described as a protobuf Struct under the key
+``user-origin.<PLAYER_ID>`` where ``<PLAYER_ID>`` is the ID of the user to whom
+the suggestion is addressed. The Struct has the following keys:
+
+* ``position`` is the suggested location of the center for the user's game
+  space in the server space;
+* ``rotation`` is a quaternion describing the rotation of the user's game
+  space in the server space.
+
+Client are free to ignore the user-origin suggestion and locate themselves in
+the server space as they choose.
+
+.. warning::
+
+   Any client can add user-origin keys. If used without due care and
+   responsibility a user in VR could get very nauseous.
+
+As a summary, the user origin is specified as follow in the shared state:
+
+.. code::
+
+   user-origin.<PLAYER_ID>: {
+     position,
+     rotation,
+   }
+
 
 .. _trajectory-application:
 
