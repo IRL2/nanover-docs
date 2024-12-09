@@ -88,8 +88,8 @@ shares their head and hand positions for others to see.
 Avatars are exchanged via the shared state as a protobuf `Struct
 <https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Struct>`_
 under keys of the form ``avatar.<PLAYER_ID>``. This avatar Struct details the
-user's player ID, a name for the user, a display color, and the most important
-part of an avatar: the list of its spatial components.
+user's player ID, a name for the user, a display color, and the list of its
+spatial components.
 
 .. warning::
 
@@ -119,8 +119,8 @@ a Struct with the following keys:
    nanover-server-py <https://github.com/IRL2/nanover-server-py/issues/97>`_ for
    hand-tracking support.
 
-How to represent the avatar is the responsibility of the client. It must assume
-that any of the information may be missing.
+How to represent the avatar is the responsibility of the client, but it should
+be careful to handle cases where some information or components are missing.
 
 In summary, an avatar is structured as such:
 
