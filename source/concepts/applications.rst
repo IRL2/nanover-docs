@@ -139,9 +139,10 @@ In summary, an avatar is structured as such:
 Play space
 ~~~~~~~~~~
 
-A client can share the shape of its play space with the others. A play space,
-or play area, is the area the user can safely reach. This is mostly relevant
-for VR clients which have to define such a safe space.
+A client, typically in the case of a VR client, can share the a rough
+boundary within which the user can safely move. This is used to visually
+indicate the range of motion for each user, and is especially useful for
+colocation and seeing the results of the radial orientation function.
 
 The play area is defined as four points, each as a vector of 3 XYZ values, in
 server space, that form a quadrilateral. The play area is defined as a
@@ -161,8 +162,8 @@ If they are available, a client can choose to represent them as they choose.
 
 .. note::
 
-   We assume that the points defining the play area are on the floor (Y=0).
-   However, nothing forces a client to send them a such.
+   Typically we assume that the points defining the play area are on the floor
+   (Y=0). However, nothing forces a client to send them a such.
 
 .. _radial-orient:
 
