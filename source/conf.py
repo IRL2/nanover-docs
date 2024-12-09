@@ -30,6 +30,28 @@ copyright = (f'{datetime.now().year}, Intangible Realities Lab | University of S
 
 author = 'Intangible Realities Laboratory'
 
+# Set the version based on the commit count (how nanover-server-py currently does it)
+def get_git_commit_count(repo_path="."):
+    """
+    Get the number of commits in nanover-server-py submodule to calculate the version.
+    """
+    try:
+        result = subprocess.run(
+            ["git", "rev-list", "--count", "HEAD"],
+            cwd=repo_path,
+            stdout=subprocess.PIPE,
+            text=True,
+            check=True,
+        )
+        return result.stdout.strip()
+    except subprocess.CalledProcessError as e:
+        print(f"Error calculating commit count: {e}")
+        return "unknown"
+
+base_version = "0.1"
+commit_count = get_git_commit_count("../nanover-server-py")
+version = f"{base_version}.{commit_count}" if commit_count != "unknown" else base_version
+
 
 # -- General configuration ---------------------------------------------------
 
@@ -58,8 +80,7 @@ master_doc = 'index'
 
 html_theme = 'sphinx_rtd_theme'
 
-# TODO: Add the version number of nanover-server-py
-html_title = f"NanoVer documentation"
+html_title = f"NanoVer {version} documentation"
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
