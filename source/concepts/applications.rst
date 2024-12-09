@@ -45,6 +45,14 @@ However, any non-empty string is a valid player ID.
 A multiplayer application can optionally implement the :ref:`radial orient
 <radial-orient>` method to place the avatars in a circle around a point.
 
+A client can send an internal index of the updates it sends under the
+``update.index.<USER_ID>`` key in the shared state; where ``<USER_ID>`` can be
+the player id used in the :ref:`multiplayer application
+<multiplayer-application>` or any string unique to the client. The index is the
+index of the update to be sent by the client in its own internal counter. By
+receiving this value in the update stream, the client can know which of its
+updates have been acknowledged by the server.
+
 .. _multiplayer-coordinate-systems:
 
 Coordinate systems
