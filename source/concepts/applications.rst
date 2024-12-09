@@ -50,15 +50,18 @@ A multiplayer application can optionally implement the :ref:`radial orient
 Coordinate systems
 ~~~~~~~~~~~~~~~~~~
 
-The multiplayer application distinguishes between two coordinate spaces:
+The multi-user application distinguishes between two coordinate spaces:
 
-* the game space is the coordinate space of the client. It is fully the
-  responsibility of the client and the server is not aware of any of its
-  details.
-* the server space is the space in which all coordinate through the server are
-  expressed. It is a left-handed, Y-up, coordinate space, with lengths
-  expressed in meters. The origin of the height is on the floor. It is modeled
-  after Unity's coordinate system.
+* The **server space** is the coordinate system of the shared virtual space,
+  the 3d poses of avatars, the simulation box, and any other objects are
+  exchanged in this coordinate space. The characteristics are chosen to match
+  Unity's VR: left-handed, with Y-up, lengths expressed in meters, and the origin
+  at floor level.
+* A **client space**, the local coordinate space of a client, may differ from
+  server space. For example, in VR the coordinate system may be fixed in physical
+  space such that it can't be changed directly to match server space. The server
+  is not aware of this and it is the client's responsibility to transform
+  coordinates into server space before communicating them.
 
 The client is free to represent the server space anywhere in its game space.
 Optionally, the server can suggest to a client where to place and how to orient
