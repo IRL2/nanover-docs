@@ -81,18 +81,15 @@ the game space relative to the server space with the :ref:`user-origin
 Avatars
 ~~~~~~~
 
-A client can expose an avatar to the other clients by periodically updating the
-corresponding key in the :ref:`shared state <state-updates>`. Since client get
-updates 30 times per seconds by default, 30 avatar updates per seconds is the
-recommended update rate.
+Users may share their presence in the virtual space by creating and continuously
+updating an "avatar". For example, in the iMD-VR application, each VR client
+shares their head and hand positions for others to see.
 
-Avatars are represented in the shared state as a protobuf `Struct
+Avatars are exchanged via the shared state as a protobuf `Struct
 <https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Struct>`_
-under a key formatted as ``avatar.<PLAYER_ID>``.
-
-Inside the Struct, an avatar refers to its player ID. It can also specify a
-name and a color. The most important part of an avatar is the list of its
-components. Components are elements of the avatar with a position and a rotation.
+under keys of the form ``avatar.<PLAYER_ID>``. This avatar Struct details the
+user's player ID, a name for the user, a display color, and the most important
+part of an avatar: the list of its spatial components.
 
 .. warning::
 
@@ -101,13 +98,13 @@ components. Components are elements of the avatar with a position and a rotation
    is undefined behaviour. See `issue #98 in nanover-server-py
    <https://github.com/IRL2/nanover-server-py/issues/98>`_.
 
-The name is an arbitrary string meant to be displayed to the other users as a
-human-readable identifier. The color is also meant to be displayed to the other
-users. The color is provided as a list of RGBA values between 0 and 1.
+The name is an arbitrary string typically displayed as a name tag to the other
+users. The color, intended for distinguishing multiple avatars easily, is provided
+as a list of RGBA component values between 0 and 1.
 
-The expected components are the head and the two hands. An avatar can contain
-other components, but they may not be supported by other clients. Each
-component is a Struct with the following keys:
+The typical components are a head and two hands. An avatar can contain other
+components, but they may not be supported by other clients. Each component is
+a Struct with the following keys:
 
 * ``name``, the predefined name of the component. The supported names are
   "headset", "hand.right", and "hand.left".
