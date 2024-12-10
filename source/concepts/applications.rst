@@ -13,45 +13,22 @@ content for specific tasks.
 
 .. _multiplayer-application:
 
-The multiplayer application
+The multi-user application
 ---------------------------
 
-Clients that implement the multiplayer application can send and receive avatars
-so users can share a virtual space. It is the core of multi-user use cases.
+The multi-user application provides a shared virtual space in which users can
+embody themselves with "avatars" and manipulate objects (e.g the simulation box
+in MD).
 
-Each user that is visible to the others have :ref:`an avatar
-<avatar-description>`, the characteristic of which it shares using the
-:ref:`state service <state-service>`. An :ref:`origin
-<user-origin-description>` can optionally be associated to a user. That origin
-is a suggestion from the server to place a users relative to each other.
-Finally, a user can optionally describe its :ref:`play space
-<play-space-description>`, being the area around the user in which it is deemed
-safe to move.
+Clients can broadcast avatar representations of themselves, information about
+their range of motion within shared space (useful for VR), and receive a server
+suggestion about how to position themselves relatives to other clients.
 
-Avatars, user origins, and play spaces are linked to a user with a player ID.
-This ID is an arbitrary string chosen by the user's client. Commonly, clients
+Each user chooses a unique "player ID" for themselves to distinguish the
+ownership and applicability of the user information shared. Commonly, clients
 use a `UUID4
 <https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)>`_
 to reduce the risk of collision between IDs produced by different clients.
-However, any non-empty string is a valid player ID.
-
-.. warning::
-
-   An empty string is an invalid player ID only by convention. At this time, no
-   server will prevent the use of one. However, an empty player ID is more
-   likely to enter in collision between clients which could cause a client's
-   avatar to be overwritten by another client.
-
-A multiplayer application can optionally implement the :ref:`radial orient
-<radial-orient>` method to place the avatars in a circle around a point.
-
-A client can send an internal index of the updates it sends under the
-``update.index.<USER_ID>`` key in the shared state; where ``<USER_ID>`` can be
-the player id used in the :ref:`multiplayer application
-<multiplayer-application>` or any string unique to the client. The index is the
-index of the update to be sent by the client in its own internal counter. By
-receiving this value in the update stream, the client can know which of its
-updates have been acknowledged by the server.
 
 .. _multiplayer-coordinate-systems:
 
@@ -273,6 +250,18 @@ As a summary, the user origin is specified as follow in the shared state:
      position,
      rotation,
    }
+
+
+.. _multiplayer-update-index
+
+Update index
+~~~~~~~~~~~~
+
+If the client needs more precise knowledge of which of its updates have already
+been received and rebroadcast to all clients, it can choose to maintain an
+incrementing count of sent updates and store this in the shared state under
+an ``update.index.<USER_ID>`` key. The client can then compare the remotely
+received updates to this value with its internal count.
 
 
 .. _trajectory-application:
