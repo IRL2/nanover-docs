@@ -252,7 +252,7 @@ As a summary, the user origin is specified as follow in the shared state:
    }
 
 
-.. _multiplayer-update-index
+.. _multiplayer-update-index:
 
 Update index
 ~~~~~~~~~~~~
