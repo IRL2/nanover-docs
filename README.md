@@ -44,6 +44,8 @@ make.bat html
 ./make.bat html
 ```
 
+**If you get warnings about failing to import modules when building the docs locally, reclone the repo.**
+
 
 ## Posting to readthedocs 
 
