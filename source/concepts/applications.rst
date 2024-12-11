@@ -21,7 +21,8 @@ in MD).
 
 Clients can broadcast avatar representations of themselves, information about
 their range of motion within shared space (useful for VR), and receive a server
-suggestion about how to position themselves relatives to other clients.
+suggestion about how to position themselves relatives to other clients e.g.
+:ref:`radially oriented <radial-orient>` for distributed setups.
 
 Each user chooses a unique "player ID" for themselves to distinguish the
 ownership and applicability of the user information shared. Commonly, clients
@@ -36,8 +37,8 @@ Coordinate systems
 
 The multi-user application distinguishes between two coordinate spaces:
 
-* The **server space** is the coordinate system of the shared virtual space,
-  the 3d poses of avatars, the simulation box, and any other objects are
+* The **server space** is the coordinate system of the shared virtual space.
+  The 3d poses of avatars, the simulation box, and any other objects are
   exchanged in this coordinate space. The characteristics are chosen to match
   Unity's VR: left-handed, with Y-up, lengths expressed in meters, and the origin
   at floor level.
@@ -47,9 +48,9 @@ The multi-user application distinguishes between two coordinate spaces:
   is not aware of this and it is the client's responsibility to transform
   coordinates into server space before communicating them.
 
-The client is free to represent the server space anywhere in its game space.
+The client is free to represent the server space anywhere in its client space.
 Optionally, the server can suggest to a client where to place and how to orient
-the game space relative to the server space with the :ref:`user-origin
+the client space relative to the server space with the :ref:`user-origin
 <user-origin-description>` key.
 
 .. note::
@@ -78,8 +79,7 @@ spatial components.
 .. warning::
 
    The avatar specifies its player ID twice: in the top level key and with the
-   ``playerid`` sub-key. Both places MUST match. A discrepancy between the two
-   is undefined behaviour. See `issue #98 in nanover-server-py
+   ``playerid`` sub-key. Both places MUST match. See `issue #98 in nanover-server-py
    <https://github.com/IRL2/nanover-server-py/issues/98>`_.
 
 The name is an arbitrary string typically displayed as a name tag to the other
@@ -99,7 +99,7 @@ a Struct with the following keys:
 
 .. note::
 
-   The avatar description currently only support VR controllers. See `issue #97 in
+   The avatar description currently only supports VR controllers. See `issue #97 in
    nanover-server-py <https://github.com/IRL2/nanover-server-py/issues/97>`_ for
    hand-tracking support.
 
@@ -113,9 +113,9 @@ In summary, an avatar is structured as such:
    avatar.<PLAYER_ID>: {
      components : [
        {
-         name
-         position: 
-         rotation
+         name,
+         position,
+         rotation,
        }
      ],
      playerid,
@@ -128,10 +128,11 @@ In summary, an avatar is structured as such:
 Play area
 ~~~~~~~~~~
 
-A client, typically in the case of a VR client, can share the a rough
+A client, typically in the case of a VR client, can share a rough
 boundary within which the user can safely move. This is used to visually
 indicate the range of motion for each user, and is especially useful for
-colocation and seeing the results of the radial orientation function.
+colocated setups, or seeing the results of the :ref:`radial orient <radial-orient>`
+function for distributed setups.
 
 The play area is defined as four points, each as a vector of 3 XYZ values, in
 server space, that form a quadrilateral. The play area is defined as a
@@ -152,7 +153,7 @@ If they are available, a client can choose to represent them as they choose.
 .. note::
 
    Typically we assume that the points defining the play area are on the floor
-   (Y=0). However, nothing forces a client to send them a such.
+   (Y=0), but this is not required.
 
 .. _radial-orient:
 
@@ -175,36 +176,36 @@ The command does not return anything. This leads to the following signature:
    multiuser/radially-orient-origins(radius = 1.0) -> None
 
 Let a set of players :math:`P = \{P_0, P_1, ... P_{N - 1}\}`, :math:`N` the number of
-players, and :math:`r` the radius given in argument. Then the center's position
-:math:`\mathbf{C}_i` for avatar :math:`i` is computed using polar coordinates converted
-to Cartesian. Each avatar is assigned an angle :math:`\theta_i`:
+players, and :math:`r` the radius given as an argument. Then the center's position
+:math:`\mathbf{C}_p` for avatar :math:`p` is computed using polar coordinates converted
+to Cartesian. Each avatar is assigned an angle :math:`\theta_p`:
 
 .. math::
 
-  \theta_i = \frac{i \times 2 \pi}{N}
+  \theta_p = \frac{ 2 \pi p}{N}
 
-Then the positions is:
+Then each position is:
 
 .. math::
 
   \begin{align}
-  \mathbf{C}_i &= \begin{bmatrix}
-    r\cos{\theta_i}\\
+  \mathbf{C}_p &= \begin{bmatrix}
+    r\cos{\theta_p}\\
     0\\
-    r\sin{\theta_i}\\
+    r\sin{\theta_p}\\
   \end{bmatrix}
   \end{align}
 
-The rotation :math:`\mathbf{R}_i` is expressed as a quaternion and is defined as:
+The rotation :math:`\mathbf{R}_p` is expressed as a quaternion and is defined as:
 
 .. math::
 
    \begin{align}
-   \mathbf{R}_i &= \begin{bmatrix}
+   \mathbf{R}_p &= \begin{bmatrix}
      0\\
-     \sin{\frac{1}{2} \big(-\theta_i - \frac{2\pi}{N}\big)}\\
+     \sin{\frac{1}{2} \big(-\theta_p - \frac{2\pi}{N}\big)}\\
      0\\
-     \cos{\frac{1}{2} \big(-\theta_i - \frac{2\pi}{N}\big)}\\
+     \cos{\frac{1}{2} \big(-\theta_p - \frac{2\pi}{N}\big)}\\
     \end{bmatrix}
    \end{align}
 
@@ -213,27 +214,26 @@ The rotation :math:`\mathbf{R}_i` is expressed as a quaternion and is defined as
 User origin
 ~~~~~~~~~~~
 
-A user-origin is a suggestion to the client of how to situate its coordinate
+A user-origin is a suggestion to the client of how to position its coordinate
 space (and therefore avatar) relative to server space. This is used by the
 :ref:`radial orient <radial-orient>` server feature.
 
 .. note::
 
    Any client can add user-origin keys. This can be used, for instance, to
-   prototype alternative to the radial orient feature without modifying the server.
+   prototype alternatives to the radial orient feature without modifying the server.
 
-The suggested user origin describes where the server suggests a given user
-places the center of its game space and how to rotate that space. The
-origin is described as a protobuf Struct under the key
-``user-origin.<PLAYER_ID>`` where ``<PLAYER_ID>`` is the ID of the user to whom
-the suggestion is addressed. The Struct has the following keys:
+The user origin describes where the server suggests a given user places the center
+of its client space and how to orient it. The origin is described as a protobuf
+Struct under the key ``user-origin.<PLAYER_ID>`` where ``<PLAYER_ID>`` is the ID
+of the user to whom the suggestion is addressed. The Struct has the following keys:
 
-* ``position`` is the suggested location of the center for the user's game
+* ``position`` is the suggested location of the center for the user's client
   space in the server space;
-* ``rotation`` is a quaternion describing the rotation of the user's game
+* ``rotation`` is a quaternion describing the rotation of the user's client
   space in the server space.
 
-Client are free to ignore the user-origin suggestion and locate themselves in
+Clients are free to ignore the user-origin suggestion and locate themselves in
 the server space as they choose.
 
 .. warning::
@@ -241,7 +241,7 @@ the server space as they choose.
    Any client can add user-origin keys. If used without due care and
    responsibility a user in VR could get very nauseous.
 
-As a summary, the user origin is specified as follow in the shared state:
+As a summary, the user origin is specified as follows in the shared state:
 
 .. code::
 
@@ -650,7 +650,7 @@ server can communicate the result of these interactions on the simulation to
 the clients.
 
 A user sends an interaction as a point of origin (in simulation space),
-the particles to which it applies and a set of parameters. The server, then
+the particles to which it applies and any additional parameters (e.g force strength). The server, then
 collects all the user interactions, computes the corresponding forces and
 propagates them with the other forces in the simulation.
 
@@ -662,10 +662,11 @@ The :ref:`trajectory service <trajectory-service>` used by the
 application) allows users to choose a frame interval, an integer that specifies
 the number of simulation steps to be performed by the physics engine between each
 published frame. This can take an integer value :math:`n_{\text{f}} \geq 1`, and
-by default is set to 5 in the iMD application. The frame interval enables a balance
-to be struck between the accuracy of the numerical integration of the equations of
-motion in the physics engine and the usability of the application for watching
-the molecular simulation progress in real-time.
+by default is set to 5 in the iMD application. The frame interval offers an alternative
+to longer (and hence less accurate) simulation time steps by allowing several shorter
+simulation steps to run between each frame published to clients, for cases where you
+want to tune the relationship between simulation time and real-time during
+visualisation and interaction.
 
 In the iMD application, clients can apply forces to the molecular simulation in
 real-time. In order for any client connecting to a server to gain all of the
@@ -824,7 +825,7 @@ following fields:
 FrameData keys
 ~~~~~~~~~~~~~~
 
-Some details about how the user interactions where applied are added to the
+Details about the user interactions applied are added to the
 :ref:`FrameData <frame-description>`.
 
 Each of the interactions applied to the molecular system by a user in the iMD
