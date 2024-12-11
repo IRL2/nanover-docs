@@ -4,12 +4,11 @@ Applications
 ============
 
 The :ref:`NanoVer protocol <base-protocol>` defines how clients and servers
-communicate with each other. It leaves ample room for customisation: it does
+communicate with each other. It is designed to be extensible: it does
 not define the content of a :ref:`FrameData <frame-description>`, the
-meaning of the shared state keys is not defined either, nor does the protocol
-specifies what the commands should be. This points are defined by applications.
-Applications define how to use the different services and how to format the
-content for specific tasks.
+meaning of the shared state keys, or the available commands. Each of these
+can be defined and extended to support various **applications**. Each application
+defines conventions for utilising the different services for specific objectives.
 
 .. _multiplayer-application:
 
