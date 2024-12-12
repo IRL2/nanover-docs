@@ -273,8 +273,8 @@ snapshots of a trajectory; the protocol refers to these snapshots as frames. The
 application is agnostic about the frames being generated on-the-fly or being
 pre-calculated.
 
-This application defines a set of fields to describe the semantics of molecular
-systems within the ``FrameData``. It also defines a set of optional commands a
+This application defines a set of fields that describe the semantics of molecular
+systems within the ``FrameData``. It also defines a set of optional commands that a
 server can implement to give the clients some control over how the frames are
 streamed. Finally, it defines some interactions with the multiplayer
 application to share where to display the molecular system relative to the
@@ -383,7 +383,7 @@ keys in the array map:
 
 .. important::
 
-   As the iMD application delivers system quantities separately from the interaction
+   Since the iMD application delivers system quantities separately from the interaction
    quantities, the key ``particle.forces.system`` is now used in place of
    ``particle.forces`` in iMD. The former contains the force array
    applied to each particle due to interactions from *within the molecular system*
@@ -411,7 +411,7 @@ keys in the array map:
 
 If the FrameData uses any key starting with ``particle.``, it must set the key
 ``particle.count`` in the value map. The value of ``particle.count`` is the
-number of particles in the frame, it must match the length of the arrays.
+number of particles in the frame, and must match the length of the arrays.
 
 Residues
 ^^^^^^^^
@@ -442,13 +442,13 @@ residues and must match the length of the residue-related arrays. Indices in
 the ``particle.residues`` array must be strictly less than the number of
 residues. However, these indices may not refer to all of the residues. This
 means it is possible to have residues with no particle attached to them. This
-allows to filter particles out without having to modify the list of residues.
+allows us to filter out particles without having to modify the list of residues.
 
 Chains
 ^^^^^^
 
-Residues can be grouped by chains. There is no format semantic for chains
-except that they are groups of residues. However, a chain is commonly either
+Residues can be grouped by chains. There is no semantic format for chains
+except that they are groups of residues. However, a chain is commonly either:
 
 (i) a complete set of residues connected by bonds, or
 (ii) a complete set of connected residues and residues not connected by bonds but
@@ -637,7 +637,7 @@ The iMD application
 -------------------
 
 For now, the main application of NanoVer is interactive molecular dynamics
-(iMD) simulations, in  which a simulation runs on the server and users can
+(iMD) simulations, in which a simulation runs on a server and users can
 apply forces to particles on-the-fly. The iMD application builds on the capacity of the
 :ref:`trajectory application <trajectory-application>` to provide live molecular
 dynamics by defining the means to perform real-time interactions with the
@@ -649,8 +649,8 @@ server can communicate the result of these interactions on the simulation to
 the clients.
 
 A user sends an interaction as a point of origin (in simulation space),
-the particles to which it applies and any additional parameters (e.g force strength). The server, then
-collects all the user interactions, computes the corresponding forces and
+the particles to which it applies and any additional parameters (e.g force strength). The server then
+collects all the user interactions, computes the corresponding forces, and
 propagates them with the other forces in the simulation.
 
 Blueprint for quantitative iMD
