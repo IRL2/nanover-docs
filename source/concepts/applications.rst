@@ -227,9 +227,9 @@ of its client space and how to orient it. The origin is described as a protobuf
 Struct under the key ``user-origin.<PLAYER_ID>`` where ``<PLAYER_ID>`` is the ID
 of the user to whom the suggestion is addressed. The Struct has the following keys:
 
-* ``position`` is the suggested location of the center for the user's client
+* ``position`` is the suggested location of the center of the user's client
   space in the server space;
-* ``rotation`` is a quaternion describing the rotation of the user's client
+* ``rotation`` is the suggested rotation (as a quaternion) of the user's client
   space in the server space.
 
 Clients are free to ignore the user-origin suggestion and locate themselves in
@@ -238,7 +238,7 @@ the server space as they choose.
 .. warning::
 
    Any client can add user-origin keys. If used without due care and
-   responsibility a user in VR could get very nauseous.
+   responsibility, a VR user could get very nauseous.
 
 As a summary, the user origin is specified as follows in the shared state:
 
@@ -255,11 +255,11 @@ As a summary, the user origin is specified as follows in the shared state:
 Update index
 ~~~~~~~~~~~~
 
-If the client needs more precise knowledge of which of its updates have already
-been received and rebroadcast to all clients, it can choose to maintain an
+If a client needs more precise knowledge of which of its updates have already
+been accepted by the server and broadcast to clients, it can choose to maintain an
 incrementing count of sent updates and store this in the shared state under
 an ``update.index.<USER_ID>`` key. The client can then compare the remotely
-received updates to this value with its internal count.
+received updates to this internal count.
 
 
 .. _trajectory-application:
