@@ -174,8 +174,8 @@ The command does not return anything. This leads to the following signature:
 
    multiuser/radially-orient-origins(radius = 1.0) -> None
 
-Let a set of players :math:`P = \{P_0, P_1, ... P_{N - 1}\}`, :math:`N` the number of
-players, and :math:`r` the radius given as an argument. Then the center's position
+Let's define set of players, :math:`P = \{P_0, P_1, ... P_{N - 1}\}`, where :math:`N` is the number of
+players, and :math:`r` is the radius given as an argument. Then the center's position
 :math:`\mathbf{C}_p` for avatar :math:`p` is computed using polar coordinates and then converted
 to Cartesian coordinates. Each avatar is assigned an angle :math:`\theta_p`:
 
@@ -183,7 +183,7 @@ to Cartesian coordinates. Each avatar is assigned an angle :math:`\theta_p`:
 
   \theta_p = \frac{ 2 \pi p}{N}
 
-Then the position of each user's suggested origin is:
+Then the position :math:`\mathbf{C}_p` of each user's suggested origin is:
 
 .. math::
 
@@ -195,7 +195,7 @@ Then the position of each user's suggested origin is:
   \end{bmatrix}
   \end{align}
 
-And the rotation :math:`\mathbf{R}_p` is expressed as a quaternion and is defined as:
+And the rotation :math:`\mathbf{R}_p` is expressed as a quaternion, defined as:
 
 .. math::
 
@@ -276,12 +276,22 @@ pre-calculated.
 This application defines a set of fields that describe the semantics of molecular
 systems within the ``FrameData``. It also defines a set of optional commands that a
 server can implement to give the clients some control over how the frames are
-streamed. Finally, it defines some interactions with the multiplayer
-application to share where to display the molecular system relative to the
-users, and how to render the molecules.
+streamed. Finally, it defines several methods to communicate with the multiplayer
+application in order to share where to display the molecular system relative to the
+users and define how to render the molecules.
 
 Frames
 ~~~~~~
+
+In this section we define a set of keys and data formats that we use to describe
+the semantics of molecular systems.
+
+.. note::
+
+   A server using the set of trajectory-specific keys can implement keys from
+   another application as well. For instance, a server implementing the
+   :ref:`iMD application <imd-application>` can implement both this set of keys
+   and the :ref:`iMD-specific keys <imd-framedata-keys>`.
 
 The trajectory application uses the :ref:`trajectory service <trajectory-service>`,
 which allows a server to stream snapshots of arbitrary data to clients. Each snapshot is
@@ -290,15 +300,8 @@ described in a :ref:`FrameData <frame-description>` object, which contains:
 * a key-value map of protobuf `Values <https://protobuf.dev/reference/protobuf/google.protobuf/#value>`_
 * a key-value map of homogeneous arrays
 
-Here, we define a set of keys and data formats to describe the semantics of
-molecular systems.
-
-.. note::
-
-   A server using this set of keys can implement keys from another application
-   as well. For instance, a server implementing the :ref:`iMD application
-   <imd-application>` can implement both this set of keys and :ref:`iMD-specific
-   keys <imd-framedata-keys>`.
+The coordinate system is the right-handed, Z-up system used in most software
+working with molecular systems.
 
 All FrameData values used by the trajectory application use the following set
 of units:
@@ -333,9 +336,6 @@ of units:
 
    .. grid-item::
 
-
-The coordinate system is the right-handed, Z-up, system used in most software
-working with molecular systems.
 
 .. important::
 
@@ -384,10 +384,11 @@ keys in the array map:
 .. important::
 
    Since the iMD application delivers system quantities separately from the interaction
-   quantities, the key ``particle.forces.system`` is now used in place of
-   ``particle.forces`` in iMD. The former contains the force array
+   quantities, the key ``particle.forces.system`` has replaced the key
+   ``particle.forces`` in the iMD application. The former contains the force array
    applied to each particle due to interactions from *within the molecular system*
-   (i.e. excluding forces arising from iMD interactions).
+   (i.e. excluding forces arising from iMD interactions). The latter is still available
+   for backwards compatibility with existing trajectories.
 
 .. _leap-frog-warning:
 
@@ -402,11 +403,11 @@ keys in the array map:
 
 .. note::
 
-   The application used to define a ``particle.types`` key for non-atomic
+   The trajectory application previously defined a ``particle.types`` key for non-atomic
    systems where ``particle.elements`` was not appropriate. However, the key
-   not being used lead to a lack of support. The key not having a clear meaning
-   defined, has been removed from the application. However, the protocol allows
-   the use of arbitrary keys so users of the application can reintroduce this
+   not being used lead to a lack of support. The key, not having a clear meaning
+   defined, has been removed from this application. However, the protocol allows
+   the use of arbitrary keys so users can reintroduce this
    key, or any more appropriate ones, for their own use cases.
 
 If the FrameData uses any key starting with ``particle.``, it must set the key
@@ -707,7 +708,7 @@ forces.
 Each interaction type also defines the equation for the potential energy associated
 with the user interaction :math:`E_{\text{COM}}`. For mass weighted interaction, the
 energy for the interaction is :math:`E = \frac{E_{\text{COM}}}{N}\sum_{i=0}^{N}m_i`.
-For non mass weighted :math:`E = E_{\text{COM}}`.
+For non mass weighted, :math:`E = E_{\text{COM}}`.
 
 .. _force-equations:
 
