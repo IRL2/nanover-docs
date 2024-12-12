@@ -16,12 +16,12 @@ The multi-user application
 ---------------------------
 
 The multi-user application provides a shared virtual space in which users can
-embody themselves with "avatars" and manipulate objects (e.g the simulation box
-in MD).
+embody themselves with "avatars" and manipulate objects (e.g repositioning the
+simulation box in MD).
 
-Clients can broadcast avatar representations of themselves, information about
-their range of motion within shared space (useful for VR), and receive a server
-suggestion about how to position themselves relatives to other clients e.g.
+Clients can broadcast avatar representations of themselves, the extent
+of their walkable VR space, and receive a server suggestion about how to
+position themselves relatives to other clients e.g.
 :ref:`radially oriented <radial-orient>` for distributed setups.
 
 Each user chooses a unique "player ID" for themselves to distinguish the
@@ -42,7 +42,7 @@ The multi-user application distinguishes between two coordinate spaces:
   exchanged in this coordinate space. The characteristics are chosen to match
   Unity's VR: left-handed, with Y-up, lengths expressed in meters, and the origin
   at floor level.
-* A **client space**, the local coordinate space of a client, may differ from
+* A **client space** is the local coordinate space of a given client, and which may differ from
   server space. For example, in VR the coordinate system may be fixed in physical
   space such that it can't be changed directly to match server space. The server
   is not aware of this and it is the client's responsibility to transform
@@ -57,7 +57,7 @@ the client space relative to the server space with the :ref:`user-origin
 
    In MD applications there is an additional **simulation space** coordinate
    system. Its relation to the server space is determined by the position
-   of the simulation box (via `scene` key) and iMD interactions use this
+   of the simulation box (via the `scene` key). IMD interactions use this
    coordinate space.
 
 
@@ -73,7 +73,7 @@ shares their head and hand positions for others to see.
 Avatars are exchanged via the shared state as a protobuf `Struct
 <https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Struct>`_
 under keys of the form ``avatar.<PLAYER_ID>``. This avatar Struct details the
-user's player ID, a name for the user, a display color, and the list of its
+user's player ID, a name for the user, a display color, and a list of its
 spatial components.
 
 .. warning::
@@ -82,12 +82,12 @@ spatial components.
    ``playerid`` sub-key. Both places MUST match. See `issue #98 in nanover-server-py
    <https://github.com/IRL2/nanover-server-py/issues/98>`_.
 
-The name is an arbitrary string typically displayed as a name tag to the other
-users. The color, intended for distinguishing multiple avatars easily, is provided
+The name is an arbitrary string typically displayed as a floating label above the
+avatar. The color, intended for distinguishing multiple avatars easily, is provided
 as a list of RGBA component values between 0 and 1.
 
 The typical components are a head and two hands. An avatar can contain other
-components, but they may not be supported by other clients. Each component is
+components, but they may be ignored and hidden by other clients. Each component is
 a Struct with the following keys:
 
 * ``name``, the predefined name of the component. The supported names are
@@ -128,14 +128,14 @@ In summary, an avatar is structured as such:
 Play area
 ~~~~~~~~~~
 
-A client, typically in the case of a VR client, can share a rough
-boundary within which the user can safely move. This is used to visually
-indicate the range of motion for each user, and is especially useful for
-colocated setups, or seeing the results of the :ref:`radial orient <radial-orient>`
-function for distributed setups.
+A client, typically in the case of a VR client, can share a 
+boundary within which that user can safely move. This can be visualised
+on other clients and is especially useful for colocated setups, or to
+see the results of the :ref:`radial orient <radial-orient>` function for
+distributed setups.
 
-The play area is defined as four points, each as a vector of 3 XYZ values, in
-server space, that form a quadrilateral. The play area is defined as a
+The play area is defined as four points, where each point is a vector of three XYZ values defined in
+server space that form a quadrilateral. The play area is defined as a
 Struct in the shared state under the key ``playarea.<PLAYER_ID>``. The points
 are defined under the keys ``A``, ``B``, ``C``, and ``D``.
 
@@ -148,8 +148,6 @@ are defined under the keys ``A``, ``B``, ``C``, and ``D``.
       D,
     }
 
-If they are available, a client can choose to represent them as they choose.
-
 .. note::
 
    Typically we assume that the points defining the play area are on the floor
@@ -160,15 +158,16 @@ If they are available, a client can choose to represent them as they choose.
 Radial orient
 ~~~~~~~~~~~~~
 
-The radial orient feature is an command optionally implemented on the
+The radial orient feature is a command optionally implemented on the
 :ref:`command service <command-service>`. This command suggests how clients
-should position their avatars relative to server space such that all clients
-are positioned in a circle around the origin. These suggestions are in
-the form of a :ref:`user origin <user-origin-description>` for each avatar.
+should position their client space (and hence avatars) relative to server
+space such that all clients are positioned in a circle around the origin.
+These suggestions are in the form of a
+:ref:`user origin <user-origin-description>` for each avatar.
 
 The command is named ``multiuser/radially-orient-origins``. It takes a
-``radius`` argument that is the distance, in meters, between the generated
-centers and the center of the server space. The default radius is 1 meter.
+``radius`` argument that is the radius, in meters, of the circle along
+which each user will be placed. The default radius is 1 meter.
 The command does not return anything. This leads to the following signature:
 
 .. code::
@@ -177,14 +176,14 @@ The command does not return anything. This leads to the following signature:
 
 Let a set of players :math:`P = \{P_0, P_1, ... P_{N - 1}\}`, :math:`N` the number of
 players, and :math:`r` the radius given as an argument. Then the center's position
-:math:`\mathbf{C}_p` for avatar :math:`p` is computed using polar coordinates converted
-to Cartesian. Each avatar is assigned an angle :math:`\theta_p`:
+:math:`\mathbf{C}_p` for avatar :math:`p` is computed using polar coordinates and then converted
+to Cartesian coordinates. Each avatar is assigned an angle :math:`\theta_p`:
 
 .. math::
 
   \theta_p = \frac{ 2 \pi p}{N}
 
-Then each position is:
+Then the position of each user's suggested origin is:
 
 .. math::
 
@@ -196,7 +195,7 @@ Then each position is:
   \end{bmatrix}
   \end{align}
 
-The rotation :math:`\mathbf{R}_p` is expressed as a quaternion and is defined as:
+And the rotation :math:`\mathbf{R}_p` is expressed as a quaternion and is defined as:
 
 .. math::
 
@@ -214,7 +213,7 @@ The rotation :math:`\mathbf{R}_p` is expressed as a quaternion and is defined as
 User origin
 ~~~~~~~~~~~
 
-A user-origin is a suggestion to the client of how to position its coordinate
+A user-origin is a suggestion to a client of how to position their coordinate
 space (and therefore avatar) relative to server space. This is used by the
 :ref:`radial orient <radial-orient>` server feature.
 
