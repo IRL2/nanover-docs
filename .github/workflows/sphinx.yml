@@ -27,6 +27,8 @@ jobs:
         with:
           path: destination
           ref: refs/heads/pages
+      - name: CHECK VERSION
+        run: git rev-list --count HEAD
       - name: Install conda
         uses: conda-incubator/setup-miniconda@v2
         with:
