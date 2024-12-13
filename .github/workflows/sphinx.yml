@@ -28,7 +28,7 @@ jobs:
         with:
           path: destination
           ref: refs/heads/pages
-      - name: CHECK VERSION
+      - name: Check commit count for version
         run: |
           cd source/nanover-server-py
           git rev-list --count HEAD
