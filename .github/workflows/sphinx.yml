@@ -22,11 +22,16 @@ jobs:
         with:
           path: source
           submodules: true
+          fetch-depth: 0
       - name: Get the destination branch
         uses: actions/checkout@v3
         with:
           path: destination
           ref: refs/heads/pages
+      - name: Check commit count for version
+        run: |
+          cd source/nanover-server-py
+          git rev-list --count HEAD
       - name: Install conda
         uses: conda-incubator/setup-miniconda@v2
         with:
