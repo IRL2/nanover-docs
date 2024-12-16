@@ -63,10 +63,24 @@ Each NanoVer recording file contains a header and a sequence of records:
 Recording with Python
 ---------------------
 
-How to record
-~~~~~~~~~~~~~
+How to record in terminal
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
-NanoVer sessions can be recorded using the :mod:`nanover.omni.record` module.
+The `nanover-record` command-line utility can be used to quickly start and stop multiple spans of recording
+without writing any code.
+
+The default is to connect to a local server on the default port, but more connectivity and output options
+can be found with the help option:
+
+.. code-block::
+
+    nanover-record --help
+
+
+How to record in script
+~~~~~~~~~~~~~~~~~~~~~~~
+
+NanoVer sessions can be also recorded using the :mod:`nanover.omni.record` module.
 Here is an example of how to define the file names and paths for the recording and pass them to the recording function:
 
 .. code:: python
