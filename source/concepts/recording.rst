@@ -10,18 +10,23 @@ This recording can then be analysed or played back to get insight. In this docum
     :depth: 2
     :local:
 
-What is recorded
-----------------
+----
 
-NanoVer can record two different streams:
+Intro to recording with NanoVer
+-------------------------------
 
-* the stream of simulation frames,
-* and the stream of updates of the shared state.
+The data streams
+~~~~~~~~~~~~~~~~
 
-These two streams are identical to the streams sent to the clients during the live recording,
+NanoVer can record the following data streams:
+
+* the stream of simulation frames
+* the stream of updates of the shared state
+
+Recorded streams are identical to the data streams sent to clients during a live simulation,
 with the addition of a timestamp that enables synchronisation of the streams during playback.
-Each stream is stored in a separate file.
 
+Each stream is stored in a separate file.
 By convention, recordings of the frame stream have the ``.traj`` file extension,
 while recordings of the shared state stream have the ``.state`` file extension.
 
@@ -31,8 +36,8 @@ while recordings of the shared state stream have the ``.state`` file extension.
    :class:`PlaybackSimulation` class in the :mod:`nanover.omni.playback` module,
    they must adopt the above file extension conventions.
 
-NanoVer recording format
-------------------------
+File format
+~~~~~~~~~~~
 
 Each NanoVer recording file contains a header and a sequence of records:
 
@@ -59,12 +64,15 @@ Each NanoVer recording file contains a header and a sequence of records:
           for instance because the server loaded a new simulation.
         * The **frame** itself: this is an instance of the :ref:`FrameData <traj-and-frames>` class.
 
+|
+
+----
 
 Recording with Python
 ---------------------
 
-How to record in terminal
-~~~~~~~~~~~~~~~~~~~~~~~~~
+Using the terminal
+~~~~~~~~~~~~~~~~~~
 
 The `nanover-record` command-line utility can be used to quickly start and stop multiple spans of recording
 without writing any code.
@@ -76,9 +84,8 @@ can be found with the help option:
 
     nanover-record --help
 
-
-How to record in script
-~~~~~~~~~~~~~~~~~~~~~~~
+Using a Python script
+~~~~~~~~~~~~~~~~~~~~~
 
 NanoVer sessions can be also recorded using the :mod:`nanover.omni.record` module.
 Here is an example of how to define the file names and paths for the recording and pass them to the recording function:
@@ -92,11 +99,12 @@ Here is an example of how to define the file names and paths for the recording a
     # create a recording from a server and save it to the files
     record_from_server("localhost:38801", traj_path, state_path)
 
-How to visualise recordings
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Visualising recordings
+~~~~~~~~~~~~~~~~~~~~~~
+
 Visualising and playing back recordings can be done using :mod:`nanover.omni.playback` module.
-The Python Server can stream recorded NanoVer streams read by a ``PlaybackSimulation`` object to a client. The client then plays back the recording as if it were
-a live stream.
+The Python Server can stream recorded NanoVer streams read by a ``PlaybackSimulation`` object to a client.
+The client then plays back the recording as if it were a live stream.
 The server sends the frame and state updates whilst trying to respect the timing dictated by the timestamps stored
 in the file.
 
@@ -120,15 +128,21 @@ in the file.
     Further instructions and information on how to record and replay using the NanoVer Python module can be found in
     this notebook `recording_and_replaying.ipynb <https://github.com/IRL2/nanover-server-py/blob/main/examples/basics/recording_and_replaying.ipynb>`_.
 
+|
+
+----
+
 Recording with the Rust Server
 ------------------------------
 
-How to record
-~~~~~~~~~~~~~
+.. note::
 
-The Rust Server takes a snapshot of the streams 30 times a second (although this may change with
-issues `#200 <https://github.com/IRL2/nanover-server-rs/issues/200>`_ and
-`#201 <https://github.com/IRL2/nanover-server-rs/issues/201>`_).
+    The Rust Server takes a snapshot of the streams 30 times a second (although this may change with
+    issues `#200 <https://github.com/IRL2/nanover-server-rs/issues/200>`_ and
+    `#201 <https://github.com/IRL2/nanover-server-rs/issues/201>`_).
+
+Using the terminal
+~~~~~~~~~~~~~~~~~~
 
 When using the ``nanover-cli`` command via the command line, use the ``--trajectory`` argument to specify the file that
 will store the recording of the frame stream, and the ``--state`` argument to specify the file that will store
@@ -139,11 +153,14 @@ the recording of the shared state updates.
     # For Windows Powershell
     .\nanover-cli.exe "simulation.xml" --trajectory "path/to/recording.traj" --state "path/to/recording.state"
 
-On the graphical interface, the files are specified in the ``Recording`` section before starting the server
+Using the GUI
+~~~~~~~~~~~~~
+
+On the graphical user interface (GUI), the files are specified in the ``Recording`` section before starting the server
 (see :ref:`rust_server_via_the_gui`).
 
-How to visualise recordings
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Visualising recordings
+~~~~~~~~~~~~~~~~~~~~~~
 
 **Using the the command line**, providing only a ``.traj`` file will stream the frames only,
 and providing only a ``.state`` file will stream the state updates only.
@@ -158,9 +175,12 @@ In order to send both streams together, provide the two file paths separated by 
 **Using the graphical interface**, add a recording to the list of simulations using the ``+ Recording`` button,
 then choose the files.
 
+|
 
-Reading NanoVer recordings using MDAnalysis in python
------------------------------------------------------
+----
+
+Reading NanoVer recordings with MDAnalysis
+------------------------------------------
 
 Recordings can be read and manipulated using the NanoVer python library.
 
@@ -212,6 +232,7 @@ jupyter notebook tutorial for further information.
     axis.set_ylabel("Energy (kJ/mol)")
 
 
-Lower level methods are available in :py:mod:`nanover.mdanalysis.recordings` to read the content of the files directly.
 We also have a `python script <https://github.com/IRL2/nanover-utils/tree/main/parsing-recordings/read_state.py>`_ located
 in the `nanover-utils <https://github.com/IRL2/nanover-utils>`_ repository for parsing NanoVer shared state recordings.
+
+|
