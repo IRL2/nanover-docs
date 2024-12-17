@@ -17,6 +17,7 @@ jobs:
           submodules: true
       - run: |
           git pull --recurse-submodules
+          git submodule sync
           git submodule update --remote --recursive
       - run: |
           git config --global user.email "doc-bot@example.com"
