@@ -66,19 +66,24 @@
 <li class="toctree-l2"><a class="reference internal" href="architecture.html">NanoVer Architecture</a></li>
 <li class="toctree-l2"><a class="reference internal" href="frames.html">Trajectories and Frames</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Recording simulations using NanoVer</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#what-is-recorded">What is recorded</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#nanover-recording-format">NanoVer recording format</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#intro-to-recording-with-nanover">Intro to recording with NanoVer</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#the-data-streams">The data streams</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#file-format">File format</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#recording-with-python">Recording with Python</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#how-to-record">How to record</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#how-to-visualise-recordings">How to visualise recordings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#using-the-terminal">Using the terminal</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#using-a-python-script">Using a Python script</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#visualising-recordings">Visualising recordings</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#recording-with-the-rust-server">Recording with the Rust Server</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id1">How to record</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id4">How to visualise recordings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">Using the terminal</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#using-the-gui">Using the GUI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">Visualising recordings</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#reading-nanover-recordings-using-mdanalysis-in-python">Reading NanoVer recordings using MDAnalysis in python</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reading-nanover-recordings-with-mdanalysis">Reading NanoVer recordings with MDAnalysis</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="base-protocol.html">The NanoVer gRPC protocol</a></li>
@@ -121,34 +126,43 @@ This recording can then be analysed or played back to get insight. In this docum
 <nav class="contents local" id="contents">
 <p class="topic-title">Contents</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#what-is-recorded" id="id5">What is recorded</a></p></li>
-<li><p><a class="reference internal" href="#nanover-recording-format" id="id6">NanoVer recording format</a></p></li>
-<li><p><a class="reference internal" href="#recording-with-python" id="id7">Recording with Python</a></p>
+<li><p><a class="reference internal" href="#intro-to-recording-with-nanover" id="id5">Intro to recording with NanoVer</a></p>
 <ul>
-<li><p><a class="reference internal" href="#how-to-record" id="id8">How to record</a></p></li>
-<li><p><a class="reference internal" href="#how-to-visualise-recordings" id="id9">How to visualise recordings</a></p></li>
+<li><p><a class="reference internal" href="#the-data-streams" id="id6">The data streams</a></p></li>
+<li><p><a class="reference internal" href="#file-format" id="id7">File format</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#recording-with-the-rust-server" id="id10">Recording with the Rust Server</a></p>
+<li><p><a class="reference internal" href="#recording-with-python" id="id8">Recording with Python</a></p>
 <ul>
-<li><p><a class="reference internal" href="#id1" id="id11">How to record</a></p></li>
-<li><p><a class="reference internal" href="#id4" id="id12">How to visualise recordings</a></p></li>
+<li><p><a class="reference internal" href="#using-the-terminal" id="id9">Using the terminal</a></p></li>
+<li><p><a class="reference internal" href="#using-a-python-script" id="id10">Using a Python script</a></p></li>
+<li><p><a class="reference internal" href="#visualising-recordings" id="id11">Visualising recordings</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#reading-nanover-recordings-using-mdanalysis-in-python" id="id13">Reading NanoVer recordings using MDAnalysis in python</a></p></li>
+<li><p><a class="reference internal" href="#recording-with-the-rust-server" id="id12">Recording with the Rust Server</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id3" id="id13">Using the terminal</a></p></li>
+<li><p><a class="reference internal" href="#using-the-gui" id="id14">Using the GUI</a></p></li>
+<li><p><a class="reference internal" href="#id4" id="id15">Visualising recordings</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#reading-nanover-recordings-with-mdanalysis" id="id16">Reading NanoVer recordings with MDAnalysis</a></p></li>
 </ul>
 </nav>
-<section id="what-is-recorded">
-<h2><a class="toc-backref" href="#id5" role="doc-backlink">What is recorded</a><a class="headerlink" href="#what-is-recorded" title="Link to this heading"></a></h2>
-<p>NanoVer can record two different streams:</p>
+<hr class="docutils" />
+<section id="intro-to-recording-with-nanover">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Intro to recording with NanoVer</a><a class="headerlink" href="#intro-to-recording-with-nanover" title="Link to this heading"></a></h2>
+<section id="the-data-streams">
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">The data streams</a><a class="headerlink" href="#the-data-streams" title="Link to this heading"></a></h3>
+<p>NanoVer can record the following data streams:</p>
 <ul class="simple">
-<li><p>the stream of simulation frames,</p></li>
-<li><p>and the stream of updates of the shared state.</p></li>
+<li><p>the stream of simulation frames</p></li>
+<li><p>the stream of updates of the shared state</p></li>
 </ul>
-<p>These two streams are identical to the streams sent to the clients during the live recording,
-with the addition of a timestamp that enables synchronisation of the streams during playback.
-Each stream is stored in a separate file.</p>
-<p>By convention, recordings of the frame stream have the <code class="docutils literal notranslate"><span class="pre">.traj</span></code> file extension,
+<p>Recorded streams are identical to the data streams sent to clients during a live simulation,
+with the addition of a timestamp that enables synchronisation of the streams during playback.</p>
+<p>Each stream is stored in a separate file.
+By convention, recordings of the frame stream have the <code class="docutils literal notranslate"><span class="pre">.traj</span></code> file extension,
 while recordings of the shared state stream have the <code class="docutils literal notranslate"><span class="pre">.state</span></code> file extension.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -157,8 +171,8 @@ while recordings of the shared state stream have the <code class="docutils liter
 they must adopt the above file extension conventions.</p>
 </div>
 </section>
-<section id="nanover-recording-format">
-<h2><a class="toc-backref" href="#id6" role="doc-backlink">NanoVer recording format</a><a class="headerlink" href="#nanover-recording-format" title="Link to this heading"></a></h2>
+<section id="file-format">
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">File format</a><a class="headerlink" href="#file-format" title="Link to this heading"></a></h3>
 <p>Each NanoVer recording file contains a header and a sequence of records:</p>
 <ul>
 <li><p>The header contains two fields, stored as little endian 8 bytes unsigned integers:</p>
@@ -195,12 +209,27 @@ for instance because the server loaded a new simulation.</p></li>
 </div></blockquote>
 </li>
 </ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
 </section>
+</section>
+<hr class="docutils" />
 <section id="recording-with-python">
-<h2><a class="toc-backref" href="#id7" role="doc-backlink">Recording with Python</a><a class="headerlink" href="#recording-with-python" title="Link to this heading"></a></h2>
-<section id="how-to-record">
-<h3><a class="toc-backref" href="#id8" role="doc-backlink">How to record</a><a class="headerlink" href="#how-to-record" title="Link to this heading"></a></h3>
-<p>NanoVer sessions can be recorded using the <a class="reference internal" href="../python/nanover.omni.record.html#module-nanover.omni.record" title="nanover.omni.record"><code class="xref py py-mod docutils literal notranslate"><span class="pre">nanover.omni.record</span></code></a> module.
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">Recording with Python</a><a class="headerlink" href="#recording-with-python" title="Link to this heading"></a></h2>
+<section id="using-the-terminal">
+<h3><a class="toc-backref" href="#id9" role="doc-backlink">Using the terminal</a><a class="headerlink" href="#using-the-terminal" title="Link to this heading"></a></h3>
+<p>The <cite>nanover-record</cite> command-line utility can be used to quickly start and stop multiple spans of recording
+without writing any code.</p>
+<p>The default is to connect to a local server on the default port, but more connectivity and output options
+can be found with the help option:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nanover</span><span class="o">-</span><span class="n">record</span> <span class="o">--</span><span class="n">help</span>
+</pre></div>
+</div>
+</section>
+<section id="using-a-python-script">
+<h3><a class="toc-backref" href="#id10" role="doc-backlink">Using a Python script</a><a class="headerlink" href="#using-a-python-script" title="Link to this heading"></a></h3>
+<p>NanoVer sessions can be also recorded using the <a class="reference internal" href="../python/nanover.omni.record.html#module-nanover.omni.record" title="nanover.omni.record"><code class="xref py py-mod docutils literal notranslate"><span class="pre">nanover.omni.record</span></code></a> module.
 Here is an example of how to define the file names and paths for the recording and pass them to the recording function:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nanover.omni.record</span> <span class="kn">import</span> <span class="n">record_from_server</span>
 <span class="c1"># Define the .traj and .state file names and paths</span>
@@ -211,11 +240,11 @@ Here is an example of how to define the file names and paths for the recording a
 </pre></div>
 </div>
 </section>
-<section id="how-to-visualise-recordings">
-<h3><a class="toc-backref" href="#id9" role="doc-backlink">How to visualise recordings</a><a class="headerlink" href="#how-to-visualise-recordings" title="Link to this heading"></a></h3>
+<section id="visualising-recordings">
+<h3><a class="toc-backref" href="#id11" role="doc-backlink">Visualising recordings</a><a class="headerlink" href="#visualising-recordings" title="Link to this heading"></a></h3>
 <p>Visualising and playing back recordings can be done using <a class="reference internal" href="../python/nanover.omni.playback.html#module-nanover.omni.playback" title="nanover.omni.playback"><code class="xref py py-mod docutils literal notranslate"><span class="pre">nanover.omni.playback</span></code></a> module.
-The Python Server can stream recorded NanoVer streams read by a <code class="docutils literal notranslate"><span class="pre">PlaybackSimulation</span></code> object to a client. The client then plays back the recording as if it were
-a live stream.
+The Python Server can stream recorded NanoVer streams read by a <code class="docutils literal notranslate"><span class="pre">PlaybackSimulation</span></code> object to a client.
+The client then plays back the recording as if it were a live stream.
 The server sends the frame and state updates whilst trying to respect the timing dictated by the timestamps stored
 in the file.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nanover.omni</span> <span class="kn">import</span> <span class="n">OmniRunner</span>
@@ -237,15 +266,22 @@ in the file.</p>
 <p>Further instructions and information on how to record and replay using the NanoVer Python module can be found in
 this notebook <a class="reference external" href="https://github.com/IRL2/nanover-server-py/blob/main/examples/basics/recording_and_replaying.ipynb">recording_and_replaying.ipynb</a>.</p>
 </div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
 </section>
 </section>
+<hr class="docutils" />
 <section id="recording-with-the-rust-server">
-<h2><a class="toc-backref" href="#id10" role="doc-backlink">Recording with the Rust Server</a><a class="headerlink" href="#recording-with-the-rust-server" title="Link to this heading"></a></h2>
-<section id="id1">
-<h3><a class="toc-backref" href="#id11" role="doc-backlink">How to record</a><a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">Recording with the Rust Server</a><a class="headerlink" href="#recording-with-the-rust-server" title="Link to this heading"></a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>The Rust Server takes a snapshot of the streams 30 times a second (although this may change with
 issues <a class="reference external" href="https://github.com/IRL2/nanover-server-rs/issues/200">#200</a> and
 <a class="reference external" href="https://github.com/IRL2/nanover-server-rs/issues/201">#201</a>).</p>
+</div>
+<section id="id3">
+<h3><a class="toc-backref" href="#id13" role="doc-backlink">Using the terminal</a><a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
 <p>When using the <code class="docutils literal notranslate"><span class="pre">nanover-cli</span></code> command via the command line, use the <code class="docutils literal notranslate"><span class="pre">--trajectory</span></code> argument to specify the file that
 will store the recording of the frame stream, and the <code class="docutils literal notranslate"><span class="pre">--state</span></code> argument to specify the file that will store
 the recording of the shared state updates.</p>
@@ -253,11 +289,14 @@ the recording of the shared state updates.</p>
 <span class="o">.</span>\<span class="n">nanover</span><span class="o">-</span><span class="n">cli</span><span class="o">.</span><span class="n">exe</span> <span class="s2">&quot;simulation.xml&quot;</span> <span class="o">--</span><span class="n">trajectory</span> <span class="s2">&quot;path/to/recording.traj&quot;</span> <span class="o">--</span><span class="n">state</span> <span class="s2">&quot;path/to/recording.state&quot;</span>
 </pre></div>
 </div>
-<p>On the graphical interface, the files are specified in the <code class="docutils literal notranslate"><span class="pre">Recording</span></code> section before starting the server
+</section>
+<section id="using-the-gui">
+<h3><a class="toc-backref" href="#id14" role="doc-backlink">Using the GUI</a><a class="headerlink" href="#using-the-gui" title="Link to this heading"></a></h3>
+<p>On the graphical user interface (GUI), the files are specified in the <code class="docutils literal notranslate"><span class="pre">Recording</span></code> section before starting the server
 (see <a class="reference internal" href="../tutorials/basics.html#rust-server-via-the-gui"><span class="std std-ref">via the GUI</span></a>).</p>
 </section>
 <section id="id4">
-<h3><a class="toc-backref" href="#id12" role="doc-backlink">How to visualise recordings</a><a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id15" role="doc-backlink">Visualising recordings</a><a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
 <p><strong>Using the the command line</strong>, providing only a <code class="docutils literal notranslate"><span class="pre">.traj</span></code> file will stream the frames only,
 and providing only a <code class="docutils literal notranslate"><span class="pre">.state</span></code> file will stream the state updates only.
 In order to send both streams together, provide the two file paths separated by a colon:</p>
@@ -267,10 +306,14 @@ In order to send both streams together, provide the two file paths separated by 
 </div>
 <p><strong>Using the graphical interface</strong>, add a recording to the list of simulations using the <code class="docutils literal notranslate"><span class="pre">+</span> <span class="pre">Recording</span></code> button,
 then choose the files.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
 </section>
 </section>
-<section id="reading-nanover-recordings-using-mdanalysis-in-python">
-<h2><a class="toc-backref" href="#id13" role="doc-backlink">Reading NanoVer recordings using MDAnalysis in python</a><a class="headerlink" href="#reading-nanover-recordings-using-mdanalysis-in-python" title="Link to this heading"></a></h2>
+<hr class="docutils" />
+<section id="reading-nanover-recordings-with-mdanalysis">
+<h2><a class="toc-backref" href="#id16" role="doc-backlink">Reading NanoVer recordings with MDAnalysis</a><a class="headerlink" href="#reading-nanover-recordings-with-mdanalysis" title="Link to this heading"></a></h2>
 <p>Recordings can be read and manipulated using the NanoVer python library.</p>
 <p>The <a class="reference internal" href="../python/nanover.mdanalysis.html#module-nanover.mdanalysis" title="nanover.mdanalysis"><code class="xref py py-mod docutils literal notranslate"><span class="pre">nanover.mdanalysis</span></code></a> module enables us to read a NanoVer trajectory recording as an
 <a class="reference external" href="https://userguide.mdanalysis.org/stable/universe.html#universe">MDAnalysis Universe</a>, which is a data structure used by the MDAnalysis library to handle molecular dynamics simulations.
@@ -280,7 +323,7 @@ If the topology changes throughout the recording, for instance because another s
 the library issues a warning and the frames with the new topology are ignored.</p>
 <p>See the example code below, or check out the
 <a class="reference external" href="https://github.com/IRL2/nanover-server-py/blob/main/examples/mdanalysis/mdanalysis_nanover_recording.ipynb">mdanalysis_nanover_recording</a>
-jupyter notebook tutorial for further information.</p>
+Jupyter notebook tutorial for further information.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">MDAnalysis</span> <span class="k">as</span> <span class="nn">mda</span>
 <span class="kn">from</span> <span class="nn">nanover.mdanalysis</span> <span class="kn">import</span> <span class="n">NanoverParser</span><span class="p">,</span> <span class="n">NanoverReader</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -316,9 +359,11 @@ jupyter notebook tutorial for further information.</p>
 <span class="n">axis</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Energy (kJ/mol)&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Lower level methods are available in <code class="xref py py-mod docutils literal notranslate"><span class="pre">nanover.mdanalysis.recordings</span></code> to read the content of the files directly.
-We also have a <a class="reference external" href="https://github.com/IRL2/nanover-utils/tree/main/parsing-recordings/read_state.py">python script</a> located
+<p>We also have a <a class="reference external" href="https://github.com/IRL2/nanover-utils/tree/main/parsing-recordings/read_state.py">python script</a> located
 in the <a class="reference external" href="https://github.com/IRL2/nanover-utils">nanover-utils</a> repository for parsing NanoVer shared state recordings.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
 </section>
 </section>
 
@@ -333,7 +378,7 @@ in the <a class="reference external" href="https://github.com/IRL2/nanover-utils
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2024, Intangible Realities Lab | University of Santiago de Compostela | University of Bristol | and other contributors. Last updated on Tue, 17 Dec 2024 12:57:55 UTC.</p>
+    <p>&#169; Copyright 2024, Intangible Realities Lab | University of Santiago de Compostela | University of Bristol | and other contributors. Last updated on Tue, 17 Dec 2024 16:48:34 UTC.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
