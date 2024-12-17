@@ -193,7 +193,7 @@ the library issues a warning and the frames with the new topology are ignored.
 
 See the example code below, or check out the
 `mdanalysis_nanover_recording <https://github.com/IRL2/nanover-server-py/blob/main/examples/mdanalysis/mdanalysis_nanover_recording.ipynb>`_
-jupyter notebook tutorial for further information.
+Jupyter notebook tutorial for further information.
 
 .. code:: python
 
