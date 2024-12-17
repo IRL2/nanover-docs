@@ -1,0 +1,7 @@
+nanover.ase.thermo module
+=========================
+
+.. automodule:: nanover.ase.thermo
+   :members:
+   :undoc-members:
+   :show-inheritance:

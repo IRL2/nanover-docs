@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>nanover.protocol.trajectory.frame_pb2_grpc module &mdash; NanoVer 0.1.2767 documentation</title>
+  <title>nanover.ase.thermo module &mdash; NanoVer 0.1.2767 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -24,11 +24,12 @@
       <script src="../_static/copybutton.js?v=f281be69"></script>
       <script src="../_static/custom.js?v=6d5f2585"></script>
       <script src="../_static/design-tabs.js?v=f930bc37"></script>
+      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="nanover.protocol.trajectory.get_frame_pb2 module" href="nanover.protocol.trajectory.get_frame_pb2.html" />
-    <link rel="prev" title="nanover.protocol.trajectory.frame_pb2 module" href="nanover.protocol.trajectory.frame_pb2.html" />
+    <link rel="next" title="nanover.ase.trajectory_logger module" href="nanover.ase.trajectory_logger.html" />
+    <link rel="prev" title="nanover.ase.omm_calculator module" href="nanover.ase.omm_calculator.html" />
  
 <link rel="icon" type="image/x-icon" href="../_static/favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="../_static/favicon-32x32.png">
@@ -67,7 +68,7 @@
 <li class="toctree-l2 current"><a class="reference internal" href="nanover.html">nanover namespace</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="nanover.html#subpackages">Subpackages</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="nanover.app.html">nanover.app package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="nanover.ase.html">nanover.ase package</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="nanover.ase.html">nanover.ase package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nanover.command.html">nanover.command package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nanover.core.html">nanover.core package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nanover.essd.html">nanover.essd package</a></li>
@@ -76,7 +77,7 @@
 <li class="toctree-l4"><a class="reference internal" href="nanover.nglview.html">nanover.nglview package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nanover.omni.html">nanover.omni package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nanover.openmm.html">nanover.openmm package</a></li>
-<li class="toctree-l4 current"><a class="reference internal" href="nanover.protocol.html">nanover.protocol namespace</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nanover.protocol.html">nanover.protocol namespace</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nanover.recording.html">nanover.recording namespace</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nanover.state.html">nanover.state namespace</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nanover.testing.html">nanover.testing package</a></li>
@@ -107,11 +108,10 @@
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../modules.html">Modules</a></li>
           <li class="breadcrumb-item"><a href="nanover.html">nanover namespace</a></li>
-          <li class="breadcrumb-item"><a href="nanover.protocol.html">nanover.protocol namespace</a></li>
-          <li class="breadcrumb-item"><a href="nanover.protocol.trajectory.html">nanover.protocol.trajectory package</a></li>
-      <li class="breadcrumb-item active">nanover.protocol.trajectory.frame_pb2_grpc module</li>
+          <li class="breadcrumb-item"><a href="nanover.ase.html">nanover.ase package</a></li>
+      <li class="breadcrumb-item active">nanover.ase.thermo module</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/python/nanover.protocol.trajectory.frame_pb2_grpc.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/python/nanover.ase.thermo.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -119,17 +119,48 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="module-nanover.protocol.trajectory.frame_pb2_grpc">
-<span id="nanover-protocol-trajectory-frame-pb2-grpc-module"></span><h1>nanover.protocol.trajectory.frame_pb2_grpc module<a class="headerlink" href="#module-nanover.protocol.trajectory.frame_pb2_grpc" title="Link to this heading"></a></h1>
-<p>Client and server classes corresponding to protobuf-defined services.</p>
+  <section id="module-nanover.ase.thermo">
+<span id="nanover-ase-thermo-module"></span><h1>nanover.ase.thermo module<a class="headerlink" href="#module-nanover.ase.thermo" title="Link to this heading"></a></h1>
+<p>Calculate thermodynamic quantities associated with the simulation.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="nanover.ase.thermo.compute_dof">
+<span class="sig-prename descclassname"><span class="pre">nanover.ase.thermo.</span></span><span class="sig-name descname"><span class="pre">compute_dof</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atoms</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Atoms</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#nanover.ase.thermo.compute_dof" title="Link to this definition"></a></dt>
+<dd><p>Compute the number of degrees of freedom of the system, using the same procedure as
+the <code class="xref py py-meth docutils literal notranslate"><span class="pre">get_temperature()</span></code> method of the <code class="xref py py-class docutils literal notranslate"><span class="pre">Atoms</span></code> class in ASE.
+:param atoms: ASE Atoms object.
+:return: Number of degrees of freedom of the system.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="nanover.ase.thermo.compute_instantaneous_temperature">
+<span class="sig-prename descclassname"><span class="pre">nanover.ase.thermo.</span></span><span class="sig-name descname"><span class="pre">compute_instantaneous_temperature</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">kinetic_energy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dof</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#nanover.ase.thermo.compute_instantaneous_temperature" title="Link to this definition"></a></dt>
+<dd><blockquote>
+<div><p>Calculate the instantaneous temperature of the system (in Kelvin), using the same procedure as
+the <code class="xref py py-meth docutils literal notranslate"><span class="pre">get_temperature()</span></code> method of the <code class="xref py py-class docutils literal notranslate"><span class="pre">Atoms</span></code> class in ASE. This
+function calculates the instantaneous temperature of the system from the kinetic
+energy of the system using the equation</p>
+<div class="math notranslate nohighlight">
+\[T = \]</div>
+</div></blockquote>
+<p>rac{2 * mathrm{KE}}{N_{mathrm{dof}} * k_{mathrm{B}}}</p>
+<blockquote>
+<div><p>where KE is the kinetic energy of the system (in eV), <span class="math notranslate nohighlight">\(N_{dof}\)</span> is the number
+of degrees of freedom of the system and <span class="math notranslate nohighlight">\(k_{\mathrm{B}}\)</span> is the Boltzmann
+constant in native ASE units.
+:param kinetic_energy: Kinetic energy of the system (in eV).
+:param dof: Number of degrees of freedom of the system.
+:return: Instantaneous temperature of the system (in Kelvin).</p>
+</div></blockquote>
+</dd></dl>
+
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="nanover.protocol.trajectory.frame_pb2.html" class="btn btn-neutral float-left" title="nanover.protocol.trajectory.frame_pb2 module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="nanover.protocol.trajectory.get_frame_pb2.html" class="btn btn-neutral float-right" title="nanover.protocol.trajectory.get_frame_pb2 module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="nanover.ase.omm_calculator.html" class="btn btn-neutral float-left" title="nanover.ase.omm_calculator module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="nanover.ase.trajectory_logger.html" class="btn btn-neutral float-right" title="nanover.ase.trajectory_logger module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

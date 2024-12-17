@@ -16,5 +16,6 @@ Submodules
    nanover.ase.imd_calculator
    nanover.ase.null_calculator
    nanover.ase.omm_calculator
+   nanover.ase.thermo
    nanover.ase.trajectory_logger
    nanover.ase.wall_constraint

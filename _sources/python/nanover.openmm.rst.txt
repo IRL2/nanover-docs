@@ -18,3 +18,4 @@ Submodules
    nanover.openmm.nanoverreporter
    nanover.openmm.potentials
    nanover.openmm.serializer
+   nanover.openmm.thermo
