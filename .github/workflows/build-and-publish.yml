@@ -49,11 +49,6 @@ jobs:
           path: source
           submodules: true
           fetch-depth: 0
-      - name: Get the destination branch
-        uses: actions/checkout@v3
-        with:
-          path: destination
-          ref: refs/heads/pages
       - name: Check commit count for version
         run: |
           cd source/nanover-server-py
