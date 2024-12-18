@@ -1,15 +1,41 @@
-on:
-  push:
-  workflow_run:
-    workflows: [Update git submodules]
-    types:
-      - completed
+# Sample workflow for building and deploying a Hugo site to GitHub Pages
+name: Build document with sphinx and publish to github pages
 
-name: Build documentation
+on:
+  # Runs on pushes targeting the default branch
+  push:
+    branches: ["main"]
+
+  # Run for pull requests
+  pull_request:
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+  # Allows another repository to run this workflow
+  repository_dispatch:
+    types:
+      - trigger
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow one concurrent deployment
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+# Default to bash
+defaults:
+  run:
+    shell: bash
 
 jobs:
+  # Build job
   build:
-    name: Build the documentation with sphinx
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -51,19 +77,20 @@ jobs:
         run: |
           cd source
           make html
-      - name: Integrate the documentation in the target branch
-        if: github.ref == 'refs/heads/main'
-        run: |
-          cd source
-          current_commit=$(git rev-parse HEAD)
-          cd ../
-          git config --global user.email "doc-bot@example.com"
-          git config --global user.name "DocBot"
-          ls -ltr destination
-          cp -r source/build/html/* destination/
-          cd destination
-          ls -ltr
-          git status
-          git add .
-          git status
-          git status | grep -F 'nothing to commit' || { git commit -m "Update documentation for commit ${current_commit}" && git push; }
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: ./build/html
+
+  # Deployment job
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
