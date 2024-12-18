@@ -46,12 +46,12 @@ jobs:
       - name: Get the documentation commit
         uses: actions/checkout@v3
         with:
-          path: source
+          path: nanover-docs
           submodules: true
           fetch-depth: 0
       - name: Check commit count for version
         run: |
-          cd source/nanover-server-py
+          cd nanover-docs/nanover-server-py
           git rev-list --count HEAD
       - name: Install conda
         uses: conda-incubator/setup-miniconda@v2
@@ -62,7 +62,7 @@ jobs:
         run: conda install -y mpi4py openmm
       - name: Install NanoVer
         run: |
-          cd source/nanover-server-py
+          cd nanover-docs/nanover-server-py
           ./compile.sh --no-dotnet
       - name: Install documentation dependencies
         run: |
@@ -70,11 +70,12 @@ jobs:
           python -m pip install -r requirements.txt
       - name: Build the documentation
         run: |
+          cd nanover-docs
           make html
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
-          path: ./build/html
+          path: ./nanover-docs/build/html
 
   # Deployment job
   deploy:
