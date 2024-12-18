@@ -52,6 +52,7 @@ jobs:
         run: |
           cd nanover-server-py
           git rev-list --count HEAD
+          echo "# Built docs for NanoVer $(git rev-list --count HEAD)" >> $GITHUB_STEP_SUMMARY
       - name: Install conda
         uses: conda-incubator/setup-miniconda@v2
         with:
