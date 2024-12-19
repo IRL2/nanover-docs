@@ -1,0 +1,89 @@
+# Sample workflow for building and deploying a Hugo site to GitHub Pages
+name: Build document with sphinx and publish to github pages
+
+on:
+  # Runs on pushes targeting the default branch
+  push:
+    branches: ["main"]
+
+  # Run for pull requests
+  pull_request:
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+  # Allows another repository to run this workflow
+  repository_dispatch:
+    types:
+      - trigger
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow one concurrent deployment
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+# Default to bash
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  # Build job
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        # This is necessary for the conda action. It replaces `conda init` as
+        # the shell does not load ,profile or .bashrc.
+        shell: bash -el {0}
+    steps:
+      - name: Get the documentation commit
+        uses: actions/checkout@v3
+        with:
+          submodules: true
+          fetch-depth: 0
+      - name: Check commit count for version
+        run: |
+          cd nanover-server-py
+          git rev-list --count HEAD
+          echo "# Built docs for NanoVer 0.1.$(git rev-list --count HEAD)" >> $GITHUB_STEP_SUMMARY
+      - name: Install conda
+        uses: conda-incubator/setup-miniconda@v2
+        with:
+          auto-update-conda: true
+          miniforge-version: latest
+      - name: Installing NanoVer dependencies
+        run: conda install -y mpi4py openmm
+      - name: Install NanoVer
+        run: |
+          cd nanover-server-py
+          ./compile.sh --no-dotnet
+      - name: Install documentation dependencies
+        run: |
+          python -m pip install -r requirements.txt
+      - name: Build the documentation
+        run: |
+          make html
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: ./build/html
+
+  # Deployment job
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1

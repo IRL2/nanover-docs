@@ -1,3 +1,4 @@
 [submodule "nanover-server-py"]
 	path = nanover-server-py
-	url = git@github.com:IRL2/nanover-server-py.git
+	url = https://github.com/IRL2/nanover-server-py.git
+	branch = main
