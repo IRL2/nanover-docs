@@ -21,10 +21,10 @@ To generate docs for a development version of NanoVer, it is necessary to
 install the NanoVer Python Server from source, the instructions for which
 can be found [here](https://github.com/IRL2/nanover-server-py/blob/main/README.md#setup-nanover-server-py-for-developers-on-mac-and-linux).
 
-Make sure the submodules are initialised: 
+Make sure the submodules are initialised and updated:
 
 ```
-git submodule update --init --recursive
+git submodule update --init --recursive --remote
 ```
 
 To build the docs, on Linux/ Mac OS X:
