@@ -48,6 +48,8 @@ jobs:
         with:
           submodules: true
           fetch-depth: 0
+      - name: Update submodules locally
+        run: git submodule update --remote
       - name: Check commit count for version
         run: |
           cd nanover-server-py
