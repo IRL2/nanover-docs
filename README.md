@@ -24,7 +24,7 @@ can be found [here](https://github.com/IRL2/nanover-server-py/blob/main/README.m
 Make sure the submodules are initialised: 
 
 ```
-git submodule update --init --recursive
+git submodule update --init --recursive --remote
 ```
 
 To build the docs, on Linux/ Mac OS X:
