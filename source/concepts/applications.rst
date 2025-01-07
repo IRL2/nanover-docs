@@ -10,10 +10,19 @@ meaning of the shared state keys, or the available commands. Each of these
 can be defined and extended to support various **applications**. Each application
 defines conventions for utilising the different services for specific objectives.
 
+.. contents:: Contents
+    :depth: 2
+    :local:
+
+----
+
 .. _multiplayer-application:
 
 The multi-user application
 ---------------------------
+
+Introduction
+~~~~~~~~~~~~
 
 The multi-user application provides a shared virtual space in which users can
 embody themselves with "avatars" and manipulate objects (e.g repositioning the
@@ -29,6 +38,8 @@ ownership and applicability of the user information shared. Commonly, clients
 use a `UUID4
 <https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)>`_
 to reduce the risk of collision between IDs produced by different clients.
+
+----
 
 .. _multiplayer-coordinate-systems:
 
@@ -60,6 +71,7 @@ the client space relative to the server space with the :ref:`user-origin
    of the simulation box (via the `scene` key). IMD interactions use this
    coordinate space.
 
+----
 
 .. _avatar-description:
 
@@ -123,6 +135,8 @@ In summary, an avatar is structured as such:
      color,
    }
 
+----
+
 .. _play-space-description:
 
 Play area
@@ -152,6 +166,8 @@ are defined under the keys ``A``, ``B``, ``C``, and ``D``.
 
    Typically we assume that the points defining the play area are on the floor
    (Y=0), but this is not required.
+
+----
 
 .. _radial-orient:
 
@@ -208,6 +224,8 @@ And the rotation :math:`\mathbf{R}_p` is expressed as a quaternion, defined as:
     \end{bmatrix}
    \end{align}
 
+----
+
 .. _user-origin-description:
 
 User origin
@@ -250,6 +268,8 @@ As a summary, the user origin is specified as follows in the shared state:
    }
 
 
+----
+
 .. _multiplayer-update-index:
 
 Update index
@@ -262,10 +282,17 @@ an ``update.index.<USER_ID>`` key. The client can then compare the remotely
 received updates to this internal count.
 
 
+|
+
+----
+
 .. _trajectory-application:
 
 The trajectory application
 --------------------------
+
+Introduction
+~~~~~~~~~~~~
 
 In the trajectory application, the server broadcasts molecular structures for
 the clients to display. The molecular structures can be static structures or
@@ -279,6 +306,8 @@ server can implement to give the clients some control over how the frames are
 streamed. Finally, it defines several methods to communicate with the multiplayer
 application in order to share where to display the molecular system relative to the
 users and define how to render the molecules.
+
+----
 
 Frames
 ~~~~~~
@@ -544,6 +573,8 @@ load events:
   initial one. The counter starts at 0 and is incremented when a simulation is loaded
   after the initial one.
 
+----
+
 Playback commands
 ~~~~~~~~~~~~~~~~~
 
@@ -580,6 +611,8 @@ service <command-service>` to control the stream of frames:
    At this time, the playback commands do not provide any error handling visible
    to the client. If a system fails to load, there is no client-side way to
    detect this.
+
+----
 
 Simulation box for multi user use cases
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -632,10 +665,17 @@ avoid conflict, users should :ref:`lock <state-locks-description>` the key
 before updating it.
 
 
+|
+
+----
+
 .. _imd-application:
 
 The iMD application
 -------------------
+
+Introduction
+~~~~~~~~~~~~
 
 For now, the main application of NanoVer is interactive molecular dynamics
 (iMD) simulations, in which a simulation runs on a server and users can
@@ -653,6 +693,8 @@ A user sends an interaction as a point of origin (in simulation space),
 the particles to which it applies and any additional parameters (e.g force strength). The server then
 collects all the user interactions, computes the corresponding forces, and
 propagates them with the other forces in the simulation.
+
+----
 
 Blueprint for quantitative iMD
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -689,6 +731,8 @@ to the clients connecting to the server. The iMD forces and energies calculated 
 2 remain constant throughout the following :math:`n_{\text{f}}` simulation steps,
 so all clients know what iMD forces act on the simulation between consecutive frames.
 
+----
+
 Interactive forces
 ~~~~~~~~~~~~~~~~~~
 
@@ -709,6 +753,8 @@ Each interaction type also defines the equation for the potential energy associa
 with the user interaction :math:`E_{\text{COM}}`. For mass weighted interaction, the
 energy for the interaction is :math:`E = \frac{E_{\text{COM}}}{N}\sum_{i=0}^{N}m_i`.
 For non mass weighted, :math:`E = E_{\text{COM}}`.
+
+----
 
 .. _force-equations:
 
@@ -766,6 +812,8 @@ The direction of the constant force is undefined when the origin of the
 interaction and the center of mass of the selection overlap, so the force is
 not applied.
 
+----
+
 Sending user interactions
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -819,6 +867,8 @@ following fields:
 * ``label``: used with ``owner.id``, this is the name of the avatar component
   from which the interaction originates (`e.g.` ``hand.right`` or
   ``hand.left``).
+
+----
 
 .. _imd-framedata-keys:
 
@@ -888,6 +938,8 @@ delivered under the following key:
 The user work done is delivered in the same units as the potential energies, i.e.
 :math:`\text{kJ}\cdot\text{mol}^{-1}`.
 
+----
+
 .. _velocity-reset:
 
 Velocity reset
@@ -900,6 +952,10 @@ reset and can be requested by the user as part of the interaction description.
 Servers that have the ability to do velocity reset should advertise the feature
 by setting the ``imd.velocity_reset_available`` key to true in the :ref:`shared
 state <state-service>`.
+
+|
+
+----
 
 Miscellaneous applications
 --------------------------
