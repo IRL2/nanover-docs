@@ -1,3 +1,4 @@
+===================================
 Welcome to NanoVer's documentation!
 ===================================
 
@@ -55,9 +56,12 @@ Current sponsors
 
 ----
 
+##################
 Indices and tables
-==================
+##################
 
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
+
+|
