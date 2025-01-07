@@ -1,28 +1,26 @@
 .. _tutorials:
 
+=========
 Tutorials
 =========
 
+.. contents:: Contents
+    :depth: 2
+    :local:
+
+----
+
+#################
+NanoVer tutorials
+#################
+
 This section provides tutorials on getting started with NanoVer.
-We assume familiarity with setting up simulations in whichever 
-framework you're running with NanoVer.
-
-.. important::
-    Our tutorials are provided as `Jupyter notebooks <https://jupyter.org>`_, and thus require Jupyter to run.
-    Some of our notebooks also use `NGLView <https://github.com/nglviewer/nglview>`_ for visualising simulations.
-    Both ``jupyterlab`` and ``nglview`` are installed automatically when you install ``nanover-server``.
-
-
-* For **useful tips on how to explore the functionality of NanoVer in Jupyter notebooks**, please refer to the
-  :ref:`Tips for using NanoVer in Jupyter <using_nanover_in_jupyter>` section below.
-
-* **Our tutorials can be used in conjunction with our iMD-VR application**,
-  `NanoVer iMD-VR <https://github.com/IRL2/nanover-imd-vr>`_, see the instructions for
-  :ref:`installing_imdvr_client`.
+We assume familiarity with setting up simulations in whichever
+framework you're running with NanoVer. Choose from the following
+sets of tutorials:
 
 .. toctree::
    :maxdepth: 1
-   :caption: Contents:
 
    basics.rst
    vrclient.rst
@@ -31,10 +29,25 @@ framework you're running with NanoVer.
    mdanalysis.rst
    openmm.rst
 
+**Our tutorials can be used in conjunction with our iMD-VR application**,
+`NanoVer iMD-VR <https://github.com/IRL2/nanover-imd-vr>`_, see the instructions for
+:ref:`installing_imdvr_client`.
+
+.. important::
+    Our tutorials are provided as `Jupyter notebooks <https://jupyter.org>`_, and thus require Jupyter to run.
+    Some of our notebooks also use `NGLView <https://github.com/nglviewer/nglview>`_ for visualising simulations.
+    Both ``jupyterlab`` and ``nglview`` are installed automatically when you install ``nanover-server``.
+
+
+|
+
+----
+
 .. _using_nanover_in_jupyter:
 
+#################################
 Tips for using NanoVer in Jupyter
----------------------------------
+#################################
 
 NanoVer provides a set of libraries that define a range of objects (classes, functions, etc.) that can be used to
 perform interactive molecular dynamics simulations. The Jupyter notebook interface provides useful tools to navigate
@@ -71,7 +84,14 @@ The :func:`help` function prints the docstrings associated with the object, whic
 
 .. |Tab| unicode:: U+21E5
 
+|
+
+----
+
+###############
 Further reading
----------------
+###############
 
 For more details, look at the documentation for the individual :ref:`modules <modules>`.
+
+|
