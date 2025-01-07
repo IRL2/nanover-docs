@@ -46,6 +46,58 @@ make.bat html
 
 **If you get warnings about failing to import modules when building the docs locally, reclone the repo.**
 
+## Formatting protocol
+
+When adding documentation, please adhere to the following formatting protocol:
+
+```
+=====
+Title
+=====
+
+.. contents:: Contents
+    :depth: 2 (Feel free to change the depth of the contents)
+    :local:
+
+---- (if no contents, no line or space after title)
+
+#########
+Heading 1
+#########
+
+Include linebreaks (|) and horizontal lines (----) between each heading, as below:
+
+|
+
+----
+
+.. _heading-2-reference: (make sure this is after the horizontal line)
+
+#########
+Heading 2
+#########
+
+Subheading 1
+############
+
+Include horizontal lines (----) between each subheading, as below:
+
+----
+
+Subheading 2
+############
+
+Subsubheading
+~~~~~~~~~~~~~
+
+Subsubsubheading
+^^^^^^^^^^^^^^^^
+
+Include a linebreak (|) at the end of each page, as below:
+
+|
+```
+
 
 ## Posting to readthedocs 
 
