@@ -1,5 +1,6 @@
-Recording simulations using NanoVer
-===================================
+====================
+Recording in NanoVer
+====================
 
 .. _Rust server: https://github.com/IRL2/nanover-server-rs
 
@@ -12,11 +13,12 @@ This recording can then be analysed or played back to get insight. In this docum
 
 ----
 
-Intro to recording with NanoVer
--------------------------------
+############
+Introduction
+############
 
-The data streams
-~~~~~~~~~~~~~~~~
+NanoVer data streams
+####################
 
 NanoVer can record the following data streams:
 
@@ -36,8 +38,10 @@ while recordings of the shared state stream have the ``.state`` file extension.
    :class:`PlaybackSimulation` class in the :mod:`nanover.omni.playback` module,
    they must adopt the above file extension conventions.
 
-File format
-~~~~~~~~~~~
+----
+
+Recording file format
+#####################
 
 Each NanoVer recording file contains a header and a sequence of records:
 
@@ -68,11 +72,12 @@ Each NanoVer recording file contains a header and a sequence of records:
 
 ----
 
+#####################
 Recording with Python
----------------------
+#####################
 
-Using the terminal
-~~~~~~~~~~~~~~~~~~
+via the terminal
+################
 
 The `nanover-record` command-line utility can be used to quickly start and stop multiple spans of recording
 without writing any code.
@@ -84,8 +89,10 @@ can be found with the help option:
 
     nanover-record --help
 
-Using a Python script
-~~~~~~~~~~~~~~~~~~~~~
+----
+
+via a Python script
+###################
 
 NanoVer sessions can be also recorded using the :mod:`nanover.omni.record` module.
 Here is an example of how to define the file names and paths for the recording and pass them to the recording function:
@@ -99,8 +106,10 @@ Here is an example of how to define the file names and paths for the recording a
     # create a recording from a server and save it to the files
     record_from_server("localhost:38801", traj_path, state_path)
 
+----
+
 Visualising recordings
-~~~~~~~~~~~~~~~~~~~~~~
+######################
 
 Visualising and playing back recordings can be done using :mod:`nanover.omni.playback` module.
 The Python Server can stream recorded NanoVer streams read by a ``PlaybackSimulation`` object to a client.
@@ -132,8 +141,9 @@ in the file.
 
 ----
 
+##############################
 Recording with the Rust Server
-------------------------------
+##############################
 
 .. note::
 
@@ -141,8 +151,8 @@ Recording with the Rust Server
     issues `#200 <https://github.com/IRL2/nanover-server-rs/issues/200>`_ and
     `#201 <https://github.com/IRL2/nanover-server-rs/issues/201>`_).
 
-Using the terminal
-~~~~~~~~~~~~~~~~~~
+via the terminal
+################
 
 When using the ``nanover-cli`` command via the command line, use the ``--trajectory`` argument to specify the file that
 will store the recording of the frame stream, and the ``--state`` argument to specify the file that will store
@@ -153,14 +163,18 @@ the recording of the shared state updates.
     # For Windows Powershell
     .\nanover-cli.exe "simulation.xml" --trajectory "path/to/recording.traj" --state "path/to/recording.state"
 
-Using the GUI
-~~~~~~~~~~~~~
+----
+
+via the GUI
+###########
 
 On the graphical user interface (GUI), the files are specified in the ``Recording`` section before starting the server
 (see :ref:`rust_server_via_the_gui`).
 
+----
+
 Visualising recordings
-~~~~~~~~~~~~~~~~~~~~~~
+######################
 
 **Using the the command line**, providing only a ``.traj`` file will stream the frames only,
 and providing only a ``.state`` file will stream the state updates only.
@@ -179,10 +193,11 @@ then choose the files.
 
 ----
 
+##########################################
 Reading NanoVer recordings with MDAnalysis
-------------------------------------------
+##########################################
 
-Recordings can be read and manipulated using the NanoVer python library.
+Recordings can be read and manipulated using the NanoVer Python library.
 
 The :py:mod:`nanover.mdanalysis` module enables us to read a NanoVer trajectory recording as an
 `MDAnalysis Universe <https://userguide.mdanalysis.org/stable/universe.html#universe>`_, which is a data structure used by the MDAnalysis library to handle molecular dynamics simulations.
@@ -232,7 +247,7 @@ Jupyter notebook tutorial for further information.
     axis.set_ylabel("Energy (kJ/mol)")
 
 
-We also have a `python script <https://github.com/IRL2/nanover-utils/tree/main/parsing-recordings/read_state.py>`_ located
+We also have a `Python script <https://github.com/IRL2/nanover-utils/tree/main/parsing-recordings/read_state.py>`_ located
 in the `nanover-utils <https://github.com/IRL2/nanover-utils>`_ repository for parsing NanoVer shared state recordings.
 
 |
