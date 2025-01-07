@@ -4,7 +4,7 @@
 Installation & Getting Started
 ==============================
 
-NanoVer consists of two components: the python-based libraries
+NanoVer consists of two components: the Python-based libraries
 for running simulations, and the Unity3D libraries
 and applications for visualising & interacting with simulations
 in VR.
@@ -48,7 +48,7 @@ Installing the server
 #####################
 
 We can create our conda environment and install the NanoVer packages all in one go!
-Doing so ensures that we install the correct version of python for our packages.
+Doing so ensures that we install the correct version of Python for our packages.
 
 #. Create your conda environment (here we call the environment "nanover") and install the NanoVer
    packages by running the following command in the terminal that you have conda installed in:
