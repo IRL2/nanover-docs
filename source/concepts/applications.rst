@@ -1,5 +1,6 @@
 .. _applications:
 
+============
 Applications
 ============
 
@@ -18,11 +19,12 @@ defines conventions for utilising the different services for specific objectives
 
 .. _multiplayer-application:
 
+##########################
 The multi-user application
----------------------------
+##########################
 
 Introduction
-~~~~~~~~~~~~
+############
 
 The multi-user application provides a shared virtual space in which users can
 embody themselves with "avatars" and manipulate objects (e.g repositioning the
@@ -44,7 +46,7 @@ to reduce the risk of collision between IDs produced by different clients.
 .. _multiplayer-coordinate-systems:
 
 Coordinate systems
-~~~~~~~~~~~~~~~~~~
+##################
 
 The multi-user application distinguishes between two coordinate spaces:
 
@@ -76,7 +78,7 @@ the client space relative to the server space with the :ref:`user-origin
 .. _avatar-description:
 
 Avatars
-~~~~~~~
+#######
 
 Users may share their presence in the virtual space by creating and continuously
 updating an "avatar". For example, in the iMD-VR application, each VR client
@@ -140,7 +142,7 @@ In summary, an avatar is structured as such:
 .. _play-space-description:
 
 Play area
-~~~~~~~~~~
+#########
 
 A client, typically in the case of a VR client, can share a 
 boundary within which that user can safely move. This can be visualised
@@ -172,7 +174,7 @@ are defined under the keys ``A``, ``B``, ``C``, and ``D``.
 .. _radial-orient:
 
 Radial orient
-~~~~~~~~~~~~~
+#############
 
 The radial orient feature is a command optionally implemented on the
 :ref:`command service <command-service>`. This command suggests how clients
@@ -229,7 +231,7 @@ And the rotation :math:`\mathbf{R}_p` is expressed as a quaternion, defined as:
 .. _user-origin-description:
 
 User origin
-~~~~~~~~~~~
+###########
 
 A user-origin is a suggestion to a client of how to position their coordinate
 space (and therefore avatar) relative to server space. This is used by the
@@ -273,7 +275,7 @@ As a summary, the user origin is specified as follows in the shared state:
 .. _multiplayer-update-index:
 
 Update index
-~~~~~~~~~~~~
+############
 
 If a client needs more precise knowledge of which of its updates have already
 been accepted by the server and broadcast to clients, it can choose to maintain an
@@ -288,11 +290,12 @@ received updates to this internal count.
 
 .. _trajectory-application:
 
+##########################
 The trajectory application
---------------------------
+##########################
 
 Introduction
-~~~~~~~~~~~~
+############
 
 In the trajectory application, the server broadcasts molecular structures for
 the clients to display. The molecular structures can be static structures or
@@ -310,7 +313,7 @@ users and define how to render the molecules.
 ----
 
 Frames
-~~~~~~
+######
 
 In this section we define a set of keys and data formats that we use to describe
 the semantics of molecular systems.
@@ -387,7 +390,7 @@ of units:
 
 
 Particles
-^^^^^^^^^
+~~~~~~~~~
 
 A molecular system is composed of atoms. The application refers to them as
 "particles" to account for representations that do not deal with individual
@@ -444,7 +447,7 @@ If the FrameData uses any key starting with ``particle.``, it must set the key
 number of particles in the frame, and must match the length of the arrays.
 
 Residues
-^^^^^^^^
+~~~~~~~~
 
 Particles can be grouped in residues when the molecule is a polymer. A residue
 is usually a monomer within the polymer sequence. Particles are assigned to
@@ -475,7 +478,7 @@ means it is possible to have residues with no particle attached to them. This
 allows us to filter out particles without having to modify the list of residues.
 
 Chains
-^^^^^^
+~~~~~~
 
 Residues can be grouped by chains. There is no semantic format for chains
 except that they are groups of residues. However, a chain is commonly either:
@@ -494,7 +497,7 @@ with the number of chains that must match the number of element in the
 ``chain.name`` array describes the name of each chain as arbitrary strings.
 
 Bonds
-^^^^^
+~~~~~
 
 Particles can be connected by covalent bonds. These bonds are described by two
 keys in the array map of the FrameData:
@@ -510,7 +513,7 @@ keys in the array map of the FrameData:
   1.0.
 
 Simulation box
-^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~
 
 Most molecular dynamics simulations are run in a sized box. The FrameData can
 describe a triclinic box with its three box vectors. They are stored in the
@@ -519,14 +522,14 @@ each row is a vector and each column is a dimension of the coordinate system.
 The box is optional and should not be displayed if not provided.
 
 Simulation time
-^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~
 
 If the frame corresponds to a given time in a simulation, this time can be
 specified (in picoseconds) in the value map under the ``system.simulation.time``
 key.
 
 Energies
-^^^^^^^^
+~~~~~~~~
 
 The kinetic and potential energies of the system for the frame can be stored (in
 :math:`\text{kJ}\cdot\text{mol}^{-1}`) under the ``energy.kinetic`` and
@@ -560,7 +563,7 @@ The kinetic and potential energies of the system for the frame can be stored (in
 
 
 Playback indicators
-^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~
 
 The trajectory application defines commands that allow resetting or loading a
 simulation. These keys in the value map allow to keep track of these reset and
@@ -576,7 +579,7 @@ load events:
 ----
 
 Playback commands
-~~~~~~~~~~~~~~~~~
+#################
 
 A trajectory application can define the following commands in the :ref:`command
 service <command-service>` to control the stream of frames:
@@ -615,7 +618,7 @@ service <command-service>` to control the stream of frames:
 ----
 
 Simulation box for multi user use cases
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#######################################
 
 If the trajectory application is used in combination with the :ref:`multiplayer
 application <multiplayer-application>`, the position and orientation of the
@@ -671,11 +674,12 @@ before updating it.
 
 .. _imd-application:
 
+###################
 The iMD application
--------------------
+###################
 
 Introduction
-~~~~~~~~~~~~
+############
 
 For now, the main application of NanoVer is interactive molecular dynamics
 (iMD) simulations, in which a simulation runs on a server and users can
@@ -697,7 +701,7 @@ propagates them with the other forces in the simulation.
 ----
 
 Blueprint for quantitative iMD
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+##############################
 
 The :ref:`trajectory service <trajectory-service>` used by the
 :ref:`trajectory application <trajectory-application>` (and thus by the iMD
@@ -734,7 +738,7 @@ so all clients know what iMD forces act on the simulation between consecutive fr
 ----
 
 Interactive forces
-~~~~~~~~~~~~~~~~~~
+##################
 
 The interactions can use different :ref:`equations <force-equations>` to
 compute :math:`\mathbf{F}_{\text{COM}}`, the force at the center of mass of the group of
@@ -759,7 +763,7 @@ For non mass weighted, :math:`E = E_{\text{COM}}`.
 .. _force-equations:
 
 Force equations
-~~~~~~~~~~~~~~~
+###############
 
 Each server is free to implement the interaction equation they choose. However,
 there are some that are commonly implemented: the Gaussian force, the harmonic
@@ -815,7 +819,7 @@ not applied.
 ----
 
 Sending user interactions
-~~~~~~~~~~~~~~~~~~~~~~~~~
+#########################
 
 Users send, on the :ref:`shared state <state-service>`, the description of the
 interactions they want to apply. There is no limit to the number of interaction
@@ -873,7 +877,7 @@ following fields:
 .. _imd-framedata-keys:
 
 FrameData keys
-~~~~~~~~~~~~~~
+##############
 
 Details about the user interactions applied are added to the
 :ref:`FrameData <frame-description>`.
@@ -943,7 +947,7 @@ The user work done is delivered in the same units as the potential energies, i.e
 .. _velocity-reset:
 
 Velocity reset
-~~~~~~~~~~~~~~
+##############
 
 Some server implementations can kill any residual momentum in the system due to the user-applied forces after the user interaction has ended
 by setting the velocities of the affected particles to 0. This is called velocity
@@ -957,11 +961,15 @@ state <state-service>`.
 
 ----
 
+##########################
 Miscellaneous applications
---------------------------
+##########################
 
 For diagnostics purpose, the time at which a frame has been generated, or
 sent to the trajectory service, can be stored under the ``server.timestamp``
 key in the value map. It is expressed as a fractional number of seconds. This
 timestamp should only be used to compare with other timestamp in the same
 stream as there is no requirement about the clock used to generate it.
+
+|
+
