@@ -26,7 +26,6 @@ creating a conda environment and installing the server, which is required for se
 then have the option to install the iMD-VR client, which you can use for visualising and interacting with your simulations
 inside VR.
 
-
 .. _creating_conda_env:
 
 Setting up conda
@@ -41,6 +40,7 @@ Setting up conda
 At this point, you are ready to create your conda environment and install the NanoVer server! Please refer to
 :ref:`installing_the_server`.
 
+----
 
 .. _installing_the_server:
 
@@ -87,6 +87,8 @@ issue with the dependencies of the packages.
 In this case, we recommend creating a new conda environment and reinstalling :code:`nanover-server`, following the
 :ref:`installation instructions<installing_the_server>`.
 
+----
+
 
 .. _installing_imdvr_client:
 
@@ -109,7 +111,6 @@ To use NanoVer iMD-VR, you have two options:
     For more information on how to choose your installation method based on your VR setup and operating system,
     please check out the :ref:`choosing your iMD-VR setup<choosing_setup_iMD-VR>` section on the NanoVer iMD-VR
     tutorial page.
-
 
 .. _conda_installation_VR_client:
 
@@ -206,6 +207,8 @@ Download the latest release
     We are currently working to resolve this, please see the
     `issue <https://github.com/IRL2/nanover-server-py/issues/192>`_ on our git repo for updates.
 
+|
+
 ----
 
 
@@ -228,3 +231,5 @@ We refer developers to the relevant code bases:
 
 * If you want to build your own VR application that interfaces with NanoVer, the NanoVer Unity3D libraries are available
   in the `NanoverUnityPlugin repository <https://github.com/IRL2/NanoverUnityPlugin>`_ on GitHub .
+
+|
