@@ -18,3 +18,4 @@ conjunction with OpenMM. It contains:
 * `ase_openmm_neuraminidase`: A notebook that demonstrates how to construct an input file for an OpenMM simulation of neuraminidase to run with NanoVer from scratch, and then
   runs the simulation using ASE with an OpenMM calculator.
 
+|
