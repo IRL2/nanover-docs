@@ -60,4 +60,4 @@ Develop with NanoVer
 
 NanoVer is distributed under the `MIT <https://github.com/IRL2/nanover-server-py/blob/main/LICENSE>`_ license.
 
-
+|
