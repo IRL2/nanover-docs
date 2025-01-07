@@ -6,8 +6,12 @@ OpenMM
     :depth: 2
     :local:
 
+----
+
+##########################
 Jupyter notebook tutorials
-==========================
+##########################
+
 A set of tutorials that demonstrate how to use NanoVer to run interactive molecular
 dynamics simulations using OpenMM directly.
 
@@ -25,18 +29,27 @@ folder of the GitHub repository. It contains:
   OpenMM simulation from scratch with NanoVer and change the visualisations of
   different atom selections for a protein-ligand system.
 
+|
+
+----
+
+########################
 NanoVer OpenMM XML files
-========================
+########################
 
-The XML format described here is used specifically for saving and loading NanoVer OpenMM simulations. It consists of a root element ``<OpenMMSimulation>`` containing three main components:
+File format
+###########
 
-1. **Starting Structure**: Enclosed in either ``<pdbx>`` or ``<pdb>`` tags
-2. **OpenMM Serialized System**: Enclosed in the ``<System>`` tag
-3. **OpenMM Serialized Integrator**: Enclosed in the ``<Integrator>`` tag
-4. **OpenMM Serialized State**: Enclosed in the ``<State>`` tag (optional)
+The NanoVer OpenMM XML file format described herein is used for saving and loading NanoVer OpenMM simulations.
+These files consist of a root element, ``<OpenMMSimulation>``, which contains three mandatory components
+and an optional fourth:
 
-XML structure
--------------
+1. **Starting structure**: enclosed in either ``<pdbx>`` or ``<pdb>`` tags
+2. **OpenMM serialized System**: enclosed in the ``<System>`` tag
+3. **OpenMM serialized Integrator**: enclosed in the ``<Integrator>`` tag
+4. **OpenMM serialized State**: enclosed in the ``<State>`` tag (optional)
+
+E.g. a file that includes the OpenMM serialized State will have the following structure:
 
 .. code-block:: text
 
@@ -45,101 +58,108 @@ XML structure
             <!-- Content of the PDBx file -->
         </pdbx>
         <System ...>
-            <!-- XML content of the OpenMM serialized system -->
+            <!-- XML content of the OpenMM serialized System -->
         </System>
         <Integrator ...>
-            <!-- XML content of the OpenMM serialized integrator -->
+            <!-- XML content of the OpenMM serialized Integrator -->
         </Integrator>
         <State ...>
-            <!-- XML content of the OpenMM serialized state -->
+            <!-- XML content of the OpenMM serialized State -->
         </State>
     </OpenMMSimulation>
 
 .. note::
-    There is a slight difference between the OpenMM format and the NanoVer format.
-    NanoVer xml files for OpenMM simulations contain a PDB and a number of serialized objects.
-    Although the serialized objects are identical to those used by OpenMM, the overall contents and structure of the files are specific to NanoVer and cannot be read by OpenMM on its own.
+    XML files used by OpenMM differ from those used to run OpenMM via NanoVer.
+    Although the serialized objects contained in the NanoVer OpenMM XML files are identical to those defined by OpenMM,
+    the overall contents and structure of the files are specific to NanoVer and cannot be read by OpenMM directly.
 
 
-Components description
-----------------------
+Expand the following dropdowns for further details of each component:
 
-1. **Starting structure**:
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. dropdown:: 1. **Starting structure**
 
    * Tag: ``<pdbx>`` (preferred) or ``<pdb>`` (for backward compatibility)
-   * Content: The entire PDBx or PDB file content
-
-2. **OpenMM serialized system**:
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Within this tag, you'll find:
-
-    **Particles:** They are represented with ``<Particle>`` tags, each containing:
-
-        - Mass
-        - Charge (if using a `NonbondedForce`)
-
-    **Forces:** Various force components are represented by specific tags (a detailed list could be found in this `link <http://docs.openmm.org/latest/userguide/theory/02_standard_forces.html#standard-forces>`_), for example:
-
-        - ``<HarmonicBondForce>``: For bond stretching
-        - ``<HarmonicAngleForce>``: For angle bending
-        - ``<PeriodicTorsionForce>``: For dihedral angles
-        - ``<NonbondedForce>``: For electrostatic and van der Waals interactions
-        - ``<CustomNonbondedForce>``: For user-defined nonbonded interactions
-
-        Each force tag contains parameters specific to that force type. For example:
-
-        .. code-block:: xml
-
-           <HarmonicBondForce>
-             <Bond p1="0" p2="1" length="0.1" k="1000"/>
-           </HarmonicBondForce>
-
-    **Constraints:** If present, constraints are listed under a ``<Constraints>`` tag:
-
-        .. code-block:: xml
-
-           <Constraints>
-             <Constraint p1="0" p2="1" distance="0.1"/>
-           </Constraints>
+   * Content: the entire PDBx or PDB file content
 
 
-3. **OpenMM serialized integrator**:
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. dropdown:: 2. **OpenMM serialized System**
 
-The ``<Integrator>`` tag contains parameters that specify the integration method to be used to simulate dynamics, such as the type of integrator, simulation time step and temperature:
+    Within this tag, you'll find:
 
-.. code-block:: xml
+        **Particles:** each particle is represented with a ``<Particle>`` tag, containing:
 
-    <Integrator type="LangevinIntegrator" constraintTolerance="1e-05" friction="4" randomSeed="0" stepSize=".0005" temperature="300" version="1" />
+            - Mass
+            - Charge (if using a `NonbondedForce`)
 
-More details on integrators can be found `here <http://docs.openmm.org/latest/userguide/theory/04_integrators.html>`_.
+        **Forces:** the force components, each represented by specific tags (a detailed list can be found in
+        this `link <http://docs.openmm.org/latest/userguide/theory/02_standard_forces.html#standard-forces>`_),
+        for example:
 
-4. **OpenMM serialized state**:
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            - ``<HarmonicBondForce>``: for bond stretching
+            - ``<HarmonicAngleForce>``: for angle bending
+            - ``<PeriodicTorsionForce>``: for dihedral angles
+            - ``<NonbondedForce>``: for electrostatic and van der Waals interactions
+            - ``<CustomNonbondedForce>``: for user-defined nonbonded interactions
 
-The ``<State>`` tag contains the serialized state of the simulation, including:
+            Each force tag contains parameters specific to that force type. For example:
 
-- Particle velocities ``<Velocities>``
-- Adjustable parameters that have been defined by Force objects in the System ``<Parameters>``
-- Periodic box vectors (if periodic boundary conditions are used) ``<PeriodicBoxVectors>``
-- Integrator parameters ``<IntegratorParameters>``
+            .. code-block:: xml
 
-Usage
------
+               <HarmonicBondForce>
+                 <Bond p1="0" p2="1" length="0.1" k="1000"/>
+               </HarmonicBondForce>
 
-The :mod:`nanover.openmm.serializer` module provides the ``serialize_simulation`` and ``deserialize_simulation`` functions which allow saving and loading OpenMM simulations to/from XML files. The serialization captures by default the complete simulation including:
+        **Constraints:** If present, constraints are listed under the ``<Constraints>`` tag:
+
+            .. code-block:: xml
+
+               <Constraints>
+                 <Constraint p1="0" p2="1" distance="0.1"/>
+               </Constraints>
+
+
+.. dropdown:: 3. **OpenMM serialized Integrator**
+
+    The ``<Integrator>`` tag contains parameters that specify the integration method to be used to simulate dynamics,
+    such as the type of integrator, simulation time step, and temperature:
+
+    .. code-block:: xml
+
+        <Integrator type="LangevinIntegrator" constraintTolerance="1e-05" friction="4" randomSeed="0" stepSize=".0005" temperature="300" version="1" />
+
+    More details on integrators can be found `here <http://docs.openmm.org/latest/userguide/theory/04_integrators.html>`_.
+
+.. dropdown:: 4. **OpenMM serialized State**
+
+    The ``<State>`` tag contains the serialized state of the simulation, including:
+
+    - Particle velocities, ``<Velocities>``
+    - Adjustable parameters that have been defined by Force objects in the System, ``<Parameters>``
+    - Periodic box vectors (if periodic boundary conditions are used), ``<PeriodicBoxVectors>``
+    - Integrator parameters, ``<IntegratorParameters>``
+
+|
+
+----
+
+Creation and usage
+##################
+
+The :mod:`nanover.openmm.serializer` module provides the ``serialize_simulation`` and ``deserialize_simulation``
+functions which allow saving and loading OpenMM simulations to/from XML files.
+The serialization captures by default the complete simulation including:
 
 - Structure coordinates and topology (as PDBx/PDB)
 - OpenMM System definition
 - Integrator configuration
-- Serialized state (optional)
+- Serialized State (optional)
 
 Serializing a simulation
-^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-To save a simulation to a NanoVer OpenMM XML::
+To save a simulation to a NanoVer OpenMM XML using Python:
+
+.. code-block:: python
 
     xml_string = nanover.openmm.serializer.serialize_simulation(simulation)
 
@@ -148,27 +168,36 @@ To save a simulation to a NanoVer OpenMM XML::
 
 The ``serialize_simulation`` function accepts optional arguments:
 
-- ``save_state``: Whether to include the serialized state in the XML (default: ``False``)
+* ``save_state``: whether to include the serialized state in the XML (default: ``False``)
 
 Deserializing a simulation
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-To load a simulation from a NanoVer OpenMM XML::
+To load a simulation from a NanoVer OpenMM XML using Python:
+
+.. code-block:: python
 
     with open("sim.xml", "r") as f:
         simulation = nanover.openmm.serializer.deserialize_simulation(f.read())
 
 The ``deserialize_simulation`` function accepts optional arguments:
 
-- ``imd_force``: A CustomExternalForce for interactive molecular dynamics
-- ``platform_name``: The parallel computing platform for OpenMM to use (e.g. "CUDA", "OpenCL")
-- ``ignore_state``: Whether to ignore the serialized state in the XML (default: ``False``)
+* ``imd_force``: a CustomExternalForce for interactive molecular dynamics
+* ``platform_name``: the parallel computing platform for OpenMM to use (e.g. "CUDA", "OpenCL")
+* ``ignore_state``: whether to ignore the serialized state in the XML (default: ``False``)
 
-For example::
+For example:
+
+.. code-block:: python
+
 
     simulation = nanover.openmm.serializer.deserialize_simulation(
         xml_string,
         platform_name="CUDA"
     )
 
-For more details, refer to our `example notebook <https://github.com/IRL2/nanover-server-py/blob/main/examples/openmm/openmm_polyalanine.ipynb>`_ on saving OpenMM systems to NanoVer OpenMM XML files.
+For more details, refer to our
+`example notebook <https://github.com/IRL2/nanover-server-py/blob/main/examples/openmm/openmm_polyalanine.ipynb>`_
+on saving OpenMM systems to NanoVer OpenMM XML files.
+
+|

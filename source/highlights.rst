@@ -1,9 +1,8 @@
  .. _highlights:
 
+==========
 Highlights
 ==========
-
-----
 
 #############################
 Interact with molecules in VR
@@ -21,6 +20,8 @@ To get up and running, head to :ref:`Installation & Getting Started <Installatio
 
 
 
+|
+
 ----
 
 #############################################
@@ -32,6 +33,8 @@ Check out the :ref:`tutorials here <Tutorials>`.
 
 ..
    _TODO: Add some kind of image here. Maybe some nice code?
+
+|
 
 ----
 
@@ -47,6 +50,8 @@ check out the `tutorial. <https://github.com/IRL2/nanover-server-py/blob/main/ex
     :align: center
     :scale: 60%
 
+|
+
 ----
 
 ####################
@@ -60,4 +65,5 @@ Develop with NanoVer
 
 NanoVer is distributed under the `MIT <https://github.com/IRL2/nanover-server-py/blob/main/LICENSE>`_ license.
 
+|
 
