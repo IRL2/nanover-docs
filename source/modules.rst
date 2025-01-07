@@ -1,5 +1,6 @@
 .. _modules:
 
+=======
 Modules
 =======
 
@@ -10,3 +11,6 @@ NanoVer and their contents. This documentation is automatically generated from t
    :maxdepth: 3
 
    python/nanover
+
+|
+
