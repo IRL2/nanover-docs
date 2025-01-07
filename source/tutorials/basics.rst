@@ -7,11 +7,14 @@ already :ref:`installed NanoVer <installation>`, so that you can use the informa
 page to start running interactive molecular dynamics (iMD) simulations with NanoVer.
 
 .. contents:: Contents
-    :depth: 2
+    :depth: 3
     :local:
 
+----
+
+##########################
 Jupyter notebook tutorials
-==========================
+##########################
 
 We provide a set of short Jupyter notebook tutorials that introduce NanoVer as a framework
 for running interactive molecular dynamics simulations. These notebooks are designed to provide
@@ -34,35 +37,45 @@ of the GitHub repository:
   with `NGLView <https://github.com/arose/nglview>`_.
 * `runner_GUI`: A notebook that demonstrates how to use the NanoVer GUI to run a server.
 
+|
+
+----
+
 .. _basicsrunningaserver:
 
+################
 Running a server
-================
+################
+
+Introduction
+############
 
 There are two NanoVer servers available:
 
 * **The NanoVer Python Server**, found in the `nanover-server-py <https://github.com/IRL2/nanover-server-py>`_ git repo.
-  This server is written in python and is the go-to server for NanoVer users.
+  This server is written in Python and is the go-to server for NanoVer users.
 * The NanoVer Rust Server, found in the `nanover-server-rs <https://github.com/IRL2/nanover-server-rs>`_ git repo, and is written
   in Rust. We include brief instructions for using this server on this page, but we recommend using the Python Server.
 
+----
+
 The NanoVer Python server
-~~~~~~~~~~~~~~~~~~~~~~~~~
+#########################
 
 The NanoVer Python Server package can be installed using conda (see :ref:`user_installation_guide`) or using the source code
 (see :ref:`developer_installation_guide`). Once installed, you can run a NanoVer server using either
-(a) a python script or Jupyter notebook
+(a) a Python script or Jupyter notebook
 or (b) the command line.
 
-via a python script or notebook
-###############################
+via a Python script or Jupyter notebook
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-For running a NanoVer server using a python script or Jupyter notebook, please see our :ref:`tutorials` page.
+For running a NanoVer server using a Python script or Jupyter notebook, please see our :ref:`tutorials` page.
 If you are new to NanoVer, we recommend starting with our
 `getting_started notebook <https://github.com/IRL2/nanover-server-py/blob/main/examples/basics/getting_started.ipynb>`_.
 
 via the command line
-####################
+~~~~~~~~~~~~~~~~~~~~
 
 Once you have the ``nanover-server`` package installed in your conda environment, you will be able to use the
 ``nanover-omni`` command to run a server.
@@ -94,9 +107,9 @@ For more information about the arguments provided with this command, type:
     nanover-omni --help
 
 via the GUI
-###########
+~~~~~~~~~~~
 
-The python GUI creates a web-based graphical interface for running a NanoVer Server.
+The Python GUI creates a web-based graphical interface for running a NanoVer Server.
 It supports both real-time simulations from NanoVer OpenMM XML files and playback of recorded trajectories.
 The interface provides controls for simulation parameters, network settings, and trajectory recording options.
 
@@ -111,10 +124,12 @@ If everything is set up correctly, you should see the following interface:
     :align: center
     :scale: 50%
 
-\
+|
+
+----
 
 The NanoVer Rust Server
-~~~~~~~~~~~~~~~~~~~~~~~
+#######################
 
 The NanoVer Rust Server is compiled into an executable (or equivalent, depending on your operating system), rather than being
 installed on your computer. For this, you have two options:
@@ -156,7 +171,7 @@ Here you are provided with two executables for running a server:
     The same needs to be done for the ``libOpenMM`` executables in the ``lib`` and ``lib/plugins`` directories.
 
 via the command line
-####################
+~~~~~~~~~~~~~~~~~~~~
 
 To run the server using the command line, run the executable as a command, passing it the path to
 your NanoVer simulation file, e.g.:
@@ -197,7 +212,7 @@ For more information about the arguments provided with this command, type:
 .. _rust_server_via_the_gui:
 
 via the GUI
-###########
+~~~~~~~~~~~
 
 To run the server via the GUI, open the ``nanover-gui`` executable (or run it via the command line e.g.
 ``./nanover-gui`` on MacOS) and you will see the following interface:
@@ -216,4 +231,4 @@ Please click on the headings to open up menus to customise your server further: 
 ``Simulation``, and ``Recording``.
 For further information about these options, use the :ref:`help function <command line help>` in the command line.
 
-
+|
