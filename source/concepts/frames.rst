@@ -1,5 +1,6 @@
 .. _traj-and-frames:
 
+=======================
 Trajectories and Frames
 =======================
 
@@ -49,3 +50,6 @@ integer, byte, float, string, or a JSON like `Struct
 
 To learn more about the types of data you can send in a frame, or to see how to add data to a frame in practice,
 take a look at our `frame` tutorial notebook (see :ref:`nanover-fundamentals`).
+
+|
+
