@@ -4,99 +4,103 @@ Applications
 ============
 
 The :ref:`NanoVer protocol <base-protocol>` defines how clients and servers
-communicate with each other. It leaves ample room for customisation: it does
+communicate with each other. It is designed to be extensible: it does
 not define the content of a :ref:`FrameData <frame-description>`, the
-meaning of the shared state keys is not defined either, nor does the protocol
-specifies what the commands should be. This points are defined by applications.
-Applications define how to use the different services and how to format the
-content for specific tasks.
+meaning of the shared state keys, or the available commands. Each of these
+can be defined and extended to support various **applications**. Each application
+defines conventions for utilising the different services for specific objectives.
+
+.. contents:: Contents
+    :depth: 2
+    :local:
+
+----
 
 .. _multiplayer-application:
 
-The multiplayer application
+The multi-user application
 ---------------------------
 
-Clients that implement the multiplayer application can send and receive avatars
-so users can share a virtual space. It is the core of multi-user use cases.
+Introduction
+~~~~~~~~~~~~
 
-Each user that is visible to the others have :ref:`an avatar
-<avatar-description>`, the characteristic of which it shares using the
-:ref:`state service <state-service>`. An :ref:`origin
-<user-origin-description>` can optionally be associated to a user. That origin
-is a suggestion from the server to place a users relative to each other.
-Finally, a user can optionally describe its :ref:`play space
-<play-space-description>`, being the area around the user in which it is deemed
-safe to move.
+The multi-user application provides a shared virtual space in which users can
+embody themselves with "avatars" and manipulate objects (e.g repositioning the
+simulation box in MD).
 
-Avatars, user origins, and play spaces are linked to a user with a player ID.
-This ID is an arbitrary string chosen by the user's client. Commonly, clients
+Clients can broadcast avatar representations of themselves, the extent
+of their walkable VR space, and receive a server suggestion about how to
+position themselves relatives to other clients e.g.
+:ref:`radially oriented <radial-orient>` for distributed setups.
+
+Each user chooses a unique "player ID" for themselves to distinguish the
+ownership and applicability of the user information shared. Commonly, clients
 use a `UUID4
 <https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)>`_
 to reduce the risk of collision between IDs produced by different clients.
-However, any non-empty string is a valid player ID.
 
-.. warning::
-
-   An empty string is an invalid player ID only by convention. At this time, no
-   server will prevent the use of one. However, an empty player ID is more
-   likely to enter in collision between clients which could cause a client's
-   avatar to be overwritten by another client.
-
-A multiplayer application can optionally implement the :ref:`radial orient
-<radial-orient>` method to place the avatars in a circle around a point.
+----
 
 .. _multiplayer-coordinate-systems:
 
 Coordinate systems
 ~~~~~~~~~~~~~~~~~~
 
-The multiplayer application distinguishes between two coordinate spaces:
+The multi-user application distinguishes between two coordinate spaces:
 
-* the game space is the coordinate space of the client. It is fully the
-  responsibility of the client and the server is not aware of any of its
-  details.
-* the server space is the space in which all coordinate through the server are
-  expressed. It is a left-handed, Y-up, coordinate space, with lengths
-  expressed in meters. The origin of the height is on the floor. It is modeled
-  after Unity's coordinate system.
+* The **server space** is the coordinate system of the shared virtual space.
+  The 3d poses of avatars, the simulation box, and any other objects are
+  exchanged in this coordinate space. The characteristics are chosen to match
+  Unity's VR: left-handed, with Y-up, lengths expressed in meters, and the origin
+  at floor level.
+* A **client space** is the local coordinate space of a given client, and which may differ from
+  server space. For example, in VR the coordinate system may be fixed in physical
+  space such that it can't be changed directly to match server space. The server
+  is not aware of this and it is the client's responsibility to transform
+  coordinates into server space before communicating them.
 
-The client is free to represent the server space anywhere in its game space.
+The client is free to represent the server space anywhere in its client space.
 Optionally, the server can suggest to a client where to place and how to orient
-the game space relative to the server space with the :ref:`user-origin
+the client space relative to the server space with the :ref:`user-origin
 <user-origin-description>` key.
+
+.. note::
+
+   In MD applications there is an additional **simulation space** coordinate
+   system. Its relation to the server space is determined by the position
+   of the simulation box (via the `scene` key). IMD interactions use this
+   coordinate space.
+
+----
 
 .. _avatar-description:
 
 Avatars
 ~~~~~~~
 
-A client can expose an avatar to the other clients by periodically updating the
-corresponding key in the :ref:`shared state <state-updates>`. Since client get
-updates 30 times per seconds by default, 30 avatar updates per seconds is the
-recommended update rate.
+Users may share their presence in the virtual space by creating and continuously
+updating an "avatar". For example, in the iMD-VR application, each VR client
+shares their head and hand positions for others to see.
 
-Avatars are represented in the shared state as a protobuf `Struct
+Avatars are exchanged via the shared state as a protobuf `Struct
 <https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Struct>`_
-under a key formatted as ``avatar.<PLAYER_ID>``.
-
-Inside the Struct, an avatar refers to its player ID. It can also specify a
-name and a color. The most important part of an avatar is the list of its
-components. Components are elements of the avatar with a position and a rotation.
+under keys of the form ``avatar.<PLAYER_ID>``. This avatar Struct details the
+user's player ID, a name for the user, a display color, and a list of its
+spatial components.
 
 .. warning::
 
    The avatar specifies its player ID twice: in the top level key and with the
-   ``playerid`` sub-key. Both places MUST match. A discrepancy between the two
-   is undefined behaviour. See `issue #98 in nanover-server-py
+   ``playerid`` sub-key. Both places MUST match. See `issue #98 in nanover-server-py
    <https://github.com/IRL2/nanover-server-py/issues/98>`_.
 
-The name is an arbitrary string meant to be displayed to the other users as a
-human-readable identifier. The color is also meant to be displayed to the other
-users. The color is provided as a list of RGBA values between 0 and 1.
+The name is an arbitrary string typically displayed as a floating label above the
+avatar. The color, intended for distinguishing multiple avatars easily, is provided
+as a list of RGBA component values between 0 and 1.
 
-The expected components are the head and the two hands. An avatar can contain
-other components, but they may not be supported by other clients. Each
-component is a Struct with the following keys:
+The typical components are a head and two hands. An avatar can contain other
+components, but they may be ignored and hidden by other clients. Each component is
+a Struct with the following keys:
 
 * ``name``, the predefined name of the component. The supported names are
   "headset", "hand.right", and "hand.left".
@@ -107,12 +111,12 @@ component is a Struct with the following keys:
 
 .. note::
 
-   The avatar description currently only support VR controllers. See `issue #97 in
+   The avatar description currently only supports VR controllers. See `issue #97 in
    nanover-server-py <https://github.com/IRL2/nanover-server-py/issues/97>`_ for
    hand-tracking support.
 
-How to represent the avatar is the responsibility of the client. It must assume
-that any of the information may be missing.
+How to represent the avatar is the responsibility of the client, but it should
+be careful to handle cases where some information or components are missing.
 
 In summary, an avatar is structured as such:
 
@@ -121,9 +125,9 @@ In summary, an avatar is structured as such:
    avatar.<PLAYER_ID>: {
      components : [
        {
-         name
-         position: 
-         rotation
+         name,
+         position,
+         rotation,
        }
      ],
      playerid,
@@ -131,67 +135,21 @@ In summary, an avatar is structured as such:
      color,
    }
 
-.. _user-origin-description:
-
-User origin
-~~~~~~~~~~~
-
-Avatars are shared in server space. Each client is responsible to locate its
-server space wherever it prefers relative to its game space. However, the
-server can suggest how to center the game space relative to the server space in
-order to place the users according to each other. This is used by the
-:ref:`radial orient <radial-orient>` server feature.
-
-.. note::
-
-   We assume the user origin is always provided by the server. However, it can
-   come from a client so it is possible to implement a client that will place
-   the users relative to each other folowwing arbitrary pattern. This can be
-   used, for instance, to prototype alternative to the radial orient feature
-   without mofifying the server.
-
-The suggested user origin describes where the server suggests a given user
-places the center of its game space and how to rotate that space. The
-origin is described as a protobuf Struct under the key
-``user-origin.<PLAYER_ID>`` where ``<PLAYER_ID>`` is the ID of the user to whom
-the suggestion is addressed. The Struct has the following keys:
-
-* ``position`` is the suggested location of the center for the user's game
-  space in the server space;
-* ``rotation`` is a quaternion describing the rotation of the user's game
-  space in the server space.
-
-A client may not follow the server suggestion and should not be assumed to do
-so. If the key is absent from the shared state, the client may locate itself in
-the server space as it chooses.
-
-.. warning::
-
-   A client has no way of knowing if the user origin emanates from a ligitimate
-   source (i.e. the server or a trusted client). Therefore, a client could use
-   this feature to move users without their conscent. This could cause
-   discomfort if not used responsibly.
-
-As a summary, the user origin is specified as follow in the shared state:
-
-.. code::
-
-   user-origin.<PLAYER_ID>: {
-     position,
-     rotation,
-   }
+----
 
 .. _play-space-description:
 
-Play space
+Play area
 ~~~~~~~~~~
 
-A client can share the shape of its play space with the others. A play space,
-or play area, is the area the user can safely reach. This is mostly relevant
-for VR clients which have to define such a safe space.
+A client, typically in the case of a VR client, can share a 
+boundary within which that user can safely move. This can be visualised
+on other clients and is especially useful for colocated setups, or to
+see the results of the :ref:`radial orient <radial-orient>` function for
+distributed setups.
 
-The play area is defined as four points, each as a vector of 3 XYZ values, in
-server space, that form a quadrilateral. The play area is defined as a
+The play area is defined as four points, where each point is a vector of three XYZ values defined in
+server space that form a quadrilateral. The play area is defined as a
 Struct in the shared state under the key ``playarea.<PLAYER_ID>``. The points
 are defined under the keys ``A``, ``B``, ``C``, and ``D``.
 
@@ -204,114 +162,229 @@ are defined under the keys ``A``, ``B``, ``C``, and ``D``.
       D,
     }
 
-If they are available, a client can choose to represent them as they choose.
-
 .. note::
 
-   We assume that the points defining the play area are on the floor (Y=0).
-   However, nothing forces a client to send them a such.
+   Typically we assume that the points defining the play area are on the floor
+   (Y=0), but this is not required.
+
+----
 
 .. _radial-orient:
 
 Radial orient
 ~~~~~~~~~~~~~
 
-A server can, optionally, implement the radial orient feature as a command on
-the :ref:`command service <command-service>`. The radial orient command places
-all the avatars on a circle around the origin of the server space by
-setting a :ref:`user origin <user-origin-description>` for each avatar.
+The radial orient feature is a command optionally implemented on the
+:ref:`command service <command-service>`. This command suggests how clients
+should position their client space (and hence avatars) relative to server
+space such that all clients are positioned in a circle around the origin.
+These suggestions are in the form of a
+:ref:`user origin <user-origin-description>` for each avatar.
 
 The command is named ``multiuser/radially-orient-origins``. It takes a
-``radius`` argument that is the distance, in meters, between the generated
-centers and the center of the server space. The default radius is 1 meter.
+``radius`` argument that is the radius, in meters, of the circle along
+which each user will be placed. The default radius is 1 meter.
 The command does not return anything. This leads to the following signature:
 
 .. code::
 
    multiuser/radially-orient-origins(radius = 1.0) -> None
 
-Let a set of players :math:`P = \{P_0, P_1, ... P_{N - 1}\}`, :math:`N` the number of
-players, and :math:`r` the radius given in argument. Then the center's position
-:math:`\mathbf{C}_i` for avatar :math:`i` is computed using polar coordinates converted
-to Cartesian. Each avatar is assigned an angle :math:`\theta_i`:
+Let's define set of players, :math:`P = \{P_0, P_1, ... P_{N - 1}\}`, where :math:`N` is the number of
+players, and :math:`r` is the radius given as an argument. Then the center's position
+:math:`\mathbf{C}_p` for avatar :math:`p` is computed using polar coordinates and then converted
+to Cartesian coordinates. Each avatar is assigned an angle :math:`\theta_p`:
 
 .. math::
 
-  \theta_i = \frac{i \times 2 \pi}{N}
+  \theta_p = \frac{ 2 \pi p}{N}
 
-Then the positions is:
+Then the position :math:`\mathbf{C}_p` of each user's suggested origin is:
 
 .. math::
 
   \begin{align}
-  \mathbf{C}_i &= \begin{bmatrix}
-    r\cos{\theta_i}\\
+  \mathbf{C}_p &= \begin{bmatrix}
+    r\cos{\theta_p}\\
     0\\
-    r\sin{\theta_i}\\
+    r\sin{\theta_p}\\
   \end{bmatrix}
   \end{align}
 
-The rotation :math:`\mathbf{R}_i` is expressed as a quaternion and is defined as:
+And the rotation :math:`\mathbf{R}_p` is expressed as a quaternion, defined as:
 
 .. math::
 
    \begin{align}
-   \mathbf{R}_i &= \begin{bmatrix}
+   \mathbf{R}_p &= \begin{bmatrix}
      0\\
-     \sin{\frac{1}{2} \big(-\theta_i - \frac{2\pi}{N}\big)}\\
+     \sin{\frac{1}{2} \big(-\theta_p - \frac{2\pi}{N}\big)}\\
      0\\
-     \cos{\frac{1}{2} \big(-\theta_i - \frac{2\pi}{N}\big)}\\
+     \cos{\frac{1}{2} \big(-\theta_p - \frac{2\pi}{N}\big)}\\
     \end{bmatrix}
    \end{align}
+
+----
+
+.. _user-origin-description:
+
+User origin
+~~~~~~~~~~~
+
+A user-origin is a suggestion to a client of how to position their coordinate
+space (and therefore avatar) relative to server space. This is used by the
+:ref:`radial orient <radial-orient>` server feature.
+
+.. note::
+
+   Any client can add user-origin keys. This can be used, for instance, to
+   prototype alternatives to the radial orient feature without modifying the server.
+
+The user origin describes where the server suggests a given user places the center
+of its client space and how to orient it. The origin is described as a protobuf
+Struct under the key ``user-origin.<PLAYER_ID>`` where ``<PLAYER_ID>`` is the ID
+of the user to whom the suggestion is addressed. The Struct has the following keys:
+
+* ``position`` is the suggested location of the center of the user's client
+  space in the server space;
+* ``rotation`` is the suggested rotation (as a quaternion) of the user's client
+  space in the server space.
+
+Clients are free to ignore the user-origin suggestion and locate themselves in
+the server space as they choose.
+
+.. warning::
+
+   Any client can add user-origin keys. If used without due care and
+   responsibility, a VR user could get very nauseous.
+
+As a summary, the user origin is specified as follows in the shared state:
+
+.. code::
+
+   user-origin.<PLAYER_ID>: {
+     position,
+     rotation,
+   }
+
+
+----
+
+.. _multiplayer-update-index:
+
+Update index
+~~~~~~~~~~~~
+
+If a client needs more precise knowledge of which of its updates have already
+been accepted by the server and broadcast to clients, it can choose to maintain an
+incrementing count of sent updates and store this in the shared state under
+an ``update.index.<USER_ID>`` key. The client can then compare the remotely
+received updates to this internal count.
+
+
+|
+
+----
 
 .. _trajectory-application:
 
 The trajectory application
 --------------------------
 
+Introduction
+~~~~~~~~~~~~
+
 In the trajectory application, the server broadcasts molecular structures for
 the clients to display. The molecular structures can be static structures or
-snapshots of a trajectory; the protocol refer to these snapshots as frames. The
+snapshots of a trajectory; the protocol refers to these snapshots as frames. The
 application is agnostic about the frames being generated on-the-fly or being
 pre-calculated.
 
-This application defines a set of fields to describes the semantic of molecular
-systems with the ``FrameData``. It also defines a set of optional commands a
+This application defines a set of fields that describe the semantics of molecular
+systems within the ``FrameData``. It also defines a set of optional commands that a
 server can implement to give the clients some control over how the frames are
-streamed. Finally, it defines some interactions with the multiplayer
-application to share where to display the molecular system relative to the
-users, and how to render the molecules.
+streamed. Finally, it defines several methods to communicate with the multiplayer
+application in order to share where to display the molecular system relative to the
+users and define how to render the molecules.
+
+----
 
 Frames
 ~~~~~~
 
-The :ref:`trajectory service <trajectory-service>` allows to stream snapshots
-of arbitrary data to clients. Each snapshot is described in a :ref:`FrameData
-<frame-description>` which contains a key-value map of protobuf `Values
-<https://protobuf.dev/reference/protobuf/google.protobuf/#value>`_ and one of
-homogeneous arrays. Here, we define a set of keys and data format to describe
+In this section we define a set of keys and data formats that we use to describe
 the semantics of molecular systems.
 
 .. note::
 
-   A server using this set of keys can implement keys from another application
-   as well. For instance, a server implementing the :ref:`iMD application
-   <imd-application>` can implement both this set of keys and :ref:`iMD-specific
-   keys <imd-framedata-keys>`.
+   A server using the set of trajectory-specific keys can implement keys from
+   another application as well. For instance, a server implementing the
+   :ref:`iMD application <imd-application>` can implement both this set of keys
+   and the :ref:`iMD-specific keys <imd-framedata-keys>`.
+
+The trajectory application uses the :ref:`trajectory service <trajectory-service>`,
+which allows a server to stream snapshots of arbitrary data to clients. Each snapshot is
+described in a :ref:`FrameData <frame-description>` object, which contains:
+
+* a key-value map of protobuf `Values <https://protobuf.dev/reference/protobuf/google.protobuf/#value>`_
+* a key-value map of homogeneous arrays
+
+The coordinate system is the right-handed, Z-up system used in most software
+working with molecular systems.
 
 All FrameData values used by the trajectory application use the following set
 of units:
 
-* lengths are expressed in nanometers (:math:`\text{nm}`)
-* durations are expressed in picoseconds (:math:`\text{ps}`)
-* masses are expressed in atomic mass unit (AMU)
-* charges are expressed in proton charge
-* energies are expressed in :math:`\text{kJ}\cdot\text{mol}^{-1}`
-* velocities are expressed in :math:`\text{nm}\cdot{ps}^{-1}`
-* forces are expressed in :math:`\text{kJ}\cdot\text{mol}^{-1}\cdot\text{nm}^{-1}`
+.. grid:: 3
+   :gutter: 3
 
-The coordinate system is the right-handed, Z-up, system used in most software
-working with molecular systems.
+   .. grid-item::
+
+   .. grid-item::
+      .. list-table:: Units in NanoVer
+         :widths: auto
+         :header-rows: 1
+
+         * - Quantity
+           - Unit
+         * - length
+           - :math:`\text{nm}`
+         * - time
+           - :math:`\text{ps}`
+         * - mass
+           - atomic mass unit (AMU)
+         * - charge
+           - proton charge
+         * - energy
+           - :math:`\text{kJ}\cdot\text{mol}^{-1}`
+         * - velocity
+           - :math:`\text{nm}\cdot\text{ps}^{-1}`
+         * - force
+           - :math:`\text{kJ}\cdot\text{mol}^{-1}\cdot\text{nm}^{-1}`
+
+
+   .. grid-item::
+
+
+.. important::
+
+   The units used in NanoVer may differ from those used in the physics engine
+   simulating the molecular system. This means that accessing a data field directly
+   from the simulation itself may yield a different value to that delivered in the
+   FrameData object generated for the same time step/configuration of the molecular
+   system. **This is expected behaviour**.
+
+   For example, for an :class:`ASESimulation` called :code:`ase_sim` and a
+   NanoVer python client called :code:`client`:
+
+   .. code-block:: python
+
+      # Retrieve potential energy via ASE dynamics object directly (in ASE native units)
+      ase_PE = ase_sim.dynamics.atoms.get_potential_energy()
+
+      # Retrieve potential energy from the current frame (in NanoVer units)
+      nanover_PE = client.current_frame.potential_energy
+
 
 Particles
 ^^^^^^^^^
@@ -337,6 +410,15 @@ keys in the array map:
   a name, set it to an empty string. When applicable, it is recommended to use
   the names used in the Protein Data Bank.
 
+.. important::
+
+   Since the iMD application delivers system quantities separately from the interaction
+   quantities, the key ``particle.forces.system`` has replaced the key
+   ``particle.forces`` in the iMD application. The former contains the force array
+   applied to each particle due to interactions from *within the molecular system*
+   (i.e. excluding forces arising from iMD interactions). The latter is still available
+   for backwards compatibility with existing trajectories.
+
 .. _leap-frog-warning:
 
 .. warning::
@@ -350,16 +432,16 @@ keys in the array map:
 
 .. note::
 
-   The application used to define a ``particle.types`` key for non-atomic
+   The trajectory application previously defined a ``particle.types`` key for non-atomic
    systems where ``particle.elements`` was not appropriate. However, the key
-   not being used lead to a lack of support. The key not having a clear meaning
-   defined, has been removed from the application. However, the protocol allows
-   the use of arbitrary keys so users of the application can reintroduce this
+   not being used lead to a lack of support. The key, not having a clear meaning
+   defined, has been removed from this application. However, the protocol allows
+   the use of arbitrary keys so users can reintroduce this
    key, or any more appropriate ones, for their own use cases.
 
-If the FrameData uses any key staring by ``particle.``, it must set the key
+If the FrameData uses any key starting with ``particle.``, it must set the key
 ``particle.count`` in the value map. The value of ``particle.count`` is the
-number of particles in the frame, it must match the length of the arrays.
+number of particles in the frame, and must match the length of the arrays.
 
 Residues
 ^^^^^^^^
@@ -387,20 +469,23 @@ part. The indices are indices in the following arrays:
 If the FrameData contains any array with a key staring with ``residue.``, it
 must set a key ``residue.count`` in the value map. The value is the number of
 residues and must match the length of the residue-related arrays. Indices in
-the ``particle.residues`` array must be strictly lesser than the number of
+the ``particle.residues`` array must be strictly less than the number of
 residues. However, these indices may not refer to all of the residues. This
 means it is possible to have residues with no particle attached to them. This
-allows to filter particles out without having to modify the list of residues.
+allows us to filter out particles without having to modify the list of residues.
 
 Chains
 ^^^^^^
 
-Residues can be grouped by chains. There is not format semantic for chains
-except that they are groups of residues. However, a chain is commonly either
-(i) a complete set of residues connected by bonds or (ii) a complete set of
-connected residues and residues not connected by bonds but related to the main
-set. In both cases, missing residues count in the connectedness of the set. The
-later case matches the meaning of a chain in the PDB format. To group residues
+Residues can be grouped by chains. There is no semantic format for chains
+except that they are groups of residues. However, a chain is commonly either:
+
+(i) a complete set of residues connected by bonds, or
+(ii) a complete set of connected residues and residues not connected by bonds but
+     related to the main set.
+
+In both cases, missing residues count in the connectedness of the set. The
+latter case matches the meaning of a chain in the PDB format. To group residues
 by chains, the FrameData must include the ``residue.chains`` key in the array
 map with each value of the array being the index of the chain of which the
 residue is a part. The FrameData also must set ``chain.count`` in the value map
@@ -437,25 +522,42 @@ Simulation time
 ^^^^^^^^^^^^^^^
 
 If the frame corresponds to a given time in a simulation, this time can be
-specified in picoseconds in the value map under the ``system.simulation.time``
+specified (in picoseconds) in the value map under the ``system.simulation.time``
 key.
 
 Energies
 ^^^^^^^^
 
-The energy of the system for the frame can be stored in
-:math:`\text{kJ}\cdot\text{mol}^{-1}` under the ``energy.kinetic``,
-``energy.potential``, and ``energy.total`` key of the value map for the
-kinetic, potential, and total energies, respectivelly. The total energy is
-assumed to be the sum of the kinetic and potential energies.
+The kinetic and potential energies of the system for the frame can be stored (in
+:math:`\text{kJ}\cdot\text{mol}^{-1}`) under the ``energy.kinetic`` and
+``energy.potential`` keys of the value map, respectively.
+
+.. important::
+
+   In the iMD application, the potential energy delivered under ``energy.potential``
+   is the potential energy of the system *excluding* the potential energy associated
+   with iMD interactions.
 
 .. note::
 
-   Like :ref:`mentionned about particle velocities <leap-frog-warning>`, some
-   molecular dynamics integrators use velocities computed out of sync of the
+   As :ref:`mentioned for particle velocities <leap-frog-warning>`, some
+   molecular dynamics integrators compute velocities that are out of sync with the
    positions. This may cause the kinetic and the potential energies to be out of
-   sync as well. This is, however, a very common behaviour that can be ignored in
-   most cases.
+   sync as well, depending on whether the velocities of the system are corrected
+   for by the physics engine before the kinetic energy is calculated. It is up to
+   the user to determine whether this is an issue for the integrator they employ
+   in their chosen physics engine, and whether it is corrected for in any way.
+
+.. warning::
+
+   In the current implementation of iMD in NanoVer, when using OpenMM as a physics
+   engine for molecular simulation *with* a
+   :ref:`leapfrog algorithm <leap-frog-warning>`, the kinetic energy delivered
+   *during an iMD interaction* differs marginally from the true kinetic energy of the
+   system (see `Issue #324 <https://github.com/IRL2/nanover-server-py/issues/324>`_).
+   This is not an issue when using the ASE as the physics engine with an
+   :class:`OpenMMCalculator`.
+
 
 Playback indicators
 ^^^^^^^^^^^^^^^^^^^
@@ -471,6 +573,8 @@ load events:
   initial one. The counter starts at 0 and is incremented when a simulation is loaded
   after the initial one.
 
+----
+
 Playback commands
 ~~~~~~~~~~~~~~~~~
 
@@ -478,59 +582,50 @@ A trajectory application can define the following commands in the :ref:`command
 service <command-service>` to control the stream of frames:
 
 * ``playback/play() -> None``: in combination with ``playback/pause``, this
-  command controls if new frames are being generated or not. The command does
-  not take any argument and does not return anything.
-* ``playback/pause() -> None``: pauses the generation of frames. This command
+  command controls whether the simulation or playback is advancing
+  or not. The command does not take any argument and does not return anything.
+* ``playback/pause() -> None``: pauses the simulation or playback. This command
   does not take any argument and returns nothing.
-* ``playback/step() -> None``: generate the next frame and pause the frame
-  generation. No arguments, no return.
-* ``playback/reset() -> None``: reset the frame generation from the beginning.
-  If the frames are read from a pre-generated trajectory, it will start over
+* ``playback/step() -> None``: advances simulation or playback until the next frame
+  and then pause. No arguments, no return.
+* ``playback/reset() -> None``: resets the simulation or playback to its initial
+  state. If the frames are read from a pre-generated trajectory, it will start over
   from the first frame. If the trajectory is being generated on-the-fly, it
   will restart from the initial conditions. No arguments, no return.
-* ``playback/list() -> {simulations: list of strings}``: if the server allows
-  switching between molecular systems, this command returns the list of
-  available systems. The order of the systems must match the indices used by
-  ``playback/load``. The list contains arbitrary names that allow to identify
-  these systems. They are aimed at being read by humans. The list is returned
+* ``playback/list() -> {simulations: list of strings}``: returns the list of
+  loadable simulations or recordings. Their names are arbitrary, user-facing
+  strings for the sole purpose of identification. The list is returned
   under the ``simulations`` name. The command does not take any arguments.
-* ``playback/load(index: int) -> None``: if the server allows switching between
-  molecular systems, this command requests the system with the given index to be
-  loaded as the current system. The command takes an integer as the ``index``
-  argument and returns nothing. If the client does not provide an index,
-  provides a misformatted index, or provides an invalid index, the command is
-  ignored silently. The bahaviour in case the index is valid but the system
-  could not be loaded is undefined.
-* ``playback/next() -> None``: if the server allows switching between molecular
-  systems, this command requests the simulation with the next index to be
-  loaded as the current simulation. The server is free to cycle through the
-  available systems or ignore the command when the current system is the last
-  available one. The behaviour when the system fails to load is undefined.
-
-.. note::
-
-   There is no command defined to toggle between playing and pausing the frame
-   generation. This is on purpose as such a toggle command would be prone to
-   race conditions when multiple clients call play/pause commands close to each
-   other in time.
+* ``playback/load(index: int) -> None``: switches from the current system to the
+  system corresponding to the index argument with respect to the available systems
+  , as listed by the ``playback/list`` command. Indexing starts from 0. The command
+  takes an integer as the ``index`` argument and returns nothing.
+* ``playback/next() -> None``: switches from the current system to the next
+  system in the list of available systems, as listed by the ``playback/list`` command.
+  When called from the final system, cycles back to the first system.
+  Note that the Rust server does not cycle back after the final system.
+  This command does not take any arguments and does not return anything.
 
 .. warning::
 
-   The playback commands do not define any error handling. The commands to
-   switch among molecular systems can be silently ignored and a failure to load
-   a system, which is a probable event, has no defined behaviour.
+   At this time, the playback commands do not provide any error handling visible
+   to the client. If a system fails to load, there is no client-side way to
+   detect this.
+
+----
 
 Simulation box for multi user use cases
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 If the trajectory application is used in combination with the :ref:`multiplayer
-application <multiplayer-application>`, it can share where the simulation box
-should be placed relative to the avatar.
+application <multiplayer-application>`, the position and orientation of the
+simulation box can be defined in the shared virtual space by means of the ``scene``
+key in the :ref:`shared state <state-service>`. The clients and the server can
+freely modify the ``scene`` key to reposition, reorient and resize the simulation box.
 
-The clients or the server can set the ``scene`` key in the :ref:`shared state
-<state-service>`. The value under that key is a list of numbers that merges
+The value under that key is a list of numbers that merges
 position of the box's origin, its rotation as a quaternion, and the scaling
-compared to the default box size in each dimension. These are expressed in the
+compared to the default box size. These are expressed in the
 :ref:`server coordinate system <multiplayer-coordinate-systems>`.
 
 By default:
@@ -562,39 +657,87 @@ wrong length, or include negative scale values.
 
 .. warning::
 
-   The scale can be set to any value but it must be set to 3 identical
-   values for the simulation space to keep its aspect ratio.
+   The scaling format technically supports non-uniform scales, however this is
+   likely to cause rendering issues.
 
 The ``scene`` key is likely to be modified often and by multiple users. To
 avoid conflict, users should :ref:`lock <state-locks-description>` the key
 before updating it.
 
 
+|
+
+----
+
 .. _imd-application:
 
 The iMD application
 -------------------
 
-For now, the main application of NanoVer is interactive molecular dynamics
-simulations (iMD). A simulation runs on the server and users can apply forces
-to particles on-the-fly.
+Introduction
+~~~~~~~~~~~~
 
-The iMD application defines how to send user interactions to the server, the
+For now, the main application of NanoVer is interactive molecular dynamics
+(iMD) simulations, in which a simulation runs on a server and users can
+apply forces to particles on-the-fly. The iMD application builds on the capacity of the
+:ref:`trajectory application <trajectory-application>` to provide live molecular
+dynamics by defining the means to perform real-time interactions with the
+simulation.
+
+The application defines how to send user interactions to the server, the
 expected behaviour of the server regarding these interactions, and how the
 server can communicate the result of these interactions on the simulation to
 the clients.
 
-The application assumes it is used in conjunction with the :ref:`trajectory
-application <trajectory-application>` or a similar enough application to share
-the simulation itself.
+A user sends an interaction as a point of origin (in simulation space),
+the particles to which it applies and any additional parameters (e.g force strength). The server then
+collects all the user interactions, computes the corresponding forces, and
+propagates them with the other forces in the simulation.
 
-A user sends an interaction as a point of origin, the particles to which it
-applies and a set of parameters. The server, then collects all the user
-interactions, computes the corresponding forces and propagates them with the
-other forces in the simulation.
+----
+
+Blueprint for quantitative iMD
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The :ref:`trajectory service <trajectory-service>` used by the
+:ref:`trajectory application <trajectory-application>` (and thus by the iMD
+application) allows users to choose a frame interval, an integer that specifies
+the number of simulation steps to be performed by the physics engine between each
+published frame. This can take an integer value :math:`n_{\text{f}} \geq 1`, and
+by default is set to 5 in the iMD application. The frame interval offers an alternative
+to longer (and hence less accurate) simulation time steps by allowing several shorter
+simulation steps to run between each frame published to clients, for cases where you
+want to tune the relationship between simulation time and real-time during
+visualisation and interaction.
+
+In the iMD application, clients can apply forces to the molecular simulation in
+real-time. In order for any client connecting to a server to gain all of the
+information relevant for quantitative analysis of the effect of iMD interactions
+on the dynamics of the system on-the-fly, all implementations of the iMD application
+in NanoVer are modelled on the following blueprint that describes how to progress
+from one frame to the next:
+
+1. Perform :math:`n_{\text{f}}` simulation steps
+2. Use the final particle positions to calculate the iMD forces (and potential energies)
+   to be applied to the molecular system during the next :math:`n_{\text{f}}` simulation
+   steps
+3. Publish a frame containing all of the information about the current state of
+   the system (including any iMD forces calculated in step 2)
+
+Steps 1--3 are iterated to perform an interactive iMD simulation in which all
+quantitative information regarding the instantaneous state of the system and
+all information about the iMD interactions applied to the system are delivered
+to the clients connecting to the server. The iMD forces and energies calculated in step
+2 remain constant throughout the following :math:`n_{\text{f}}` simulation steps,
+so all clients know what iMD forces act on the simulation between consecutive frames.
+
+----
+
+Interactive forces
+~~~~~~~~~~~~~~~~~~
 
 The interactions can use different :ref:`equations <force-equations>` to
-compute the force :math:`\mathbf{F}_{\text{COM}}` at the center of mass of the group of
+compute :math:`\mathbf{F}_{\text{COM}}`, the force at the center of mass of the group of
 target particles. The force is then distributed among the particles; 
 the method of force distribution depends on whether 
 the interaction is mass weighted of not. If if it mass weighted, then the
@@ -606,10 +749,12 @@ particles for the interaction. If the interaction is not mass weighted, then
 capped to a maximum value specified by the user to avoid applying too large
 forces.
 
-Each interaction type also defines the equation for the energy associated with the user interaction
-:math:`E_{\text{COM}}`. For mass weighted interaction, the energy for the
-interaction is :math:`E = \frac{E_{\text{COM}}}{N}\sum_{i=0}^{N}m_i`. For non
-mass weighted :math:`E = E_{\text{COM}}`.
+Each interaction type also defines the equation for the potential energy associated
+with the user interaction :math:`E_{\text{COM}}`. For mass weighted interaction, the
+energy for the interaction is :math:`E = \frac{E_{\text{COM}}}{N}\sum_{i=0}^{N}m_i`.
+For non mass weighted, :math:`E = E_{\text{COM}}`.
+
+----
 
 .. _force-equations:
 
@@ -618,7 +763,7 @@ Force equations
 
 Each server is free to implement the interaction equation they choose. However,
 there are some that are commonly implemented: the Gaussian force, the harmonic
-force, and the constant force. They all depend on the vector :math:`\mathbf{d}` between
+(spring) force, and the constant force. They all depend on the vector :math:`\mathbf{d}` between
 the origin of the interaction, :math:`\mathbf{r}_{\text{user}}`, and the center of mass
 of the set of target particles :math:`\mathbf{r}_{\text{COM}}`. So, :math:`\mathbf{d} =
 \mathbf{r}_{\text{user}} - \mathbf{r}_{\text{COM}}`.
@@ -667,18 +812,7 @@ The direction of the constant force is undefined when the origin of the
 interaction and the center of mass of the selection overlap, so the force is
 not applied.
 
-.. _velocity-reset:
-
-Velocity reset
-~~~~~~~~~~~~~~
-
-Some server implementations can kill any residual momentum in the system due to the user-applied forces after the user interaction has ended
-by setting the velocities of the affected particles to 0. This is called velocity
-reset and can be requested by the user as part of the interaction description.
-
-Servers that have the ability to do velocity reset should advertise the feature
-by setting the ``imd.velocity_reset_available`` key to true in the :ref:`shared
-state <state-service>`.
+----
 
 Sending user interactions
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -709,10 +843,19 @@ Under that key, the value is a Struct with the following keys:
   otherwise. The default is true.
 * ``max_force``: the maximum force magnitude that can be applied to a particle
   by this interaction. The default is 20,000
-  :math:`kJ\cdot\text{mol}^{-1}\cdot\text{nm}^{-1}`.
+  :math:`\text{kJ}\cdot\text{mol}^{-1}\cdot\text{nm}^{-1}`.
 * ``reset_velocities``: a boolean, true if :ref:`velocity reset
   <velocity-reset>` should be applied, false otherwise. This is false by
   default and will be ignored silently if the server does not have the feature.
+
+.. warning::
+
+   The Rust server does not currently support non-mass-weighted interactions.
+
+.. note::
+
+   The pure OpenMM server implementation does not support velocity reset at this
+   time.
 
 If the iMD application is used in conjunction with the :ref:`multiplayer
 application <multiplayer-application>`, then the interaction can also use the
@@ -725,49 +868,100 @@ following fields:
   from which the interaction originates (`e.g.` ``hand.right`` or
   ``hand.left``).
 
+----
+
 .. _imd-framedata-keys:
 
 FrameData keys
 ~~~~~~~~~~~~~~
 
-Some details about how the user interactions where applied can be added to the
+Details about the user interactions applied are added to the
 :ref:`FrameData <frame-description>`.
 
-The sum of the energies from user interactions can be included, in
-:math:`\text{kJ}\cdot\text{mol}^{-1}`, under the ``energy.user.total`` key in
-the value map. Depending on the implementations, this energy may or may not be
-included in the total energy included by the :ref:`trajectory application
-<trajectory-application>` under the ``energy.total`` key.
+Each of the interactions applied to the molecular system by a user in the iMD
+application has an associated potential energy. As multiple users can interact
+simultaneously with the same atom(s), the resultant iMD force applied to the each
+atom is a sum of the individual forces applied by the users. Similarly, the iMD
+potential energy associated with the resultant forces is a sum of all of the iMD
+potentials applied to the system by the users. Both the potential energy and the
+resultant forces associated with iMD interactions are delivered to the user in
+the FrameData. These quantities are only non-zero during user interactions.
 
-The forces applied to each particle by the interactions can be stored under the
-``forces.user.index`` and ``forces.user.sparse`` in the array map. Because the
-user interactions usually apply only to a small subset of the particles, it is
-wasteful to provide the forces for all the particles as they would be null for
-most of them. Instead, the user forces are transmitted in a sparse way by
-indicating which particles are affected with ``forces.user.index`` that will
-list the indices in relation of the particle arrays (`e.g.`
-``particle.positions``). The ``forces.user.sparse`` key contains the forces for
-the these particles in the same order as the ``forces.user.index`` as a flatten
-array.
+To distinguish the contributions to the overall potential energy of the
+simulation, the iMD application delivers the potential energy associated with
+interactions within the molecular system itself *separately* from the iMD potential
+energy, under the following keys:
+
+* ``energy.potential``: the potential energy of the molecular system
+  (i.e. without iMD interactions)
+* ``energy.user.total``: the total iMD potential energy (i.e. the sum of the
+  potential energies of all current user interactions)
+
+Both of these energies are delivered in units of :math:`\text{kJ}\cdot\text{mol}^{-1}`.
+
+Similarly, to distinguish the contributions to the total forces acting on the atoms
+in the simulation, the iMD application delivers the forces associated with interactions
+within the molecular system *separately* from the resultant forces from iMD interactions,
+under the following keys:
+
+* ``particle.forces.system``: the force array applied to each particle resulting from
+  interactions within the molecular system (i.e. without iMD forces), as a flattened
+  array of triplets.
+* ``forces.user.index``: a 1-D array of indices (with :math:`n` elements) of the particles
+  to which iMD forces are being applied.
+* ``forces.user.sparse``: the force array applied to each particle for a subset of
+  particles, resulting from iMD interactions (i.e. the total iMD forces applied to
+  specific atoms in the molecular system), as a flattened array of triplets (with
+  :math:`3n` elements). The particles to which the forces are applied are specified by
+  the indices in ``forces.user.index`` (more on this below).
+
+Both force arrays are delivered in units of :math:`\text{kJ}\cdot\text{mol}^{-1}\text{nm}^{-1}`.
+
+As the user interactions usually apply only to a small subset
+of the particles, it would be wasteful to provide the forces for all the particles
+in the FrameData, as most would be null. Instead, the user forces are transmitted in
+a sparse way by indicating which particles are affected with ``forces.user.index``,
+whose entries are the indices of the particles affected by the iMD force,
+corresponding to the indexing in the particle arrays (`e.g.` ``particle.positions``).
+The ``forces.user.sparse`` key contains the corresponding forces applied to these particles
+as a flattened array of triplets. The order of the elements of ``forces.user.index`` correspond to the
+order of the triplets stored in ``forces.user.sparse``.
+
+In addition to delivering information about the forces and potential energies associated
+with the iMD interactions applied to the molecular simulation, the iMD application also
+calculates the cumulative work done on the molecular system by the iMD interactions,
+delivered under the following key:
+
+* ``forces.user.work_done``: the cumulative work done on the molecular system by all iMD
+  forces applied to the system.
+
+The user work done is delivered in the same units as the potential energies, i.e.
+:math:`\text{kJ}\cdot\text{mol}^{-1}`.
+
+----
+
+.. _velocity-reset:
+
+Velocity reset
+~~~~~~~~~~~~~~
+
+Some server implementations can kill any residual momentum in the system due to the user-applied forces after the user interaction has ended
+by setting the velocities of the affected particles to 0. This is called velocity
+reset and can be requested by the user as part of the interaction description.
+
+Servers that have the ability to do velocity reset should advertise the feature
+by setting the ``imd.velocity_reset_available`` key to true in the :ref:`shared
+state <state-service>`.
+
+|
+
+----
 
 Miscellaneous applications
 --------------------------
-
-Some clients or servers may use their own keys in the :ref:`state
-<state-service>` or :ref:`trajectory <trajectory-service>` services. These keys
-are not formally part of any application, but documenting their meaning can
-only improve interoperability among the implementations.
 
 For diagnostics purpose, the time at which a frame has been generated, or
 sent to the trajectory service, can be stored under the ``server.timestamp``
 key in the value map. It is expressed as a fractional number of seconds. This
 timestamp should only be used to compare with other timestamp in the same
 stream as there is no requirement about the clock used to generate it.
-
-A client can send an internal index of the updates it sends under the
-``update.index.<USER_ID>`` key in the shared state; where ``<USER_ID>`` can be
-the player id used in the :ref:`multiplayer application
-<multiplayer-application>` or any string unique to the client. The index is the
-index of the update to be sent by the client in its own internal counter. By
-receiving this value in the update stream, the client can know which of its
-updates have been acknowledged by the server.
