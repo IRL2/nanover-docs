@@ -18,3 +18,5 @@ It contains:
 * `mdanalysis_nanover_recording`: A notebook that details how to use MDAnalysis to extract data from an iMD simulation
   recorded with NanoVer, and highlights some of the benefits of recording trajectories using the in-built recording
   functionality of NanoVer.
+
+|
