@@ -1,3 +1,4 @@
+====================
 NanoVer Architecture
 ====================
 
@@ -5,6 +6,9 @@ NanoVer Architecture
     :depth: 2
     :local:
 
+----
+
+########
 Overview
 ########
 
@@ -21,14 +25,19 @@ There a several good reasons for using this model:
   molecular simulation for a galaxy simulation? Just change the server!
 * **Scientific software is often written in different programming languages to
   those that are best suited for visualisation**. For example, most of our
-  molecular dynamics simulations run using python, while our VR application
+  molecular dynamics simulations run using Python, while our VR application
   is written in C#. 
 * **The server can be running wherever it is convenient**, be it on your desktop,
   a cluster behind a firewall or on a cloud service, while multiple frontend 
   applications can connect simultaneously, such as a VR app, 
   smartphone app, or a Jupyter notebook. 
 
-Services 
+|
+
+----
+
+########
+Services
 ########
 
 While the client/server model is useful, implementing monolithic client/server applications is not ideal,
@@ -56,6 +65,11 @@ The key features that make it great for NanoVer are:
   including C#, Python and C++. 
 * **Built on HTTP2**, so includes routing, authentication and security.
 
+|
+
+----
+
+##########################################
 An Example: Interactive Molecular Dynamics
 ##########################################
 
@@ -79,7 +93,11 @@ Conceptually, the IMD server consists of three services: a trajectory service, a
 A server application can leverage these three services to implement IMD to facilitate the visualisation of, and
 interaction with, a simulation in real time.
 
+|
 
+----
+
+############
 VR Front End
 ############
 
@@ -87,4 +105,6 @@ The VR front end app, :ref:`NanoVer iMD-VR <vr-client-tutorial>`, intended for 3
 intuitive spatial iMD (iMD-VR), is a `distinct Unity/C# codebase <https://github.com/IRL2/nanover-imd-vr>`_
 that follows the `gRPC protocol definitions <https://github.com/IRL2/nanover-server-py/tree/main/protocol/nanover/protocol>`_
 and :ref:`application conventions <applications>` laid out in the present documentation.
+
+|
 
