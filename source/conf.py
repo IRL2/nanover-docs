@@ -19,8 +19,6 @@ subprocess.call([sys.executable, './install.py'])
 
 # -- Project information -----------------------------------------------------
 
-project = 'NanoVer'
-
 timezone = timezone('UTC')
 release = datetime.now(timezone).strftime("%d-%m-%Y")
 full_release_date = datetime.now(timezone).strftime("%a, %d %b %Y %H:%M:%S")
@@ -52,6 +50,7 @@ base_version = "0.1"
 commit_count = get_git_commit_count("../nanover-server-py")
 version = f"{base_version}.{commit_count}" if commit_count != "unknown" else base_version
 
+project = f'NanoVer {version}'
 
 # -- General configuration ---------------------------------------------------
 
@@ -98,9 +97,9 @@ html_context = {
     'favicon_32': '_static/favicon-32x32.png',
     'favicon_16': '_static/favicon-16x16.png',
     'apple_touch_icon': '_static/favicon.png',
-    'safari_pinned_tab': '_static/favicon.svg'
+    'safari_pinned_tab': '_static/favicon.svg',
+    'version': version,
 }
-
 
 def run_apidoc(_):
     import glob
