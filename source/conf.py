@@ -19,6 +19,8 @@ subprocess.call([sys.executable, './install.py'])
 
 # -- Project information -----------------------------------------------------
 
+project = 'NanoVer'
+
 timezone = timezone('UTC')
 release = datetime.now(timezone).strftime("%d-%m-%Y")
 full_release_date = datetime.now(timezone).strftime("%a, %d %b %Y %H:%M:%S")
@@ -50,7 +52,6 @@ base_version = "0.1"
 commit_count = get_git_commit_count("../nanover-server-py")
 version = f"{base_version}.{commit_count}" if commit_count != "unknown" else base_version
 
-project = f'NanoVer {version}'
 
 # -- General configuration ---------------------------------------------------
 
