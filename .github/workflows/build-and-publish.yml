@@ -44,7 +44,7 @@ jobs:
         shell: bash -el {0}
     steps:
       - name: Get the documentation commit
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           submodules: true
           fetch-depth: 0
@@ -56,7 +56,7 @@ jobs:
           git rev-list --count HEAD
           echo "# Built docs for NanoVer 0.1.$(git rev-list --count HEAD)" >> $GITHUB_STEP_SUMMARY
       - name: Install conda
-        uses: conda-incubator/setup-miniconda@v2
+        uses: conda-incubator/setup-miniconda@v3
         with:
           auto-update-conda: true
           miniforge-version: latest
@@ -73,7 +73,7 @@ jobs:
         run: |
           make html
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v3
         with:
           path: ./build/html
 
@@ -88,4 +88,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@v4
