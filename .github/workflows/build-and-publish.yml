@@ -61,7 +61,7 @@ jobs:
           auto-update-conda: true
           miniforge-version: latest
       - name: Installing NanoVer dependencies
-        run: (conda install -y mpi4py openmm) || true
+        run: conda install -y openmm
       - name: Install NanoVer
         run: |
           cd nanover-server-py
