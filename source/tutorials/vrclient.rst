@@ -590,7 +590,9 @@ the type of network you have access to, your VR headset, and your desired config
 .. admonition:: Key point
 
     For a **wireless setup** you will need to have a strong and stable internet connection that allows communication over the network.
-    This option is often incompatible with public / institutional networks.
+    Note that this option is often not possible with public & institutional networks (e.g. Eduroam). 
+    Instead, you can use your mobile hotspot. In this case, please ensure that all devices are connected to the hotspot,
+    including the computer running the NanoVer server and your VR headset(s).
 
 .. admonition:: Key definition
 
