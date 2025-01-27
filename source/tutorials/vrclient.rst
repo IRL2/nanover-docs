@@ -554,7 +554,7 @@ Choosing your iMD-VR setup
 ##########################
 
 If you wish to visualise and/or interact with your simulations in VR, you will need to use an iMD-VR client.
-We focus on NanoVer iMD-VR as the prototypical iMD-VR client, but these instructions can be generalised to any iMD-VR client,
+We focus on `NanoVer iMD-VR <https://github.com/IRL2/nanover-imd-vr>`_ as the prototypical iMD-VR client, but these instructions can be generalised to any iMD-VR client,
 e.g. your own custom VR application that uses the NanoverUnityPlugin.
 
 Please feel free to use the instructions below to help you choose your VR setup,
