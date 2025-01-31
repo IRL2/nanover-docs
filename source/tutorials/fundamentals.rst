@@ -8,7 +8,7 @@ We provide a set of Jupyter notebook tutorials that introduce NanoVer as a frame
 molecular dynamics simulations, and the fundamental concepts associated with the client-server
 architecture that NanoVer uses. These tutorials can be used in conjunction with the
 information in :ref:`concepts <Concepts>` to understand how NanoVer works and are found in the
-`examples <https://github.com/IRL2/nanover-server-py/tree/main/examples/fundamentals>`_ folder of the GitHub repository.
+`tutorials <https://github.com/IRL2/nanover-server-py/tree/main/tutorials/fundamentals>`_ folder of the GitHub repository.
 
 Here we give a summary of each tutorial:
 

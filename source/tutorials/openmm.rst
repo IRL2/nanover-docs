@@ -17,7 +17,7 @@ dynamics simulations using OpenMM directly.
 
 The Jupyter notebook tutorials that demonstrate how to run interactive molecular
 dynamics simulations by interfacing NanoVer with OpenMM directly can be found in
-the `examples <https://github.com/IRL2/nanover-server-py/tree/main/examples/openmm>`_
+the `tutorials <https://github.com/IRL2/nanover-server-py/tree/main/tutorials/openmm>`_
 folder of the GitHub repository. It contains:
 
 * `openmm_polyalanine`: A notebook that demonstrates how to set up an interactive
