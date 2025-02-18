@@ -590,9 +590,19 @@ the type of network you have access to, your VR headset, and your desired config
 .. admonition:: Key point
 
     For a **wireless setup** you will need to have a strong and stable internet connection that allows communication over the network.
-    Note that this option is often not possible with public & institutional networks (e.g. Eduroam). 
+    Note that this option is often not possible with public & institutional networks (e.g. Eduroam) (Read details bellow).
     Instead, you can use your mobile hotspot. In this case, please ensure that all devices are connected to the hotspot,
     including the computer running the NanoVer server and your VR headset(s).
+
+.. admonition:: Institutional Networks (e.g.Eduroam)
+
+    Eduroam segments devices into different subnets (e.g., ``172.18.11.x`` vs. ``172.18.15.x``) and enforces security policies that block direct device-to-device communication. Key restrictions include:
+
+    * **Subnet isolation**: Traffic between subnets is filtered at the network layer
+    * **Client-to-client blocking**: Direct communication between devices on the same broadcast domain is prohibited
+    * **Multicast/broadcast limitations**: Discovery protocols (e.g., UDP broadcasts) are often disabled
+    One way to bypass these restrictions is to use a  virtual private network (VPN) service. One such service that we tested is `Tailscale <https://tailscale.com/>`_ but there are many others available.
+
 
 .. admonition:: Key definition
 
