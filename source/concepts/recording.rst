@@ -199,28 +199,27 @@ Reading NanoVer recordings with MDAnalysis
 
 Recordings can be read and manipulated using the NanoVer Python library.
 
-The :py:mod:`nanover.mdanalysis` module enables us to read a NanoVer trajectory recording as an
-`MDAnalysis Universe <https://userguide.mdanalysis.org/stable/universe.html#universe>`_, which is a data structure used by the MDAnalysis library to handle molecular dynamics simulations.
-As MDAnalysis does not support time-dependant topologies, only frames that correspond to the first topology in the
-recording are read as part of the Universe.
-If the topology changes throughout the recording, for instance because another simulation was loaded,
-the library issues a warning and the frames with the new topology are ignored.
+The :py:mod:`nanover.mdanalysis` module enables us to convert NanoVer trajectory recordings into
+`MDAnalysis Universes <https://userguide.mdanalysis.org/stable/universe.html#universe>`_, which are data structures
+used by the MDAnalysis library to handle molecular dynamics simulations.
+
+A single NanoVer recording may include switching between multiple systems with differing topologies, whereas a single
+MDAnalysis universe is concerned only with single systems of constant topology. NanoVer provides a
+`universes_from_recording` function to extract each independent simulation run within a single NanoVer trajectory recording.
 
 See the example code below, or check out the
-`mdanalysis_nanover_recording <https://github.com/IRL2/nanover-server-py/blob/main/examples/mdanalysis/mdanalysis_nanover_recording.ipynb>`_
+`mdanalysis_nanover_recording <https://github.com/IRL2/nanover-server-py/blob/main/tutorials/mdanalysis/mdanalysis_nanover_recording.ipynb>`_
 Jupyter notebook tutorial for further information.
 
 .. code:: python
 
     import MDAnalysis as mda
-    from nanover.mdanalysis import NanoverParser, NanoverReader
+    from nanover.mdanalysis import universes_from_recording
     import matplotlib.pyplot as plt
 
-    u = mda.Universe(
-        'hello.traj',
-        format=NanoverReader,
-        topology_format=NanoverParser,
-    )
+    # read all universes and take the first one
+    universes = universes_from_recording(traj='hello.traj')
+    u = universes[0]
 
     times = []
     frames = []
