@@ -590,9 +590,13 @@ the type of network you have access to, your VR headset, and your desired config
 .. admonition:: Key point
 
     For a **wireless setup** you will need to have a strong and stable internet connection that allows communication over the network.
-    Note that this option is often not possible with public & institutional networks (e.g. Eduroam). Please see details below.
+    Note that this option is often not possible with public & institutional networks (e.g. Eduroam). In order to use a wirelles setup over institutional networks you need to use a vpn service (for further details see details below).
     Instead, you can use your mobile hotspot. In this case, please ensure that all devices are connected to the hotspot,
     including the computer running the NanoVer server and your VR headset(s).
+
+.. admonition:: Key definition
+
+    \ **Tethered**: using a cable to connect your VR headset to your computer.
 
 .. admonition:: Institutional Networks (e.g.Eduroam)
 
@@ -602,11 +606,6 @@ the type of network you have access to, your VR headset, and your desired config
     * **Client-to-client blocking**: Direct communication between devices on the same broadcast domain is prohibited
     * **Multicast/broadcast limitations**: Discovery protocols (e.g., UDP broadcasts) are often disabled
     One way to bypass these restrictions is to use a  virtual private network (VPN) service. One such service that we tested is `Tailscale <https://tailscale.com/>`_ but there are many others available.
-
-
-.. admonition:: Key definition
-
-    \ **Tethered**: using a cable to connect your VR headset to your computer.
 
 |
 
