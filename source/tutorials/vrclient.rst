@@ -114,6 +114,9 @@ You have several options for connecting to a NanoVer server:
 * **Discover**: find all servers (using the default port) on the network and list them for the user to choose from
 * **Manual**: allow the user to specify the IP address and port of the server they wish to connect to and then, if found, connect to it
 
+Note that when using a VPN you cannot use the "Autoconnect" or "Discover" features.
+Instead, you must use the "Manual" option.
+
 |
 
 .. _vrclientinvrmenumainmenu:
@@ -208,6 +211,9 @@ Select from the dropdown options below for further information and to browse oth
     +----------------------+---------------------------------------------------------------------------------------------+
     | **Disconnect**       | If connected to a server, disconnect.                                                       |
     +----------------------+---------------------------------------------------------------------------------------------+
+
+    Note that when using a VPN you cannot use the "Autoconnect" or "Discover Services" features.
+    Instead, you must use the "Direct Connect" option.
 
 .. dropdown:: User
 
