@@ -607,7 +607,7 @@ You must ensure that all devices are connected to the same VPN or hotspot, inclu
     One way to bypass these restrictions is to use a  virtual private network (VPN) service.
     One such service that we tested is `Tailscale <https://tailscale.com/>`_ but there are many others available.
     Note that when using a VPN you cannot use the "Autoconnect" or "Discover Services" features.
-    Instead, you must select "Direct Connect" and type your IP address.
+    Instead, you must select "Direct Connect" (PC-VR menu) or "Manual" (in-VR menu) and type your IP address.
 
 |
 
