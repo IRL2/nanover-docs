@@ -202,8 +202,8 @@ Download the latest release
 
 .. warning::
 
-    Some renderers do not render correctly when using the standalone apk build, namely ``spline``and
-    ``geometric spline``.
+    Some renderers do not render correctly when using the standalone apk build, namely ``spline`` and
+    ``geometric spline`` .
     We are currently working to resolve this, please see the
     `issue <https://github.com/IRL2/nanover-imd-vr/issues/75>`_ on our git repo for updates.
 
