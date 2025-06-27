@@ -23,6 +23,10 @@ https://doi.org/10.21105/joss.08118
 .. literalinclude:: nanover.bib
    :language: bibtex
 
+==================
+How to Cite Narupa
+==================
+
 NanoVer is forked from Narupa. If you find it useful, please cite the following
 `paper <https://doi.org/10.1063/1.5092590>`_:
 
