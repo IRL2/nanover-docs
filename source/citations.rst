@@ -35,8 +35,5 @@ to drug binding: An open-source multi-person framework.
 .. literalinclude:: nanover.bib
    :language: bibtex
 
-.. literalinclude:: narupa.bib
-   :language: bibtex
-
 |
 
