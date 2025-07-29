@@ -420,8 +420,3 @@ Jupyter notebook tutorial for further information.
     axis.set_ylabel("Energy (kJ/mol)")
 
 |
-
-With NanoVer's in-built functionality
-#####################################
-
-|
