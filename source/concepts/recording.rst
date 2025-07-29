@@ -1,3 +1,5 @@
+.. _recordinginnanover:
+
 ====================
 Recording in NanoVer
 ====================

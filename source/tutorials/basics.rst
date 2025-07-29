@@ -247,6 +247,9 @@ For a NanoVer session to be useful beyond the time the users spend in VR, we wan
 This recording can then be analysed or played back to get insight.
 In this document, we describe how to record a NanoVer session and how to visualise the recording using inbuilt methods.
 
+If you would like to know more about the format of NanoVer recordings, please go to the
+:ref:`recording in NanoVer <recordinginnanover>` Concepts page.
+
 Recording with Python
 #####################
 
