@@ -2,10 +2,11 @@
 Recording in NanoVer
 ====================
 
-.. _Rust server: https://github.com/IRL2/nanover-server-rs
-
-For a NanoVer session to be useful beyond the time the users spend in VR, it needs to be recorded.
-This recording can then be analysed or played back to get insight. In this document, we describe how to record a NanoVer session and how to visualise the recording using inbuilt methods.
+This pages introduces: (a) the NanoVer data streams, which you can record to 'save' your NanoVer session; and (b) the
+file format of the recorded data.
+Head to the :ref:`basics` tutorial page for more information on how to
+:ref:`record a NanoVer session <basicsrecordingasession>` and how to
+:ref:`process NanoVer recordings <basicsprocessingnanoverrecordings>`.
 
 .. contents:: Contents
     :depth: 2
@@ -13,10 +14,7 @@ This recording can then be analysed or played back to get insight. In this docum
 
 ----
 
-############
-Introduction
-############
-
+####################
 NanoVer data streams
 ####################
 
@@ -40,6 +38,7 @@ while recordings of the shared state stream have the ``.state`` file extension.
 
 ----
 
+#####################
 Recording file format
 #####################
 
@@ -67,17 +66,5 @@ Each NanoVer recording file contains a header and a sequence of records:
           However, its value is only significant when it is 0 as it means the frame needs to be reset,
           for instance because the server loaded a new simulation.
         * The **frame** itself: this is an instance of the :ref:`FrameData <traj-and-frames>` class.
-
-----
-
-###################
-Further information
-###################
-
-Go to :ref:`basics` for more information on:
-
-*  :ref:`Recording with NanoVer <basicsrecordingasession>`
-
-* :ref:`Processing NanoVer recordings <basicsprocessingnanoverrecordings>`
 
 |

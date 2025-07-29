@@ -243,6 +243,10 @@ For further information about these options, use the :ref:`help function <comman
 Recording a session
 ###################
 
+For a NanoVer session to be useful beyond the time the users spend in VR, we want to record it!
+This recording can then be analysed or played back to get insight.
+In this document, we describe how to record a NanoVer session and how to visualise the recording using inbuilt methods.
+
 Recording with Python
 #####################
 
@@ -313,6 +317,9 @@ in the file.
 
 Recording with Rust
 ###################
+
+You can ask the `Rust server <https://github.com/IRL2/nanover-server-rs>`_ to record your session when you start the
+server.
 
 .. note::
 
