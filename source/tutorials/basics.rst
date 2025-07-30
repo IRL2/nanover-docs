@@ -243,9 +243,10 @@ For further information about these options, use the :ref:`help function <comman
 Recording a session
 ###################
 
-For a NanoVer session to be useful beyond the time the users spend in VR, we want to record it!
-This recording can then be analysed or played back to get insight.
-In this document, we describe how to record a NanoVer session and how to visualise the recording using inbuilt methods.
+For a NanoVer session to be useful beyond the time spent in VR, we want to record it!
+We can then use this recording to run our analysis, or replay it to get insight.
+In this section, we describe how to record a NanoVer session and how to visualise the recording using inbuilt NanoVer
+methods.
 
 If you would like to know more about the format of NanoVer recordings, please go to the
 :ref:`recording in NanoVer <recordinginnanover>` Concepts page.
