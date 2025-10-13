@@ -73,25 +73,29 @@ The key features that make it great for NanoVer are:
 An Example: Interactive Molecular Dynamics
 ##########################################
 
-The canonical NanoVer session is one of interactive molecular dynamics (IMD), where one or more front end applications 
-connect to a live simulation that can be visualised and interacted with through biasing potentials. 
+The standard NanoVer server is built for interactive molecular dynamics (iMD), where one or more front end applications
+connect to a live simulation that can be visualised and interacted with through biasing potentials.
 
-Conceptually, the IMD server consists of three services: a trajectory service, a state service, and a command service.
+Conceptually, the external interface of the server is divided into three parts: the simulation frame, the shared state,
+and the commands.
 
-* **The trajectory service** provides updates as the state of the simulation progresses, enabling real-time analysis and
-  visualisation of the system.
-* **The state service**, meanwhile, takes care of incoming requests from the client applications to apply biasing potentials
-  to the simulation. These are applied as forces to the molecular dynamics engine, which in turn integrates them.
-  This service allows synchronisation of the state between all the clients and the server
-  (note that these can be any arbitrary state variables).
-  For instance, it synchronises the position of the users' avatars, allowing multi-user collaboration.
-  It broadcasts users' avatar positions, therefore allowing multiuser collaboration with no server modification.
-* **The command service** facilitates the communication of commands between the client and the server.
-  For example, these could be playback control commands, such as requests to pause or reset the simulation.
-  You can also create your own custom commands that can be handled by this service.
+* **The simulation frame** is the current state of the simulation, represented by a dictionary of string keys mapping
+  to positions, elements, and other other relevant data that is exposed to clients. Updates are sent as "frame" messages
+  that contain the updated values of each key that has changed.
+* **The shared state** is the a more general store of data, also represented by a dictionary of string keys, that is
+  shared and updated by all clients. For instance, multi-user collaboration is implemented by each client updating this
+  shared state with the positions of their VR headsets and controllers so that they can be visualised in real time by
+  other connected clients. This is also where the interactive biasing potentials of iMD are added and updated. Updates
+  are sent as "state" messages that contain the updated values of each key that has changed, and a list of keys that
+  have been deleted.
+* **The commands** are kept as a registry of named functions added to the server that are available to be invoked by
+  remote clients. These could be, for example, playback control commands, such as requests to pause or reset the
+  simulation. You can define custom commands on the server for whatever purpose arises. Command requests and responses
+  are sent as "command" messages containing the command name and arguments (or in the case of responses, the response
+  values).
 
-A server application can leverage these three services to implement IMD to facilitate the visualisation of, and
-interaction with, a simulation in real time.
+An application can leverage these three parts to implement iMD that provides visualise and interact with a simulation
+in real time.
 
 |
 
