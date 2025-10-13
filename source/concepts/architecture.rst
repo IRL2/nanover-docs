@@ -36,34 +36,18 @@ There a several good reasons for using this model:
 
 ----
 
-########
-Services
-########
+##########
+Networking
+##########
 
-While the client/server model is useful, implementing monolithic client/server applications is not ideal,
-as it limits the customisability and extensibility of the framework.
-Instead, in NanoVer we have adopted a microservices architecture, in which many modular services communicate.
+NanoVer servers and clients communicate by sending [MessagePack](https://msgpack.org/index.html) encoded data over
+[WebSocket](https://en.wikipedia.org/wiki/WebSocket) connections. These two technologies were chosen for their maturity,
+wide support across languages and environments, and ease of use.
 
-This architecture makes NanoVer very flexible.
-New features can be added as new services as needed, without cluttering up the main framework.
-We provide a number of service definitions and implementations, including:
-
-* :doc:`nanover.trajectory <../../python/nanover.trajectory>`: Provides trajectories and live simulations.
-* :doc:`nanover.state <../../python/nanover.state>`: Provides synchronisation of avatars and state for multiplayer applications.
-* :doc:`nanover.command <../../python/nanover.command>`: Provides facilities to run arbitrary functions performed by the server.
-
-The services described above provide the core for the NanoVer iMD-VR application, but the tools
-can be used to create custom services for different applications.
-
-These services are written using `gRPC <https://grpc.io/>`_, a framework for remote procedure calls. 
-The key features that make it great for NanoVer are:
-
-* **High performance, fast communication**.
-* **Bidirectional streaming**. Clients and servers can establish long lived
-  connections and stream data to and from each other flexibly.
-* **Language portable**. Clients and servers can be written in many languages,
-  including C#, Python and C++. 
-* **Built on HTTP2**, so includes routing, authentication and security.
+At the high level, NanoVer communicates using JSON-like messages between server and client. Each message sent and
+received is an object with a key mapping a particular message type to an object representing the message payload.
+The standard message types in NanoVer are "frame", "state", and "command", but it is simple to add support for
+additional types as desired for new applications.
 
 |
 
