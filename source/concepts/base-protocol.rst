@@ -32,8 +32,8 @@ interactive biasing potentials they wish to apply to the simulation.
 **Simulation updates** are a specialised version of state updates, used to synchronise
 data pertaining to the simulated system as it evolves over time during simulation.
 Mostly this is a continous sequence of messages with updated atom positions, but
-when a client initially joins, the update from an empty slate contains the topology of
-the simulated system and other rarely changing properties.
+when a client initially joins, the update from an empty state contains the topology of
+the simulated system and other properties.
 
 These are the three message types used and understood by NanoVer, but additional
 types can be added safely and easily as necessary.
@@ -206,7 +206,7 @@ Frames and frame updates
 ########################
 
 In NanoVer, frames are very similar to the key value store used for state, but specialised
-for the purposes of particle simulations, especially molecular dynamics.
+for the purposes of particles simulations, especially molecular dynamics.
 
 Frame updates are just a mapping of frame keys and their updated values:
 
@@ -237,7 +237,7 @@ complete frame.
    Aggregating frames is a simple as taking all the existing frames of the previous
    aggregate frame (or empty) and overwriting all the updated keys from the next frame.
    However, by convention, a `frame.index` equal to 0 is used to indicate a change of
-   simulation system, meaning that previous topological information etc should be discarded.
+   simulation system, meaning that previous topological information, positions, etc., should be discarded.
 
 .. note::
 
