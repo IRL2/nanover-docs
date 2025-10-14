@@ -122,54 +122,20 @@ and run commands in practice, check out our `commands_and_state` notebook
 
 ----
 
-Listing available commands
-##########################
+.. _state:
 
-.. code:: protobuf
-
-    service Command {
-
-        /* Get a list of all the commands available on this service */
-        rpc GetCommands (GetCommandsRequest) returns (GetCommandsReply) {}
-    }
-
-    message GetCommandsRequest {
-
-    }
-
-    message GetCommandsReply{
-        repeated CommandMessage commands = 1;
-    }
-
-    message CommandMessage {
-        string name = 1;
-        google.protobuf.Struct arguments = 2;
-    }
-
-A client can call the ``GetCommands`` method to list the commands exposed by
-the server. It needs to send a ``GetCommandRequest`` message—that is a message
-without content—and it receives a list of the commands. This list is wrapped
-in a ``GetCommandsReply`` under the ``commands`` field. Each command is
-presented as a ``CommandMessage`` that contains the name of the command, and
-the list of arguments that the command accepts alongside the default values for
-these arguments.
-
-----
-
-.. _state-service:
-
-#################
-The state service
-#################
+#############
+State updates
+#############
 
 Introduction
 ############
 
-The **state service** coordinates a shared data store that is shared between
-the server and the clients. This section explores the technical details of
-the state service. For an interactive Jupyter notebook tutorial that
-complements the information presented in this section, check out our
-`commands_and_state` notebook (see :ref:`nanover-fundamentals`).
+The server maintains a dictionary of string keys to arbitrary values intended to
+be synchronised between all clients, that they can use to broadcast persistent data.
+
+For an interactive Jupyter notebook tutorial that complements the information presented
+in this section, check out our `commands_and_state` notebook (see :ref:`nanover-fundamentals`).
 
 ----
 
@@ -178,32 +144,30 @@ complements the information presented in this section, check out our
 State and state updates
 #######################
 
-The state is thought of as a key-value store.
+The state is thought of as a key-value store. As clients insert, update, and delete values
+from the store, the server sends out update messages so that all clients can keep their
+local copy up-to-date.
 
-Clients can subscribe to a stream of updates and need to maintain their
-own version of the full state.
+A state update message contains two pieces of information: a map of updated keys and their
+new values, and a list of keys that were removed:
 
-.. code:: protobuf
+.. code:: python
 
-   message StateUpdate {
-       // Struct where each field is an updated state key and it's latest value,
-       // where null is equivalent to a key removal.
-       google.protobuf.Struct changed_keys = 1;
-   }
+    {
+        "state": {
+            "updates": {
+                "user.luis": {
+                    "name": "luis",
+                    "avatar": "😎",
+                },
+            },
+            "removes": ["user.mark"],
+        },
+    }
 
-The state update is presented as a protobuf
-`Struct <https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Struct>`_.
-The keys in the update directly refer to the keys in the full state. The
-values in the update are the new values that the state should contain. `Null
-values <https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.NullValue>`_
-are a special case, corresponding to keys that should be
-removed from the full state. Therefore, the full state cannot contain
-null values.
-
-A state update can contain nested values. In that case, the whole nested
-structure must be updated at once. A nested value is still considered as
-a single value and the protocol does not offer ways of performing a
-partial update of such structures.
+Complex nested values can be stored, but in that case the whole nested structure must be
+updated at once. It is still considered as a single value and there is currently no
+provided method to partially update such structures.
 
 ----
 
