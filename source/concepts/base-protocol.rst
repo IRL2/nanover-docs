@@ -177,7 +177,7 @@ of a successful update is observing the change in a future update message from t
 
 ----
 
-.. _simulation:
+.. _simulation-updates:
 
 ##################
 Simulation updates

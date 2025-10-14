@@ -84,11 +84,9 @@ Users may share their presence in the virtual space by creating and continuously
 updating an "avatar". For example, in the iMD-VR application, each VR client
 shares their head and hand positions for others to see.
 
-Avatars are exchanged via the shared state as a protobuf `Struct
-<https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Struct>`_
-under keys of the form ``avatar.<PLAYER_ID>``. This avatar Struct details the
-user's player ID, a name for the user, a display color, and a list of its
-spatial components.
+Avatars are exchanged via the shared state as a dictionary under keys of the form
+``avatar.<PLAYER_ID>``. This avatar Struct details the user's player ID, a name
+for the user, a display color, and a list of its spatial components.
 
 .. warning::
 
@@ -325,12 +323,8 @@ the semantics of molecular systems.
    :ref:`iMD application <imd-application>` can implement both this set of keys
    and the :ref:`iMD-specific keys <imd-framedata-keys>`.
 
-The trajectory application uses the :ref:`trajectory service <trajectory-service>`,
-which allows a server to stream snapshots of arbitrary data to clients. Each snapshot is
-described in a :ref:`FrameData <frame-description>` object, which contains:
-
-* a key-value map of protobuf `Values <https://protobuf.dev/reference/protobuf/google.protobuf/#value>`_
-* a key-value map of homogeneous arrays
+The trajectory application uses the :ref:`simulation update messages <_simulation-updates>`, to stream snapshots
+of arbitrary data to clients. Each snapshot is described in a :ref:`FrameData <frame-description>` object.
 
 The coordinate system is the right-handed, Z-up system used in most software
 working with molecular systems.
@@ -398,16 +392,15 @@ atoms, such as coarse-grained models (`e.g.` `Martini <http://cgmartini.nl/>`_
 or `SIRAH <http://www.sirahff.com/>`_). Particles are described by the following
 keys in the array map:
 
-* ``particle.positions``: the Cartesian coordinates of each particle. The
-  coordinates are stored as a flat array of coordinates where each triplet
-  corresponds to the XYZ coordinates of a particle.
-* ``particle.velocities``: the velocity of each particle. Like the positions,
-  they are expressed as a flattened array of triplets.
-* ``particle.forces``: the force array applied to each particle, as a flattened
-  array of triplets.
+* ``particle.positions``: the Cartesian coordinates of each particle as an
+  Nx3 numpy array (float32).
+* ``particle.velocities``: the velocity of each particle as an Nx3 numpy
+  array (float32).
+* ``particle.forces``: the force array applied to each particle as an
+  Nx3 numpy array (float32).
 * ``particle.elements``: the chemical element for each particle expressed as
   atomic numbers. If a particle is not an atom, or if a chemical element is not
-  relevant for any reason, the atomic number can be set to 0.
+  relevant for any reason, the atomic number can be set to 0. Numpy array (uint8).
 * ``particle.names``: a name for each particle. Each name is an arbitrary string
   to identify the particle, usually within a residue. If an atom does not have
   a name, set it to an empty string. When applicable, it is recommended to use
@@ -502,15 +495,14 @@ Bonds
 Particles can be connected by covalent bonds. These bonds are described by two
 keys in the array map of the FrameData:
 
-* ``bond.pairs``: a flattened array of indices pairs. The indices reference the
-  particles forming the pair in the arrays describing the particles.
-* ``bond.orders``: an array of floating point numbers describing the bond order
-  for each bond. A single bond is represented by a value of 1.0, a double bond
-  a value of 2.0. Delocalised orbitals can be represented by non-integer
-  values. This array must have half the size of the ``bond.pairs`` array with
+* ``bond.pairs``: array of index pairs. The indices reference the particles forming
+  the pair in the arrays describing the particles. Nx2 numpy array (uint8).
+* ``bond.orders``: an array of integers describing the bond order for each bond.
+  A single bond is represented by a value of 1, a double bond
+  a value of 2. This array must have half the size of the ``bond.pairs`` array with
   each value of bond order corresponding to a successive pair in the
   ``bond.pairs`` array. If this array is not present, the default bond order is
-  1.0.
+  1. Nx2 numpy array (uint8).
 
 Simulation box
 ~~~~~~~~~~~~~~
