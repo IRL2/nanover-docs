@@ -10,9 +10,9 @@ The NanoVer Network Protocol
 
 ----
 
-####################
-General architecture
-####################
+########
+Overview
+########
 
 Standard network communication between client and server in NanoVer is divided into
 three parts: **command requests and responses**, **state updates**, and **simulation
@@ -21,9 +21,8 @@ simulation updates to the VR client, which itself sends interactions as state up
 and can request simulation resets or pauses via commands.
 
 **Command requests and responses** allow the client to request actions or information
-from the server, such as pausing or reseting the active simulation, or remotely running
-some function call and returning a result. This is also known as a Remote Procedure Call
-(RPC).
+from the server, such as pausing or reseting the active simulation, or retrieving the
+list of available commands. This is also known as a Remote Procedure Call  (RPC).
 
 **State updates** provide continuous information about the changes occuring to a
 shared dictionary used for synchronising arbitrary data between clients. In the iMD-VR
@@ -40,6 +39,120 @@ These are the three message types used and understood by NanoVer, but additional
 types can be added safely and easily as necessary.
 
 |
+
+----
+
+.. _commands:
+
+##############################
+Command requests and responses
+##############################
+
+Introduction
+############
+
+A server can expose named functions that clients can call remotely, optionally
+providing parameters, to either to trigger some side effect or retrieve some value.
+This is an implementation of Remote Procedure Call (RPC).
+
+The standard server includes a command (``commands/list``) that returns the list of
+available commands and information about the arguments they accept.
+
+----
+
+Running a command
+#################
+
+A command request contains three pieces of information: the string name of the command requested,
+a dictionary of string keys mapping to arbitrary values to the named parameters of the function,
+and an integer id used to match the associated response to this request:
+
+.. code:: python
+
+    {
+        "command": {
+            "request": {
+                "name": "math/multiply",
+                "arguments": {"a": 2, "b": 4},
+                "id": 0,
+            },
+        },
+    }
+
+After receiving the command request and running the underlying function, the server will respond
+with another message. A command response message contains the original request (which contains the
+unique id) and the return value of the underlying function:
+
+.. code:: python
+
+    {
+        "command": {
+            "request": {
+                "name": "math/multiply",
+                "arguments": {"a": 2, "b": 4},
+                "id": 0,
+            },
+            "response": {
+                "multiplied": 8,
+            },
+        },
+    }
+
+If the command request couldn't be satisfied, the response message will instead contain an exception
+message:
+
+.. code:: python
+
+    {
+        "command": {
+            "request": {
+                "name": "math/multiply",
+                "arguments": {"a": 2, "b": 4},
+                "id": 0,
+            },
+            "exception": "No command math/multiply.",
+        },
+    }
+
+For an interactive Jupyter notebook tutorial that demonstrates how to set up
+and run commands in practice, check out our `commands_and_state` notebook
+(see :ref:`nanover-fundamentals`).
+
+|
+
+----
+
+Listing available commands
+##########################
+
+.. code:: protobuf
+
+    service Command {
+
+        /* Get a list of all the commands available on this service */
+        rpc GetCommands (GetCommandsRequest) returns (GetCommandsReply) {}
+    }
+
+    message GetCommandsRequest {
+
+    }
+
+    message GetCommandsReply{
+        repeated CommandMessage commands = 1;
+    }
+
+    message CommandMessage {
+        string name = 1;
+        google.protobuf.Struct arguments = 2;
+    }
+
+A client can call the ``GetCommands`` method to list the commands exposed by
+the server. It needs to send a ``GetCommandRequest`` message—that is a message
+without content—and it receives a list of the commands. This list is wrapped
+in a ``GetCommandsReply`` under the ``commands`` field. Each command is
+presented as a ``CommandMessage`` that contains the name of the command, and
+the list of arguments that the command accepts alongside the default values for
+these arguments.
 
 ----
 
@@ -498,107 +611,6 @@ This subscription method can be a security risk and servers may choose to not
 implement it. Indeed, if a client subscribes to all the frames with a long
 interval, the server needs to record all the frames until they are sent to the
 client. This can cause significant disk and/or memory usage.
-
-|
-
-----
-
-.. _command-service:
-
-###################
-The command service
-###################
-
-Introduction
-############
-
-A server can expose functions that clients can call. Such functions can take
-arguments and return values. Each function itself should return shortly after
-being called.
-
-These functions are exposed through the **command service**. A client can use this
-service to list the commands that are available and to call commands.
-
-Each command has a name and a list of arguments. The name is an arbitrary
-string. By convention the name can be attached to a namespace by naming the
-command ``namespace/command_name``.
-
-----
-
-Listing available commands
-##########################
-
-.. code:: protobuf
-
-    service Command {
-
-        /* Get a list of all the commands available on this service */
-        rpc GetCommands (GetCommandsRequest) returns (GetCommandsReply) {}
-    }
-
-    message GetCommandsRequest {
-
-    }
-
-    message GetCommandsReply{
-        repeated CommandMessage commands = 1;
-    }
-
-    message CommandMessage {
-        string name = 1;
-        google.protobuf.Struct arguments = 2;
-    }
-
-A client can call the ``GetCommands`` method to list the commands exposed by
-the server. It needs to send a ``GetCommandRequest`` message—that is a message
-without content—and it receives a list of the commands. This list is wrapped
-in a ``GetCommandsReply`` under the ``commands`` field. Each command is
-presented as a ``CommandMessage`` that contains the name of the command, and
-the list of arguments that the command accepts alongside the default values for
-these arguments.
-
-----
-
-Running commands
-################
-
-.. code:: protobuf
-
-    service Command {
-        /* Runs a command on the service */
-        rpc RunCommand (CommandMessage) returns (CommandReply) {}
-    }
-
-    message CommandReply {
-        google.protobuf.Struct result = 1;
-    }
-
-    message CommandMessage {
-        string name = 1;
-        google.protobuf.Struct arguments = 2;
-    }
-
-To invoke a command, a client needs to run the ``RunCommand`` method with a
-``CommandMessage``. The ``CommandMessage`` contains the name of the command to
-invoke and a Struct of arguments to pass to the command. The server will use
-the default value for arguments that are missing from the ``CommandMessage``.
-
-The ``RunCommand`` method returns a ``CommandReply`` that contains a Struct of
-the values returned by the server-side function.
-
-If the name of the command or one of the names of an argument is unknown to the
-server, the ``RunCommand`` method fails with a ``INVALID_ARGUMENT`` status
-code.
-
-.. note::
-
-   The protocol does not have an in-built way of handling errors during the
-   execution of the command. It does not have an in-built way of handling
-   long-running commands either.
-
-For an interactive Jupyter notebook tutorial that demonstrates how to set up
-and run commands in practice, check out our `commands_and_state` notebook
-(see :ref:`nanover-fundamentals`).
 
 |
 
