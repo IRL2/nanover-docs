@@ -47,7 +47,8 @@ wide support across languages and environments, and ease of use.
 At the high level, NanoVer communicates using JSON-like messages between server and client. Each message sent and
 received is an object with a key mapping a particular message type to an object representing the message payload.
 The standard message types in NanoVer are "frame", "state", and "command", but it is simple to add support for
-additional types as desired for new applications.
+additional types as desired for new applications. More detailed information about the format of these messages can be
+found in :ref:`the description of the base protocol. <base-protocol>`
 
 |
 

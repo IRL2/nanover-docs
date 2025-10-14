@@ -1,8 +1,8 @@
 .. _base-protocol:
 
-=========================
-The NanoVer gRPC Protocol
-=========================
+============================
+The NanoVer Network Protocol
+============================
 
 .. contents:: Contents
     :depth: 2
@@ -14,28 +14,30 @@ The NanoVer gRPC Protocol
 General architecture
 ####################
 
-NanoVer provides three gRPC services: the **state service**, the **trajectory service**,
-and the **command service**. While none of these services are strictly
-mandatory, some features expect two or three services to cooperate.
+Standard network communication between client and server in NanoVer is divided into
+three parts: **command requests and responses**, **state updates**, and **simulation
+updates**. These are used together, for example, to support VR iMD by providing live
+simulation updates to the VR client, which itself sends interactions as state updates,
+and can request simulation resets or pauses via commands.
 
-The **state service** coordinates a shared data store that is shared between
-the server and one or more clients. The state is presented as a key-value store;
-users can subscribe to updates to the state, send updates themselves,
-and request exclusive write access to some keys. This service is used to:
-share the position of the users' avatars, send users' interactions
-with molecular systems, and share the molecular representations. It
-can be used to send any arbitrary data to the server and to the clients.
+**Command requests and responses** allow the client to request actions or information
+from the server, such as pausing or reseting the active simulation, or remotely running
+some function call and returning a result. This is also known as a Remote Procedure Call
+(RPC).
 
-The **trajectory service** allows the server to broadcast the state of a
-simulation to the clients. It sends frames to the clients at the
-requested frame rate.
+**State updates** provide continuous information about the changes occuring to a
+shared dictionary used for synchronising arbitrary data between clients. In the iMD-VR
+case, this is used for sharing the head and hand positions of all users, and for the
+interactive biasing potentials they wish to apply to the simulation.
 
-The **command service** lets client run functions on the server. For example,
-this service is used to pause or reset a molecular simulation.
+**Simulation updates** are a specialised version of state updates, used to synchronise
+data pertaining to the simulated system as it evolves over time during simulation.
+Mostly this is a continous sequence of messages with updated atom positions, but
+when a client initially joins, the update from an empty slate contains the topology of
+the simulated system and other rarely changing properties.
 
-The services can all be served from different addresses and/or a
-different ports, however, they are commonly served together from the same
-address and port. The default port is 38801.
+These are the three message types used and understood by NanoVer, but additional
+types can be added safely and easily as necessary.
 
 |
 
