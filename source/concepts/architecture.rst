@@ -65,13 +65,13 @@ Conceptually, the external interface of the server is divided into three parts: 
 and the commands.
 
 * **The simulation frame** is the current state of the simulation, represented by a dictionary of string keys mapping
-  to positions, elements, and other other relevant data that is exposed to clients. Updates are sent as "frame" messages
+  to positions, elements, and other relevant data that is exposed to clients. Updates are sent as "frame" messages
   that contain the updated values of each key that has changed.
 * **The shared state** is the a more general store of data, also represented by a dictionary of string keys, that is
-  shared and updated by all clients. For instance, multi-user collaboration is implemented by each client updating this
+  shared and updated by all clients. For instance, multi-user collaboration is implemented by each client updating the
   shared state with the positions of their VR headsets and controllers so that they can be visualised in real time by
   other connected clients. This is also where the interactive biasing potentials of iMD are added and updated. Updates
-  are sent as "state" messages that contain the updated values of each key that has changed, and a list of keys that
+  are sent as "state" messages that contain the values of each key that has changed, and a list of keys that
   have been deleted.
 * **The commands** are kept as a registry of named functions added to the server that are available to be invoked by
   remote clients. These could be, for example, playback control commands, such as requests to pause or reset the
