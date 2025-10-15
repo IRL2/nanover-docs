@@ -16,27 +16,18 @@ Head to the :ref:`basics` tutorial page for more information on how to
 
 ----
 
-####################
-NanoVer data streams
-####################
+######################
+NanoVer message stream
+######################
 
-NanoVer can record the following data streams:
+A NanoVer server communicates to connected clients via a stream of messages. The standard server uses messages of three
+types: ``command```, ``state``, ``frame`` for requests, shared data, and simulation information respectively. A NanoVer
+recording is a record of this stream of messages and the times they arrived.
 
-* the stream of simulation frames
-* the stream of updates of the shared state
+.. note::
 
-Recorded streams are identical to the data streams sent to clients during a live simulation,
-with the addition of a timestamp that enables synchronisation of the streams during playback.
-
-Each stream is stored in a separate file.
-By convention, recordings of the frame stream have the ``.traj`` file extension,
-while recordings of the shared state stream have the ``.state`` file extension.
-
-.. warning::
-
-   In order to pass the trajectory and state files to a NanoVer server via the
-   :class:`PlaybackSimulation` class in the :mod:`nanover.omni.playback` module,
-   they must adopt the above file extension conventions.
+   Previously, NanoVer recordings were a pair of files ending in ``.traj`` and ``.state`` respectively.
+   This format is now obsolete and can be converted using `a simple command line tool <https://github.com/IRL2/nanover-recording-converter>`_.
 
 ----
 
@@ -44,29 +35,53 @@ while recordings of the shared state stream have the ``.state`` file extension.
 Recording file format
 #####################
 
-Each NanoVer recording file contains a header and a sequence of records:
+Overview
+########
 
-* The header contains two fields, stored as little endian 8 bytes unsigned integers:
+The recording file is an uncompressed `zip archive <https://en.wikipedia.org/wiki/ZIP_(file_format)>`_ comprised of
+at least two files:
 
-    * **a magic number, its value is 6661355757386708963**. This value was chosen arbitrarily and needs to be the first
-      8 bytes of the file to indicate it is indeed a NanoVer recording. A file without this magic number is not a NanoVer
-      recording, however one should keep in mind that a file that starts with that value could still not be a valid
-      recording and should handle errors accordingly.
-    * **the version of the file format**. This version number dictates how the rest of the file will be written or parsed.
-      Any change to the file format needs to increment this file format version. The current version is 2.
+* **The messages file**, ``messages.msgpack``, which contains the sequence of messages, each individually encoded with MessagePack and
+  concatenated into a single binary file.
 
-* Each record contains:
+* **The index file**, ``index.msgpack``, which is a list of metadata entries for each frame, specifying at the minimum their position in
+  the ``messages.msgpack`` file, the timestamp of their arrival, and the types of message contained. This binary file
+  is a single list encoded with MessagePack.
 
-    * a timestamp encoded as a little endian 16 bytes unsigned integer that indicates the time, in microseconds,
-      since the beginning of the recording.
-      This timestamp indicates the timing of the records and allows synchronisation of a NanoVer trajectory and a state recording.
-    * the size, in bytes, of the record; encoded as an 8 bytes little endian unsigned integer.
-    * a :ref:`StateUpdate <state-updates>` (NanoVer *shared state* recordings **only**), as a protobuf message.
-    * a ``GetFrameResponse`` (NanoVer *trajectory* recordings **only**) as a protobuf message, comprising:
+Index file
+##########
 
-        * The **frame index**: this is generally an integer that gets incremented each time the server register a frame to broadcast.
-          However, its value is only significant when it is 0 as it means the frame needs to be reset,
-          for instance because the server loaded a new simulation.
-        * The **frame** itself: this is an instance of the :ref:`FrameData <traj-and-frames>` class.
+The index file exists to provide an overview of the content of the recording file and allow efficient access to
+individual messages. It is a list of objects, each representing a message present in the recording, with the following
+fields:
+
+* The ``offset`` in bytes where the MessagePack data of the message begins in the messages file.
+* The ``length`` in bytes of the MessagePack data of the message.
+* A ``metadata`` object pertaining to the message, with at least the following fields:
+
+  * The ``timestamp`` for when the message was received.
+  * The ``types`` list, noting the types the message contains (e.g ``frame``, ``state``, ``command``).
+
+.. code:: python
+
+    # example index data
+    [
+        {
+            "offset": 0,
+            "length": 64,
+            "metadata": {
+                "timestamp": 0,
+                "types": ["frame"],
+            },
+        },
+        {
+            "offset": 64,
+            "length": 64,
+            "metadata": {
+                "timestamp": 100,
+                "types": ["state"],
+            },
+        }
+    ]
 
 |
