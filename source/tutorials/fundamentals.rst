@@ -12,10 +12,6 @@ information in :ref:`concepts <Concepts>` to understand how NanoVer works and ar
 
 Here we give a summary of each tutorial:
 
-* `frame`: A notebook that introduces the concept of the **frame**, the object sent by
-  the NanoVer server to the client that contains data associated with the molecular system.
-* `servers`: A notebook that introduces the concept of the **NanoVer server**, and
-  explains its role within the client-server architecture of NanoVer.
 * `commands_and_state`: A notebook that introduces the concepts of **commands**, and explains
   how NanoVer achieves synchronised multi-user interactive molecular simulations via the
   **shared state** dictionary.
