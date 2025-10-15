@@ -44,8 +44,8 @@ at least two files:
 * **The messages file**, ``messages.msgpack``, which contains the sequence of messages, each individually encoded with MessagePack and
   concatenated into a single binary file.
 
-* **The index file**, ``index.msgpack``, which is a list of metadata entries for each frame, specifying at the minimum their position in
-  the ``messages.msgpack`` file, the timestamp of their arrival, and the types of message contained. This binary file
+* **The index file**, ``index.msgpack``, which is a list of metadata entries for each frame, specifying at the minimum
+  their position in the messages file, the timestamp of their arrival, and the types of message contained. This binary file
   is a single list encoded with MessagePack.
 
 Index file

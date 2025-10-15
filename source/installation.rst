@@ -220,7 +220,4 @@ We refer developers to the relevant code bases:
 * If you want to customise the NanoVer iMD-VR Unity3D application, instructions for obtaining the source code are available
   in the `nanover-imd-vr repository <https://github.com/IRL2/nanover-imd-vr>`_ on GitHub .
 
-* If you want to build your own VR application that interfaces with NanoVer, the NanoVer Unity3D libraries are available
-  in the `NanoverUnityPlugin repository <https://github.com/IRL2/NanoverUnityPlugin>`_ on GitHub .
-
 |

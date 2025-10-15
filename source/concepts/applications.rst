@@ -174,8 +174,7 @@ are defined under the keys ``A``, ``B``, ``C``, and ``D``.
 Radial orient
 #############
 
-The radial orient feature is a command optionally implemented on the
-:ref:`command service <command-service>`. This command suggests how clients
+The radial orient feature is an optionally implemented command optionally that suggestes how clients
 should position their client space (and hence avatars) relative to server
 space such that all clients are positioned in a circle around the origin.
 These suggestions are in the form of a
@@ -241,8 +240,8 @@ space (and therefore avatar) relative to server space. This is used by the
    prototype alternatives to the radial orient feature without modifying the server.
 
 The user origin describes where the server suggests a given user places the center
-of its client space and how to orient it. The origin is described as a protobuf
-Struct under the key ``user-origin.<PLAYER_ID>`` where ``<PLAYER_ID>`` is the ID
+of its client space and how to orient it. The origin is described as an dictionary
+under the key ``user-origin.<PLAYER_ID>`` where ``<PLAYER_ID>`` is the ID
 of the user to whom the suggestion is addressed. The Struct has the following keys:
 
 * ``position`` is the suggested location of the center of the user's client
@@ -310,6 +309,8 @@ users and define how to render the molecules.
 
 ----
 
+.. _frame-description:
+
 Frames
 ######
 
@@ -323,7 +324,7 @@ the semantics of molecular systems.
    :ref:`iMD application <imd-application>` can implement both this set of keys
    and the :ref:`iMD-specific keys <imd-framedata-keys>`.
 
-The trajectory application uses the :ref:`simulation update messages <_simulation-updates>`, to stream snapshots
+The trajectory application uses the :ref:`simulation update messages <simulation-updates>`, to stream snapshots
 of arbitrary data to clients. Each snapshot is described in a :ref:`FrameData <frame-description>` object.
 
 The coordinate system is the right-handed, Z-up system used in most software
@@ -573,8 +574,7 @@ load events:
 Playback commands
 #################
 
-A trajectory application can define the following commands in the :ref:`command
-service <command-service>` to control the stream of frames:
+A trajectory application can define the following commands to control the stream of frames:
 
 * ``playback/play() -> None``: in combination with ``playback/pause``, this
   command controls whether the simulation or playback is advancing
@@ -615,7 +615,7 @@ Simulation box for multi user use cases
 If the trajectory application is used in combination with the :ref:`multiplayer
 application <multiplayer-application>`, the position and orientation of the
 simulation box can be defined in the shared virtual space by means of the ``scene``
-key in the :ref:`shared state <state-service>`. The clients and the server can
+key in the :ref:`shared state <state-updates>`. The clients and the server can
 freely modify the ``scene`` key to reposition, reorient and resize the simulation box.
 
 The value under that key is a list of numbers that merges
@@ -655,10 +655,6 @@ wrong length, or include negative scale values.
    The scaling format technically supports non-uniform scales, however this is
    likely to cause rendering issues.
 
-The ``scene`` key is likely to be modified often and by multiple users. To
-avoid conflict, users should :ref:`lock <state-locks-description>` the key
-before updating it.
-
 
 |
 
@@ -695,8 +691,7 @@ propagates them with the other forces in the simulation.
 Blueprint for quantitative iMD
 ##############################
 
-The :ref:`trajectory service <trajectory-service>` used by the
-:ref:`trajectory application <trajectory-application>` (and thus by the iMD
+The :ref:`trajectory application <trajectory-application>` (and thus the iMD
 application) allows users to choose a frame interval, an integer that specifies
 the number of simulation steps to be performed by the physics engine between each
 published frame. This can take an integer value :math:`n_{\text{f}} \geq 1`, and
@@ -813,7 +808,7 @@ not applied.
 Sending user interactions
 #########################
 
-Users send, on the :ref:`shared state <state-service>`, the description of the
+Users send, on the :ref:`shared state <state-updates>`, the description of the
 interactions they want to apply. There is no limit to the number of interaction
 a user can send. Each interaction is described under the key
 ``interaction.<INTERACTION_ID>`` where ``<INTERACTION_ID>`` is an arbitrary
@@ -947,7 +942,7 @@ reset and can be requested by the user as part of the interaction description.
 
 Servers that have the ability to do velocity reset should advertise the feature
 by setting the ``imd.velocity_reset_available`` key to true in the :ref:`shared
-state <state-service>`.
+state <state-updates>`.
 
 |
 
