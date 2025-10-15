@@ -21,17 +21,17 @@ simulation updates to the VR client, which itself sends interactions as state up
 and can request simulation resets or pauses via commands.
 
 **Command requests and responses** allow the client to request actions or information
-from the server, such as pausing or reseting the active simulation, or retrieving the
+from the server, such as pausing or resetting the active simulation, or retrieving the
 list of available commands. This is also known as a Remote Procedure Call  (RPC).
 
-**State updates** provide continuous information about the changes occuring to a
+**State updates** provide continuous information about the changes occurring to a
 shared dictionary used for synchronising arbitrary data between clients. In the iMD-VR
 case, this is used for sharing the head and hand positions of all users, and for the
 interactive biasing potentials they wish to apply to the simulation.
 
 **Simulation updates** are a specialised version of state updates, used to synchronise
 data pertaining to the simulated system as it evolves over time during simulation.
-Mostly this is a continous sequence of messages with updated atom positions, but
+Mostly this is a continuous sequence of messages with updated atom positions, but
 when a client initially joins, the update from an empty state contains the topology of
 the simulated system and other properties.
 
