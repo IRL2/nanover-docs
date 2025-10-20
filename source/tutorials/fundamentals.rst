@@ -12,6 +12,8 @@ information in :ref:`concepts <Concepts>` to understand how NanoVer works and ar
 
 Here we give a summary of each tutorial:
 
+* `networking`: A notebook that demonstrates how to connect to the server and decode its messages
+  using just third party libraries for WebSocket and MessagePack.
 * `commands_and_state`: A notebook that introduces the concepts of **commands**, and explains
   how NanoVer achieves synchronised multi-user interactive molecular simulations via the
   **shared state** dictionary.
