@@ -174,7 +174,7 @@ are defined under the keys ``A``, ``B``, ``C``, and ``D``.
 Radial orient
 #############
 
-The radial orient feature is an optionally implemented command optionally that suggestes how clients
+The radial orient feature is an optionally implemented command that suggests how clients
 should position their client space (and hence avatars) relative to server
 space such that all clients are positioned in a circle around the origin.
 These suggestions are in the form of a
@@ -301,7 +301,7 @@ application is agnostic about the frames being generated on-the-fly or being
 pre-calculated.
 
 This application defines a set of fields that describe the semantics of molecular
-systems within the ``FrameData``. It also defines a set of optional commands that a
+systems within the :py:class:`FrameData <nanover.trajectory.frame_data.FrameData>`. It also defines a set of optional commands that a
 server can implement to give the clients some control over how the frames are
 streamed. Finally, it defines several methods to communicate with the multiplayer
 application in order to share where to display the molecular system relative to the

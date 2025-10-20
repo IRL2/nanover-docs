@@ -40,8 +40,8 @@ There a several good reasons for using this model:
 Networking
 ##########
 
-NanoVer servers and clients communicate by sending [MessagePack](https://msgpack.org/index.html) encoded data over
-[WebSocket](https://en.wikipedia.org/wiki/WebSocket) connections. These two technologies were chosen for their maturity,
+NanoVer servers and clients communicate by sending `MessagePack <https://msgpack.org/index.html>`_ encoded data over
+`WebSocket <https://en.wikipedia.org/wiki/WebSocket>`_ connections. These two technologies were chosen for their maturity,
 wide support across languages and environments, and ease of use.
 
 At the high level, NanoVer communicates using JSON-like messages between server and client. Each message sent and
@@ -67,7 +67,7 @@ and the commands.
 * **The simulation frame** is the current state of the simulation, represented by a dictionary of string keys mapping
   to positions, elements, and other relevant data that is exposed to clients. Updates are sent as "frame" messages
   that contain the updated values of each key that has changed.
-* **The shared state** is the a more general store of data, also represented by a dictionary of string keys, that is
+* **The shared state** is a more general store of data, also represented by a dictionary of string keys, that is
   shared and updated by all clients. For instance, multi-user collaboration is implemented by each client updating the
   shared state with the positions of their VR headsets and controllers so that they can be visualised in real time by
   other connected clients. This is also where the interactive biasing potentials of iMD are added and updated. Updates
