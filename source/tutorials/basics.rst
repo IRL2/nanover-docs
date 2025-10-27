@@ -80,7 +80,7 @@ via the command line
 ~~~~~~~~~~~~~~~~~~~~
 
 Once you have the ``nanover-server`` package installed in your conda environment, you will be able to use the
-``nanover-omni`` command to run a server.
+``nanover-server`` command to run a server.
 This server can take any of the following:
 
 * A NanoVer OpenMM simulation
@@ -94,19 +94,19 @@ Here are some example commands:
 .. code-block:: bash
 
     # load a single NanoVer OpenMM simulation
-    nanover-omni --omm "my-openmm-sim.xml"
+    nanover-server --omm "my-openmm-sim.xml"
 
     # load multiple simulations
-    nanover-omni --omm "my-openmm-sim-1.xml" "my-openmm-sim-2.xml" --omm-ase "my-ase-omm-sim.xml"
+    nanover-server --omm "my-openmm-sim-1.xml" "my-openmm-sim-2.xml" --omm-ase "my-ase-omm-sim.xml"
 
     # load a NanoVer recording
-    nanover-omni --playback "my-recording.state" "my-recording.traj"
+    nanover-server --playback "my-recording.state" "my-recording.traj"
 
 For more information about the arguments provided with this command, type:
 
 .. code-block:: bash
 
-    nanover-omni --help
+    nanover-server --help
 
 via the GUI
 ~~~~~~~~~~~
@@ -272,24 +272,23 @@ can be found with the help option:
 via a Python script
 ~~~~~~~~~~~~~~~~~~~
 
-NanoVer sessions can be also recorded using the :mod:`nanover.omni.record` module.
+NanoVer sessions can be also recorded using the :mod:`nanover.websocket.record` module.
 Here is an example of how to define the file names and paths for the recording and pass them to the recording function:
 
 .. code:: python
 
-    from nanover.omni.record import record_from_server
-    # Define the .traj and .state file names and paths
-    traj_path = 'path/to/simulation_recording.traj'
-    state_path = 'path/to/simulation_recording.state'
+    from nanover.websocket.record import record_from_server
+    # Define the file names path
+    recording_path = 'path/to/simulation_recording.nanover.zip'
     # create a recording from a server and save it to the files
-    record_from_server("localhost:38801", traj_path, state_path)
+    record_from_server("ws://localhost:38801", recording_path)
 
 ----
 
 Visualising recordings
 ~~~~~~~~~~~~~~~~~~~~~~
 
-Visualising and playing back recordings can be done using :mod:`nanover.omni.playback` module.
+Visualising and playing back recordings can be done using :mod:`nanover.recording` module.
 The Python Server can stream recorded NanoVer streams read by a ``PlaybackSimulation`` object to a client.
 The client then plays back the recording as if it were a live stream.
 The server sends the frame and state updates whilst trying to respect the timing dictated by the timestamps stored
@@ -297,11 +296,9 @@ in the file.
 
 .. code:: python
 
-    from nanover.omni import OmniRunner
-    from nanover.omni.playback import PlaybackSimulation
-    simulation_recording = PlaybackSimulation(name='simulation-recording',
-                                           traj='path/to/recording.traj',
-                                           state='path/to/recording.state')
+    from nanover.app import OmniRunner
+    from nanover.recording import PlaybackSimulation
+    simulation_recording = PlaybackSimulation.from_path('path/to/recording.nanover.zip', name='simulation-recording')
     # Create a runner for the simulation
     recording_runner = OmniRunner.with_basic_server(simulation_recording,
                                                     name='simulation-recording-server')

@@ -22,7 +22,7 @@ The approach taken by NanoVer is to use a key-value system to store frames, as w
 available in a frame varies dramatically based on what is being simulated. NanoVer applications
 use a set of standard keys to define common fields, such as 'particle_positions' for the the field
 containing the coordinates of the particles in the system. See the python implementation of
-:py:class:`FrameData <nanover.trajectory.frame_data.FrameData>`
+:py:class:`FrameData <nanover.trajectory.frame_wrapper.FrameData>`
 or some of our :py:mod:`conversion <nanover.openmm.converter>`  utilities for more examples.
 
 For a basic interactive molecular simulation, a frame typically has the following fields:
@@ -44,12 +44,7 @@ While in a QM calculation, we may have:
 * Bond orders 
 
 If you need to customize a frame with your own data, you can - just pick a good key by which to identify
-it, and convert your data into either an array of integers, bytes, floats, strings, or a single value type such as 
-integer, byte, float, string, or a JSON like `Struct
-<https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Struct>`_.
-
-To learn more about the types of data you can send in a frame, or to see how to add data to a frame in practice,
-take a look at our `frame` tutorial notebook (see :ref:`nanover-fundamentals`).
+it and insert it into the frame.
 
 |
 

@@ -84,11 +84,9 @@ Users may share their presence in the virtual space by creating and continuously
 updating an "avatar". For example, in the iMD-VR application, each VR client
 shares their head and hand positions for others to see.
 
-Avatars are exchanged via the shared state as a protobuf `Struct
-<https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Struct>`_
-under keys of the form ``avatar.<PLAYER_ID>``. This avatar Struct details the
-user's player ID, a name for the user, a display color, and a list of its
-spatial components.
+Avatars are exchanged via the shared state as a dictionary under keys of the form
+``avatar.<PLAYER_ID>``. This avatar Struct details the user's player ID, a name
+for the user, a display color, and a list of its spatial components.
 
 .. warning::
 
@@ -176,8 +174,7 @@ are defined under the keys ``A``, ``B``, ``C``, and ``D``.
 Radial orient
 #############
 
-The radial orient feature is a command optionally implemented on the
-:ref:`command service <command-service>`. This command suggests how clients
+The radial orient feature is an optionally implemented command that suggests how clients
 should position their client space (and hence avatars) relative to server
 space such that all clients are positioned in a circle around the origin.
 These suggestions are in the form of a
@@ -243,8 +240,8 @@ space (and therefore avatar) relative to server space. This is used by the
    prototype alternatives to the radial orient feature without modifying the server.
 
 The user origin describes where the server suggests a given user places the center
-of its client space and how to orient it. The origin is described as a protobuf
-Struct under the key ``user-origin.<PLAYER_ID>`` where ``<PLAYER_ID>`` is the ID
+of its client space and how to orient it. The origin is described as an dictionary
+under the key ``user-origin.<PLAYER_ID>`` where ``<PLAYER_ID>`` is the ID
 of the user to whom the suggestion is addressed. The Struct has the following keys:
 
 * ``position`` is the suggested location of the center of the user's client
@@ -304,13 +301,15 @@ application is agnostic about the frames being generated on-the-fly or being
 pre-calculated.
 
 This application defines a set of fields that describe the semantics of molecular
-systems within the ``FrameData``. It also defines a set of optional commands that a
+systems within the :py:class:`FrameData <nanover.trajectory.frame_data.FrameData>`. It also defines a set of optional commands that a
 server can implement to give the clients some control over how the frames are
 streamed. Finally, it defines several methods to communicate with the multiplayer
 application in order to share where to display the molecular system relative to the
 users and define how to render the molecules.
 
 ----
+
+.. _frame-description:
 
 Frames
 ######
@@ -325,12 +324,8 @@ the semantics of molecular systems.
    :ref:`iMD application <imd-application>` can implement both this set of keys
    and the :ref:`iMD-specific keys <imd-framedata-keys>`.
 
-The trajectory application uses the :ref:`trajectory service <trajectory-service>`,
-which allows a server to stream snapshots of arbitrary data to clients. Each snapshot is
-described in a :ref:`FrameData <frame-description>` object, which contains:
-
-* a key-value map of protobuf `Values <https://protobuf.dev/reference/protobuf/google.protobuf/#value>`_
-* a key-value map of homogeneous arrays
+The trajectory application uses the :ref:`simulation update messages <simulation-updates>`, to stream snapshots
+of arbitrary data to clients. Each snapshot is described in a :ref:`FrameData <frame-description>` object.
 
 The coordinate system is the right-handed, Z-up system used in most software
 working with molecular systems.
@@ -398,16 +393,15 @@ atoms, such as coarse-grained models (`e.g.` `Martini <http://cgmartini.nl/>`_
 or `SIRAH <http://www.sirahff.com/>`_). Particles are described by the following
 keys in the array map:
 
-* ``particle.positions``: the Cartesian coordinates of each particle. The
-  coordinates are stored as a flat array of coordinates where each triplet
-  corresponds to the XYZ coordinates of a particle.
-* ``particle.velocities``: the velocity of each particle. Like the positions,
-  they are expressed as a flattened array of triplets.
-* ``particle.forces``: the force array applied to each particle, as a flattened
-  array of triplets.
+* ``particle.positions``: the Cartesian coordinates of each particle as an
+  Nx3 numpy array (float32).
+* ``particle.velocities``: the velocity of each particle as an Nx3 numpy
+  array (float32).
+* ``particle.forces``: the force array applied to each particle as an
+  Nx3 numpy array (float32).
 * ``particle.elements``: the chemical element for each particle expressed as
   atomic numbers. If a particle is not an atom, or if a chemical element is not
-  relevant for any reason, the atomic number can be set to 0.
+  relevant for any reason, the atomic number can be set to 0. Numpy array (uint8).
 * ``particle.names``: a name for each particle. Each name is an arbitrary string
   to identify the particle, usually within a residue. If an atom does not have
   a name, set it to an empty string. When applicable, it is recommended to use
@@ -502,15 +496,14 @@ Bonds
 Particles can be connected by covalent bonds. These bonds are described by two
 keys in the array map of the FrameData:
 
-* ``bond.pairs``: a flattened array of indices pairs. The indices reference the
-  particles forming the pair in the arrays describing the particles.
-* ``bond.orders``: an array of floating point numbers describing the bond order
-  for each bond. A single bond is represented by a value of 1.0, a double bond
-  a value of 2.0. Delocalised orbitals can be represented by non-integer
-  values. This array must have half the size of the ``bond.pairs`` array with
+* ``bond.pairs``: array of index pairs. The indices reference the particles forming
+  the pair in the arrays describing the particles. Nx2 numpy array (uint8).
+* ``bond.orders``: an array of integers describing the bond order for each bond.
+  A single bond is represented by a value of 1, a double bond
+  a value of 2. This array must have half the size of the ``bond.pairs`` array with
   each value of bond order corresponding to a successive pair in the
   ``bond.pairs`` array. If this array is not present, the default bond order is
-  1.0.
+  1. Nx2 numpy array (uint8).
 
 Simulation box
 ~~~~~~~~~~~~~~
@@ -581,8 +574,7 @@ load events:
 Playback commands
 #################
 
-A trajectory application can define the following commands in the :ref:`command
-service <command-service>` to control the stream of frames:
+A trajectory application can define the following commands to control the stream of frames:
 
 * ``playback/play() -> None``: in combination with ``playback/pause``, this
   command controls whether the simulation or playback is advancing
@@ -623,7 +615,7 @@ Simulation box for multi user use cases
 If the trajectory application is used in combination with the :ref:`multiplayer
 application <multiplayer-application>`, the position and orientation of the
 simulation box can be defined in the shared virtual space by means of the ``scene``
-key in the :ref:`shared state <state-service>`. The clients and the server can
+key in the :ref:`shared state <state-updates>`. The clients and the server can
 freely modify the ``scene`` key to reposition, reorient and resize the simulation box.
 
 The value under that key is a list of numbers that merges
@@ -663,10 +655,6 @@ wrong length, or include negative scale values.
    The scaling format technically supports non-uniform scales, however this is
    likely to cause rendering issues.
 
-The ``scene`` key is likely to be modified often and by multiple users. To
-avoid conflict, users should :ref:`lock <state-locks-description>` the key
-before updating it.
-
 
 |
 
@@ -703,8 +691,7 @@ propagates them with the other forces in the simulation.
 Blueprint for quantitative iMD
 ##############################
 
-The :ref:`trajectory service <trajectory-service>` used by the
-:ref:`trajectory application <trajectory-application>` (and thus by the iMD
+The :ref:`trajectory application <trajectory-application>` (and thus the iMD
 application) allows users to choose a frame interval, an integer that specifies
 the number of simulation steps to be performed by the physics engine between each
 published frame. This can take an integer value :math:`n_{\text{f}} \geq 1`, and
@@ -821,7 +808,7 @@ not applied.
 Sending user interactions
 #########################
 
-Users send, on the :ref:`shared state <state-service>`, the description of the
+Users send, on the :ref:`shared state <state-updates>`, the description of the
 interactions they want to apply. There is no limit to the number of interaction
 a user can send. Each interaction is described under the key
 ``interaction.<INTERACTION_ID>`` where ``<INTERACTION_ID>`` is an arbitrary
@@ -955,7 +942,7 @@ reset and can be requested by the user as part of the interaction description.
 
 Servers that have the ability to do velocity reset should advertise the feature
 by setting the ``imd.velocity_reset_available`` key to true in the :ref:`shared
-state <state-service>`.
+state <state-updates>`.
 
 |
 
