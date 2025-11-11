@@ -130,7 +130,7 @@ If you have not already created a NanoVer conda environment, please refer to
 
    .. code:: bash
 
-        conda install -c irl nanover-imd
+        conda install -c irl nanover-imd-vr
 
 #. Set up your VR headset.
 
@@ -138,8 +138,9 @@ If you have not already created a NanoVer conda environment, please refer to
 
    .. code:: bash
 
-        NanoveriMD
+        nanover-imd-vr
 
+The page for the Conda package can be found here: `<https://anaconda.org/irl/nanover-imd-vr>`_.
 
 .. _download_latest_release_VR_client:
 
