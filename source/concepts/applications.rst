@@ -202,26 +202,26 @@ Then the position :math:`\mathbf{C}_p` of each user's suggested origin is:
 
 .. math::
 
-  \begin{align}
+  \begin{aligned}
   \mathbf{C}_p &= \begin{bmatrix}
     r\cos{\theta_p}\\
     0\\
     r\sin{\theta_p}\\
   \end{bmatrix}
-  \end{align}
+  \end{aligned}
 
 And the rotation :math:`\mathbf{R}_p` is expressed as a quaternion, defined as:
 
 .. math::
 
-   \begin{align}
+   \begin{aligned}
    \mathbf{R}_p &= \begin{bmatrix}
      0\\
      \sin{\frac{1}{2} \big(-\theta_p - \frac{2\pi}{N}\big)}\\
      0\\
      \cos{\frac{1}{2} \big(-\theta_p - \frac{2\pi}{N}\big)}\\
     \end{bmatrix}
-   \end{align}
+   \end{aligned}
 
 ----
 
@@ -763,10 +763,10 @@ The Gaussian force is defined by:
 
 .. math::
 
-   \begin{align}
+   \begin{aligned}
       \mathbf{F}_{\text{COM}}^{\text{Gaussian}} &= -\frac{\mathbf{d}}{\sigma^2}\exp{-\frac{| \mathbf{d} | ^2}{2\sigma^2}} \\
       E_{\text{COM}}^{\text{Gaussian}} &= - \exp{-\frac{| \mathbf{d} |^2}{2\sigma^2}}
-   \end{align}
+   \end{aligned}
 
 with :math:`\sigma = 1`. With this force, the user interaction is stronger when
 applied close to the particles.
@@ -775,10 +775,10 @@ The harmonic force is defined by:
 
 .. math::
 
-   \begin{align}
+   \begin{aligned}
    \mathbf{F}_{\text{COM}}^{\text{Harmonic}} &= -k \mathbf{d} \\
    E_{\text{COM}}^{\text{Harmonic}} &=  \frac{1}{2}k| \mathbf{d} |^2
-   \end{align}
+   \end{aligned}
 
 with :math:`k = 2`.
 
@@ -786,7 +786,7 @@ The constant force is defined by:
 
 .. math::
 
-   \begin{align}
+   \begin{aligned}
     \mathbf{F}_{\text{COM}}^{\text{Constant}} &=
     \begin{cases}
       (0, 0, 0),& \text{if } | \mathbf{d} | = 0 \\
@@ -797,7 +797,7 @@ The constant force is defined by:
       0,& \text{if } | \mathbf{d} | = 0 \\
       1,& \text{otherwise}
     \end{cases}
-   \end{align}
+   \end{aligned}
 
 The direction of the constant force is undefined when the origin of the
 interaction and the center of mass of the selection overlap, so the force is
