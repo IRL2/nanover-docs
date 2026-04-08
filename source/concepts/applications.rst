@@ -598,7 +598,6 @@ A trajectory application can define the following commands to control the stream
 * ``playback/next() -> None``: switches from the current system to the next
   system in the list of available systems, as listed by the ``playback/list`` command.
   When called from the final system, cycles back to the first system.
-  Note that the Rust server does not cycle back after the final system.
   This command does not take any arguments and does not return anything.
 
 .. warning::
@@ -838,10 +837,6 @@ Under that key, the value is a Struct with the following keys:
 * ``reset_velocities``: a boolean, true if :ref:`velocity reset
   <velocity-reset>` should be applied, false otherwise. This is false by
   default and will be ignored silently if the server does not have the feature.
-
-.. warning::
-
-   The Rust server does not currently support non-mass-weighted interactions.
 
 .. note::
 
