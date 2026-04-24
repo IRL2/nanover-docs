@@ -731,18 +731,28 @@ compute :math:`\mathbf{F}_{\text{COM}}`, the force at the center of mass of the 
 target particles. The force is then distributed among the particles; 
 the method of force distribution depends on whether 
 the interaction is mass weighted of not. If if it mass weighted, then the
-force :math:`\mathbf{F}_i` applied to the particle :math:`i` is :math:`\mathbf{F}_i = s \cdot m_i
-\frac{\mathbf{F}_{\text{COM}}}{N}` with :math:`s` a scaling factor set by the user,
-:math:`m_i` the mass of particle :math:`i`, and :math:`N` the number of target
-particles for the interaction. If the interaction is not mass weighted, then
-:math:`\mathbf{F}_i = s \cdot \frac{\mathbf{F}_{\text{COM}}}{N}`. Finally, :math:`|\mathbf{F}_i|` can be
-capped to a maximum value specified by the user to avoid applying too large
-forces.
+force :math:`\mathbf{F}_i` applied to the particle :math:`i` is :math:`\mathbf{F}_i = s \cdot
+\big( \frac{m_i}{M} \big) \mathbf{F}_{\text{COM}}` with :math:`s` a scaling factor set by the user,
+:math:`m_i` the mass of particle :math:`i`, :math:`M = \sum_{j=1}^{N} m_{j}` the total mass of the
+group of target particles and :math:`N` the number of target particles for the interaction with non-zero
+masses (see below). If the interaction is not mass weighted, then
+:math:`\mathbf{F}_i = s \cdot \big( \frac{1}{N} \big) \mathbf{F}_{\text{COM}}`.
+Finally, :math:`|\mathbf{F}_i|` can be capped to a maximum value specified by the user to avoid
+applying too large forces.
+
+.. note::
+
+   Forces are not applied to any particle with zero mass, :math:`m_i=0`. This means that if the target
+   group contains particles with zero mass, the COM force is only distributed across the particles
+   with non-zero mass, regardless of whether or not the interactions are mass weighted, and the number
+   of particles across which the force is distributed :math:`N` counts only particles with non-zero
+   mass. In the case of an interaction targeting only particles with zero mass, no interaction force
+   is applied to the system (:math:`F_{i} = 0`).
 
 Each interaction type also defines the equation for the potential energy associated
-with the user interaction :math:`E_{\text{COM}}`. For mass weighted interaction, the
-energy for the interaction is :math:`E = \frac{E_{\text{COM}}}{N}\sum_{i=0}^{N}m_i`.
-For non mass weighted, :math:`E = E_{\text{COM}}`.
+with the user interaction :math:`E_{\text{COM}}`. For both the mass weighted and non-mass weighted
+interactions, the energy for the interaction is :math:`E = s \cdot E_{\text{COM}}`, scaled by the
+same user-defined scaling factor applied to the force.
 
 ----
 
