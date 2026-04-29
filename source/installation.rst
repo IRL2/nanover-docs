@@ -140,7 +140,7 @@ If you have not already created a NanoVer conda environment, please refer to
 
         nanover-imd-vr
 
-The page for the Conda package can be found here: `<https://anaconda.org/irl/nanover-imd-xr>`_.
+The page for the Conda package can be found here: `<https://anaconda.org/irl/nanover-imd-vr>`_.
 
 .. _download_latest_release_XR_client:
 
