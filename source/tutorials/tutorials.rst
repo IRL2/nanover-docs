@@ -23,15 +23,15 @@ sets of tutorials:
    :maxdepth: 1
 
    basics.rst
-   vrclient.rst
+   xrclient.rst
    fundamentals.rst
    ase.rst
    mdanalysis.rst
    openmm.rst
 
-**Our tutorials can be used in conjunction with our iMD-VR application**,
-`NanoVer iMD-VR <https://github.com/IRL2/nanover-imd-vr>`_, see the instructions for
-:ref:`installing_imdvr_client`.
+**Our tutorials can be used in conjunction with our iMD-XR application**,
+`NanoVer iMD-XR <https://github.com/IRL2/nanover-imd-xr>`_, see the instructions for
+:ref:`installing_imdxr_client`.
 
 .. important::
     Our tutorials are provided as `Jupyter notebooks <https://jupyter.org>`_, and thus require Jupyter to run.

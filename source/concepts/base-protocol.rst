@@ -16,8 +16,8 @@ Overview
 
 Standard network communication between client and server in NanoVer is divided into
 three parts: **command requests and responses**, **state updates**, and **simulation
-updates**. These are used together, for example, to support VR iMD by providing live
-simulation updates to the VR client, which itself sends interactions as state updates,
+updates**. These are used together, for example, to support XR iMD by providing live
+simulation updates to the XR client, which itself sends interactions as state updates,
 and can request simulation resets or pauses via commands.
 
 **Command requests and responses** allow the client to request actions or information
@@ -25,7 +25,7 @@ from the server, such as pausing or resetting the active simulation, or retrievi
 list of available commands. This is also known as a Remote Procedure Call  (RPC).
 
 **State updates** provide continuous information about the changes occurring to a
-shared dictionary used for synchronising arbitrary data between clients. In the iMD-VR
+shared dictionary used for synchronising arbitrary data between clients. In the iMD-XR
 case, this is used for sharing the head and hand positions of all users, and for the
 interactive biasing potentials they wish to apply to the simulation.
 

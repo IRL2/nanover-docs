@@ -34,7 +34,7 @@ of the GitHub repository:
 * `recording_and_replaying`: An introductory notebook that demonstrates how NanoVer can be used
   to record and replay iMD simulations.
 * `multiple_simulations`: This notebook demonstrates how to load and run multiple simulation files using a single OmniRunner server,
-  providing default visualizations, and details how to switch between them using the Jupyter notebook and VR interfaces.
+  providing default visualizations, and details how to switch between them using the Jupyter notebook and XR interfaces.
 * `nanover_nglview`: A notebook that assumes a server is already running, and visualises it
   with `NGLView <https://github.com/arose/nglview>`_.
 * `runner_GUI`: A notebook that demonstrates how to use the NanoVer GUI to run a server.
@@ -124,7 +124,7 @@ If everything is set up correctly, you should see the following interface:
 Recording a session
 ###################
 
-For a NanoVer session to be useful beyond the time spent in VR, we want to record it!
+For a NanoVer session to be useful beyond the time spent in XR, we want to record it!
 We can then use this recording to run our analysis, or replay it to get insight.
 In this section, we describe how to record a NanoVer session and how to visualise the recording using inbuilt NanoVer
 methods.

@@ -13,7 +13,7 @@ Overview
 ########
 
 NanoVer is a set of protocols, libraries and programs for performing interactive simulations,
-with a focus on virtual reality (VR).
+with a focus on extended reality (XR).
 
 At the highest level, NanoVer uses a client/server model, in which a frontend application connects
 to a server that runs a simulation in real-time, establishing an interactive session.
@@ -25,11 +25,11 @@ There a several good reasons for using this model:
   molecular simulation for a galaxy simulation? Just change the server!
 * **Scientific software is often written in different programming languages to
   those that are best suited for visualisation**. For example, most of our
-  molecular dynamics simulations run using Python, while our VR application
+  molecular dynamics simulations run using Python, while our XR application
   is written in C#. 
 * **The server can be running wherever it is convenient**, be it on your desktop,
   a cluster behind a firewall or on a cloud service, while multiple frontend 
-  applications can connect simultaneously, such as a VR app, 
+  applications can connect simultaneously, such as an XR app,
   smartphone app, or a Jupyter notebook. 
 
 |
@@ -69,7 +69,7 @@ and the commands.
   that contain the updated values of each key that has changed.
 * **The shared state** is a more general store of data, also represented by a dictionary of string keys, that is
   shared and updated by all clients. For instance, multi-user collaboration is implemented by each client updating the
-  shared state with the positions of their VR headsets and controllers so that they can be visualised in real time by
+  shared state with the positions of their XR headsets and controllers so that they can be visualised in real time by
   other connected clients. This is also where the interactive biasing potentials of iMD are added and updated. Updates
   are sent as "state" messages that contain the values of each key that has changed, and a list of keys that
   have been deleted.
@@ -86,12 +86,12 @@ in real time.
 
 ----
 
-############
-VR Front End
-############
+#########
+XR Client
+#########
 
-The VR front end app, :ref:`NanoVer iMD-VR <vr-client-tutorial>`, intended for 3D visualisation and intuitive spatial
-iMD (iMD-VR), is a `distinct Unity/C# codebase <https://github.com/IRL2/nanover-imd-vr>`_ that follows the
+The XR front end client, :ref:`NanoVer iMD-XR <xr-client-tutorial>`, intended for 3D visualisation and intuitive spatial
+iMD (iMD-XR), is a `distinct Unity/C# codebase <https://github.com/IRL2/nanover-imd-xr>`_ that follows the
 :ref:`application conventions <applications>` laid out in this documentation.
 
 |

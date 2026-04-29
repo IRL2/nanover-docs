@@ -7,7 +7,7 @@ Installation & Getting Started
 NanoVer consists of two components: the Python-based libraries
 for running simulations, and the Unity3D libraries
 and applications for visualising & interacting with simulations
-in VR.
+in XR.
 
 .. contents:: Contents
     :depth: 2
@@ -23,8 +23,8 @@ User Installation Guide
 
 This guide contains the information required to get NanoVer up and running on your computer! This includes
 creating a conda environment and installing the server, which is required for setting up and running simulations. You
-then have the option to install the iMD-VR client, which you can use for visualising and interacting with your simulations
-inside VR.
+then have the option to install the iMD-XR client, which you can use for visualising and interacting with your simulations
+inside XR.
 
 .. _creating_conda_env:
 
@@ -90,29 +90,29 @@ In this case, we recommend creating a new conda environment and reinstalling :co
 ----
 
 
-.. _installing_imdvr_client:
+.. _installing_imdxr_client:
 
-Installing the iMD-VR client
+Installing the iMD-XR client
 ############################
 
-To use NanoVer iMD-VR, you have two options:
+To use NanoVer iMD-XR, you have two options:
 
-* **Conda installation of the NanoVer iMD-VR package**, see :ref:`conda_installation_VR_client`.
+* **Conda installation of the NanoVer iMD-XR package**, see :ref:`conda_installation_XR_client`.
   *Please note that this installs the Windows build of the package, thus is not compatible with MacOS or Linux.*
 
 
-* **Download the latest release of the NanoVer iMD-VR executable**, see :ref:`download_latest_release_VR_client`.
+* **Download the latest release of the NanoVer iMD-XR executable**, see :ref:`download_latest_release_XR_client`.
   This directory includes: (a) the Windows build of the package, and (b) the standalone apk for installation on your
   Meta Quest headset.
   *If you are using MacOS or Linux, you must run the program locally on your Meta Quest headset using the standalone apk.*
 
 .. admonition:: Important
 
-    For more information on how to choose your installation method based on your VR setup and operating system,
-    please check out the :ref:`choosing your iMD-VR setup<choosing_setup_iMD-VR>` section on the NanoVer iMD-VR
+    For more information on how to choose your installation method based on your XR setup and operating system,
+    please check out the :ref:`choosing your iMD-XR setup<choosing_setup_iMD-XR>` section on the NanoVer iMD-XR
     tutorial page.
 
-.. _conda_installation_VR_client:
+.. _conda_installation_XR_client:
 
 Conda installation
 ~~~~~~~~~~~~~~~~~~
@@ -126,13 +126,13 @@ If you have not already created a NanoVer conda environment, please refer to
 
         conda activate nanover
 
-#. Install the NanoVer iMD-VR package:
+#. Install the NanoVer iMD-XR package:
 
    .. code:: bash
 
         conda install -c irl nanover-imd-vr
 
-#. Set up your VR headset.
+#. Set up your XR headset.
 
 #. To start the program, run the following command:
 
@@ -142,20 +142,20 @@ If you have not already created a NanoVer conda environment, please refer to
 
 The page for the Conda package can be found here: `<https://anaconda.org/irl/nanover-imd-vr>`_.
 
-.. _download_latest_release_VR_client:
+.. _download_latest_release_XR_client:
 
 Download the latest release
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Download the latest release from the git repo `here <https://github.com/IRL2/nanover-imd-vr/releases>`_.
+#. Download the latest release from the git repo `here <https://github.com/IRL2/nanover-imd-xr/releases>`_.
 
 #. Extract the downloaded zip file.
 
-#. The next steps depend on your chosen VR setup:
+#. The next steps depend on your chosen XR setup:
 
-.. _using_pc-vr:
+.. _using_pc-xr:
 
-.. dropdown:: **Using PC-VR** (wireless or tethered)
+.. dropdown:: **Using PC-XR** (wireless or tethered)
 
     This includes
     `Meta Quest Link & AirLink <https://www.meta.com/en-gb/help/quest/articles/headsets-and-accessories/oculus-link/connect-with-air-link/>`_,
@@ -175,7 +175,7 @@ Download the latest release
     #. Connect your headset to your computer with a cable and sideload the ``nanover-imd.apk`` from the extracted zip
        file onto your device. You can use `SideQuest <https://sidequestvr.com>`_ or the
        `Meta Quest Developer Hub <https://developer.oculus.com/meta-quest-developer-hub/>`_ for this.
-    #. Inside the VR headset, open Apps and filter ``Unknown Sources`` from the drop-down menu in the top right corner.
+    #. Inside the XR headset, open Apps and filter ``Unknown Sources`` from the drop-down menu in the top right corner.
        Locate and run ``NanoVer IMD``.
 
 
@@ -199,7 +199,7 @@ Download the latest release
 
 .. admonition:: Key definition
 
-    \ **Tethered**: using a cable to connect your VR headset to your computer.
+    \ **Tethered**: using a cable to connect your XR headset to your computer.
 
 ----
 
@@ -218,7 +218,7 @@ We refer developers to the relevant code bases:
   <https://github.com/IRL2/nanover-server-py?tab=readme-ov-file#developer-installation>`_
   in the README of the `nanover-server-py repository <https://github.com/IRL2/nanover-server-py>`_ on GitHub.
 
-* If you want to customise the NanoVer iMD-VR Unity3D application, instructions for obtaining the source code are available
-  in the `nanover-imd-vr repository <https://github.com/IRL2/nanover-imd-vr>`_ on GitHub .
+* If you want to customise the NanoVer iMD-XR Unity3D application, instructions for obtaining the source code are available
+  in the `nanover-imd-xr repository <https://github.com/IRL2/nanover-imd-xr>`_ on GitHub .
 
 |
