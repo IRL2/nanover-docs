@@ -590,8 +590,18 @@ Choosing your VR setup
 Below is a flow diagram to help you decide which setup to choose based on: the operating system of your computer,
 the type of network you have access to, your VR headset, and your desired configuration (single-/multi-person VR).
 
-.. image::  /_static/VR_client_flow_diagram.png
+.. image::  /_static/NanoVer_workflows_common_setups.png
   :width: 600
+
+.. image::  /_static/NanoVer_workflows_multi.png
+  :width: 600
+
+.. image::  /_static/NanoVer_workflows_OS.png
+  :width: 600
+
+.. image::  /_static/NanoVer_workflows_network.png
+  :width: 600
+
 
 .. admonition:: Key definition
 
