@@ -587,7 +587,7 @@ instructions on configuring your setup.
 Choosing your VR setup
 ######################
 
-Below is a flow diagram to help you decide which setup to choose based on: the operating system of your computer,
+Below are some panels to help you decide which setup to choose based on the operating system of your computer,
 the type of network you have access to, your VR headset, and your desired configuration (single-/multi-person VR).
 
 .. image::  /_static/NanoVer_workflows_common_setups.png
@@ -601,31 +601,6 @@ the type of network you have access to, your VR headset, and your desired config
 
 .. image::  /_static/NanoVer_workflows_network.png
   :width: 600
-
-
-.. admonition:: Key definition
-
-    \ **Tethered**: using a cable to connect your VR headset to your computer.
-
-For a **wireless setup** you will need to have a strong and stable internet connection that allows communication over the network.
-Note that this option is **often not possible with public & institutional networks such as Eduroam** (see below for further details).
-In this case, you can **use either a VPN service or mobile hotspot**.
-You must ensure that all devices are connected to the same VPN or hotspot, including the computer running the NanoVer server and your VR headset(s).
-
-.. dropdown:: Further information about institutional networks (e.g.Eduroam)
-
-    Eduroam segments devices into different subnets (e.g. ``172.18.11.x`` vs. ``172.18.15.x``) and enforces security policies that block direct device-to-device communication. Key restrictions include:
-
-    * **Subnet isolation**: Traffic between subnets is filtered at the network layer
-    * **Client-to-client blocking**: Direct communication between devices on the same broadcast domain is prohibited
-    * **Multicast/broadcast limitations**: Discovery protocols (e.g. UDP broadcasts) are often disabled
-
-    One way to bypass these restrictions is to use a  virtual private network (VPN) service.
-    One such service that we tested is `Tailscale <https://tailscale.com/>`_ but there are many others available.
-    Note that when using a VPN you cannot use the "Autoconnect" or "Discover Services" features.
-    Instead, you must select "Direct Connect" (PC-VR menu) or "Manual" (in-VR menu) and type your IP address.
-
-|
 
 .. _choosingyourinstallationmethod:
 
