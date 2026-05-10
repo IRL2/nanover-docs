@@ -130,7 +130,7 @@ If you have not already created a NanoVer conda environment, please refer to
 
    .. code:: bash
 
-        conda install -c irl nanover-imd-vr
+        conda install -c irl nanover-imd-xr
 
 #. Set up your XR headset.
 
@@ -138,9 +138,9 @@ If you have not already created a NanoVer conda environment, please refer to
 
    .. code:: bash
 
-        nanover-imd-vr
+        nanover-imd-xr
 
-The page for the Conda package can be found here: `<https://anaconda.org/irl/nanover-imd-vr>`_.
+The page for the Conda package can be found here: `<https://anaconda.org/irl/nanover-imd-xr>`_.
 
 .. _download_latest_release_XR_client:
 
