@@ -92,16 +92,18 @@ In this case, we recommend creating a new conda environment and reinstalling :co
 
 .. _installing_imdvr_client:
 
-Installing the iMD-VR client
+Installing the iMD-XR client
 ############################
 
-To use NanoVer iMD-VR, you have two options:
+To use NanoVer iMD-XR, you have three options:
 
-* **Conda installation of the NanoVer iMD-VR package**, see :ref:`conda_installation_VR_client`.
+* **Install the app from Meta Quest Horizon**, see :ref:`horizon_installation_xr_client`.
+  This is the recommended way to use NanoVer iMD-XR standalone on a Meta Quest headset.
+
+* **Conda installation of the NanoVer iMD-XR package**, see :ref:`conda_installation_VR_client`.
   *Please note that this installs the Windows build of the package, thus is not compatible with MacOS or Linux.*
 
-
-* **Download the latest release of the NanoVer iMD-VR executable**, see :ref:`download_latest_release_VR_client`.
+* **Download the latest release of the NanoVer iMD-XR executable**, see :ref:`download_latest_release_VR_client`.
   This directory includes: (a) the Windows build of the package, and (b) the standalone apk for installation on your
   Meta Quest headset.
   *If you are using MacOS or Linux, you must run the program locally on your Meta Quest headset using the standalone apk.*
@@ -111,6 +113,21 @@ To use NanoVer iMD-VR, you have two options:
     For more information on how to choose your installation method based on your VR setup and operating system,
     please check out the :ref:`choosing your iMD-VR setup<choosing_setup_iMD-VR>` section on the NanoVer iMD-VR
     tutorial page.
+
+https://www.meta.com/en-gb/experiences/nanover-imd-xr/33606061302340842/
+
+.. _horizon_installation_xr_client:
+
+Meta Quest Horizon installation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#. Navigate to the NanoVer iMD-XR listing in Meta Quest Horizon, either by searching from your headset or
+   `opening this page your browser <https://www.meta.com/en-gb/experiences/nanover-imd-xr/33606061302340842/>`_.
+
+#. Click "get" or "install" to add it to your library.
+
+#. Launch the app from your list of apps in the headset.
+
 
 .. _conda_installation_VR_client:
 
