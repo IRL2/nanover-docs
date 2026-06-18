@@ -97,12 +97,11 @@ Installing the iMD-XR client
 
 To use NanoVer iMD-XR, you have three options:
 
-* **Install the latest release from Meta Quest Horizon**, see :ref:`horizon_installation_xr_client`.
-
+* **Install the app from Meta Quest Horizon**, see :ref:`horizon_installation_xr_client`.
+  This is the recommended way to use NanoVer iMD-XR standalone on a Meta Quest headset.
 
 * **Conda installation of the NanoVer iMD-XR package**, see :ref:`conda_installation_VR_client`.
   *Please note that this installs the Windows build of the package, thus is not compatible with MacOS or Linux.*
-
 
 * **Download the latest release of the NanoVer iMD-XR executable**, see :ref:`download_latest_release_VR_client`.
   This directory includes: (a) the Windows build of the package, and (b) the standalone apk for installation on your
