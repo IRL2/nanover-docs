@@ -943,6 +943,60 @@ state <state-updates>`.
 
 ----
 
+.. _scene-objects-application:
+
+#############
+Scene objects
+#############
+
+Introduction
+############
+
+The XR client supports displaying a small number of basic visual elements to
+augment the molecular rendering. This can be dynamically controlled from
+outside the headset by creating entries in the shared state.
+
+Scene objects are defined in the shared state as a dictionary under keys of the
+form ``object.<TYPE>.<IDENTIFIER>``.
+
+Positions are translation vectors in simulation space expressed as an array of
+3 values. Colors as arrays of RGBA components between 0 and 1. Sizes are a uniform
+scaling factor.
+
+The three supported scene object types are:
+
+* ``shape`` for a marker at a point in space
+* ``label`` for floating text at a point in space
+* ``line`` for a line between a series of points in space
+
+.. code::
+
+   object.shape.<identifier>: {
+     shape: "sphere",
+     position: [0.0, 0.0, 0.0],
+     color: [1.0, 0.0, 0.0, 1.0],
+     size: 2.5,
+   }
+
+.. code::
+
+   object.label.<identifier>: {
+     text: "some label text",
+     position: [0.0, 0.0, 0.0],
+     color: [1.0, 0.0, 0.0, 1.0],
+     size: 2.5,
+   }
+
+.. code::
+
+   object.line.<identifier>: {
+     positions: [[0.0, 0.0, 0.0], [1.0, 1.0, 1.0]],
+     color: [1.0, 0.0, 0.0, 1.0],
+     size: 0.05,
+   }
+
+----
+
 ##########################
 Miscellaneous applications
 ##########################
