@@ -3,7 +3,9 @@
 # This file only contains a selection of the most common options. For a full
 # list see the documentation:
 # http://www.sphinx-doc.org/en/master/config
-
+import glob
+import os
+import shutil
 # -- Path setup --------------------------------------------------------------
 
 # If extensions (or modules to document with autodoc) are in another directory,
@@ -89,8 +91,8 @@ html_static_path = ['_static']
 html_css_files = ['custom.css']
 
 html_meta = {"description": "Documentation for the NanoVer application",
-             "keywords": "nanover, imd, virtual reality, vr, molecular simulation,"
-                         "documentation, imd-vr, intangible realities lab, irl,"
+             "keywords": "nanover, imd, virtual reality, extended reality, vr, xr, molecular simulation,"
+                         "documentation, imd-vr, imd-xr, intangible realities lab, irl,"
                          "interactive molecular dynamics, molecular dynamics"}
 
 html_context = {
@@ -102,11 +104,38 @@ html_context = {
     'version': version,
 }
 
+# https://github.com/kapicorp/kapitan/blob/master/kapitan/utils.py#L659
+def copy_tree(src: str, dst: str) -> list:
+    """Recursively copy a given directory from `src` to `dst`.
+
+    If `dst` or a parent of `dst` doesn't exist, the missing directories are created.
+
+    If `clobber_files` is set to true, existing files in the destination directory are completely
+    clobbered. This is necessary to allow use of this function when copying a Git repo into a
+    destination directory which may already contain an old copy of the repo. Files that are
+    overwritten this way won't be listed in the return value.
+
+    Returns a list of the copied files.
+    """
+    if not os.path.isdir(src):
+        raise Exception(f"Cannot copy tree {src}: not a directory")
+
+    if os.path.exists(dst) and not os.path.isdir(dst):
+        raise Exception(
+            f"Cannot copy tree to {dst}: destination exists but not a directory"
+        )
+
+    # this will generate an empty set if `dst` doesn't exist
+    before = set(glob.iglob(f"{dst}/*", recursive=True))
+    copy_function = shutil.copy2
+    shutil.copytree(src, dst, dirs_exist_ok=True, copy_function=copy_function)
+    after = set(glob.iglob(f"{dst}/*", recursive=True))
+    return list(after - before)
+
 def run_apidoc(_):
     import glob
     import os
     import shutil
-    from distutils.dir_util import copy_tree
 
     print("Deleting temp folder")
     if os.path.exists('temp'):
