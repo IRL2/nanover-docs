@@ -1,19 +1,19 @@
- .. _vr-client-tutorial:
+ .. _xr-client-tutorial:
 
 ==============
-NanoVer iMD-VR
+NanoVer iMD-XR
 ==============
 
-You can use the `NanoVer iMD-VR application <https://github.com/IRL2/nanover-imd-vr>`_
-to **incorporate VR into your workflow**, including:
+You can use the `NanoVer iMD-XR application <https://github.com/IRL2/nanover-imd-xr>`_
+to **incorporate XR into your workflow**, including:
 
-* visualising molecular systems in VR, including real-time MD simulations, recorded trajectories, and static structures
-* interacting with real-time molecular simulations using VR controllers
-* joining together with others for multi-person sessions in VR
+* visualising molecular systems in XR, including real-time MD simulations, recorded trajectories, and static structures
+* interacting with real-time molecular simulations using XR controllers
+* joining together with others for multi-person sessions in XR
 
-To install the NanoVer iMD-VR application, go to :ref:`installation`.
-For help choosing your VR setup, see :ref:`choosing_setup_iMD-VR`.
-For guidance on using the NanoVer iMD-VR application, see :ref:`navigatingnanoverinvr`.
+To install the NanoVer iMD-XR application, go to :ref:`installation`.
+For help choosing your XR setup, see :ref:`choosing_setup_iMD-XR`.
+For guidance on using the NanoVer iMD-XR application, see :ref:`navigatingnanoverinxr`.
 
 .. contents:: Contents
     :depth: 2
@@ -21,41 +21,41 @@ For guidance on using the NanoVer iMD-VR application, see :ref:`navigatingnanove
 
 ----
 
-.. _navigatingnanoverinvr:
+.. _navigatingnanoverinxr:
 
 ########################
-Navigating NanoVer in VR
+Navigating NanoVer in XR
 ########################
 
 Introduction
 ############
 
-We call an instance of the NanoVer iMD-VR application an iMD-VR client, or simply a **VR client**.
+We call an instance of the NanoVer iMD-XR application an iMD-XR client, or simply an **XR client**.
 This is different to a *python client*, which connects to a NanoVer server from a python script or Jupyter notebook.
 This distinction is important since the two types of client offer different functionalities.
 For example, *both* can connect to a NanoVer server to access simulation data, run commands
 such as play/pause/reset, & apply forces to the molecule system (interactive MD).
-However, *only a VR client* allows you to visualise & interact with a simulation in VR,
+However, *only an XR client* allows you to visualise & interact with a simulation in XR,
 and *only a python client* allows you to change the visualisation of the molecular system.
 
 .. admonition:: Key point
 
-   A **VR Client** or **iMD-VR client** is an instance of the NanoVer iMD-VR application that has connected to a NanoVer server.
+   An **XR Client** or **iMD-XR client** is an instance of the NanoVer iMD-XR application that has connected to a NanoVer server.
 
 |
 
 ----
 
-Your VR controllers
+Your XR controllers
 ###################
 
-Below are diagrams showing the positions of the VR controller buttons that you will use in NanoVer iMD-VR,
+Below are diagrams showing the positions of the XR controller buttons that you will use in NanoVer iMD-XR,
 using the Meta Quest 2 controllers for demonstration.
-These buttons are in similar positions on most common VR controllers,
-but please refer to your VR headset's documentation if you cannot locate them.
+These buttons are in similar positions on most common XR controllers,
+but please refer to your XR headset's documentation if you cannot locate them.
 
 .. important::
-    To press a button on a menu in VR,
+    To press a button on a menu in XR,
     **place the end of your controller on the button and click the trigger**.
 
 .. list-table::
@@ -84,22 +84,22 @@ but please refer to your VR headset's documentation if you cannot locate them.
 
 ----
 
-A typical iMD-VR workflow
+A typical iMD-XR workflow
 #########################
 
-You should now have NanoVer iMD-VR and your VR setup ready to go! To begin, follow these steps:
+You should now have NanoVer iMD-XR and your XR setup ready to go! To begin, follow these steps:
 
 #. **Start your NanoVer server** (see :ref:`basicsrunningaserver`)
 
-#. **Setup your VR kit & open NanoVer iMD-VR** (see :ref:`installing_imdvr_client`)
+#. **Setup your XR kit & open NanoVer iMD-XR** (see :ref:`installing_imdxr_client`)
 
 #. **Select your option for connecting to a Server**: using either the
-   :ref:`in-VR main menu<vrclientinvrmenumainmenu>` or
-   :ref:`desktop main menu<vrclientdesktopmenu>` (PC-VR only)
+   :ref:`in-XR main menu<xrclientinxrmenumainmenu>` or
+   :ref:`desktop main menu<xrclientdesktopmenu>` (PC-XR only)
 
-#. **Check out your molecular simulation in VR!** See instructions for the
-   :ref:`VR controls and menus<vrclientvrcontrolsandmenus>`, or check out the :ref:`tutorials <Tutorials>` page for
-   examples of how to integrate NanoVer iMD-VR into your workflow
+#. **Check out your molecular simulation in XR!** See instructions for the
+   :ref:`XR controls and menus<xrclientxrcontrolsandmenus>`, or check out the :ref:`tutorials <Tutorials>` page for
+   examples of how to integrate NanoVer iMD-XR into your workflow
 
 |
 
@@ -119,9 +119,9 @@ Instead, you must use the "Manual" option.
 
 |
 
-.. _vrclientinvrmenumainmenu:
+.. _xrclientinxrmenumainmenu:
 
-In-VR main menu
+In-XR main menu
 ~~~~~~~~~~~~~~~
 
 .. grid:: 2
@@ -129,14 +129,14 @@ In-VR main menu
 
    .. grid-item::
 
-      .. figure:: /_static/in-vr_main-menu.png
+      .. figure:: /_static/in-xr_main-menu.png
          :align: center
          :width: 85%
 
    .. grid-item::
 
         .. important::
-            To press a button on the in-VR main menu,
+            To press a button on the in-XR main menu,
             **place the end of your right controller** on the button and **click the trigger**.
 
 
@@ -148,7 +148,7 @@ Select from the dropdown options below to see the **video tutorials**:
        :widths: 40 60
        :header-rows: 0
 
-       * - .. video:: /_static/in-vr-menu_autoconnect.mp4
+       * - .. video:: /_static/in-xr-menu_autoconnect.mp4
              :width: 250
              :height: 250
 
@@ -161,7 +161,7 @@ Select from the dropdown options below to see the **video tutorials**:
        :widths: 40 60
        :header-rows: 0
 
-       * - .. video:: /_static/in-vr-menu_discover.mp4
+       * - .. video:: /_static/in-xr-menu_discover.mp4
              :width: 250
              :height: 250
 
@@ -175,7 +175,7 @@ Select from the dropdown options below to see the **video tutorials**:
        :widths: 40 60
        :header-rows: 0
 
-       * - .. video:: /_static/in-vr-menu_manual.mp4
+       * - .. video:: /_static/in-xr-menu_manual.mp4
              :width: 250
              :height: 250
 
@@ -184,12 +184,12 @@ Select from the dropdown options below to see the **video tutorials**:
 
 |
 
-.. _vrclientdesktopmenu:
+.. _xrclientdesktopmenu:
 
-Desktop main menu (PC-VR only)
+Desktop main menu (PC-XR only)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-When you open the NanoVer iMD-VR application on your PC, you will see a small menu on the top left of your monitor with the
+When you open the NanoVer iMD-XR application on your PC, you will see a small menu on the top left of your monitor with the
 below headings.
 In **Server**, you can connect to your NanoVer server.
 Select from the dropdown options below for further information and to browse other features:
@@ -240,7 +240,7 @@ Select from the dropdown options below for further information and to browse oth
     +----------------------+---------------------------------------------------------------------------------------------+
     | **Reset**            | Reset the simulation to the starting positions.                                             |
     +----------------------+---------------------------------------------------------------------------------------------+
-    | **Reset Box**        | Move and resize the box to the original dimensions and position in the VR space.            |
+    | **Reset Box**        | Move and resize the box to the original dimensions and position in the XR space.            |
     +----------------------+---------------------------------------------------------------------------------------------+
 
 
@@ -255,14 +255,14 @@ Select from the dropdown options below for further information and to browse oth
     |                                | compatible with players using HTC base |
     |                                | stations.                              |
     +--------------------------------+----------------------------------------+
-    | **Reset Radial Orientation**   | Orient players' VR play spaces into a  |
+    | **Reset Radial Orientation**   | Orient players' XR play spaces into a  |
     |                                | mandala.                               |
     +--------------------------------+----------------------------------------+
-    | **Radial Displacement**        | Slide players' VR play spaces inwards  |
+    | **Radial Displacement**        | Slide players' XR play spaces inwards  |
     |                                | and outwards from the centre of the    |
     |                                | shared space.                          |
     +--------------------------------+----------------------------------------+
-    | **Rotation Correction**        | Adjust the rotation of players' VR     |
+    | **Rotation Correction**        | Adjust the rotation of players' XR     |
     |                                | play spaces to align with the shared   |
     |                                | space.                                 |
     +--------------------------------+----------------------------------------+
@@ -293,13 +293,13 @@ Select from the dropdown options below for further information and to browse oth
 
 ----
 
-.. _vrclientvrcontrolsandmenus:
+.. _xrclientxrcontrolsandmenus:
 
-VR controls & menus
+XR controls & menus
 ###################
 
 Once you have connected to a server, you can visualize & interact with your simulation.
-You now have access to your VR controls & several menus:
+You now have access to your XR controls & several menus:
 
 * :ref:`insimulationcontrols`
 
@@ -325,7 +325,7 @@ Select from the dropdown options below to see the **video tutorials**:
        :widths: 40 60
        :header-rows: 0
 
-       * - .. video:: /_static/in-vr-menu_interaction.mp4
+       * - .. video:: /_static/in-xr-menu_interaction.mp4
              :width: 250
              :height: 250
 
@@ -339,7 +339,7 @@ Select from the dropdown options below to see the **video tutorials**:
        :widths: 40 60
        :header-rows: 0
 
-       * - .. video:: /_static/in-vr-menu_move-box.mp4
+       * - .. video:: /_static/in-xr-menu_move-box.mp4
              :width: 250
              :height: 250
 
@@ -352,7 +352,7 @@ Select from the dropdown options below to see the **video tutorials**:
        :widths: 40 60
        :header-rows: 0
 
-       * - .. video:: /_static/in-vr-menu_resize-box.mp4
+       * - .. video:: /_static/in-xr-menu_resize-box.mp4
              :width: 250
              :height: 250
 
@@ -365,7 +365,7 @@ Select from the dropdown options below to see the **video tutorials**:
        :widths: 40 60
        :header-rows: 0
 
-       * - .. video:: /_static/in-vr-menu_change-interaction-scale.mp4
+       * - .. video:: /_static/in-xr-menu_change-interaction-scale.mp4
              :width: 250
              :height: 250
 
@@ -389,7 +389,7 @@ Here you can adjust aspects of your interaction with the molecules, such as:
 
    .. grid-item::
 
-      .. figure:: /_static/in-vr_right-handheld-menu.png
+      .. figure:: /_static/in-xr_right-handheld-menu.png
          :align: center
          :width: 65%
 
@@ -408,7 +408,7 @@ Open the dropdown below to see the **video tutorial**:
        :widths: 40 60
        :header-rows: 0
 
-       * - .. video:: /_static/in-vr-menu_change-interaction-type.mp4
+       * - .. video:: /_static/in-xr-menu_change-interaction-type.mp4
              :width: 250
              :height: 250
 
@@ -436,7 +436,7 @@ Here you can access the fullscreen menu and run simulation commands such as:
 
    .. grid-item::
 
-      .. figure:: /_static/in-vr_left-handheld-menu.png
+      .. figure:: /_static/in-xr_left-handheld-menu.png
          :align: center
          :width: 60%
 
@@ -455,7 +455,7 @@ Select from the dropdown options below to see the **video tutorials**:
        :widths: 40 60
        :header-rows: 0
 
-       * - .. video:: /_static/in-vr-menu_pause.mp4
+       * - .. video:: /_static/in-xr-menu_pause.mp4
              :width: 250
              :height: 250
 
@@ -467,7 +467,7 @@ Select from the dropdown options below to see the **video tutorials**:
        :widths: 40 60
        :header-rows: 0
 
-       * - .. video:: /_static/in-vr-menu_play.mp4
+       * - .. video:: /_static/in-xr-menu_play.mp4
              :width: 250
              :height: 250
 
@@ -479,7 +479,7 @@ Select from the dropdown options below to see the **video tutorials**:
        :widths: 40 60
        :header-rows: 0
 
-       * - .. video:: /_static/in-vr-menu_reset.mp4
+       * - .. video:: /_static/in-xr-menu_reset.mp4
              :width: 250
              :height: 250
 
@@ -503,7 +503,7 @@ Here you can:
 
    .. grid-item::
 
-      .. figure:: /_static/in-vr_full-screen-menu.png
+      .. figure:: /_static/in-xr_full-screen-menu.png
          :align: center
          :width: 85%
 
@@ -522,7 +522,7 @@ Select from the dropdown options below to see the **video tutorials**:
        :widths: 40 60
        :header-rows: 0
 
-       * - .. video:: /_static/in-vr-menu_switch-simulation.mp4
+       * - .. video:: /_static/in-xr-menu_switch-simulation.mp4
              :width: 250
              :height: 250
 
@@ -535,7 +535,7 @@ Select from the dropdown options below to see the **video tutorials**:
        :widths: 40 60
        :header-rows: 0
 
-       * - .. video:: /_static/in-vr-menu_change-name-and-color.mp4
+       * - .. video:: /_static/in-xr-menu_change-name-and-color.mp4
              :width: 250
              :height: 250
 
@@ -553,54 +553,54 @@ Select from the dropdown options below to see the **video tutorials**:
 
 ----
 
-.. _choosing_setup_iMD-VR:
+.. _choosing_setup_iMD-XR:
 
 ##########################
-Choosing your iMD-VR setup
+Choosing your iMD-XR setup
 ##########################
 
-If you wish to visualise and/or interact with your simulations in VR, you will need to use an iMD-VR client.
-We focus on `NanoVer iMD-VR <https://github.com/IRL2/nanover-imd-vr>`_ as the prototypical iMD-VR client, but these instructions can be generalised to any iMD-VR client,
-e.g. your own custom VR application that uses the NanoverUnityPlugin.
+If you wish to visualise and/or interact with your simulations in XR, you will need to use an iMD-XR client.
+We focus on `NanoVer iMD-XR <https://github.com/IRL2/nanover-imd-xr>`_ as the prototypical iMD-XR client, but these instructions can be generalised to any iMD-XR client,
+e.g. your own custom XR application that uses the NanoverUnityPlugin.
 
-Please feel free to use the instructions below to help you choose your VR setup,
+Please feel free to use the instructions below to help you choose your XR setup,
 then search online (or follow the links given below) for the documentation of your chosen method for the latest
 instructions on configuring your setup.
 
 
-#. For help choosing your VR setup, see our flow diagram in :ref:`choosingyourvrsetup`
-#. Once you know your VR setup, head to :ref:`choosingyourinstallationmethod`
+#. For help choosing your XR setup, see our flow diagram in :ref:`choosingyourxrsetup`
+#. Once you know your XR setup, head to :ref:`choosingyourinstallationmethod`
 #. Once you're ready, head to :ref:`installation`
 
 
 .. note::
 
-    VR is developing fast and there are constantly new features/apps/ways of doing things. Therefore,
-    these instructions may not be an exhaustive list of all the possible VR setups. Please feel free to choose whichever
-    one you are most comfortable with! We also recommend checking out the online documentation for your VR headset if you
-    run into any problems relating to setting up your VR kit.
+    XR is developing fast and there are constantly new features/apps/ways of doing things. Therefore,
+    these instructions may not be an exhaustive list of all the possible XR setups. Please feel free to choose whichever
+    one you are most comfortable with! We also recommend checking out the online documentation for your XR headset if you
+    run into any problems relating to setting up your XR kit.
 
 |
 
-.. _choosingyourvrsetup:
+.. _choosingyourxrsetup:
 
-Choosing your VR setup
+Choosing your XR setup
 ######################
 
 Below is a flow diagram to help you decide which setup to choose based on: the operating system of your computer,
-the type of network you have access to, your VR headset, and your desired configuration (single-/multi-person VR).
+the type of network you have access to, your XR headset, and your desired configuration (single-/multi-person XR).
 
-.. image::  /_static/VR_client_flow_diagram.png
+.. image::  /_static/XR_client_flow_diagram.png
   :width: 600
 
 .. admonition:: Key definition
 
-    \ **Tethered**: using a cable to connect your VR headset to your computer.
+    \ **Tethered**: using a cable to connect your XR headset to your computer.
 
 For a **wireless setup** you will need to have a strong and stable internet connection that allows communication over the network.
 Note that this option is **often not possible with public & institutional networks such as Eduroam** (see below for further details).
 In this case, you can **use either a VPN service or mobile hotspot**.
-You must ensure that all devices are connected to the same VPN or hotspot, including the computer running the NanoVer server and your VR headset(s).
+You must ensure that all devices are connected to the same VPN or hotspot, including the computer running the NanoVer server and your XR headset(s).
 
 .. dropdown:: Further information about institutional networks (e.g.Eduroam)
 
@@ -613,7 +613,7 @@ You must ensure that all devices are connected to the same VPN or hotspot, inclu
     One way to bypass these restrictions is to use a  virtual private network (VPN) service.
     One such service that we tested is `Tailscale <https://tailscale.com/>`_ but there are many others available.
     Note that when using a VPN you cannot use the "Autoconnect" or "Discover Services" features.
-    Instead, you must select "Direct Connect" (PC-VR menu) or "Manual" (in-VR menu) and type your IP address.
+    Instead, you must select "Direct Connect" (PC-XR menu) or "Manual" (in-XR menu) and type your IP address.
 
 |
 
@@ -622,38 +622,38 @@ You must ensure that all devices are connected to the same VPN or hotspot, inclu
 Choosing your installation method
 #################################
 
-Please choose from the dropdown options below to learn about how to install NanoVer iMD-VR with your chosen VR setup:
+Please choose from the dropdown options below to learn about how to install NanoVer iMD-XR with your chosen XR setup:
 
-.. dropdown:: Using PC-VR (Windows only)
+.. dropdown:: Using PC-XR (Windows only)
 
-    This option is compatible with the following VR setups:
+    This option is compatible with the following XR setups:
 
     * `Meta Quest Link <https://www.meta.com/en-gb/help/quest/articles/headsets-and-accessories/oculus-link/connect-with-air-link/>`_ (tethered)
     * `Meta Quest AirLink <https://www.meta.com/en-gb/help/quest/articles/headsets-and-accessories/oculus-link/connect-with-air-link/>`_ (wireless)
     * `SteamVR <https://store.steampowered.com/app/250820/SteamVR/>`_ (tethered)
     * `Steam Link <https://store.steampowered.com/app/353380/Steam_Link/>`_ (wireless)
 
-    You can use either NanoVer iMD-VR installation method:
+    You can use either NanoVer iMD-XR installation method:
 
-    * **Downloading the latest release of the NanoVer iMD-VR executable**, see :ref:`download_latest_release_VR_client`.
+    * **Downloading the latest release of the NanoVer iMD-XR executable**, see :ref:`download_latest_release_XR_client`.
 
-    * **Conda installation of the NanoVer iMD-VR package**, see :ref:`conda_installation_VR_client`.
+    * **Conda installation of the NanoVer iMD-XR package**, see :ref:`conda_installation_XR_client`.
 
 .. dropdown:: Running locally on a Meta Quest headset
 
-    This option is compatible with the following VR setups:
+    This option is compatible with the following XR setups:
 
     * Run directly on the App store of a Meta Quest headset (wireless)
     * `Meta Quest Link <https://www.meta.com/en-gb/help/quest/articles/headsets-and-accessories/oculus-link/connect-with-air-link/>`_
       with `Meta Quest Developer Hub <https://developer.oculus.com/meta-quest-developer-hub/>`_ (tethered)
 
-    You must use the following NanoVer iMD-VR installation method:
+    You must use the following NanoVer iMD-XR installation method:
 
-    * **Download the latest release of the NanoVer iMD-VR apk** and sideload this onto your headset, see
-      :ref:`download_latest_release_VR_client`. If you wish to use your VR headset wirelessly,
+    * **Download the latest release of the NanoVer iMD-XR apk** and sideload this onto your headset, see
+      :ref:`download_latest_release_XR_client`. If you wish to use your XR headset wirelessly,
       then you must meet the requirements for a wireless setup (see above).
 
-    Choosing this option means that you cannot run NanoVer iMD-VR via conda.
+    Choosing this option means that you cannot run NanoVer iMD-XR via conda.
 
 .. warning::
 
