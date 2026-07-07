@@ -960,7 +960,7 @@ Scene objects are defined in the shared state as a dictionary under keys of the
 form ``object.<TYPE>.<IDENTIFIER>``.
 
 Positions are translation vectors in simulation space expressed as an array of
-3 values. Colors as arrays of RGBA components between 0 and 1. Sizes as a uniform
+3 values. Colors as arrays of RGBA components between 0 and 1. Sizes are a uniform
 scaling factor.
 
 The three supported scene object types are:
