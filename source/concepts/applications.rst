@@ -742,7 +742,7 @@ forces.
 Each interaction type also defines the equation for the potential energy associated
 with the user interaction :math:`E_{\text{COM}}`.
 In our convention, the user energies are defined such that the energy of a force
-applied to a particle at the point of application is zero, and all user energies
+applied to a particle located at the origin of the interaction force is zero, and all user energies
 for interactions across finite distance add positive potential energy to the simulation
 (i.e. :math:`E_{\text{COM}} \geq 0`).
 For mass weighted interaction, the
