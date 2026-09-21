@@ -740,7 +740,11 @@ capped to a maximum value specified by the user to avoid applying too large
 forces.
 
 Each interaction type also defines the equation for the potential energy associated
-with the user interaction :math:`E_{\text{COM}}`. For mass weighted interaction, the
+with the user interaction :math:`E_{\text{COM}}`.
+In our convention, the user energies are defined such that the energy of a force
+applied to a particle located at the origin of the interaction is zero, and otherwise
+always positive (i.e. :math:`E_{\text{COM}} \geq 0`).
+For mass weighted interaction, the
 energy for the interaction is :math:`E = \frac{E_{\text{COM}}}{N}\sum_{i=0}^{N}m_i`.
 For non mass weighted, :math:`E = E_{\text{COM}}`.
 
@@ -763,8 +767,8 @@ The Gaussian force is defined by:
 .. math::
 
    \begin{aligned}
-      \mathbf{F}_{\text{COM}}^{\text{Gaussian}} &= -\frac{\mathbf{d}}{\sigma^2}\exp{-\frac{| \mathbf{d} | ^2}{2\sigma^2}} \\
-      E_{\text{COM}}^{\text{Gaussian}} &= - \exp{-\frac{| \mathbf{d} |^2}{2\sigma^2}}
+      \mathbf{F}_{\text{COM}}^{\text{Gaussian}} &= -\frac{\mathbf{d}}{\sigma^2} \exp{\bigg(-\frac{| \mathbf{d} |^2}{2\sigma^2}\bigg)} \\
+      E_{\text{COM}}^{\text{Gaussian}} &= 1 - \exp{\bigg(-\frac{| \mathbf{d} |^2}{2\sigma^2}\bigg)}
    \end{aligned}
 
 with :math:`\sigma = 1`. With this force, the user interaction is stronger when
@@ -794,7 +798,7 @@ The constant force is defined by:
     E_{\text{COM}}^{\text{Constant}} &= 
     \begin{cases}
       0,& \text{if } | \mathbf{d} | = 0 \\
-      1,& \text{otherwise}
+      | \mathbf{d} |,& \text{otherwise}
     \end{cases}
    \end{aligned}
 
