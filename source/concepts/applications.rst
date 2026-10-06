@@ -31,7 +31,7 @@ embody themselves with "avatars" and manipulate objects (e.g repositioning the
 simulation box in MD).
 
 Clients can broadcast avatar representations of themselves, the extent
-of their walkable VR space, and receive a server suggestion about how to
+of their walkable XR space, and receive a server suggestion about how to
 position themselves relatives to other clients e.g.
 :ref:`radially oriented <radial-orient>` for distributed setups.
 
@@ -53,10 +53,10 @@ The multi-user application distinguishes between two coordinate spaces:
 * The **server space** is the coordinate system of the shared virtual space.
   The 3d poses of avatars, the simulation box, and any other objects are
   exchanged in this coordinate space. The characteristics are chosen to match
-  Unity's VR: left-handed, with Y-up, lengths expressed in meters, and the origin
+  Unity's XR: left-handed, with Y-up, lengths expressed in meters, and the origin
   at floor level.
 * A **client space** is the local coordinate space of a given client, and which may differ from
-  server space. For example, in VR the coordinate system may be fixed in physical
+  server space. For example, in XR the coordinate system may be fixed in physical
   space such that it can't be changed directly to match server space. The server
   is not aware of this and it is the client's responsibility to transform
   coordinates into server space before communicating them.
@@ -81,7 +81,7 @@ Avatars
 #######
 
 Users may share their presence in the virtual space by creating and continuously
-updating an "avatar". For example, in the iMD-VR application, each VR client
+updating an "avatar". For example, in the iMD-XR application, each XR client
 shares their head and hand positions for others to see.
 
 Avatars are exchanged via the shared state as a dictionary under keys of the form
@@ -111,7 +111,7 @@ a Struct with the following keys:
 
 .. note::
 
-   The avatar description currently only supports VR controllers. See `issue #97 in
+   The avatar description currently only supports controllers. See `issue #97 in
    nanover-server-py <https://github.com/IRL2/nanover-server-py/issues/97>`_ for
    hand-tracking support.
 
@@ -142,7 +142,7 @@ In summary, an avatar is structured as such:
 Play area
 #########
 
-A client, typically in the case of a VR client, can share a 
+A client, typically in the case of an XR client, can share a
 boundary within which that user can safely move. This can be visualised
 on other clients and is especially useful for colocated setups, or to
 see the results of the :ref:`radial orient <radial-orient>` function for
@@ -255,7 +255,7 @@ the server space as they choose.
 .. warning::
 
    Any client can add user-origin keys. If used without due care and
-   responsibility, a VR user could get very nauseous.
+   responsibility, an XR user could get very nauseous.
 
 As a summary, the user origin is specified as follows in the shared state:
 
@@ -598,7 +598,6 @@ A trajectory application can define the following commands to control the stream
 * ``playback/next() -> None``: switches from the current system to the next
   system in the list of available systems, as listed by the ``playback/list`` command.
   When called from the final system, cycles back to the first system.
-  Note that the Rust server does not cycle back after the final system.
   This command does not take any arguments and does not return anything.
 
 .. warning::
@@ -751,7 +750,11 @@ applying too large forces.
    is applied to the system (:math:`F_{i} = 0`).
 
 Each interaction type also defines the equation for the potential energy associated
-with the user interaction :math:`E_{\text{COM}}`. For both the mass weighted and non-mass weighted
+with the user interaction :math:`E_{\text{COM}}`.
+In our convention, the user energies are defined such that the energy of a force
+applied to a particle located at the origin of the interaction is zero, and otherwise
+always positive (i.e. :math:`E_{\text{COM}} \geq 0`).
+For both the mass weighted and non-mass weighted
 interactions, the energy for the interaction is :math:`E = s \cdot E_{\text{COM}}`, scaled by the
 same user-defined scaling factor applied to the force.
 
@@ -774,8 +777,8 @@ The Gaussian force is defined by:
 .. math::
 
    \begin{aligned}
-      \mathbf{F}_{\text{COM}}^{\text{Gaussian}} &= -\frac{\mathbf{d}}{\sigma^2}\exp{-\frac{| \mathbf{d} | ^2}{2\sigma^2}} \\
-      E_{\text{COM}}^{\text{Gaussian}} &= - \exp{-\frac{| \mathbf{d} |^2}{2\sigma^2}}
+      \mathbf{F}_{\text{COM}}^{\text{Gaussian}} &= -\frac{\mathbf{d}}{\sigma^2} \exp{\bigg(-\frac{| \mathbf{d} |^2}{2\sigma^2}\bigg)} \\
+      E_{\text{COM}}^{\text{Gaussian}} &= 1 - \exp{\bigg(-\frac{| \mathbf{d} |^2}{2\sigma^2}\bigg)}
    \end{aligned}
 
 with :math:`\sigma = 1`. With this force, the user interaction is stronger when
@@ -805,7 +808,7 @@ The constant force is defined by:
     E_{\text{COM}}^{\text{Constant}} &= 
     \begin{cases}
       0,& \text{if } | \mathbf{d} | = 0 \\
-      1,& \text{otherwise}
+      | \mathbf{d} |,& \text{otherwise}
     \end{cases}
    \end{aligned}
 
@@ -827,7 +830,7 @@ Under that key, the value is a Struct with the following keys:
 
 * ``positions``: the coordinates of the interaction's origin in simulation
   space. This is typically a position attached to the controller of the user in
-  VR, but it does not have to be. By default, this is `[0, 0, 0]`.
+  XR, but it does not have to be. By default, this is `[0, 0, 0]`.
 * ``particles``: the indices of the affected particles in the array of
   particles used by the :ref:`trajectory application <trajectory-application>`.
   If the order in this array does not match the order used by the simulation
@@ -848,10 +851,6 @@ Under that key, the value is a Struct with the following keys:
 * ``reset_velocities``: a boolean, true if :ref:`velocity reset
   <velocity-reset>` should be applied, false otherwise. This is false by
   default and will be ignored silently if the server does not have the feature.
-
-.. warning::
-
-   The Rust server does not currently support non-mass-weighted interactions.
 
 .. note::
 
