@@ -770,7 +770,7 @@ there are some that are commonly implemented: the Gaussian force, the harmonic
 (spring) force, and the constant force. They all depend on the vector :math:`\mathbf{d}` between
 the origin of the interaction, :math:`\mathbf{r}_{\text{user}}`, and the center of mass
 of the set of target particles :math:`\mathbf{r}_{\text{COM}}`. So, :math:`\mathbf{d} =
-\mathbf{r}_{\text{user}} - \mathbf{r}_{\text{COM}}`.
+\mathbf{r}_{\text{COM}} - \mathbf{r}_{\text{user}}`.
 
 The Gaussian force is defined by:
 
@@ -803,7 +803,7 @@ The constant force is defined by:
     \mathbf{F}_{\text{COM}}^{\text{Constant}} &=
     \begin{cases}
       (0, 0, 0),& \text{if } | \mathbf{d} | = 0 \\
-      \frac{ \mathbf{d} }{| \mathbf{d} |},& \text{otherwise}
+      - \frac{ \mathbf{d} }{| \mathbf{d} |},& \text{otherwise}
     \end{cases} \\
     E_{\text{COM}}^{\text{Constant}} &= 
     \begin{cases}
